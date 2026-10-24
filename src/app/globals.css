@@ -60,3 +60,58 @@ input,select,textarea { max-width: 100%; }
 .farm-section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.025em; }
 .farm-money { font-variant-numeric: tabular-nums; font-weight: 800; overflow-wrap: anywhere; }
 .farm-empty { text-align: center; padding: 2rem 1.25rem; border: 1px dashed var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+
+
+/* Natural UI/UX V3 · UX-01 global interaction and visual primitives.
+   Additive styles preserve existing forms, tables, and Supabase workflows. */
+:root {
+  --leaf: #387c55;
+  --leaf-soft: #e8f2e4;
+  --sage: #a6c98a;
+  --harvest: #d9c59a;
+  --surface-warm: #fbfbf6;
+  --shadow-lift: 0 10px 30px rgb(19 54 42 / 9%);
+  --ease-farm: cubic-bezier(.22,1,.36,1);
+}
+body { background: radial-gradient(ellipse at 90% 0%, rgb(166 201 138 / 10%), transparent 42%), var(--background); }
+.farm-card { transition: box-shadow .2s var(--ease-farm), border-color .2s ease, transform .2s var(--ease-farm); }
+a.farm-card:hover,button.farm-card:hover { border-color: var(--sage); box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+a.farm-card:active,button.farm-card:active { transform: translateY(0) scale(.995); }
+.farm-button { position: relative; isolation: isolate; border: 1px solid transparent; transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s var(--ease-farm); }
+.farm-button:hover:not(:disabled) { box-shadow: 0 5px 16px rgb(21 63 50 / 13%); }
+.farm-button:active:not(:disabled) { transform: scale(.975); box-shadow: none; }
+.farm-button:disabled,.farm-button[aria-busy="true"] { cursor: progress; opacity: .68; }
+.farm-button-secondary { border-color: var(--border); }
+.farm-button-ghost { background: transparent; color: var(--primary); }
+.farm-button-ghost:hover { background: var(--surface-soft); }
+.farm-button-danger { background: #fff1f0; color: #9c272e; border-color: #f3c8c8; }
+.farm-input { transition: border-color .16s ease, box-shadow .16s ease, background-color .16s ease; }
+.farm-input:hover:not(:disabled) { border-color: var(--sage); }
+.farm-input:focus { outline: none; border-color: var(--leaf); box-shadow: 0 0 0 3px rgb(56 124 85 / 15%); }
+.farm-input[aria-invalid="true"] { border-color: var(--danger); }
+.farm-input:disabled { background: var(--surface-soft); opacity: .65; }
+.farm-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 14px; color: var(--leaf); background: var(--leaf-soft); }
+.farm-icon-sm { width: 36px; height: 36px; border-radius: 11px; }
+.farm-kpi { background: linear-gradient(145deg, #fff, var(--surface-warm)); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; box-shadow: var(--shadow-card); }
+.farm-kpi-label { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.farm-kpi-value { margin-top: .5rem; font-size: clamp(1.2rem, 4vw, 1.8rem); font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.farm-badge { display: inline-flex; align-items: center; gap: .35rem; border-radius: 999px; padding: .3rem .65rem; font-size: .75rem; font-weight: 700; background: var(--leaf-soft); color: var(--primary); }
+.farm-notice { display: flex; align-items: flex-start; gap: .75rem; border-radius: var(--radius-sm); padding: .85rem 1rem; background: var(--leaf-soft); color: var(--primary); border: 1px solid var(--border); }
+.farm-notice-error { background: #fff1f0; color: #92282d; border-color: #f1c5c5; }
+.farm-skeleton { position: relative; overflow: hidden; background: #e6ede2; border-radius: 10px; }
+.farm-skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgb(255 255 255 / 70%), transparent); animation: farm-shimmer 1.5s ease-in-out infinite; }
+.farm-spinner { display: inline-block; width: 1.1em; height: 1.1em; flex-shrink: 0; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: farm-spin .7s linear infinite; vertical-align: -.15em; }
+.farm-sheet-backdrop { position: fixed; inset: 0; z-index: 40; background: rgb(9 32 24 / 48%); backdrop-filter: blur(3px); }
+.farm-sheet { position: fixed; inset-inline: 0; bottom: 0; z-index: 41; max-height: min(90dvh, 800px); overflow: auto; border-radius: 26px 26px 0 0; background: var(--surface); padding: 1.5rem max(1rem, env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); box-shadow: 0 -14px 50px rgb(9 32 24 / 15%); animation: farm-sheet-in .25s var(--ease-farm) both; }
+.farm-nav { border-top: 1px solid var(--border); background: rgb(255 255 255 / 96%); backdrop-filter: blur(14px); }
+.farm-nav-link { display: flex; min-height: 60px; flex-direction: column; align-items: center; justify-content: center; gap: .25rem; font-size: .7rem; font-weight: 600; color: var(--muted); }
+.farm-nav-link[aria-current="page"] { color: var(--primary); }
+.farm-nav-link[aria-current="page"] svg { stroke-width: 2.4; }
+.farm-empty { background: linear-gradient(155deg, #fff, #f7faf3); }
+@keyframes farm-spin { to { transform: rotate(360deg); } }
+@keyframes farm-shimmer { to { transform: translateX(100%); } }
+@keyframes farm-sheet-in { from { transform: translateY(16px); opacity: .7; } to { transform: translateY(0); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+ .farm-skeleton::after,.farm-spinner,.farm-sheet { animation: none !important; }
+ a.farm-card:hover,button.farm-card:hover { transform: none; }
+}
