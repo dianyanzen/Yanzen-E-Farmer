@@ -63,3 +63,22 @@
  #farm-receipt-paper article { break-inside: avoid; }
  #farm-receipt-paper * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+
+/* Primary mobile action: make receipt creation discoverable at thumb height. */
+.farm-nav-main-action { color: var(--botanical-forest); font-weight: 800; }
+.farm-nav-main-icon {
+ display: inline-flex;
+ width: 48px;
+ height: 43px;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ margin-top: -13px;
+ border: 3px solid #fff;
+ border-radius: 16px;
+ color: #fff;
+ background: var(--botanical-forest);
+ box-shadow: 0 5px 16px rgb(16 62 50 / 17%);
+}
+.farm-nav-main-action[aria-current="page"] .farm-nav-main-icon { background: var(--botanical-leaf); }
