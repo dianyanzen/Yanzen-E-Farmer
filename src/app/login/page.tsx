@@ -2,6 +2,7 @@
 import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import FarmIcon from '@/components/farm-icon';
 import { createClient } from '@/lib/supabase/browser';
 export default function Login(){
  const [mode,setMode]=useState<'login'|'signup'>('login');
@@ -27,10 +28,10 @@ export default function Login(){
   finally{setBusy(false);}
  }
  return <main className="min-h-dvh grid lg:grid-cols-2">
- <section className="relative hidden overflow-hidden bg-[#153f32] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+ <section className="farm-hero relative hidden overflow-hidden p-12 text-white lg:flex lg:flex-col lg:justify-between">
  <div className="flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="" width={44} height={44}/><strong className="text-xl">Yanzen E-Farmer</strong></div>
  <div><p className="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-[#c9e3a2]">Bertani lebih terencana</p><h2 className="max-w-lg text-5xl font-extrabold leading-tight">Lebih mudah mengelola usaha pertanian.</h2><p className="mt-6 max-w-md text-lg text-[#dce9db]">Rencanakan biaya, pantau kebutuhan, dan kelola setiap proyek dari satu tempat.</p></div>
- <p className="text-sm text-[#c9e3a2]">Yanzen E-Farmer · Dibuat untuk penggunaan sehari-hari</p>
+ <div className="relative z-10"><span className="farm-icon mb-4"><FarmIcon name="sprout"/></span><p className="text-sm text-[#c9e3a2]">Yanzen E-Farmer · Dibuat untuk penggunaan sehari-hari</p></div><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
  </section>
  <section className="flex min-h-dvh flex-col justify-center px-5 py-10 sm:px-10">
  <div className="mx-auto w-full max-w-md">
@@ -40,10 +41,10 @@ export default function Login(){
  <p className="mt-3 mb-8 text-[#718177]">{mode==='login'?'Lanjutkan pengelolaan pertanian dengan mudah.':'Setiap akun memiliki proyek dan anggarannya sendiri. Akun baru dimulai kosong.'}</p>
  <form onSubmit={submit} className="grid gap-5">
  <div><label htmlFor="email" className="farm-label">Alamat email</label><input id="email" required type="email" autoComplete="email" placeholder="nama@email.com" value={email} onChange={e=>setEmail(e.target.value)} className="farm-input"/></div>
- <div><label htmlFor="password" className="farm-label">Kata sandi</label><div className="relative"><input id="password" required type={visible?'text':'password'} minLength={8} autoComplete={mode==='signup'?'new-password':'current-password'} placeholder="Minimal 8 karakter" value={password} onChange={e=>setPassword(e.target.value)} className="farm-input pr-20"/><button type="button" onClick={()=>setVisible(!visible)} aria-label={visible?'Sembunyikan kata sandi':'Tampilkan kata sandi'} className="absolute inset-y-0 right-2 px-3 text-sm font-semibold text-[#51745e]">{visible?'Sembunyi':'Lihat'}</button></div></div>
- <button disabled={busy} className="farm-button farm-button-primary w-full">{busy?'Memproses...':mode==='login'?'Masuk ke Beranda':'Buat akun'}</button>
+ <div><label htmlFor="password" className="farm-label">Kata sandi</label><div className="relative"><input id="password" required type={visible?'text':'password'} minLength={8} autoComplete={mode==='signup'?'new-password':'current-password'} placeholder="Minimal 8 karakter" value={password} onChange={e=>setPassword(e.target.value)} className="farm-input pr-20"/><button type="button" onClick={()=>setVisible(!visible)} aria-label={visible?'Sembunyikan kata sandi':'Tampilkan kata sandi'} className="absolute inset-y-0 right-2 flex min-w-11 items-center justify-center gap-1 px-3 text-sm font-semibold text-[#51745e]"><FarmIcon name={visible?'eye-off':'eye'} size={18}/><span className="sr-only">{visible?'Sembunyi':'Lihat'}</span></button></div></div>
+ <button disabled={busy} aria-busy={busy} className="farm-button farm-button-primary w-full">{busy&&<span className="farm-spinner" aria-hidden="true"/>}{busy?'Memproses...':mode==='login'?'Masuk ke Beranda':'Buat akun'}</button>
  </form>
- {message&&<p role="status" aria-live="polite" className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">{message}</p>}
+ {message&&<p role="status" aria-live="polite" className="farm-notice mt-5 text-sm">{message}</p>}
  <div className="mt-7 text-center text-sm"><span className="text-[#718177]">{mode==='login'?'Belum punya akun? ':'Sudah punya akun? '}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setMessage('')}} className="font-bold text-[#153f32] underline underline-offset-4">{mode==='login'?'Daftar sekarang':'Masuk'}</button></div>
  <p className="mt-12 text-center text-xs text-[#718177]">Data proyek setiap pengguna tersimpan terpisah.</p>
  </div></section></main>;
