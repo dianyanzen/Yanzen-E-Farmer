@@ -40,3 +40,14 @@
 .farm-page:has(#expense-project) article:hover { border-color: var(--botanical-sage); box-shadow: 0 5px 18px rgb(16 62 50 / 5%); }
 .farm-page:has(#expense-project) .farm-input:focus-visible { border-color: var(--botanical-leaf); }
 @media (prefers-reduced-motion: reduce) { .farm-page:has(#expense-project) article { transition: none; } }
+
+/* Agriculture page: opt-in visual treatment; links and data remain unchanged. */
+.farm-page:has(a[href="/anggaran/baru"]) > section > a.farm-card:has(.farm-icon) {
+  border-color: var(--border);
+}
+.farm-page > section > a.farm-card:has(.farm-icon) {
+  text-decoration: none;
+}
+.farm-page > section > a.farm-card:has(.farm-icon):focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 3px;
+}
