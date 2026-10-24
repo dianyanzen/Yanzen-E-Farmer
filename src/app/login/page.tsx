@@ -10,9 +10,10 @@ export default function Login(){
  const [password,setPassword]=useState('');
  const [visible,setVisible]=useState(false);
  const [message,setMessage]=useState('');
+ const [failed,setFailed]=useState(false);
  const [busy,setBusy]=useState(false);
  async function submit(e:FormEvent){
-  e.preventDefault();if(busy)return;setBusy(true);setMessage('');
+  e.preventDefault();if(busy)return;setBusy(true);setMessage('');setFailed(false);
   const supabase=createClient();
   try{
    if(mode==='signup'){
@@ -24,7 +25,7 @@ export default function Login(){
     if(error)throw error;
    }
    window.location.assign('/home');
-  }catch{setMessage(mode==='signup'?'Pendaftaran gagal. Periksa email dan kata sandi, atau coba masuk jika sudah terdaftar.':'Gagal masuk. Periksa email, kata sandi, dan konfirmasi akun.');}
+  }catch{setFailed(true);setMessage(mode==='signup'?'Pendaftaran gagal. Periksa email dan kata sandi, atau coba masuk jika sudah terdaftar.':'Gagal masuk. Periksa email, kata sandi, dan konfirmasi akun.');}
   finally{setBusy(false);}
  }
  return <main className="min-h-dvh grid lg:grid-cols-2">
@@ -44,8 +45,8 @@ export default function Login(){
  <div><label htmlFor="password" className="farm-label">Kata sandi</label><div className="relative"><input id="password" required type={visible?'text':'password'} minLength={8} autoComplete={mode==='signup'?'new-password':'current-password'} placeholder="Minimal 8 karakter" value={password} onChange={e=>setPassword(e.target.value)} className="farm-input pr-20"/><button type="button" onClick={()=>setVisible(!visible)} aria-label={visible?'Sembunyikan kata sandi':'Tampilkan kata sandi'} className="absolute inset-y-0 right-2 flex min-w-11 items-center justify-center gap-1 px-3 text-sm font-semibold text-[#51745e]"><FarmIcon name={visible?'eye-off':'eye'} size={18}/><span className="sr-only">{visible?'Sembunyi':'Lihat'}</span></button></div></div>
  <button disabled={busy} aria-busy={busy} className="farm-button farm-button-primary w-full">{busy&&<span className="farm-spinner" aria-hidden="true"/>}{busy?'Memproses...':mode==='login'?'Masuk ke Beranda':'Buat akun'}</button>
  </form>
- {message&&<p role="status" aria-live="polite" className="farm-notice mt-5 text-sm">{message}</p>}
- <div className="mt-7 text-center text-sm"><span className="text-[#718177]">{mode==='login'?'Belum punya akun? ':'Sudah punya akun? '}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setMessage('')}} className="font-bold text-[#153f32] underline underline-offset-4">{mode==='login'?'Daftar sekarang':'Masuk'}</button></div>
+ {message&&<p role="status" aria-live="polite" className={"farm-notice mt-5 text-sm "+(failed?"farm-notice-error":"")}>{message}</p>}
+ <div className="mt-7 text-center text-sm"><span className="text-[#718177]">{mode==='login'?'Belum punya akun? ':'Sudah punya akun? '}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setMessage('');setFailed(false)}} className="font-bold text-[#153f32] underline underline-offset-4">{mode==='login'?'Daftar sekarang':'Masuk'}</button></div>
  <p className="mt-12 text-center text-xs text-[#718177]">Data proyek setiap pengguna tersimpan terpisah.</p>
  </div></section></main>;
 }
