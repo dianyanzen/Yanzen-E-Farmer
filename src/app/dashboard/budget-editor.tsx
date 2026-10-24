@@ -31,7 +31,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
    const normalized=typeof value==='string'&&/^\\s*[=+\\-@]/.test(raw)?"'"+raw:raw;
    return '"'+normalized.replaceAll('"','""')+'"';
   };
-  const matrix:[string,...string[]][]=[
+  const matrix:string[][]=[
    ['Kebutuhan','Kategori','Jumlah','Satuan','Harga satuan (Rp)','Total (Rp)'],
    ...current.map(x=>[x.name,x.category,String(x.quantity),x.unit,String(x.unit_price),String(Number(x.quantity)*Number(x.unit_price))])
   ];
