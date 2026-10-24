@@ -51,3 +51,15 @@
 .farm-page > section > a.farm-card:has(.farm-icon):focus-visible {
   outline: 3px solid var(--focus); outline-offset: 3px;
 }
+
+
+/* Printed bon: keep only the receipt paper, hide mobile navigation and controls. */
+@media print {
+ @page { margin: 8mm; }
+ html,body { background: #fff !important; color: #14281d !important; }
+ .farm-nav,.receipt-screen-tools { display: none !important; }
+ .farm-page:has(#farm-receipt-paper) { padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: none !important; }
+ #farm-receipt-paper { border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+ #farm-receipt-paper article { break-inside: avoid; }
+ #farm-receipt-paper * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
