@@ -1,23 +1,30 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { addExpense, deleteExpense, addSeason } from '../actions';
 export const dynamic='force-dynamic';
 const rupiah=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
-type Season={id:string;nama:string;komoditas:string;luas_tumbak:number};
-type Expense={id:string;musim_id:string;kategori:string;nama:string;jumlah:number;satuan:string;harga_satuan:number};
-export default async function Home(){
- const supabase=await createClient();
- const {data:claims,error:authError}=await supabase.auth.getClaims();
- if(authError||!claims?.claims?.sub)redirect('/login');
- const {data:seasons,error:seasonError}=await supabase.from('musim_tanam').select('id,nama,komoditas,luas_tumbak').order('created_at',{ascending:false});
- if(seasonError)throw new Error('Gagal membaca musim tanam. Pastikan migrasi Supabase sudah dijalankan.');
- const {data:expenses,error:expenseError}=await supabase.from('pengeluaran').select('id,musim_id,kategori,nama,jumlah,satuan,harga_satuan').order('created_at',{ascending:true});
- if(expenseError)throw new Error('Gagal membaca pengeluaran.');
- const rows=(expenses??[]) as Expense[];const seasonsData=(seasons??[]) as Season[];
- const total=rows.reduce((s,x)=>s+Number(x.jumlah)*Number(x.harga_satuan),0);
- return <main className="mx-auto max-w-5xl p-5 md:p-10"><header className="mb-8 flex items-center justify-between gap-4"><div><p className="text-sm font-semibold uppercase tracking-wider text-emerald-700">Yanzen E-Farmer</p><h1 className="text-3xl font-bold">Dashboard Pertanian</h1></div><form action="/auth/signout" method="post"><button className="rounded-lg border border-emerald-900 px-4 py-2">Keluar</button></form></header>
- <section className="mb-8 grid gap-4 sm:grid-cols-3"><div className="rounded-xl bg-white p-5 shadow-sm"><p>Total pengeluaran</p><strong className="text-2xl">{rupiah(total)}</strong></div><div className="rounded-xl bg-white p-5 shadow-sm"><p>Musim tanam</p><strong className="text-2xl">{seasonsData.length}</strong></div><div className="rounded-xl bg-white p-5 shadow-sm"><p>Transaksi</p><strong className="text-2xl">{rows.length}</strong></div></section>
- <section className="mb-6 rounded-xl bg-white p-5 shadow-sm"><h2 className="mb-3 text-xl font-bold">Tambah musim tanam</h2><form action={addSeason} className="grid gap-3 sm:grid-cols-3"><input name="nama" required maxLength={120} placeholder="Timun Part 3" className="rounded border p-2"/><input name="luas_tumbak" required type="number" min="0.01" step="0.01" placeholder="Luas tumbak" className="rounded border p-2"/><button className="rounded bg-emerald-800 p-2 text-white">Simpan musim</button></form></section><section className="rounded-xl bg-white p-5 shadow-sm"><h2 className="mb-4 text-xl font-bold">Catatan pengeluaran</h2>
- {seasonsData.length===0?<p className="rounded bg-amber-50 p-4 text-sm">Belum ada musim tanam. Tambahkan melalui formulir di atas.</p>:<form action={addExpense} className="mb-6 grid gap-3 md:grid-cols-3"><label className="text-sm">Musim tanam<select name="musim_id" required className="mt-1 w-full rounded border p-2">{seasonsData.map(s=><option key={s.id} value={s.id}>{s.nama} — {s.luas_tumbak} tumbak</option>)}</select></label><label className="text-sm">Kategori<input required name="kategori" maxLength={80} className="mt-1 w-full rounded border p-2" placeholder="Pupuk"/></label><label className="text-sm">Nama kebutuhan<input required name="nama" maxLength={160} className="mt-1 w-full rounded border p-2" placeholder="NPK Mutiara"/></label><label className="text-sm">Jumlah<input required name="jumlah" type="number" min="0.001" step="0.001" className="mt-1 w-full rounded border p-2"/></label><label className="text-sm">Satuan<input required name="satuan" maxLength={40} className="mt-1 w-full rounded border p-2" placeholder="karung"/></label><label className="text-sm">Harga satuan (Rp)<input required name="harga_satuan" type="number" min="0" step="0.01" className="mt-1 w-full rounded border p-2"/></label><button className="rounded-lg bg-emerald-800 px-5 py-3 text-white md:col-span-3">Simpan pengeluaran</button></form>}
- <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr className="border-b"><th className="p-3">Musim</th><th className="p-3">Kebutuhan</th><th className="p-3">Jumlah</th><th className="p-3">Harga satuan</th><th className="p-3">Total</th><th className="p-3">Aksi</th></tr></thead><tbody>{rows.map(x=><tr key={x.id} className="border-b"><td className="p-3">{seasonsData.find(s=>s.id===x.musim_id)?.nama??'—'}</td><td className="p-3">{x.nama}<span className="block text-xs text-slate-500">{x.kategori}</span></td><td className="p-3">{x.jumlah} {x.satuan}</td><td className="p-3">{rupiah(Number(x.harga_satuan))}</td><td className="p-3 font-medium">{rupiah(Number(x.jumlah)*Number(x.harga_satuan))}</td><td className="p-3"><form action={deleteExpense}><input type="hidden" name="id" value={x.id}/><button className="text-red-700" aria-label={'Hapus '+x.nama}>Hapus</button></form></td></tr>)}</tbody></table></div></section></main>
+type Project={id:string;name:string;crop:string;area_tumbak:number};
+type Item={id:string;project_id:string;name:string;category:string;quantity:number;unit:string;unit_price:number};
+export default async function Dashboard(){
+ const db=await createClient();
+ const {data:auth,error:authError}=await db.auth.getClaims();
+ if(authError||!auth?.claims?.sub)redirect('/login');
+ const {data:projects,error:pError}=await db.from('farm_projects').select('id,name,crop,area_tumbak').order('created_at',{ascending:false});
+ if(pError)throw new Error('Gagal membaca proyek pertanian');
+ const {data:items,error:iError}=await db.from('budget_items').select('id,project_id,name,category,quantity,unit,unit_price').order('created_at',{ascending:true});
+ if(iError)throw new Error('Gagal membaca anggaran');
+ const ps=(projects??[]) as Project[];const rows=(items??[]) as Item[];
+ const total=rows.reduce((sum,item)=>sum+Number(item.quantity)*Number(item.unit_price),0);
+ return <main className="mx-auto max-w-6xl px-4 py-8 md:px-8">
+ <header className="mb-8 flex flex-wrap items-center justify-between gap-4"><div><p className="text-sm font-bold uppercase tracking-widest text-emerald-700">Yanzen E-Farmer</p><h1 className="mt-1 text-3xl font-bold">Anggaran Pertanian</h1></div><form action="/auth/signout" method="post"><button className="rounded-lg border border-emerald-800 px-4 py-2 text-sm font-semibold">Keluar</button></form></header>
+ <section className="mb-7 grid gap-4 sm:grid-cols-3">
+ <div className="rounded-xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Total anggaran</p><p className="mt-2 text-2xl font-bold">{rupiah(total)}</p></div>
+ <div className="rounded-xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Komponen biaya</p><p className="mt-2 text-2xl font-bold">{rows.length}</p></div>
+ <div className="rounded-xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Luas lahan</p><p className="mt-2 text-2xl font-bold">{ps.reduce((s,p)=>s+Number(p.area_tumbak),0).toLocaleString('id-ID')} tumbak</p></div>
+ </section>
+ {ps.length===0?<section className="rounded-xl bg-amber-50 p-6"><h2 className="font-bold">Belum ada proyek</h2><p className="mt-2 text-sm">Silakan keluar lalu masuk kembali untuk menjalankan impor Timun Part 3 secara otomatis.</p></section>:ps.map(p=><section key={p.id} className="mb-6 overflow-hidden rounded-xl bg-white shadow-sm">
+ <div className="border-b p-5"><h2 className="text-xl font-bold">{p.name}</h2><p className="text-sm text-slate-500">{p.crop} · {Number(p.area_tumbak).toLocaleString('id-ID')} tumbak</p></div>
+ <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead className="bg-emerald-50"><tr><th className="p-3">Kebutuhan</th><th className="p-3">Kategori</th><th className="p-3 text-right">Jumlah</th><th className="p-3 text-right">Harga satuan</th><th className="p-3 text-right">Total</th></tr></thead>
+ <tbody>{rows.filter(x=>x.project_id===p.id).map(x=><tr key={x.id} className="border-t"><td className="p-3 font-medium">{x.name}</td><td className="p-3">{x.category}</td><td className="p-3 text-right">{Number(x.quantity).toLocaleString('id-ID')} {x.unit}</td><td className="p-3 text-right">{rupiah(Number(x.unit_price))}</td><td className="p-3 text-right font-semibold">{rupiah(Number(x.quantity)*Number(x.unit_price))}</td></tr>)}</tbody>
+ </table></div></section>)}
+ </main>;
 }
