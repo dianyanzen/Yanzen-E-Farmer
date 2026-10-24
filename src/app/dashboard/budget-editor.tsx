@@ -36,8 +36,8 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
   }catch{setError(true);setMessage('Sebagian perubahan belum tersimpan. Periksa koneksi lalu klik Simpan lagi.');}
   finally{setBusy(false);}
  }
- async function add(e:React.FormEvent){
-  e.preventDefault();if(busy||!selected)return;
+ async function add(event:React.FormEvent){
+  event.preventDefault();if(busy||!selected)return;
   const qty=Number(draft.quantity),price=Number(draft.unit_price);
   if(!draft.name.trim()||!draft.category.trim()||!draft.unit.trim()||!Number.isFinite(qty)||qty<0||!Number.isFinite(price)||price<0){setError(true);setMessage('Isi semua kolom dengan angka valid.');return;}
   setBusy(true);setMessage('');setError(false);
