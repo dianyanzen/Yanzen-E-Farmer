@@ -1,2 +1,62 @@
-@import 'tailwindcss';
-:root{color-scheme:light;--background:#f5f8f5;--foreground:#163329}body{background:var(--background);color:var(--foreground);font-family:Arial,Helvetica,sans-serif}input,button{font:inherit}
+@import "tailwindcss";
+
+/* Yanzen E-Farmer · Design System v1
+   Accessible, mobile-first, compatible with existing Tailwind pages. */
+:root {
+  color-scheme: light;
+  --background: #f7f8f1;
+  --foreground: #193e32;
+  --surface: #ffffff;
+  --surface-soft: #eff4e7;
+  --primary: #153f32;
+  --primary-hover: #225844;
+  --primary-contrast: #ffffff;
+  --accent: #b8d87b;
+  --border: #dfe6d8;
+  --muted: #7d8b81;
+  --danger: #b52d35;
+  --focus: #7ea95b;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --shadow-card: 0 6px 22px rgb(19 54 42 / 5%);
+  --font-ui: Arial, Helvetica, sans-serif;
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-farm-primary: var(--primary);
+  --color-farm-surface: var(--surface);
+  --color-farm-soft: var(--surface-soft);
+  --color-farm-border: var(--border);
+  --color-farm-muted: var(--muted);
+  --color-farm-accent: var(--accent);
+}
+*,*::before,*::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-ui); -webkit-font-smoothing: antialiased; }
+button,input,select,textarea { font: inherit; }
+button,a,input,select,textarea { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+:where(a,button,input,select,textarea,[tabindex]):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+input,select,textarea { max-width: 100%; }
+@media (max-width: 640px) { input,select,textarea { font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Reusable UI primitives; opt-in classes avoid altering existing workflows. */
+.farm-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.farm-card-soft { background: var(--surface-soft); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.farm-button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; padding: .7rem 1.1rem; border-radius: var(--radius-sm); font-weight: 700; transition: background-color .15s ease, transform .15s ease; }
+.farm-button:active { transform: scale(.985); }
+.farm-button-primary { background: var(--primary); color: var(--primary-contrast); }
+.farm-button-primary:hover { background: var(--primary-hover); }
+.farm-button-secondary { background: var(--surface); color: var(--foreground); border: 1px solid var(--border); }
+.farm-input { width: 100%; min-height: 46px; padding: .75rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--foreground); }
+.farm-input::placeholder { color: var(--muted); }
+.farm-label { display: block; margin-bottom: .4rem; font-size: .875rem; font-weight: 700; }
+.farm-muted { color: var(--muted); }
+.farm-page { width: min(100% - 2rem, 1080px); margin-inline: auto; padding-block: 1.5rem 5rem; }
+.farm-section-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.025em; }
+.farm-money { font-variant-numeric: tabular-nums; font-weight: 800; overflow-wrap: anywhere; }
+.farm-empty { text-align: center; padding: 2rem 1.25rem; border: 1px dashed var(--border); border-radius: var(--radius-lg); background: var(--surface); }
