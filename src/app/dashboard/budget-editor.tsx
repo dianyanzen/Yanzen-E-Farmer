@@ -8,6 +8,7 @@ const money=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency
 const field='farm-input text-sm';
 export default function BudgetEditor({projects,initialItems}:{projects:Project[];initialItems:Item[]}){
  const [items,setItems]=useState(initialItems);
+ const [savedItems,setSavedItems]=useState(initialItems);
  const [selected,setSelected]=useState(projects[0]?.id??'');
  const [draft,setDraft]=useState({name:'',category:'Lainnya',quantity:'1',unit:'unit',unit_price:''});
  const [dirty,setDirty]=useState<string[]>([]);
@@ -26,7 +27,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
  }
  async function save(){
   if(!selected||busy)return;
-  const changed=items.filter(x=>dirty.includes(x.id));
+  const changed=items.filter(x=>x.project_id===selected&&dirty.includes(x.id));
   if(changed.some(x=>!x.name.trim()||!x.category.trim()||!x.unit.trim()||!Number.isFinite(x.quantity)||x.quantity<0||!Number.isFinite(x.unit_price)||x.unit_price<0)){setError(true);setMessage('Periksa kolom yang kosong atau nilai negatif.');return;}
   setBusy(true);setMessage('');setError(false);
   const db=createClient();
@@ -34,9 +35,10 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
    for(const x of changed){
     const {error:e}=await db.from('budget_items').update({name:x.name.trim(),category:x.category.trim(),quantity:x.quantity,unit:x.unit.trim(),unit_price:x.unit_price}).eq('id',x.id).eq('project_id',selected).select('id').single();
     if(e)throw e;
+    setSavedItems(old=>old.map(item=>item.id===x.id?{...x}:item));
     setDirty(old=>old.filter(id=>id!==x.id));
    }
-   setMessage('Perubahan anggaran berhasil disimpan ke Supabase.');
+   setMessage('Perubahan anggaran berhasil disimpan.');
   }catch{setError(true);setMessage('Sebagian perubahan belum tersimpan. Periksa koneksi lalu klik Simpan lagi.');}
   finally{setBusy(false);}
  }
@@ -46,18 +48,18 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
   if(!draft.name.trim()||!draft.category.trim()||!draft.unit.trim()||!Number.isFinite(qty)||qty<0||!Number.isFinite(price)||price<0){setError(true);setMessage('Isi semua kolom dengan angka valid.');return;}
   setBusy(true);setMessage('');setError(false);
   const {data,error:e}=await createClient().from('budget_items').insert({project_id:selected,name:draft.name.trim(),category:draft.category.trim(),quantity:qty,unit:draft.unit.trim(),unit_price:price}).select('id,project_id,name,category,quantity,unit,unit_price').single();
-  if(e||!data){setError(true);setMessage('Gagal menambahkan kebutuhan.');}else{setItems(old=>[...old,data as Item]);setDraft({name:'',category:'Lainnya',quantity:'1',unit:'unit',unit_price:''});setMessage('Kebutuhan berhasil ditambahkan.');}
+  if(e||!data){setError(true);setMessage('Gagal menambahkan kebutuhan.');}else{setItems(old=>[...old,data as Item]);setSavedItems(old=>[...old,data as Item]);setDraft({name:'',category:'Lainnya',quantity:'1',unit:'unit',unit_price:''});setMessage('Kebutuhan berhasil ditambahkan.');}
   setBusy(false);
  }
  async function remove(id:string){
   if(busy||!window.confirm('Hapus kebutuhan ini dari anggaran?'))return;
   setBusy(true);setMessage('');setError(false);
   const {error:e}=await createClient().from('budget_items').delete().eq('id',id).eq('project_id',selected).select('id').single();
-  if(e){setError(true);setMessage('Gagal menghapus kebutuhan.');}else{setItems(old=>old.filter(x=>x.id!==id));setDirty(old=>old.filter(x=>x!==id));setMessage('Kebutuhan dihapus.');}
+  if(e){setError(true);setMessage('Gagal menghapus kebutuhan.');}else{setItems(old=>old.filter(x=>x.id!==id));setSavedItems(old=>old.filter(x=>x.id!==id));setDirty(old=>old.filter(x=>x!==id));setMessage('Kebutuhan dihapus.');}
   setBusy(false);
  }
  return <div className="space-y-6">
- <div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-2xl font-bold">Editor Anggaran</h2><p className="text-sm text-slate-500">Kelola rincian kebutuhan di kartu atau tabel. Total dihitung otomatis.</p></div><label className="text-sm font-semibold">Proyek<select className={'ml-2 '+field} value={selected} onChange={e=>{if(dirty.length&&!window.confirm('Ada perubahan belum disimpan. Pindah proyek dan batalkan perubahan?'))return;setItems(initialItems);setSelected(e.target.value);setDirty([]);setMessage('');setSearch('')}}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label></div>
+ <div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-2xl font-bold">Editor Anggaran</h2><p className="text-sm text-slate-500">Kelola rincian kebutuhan di kartu atau tabel. Total dihitung otomatis.</p></div><label className="text-sm font-semibold">Proyek<select className={'ml-2 '+field} value={selected} onChange={e=>{if(dirty.length&&!window.confirm('Ada perubahan belum disimpan. Pindah proyek dan batalkan perubahan?'))return;setItems(savedItems.map(x=>({...x})));setSelected(e.target.value);setDirty([]);setMessage('');setSearch('')}}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label></div>
  <div className="grid gap-4 sm:grid-cols-3">
  <div className="farm-kpi"><p className="text-sm text-slate-500">Total anggaran rencana</p><p className="mt-2 text-2xl font-bold">{money(total)}</p></div>
  <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Jumlah kebutuhan</p><p className="mt-2 text-2xl font-bold">{current.length} item</p></div>
