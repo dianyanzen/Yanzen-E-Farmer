@@ -1,5 +1,5 @@
 'use client';
-import {useMemo,useState} from 'react';
+import {useEffect,useMemo,useState} from 'react';
 import {createClient} from '@/lib/supabase/browser';
 type Project={id:string;name:string;crop:string;area_tumbak:number};
 type Item={id:string;project_id:string;name:string;category:string;quantity:number;unit:string;unit_price:number};
@@ -13,6 +13,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
  const [busy,setBusy]=useState(false);
  const [message,setMessage]=useState('');
  const [error,setError]=useState(false);
+ useEffect(()=>{if(dirty.length===0)return;const warn=(e:BeforeUnloadEvent)=>{e.preventDefault();e.returnValue='';};window.addEventListener('beforeunload',warn);return()=>window.removeEventListener('beforeunload',warn);},[dirty.length]);
  const current=items.filter(x=>x.project_id===selected);
  const project=projects.find(x=>x.id===selected);
  const total=useMemo(()=>current.reduce((a,x)=>a+Number(x.quantity)*Number(x.unit_price),0),[current]);
@@ -53,7 +54,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
   setBusy(false);
  }
  return <div className="space-y-6">
- <div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-2xl font-bold">Editor Anggaran</h2><p className="text-sm text-slate-500">Tambah kebutuhan melalui formulir, lalu edit rincian langsung pada tabel di bawah.</p></div><label className="text-sm font-semibold">Proyek<select className={'ml-2 '+field} value={selected} onChange={e=>{setSelected(e.target.value);setDirty([]);setMessage('')}}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label></div>
+ <div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-2xl font-bold">Editor Anggaran</h2><p className="text-sm text-slate-500">Tambah kebutuhan melalui formulir, lalu edit rincian langsung pada tabel di bawah.</p></div><label className="text-sm font-semibold">Proyek<select className={'ml-2 '+field} value={selected} onChange={e=>{if(dirty.length&&!window.confirm('Ada perubahan belum disimpan. Pindah proyek dan batalkan perubahan?'))return;setSelected(e.target.value);setDirty([]);setMessage('')}}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label></div>
  <div className="grid gap-4 sm:grid-cols-3">
  <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Total anggaran rencana</p><p className="mt-2 text-2xl font-bold">{money(total)}</p></div>
  <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Jumlah kebutuhan</p><p className="mt-2 text-2xl font-bold">{current.length} item</p></div>
