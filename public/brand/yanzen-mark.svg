@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title"><title id="title">Yanzen E-Farmer leaf logo</title><rect width="128" height="128" rx="30" fill="#153f32"/><path d="M63 99V57" stroke="#d8ecbb" stroke-width="7" stroke-linecap="round"/><path d="M65 67C36 68 23 48 26 27c23 0 42 12 39 40Z" fill="#86bc6a"/><path d="M65 58c-2-29 16-44 39-46 4 25-9 45-39 46Z" fill="#d8ecbb"/><path d="M39 39 63 64M91 28 67 55" fill="none" stroke="#153f32" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+<title id="title">Yanzen E-Farmer — botanical sunrise emblem</title>
+<desc id="desc">Tunas dua daun dan matahari keemasan di atas kontur kebun, pada latar hijau hutan.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b5238"/><stop offset="1" stop-color="#103527"/></linearGradient><linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a4d277"/><stop offset="1" stop-color="#3a965c"/></linearGradient></defs>
+<rect width="128" height="128" rx="28" fill="url(#bg)"/>
+<circle cx="64" cy="32" r="13" fill="#d6b76d"/>
+<path d="M64 9v6M44 16l4 5M84 16l-4 5M35 32h6M87 32h6" stroke="#efd792" stroke-width="3" stroke-linecap="round"/>
+<path d="M63 103V63" stroke="#e8f3d7" stroke-width="6" stroke-linecap="round"/>
+<path d="M64 70C39 71 24 61 21 37c26 0 41 11 43 33Z" fill="url(#leaf)"/>
+<path d="M64 61c-1-28 16-44 43-45-1 29-17 43-43 45Z" fill="#e0efbc"/>
+<path d="M29 46c14 4 27 12 35 24M97 27C84 34 72 47 64 61" fill="none" stroke="#175a3c" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+<path d="M20 96c13-12 26-17 42-17M108 96C95 83 82 79 67 79M17 107c27-18 67-18 94 0" stroke="#9cc678" stroke-opacity=".78" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
