@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {redirect} from 'next/navigation';
 import {createClient} from '@/lib/supabase/server';
 export const dynamic='force-dynamic';
+const money=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
 export default async function Home(){
  const db=await createClient();const {data,error}=await db.auth.getClaims();
  if(error||!data?.claims?.sub)redirect('/login');
@@ -11,12 +13,21 @@ export default async function Home(){
  const {data:items,error:iError}=ids.length?await db.from('budget_items').select('project_id,quantity,unit_price').in('project_id',ids):{data:[],error:null};
  if(iError)throw new Error('Gagal memuat anggaran');
  const total=(items??[]).reduce((sum,i)=>sum+Number(i.quantity)*Number(i.unit_price),0);
- const money=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
- return <main className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
- <header className="flex items-center justify-between gap-4"><Link href="/home" className="text-xl font-bold text-emerald-900">🌱 Yanzen E-Farmer</Link><form action="/auth/signout" method="post"><button className="rounded-lg border px-4 py-2 text-sm">Keluar</button></form></header>
- <section className="mt-12"><p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">Beranda</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">Selamat datang di kebunmu</h1><p className="mt-3 text-slate-600">Kelola rencana biaya pertanian dari satu tempat.</p></section>
- <section className="mt-8 grid grid-cols-2 gap-3 sm:gap-5"><div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Proyek pertanian</p><p className="mt-2 text-3xl font-bold">{projects?.length??0}</p></div><div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-slate-500">Total rencana anggaran</p><p className="mt-2 break-words text-xl font-bold sm:text-3xl">{money(total)}</p></div></section>
- <h2 className="mt-10 text-xl font-bold">Menu utama</h2><Link href="/anggaran" className="mt-4 flex items-center justify-between rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm hover:border-emerald-500"><span><strong className="text-lg">Manajemen Anggaran</strong><span className="mt-1 block text-sm text-slate-600">Buat proyek, tambah kebutuhan, dan kelola rencana biaya.</span></span><span aria-hidden="true">→</span></Link>
- <h2 className="mt-10 text-xl font-bold">Proyek terakhir</h2>{projects?.length?<Link href={`/anggaran/${projects[0].id}`} className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"><strong>{projects[0].name}</strong><p className="mt-1 text-sm text-slate-500">Buka dan kelola anggaran →</p></Link>:<div className="mt-4 rounded-2xl border border-dashed p-6"><p>Belum ada proyek pertanian.</p><Link href="/anggaran/baru" className="mt-3 inline-block font-semibold text-emerald-800 underline">Buat proyek pertama →</Link></div>}
- </main>;
+ const latest=projects?.[0];
+ return <div className="min-h-dvh pb-24">
+ <header className="sticky top-0 z-20 border-b border-[#dfe6d8] bg-white/95 backdrop-blur"><div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+ <Link href="/home" className="flex items-center gap-2 font-extrabold"><Image src="/brand/yanzen-mark.svg" width={38} height={38} alt="Logo Yanzen E-Farmer"/><span>Yanzen E-Farmer</span></Link>
+ <form action="/auth/signout" method="post"><button className="farm-button farm-button-secondary text-sm">Keluar</button></form>
+ </div></header>
+ <main className="farm-page">
+ <div className="flex items-center justify-between gap-3"><div><p className="text-sm font-semibold text-[#718177]">Selamat datang 👋</p><h1 className="mt-1 text-3xl font-extrabold tracking-tight sm:text-4xl">Beranda</h1></div><Link href="/anggaran/baru" className="farm-button farm-button-primary text-sm">+ Proyek</Link></div>
+ <section className="relative mt-6 overflow-hidden rounded-[26px] bg-[#153f32] px-6 py-8 text-white sm:px-9"><div className="relative z-10 max-w-lg"><p className="text-sm font-bold uppercase tracking-[.14em] text-[#c9e3a2]">Kelola pertanianmu</p><h2 className="mt-3 text-2xl font-extrabold sm:text-3xl">Lebih mudah merencanakan biaya usaha.</h2><p className="mt-3 text-[#dce9db]">Buat proyek, atur kebutuhan, dan pantau total anggaran dari satu tempat.</p><Link href="/anggaran" className="mt-6 inline-flex min-h-11 items-center rounded-xl bg-[#d8ecbb] px-5 font-bold text-[#153f32]">Buka Anggaran →</Link></div><div aria-hidden="true" className="absolute -right-12 -bottom-20 h-64 w-64 rounded-full border-[38px] border-white/5"/></section>
+ <section className="mt-6 grid grid-cols-2 gap-3 sm:gap-5" aria-label="Ringkasan proyek"><div className="farm-card p-5"><p className="text-sm text-[#718177]">Proyek pertanian</p><p className="mt-3 text-3xl font-extrabold tabular-nums">{projects?.length??0}</p></div><div className="farm-card p-5"><p className="text-sm text-[#718177]">Total rencana anggaran</p><p className="farm-money mt-3 text-xl sm:text-2xl">{money(total)}</p></div></section>
+ <section className="mt-9"><h2 className="farm-section-title">Menu utama</h2><Link href="/anggaran" className="farm-card mt-4 flex items-center justify-between gap-3 p-5 transition-colors hover:border-[#86bc6a]"><span className="flex items-center gap-4"><span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#eff4e7] text-2xl" aria-hidden="true">▤</span><span><strong className="block text-lg">Manajemen Anggaran</strong><span className="mt-1 block text-sm text-[#718177]">Tambah, edit, dan hitung kebutuhan pertanian.</span></span></span><span aria-hidden="true">→</span></Link></section>
+ <section className="mt-9"><div className="flex items-center justify-between"><h2 className="farm-section-title">Proyek terbaru</h2><Link href="/anggaran" className="text-sm font-bold underline underline-offset-4">Lihat semua</Link></div>
+ {latest?<Link href={`/anggaran/${latest.id}`} className="farm-card mt-4 block p-5"><strong className="text-lg">{latest.name}</strong><p className="mt-2 text-sm text-[#718177]">Lanjutkan mengedit anggaran →</p></Link>:<div className="farm-empty mt-4"><p className="text-lg font-bold">Belum ada proyek</p><p className="mt-2 text-sm text-[#718177]">Buat proyek pertamamu untuk mulai menyusun anggaran.</p><Link href="/anggaran/baru" className="farm-button farm-button-primary mt-5">+ Buat proyek pertama</Link></div>}
+ </section>
+ </main>
+ <nav aria-label="Navigasi utama" className="fixed inset-x-0 bottom-0 z-30 border-t border-[#dfe6d8] bg-white pb-[env(safe-area-inset-bottom)] sm:hidden"><div className="mx-auto grid max-w-lg grid-cols-2"><Link href="/home" aria-current="page" className="flex min-h-16 flex-col items-center justify-center gap-1 text-xs font-bold text-[#153f32]"><span aria-hidden="true" className="text-xl">⌂</span>Beranda</Link><Link href="/anggaran" className="flex min-h-16 flex-col items-center justify-center gap-1 text-xs text-[#718177]"><span aria-hidden="true" className="text-xl">▤</span>Anggaran</Link></div></nav>
+ </div>;
 }
