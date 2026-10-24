@@ -32,7 +32,7 @@ export default function Login(){
  <section className="farm-hero relative hidden overflow-hidden p-12 text-white lg:flex lg:flex-col lg:justify-between">
  <div className="flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="" width={44} height={44}/><strong className="text-xl">Yanzen E-Farmer</strong></div>
  <div><p className="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-[#c9e3a2]">Bertani lebih terencana</p><h2 className="max-w-lg text-5xl font-extrabold leading-tight">Lebih mudah mengelola usaha pertanian.</h2><p className="mt-6 max-w-md text-lg text-[#dce9db]">Rencanakan biaya, pantau kebutuhan, dan kelola setiap proyek dari satu tempat.</p></div>
- <div className="relative z-10"><span className="farm-icon mb-4"><FarmIcon name="sprout"/></span><p className="text-sm text-[#c9e3a2]">Yanzen E-Farmer · Dibuat untuk penggunaan sehari-hari</p></div><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
+ <div className="relative z-10"><span className="farm-icon mb-4"><FarmIcon name="sprout"/></span><p className="text-sm text-[#c9e3a2]">Yanzen E-Farmer · Dibuat untuk penggunaan sehari-hari</p></div><Image src="/brand/cucumber-farm.svg" alt="" width={680} height={490} className="pointer-events-none absolute -bottom-20 -right-28 w-[620px] max-w-none opacity-25" aria-hidden="true"/><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
  </section>
  <section className="flex min-h-dvh flex-col justify-center px-5 py-10 sm:px-10">
  <div className="mx-auto w-full max-w-md">
