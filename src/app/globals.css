@@ -115,3 +115,9 @@ a.farm-card:active,button.farm-card:active { transform: translateY(0) scale(.995
  .farm-skeleton::after,.farm-spinner,.farm-sheet { animation: none !important; }
  a.farm-card:hover,button.farm-card:hover { transform: none; }
 }
+
+/* UX-02: quiet organic hills drawn with CSS, no remote image dependency. */
+.farm-hero { isolation: isolate; background: radial-gradient(circle at 92% 20%, rgb(194 223 145 / 19%), transparent 30%), linear-gradient(125deg, #103e32 0%, #225b42 68%, #387c55 100%); }
+.farm-hero-hill { position: absolute; z-index: -1; right: -9%; bottom: -62%; width: 75%; aspect-ratio: 1.4; border-radius: 50%; background: linear-gradient(140deg, rgb(167 208 128 / 33%), rgb(79 139 89 / 13%)); transform: rotate(-16deg); }
+.farm-hero-hill-back { right: -24%; bottom: -55%; width: 60%; background: rgb(212 234 170 / 13%); transform: rotate(23deg); }
+@media (prefers-reduced-motion: reduce) { .farm-hero-hill { transition: none; } }
