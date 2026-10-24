@@ -152,3 +152,12 @@ a.farm-card:active,button.farm-card:active { transform: translateY(0) scale(.995
 @media (prefers-reduced-motion: reduce) {
   .farm-nav-link,.farm-card,.farm-button { transition: none !important; }
 }
+
+/* Botanical Luxury V2 · shared card and heading treatments. */
+.farm-feature-card { display: block; position: relative; text-decoration: none; }
+.farm-feature-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.farm-feature-card .farm-icon { transition: background-color .18s ease, color .18s ease; }
+.farm-feature-card:hover .farm-icon { background: #dceccc; color: var(--botanical-forest); }
+.farm-section-action { color: var(--botanical-moss); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.farm-section-action:hover { color: var(--botanical-forest); }
+@media (prefers-reduced-motion: reduce) { .farm-feature-card .farm-icon { transition: none !important; } }
