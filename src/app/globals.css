@@ -161,3 +161,11 @@ a.farm-card:active,button.farm-card:active { transform: translateY(0) scale(.995
 .farm-section-action { color: var(--botanical-moss); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .farm-section-action:hover { color: var(--botanical-forest); }
 @media (prefers-reduced-motion: reduce) { .farm-feature-card .farm-icon { transition: none !important; } }
+
+/* Botanical Luxury V2 · budget project cards. */
+.farm-project-card { text-decoration: none; }
+.farm-project-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.farm-project-eyebrow { font-size: .65rem; font-weight: 800; letter-spacing: .12em; color: var(--botanical-leaf); }
+.farm-project-arrow { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 12px; background: #e8f2e4; color: var(--botanical-forest); }
+.farm-project-divider { border-top: 1px solid var(--border); }
+.farm-project-card:hover .farm-project-arrow { background: #dceccc; }
