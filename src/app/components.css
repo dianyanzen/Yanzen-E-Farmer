@@ -28,3 +28,15 @@
 @media (prefers-reduced-motion: reduce) {
   .farm-nav-link,.farm-card,.farm-button,.farm-feature-card .farm-icon { transition: none !important; }
 }
+
+/* Finance surfaces: styling only; expense forms and event handlers stay intact. */
+.farm-page:has(#expense-project) .farm-card { border-color: var(--border); }
+.farm-page:has(#expense-project) .farm-card:has(#expense-project) {
+  background: linear-gradient(145deg, #fff 0%, #f7faf3 100%);
+  border-top: 3px solid var(--botanical-leaf);
+}
+.farm-page:has(#expense-project) .farm-card:has(form) { box-shadow: 0 8px 28px rgb(16 62 50 / 6%); }
+.farm-page:has(#expense-project) article { background: #fff; transition: border-color .18s ease, box-shadow .18s ease; }
+.farm-page:has(#expense-project) article:hover { border-color: var(--botanical-sage); box-shadow: 0 5px 18px rgb(16 62 50 / 5%); }
+.farm-page:has(#expense-project) .farm-input:focus-visible { border-color: var(--botanical-leaf); }
+@media (prefers-reduced-motion: reduce) { .farm-page:has(#expense-project) article { transition: none; } }
