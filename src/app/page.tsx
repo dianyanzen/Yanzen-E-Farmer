@@ -25,7 +25,7 @@ export default function Landing(){
       <div className="rounded-2xl border border-white/15 bg-white/15 p-4 backdrop-blur-sm"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d8ecbb] text-[#153f32]"><FarmIcon name="receipt"/></span><strong className="mt-4 block">Bon & Struk</strong><span className="mt-1 block text-xs text-[#dce9db]">Simpan, cetak, dan arsipkan</span></div>
      </div>
     </div>
-    <div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
+    <Image src="/brand/cucumber-farm.svg" alt="" width={460} height={325} className="pointer-events-none absolute -right-24 -top-6 w-[430px] opacity-20" aria-hidden="true"/><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
    </div>
   </section>
   <section id="fitur" className="border-t border-[#dfe6d8] bg-white px-5 py-16 sm:px-8">
