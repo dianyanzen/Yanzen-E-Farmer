@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="t d">
+<title id="t">Kebun mentimun Yanzen E-Farmer saat pagi</title>
+<desc id="d">Ilustrasi vektor perbukitan, matahari pagi, petak kebun, dan tanaman timun hijau yang subur.</desc>
+<defs>
+ <linearGradient id="sky" x1="0" x2=".15" y1="0" y2="1"><stop stop-color="#d3e9d4"/><stop offset=".65" stop-color="#f3efc8"/><stop offset="1" stop-color="#f8f0d4"/></linearGradient>
+ <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f956f"/><stop offset="1" stop-color="#1c624c"/></linearGradient>
+ <linearGradient id="field" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#90b776"/><stop offset="1" stop-color="#1b583e"/></linearGradient>
+ <linearGradient id="cucumber" x1="0" x2="1"><stop stop-color="#0a5b38"/><stop offset=".35" stop-color="#28955a"/><stop offset=".8" stop-color="#167347"/><stop offset="1" stop-color="#07472f"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#ffeab0" stop-opacity=".9"/><stop offset="1" stop-color="#ffeab0" stop-opacity="0"/></radialGradient>
+ <pattern id="rows" width="80" height="100" patternUnits="userSpaceOnUse"><path d="M0 100 40 0M28 100 68 0M55 100 95 0" stroke="#9bc785" stroke-opacity=".4" stroke-width="5"/></pattern>
+</defs>
+<rect width="900" height="650" fill="url(#sky)"/>
+<circle cx="648" cy="151" r="167" fill="url(#light)"/><circle cx="648" cy="151" r="47" fill="#edce82"/>
+<path d="M0 355c112-135 210-141 320-73 123-133 239-131 345-52 105-77 183-44 235 19v296H0Z" fill="#9abb9a"/>
+<path d="M0 421c112-77 225-118 335-68 141-113 285-98 387-26 79-36 130-27 178 15v211H0Z" fill="url(#hill)"/>
+<path d="M0 462c140-63 226-66 346-24 143-48 292-40 407 11l147-42v243H0Z" fill="#377c4f"/>
+<path d="M0 522c220-72 430-40 578-14 139 24 243 2 322-20v162H0Z" fill="url(#field)"/>
+<path d="M148 650c117-65 180-97 295-129m-60 129c83-42 144-83 206-119m-27 119c36-31 60-52 94-96" fill="none" stroke="#c4d7a0" stroke-width="20" opacity=".52"/>
+<path d="M0 478c177-50 332-34 481 5 130 31 254 36 419-21" fill="none" stroke="#e5e2a9" stroke-width="3" opacity=".5"/>
+<path d="M0 507c177-50 332-34 481 5 130 31 254 36 419-21" fill="none" stroke="#b1cd80" stroke-width="5" opacity=".45"/>
+<!-- left trellis -->
+<path d="M90 650V178M180 650V235M40 279h205M43 396h206M48 518h205" stroke="#325c3e" stroke-width="8" fill="none" opacity=".65"/>
+<path d="M96 640C57 555 161 508 100 426c-61-86 30-125 22-204M183 634c74-90-44-147 4-211 45-61-11-111-28-148" stroke="#2c8652" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M101 284c-58-54-113-29-100 18 42 31 76 20 100-18Zm28 80c62-48 104-17 97 30-49 25-81 9-97-30Zm-45 117c-72-20-99 13-83 59 53 6 75-19 83-59Zm98 71c72-44 119-5 97 44-50 18-81-4-97-44Z" fill="#3b9959"/>
+<path d="M109 240c32-69 101-72 113-25-24 49-62 59-113 25ZM83 393c-63-48-102-16-92 30 44 22 77 8 92-30Zm116 56c62-57 99-24 92 20-45 31-76 21-92-20Z" fill="#69ad66"/>
+<!-- right trellis -->
+<path d="M754 650V200M842 650V150M711 265h187M708 385h192M708 516h192" stroke="#365b3c" stroke-width="8" fill="none" opacity=".6"/>
+<path d="M752 650c-77-76 48-126-9-202-55-76 13-154 19-228m84 411c73-71-35-129 7-213 39-81-27-128-47-163" stroke="#2b8652" stroke-width="13" fill="none" stroke-linecap="round"/>
+<path d="M746 259c-62-59-111-25-92 23 43 30 72 23 92-23Zm23 99c75-53 121-14 91 36-50 22-78 2-91-36Zm-37 151c-73-34-110 7-91 54 54 13 82-10 91-54Zm103 55c66-57 111-22 99 25-52 28-84 13-99-25Z" fill="#459e59"/>
+<path d="M850 222c28-70 99-76 114-25-27 50-68 59-114 25Zm-59 203c-66-53-103-19-88 23 49 23 77 10 88-23Z" fill="#7dbb71"/>
+<!-- hanging cucumbers -->
+<g fill="url(#cucumber)" stroke="#0c5a38" stroke-width="3">
+ <rect x="114" y="320" width="42" height="115" rx="21" transform="rotate(9 135 377)"/>
+ <rect x="190" y="448" width="37" height="92" rx="19" transform="rotate(-12 209 494)"/>
+ <rect x="746" y="310" width="47" height="127" rx="23" transform="rotate(-9 769 373)"/>
+ <rect x="825" y="453" width="43" height="106" rx="21" transform="rotate(7 846 506)"/>
+</g>
+<g stroke="#d0e7a7" stroke-width="3" stroke-linecap="round" opacity=".65">
+ <path d="m123 341 14 68m58 58 15 53m558-185-12 79m75 53 17 62"/>
+</g>
+<!-- tendrils -->
+<g stroke="#4a9a56" fill="none" stroke-width="5" stroke-linecap="round">
+ <path d="M140 317c24-23 52-8 33 10-16 15-25-4-8-13"/>
+ <path d="M773 300c-25-23-48-8-35 10 12 13 23-5 8-14"/>
+</g>
+<path d="M0 590c195-32 318-12 448 31 169 53 317-10 452-37v66H0Z" fill="#124d36" opacity=".25"/>
+</svg>
