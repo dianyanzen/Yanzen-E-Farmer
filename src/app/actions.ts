@@ -26,3 +26,12 @@ export async function deleteExpense(form:FormData){
  if(error)throw new Error('Gagal menghapus pengeluaran');
  revalidatePath('/');
 }
+
+export async function addSeason(form:FormData){
+ const db=await authenticated();
+ const parsed=z.object({nama:z.string().trim().min(1).max(120),luas_tumbak:z.coerce.number().positive().finite()}).safeParse(Object.fromEntries(form));
+ if(!parsed.success)throw new Error('Musim tanam tidak valid');
+ const {error}=await db.from('musim_tanam').insert({...parsed.data,komoditas:'Timun'});
+ if(error)throw new Error('Gagal membuat musim tanam');
+ revalidatePath('/');
+}
