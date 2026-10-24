@@ -1,0 +1,11 @@
+/* Botanical Luxury V2 design tokens. Legacy variables in globals.css remain supported. */
+:root {
+  --botanical-forest: #103e32;
+  --botanical-moss: #225844;
+  --botanical-leaf: #387c55;
+  --botanical-sage: #a6c98a;
+  --botanical-gold: #c6a76b;
+  --botanical-ivory: #f7f8f1;
+  --botanical-ink: #193e32;
+  --botanical-ease: cubic-bezier(.22,1,.36,1);
+}
