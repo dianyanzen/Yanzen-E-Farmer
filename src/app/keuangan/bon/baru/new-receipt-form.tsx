@@ -44,7 +44,7 @@ export default function NewReceiptForm({projects,budgetItems}:{projects:Project[
   const payload=lines.map((l,i)=>({
     project_id:projectId,expense_date:date,description:l.name.trim(),
     quantity:Number(l.quantity),unit:l.unit.trim(),unit_price:Number(l.unitPrice),
-    amount:totals[i],receipt_group:group,receipt_number:number,
+    amount:totals[i],line_position:i+1,budget_item_id:l.budgetRef||null,receipt_group:group,receipt_number:number,
     vendor:vendor.trim()||null,note:note.trim()||null
   }));
   try{
