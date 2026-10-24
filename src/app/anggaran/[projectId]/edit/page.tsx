@@ -1,5 +1,5 @@
 'use client';
-import {useState,type FormEvent} from 'react';
+import {useState,useEffect,type FormEvent} from 'react';
 import {useParams,useRouter} from 'next/navigation';
 import Link from 'next/link';
 import {createClient} from '@/lib/supabase/browser';
@@ -16,21 +16,18 @@ export default function EditProject(){
  const [message,setMessage]=useState('');
  const [failed,setFailed]=useState(false);
  const [original,setOriginal]=useState<{name:string;crop:string;area_tumbak:number}|null>(null);
- const [loadedId,setLoadedId]=useState('');
- if(projectId!==loadedId && !loading){setLoading(true);}
  // Load only this user's project; RLS also enforces ownership.
- useState(()=>{return 0});
+ useEffect(()=>{let active=true;
  const load=async()=>{
   try{
    const db=createClient();
    const {data,error}=await db.from('farm_projects').select('name,crop,area_tumbak').eq('id',projectId).single();
    if(error||!data)throw error??new Error('Not found');
-   setName(data.name);setCrop(data.crop);setArea(String(data.area_tumbak));setOriginal(data);setLoadedId(projectId);setFailed(false);
-  }catch{setFailed(true);setMessage('Proyek tidak ditemukan atau tidak dapat dimuat.');}
-  finally{setLoading(false);}
+   if(!active)return;setName(data.name);setCrop(data.crop);setArea(String(data.area_tumbak));setOriginal(data);setFailed(false);
+  }catch{if(active){setFailed(true);setMessage('Proyek tidak ditemukan atau tidak dapat dimuat.');}}
+  finally{if(active)setLoading(false);}
  };
- const [started,setStarted]=useState(false);
- if(!started&&projectId){setStarted(true);void load();}
+ void load();return()=>{active=false;};},[projectId]);
  async function submit(e:FormEvent){
   e.preventDefault();if(busy||!original)return;
   const n=Number(area);
