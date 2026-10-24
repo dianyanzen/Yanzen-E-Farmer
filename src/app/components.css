@@ -1,0 +1,30 @@
+/* Botanical Luxury V2 opt-in components; legacy farm-* classes remain supported. */
+.farm-nav-active { color: var(--botanical-forest); font-weight: 800; }
+.farm-nav-link { position: relative; transition: color .16s ease, background-color .16s ease; }
+.farm-nav-link[aria-current="page"]::before {
+  content: ""; position: absolute; top: 0; width: 28px; height: 3px;
+  border-radius: 0 0 999px 999px; background: var(--botanical-leaf);
+}
+.farm-nav-link:focus-visible { border-radius: 12px; }
+.farm-button-primary { background: var(--botanical-forest); }
+.farm-button-primary:hover:not(:disabled) { background: var(--botanical-moss); }
+.farm-card { box-shadow: 0 6px 22px rgb(16 62 50 / 5%); }
+.farm-money,.farm-kpi-value { font-variant-numeric: tabular-nums; letter-spacing: -.025em; }
+@media (max-width: 639px) {
+  .farm-page { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)); }
+}
+.farm-feature-card { display: block; position: relative; text-decoration: none; }
+.farm-feature-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.farm-feature-card .farm-icon { transition: background-color .18s ease, color .18s ease; }
+.farm-feature-card:hover .farm-icon { background: #dceccc; color: var(--botanical-forest); }
+.farm-section-action { color: var(--botanical-moss); font-size: .875rem; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.farm-section-action:hover { color: var(--botanical-forest); }
+.farm-project-card { text-decoration: none; }
+.farm-project-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.farm-project-eyebrow { font-size: .65rem; font-weight: 800; letter-spacing: .12em; color: var(--botanical-leaf); }
+.farm-project-arrow { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 12px; background: #e8f2e4; color: var(--botanical-forest); }
+.farm-project-divider { border-top: 1px solid var(--border); }
+.farm-project-card:hover .farm-project-arrow { background: #dceccc; }
+@media (prefers-reduced-motion: reduce) {
+  .farm-nav-link,.farm-card,.farm-button,.farm-feature-card .farm-icon { transition: none !important; }
+}
