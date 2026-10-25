@@ -554,19 +554,19 @@ export default function Workspace({ view }: { view: string }) {
       }
     >
       {view === "home" && (
-        <section className="farm-bon-promo mb-6 overflow-hidden rounded-[26px] border border-[#cbdcc3] bg-[#e9f2e0]">
-          <div className="grid items-center md:grid-cols-[1.1fr_.9fr]">
-            <div className="p-5 sm:p-7">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#286142]">FITUR UNGGULAN · BON / STRUK</span>
-              <h2 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#103e32] sm:text-3xl">Belanja hari ini, langsung buat bon.</h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#526d5b]">Pilih proyek, isi beberapa barang, lalu simpan. Total dihitung otomatis dan bon bisa dicetak kapan pun.</p>
+        <section className="farmer-workspace-promo">
+          <div className="farmer-workspace-promo-grid">
+            <div className="farmer-workspace-promo-copy">
+              <span className="farmer-workspace-promo-eyebrow">FITUR UNGGULAN · BON / STRUK</span>
+              <h2 className="farmer-workspace-promo-title">Belanja hari ini, langsung buat bon.</h2>
+              <p className="farmer-workspace-promo-description">Pilih proyek, isi beberapa barang, lalu simpan. Total dihitung otomatis dan bon bisa dicetak kapan pun.</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <Link href="/keuangan/bon/baru" className="farm-button farm-button-primary">+ Buat Bon Pengeluaran</Link>
                 <Link href="/keuangan" className="farm-button farm-button-secondary">Lihat Riwayat Bon</Link>
               </div>
             </div>
-            <div className="hidden items-center justify-center p-4 md:flex" aria-hidden="true">
-              <Image src="/brand/bon-pengeluaran-photo.jpg" alt="" width={480} height={270} className="max-h-[250px] w-full rounded-2xl object-cover"/>
+            <div className="farmer-workspace-promo-media" aria-hidden="true">
+              <Image src="/brand/bon-pengeluaran-photo.jpg" alt="" width={480} height={270} className="farmer-workspace-promo-image"/>
             </div>
           </div>
         </section>
@@ -610,7 +610,7 @@ export default function Workspace({ view }: { view: string }) {
         </p>
       ) : !data ? null : !data.organization ? (
         <section className="farm-card p-6">
-          <h2 className="text-xl font-bold">Mulai dari nama usahamu</h2>
+          <h2 className="farmer-workspace-section-title">Mulai dari nama usahamu</h2>
           <p className="my-3">
             Lahan dan rincian lainnya bisa ditambahkan kemudian.
           </p>
@@ -791,9 +791,9 @@ export default function Workspace({ view }: { view: string }) {
           {view === "lahan" && (
             <>
               {(["lands", "blocks", "cycles"] as const).map((type) => (
-                <section key={type} className="farm-card mb-5 p-5">
+                <section key={type} className="farm-card farmer-workspace-card">
                   <div className="flex justify-between items-center gap-3">
-                    <h2 className="font-bold text-xl">{entityNames[type]}</h2>
+                    <h2 className="farmer-workspace-section-title">{entityNames[type]}</h2>
                     {canWrite && (
                       <button
                         onClick={() => open("entity:" + type)}
@@ -807,7 +807,7 @@ export default function Workspace({ view }: { view: string }) {
                     {data[type].map((row) => (
                       <article
                         key={row.id}
-                        className="rounded-xl border border-[#dfe6d8] p-4"
+                        className="farmer-workspace-row-card"
                       >
                         <h3 className="font-bold">{row.name}</h3>
                         <p className="mt-1 text-sm">
@@ -1002,8 +1002,8 @@ export default function Workspace({ view }: { view: string }) {
           {view === "laporan" && <Reports data={data} onOpen={open} />}
           {view === "pengaturan" && (
             <>
-              <section className="farm-card mb-5 p-5">
-                <h2 className="font-bold text-xl">{data.organization.name}</h2>
+              <section className="farm-card farmer-workspace-card">
+                <h2 className="farmer-workspace-section-title">{data.organization.name}</h2>
                 <p className="mt-2 text-sm">Peran: {labels[data.role || ""]}</p>
                 <div className="mt-4 flex gap-3">
                   <button
@@ -1072,9 +1072,9 @@ export default function Workspace({ view }: { view: string }) {
                 )}
               </section>
               {(["accounts", "parties"] as const).map((type) => (
-                <section className="farm-card mb-5 p-5" key={type}>
+                <section className="farm-card farmer-workspace-card" key={type}>
                   <div className="flex justify-between">
-                    <h2 className="font-bold text-xl">{entityNames[type]}</h2>
+                    <h2 className="farmer-workspace-section-title">{entityNames[type]}</h2>
                     {canWrite && (
                       <button
                         onClick={() => open("entity:" + type)}
@@ -1110,7 +1110,7 @@ export default function Workspace({ view }: { view: string }) {
             className="mx-auto my-4 max-w-2xl rounded-2xl bg-[#f7f8f1] p-5 shadow-xl"
           >
             <div className="flex items-center justify-between gap-4">
-              <h2 id="entry-heading" className="text-xl font-bold">
+              <h2 id="entry-heading" className="farmer-workspace-section-title">
                 {mode === "organization"
                   ? "Buat usaha"
                   : mode === "member"
@@ -1603,8 +1603,8 @@ function Reports({
   const r = data.report;
   return (
     <>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="font-bold text-xl">Biaya dan hasil per budidaya</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Biaya dan hasil per budidaya</h2>
         <p className="text-xs mt-2">
           Selisih operasional sementara; belum termasuk penyusutan aset, alokasi
           umum, dan biaya yang belum dicatat. Bukan laba final.
@@ -1639,8 +1639,8 @@ function Reports({
         Transfer internal dikecualikan dari arus masuk/keluar. Modal dan
         pinjaman termasuk arus kas, bukan omzet.
       </p>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="text-xl font-bold">
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">
           Saldo per kas sampai tanggal akhir
         </h2>
         {r.cash.map((a) => (
@@ -1650,8 +1650,8 @@ function Reports({
           </div>
         ))}
       </section>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="text-xl font-bold">Ringkasan catatan periode</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Ringkasan catatan periode</h2>
         {r.by_kind.map((x) => (
           <div key={x.kind} className="flex justify-between mt-3">
             <span>
@@ -1665,8 +1665,8 @@ function Reports({
           pembayaran, dan uang muka memiliki perlakuan berbeda.
         </p>
       </section>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="text-xl font-bold">Panen per budidaya dan satuan</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Panen per budidaya dan satuan</h2>
         {r.harvests.map((h, i) => (
           <p className="mt-3" key={i}>
             {data.cycles.find((c) => c.id === h.cycle_id)?.name ||
@@ -1678,8 +1678,8 @@ function Reports({
           </p>
         ))}
       </section>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="font-bold text-xl">Tenaga kerja per pekerjaan</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Tenaga kerja per pekerjaan</h2>
         {data.analysis?.labor.map((l, i) => (
           <p key={i} className="mt-3 text-sm">
             {String(l.job)} · {String(l.assignments)} penugasan ·{" "}
@@ -1687,16 +1687,16 @@ function Reports({
           </p>
         ))}
       </section>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="font-bold text-xl">Stok tersisa</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Stok tersisa</h2>
         {data.analysis?.inventory.map((s) => (
           <p key={s.id} className="mt-3">
             {s.title}: {String(s.remaining)} {s.unit}
           </p>
         ))}
       </section>
-      <section className="farm-card p-5 mb-5">
-        <h2 className="font-bold text-xl">Arus kas harian</h2>
+      <section className="farm-card farmer-workspace-card">
+        <h2 className="farmer-workspace-section-title">Arus kas harian</h2>
         {data.analysis?.daily.map((d, i) => (
           <p key={i} className="mt-3 text-sm">
             {String(d.entry_date)} · Masuk {money(d.incoming)} · Keluar{" "}
@@ -1704,8 +1704,8 @@ function Reports({
           </p>
         ))}
       </section>
-      <section className="farm-card p-5">
-        <h2 className="text-xl font-bold">Piutang, kewajiban & uang muka</h2>
+      <section className="farm-card farmer-workspace-surface">
+        <h2 className="farmer-workspace-section-title">Piutang, kewajiban & uang muka</h2>
         <p className="mt-2 text-xs">
           Saldo sampai tanggal akhir, termasuk tagihan dari periode sebelumnya.
         </p>
