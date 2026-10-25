@@ -1,0 +1,73 @@
+/* Yanzen E-Farmer — Botanical Minimal reusable base template.
+ * Component-scoped classes: opt in new screens without breaking legacy menus. */
+.farmer-ui-page { color: var(--farmer-color-text); }
+.farmer-ui-back { margin-bottom: var(--farmer-space-4); font-size: .875rem; font-weight: 700; color: var(--farmer-color-moss); }
+.farmer-ui-back a { text-decoration: none; }
+.farmer-ui-back a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.farmer-ui-page-header { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:var(--farmer-space-5); margin-bottom:var(--farmer-space-6); }
+.farmer-ui-page-heading { min-width:0; max-width:48rem; }
+.farmer-ui-eyebrow { margin:0 0 .5rem; color:var(--farmer-color-leaf); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:800; }
+.farmer-ui-title { margin:0; color:var(--farmer-color-forest); font-size:clamp(1.65rem, 3vw, 2.5rem); line-height:1.14; letter-spacing:-.032em; font-weight:850; }
+.farmer-ui-description { color:var(--farmer-color-subtle); font-size:.925rem; line-height:1.65; margin:.7rem 0 0; max-width:42rem; }
+.farmer-ui-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--farmer-space-2); }
+.farmer-ui-muted { color:var(--farmer-color-subtle); font-size:.875rem; line-height:1.6; }
+.farmer-ui-section-header { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin:0 0 1.25rem; }
+.farmer-ui-section-title { margin:0; font-size:clamp(1.15rem, 2vw, 1.5rem); color:var(--farmer-color-forest); letter-spacing:-.02em; font-weight:800; }
+
+.farmer-ui-action { position:relative; display:inline-flex; align-items:center; justify-content:center; text-align:center; gap:.5rem; border:1px solid transparent; border-radius:var(--farmer-radius-xs); font-weight:750; text-decoration:none; white-space:normal; cursor:pointer; transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease; }
+.farmer-ui-action--sm { min-height:40px; padding:.55rem .85rem; font-size:.8125rem; }
+.farmer-ui-action--md { min-height:44px; padding:.7rem 1rem; font-size:.875rem; }
+.farmer-ui-action--lg { min-height:48px; padding:.8rem 1.25rem; font-size:.925rem; }
+.farmer-ui-action--primary { background:var(--farmer-color-forest); color:white; }
+.farmer-ui-action--primary:hover { background:var(--farmer-color-moss); }
+.farmer-ui-action--secondary { background:white; border-color:var(--farmer-color-border); color:var(--farmer-color-forest); }
+.farmer-ui-action--secondary:hover { background:var(--farmer-color-soft); border-color:var(--farmer-color-sage); }
+.farmer-ui-action--quiet { background:transparent; color:var(--farmer-color-moss); }
+.farmer-ui-action--quiet:hover { background:var(--farmer-color-soft); }
+.farmer-ui-action--danger { background:#fff0f0; border-color:#efc9c9; color:var(--farmer-color-danger); }
+.farmer-ui-action--danger:hover { background:#ffe1e1; }
+.farmer-ui-action:disabled, .farmer-ui-action[aria-disabled="true"] { opacity:.55; cursor:not-allowed; }
+.farmer-ui-action:focus-visible { outline:3px solid var(--farmer-color-focus); outline-offset:3px; }
+
+.farmer-ui-surface { background:var(--farmer-color-paper); border:1px solid var(--farmer-color-border); box-shadow:var(--farmer-shadow-card); border-radius:var(--farmer-radius-lg); padding:var(--farmer-space-5); }
+.farmer-ui-surface--flush { padding:0; overflow:hidden; }
+.farmer-ui-stat { display:flex; flex-direction:column; gap:.4rem; min-width:0; padding:1.15rem; background:#fff; border:1px solid var(--farmer-color-border); border-radius:var(--farmer-radius-md); box-shadow:var(--farmer-shadow-card); }
+.farmer-ui-stat-label { color:var(--farmer-color-subtle); font-size:.78rem; font-weight:650; }
+.farmer-ui-stat-value { color:var(--farmer-color-forest); font-size:clamp(1.15rem,3vw,1.75rem); line-height:1.25; font-weight:850; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; letter-spacing:-.03em; }
+.farmer-ui-stat-hint { color:var(--farmer-color-subtle); font-size:.75rem; line-height:1.45; }
+
+.farmer-ui-tag { display:inline-flex; align-items:center; min-height:26px; padding:.25rem .65rem; border-radius:999px; font-size:.72rem; font-weight:750; background:#edf1e9; color:#395846; }
+.farmer-ui-tag--positive { background:#e6f4e5; color:#21653a; }
+.farmer-ui-tag--warning { background:#fff4da; color:#815408; }
+.farmer-ui-tag--negative { background:#fff0ee; color:#952f2f; }
+.farmer-ui-field { display:flex; flex-direction:column; gap:.45rem; min-width:0; }
+.farmer-ui-field-label { font-size:.875rem; font-weight:700; color:var(--farmer-color-forest); }
+.farmer-ui-field-input { width:100%; min-width:0; min-height:46px; padding:.75rem .85rem; border:1px solid #bfcfc2; border-radius:var(--farmer-radius-xs); color:var(--farmer-color-text); background:white; font:inherit; font-size:1rem; }
+.farmer-ui-field-input:focus-visible { outline:3px solid rgba(56,124,85,.26); outline-offset:1px; border-color:var(--farmer-color-leaf); }
+.farmer-ui-field-input[aria-invalid="true"] { border-color:var(--farmer-color-danger); }
+.farmer-ui-field-hint, .farmer-ui-field-error { font-size:.78rem; line-height:1.5; }
+.farmer-ui-field-hint { color:var(--farmer-color-subtle); }
+.farmer-ui-field-error { color:var(--farmer-color-danger); }
+
+.farmer-ui-empty { display:grid; justify-items:center; text-align:center; gap:.5rem; padding:2.5rem 1.25rem; border:1px dashed #becfc0; border-radius:var(--farmer-radius-lg); background:#fff; }
+.farmer-ui-empty-symbol { width:56px; height:56px; display:grid; place-items:center; border-radius:18px; font-size:1.6rem; background:var(--farmer-color-soft); color:var(--farmer-color-moss); }
+.farmer-ui-empty-title { margin:.5rem 0 0; font-size:1.1rem; font-weight:800; }
+.farmer-ui-empty-action { margin-top:1rem; }
+.farmer-ui-table-scroll { width:100%; max-width:100%; overflow-x:auto; border-radius:var(--farmer-radius-md); border:1px solid var(--farmer-color-border); background:#fff; }
+.farmer-ui-table-scroll:focus-visible { outline:3px solid var(--farmer-color-focus); outline-offset:2px; }
+.farmer-ui-table { border-collapse:collapse; min-width:560px; width:100%; font-size:.875rem; text-align:left; }
+.farmer-ui-table caption { text-align:left; color:var(--farmer-color-subtle); padding:1rem; font-size:.8rem; }
+.farmer-ui-table thead { background:#f0f6eb; color:var(--farmer-color-forest); }
+.farmer-ui-table th,.farmer-ui-table td { padding:.9rem 1rem; border-bottom:1px solid var(--farmer-color-border); vertical-align:top; }
+.farmer-ui-table th { font-weight:800; white-space:nowrap; }
+.farmer-ui-table tbody tr:last-child td { border-bottom:0; }
+.farmer-ui-table tbody tr:hover { background:#f9fbf7; }
+.farmer-ui-table .is-number { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.farmer-ui-swatch { border:1px solid rgba(16,62,50,.1); border-radius:var(--farmer-radius-xs); height:56px; }
+@media(max-width:640px){
+ .farmer-ui-page-header { align-items:stretch; }
+ .farmer-ui-actions { width:100%; }
+ .farmer-ui-actions .farmer-ui-action { flex:1; }
+ .farmer-ui-surface { padding:var(--farmer-space-4); }
+}
+@media(prefers-reduced-motion:reduce){ .farmer-ui-action { transition:none; } }
