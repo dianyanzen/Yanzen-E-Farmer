@@ -48,6 +48,7 @@
   /* Backward-compatible aliases for existing components. */
   --background: var(--farmer-color-canvas);
   --foreground: var(--farmer-color-text);
+  --muted: var(--farmer-color-subtle);
   --surface: var(--farmer-color-paper);
   --surface-soft: var(--farmer-color-soft);
   --primary: var(--farmer-color-forest);

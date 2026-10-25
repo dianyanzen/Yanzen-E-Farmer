@@ -1,6 +1,6 @@
 # Yanzen E-Farmer · Botanical Minimal Base Template
 
-Status: **v1 (incremental migration)**. This is Yanzen's own reusable UI foundation, **not** a copied dashboard starter.
+Status: **v1.1 (shared daily shell and legacy primitive compatibility)**. This is Yanzen's own reusable UI foundation, **not** a copied dashboard starter.
 
 ## Sources of truth
 
@@ -63,3 +63,12 @@ export default function ExamplePage() {
 The foundational components are intentionally dependency-free to minimize regression risk. The recommended follow-up is a staged migration to shadcn/ui, Base UI, Lucide React, React Hook Form + Zod, Sonner, TanStack Table and automated accessibility checks, with package-lock committed for each tested installation.
 
 Do **not** install an entire starter repository over the existing application. Adapt patterns selectively while retaining the code and database as the system of record.
+
+## UI consistency update · 25 October 2026
+
+- Daily workspace views, budget list/new project, finance, new receipts, agriculture, harvest and insights use the shared page template.
+- A shared account bar exposes POST sign-out on internal pages, handles pending and failure states, and is hidden on public/auth pages and in print.
+- Legacy `farm-button` and `farm-input` classes share template sizing and typography. Existing Tailwind layout utilities remain supported; Tailwind has not been removed.
+- Shared navigation, feature cards, project cards and the home receipt banner use semantic CSS classes. Muted copy uses the canonical contrast token.
+- UI tests require built CSS and exercise 360, 390, 430, 768 and 1280px widths, daily views and logout failure recovery alongside the existing transaction flows.
+- UI tests use isolated fixture data, not production sessions. Real authenticated production sign-out must be verified separately.

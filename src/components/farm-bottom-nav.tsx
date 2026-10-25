@@ -14,8 +14,8 @@ const tabs=[
 export default function FarmBottomNav(){
  const pathname=usePathname();
  if(pathname==='/'||pathname.startsWith('/login')||pathname.startsWith('/auth'))return null;
- return <nav aria-label="Navigasi utama" className="farm-nav fixed inset-x-0 bottom-0 z-30 pb-[env(safe-area-inset-bottom)] sm:hidden">
-  <div className="mx-auto grid max-w-lg grid-cols-5">
+ return <nav aria-label="Navigasi utama" className="farm-nav">
+  <div className="farm-nav-items">
    {tabs.map(t=>{
     const active=t.main?pathname==='/catat':pathname===t.href||(t.href==='/keuangan/bon/baru'?pathname.startsWith('/keuangan/bon/'):t.href!=='/home'&&pathname.startsWith(t.href+'/'));
     return <Link key={t.href} href={t.href} aria-current={active?'page':undefined} className={'farm-nav-link'+(active?' farm-nav-active':'')+(t.main?' farm-nav-main-action':'')}>

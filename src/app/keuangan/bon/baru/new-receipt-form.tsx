@@ -60,14 +60,14 @@ export default function NewReceiptForm({projects,budgetItems}:{projects:Project[
  return projects.length===0?<div className="farm-empty mt-6"><h2 className="text-lg font-bold">Buat proyek terlebih dahulu</h2><p className="mt-2 text-sm">Bon harus terhubung ke salah satu proyek pertanian milikmu.</p><Link href="/anggaran/baru" className="farm-button farm-button-primary mt-5">Buat proyek</Link></div>:
  <form onSubmit={save} className="mt-6 grid gap-5">
   <section className="farm-card grid gap-4 p-5 sm:grid-cols-2 sm:p-6">
-   <div className="sm:col-span-2"><h2 className="text-lg font-extrabold">Identitas Bon</h2><p className="mt-1 text-sm text-[#718177]">Nomor bon dibuat otomatis jika dikosongkan.</p></div>
+   <div className="sm:col-span-2"><h2 className="text-lg font-extrabold">Identitas Bon</h2><p className="mt-1 text-sm farm-muted">Nomor bon dibuat otomatis jika dikosongkan.</p></div>
    <label className="farm-label">Proyek pertanian<select className="farm-input mt-2" required value={projectId} onChange={e=>{setProjectId(e.target.value);setLines(old=>old.map(x=>({...x,budgetRef:''})));}}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label>
    <label className="farm-label">Tanggal transaksi<input className="farm-input mt-2" type="date" required value={date} onChange={e=>setDate(e.target.value)}/></label>
    <label className="farm-label">Pemasok / toko<input className="farm-input mt-2" maxLength={160} placeholder="Contoh: Toko Tani Makmur" value={vendor} onChange={e=>setVendor(e.target.value)}/></label>
    <label className="farm-label">Nomor bon (opsional)<input className="farm-input mt-2" maxLength={100} placeholder="Otomatis jika kosong" value={receiptNumber} onChange={e=>setReceiptNumber(e.target.value)}/></label>
   </section>
   <section className="farm-card p-4 sm:p-6">
-   <div className="flex flex-wrap items-start justify-between gap-3"><div><h2 className="text-lg font-extrabold">Rincian Barang & Biaya</h2><p className="mt-1 text-sm text-[#718177]">Tambahkan beberapa kebutuhan dalam satu bon.</p></div><span className="farm-badge">{lines.length} item</span></div>
+   <div className="flex flex-wrap items-start justify-between gap-3"><div><h2 className="text-lg font-extrabold">Rincian Barang & Biaya</h2><p className="mt-1 text-sm farm-muted">Tambahkan beberapa kebutuhan dalam satu bon.</p></div><span className="farm-badge">{lines.length} item</span></div>
    <div className="mt-5 grid gap-4">
    {lines.map((l,i)=><article key={l.key} className="rounded-2xl border border-[#dfe6d8] bg-[#fbfcf8] p-4">
     <div className="mb-4 flex items-center justify-between"><h3 className="font-extrabold">Item {i+1}</h3>{lines.length>1&&<button type="button" onClick={()=>setLines(old=>old.filter(x=>x.key!==l.key))} disabled={saving} className="text-sm font-bold text-[#a33136]">Hapus item</button>}</div>
@@ -78,17 +78,17 @@ export default function NewReceiptForm({projects,budgetItems}:{projects:Project[
      <label className="farm-label">Satuan<input required className="farm-input mt-2" maxLength={40} placeholder="kg, karung" value={l.unit} onChange={e=>change(l.key,{unit:e.target.value})}/></label>
      <label className="farm-label sm:col-span-2">Harga satuan (Rp)<input required className="farm-input mt-2" type="number" inputMode="decimal" min="0" step="any" placeholder="Contoh: 12000" value={l.unitPrice} onChange={e=>change(l.key,{unitPrice:e.target.value})}/></label>
     </div>
-    <div className="mt-4 flex items-center justify-between border-t border-[#dfe6d8] pt-3"><span className="text-sm text-[#718177]">Subtotal</span><strong className="farm-money">{rupiah(totals[i])}</strong></div>
+    <div className="mt-4 flex items-center justify-between border-t border-[#dfe6d8] pt-3"><span className="text-sm farm-muted">Subtotal</span><strong className="farm-money">{rupiah(totals[i])}</strong></div>
    </article>)}
    </div>
    <button type="button" disabled={saving||lines.length>=50} onClick={()=>setLines(old=>[...old,newLine(crypto.randomUUID())])} className="farm-button farm-button-secondary mt-4 w-full"><FarmIcon name="plus" size={18}/> Tambah item</button>
   </section>
   <section className="farm-card p-5 sm:p-6">
    <label className="farm-label">Catatan tambahan (opsional)<textarea className="farm-input mt-2 min-h-20 resize-y" maxLength={500} value={note} onChange={e=>setNote(e.target.value)} placeholder="Keterangan pembayaran, pengiriman, dll."/></label>
-   <div className="mt-5 flex items-center justify-between gap-2 border-t border-[#dfe6d8] pt-5"><div><p className="text-sm font-semibold text-[#718177]">Total Bon Pengeluaran</p><p className="text-xs text-[#718177]">{lines.length} item · {date||'Tanggal belum dipilih'}</p></div><strong className="farm-money text-xl sm:text-3xl">{rupiah(total)}</strong></div>
+   <div className="mt-5 flex items-center justify-between gap-2 border-t border-[#dfe6d8] pt-5"><div><p className="text-sm font-semibold farm-muted">Total Bon Pengeluaran</p><p className="text-xs farm-muted">{lines.length} item · {date||'Tanggal belum dipilih'}</p></div><strong className="farm-money text-xl sm:text-3xl">{rupiah(total)}</strong></div>
    {error&&<p className="farm-notice farm-notice-error mt-4 text-sm" role="alert">{error}</p>}
    <button type="submit" disabled={saving} aria-busy={saving} className="farm-button farm-button-primary mt-5 w-full text-base">{saving?<span className="farm-spinner"/>:<FarmIcon name="check" size={19}/>} {saving?'Menyimpan bon...':'Simpan & Lihat Struk'}</button>
-   <p className="mt-3 text-center text-xs leading-relaxed text-[#718177]">Bon ini adalah catatan pengeluaran internal Yanzen E-Farmer, bukan nota resmi yang diterbitkan penjual.</p>
+   <p className="mt-3 text-center text-xs leading-relaxed farm-muted">Bon ini adalah catatan pengeluaran internal Yanzen E-Farmer, bukan nota resmi yang diterbitkan penjual.</p>
   </section>
  </form>;
 }

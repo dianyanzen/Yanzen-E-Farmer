@@ -39,14 +39,14 @@ export default async function BonDetail({params}:{params:Promise<{id:string}>}){
     <Image src="/brand/yanzen-mark.svg" width={54} height={54} className="mx-auto" alt="Logo Yanzen E-Farmer"/>
     <p className="mt-3 text-lg font-black tracking-tight">YANZEN E-FARMER</p>
     <h1 className="mt-1 text-base font-extrabold uppercase tracking-[.12em]">Bon Pengeluaran</h1>
-    <p className="mt-2 text-xs text-[#718177]">Dokumen pencatatan internal pertanian</p>
+    <p className="mt-2 text-xs farm-muted">Dokumen pencatatan internal pertanian</p>
    </header>
    <dl className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-2 text-sm">
-    <dt className="text-[#718177]">Nomor bon</dt><dd className="max-w-56 break-all text-right font-bold">{bonNumber}</dd>
-    <dt className="text-[#718177]">Tanggal</dt><dd className="text-right font-semibold">{date}</dd>
-    <dt className="text-[#718177]">Proyek</dt><dd className="text-right font-semibold">{project.name}</dd>
-    <dt className="text-[#718177]">Komoditas</dt><dd className="text-right">{project.crop}</dd>
-    {first.vendor&&<><dt className="text-[#718177]">Pemasok / Toko</dt><dd className="text-right font-semibold">{first.vendor}</dd></>}
+    <dt className="farm-muted">Nomor bon</dt><dd className="max-w-56 break-all text-right font-bold">{bonNumber}</dd>
+    <dt className="farm-muted">Tanggal</dt><dd className="text-right font-semibold">{date}</dd>
+    <dt className="farm-muted">Proyek</dt><dd className="text-right font-semibold">{project.name}</dd>
+    <dt className="farm-muted">Komoditas</dt><dd className="text-right">{project.crop}</dd>
+    {first.vendor&&<><dt className="farm-muted">Pemasok / Toko</dt><dd className="text-right font-semibold">{first.vendor}</dd></>}
    </dl>
    <div className="my-6 border-t-2 border-dashed border-[#acc0ad]"/>
    <section aria-label="Rincian pengeluaran">
@@ -54,17 +54,17 @@ export default async function BonDetail({params}:{params:Promise<{id:string}>}){
     <div className="grid gap-4">
      {items.map((x,i)=><article key={x.id} className="border-b border-[#e4e9df] pb-3 text-sm">
       <div className="flex items-start justify-between gap-4"><strong className="leading-snug">{i+1}. {x.description}</strong><strong className="shrink-0 tabular-nums">{rupiah(Number(x.amount))}</strong></div>
-      <p className="mt-1 pl-4 text-xs text-[#718177]">{x.quantity!=null&&x.unit_price!=null?Number(x.quantity).toLocaleString('id-ID')+' '+(x.unit||'item')+' × '+rupiah(Number(x.unit_price)):'1 pengeluaran'}</p>
+      <p className="mt-1 pl-4 text-xs farm-muted">{x.quantity!=null&&x.unit_price!=null?Number(x.quantity).toLocaleString('id-ID')+' '+(x.unit||'item')+' × '+rupiah(Number(x.unit_price)):'1 pengeluaran'}</p>
      </article>)}
     </div>
    </section>
    <div className="mt-5 flex justify-between gap-3 rounded-xl bg-[#eff4e7] px-4 py-4 text-base font-black print:!rounded-none print:!bg-white print:!border-t-2 print:!border-[#103e32] print:!px-0"><span>TOTAL</span><span className="tabular-nums">{rupiah(subtotal)}</span></div>
-   {first.note&&<div className="mt-5 text-sm"><p className="font-bold">Catatan</p><p className="mt-1 whitespace-pre-wrap text-[#718177]">{first.note}</p></div>}
+   {first.note&&<div className="mt-5 text-sm"><p className="font-bold">Catatan</p><p className="mt-1 whitespace-pre-wrap farm-muted">{first.note}</p></div>}
    <div className="mt-10 grid grid-cols-2 gap-5 text-center text-xs">
     <div><p>Dibuat oleh,</p><div className="mt-14 border-t border-[#cbd9c8] pt-2">(...........................)</div></div>
     <div><p>Diterima / Diketahui,</p><div className="mt-14 border-t border-[#cbd9c8] pt-2">(...........................)</div></div>
    </div>
-   <footer className="mt-8 border-t border-dashed border-[#acc0ad] pt-4 text-center text-[11px] leading-relaxed text-[#718177]">
+   <footer className="mt-8 border-t border-dashed border-[#acc0ad] pt-4 text-center text-[11px] leading-relaxed farm-muted">
     Tersimpan di Yanzen E-Farmer. Bon ini merupakan rekaman pengeluaran internal, bukan bukti pembayaran resmi dari pemasok.
    </footer>
   </div>

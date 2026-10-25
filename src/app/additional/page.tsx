@@ -38,20 +38,20 @@ export default async function AdditionalHub() {
       </div>
     </section>
     <section className="mt-7 grid gap-3 sm:grid-cols-3" aria-label="Akses cepat">
-      <Link href="/additional/aset" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="calculator"/></span><span><strong className="block">Inventaris & alat</strong><span className="text-xs text-[#64756a]">Catat beli, pakai, rawat</span></span></Link>
-      <Link href="/additional/pekerja" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="harvest"/></span><span><strong className="block">Upah pekerja</strong><span className="text-xs text-[#64756a]">Kelompok & lembur</span></span></Link>
-      <Link href="/additional/stok" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="folder"/></span><span><strong className="block">Bahan & stok</strong><span className="text-xs text-[#64756a]">Masuk, pakai, sisa</span></span></Link>
+      <Link href="/additional/aset" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="calculator"/></span><span><strong className="block">Inventaris & alat</strong><span className="text-xs farm-muted">Catat beli, pakai, rawat</span></span></Link>
+      <Link href="/additional/pekerja" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="harvest"/></span><span><strong className="block">Upah pekerja</strong><span className="text-xs farm-muted">Kelompok & lembur</span></span></Link>
+      <Link href="/additional/stok" className="farm-card flex items-center gap-4 p-4"><span className="farm-icon"><FarmIcon name="folder"/></span><span><strong className="block">Bahan & stok</strong><span className="text-xs farm-muted">Masuk, pakai, sisa</span></span></Link>
     </section>
     {additionalGroups.map((group)=> <section key={group.id} className="mt-10">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-2 border-b border-[#dce7d7] pb-4">
-        <div><p className="text-xs font-bold uppercase tracking-[.16em] text-[#387c55]">Additional / {group.id}</p><h2 className="mt-1 text-xl font-black sm:text-2xl">{group.label}</h2><p className="mt-1 text-sm text-[#64756a]">{group.description}</p></div>
+        <div><p className="text-xs font-bold uppercase tracking-[.16em] text-[#387c55]">Additional / {group.id}</p><h2 className="mt-1 text-xl font-black sm:text-2xl">{group.label}</h2><p className="mt-1 text-sm farm-muted">{group.description}</p></div>
         <span className="rounded-full bg-[#e8f2e4] px-3 py-1 text-xs font-bold text-[#225844]">{additionalModules.filter(m=>m.group===group.id).length} modul</span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {additionalModules.filter(m=>m.group===group.id).map(m=><Link key={m.slug} href={`/additional/${m.slug}`} className="farm-card farm-additional-tile group flex min-h-[166px] flex-col p-5">
           <div className="flex items-start justify-between gap-3"><span className="farm-icon"><FarmIcon name={m.icon}/></span><span className="farm-additional-arrow" aria-hidden="true"><FarmIcon name="arrow-right" size={18}/></span></div>
           <h3 className="mt-4 text-base font-extrabold">{m.title}</h3>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-[#64756a]">{m.description}</p>
+          <p className="mt-2 flex-1 text-sm leading-relaxed farm-muted">{m.description}</p>
           <span className="mt-4 text-xs font-extrabold text-[#286142]">Buka modul →</span>
         </Link>)}
       </div>

@@ -8,6 +8,7 @@ import {
 } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FarmPageTemplate, FarmActionLink } from "@/components/farm-template";
 import {
   entities,
   entityNames,
@@ -337,7 +338,7 @@ export default function Workspace({ view }: { view: string }) {
           />
         )}
         {field.hint && (
-          <span className="mt-1 block text-xs font-normal text-[#64756a]">
+          <span className="mt-1 block text-xs font-normal farm-muted">
             {field.hint}
           </span>
         )}
@@ -540,43 +541,28 @@ export default function Workspace({ view }: { view: string }) {
   };
   const canWrite = data?.role && data.role !== "reader";
   return (
-    <main className="farm-page">
-      <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <Link href="/home" className="text-sm font-bold">
-            Yanzen E-Farmer
-          </Link>
-          <h1 className="farm-section-title mt-2">{title[view]}</h1>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href="/anggaran" className={secondary}>
-            Anggaran
-          </Link>
-          <Link href="/pengaturan" className={secondary}>
-            Usaha
-          </Link>
-          <Link href="/additional" className={secondary}>
-            Additional
-          </Link>
-          <Link href="/catat" className={button}>
-            + Catat
-          </Link>
-        </div>
-      </header>
+    <FarmPageTemplate title={title[view]}
+      actions={<>
+        <FarmActionLink href="/anggaran" tone="secondary">Anggaran</FarmActionLink>
+        <FarmActionLink href="/pengaturan" tone="secondary">Usaha</FarmActionLink>
+        <FarmActionLink href="/additional" tone="secondary">Additional</FarmActionLink>
+        {view !== "catat" && <FarmActionLink href="/catat" className="farm-desktop-action">+ Catat</FarmActionLink>}
+      </>}
+    >
       {view === "home" && (
-        <section className="farm-bon-promo mb-6 overflow-hidden rounded-[26px] border border-[#cbdcc3] bg-[#e9f2e0]">
-          <div className="grid items-center md:grid-cols-[1.1fr_.9fr]">
-            <div className="p-5 sm:p-7">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#286142]">FITUR UNGGULAN · BON / STRUK</span>
-              <h2 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#103e32] sm:text-3xl">Belanja hari ini, langsung buat bon.</h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#526d5b]">Pilih proyek, isi beberapa barang, lalu simpan. Total dihitung otomatis dan bon bisa dicetak kapan pun.</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                <Link href="/keuangan/bon/baru" className="farm-button farm-button-primary">+ Buat Bon Pengeluaran</Link>
-                <Link href="/keuangan" className="farm-button farm-button-secondary">Lihat Riwayat Bon</Link>
+        <section className="farm-bon-promo">
+          <div className="farm-bon-layout">
+            <div className="farm-bon-copy">
+              <span className="farmer-ui-tag">FITUR UNGGULAN · BON / STRUK</span>
+              <h2 className="farm-bon-title">Buat bon belanja hari ini.</h2>
+              <p className="farmer-ui-description">Catat beberapa barang dalam satu bon. Total dihitung otomatis.</p>
+              <div className="farm-bon-actions">
+                <Link href="/keuangan/bon/baru" className="farm-button farm-button-primary">+ Buat Bon</Link>
+                <Link href="/keuangan" className="farm-button farm-button-secondary">Riwayat Bon</Link>
               </div>
             </div>
-            <div className="hidden items-center justify-center p-4 md:flex" aria-hidden="true">
-              <Image src="/brand/bon-pengeluaran-photo.jpg" alt="" width={480} height={270} className="max-h-[250px] w-full rounded-2xl object-cover"/>
+            <div className="farm-bon-art" aria-hidden="true">
+              <Image src="/brand/bon-pengeluaran-photo.jpg" alt="" width={480} height={270} className="farm-bon-image"/>
             </div>
           </div>
         </section>
@@ -677,7 +663,7 @@ export default function Workspace({ view }: { view: string }) {
                   </div>
                 ))}
               </section>
-              <p className="mt-3 text-sm text-[#64756a]">
+              <p className="mt-3 text-sm farm-muted">
                 Saldo hanya berdasarkan catatan kas baru. Isi saldo awal;
                 anggaran lama tidak otomatis menjadi uang keluar.
               </p>
@@ -706,7 +692,7 @@ export default function Workspace({ view }: { view: string }) {
                    <div>
                      <span className="text-xs font-extrabold uppercase tracking-[.12em] text-[#387c55]">Additional · Semua kebutuhan usaha</span>
                      <h2 className="mt-2 text-xl font-extrabold">Modul lanjutan tanpa meramaikan menu utama</h2>
-                     <p className="mt-2 text-sm text-[#64756a]">Aset, pemakaian peralatan, stok, tenaga kerja, kasbon, panen, penjualan, perikanan, dan lainnya.</p>
+                     <p className="mt-2 text-sm farm-muted">Aset, pemakaian peralatan, stok, tenaga kerja, kasbon, panen, penjualan, perikanan, dan lainnya.</p>
                    </div>
                    <Link href="/additional" className="farm-button farm-button-primary">Jelajahi Additional →</Link>
                  </div>
@@ -723,7 +709,7 @@ export default function Workspace({ view }: { view: string }) {
           )}
           {view === "catat" && (
             <>
-              <p className="mb-5 text-[#64756a]">
+              <p className="mb-5 farm-muted">
                 Pilih kejadian. Pekerja harian cukup dicatat per kelompok.
               </p>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -829,7 +815,7 @@ export default function Workspace({ view }: { view: string }) {
                               : `${row.commodity} · ${row.status === "closed" ? "Selesai" : "Aktif"} · ${row.start_date || "Tanggal belum diisi"}`}
                         </p>
                         {row.notes ? (
-                          <p className="mt-2 text-xs text-[#64756a]">
+                          <p className="mt-2 text-xs farm-muted">
                             {String(row.notes)}
                           </p>
                         ) : null}
@@ -1487,7 +1473,7 @@ export default function Workspace({ view }: { view: string }) {
           </section>
         </dialog>
       )}
-    </main>
+    </FarmPageTemplate>
   );
 }
 function EntryList({
@@ -1514,7 +1500,7 @@ function EntryList({
         >
           <div className="flex justify-between gap-3">
             <div>
-              <p className="text-xs text-[#64756a]">
+              <p className="text-xs farm-muted">
                 {row.entry_date} · {names[row.kind || ""]}
               </p>
               <h3 className="font-bold mt-1">{row.title}</h3>

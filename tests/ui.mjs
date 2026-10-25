@@ -10,7 +10,7 @@ import assert from "node:assert/strict";
 const temp = await mkdtemp(path.join(tmpdir(), "farmer-ui-"));
 await build({
   stdin: {
-    contents: `import React from 'react';import {createRoot} from 'react-dom/client';import Workspace from './src/components/farm/workspace';createRoot(document.getElementById('root')).render(<Workspace view={new URLSearchParams(location.search).get('view')||'catat'}/>);`,
+    contents: `import React from 'react';import {createRoot} from 'react-dom/client';import Workspace from './src/components/farm/workspace';import AccountBar from './src/components/farm-account-bar';import BottomNav from './src/components/farm-bottom-nav';createRoot(document.getElementById('root')).render(<><AccountBar/><Workspace view={new URLSearchParams(location.search).get('view')||'catat'}/><BottomNav/></>);`,
     resolveDir: process.cwd(),
     loader: "tsx",
   },
@@ -23,6 +23,7 @@ await build({
     {
       name: "next-framework-fixtures",
       setup(b) {
+        b.onResolve({ filter: /^next\/navigation$/ }, () => ({path:"navigation",namespace:"fixture"}));
         b.onResolve({ filter: /^next\/link$/ }, () => ({
           path: "link",
           namespace: "fixture",
@@ -32,7 +33,7 @@ await build({
           namespace: "fixture",
         }));
         b.onLoad({ filter: /.*/, namespace: "fixture" }, (args) => ({
-          contents: args.path === "image"
+          contents: args.path === "navigation" ? "export const usePathname=()=>'/home';export const useRouter=()=>({replace:(url)=>{window.__redirect=url},refresh:()=>{}});" : args.path === "image"
             ? "import React from 'react';export default function Image({priority,fill,sizes,...p}){return React.createElement('img',p)}"
             : "import React from 'react';export default function Link(p){return React.createElement('a',p)}",
           resolveDir: process.cwd(),
@@ -75,7 +76,13 @@ try {
     if (name.endsWith(".css"))
       css += await readFile(".next/static/chunks/" + name, "utf8");
 } catch {}
+assert.ok(css.length > 0, "Run npm run build before UI tests; CSS is required");
 const server = createServer(async (req, res) => {
+  if (req.url === "/auth/signout") {
+    res.statusCode = 503;
+    res.end("Test logout failure");
+    return;
+  }
   if (req.url.startsWith("/api/farm")) {
     res.setHeader("Content-Type", "application/json");
     if (req.method === "POST") {
@@ -113,6 +120,19 @@ try {
   page.on("pageerror", (e) => errors.push(e.message));
   const url = "http://127.0.0.1:" + server.address().port;
   await page.goto(url);
+  for (const width of [360, 390, 430, 768, 1280]) {
+    await page.setViewportSize({width,height:844});
+    await page.getByRole("heading", {name:"Mau mencatat apa?"}).waitFor();
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Overflow at ${width}px`);
+    const logout = page.getByRole("button", {name:"Keluar",exact:true});
+    assert.ok((await logout.boundingBox()).height >= 44);
+    assert.equal(await page.locator(".farm-nav").isVisible(), width < 640);
+    await page.screenshot({path:`/tmp/farmer-shell-${width}.png`,fullPage:true});
+  }
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole("button", {name:"Keluar",exact:true}).click();
+  await page.getByRole("alert").filter({hasText:"Belum berhasil keluar"}).waitFor();
+  assert.ok(await page.getByRole("button", {name:"Keluar",exact:true}).isEnabled());
   await page
     .getByRole("button", { name: "Pekerja kelompok", exact: true })
     .click();
@@ -173,9 +193,19 @@ try {
     path: "/tmp/farmer-mobile-asset-usage.png",
     fullPage: true,
   });
+  for (const view of ["home", "lahan", "catatan", "laporan", "pengaturan"]) {
+    await page.goto(url + "/?view=" + view);
+    await page.getByRole("heading", {level:1}).waitFor();
+    await page.locator(".farm-kpi, section").first().waitFor();
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Overflow in ${view}`);
+    await page.screenshot({path:`/tmp/farmer-${view}.png`,fullPage:true});
+  }
+  await page.route("**/auth/signout", route => route.fulfill({status:200,body:"Signed out"}));
+  await page.getByRole("button", {name:"Keluar",exact:true}).click();
+  await page.waitForFunction(() => window.__redirect === "/login");
   assert.deepEqual(errors, []);
   console.log(
-    "PASS UI: labor/overtime, atomic payment, conversion, draft restore, asset-use deep link",
+    "PASS UI: 5 responsive widths, 6 daily views, logout success/failure/retry, labor/overtime, atomic payment, conversion, draft restore, asset-use deep link",
   );
 } finally {
   await browser.close();
