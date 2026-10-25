@@ -7,6 +7,7 @@ import {
   type FormEvent,
 } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   entities,
   entityNames,
@@ -575,7 +576,7 @@ export default function Workspace({ view }: { view: string }) {
               </div>
             </div>
             <div className="hidden items-center justify-center p-4 md:flex" aria-hidden="true">
-              <img src="/brand/bon-pengeluaran-photo.jpg" alt="" loading="lazy" className="max-h-[250px] w-full rounded-2xl object-cover"/>
+              <Image src="/brand/bon-pengeluaran-photo.jpg" alt="" width={480} height={270} className="max-h-[250px] w-full rounded-2xl object-cover"/>
             </div>
           </div>
         </section>
