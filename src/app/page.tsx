@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import FarmIcon from '@/components/farm-icon';
+import BrandLogo from '@/components/brand-logo';
 
 export default function Landing(){
  return <main className="min-h-dvh bg-[#f7f8f1]">
-  <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-   <Link href="/" className="flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="Logo Yanzen E-Farmer" width={45} height={45}/><span className="text-lg font-black tracking-tight text-[#103e32]">Yanzen E-Farmer</span></Link>
-   <Link href="/login" className="farm-button farm-button-secondary text-sm">Masuk <FarmIcon name="arrow-right" size={17}/></Link>
+  <header className="farm-landing-header">
+   <BrandLogo />
+   <Link href="/login" className="farm-landing-login">Masuk <FarmIcon name="arrow-right" size={17}/></Link>
   </header>
   <section className="mx-auto grid max-w-6xl items-center gap-9 px-5 pb-16 pt-7 sm:px-8 md:grid-cols-[1.08fr_.92fr] md:gap-12 md:pb-24 md:pt-20">
    <div className="relative z-10">
