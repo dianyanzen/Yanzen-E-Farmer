@@ -27,7 +27,7 @@ await build({
           path: "link",
           namespace: "fixture",
         }));
-        b.onResolve({ filter: /^next\\/image$/ }, () => ({
+        b.onResolve({ filter: new RegExp("^next/image$") }, () => ({
           path: "image",
           namespace: "fixture",
         }));
