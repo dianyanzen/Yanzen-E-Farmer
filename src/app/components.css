@@ -82,3 +82,30 @@
  box-shadow: 0 5px 16px rgb(16 62 50 / 17%);
 }
 .farm-nav-main-action[aria-current="page"] .farm-nav-main-icon { background: var(--botanical-leaf); }
+
+/* Additional V3: premium responsive directory, deliberately opt-in and non-invasive. */
+.farm-additional { overflow-wrap: anywhere; }
+.farm-additional-hero { min-height: 270px; isolation: isolate; box-shadow: 0 25px 55px rgba(16,62,50,.14); }
+.farm-additional-hero::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(110deg,rgba(10,42,31,.88) 0%,rgba(10,42,31,.55) 54%,rgba(10,42,31,.06) 100%); z-index:0; }
+.farm-additional-hero > div { position:relative; z-index:1; }
+.farm-additional-tile { position:relative; background:linear-gradient(150deg,#fff,#f9fcf7); transition:transform .2s var(--botanical-ease), border-color .2s ease, box-shadow .2s ease; }
+.farm-additional-tile:hover { transform:translateY(-3px); border-color:#bed6b0; box-shadow:0 12px 35px rgba(16,62,50,.10); }
+.farm-additional-arrow { display:grid; place-items:center; width:34px; height:34px; border-radius:12px; background:#edf4e7; color:#286142; transition:transform .2s ease,background-color .2s ease; }
+.farm-additional-tile:hover .farm-additional-arrow { transform:translateX(3px); background:#d9eacb; }
+.farm-additional .farm-asset-card { background:linear-gradient(180deg,#fff,#fbfdf9); }
+.farm-additional .farm-asset-card:hover { border-color:#bed6b0; }
+.farm-module-hero { isolation:isolate; }
+.farm-additional .farm-button { text-decoration:none; }
+.farm-additional .farm-button:focus-visible,
+.farm-additional .farm-additional-tile:focus-visible { outline:3px solid #387c55; outline-offset:3px; }
+.farm-additional .farm-kpi-value { overflow-wrap:anywhere; }
+@media (max-width:639px) {
+ .farm-additional-hero { min-height:340px; }
+ .farm-additional-hero::after { background:linear-gradient(120deg,rgba(10,42,31,.88),rgba(10,42,31,.58)); }
+ .farm-additional-tile { min-height:154px; }
+ .farm-additional .farm-button { max-width:100%; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .farm-additional-tile,.farm-additional-arrow { transition:none!important; }
+ .farm-additional-tile:hover,.farm-additional-tile:hover .farm-additional-arrow { transform:none!important; }
+}
