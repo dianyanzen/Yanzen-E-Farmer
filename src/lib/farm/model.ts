@@ -66,6 +66,7 @@ export const names: Record<string, string> = {
   stock_use: "Pemakaian stok",
   asset: "Pembelian aset",
   maintenance: "Perawatan aset",
+  asset_use: "Pemakaian aset",
   lease: "Sewa lahan",
 };
 export const entityNames: Record<string, string> = {
@@ -245,7 +246,34 @@ export const entryFields: Record<string, Field[]> = {
     f("d.category", "Jenis bahan", { required: true }),
   ],
   stock_use: [parent("stock_in", "Stok asal"), quantity, unit],
-  asset: [amount, f("d.serial", "Nomor / identitas aset")],
+  asset: [
+    amount,
+    f("d.category", "Jenis aset", {
+      type: "select",
+      options: ["alat", "mesin", "kendaraan", "irigasi", "bangunan", "perikanan", "elektronik", "lainnya"],
+      required: true,
+      default: "alat",
+    }),
+    f("d.serial", "Nomor inventaris / nomor seri"),
+    f("d.brand", "Merek / tipe"),
+    f("d.location", "Lokasi penyimpanan"),
+    f("d.condition", "Kondisi saat dicatat", {
+      type: "select", options: ["baik", "perlu_perawatan", "rusak"], default: "baik",
+    }),
+    number("d.quantity", "Jumlah unit", { default: "1", min: "1" }),
+    f("d.notes", "Catatan aset", { type: "textarea" }),
+  ],
+  asset_use: [
+    parent("asset", "Aset yang dipakai"),
+    f("d.operator", "Pemakai / penanggung jawab", { required: true }),
+    number("d.hours", "Durasi pemakaian (jam)", { required: true, min: "0.01" }),
+    f("d.purpose", "Digunakan untuk", { required: true }),
+    f("d.location", "Lokasi pemakaian"),
+    f("d.condition", "Kondisi setelah digunakan", { type: "select",
+      options: ["baik", "perlu_perawatan", "rusak"], default: "baik" }),
+    number("d.fuel_liter", "BBM terpakai (liter)", { min: "0" }),
+    f("d.notes", "Catatan pemakaian", { type: "textarea" }),
+  ],
   maintenance: [
     parent("asset", "Aset"),
     amount,
@@ -274,6 +302,17 @@ export const labels: Record<string, string> = {
   finance: "Keuangan",
   reader: "Pembaca",
   owner: "Pemilik",
+  alat: "Alat pertanian",
+  mesin: "Mesin",
+  kendaraan: "Kendaraan",
+  irigasi: "Pompa & irigasi",
+  bangunan: "Bangunan & fasilitas",
+  perikanan: "Peralatan perikanan",
+  elektronik: "Elektronik",
+  lainnya: "Lainnya",
+  baik: "Baik",
+  perlu_perawatan: "Perlu perawatan",
+  rusak: "Rusak",
 };
 export const costKinds = [
   "expense",
