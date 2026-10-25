@@ -167,12 +167,15 @@ export default function Workspace({ view }: { view: string }) {
         preset[key] = value;
       }
     }
-    if (requested === "entry:asset_use" && preset.parent_id &&
-       !data.references.some(r => r.id === preset.parent_id && r.kind === "asset" && r.status === "posted")) {
-      setError("Aset tidak ditemukan. Pilih aset dari daftar.");
-      delete preset.parent_id;
+    if (requested === "entity:cycles") {
+      const kind = params.get("production_type");
+      if (kind && ["seasonal", "perennial", "fish", "integrated"].includes(kind)) preset.production_type = kind;
     }
+    const invalidAssetParent = requested === "entry:asset_use" && !!preset.parent_id &&
+       !data.references.some(r => r.id === preset.parent_id && r.kind === "asset" && r.status === "posted");
+    if (invalidAssetParent) delete preset.parent_id;
     open(requested, preset);
+    if (invalidAssetParent) setError("Aset tidak ditemukan. Pilih aset dari daftar.");
   }, [data, loading, open]);
   const post = useCallback(async (body: Record<string, unknown>) => {
     const r = await fetch("/api/farm", {
