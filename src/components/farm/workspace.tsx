@@ -8,6 +8,8 @@ import {
 } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FarmIcon from "@/components/farm-icon";
+import { FarmPageTemplate, FarmStat, FarmSurface } from "@/components/farm-template";
 import {
   entities,
   entityNames,
@@ -540,29 +542,17 @@ export default function Workspace({ view }: { view: string }) {
   };
   const canWrite = data?.role && data.role !== "reader";
   return (
-    <main className="farm-page">
-      <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <Link href="/home" className="text-sm font-bold">
-            Yanzen E-Farmer
-          </Link>
-          <h1 className="farm-section-title mt-2">{title[view]}</h1>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href="/anggaran" className={secondary}>
-            Anggaran
-          </Link>
-          <Link href="/pengaturan" className={secondary}>
-            Usaha
-          </Link>
-          <Link href="/additional" className={secondary}>
-            Additional
-          </Link>
-          <Link href="/catat" className={button}>
-            + Catat
-          </Link>
-        </div>
-      </header>
+    <FarmPageTemplate
+      className="farmer-workspace"
+      eyebrow="YANZEN E-FARMER"
+      title={title[view]}
+      actions={
+        <nav className="farmer-workspace-top-links" aria-label="Menu pengelolaan">
+          <Link href="/anggaran">Anggaran</Link>
+          <Link href="/additional" className="farmer-workspace-top-link-desktop">Additional</Link>
+        </nav>
+      }
+    >
       {view === "home" && (
         <section className="farm-bon-promo mb-6 overflow-hidden rounded-[26px] border border-[#cbdcc3] bg-[#e9f2e0]">
           <div className="grid items-center md:grid-cols-[1.1fr_.9fr]">
@@ -671,10 +661,7 @@ export default function Workspace({ view }: { view: string }) {
                       .length,
                   ],
                 ].map(([l, v]) => (
-                  <div key={l} className="farm-kpi">
-                    <p className="farm-kpi-label">{l}</p>
-                    <p className="farm-kpi-value">{v}</p>
-                  </div>
+                  <FarmStat key={l} label={String(l)} value={v} />
                 ))}
               </section>
               <p className="mt-3 text-sm text-[#64756a]">
@@ -695,22 +682,24 @@ export default function Workspace({ view }: { view: string }) {
                     "Kas, kewajiban dan hasil usaha",
                   ],
                 ].map(([href, name, desc]) => (
-                  <Link href={"/" + href} key={href} className="farm-card p-5">
-                    <h2 className="font-bold text-lg">{name}</h2>
-                    <p className="mt-2 text-sm">{desc}</p>
+                  <Link href={"/" + href} key={href} className="farmer-workspace-quicklink">
+                    <h2 className="farmer-workspace-quicklink-title">{name}</h2>
+                    <p className="farmer-workspace-quicklink-description">{desc}</p>
                   </Link>
                 ))}
               </section>
-              <section className="farm-card mt-4 overflow-hidden">
-                 <div className="grid items-center gap-3 p-5 sm:grid-cols-[1fr_auto]">
-                   <div>
-                     <span className="text-xs font-extrabold uppercase tracking-[.12em] text-[#387c55]">Additional · Semua kebutuhan usaha</span>
-                     <h2 className="mt-2 text-xl font-extrabold">Modul lanjutan tanpa meramaikan menu utama</h2>
-                     <p className="mt-2 text-sm text-[#64756a]">Aset, pemakaian peralatan, stok, tenaga kerja, kasbon, panen, penjualan, perikanan, dan lainnya.</p>
-                   </div>
-                   <Link href="/additional" className="farm-button farm-button-primary">Jelajahi Additional →</Link>
-                 </div>
-               </section>
+              <section className="farmer-workspace-additional" aria-label="Akses modul Additional">
+                <div className="farmer-workspace-additional-copy">
+                  <span className="farmer-workspace-additional-icon"><FarmIcon name="folder" size={22} /></span>
+                  <div>
+                    <h2>Modul Additional</h2>
+                    <p>Aset, stok, pekerja, kasbon, panen, dan laporan usaha.</p>
+                  </div>
+                </div>
+                <Link href="/additional" className="farmer-workspace-additional-link">
+                  Jelajahi <FarmIcon name="arrow-right" size={17} />
+                </Link>
+              </section>
               <Insights data={data} />
               <EntryList
                 rows={data.entries.slice(0, 5)}
@@ -1487,7 +1476,7 @@ export default function Workspace({ view }: { view: string }) {
           </section>
         </dialog>
       )}
-    </main>
+    </FarmPageTemplate>
   );
 }
 function EntryList({
@@ -1779,41 +1768,42 @@ function Insights({ data }: { data: Snapshot }) {
       "Ada saldo kas negatif. Periksa saldo awal dan penerimaan yang belum dicatat.",
     );
   return (
-    <section className="farm-card p-5 mb-5">
-      <h2 className="font-bold text-xl">Yang perlu diperiksa</h2>
+    <FarmSurface className="farmer-workspace-insights">
+      <div className="farmer-workspace-insights-header">
+        <div>
+          <p className="farmer-workspace-eyebrow">Kelengkapan data</p>
+          <h2>Yang perlu diperiksa</h2>
+        </div>
+        <Link href="/lahan" className="farmer-workspace-insights-link">Kelola lahan</Link>
+      </div>
       {messages.length ? (
-        messages.map((m) => (
-          <p key={m} className="mt-3 text-sm">
-            {m}
-          </p>
-        ))
+        <ul className="farmer-workspace-insights-list">
+          {messages.map((message) => <li key={message}>{message}</li>)}
+        </ul>
       ) : (
-        <p className="mt-3 text-sm">
-          Belum ada pengingat dari aturan pencatatan saat ini.
-        </p>
+        <p className="farmer-workspace-insights-ok">Tidak ada pengingat dari aturan pencatatan saat ini.</p>
       )}
-      <details className="mt-4">
-        <summary className="cursor-pointer text-sm font-bold">
-          Kebutuhan data komoditas
-        </summary>
-        {data.cycles
-          .filter((c) => c.status === "active")
-          .map((c) => (
-            <p key={c.id} className="mt-3 text-sm">
-              <strong>{String(c.commodity)}:</strong>{" "}
-              {c.production_type === "fish"
-                ? "Catat jumlah tebar, pakan, kondisi air, kematian dan panen."
-                : c.production_type === "perennial"
-                  ? "Catat umur dan populasi tanaman produktif, pemeliharaan serta hasil per periode."
-                  : "Catat tanggal tanam, bahan yang digunakan, kondisi tanaman dan setiap panen."}
-            </p>
-          ))}
-        <p className="mt-3 text-xs">
-          Ini panduan kelengkapan catatan, bukan diagnosis atau rekomendasi
-          dosis. Kesesuaian komoditas belum dinilai tanpa data lokasi dan
-          referensi agronomi.
-        </p>
+      <details className="farmer-workspace-insights-details">
+        <summary>Kebutuhan data komoditas</summary>
+        <div className="farmer-workspace-insights-detail-body">
+          {data.cycles
+            .filter((c) => c.status === "active")
+            .map((c) => (
+              <p key={c.id}>
+                <strong>{String(c.commodity)}:</strong>{" "}
+                {c.production_type === "fish"
+                  ? "Catat jumlah tebar, pakan, kondisi air, kematian dan panen."
+                  : c.production_type === "perennial"
+                    ? "Catat umur dan populasi tanaman produktif, pemeliharaan serta hasil per periode."
+                    : "Catat tanggal tanam, bahan yang digunakan, kondisi tanaman dan setiap panen."}
+              </p>
+            ))}
+          <p className="farmer-workspace-insights-note">
+            Panduan kelengkapan catatan, bukan diagnosis atau rekomendasi dosis.
+            Kesesuaian komoditas belum dinilai tanpa data lokasi dan referensi agronomi.
+          </p>
+        </div>
       </details>
-    </section>
+    </FarmSurface>
   );
 }
