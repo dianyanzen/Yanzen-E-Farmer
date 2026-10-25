@@ -541,7 +541,7 @@ export default function Workspace({ view }: { view: string }) {
               </div>
             </div>
             <div className="hidden items-center justify-center p-4 md:flex" aria-hidden="true">
-              <img src="/brand/bon-pengeluaran-premium.svg" alt="" loading="lazy" className="max-h-[250px] w-full object-contain"/>
+              <img src="/brand/bon-pengeluaran-photo.jpg" alt="" loading="lazy" className="max-h-[250px] w-full rounded-2xl object-cover"/>
             </div>
           </div>
         </section>

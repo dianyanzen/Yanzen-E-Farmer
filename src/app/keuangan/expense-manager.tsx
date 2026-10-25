@@ -73,7 +73,7 @@ export default function ExpenseManager({projects,initialExpenses}:{projects:Proj
        </div><strong className="farm-money shrink-0 text-right">{money(sum)}</strong></div>
        <div className="mt-4 flex flex-wrap gap-2"><Link href={'/keuangan/bon/'+(x.receipt_group??x.id)} className="farm-button farm-button-primary text-sm"><FarmIcon name="receipt" size={17}/> Lihat / Cetak Bon</Link><button type="button" disabled={busy} onClick={()=>remove(x.id,x.receipt_group)} className="farm-button farm-button-danger text-sm">Hapus</button></div>
       </article>;
-    }):<div className="farm-empty">{current.length===0&&<Image src="/brand/empty-expense.svg" alt="Ilustrasi bon pengeluaran" width={360} height={250} className="mx-auto h-auto w-full max-w-[220px]"/>}<p className="mt-2 text-sm">{current.length===0?'Belum ada pengeluaran untuk proyek ini.':'Tidak ada bon atau transaksi yang cocok dengan pencarian.'}</p></div>}
+    }):<div className="farm-empty">{current.length===0&&<Image src="/brand/empty-expense-photo.jpg" alt="Ilustrasi bon pengeluaran" width={360} height={270} className="mx-auto h-auto w-full max-w-[220px]"/>}<p className="mt-2 text-sm">{current.length===0?'Belum ada pengeluaran untuk proyek ini.':'Tidak ada bon atau transaksi yang cocok dengan pencarian.'}</p></div>}
    </div>
   </section>
   </>}

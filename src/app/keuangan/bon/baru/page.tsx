@@ -31,7 +31,7 @@ export default async function NewBonPage(){
         <p className="mt-2 text-sm leading-relaxed text-[#566c5d]">Pilih proyek dan tanggal · Tambahkan kebutuhan · Simpan untuk melihat dan mencetak bon.</p>
         <p className="mt-3 text-xs font-semibold text-[#51745e]">Pengeluaran aktual tidak mengubah anggaran rencana.</p>
       </div>
-      <Image src="/brand/bon-pengeluaran-premium.svg" alt="Ilustrasi bon pengeluaran digital" width={960} height={660} className="hidden h-auto w-full sm:block"/>
+      <Image src="/brand/bon-pengeluaran-photo.jpg" alt="Ilustrasi bon pengeluaran digital" width={1100} height={825} className="hidden h-auto w-full sm:block"/>
     </section>
     <NewReceiptForm projects={projects??[]} budgetItems={budget??[]}/>
   </main>;
