@@ -247,3 +247,34 @@
 @media(min-width: 1024px) {
   .farmer-finance-hero-image { display: block; }
 }
+
+/* Common legacy panels now reuse semantic workspace surfaces. */
+.farmer-workspace-card { padding: 1.25rem; margin-bottom: 1.25rem; }
+.farmer-workspace-surface { padding: 1.25rem; }
+.farmer-workspace-section-title {
+  margin: 0; font-size: 1.25rem; line-height: 1.3;
+  font-weight: 800; color: var(--farmer-color-forest);
+}
+.farmer-workspace-row-card { padding: 1rem; border: 1px solid var(--farmer-color-border); border-radius: var(--farmer-radius-md); }
+.farmer-workspace-promo {
+  margin-bottom: 1.25rem; overflow: hidden; border-radius: var(--farmer-radius-lg);
+  background: var(--farmer-color-soft); border: 1px solid var(--farmer-color-border);
+}
+.farmer-workspace-promo-grid { display: grid; align-items: center; }
+.farmer-workspace-promo-copy { padding: 1rem 1.125rem; }
+.farmer-workspace-promo-eyebrow {
+  display: inline-flex; align-items: center;
+  padding: .3rem .65rem; border-radius: 999px;
+  background: rgb(255 255 255 / 80%);
+  color: var(--farmer-color-moss);
+  font-size: .6875rem; letter-spacing: .04em; font-weight: 800;
+}
+.farmer-workspace-promo-title { margin: .75rem 0 0; font-size: 1.25rem; line-height: 1.25; font-weight: 800; }
+.farmer-workspace-promo-description { margin: .5rem 0 0; max-width: 40rem; font-size: .875rem; line-height: 1.5; color: var(--farmer-color-subtle); }
+.farmer-workspace-promo-media { display: none; align-items: center; justify-content: center; padding: 1rem; }
+.farmer-workspace-promo-image { display: block; width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: var(--farmer-radius-md); }
+@media (min-width: 768px) {
+  .farmer-workspace-promo-grid { grid-template-columns: 1.1fr .9fr; }
+  .farmer-workspace-promo-copy { padding: 1.75rem; }
+  .farmer-workspace-promo-media { display: flex; }
+}
