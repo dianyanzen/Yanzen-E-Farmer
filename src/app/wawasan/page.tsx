@@ -6,12 +6,14 @@ export const dynamic='force-dynamic';
 const money=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
 export default async function Wawasan(){
  const db=await createClient();const {data:auth,error}=await db.auth.getClaims();if(error||!auth?.claims?.sub)redirect('/login');
- const {data,error:summaryError}=await db.rpc('farm_budget_summary');if(summaryError)throw new Error('Gagal memuat ringkasan');
- const perProject=(data as {id:string;name:string;area_tumbak:number;budget:number;spent:number}[]).map(p=>({...p,area:Number(p.area_tumbak),budget:Number(p.budget),spent:Number(p.spent)}));
- const projects=perProject;
- const totalArea=perProject.reduce((s,p)=>s+p.area,0);
- const budget=perProject.reduce((s,p)=>s+p.budget,0);
- const spent=perProject.reduce((s,p)=>s+p.spent,0);
+ const {data:projects,error:pError}=await db.from('farm_projects').select('id,name,area_tumbak').order('created_at',{ascending:false});if(pError)throw new Error('Gagal memuat proyek');
+ const ids=(projects??[]).map(p=>p.id);
+ const {data:items,error:iError}=ids.length?await db.from('budget_items').select('project_id,quantity,unit_price').in('project_id',ids):{data:[],error:null};if(iError)throw new Error('Gagal memuat anggaran');
+ const {data:expenses,error:eError}=await db.from('expenses').select('project_id,amount');if(eError)throw new Error('Gagal memuat pengeluaran');
+ const totalArea=(projects??[]).reduce((sum,p)=>sum+Number(p.area_tumbak||0),0);
+ const budget=(items??[]).reduce((s,x)=>s+Number(x.quantity)*Number(x.unit_price),0);
+ const spent=(expenses??[]).reduce((s,x)=>s+Number(x.amount),0);
+ const perProject=(projects??[]).map(p=>({id:p.id,name:p.name,area:Number(p.area_tumbak||0),budget:(items??[]).filter(x=>x.project_id===p.id).reduce((s,x)=>s+Number(x.quantity)*Number(x.unit_price),0),spent:(expenses??[]).filter(x=>x.project_id===p.id).reduce((s,x)=>s+Number(x.amount),0)}));
  return <main className="farm-page"><Link href="/home" className="text-sm font-bold text-[#225844]">← Beranda</Link><header className="mt-6"><p className="text-sm font-semibold text-[#718177]">Ringkasan berdasarkan data tersimpan</p><h1 className="farm-section-title mt-1">Wawasan</h1><p className="mt-2 text-sm text-[#718177]">Perbandingan rencana biaya dan pengeluaran aktual seluruh proyek Anda.</p></header>
  <section className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4"><div className="farm-kpi"><span className="farm-icon farm-icon-sm"><FarmIcon name="folder" size={19}/></span><p className="farm-kpi-label mt-3">Proyek</p><p className="farm-kpi-value">{projects?.length??0}</p></div><div className="farm-kpi"><span className="farm-icon farm-icon-sm"><FarmIcon name="calculator" size={19}/></span><p className="farm-kpi-label mt-3">Rencana biaya</p><p className="farm-kpi-value">{money(budget)}</p></div><div className="farm-kpi"><span className="farm-icon farm-icon-sm"><FarmIcon name="receipt" size={19}/></span><p className="farm-kpi-label mt-3">Pengeluaran</p><p className="farm-kpi-value">{money(spent)}</p></div><div className="farm-kpi"><span className="farm-icon farm-icon-sm"><FarmIcon name="chart" size={19}/></span><p className="farm-kpi-label mt-3">Selisih anggaran</p><p className="farm-kpi-value">{money(budget-spent)}</p></div></section>
  <section className="mt-5 grid gap-3 sm:grid-cols-3" aria-label="Indikator efisiensi">
