@@ -31,7 +31,7 @@
 
 ## Production status
 
-The production migration attempt was rejected by automatic approval review because the schema/data/RLS/function change set has a broad blast radius. No production schema changes were applied. Do not merge/deploy this branch against production until migration approval and validation are complete. This is not a production release.
+Production migrations `farm_operations_v2` and `farm_evidence_v2` were applied successfully on 2026-10-25 after explicit owner approval. Legacy data remains: one project, 24 budget items, Rp74,262,000, zero actual expense rows. One organization and one imported cycle were created. All farm tables have RLS enabled and the evidence bucket is private. The Vercel feature preview build is READY. Production application deployment follows the approved PR merge; consult Vercel for the current deployment state. No provider backup or authenticated customer-browser test is claimed.
 
 ## Verification
 
