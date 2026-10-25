@@ -1,11 +1,62 @@
-/* Botanical Luxury V2 design tokens. Legacy variables in globals.css remain supported. */
+/*
+ * Yanzen E-Farmer / Botanical Minimal — canonical visual tokens.
+ * This file is the single source of truth for NEW UI surfaces.
+ * Legacy --farm-* and --botanical-* aliases remain to avoid regressions.
+ */
 :root {
-  --botanical-forest: #103e32;
-  --botanical-moss: #225844;
-  --botanical-leaf: #387c55;
-  --botanical-sage: #a6c98a;
-  --botanical-gold: #c6a76b;
-  --botanical-ivory: #f7f8f1;
-  --botanical-ink: #193e32;
+  --farmer-color-forest: #103e32;
+  --farmer-color-moss: #225844;
+  --farmer-color-leaf: #387c55;
+  --farmer-color-sage: #a6c98a;
+  --farmer-color-gold: #c6a76b;
+  --farmer-color-paper: #ffffff;
+  --farmer-color-canvas: #f7f8f1;
+  --farmer-color-soft: #eff4e7;
+  --farmer-color-border: #dce6d7;
+  --farmer-color-text: #193e32;
+  --farmer-color-subtle: #596e61;
+  --farmer-color-focus: #387c55;
+  --farmer-color-danger: #9d2532;
+
+  --farmer-radius-xs: .625rem;
+  --farmer-radius-sm: .875rem;
+  --farmer-radius-md: 1.125rem;
+  --farmer-radius-lg: 1.5rem;
+  --farmer-radius-xl: 1.875rem;
+  --farmer-shadow-card: 0 4px 20px rgba(16,62,50,.055);
+  --farmer-shadow-raised: 0 12px 32px rgba(16,62,50,.105);
+
+  --farmer-space-1: .25rem;
+  --farmer-space-2: .5rem;
+  --farmer-space-3: .75rem;
+  --farmer-space-4: 1rem;
+  --farmer-space-5: 1.25rem;
+  --farmer-space-6: 1.5rem;
+  --farmer-space-8: 2rem;
+  --farmer-space-10: 2.5rem;
+  --farmer-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --botanical-forest: var(--farmer-color-forest);
+  --botanical-moss: var(--farmer-color-moss);
+  --botanical-leaf: var(--farmer-color-leaf);
+  --botanical-sage: var(--farmer-color-sage);
+  --botanical-gold: var(--farmer-color-gold);
+  --botanical-ivory: var(--farmer-color-canvas);
+  --botanical-ink: var(--farmer-color-text);
   --botanical-ease: cubic-bezier(.22,1,.36,1);
+
+  /* Backward-compatible aliases for existing components. */
+  --background: var(--farmer-color-canvas);
+  --foreground: var(--farmer-color-text);
+  --surface: var(--farmer-color-paper);
+  --surface-soft: var(--farmer-color-soft);
+  --primary: var(--farmer-color-forest);
+  --primary-hover: var(--farmer-color-moss);
+  --primary-contrast: #fff;
+  --border: var(--farmer-color-border);
+  --focus: var(--farmer-color-focus);
+  --radius-sm: var(--farmer-radius-xs);
+  --radius-md: var(--farmer-radius-md);
+  --radius-lg: var(--farmer-radius-lg);
+  --font-ui: var(--farmer-font);
 }
