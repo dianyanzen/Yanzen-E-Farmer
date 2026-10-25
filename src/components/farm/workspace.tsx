@@ -129,7 +129,7 @@ export default function Workspace({ view }: { view: string }) {
   const refresh = () => setRevision((n) => n + 1);
   const change = (key: string, value: string) =>
     setValues((v) => ({ ...v, [key]: value }));
-  function open(next: string, preset: Record<string, string> = {}) {
+  const open = useCallback((next: string, preset: Record<string, string> = {}) => {
     requestId.current = crypto.randomUUID();
     paymentId.current = crypto.randomUUID();
     setMode(next);
@@ -145,7 +145,35 @@ export default function Workspace({ view }: { view: string }) {
     setPayAccount("");
     setError("");
     setNotice("");
-  }
+  }, []);
+  const actionOpened = useRef(false);
+  useEffect(() => {
+    if (loading || !data?.organization || actionOpened.current) return;
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get("action");
+    if (!requested) return;
+    actionOpened.current = true;
+    const allowed = (requested.startsWith("entry:") && !!entryFields[requested.slice(6)])
+      || (requested.startsWith("entity:") && !!entities[requested.slice(7)]);
+    if (!allowed) return;
+    if (data.role === "reader") {
+      setError("Akun pembaca tidak memiliki izin mencatat.");
+      return;
+    }
+    const preset: Record<string, string> = {};
+    for (const key of ["parent_id", "cycle_id", "party_id", "title"]) {
+      const value = params.get(key);
+      if (value && value.length <= 180 && (key === "title" || /^[0-9a-f-]{36}$/i.test(value))) {
+        preset[key] = value;
+      }
+    }
+    if (requested === "entry:asset_use" && preset.parent_id &&
+       !data.references.some(r => r.id === preset.parent_id && r.kind === "asset" && r.status === "posted")) {
+      setError("Aset tidak ditemukan. Pilih aset dari daftar.");
+      delete preset.parent_id;
+    }
+    open(requested, preset);
+  }, [data, loading, open]);
   const post = useCallback(async (body: Record<string, unknown>) => {
     const r = await fetch("/api/farm", {
       method: "POST",
@@ -523,6 +551,9 @@ export default function Workspace({ view }: { view: string }) {
           <Link href="/pengaturan" className={secondary}>
             Usaha
           </Link>
+          <Link href="/additional" className={secondary}>
+            Additional
+          </Link>
           <Link href="/catat" className={button}>
             + Catat
           </Link>
@@ -666,6 +697,16 @@ export default function Workspace({ view }: { view: string }) {
                   </Link>
                 ))}
               </section>
+              <section className="farm-card mt-4 overflow-hidden">
+                 <div className="grid items-center gap-3 p-5 sm:grid-cols-[1fr_auto]">
+                   <div>
+                     <span className="text-xs font-extrabold uppercase tracking-[.12em] text-[#387c55]">Additional · Semua kebutuhan usaha</span>
+                     <h2 className="mt-2 text-xl font-extrabold">Modul lanjutan tanpa meramaikan menu utama</h2>
+                     <p className="mt-2 text-sm text-[#64756a]">Aset, pemakaian peralatan, stok, tenaga kerja, kasbon, panen, penjualan, perikanan, dan lainnya.</p>
+                   </div>
+                   <Link href="/additional" className="farm-button farm-button-primary">Jelajahi Additional →</Link>
+                 </div>
+               </section>
               <Insights data={data} />
               <EntryList
                 rows={data.entries.slice(0, 5)}
@@ -730,6 +771,7 @@ export default function Workspace({ view }: { view: string }) {
                     "stock_in",
                     "stock_use",
                     "asset",
+                    "asset_use",
                     "maintenance",
                     "lease",
                   ].map((k) => (
@@ -747,7 +789,7 @@ export default function Workspace({ view }: { view: string }) {
               <p className="mt-5 text-sm">
                 Butuh bon beberapa item?{" "}
                 <Link href="/keuangan/bon/baru" className="underline">
-                  Buka bon lama
+                  Buat bon / struk
                 </Link>
                 . Catatan lama tetap terpisah dari buku kas baru.
               </p>
