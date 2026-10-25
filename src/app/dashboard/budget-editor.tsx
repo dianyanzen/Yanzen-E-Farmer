@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useMemo,useState} from 'react';
+import {useEffect,useState} from 'react';
 import {createClient} from '@/lib/supabase/browser';
 import FarmIcon from '@/components/farm-icon';
 type Project={id:string;name:string;crop:string;area_tumbak:number};
@@ -20,7 +20,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
  const current=items.filter(x=>x.project_id===selected);
  const project=projects.find(x=>x.id===selected);
  const visible=current.filter(x=>(x.name+' '+x.category).toLocaleLowerCase('id').includes(search.trim().toLocaleLowerCase('id')));
- const total=useMemo(()=>current.reduce((a,x)=>a+Number(x.quantity)*Number(x.unit_price),0),[current]);
+ const total=current.reduce((a,x)=>a+Number(x.quantity)*Number(x.unit_price),0);
  function edit(id:string,key:keyof Item,value:string){
   setItems(old=>old.map(x=>x.id===id?{...x,[key]:key==='quantity'||key==='unit_price'?Number(value):value}:x));
   setDirty(old=>old.includes(id)?old:[...old,id]);setMessage('');
@@ -28,7 +28,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
  async function copyCsv(){
   const safe=(value:string|number)=>{
    const raw=String(value);
-   const normalized=typeof value==='string'&&/^\\s*[=+\\-@]/.test(raw)?"'"+raw:raw;
+   const normalized=typeof value==='string'&&/^\s*[=+@-]/.test(raw)?"'"+raw:raw;
    return '"'+normalized.replaceAll('"','""')+'"';
   };
   const matrix:string[][]=[
@@ -36,7 +36,7 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
    ...current.map(x=>[x.name,x.category,String(x.quantity),x.unit,String(x.unit_price),String(Number(x.quantity)*Number(x.unit_price))])
   ];
   try{
-   await navigator.clipboard.writeText(matrix.map(row=>row.map(safe).join(',')).join('\\r\\n'));
+   await navigator.clipboard.writeText(matrix.map(row=>row.map(safe).join(',')).join('\r\n'));
    setError(false);setMessage('CSV berhasil disalin. Perubahan yang belum disimpan hanya ada di editor.');
   }catch{
    setError(true);setMessage('Tidak dapat menyalin CSV. Periksa izin clipboard pada browser.');
@@ -54,14 +54,12 @@ export default function BudgetEditor({projects,initialItems}:{projects:Project[]
   setBusy(true);setMessage('');setError(false);
   const db=createClient();
   try{
-   for(const x of changed){
-    const {error:e}=await db.from('budget_items').update({name:x.name.trim(),category:x.category.trim(),quantity:x.quantity,unit:x.unit.trim(),unit_price:x.unit_price}).eq('id',x.id).eq('project_id',selected).select('id').single();
-    if(e)throw e;
-    setSavedItems(old=>old.map(item=>item.id===x.id?{...x}:item));
-    setDirty(old=>old.filter(id=>id!==x.id));
-   }
+   const {error:e}=await db.rpc('farm_save_budget',{project:selected,changes:changed.map(x=>({id:x.id,name:x.name.trim(),category:x.category.trim(),quantity:x.quantity,unit:x.unit.trim(),unit_price:x.unit_price}))});
+   if(e)throw e;
+   setSavedItems(old=>old.map(item=>changed.find(x=>x.id===item.id)??item));
+   setDirty(old=>old.filter(id=>!changed.some(x=>x.id===id)));
    setMessage('Perubahan anggaran berhasil disimpan.');
-  }catch{setError(true);setMessage('Sebagian perubahan belum tersimpan. Periksa koneksi lalu klik Simpan lagi.');}
+  }catch{setError(true);setMessage('Perubahan belum tersimpan. Periksa koneksi lalu klik Simpan lagi.');}
   finally{setBusy(false);}
  }
  async function add(event:React.FormEvent){

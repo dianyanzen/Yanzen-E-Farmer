@@ -45,3 +45,7 @@ Migrasi di `supabase/migrations/` merepresentasikan struktur database yang dipak
 - Pengelola riwayat Keuangan saat ini memuat 200 baris pengeluaran terbaru lintas proyek.
 - Foto nota, POS resmi, dan fitur panen lengkap belum tersedia.
 - Belum ada pengujian end-to-end interaktif menggunakan akun pelanggan, meski build Vercel telah berhasil.
+
+## Farm Operations V2 (development branch)
+
+The operations workspace adds land allocation, production cycles, group labor and overtime, cash, advances, harvest/sales, inventory and reporting. See [implementation and rollout notes](docs/OPERATIONS-V2.md) for exact scope, tests, limitations and required migrations. Production migration is pending approval; this branch is not yet a live release.
