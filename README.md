@@ -9,7 +9,7 @@ Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran renca
 - Supabase Auth, PostgreSQL, Row Level Security (RLS)
 - Deployment otomatis ke proyek Vercel yang sama dari branch `main`.
 
-## Modul yang terimplementasi
+## Modul lama yang dipertahankan
 1. **Beranda** — ringkasan proyek, anggaran, pengeluaran, shortcut buat bon.
 2. **Anggaran** — buat proyek, ubah rincian kebutuhan, pencarian, duplikasi proyek, total dan biaya/tumbak otomatis.
 3. **Unduh Excel** — export .xlsx dari anggaran tersimpan, tiga worksheet: Anggaran, Ringkasan, Petunjuk; rumus `SUM`, `SUMIF`, `COUNTIF`. Akses melalui detail proyek.
@@ -17,7 +17,7 @@ Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran renca
 5. **Bon / Struk Pengeluaran** — beberapa kebutuhan dalam satu bon, subtotal dan total otomatis, nomor bon, tanggal, pemasok, catatan, simpan ke Supabase, riwayat bon, cetak atau simpan PDF via browser. Ini **dokumen pencatatan internal**, bukan bukti resmi pembayaran dari penjual.
 6. **Pertanian** — daftar proyek dan tanaman yang tersimpan.
 7. **Wawasan** — ringkasan dan perbandingan anggaran vs pengeluaran.
-8. **Panen** — layar persiapan; pencatatan belum diimplementasikan.
+8. **Panen** — pencatatan panen tersedia melalui menu **+ Catat** pada Operations V2.
 
 ## Data Timun Part 3
 Database terhubung berisi satu proyek **Timun Putra Mandiri**, luas **1.150 tumbak**, dengan **24 item anggaran** bernilai **Rp74.262.000**. Data dapat diubah oleh pemilik akun; angka ini adalah snapshot awal dan bukan nilai hardcoded pada dashboard.
@@ -43,5 +43,9 @@ Migrasi di `supabase/migrations/` merepresentasikan struktur database yang dipak
 - Excel dapat diedit secara mandiri tetapi tidak tersinkron kembali otomatis ke Supabase.
 - Export Excel dibatasi kurang dari 1.000 rincian per proyek per permintaan, untuk mencegah pemotongan data oleh batas paginasi.
 - Pengelola riwayat Keuangan saat ini memuat 200 baris pengeluaran terbaru lintas proyek.
-- Foto nota, POS resmi, dan fitur panen lengkap belum tersedia.
+- Foto bukti privat dan panen tersedia pada Operations V2; POS resmi belum tersedia.
 - Belum ada pengujian end-to-end interaktif menggunakan akun pelanggan, meski build Vercel telah berhasil.
+
+## Farm Operations V2
+
+The operations workspace adds land allocation, production cycles, group labor and overtime, cash, advances, harvest/sales, inventory and reporting. See [implementation and rollout notes](docs/OPERATIONS-V2.md) for exact scope, tests, limitations and required migrations. Production migrations were applied and legacy totals verified on 2026-10-25 after owner approval. The approved PR merge triggers the application release through Vercel; check Vercel for the current deployment state.

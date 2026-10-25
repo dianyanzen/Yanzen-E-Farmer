@@ -1,5 +1,5 @@
 'use client';
-import {useEffect,useMemo,useState,type FormEvent} from 'react';
+import {useRef,useMemo,useState,type FormEvent} from 'react';
 import {useRouter} from 'next/navigation';
 import Link from 'next/link';
 import {createClient} from '@/lib/supabase/browser';
@@ -14,14 +14,15 @@ const newLine=(key:string):Line=>({key,name:'',quantity:'1',unit:'pcs',unitPrice
 export default function NewReceiptForm({projects,budgetItems}:{projects:Project[];budgetItems:BudgetRef[]}){
  const router=useRouter();
  const [projectId,setProjectId]=useState(projects[0]?.id??'');
- const [date,setDate]=useState('');
+ const [date,setDate]=useState(()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Jakarta'}).format(new Date()));
+ const groupId=useRef('');
  const [vendor,setVendor]=useState('');
  const [receiptNumber,setReceiptNumber]=useState('');
  const [note,setNote]=useState('');
  const [lines,setLines]=useState<Line[]>([newLine('initial')]);
  const [saving,setSaving]=useState(false);
  const [error,setError]=useState('');
- useEffect(()=>{setDate(new Date().toLocaleDateString('sv-SE'));},[]);
+
  const references=budgetItems.filter(i=>i.project_id===projectId);
  const totals=useMemo(()=>lines.map(l=>{
    const quantity=Number(l.quantity),price=Number(l.unitPrice);
@@ -39,7 +40,7 @@ export default function NewReceiptForm({projects,budgetItems}:{projects:Project[
   if(lines.some(l=>!l.name.trim()||!l.unit.trim()||Number(l.quantity)<=0||!Number.isFinite(Number(l.quantity))||l.unitPrice.trim()===''||Number(l.unitPrice)<0||!Number.isFinite(Number(l.unitPrice))||Number(l.quantity)*Number(l.unitPrice)>999999999999)){setError('Periksa nama, jumlah, satuan, dan harga setiap item.');return;}
   if(total<=0){setError('Total bon harus lebih dari Rp0.');return;}
   setSaving(true);setError('');
-  const group=crypto.randomUUID();
+  const group=groupId.current||(groupId.current=crypto.randomUUID());
   const number=receiptNumber.trim()||('BON-'+date.replaceAll('-','')+'-'+group.slice(0,8).toUpperCase());
   const payload=lines.map((l,i)=>({
     project_id:projectId,expense_date:date,description:l.name.trim(),
@@ -48,7 +49,7 @@ export default function NewReceiptForm({projects,budgetItems}:{projects:Project[
     vendor:vendor.trim()||null,note:note.trim()||null
   }));
   try{
-   const {data,error:insertError}=await createClient().from('expenses').insert(payload).select('id');
+   const {data,error:insertError}=await createClient().rpc('farm_save_receipt',{receipt_id:group,items:payload});
    if(insertError||!data||data.length!==payload.length)throw insertError??new Error('Pencatatan tidak lengkap');
    router.push('/keuangan/bon/'+group);router.refresh();
   }catch{

@@ -9,3 +9,6 @@ coverage/
 *.pem
 *.key
 .DS_Store
+
+*.tsbuildinfo
+supabase/.temp/

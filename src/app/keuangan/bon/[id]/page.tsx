@@ -13,7 +13,8 @@ export default async function BonDetail({params}:{params:Promise<{id:string}>}){
  const {data:auth,error:authError}=await db.auth.getClaims();
  if(authError||!auth?.claims?.sub)redirect('/login');
  const columns='id,project_id,expense_date,description,amount,quantity,unit,unit_price,receipt_number,vendor,note,receipt_group';
- let {data:rows,error}=await db.from('expenses').select(columns).eq('receipt_group',id).order('line_position',{ascending:true,nullsFirst:false}).order('created_at',{ascending:true}).limit(100);
+ const result=await db.from('expenses').select(columns).eq('receipt_group',id).order('line_position',{ascending:true,nullsFirst:false}).order('created_at',{ascending:true}).limit(100);
+ const {error}=result;let rows=result.data;
  if(error)throw new Error('Gagal membaca bon pengeluaran');
  if(!rows?.length){
   const single=await db.from('expenses').select(columns).eq('id',id).maybeSingle();
