@@ -12,6 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#f7f8f1",
     theme_color: "#103e32",
     lang: "id",
-    icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],
+    icons: [
+      { src: "/brand/yz-app-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
+    ],
   };
 }
