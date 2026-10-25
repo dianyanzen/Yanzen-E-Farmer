@@ -1,7 +1,6 @@
 'use client';
 import {useState,type FormEvent} from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import {createClient} from '@/lib/supabase/browser';
 import FarmIcon from '@/components/farm-icon';
 type Project={id:string;name:string};
@@ -50,7 +49,7 @@ export default function ExpenseManager({projects,initialExpenses}:{projects:Proj
   finally{setBusy(false);}
  }
  return <div className="mt-6 grid gap-5">
-  {projects.length===0?<div className="farm-empty">Belum ada proyek. <Link href="/anggaran/baru" className="font-bold underline">Buat proyek terlebih dahulu</Link> untuk mencatat pengeluaran.</div>:<>
+  {projects.length===0?<div className="farm-empty">Belum ada proyek. <a href="/anggaran/baru" className="font-bold underline">Buat proyek terlebih dahulu</a> untuk mencatat pengeluaran.</div>:<>
   <section className="farm-card p-5"><label className="farm-label" htmlFor="expense-project">Proyek pertanian</label><select id="expense-project" className="farm-input" value={projectId} onChange={e=>setProjectId(e.target.value)}>{projects.map(p=><option key={p.id} value={p.id}>{p.name}</option>)}</select><div className="mt-5 border-t border-[#dfe6d8] pt-4"><p className="text-sm text-[#718177]">Total dari catatan yang ditampilkan</p><p className="farm-money mt-1 text-2xl">{money(total)}</p><p className="mt-1 text-xs text-[#718177]">Ringkasan sementara dari transaksi yang dimuat. Riwayat dibatasi 200 transaksi terbaru lintas proyek.</p></div></section>
   <section className="farm-card p-5"><h2 className="flex items-center gap-2 text-xl font-extrabold"><span className="farm-icon farm-icon-sm"><FarmIcon name="receipt" size={19}/></span> Catat pengeluaran</h2><p className="mt-1 text-sm text-[#718177]">Masukkan biaya aktual, bukan estimasi anggaran.</p><form onSubmit={add} className="mt-5 grid gap-4 sm:grid-cols-2"><label className="farm-label">Tanggal<input required type="date" className="farm-input mt-2" value={date} onChange={e=>setDate(e.target.value)}/></label><label className="farm-label">Jumlah (Rp)<input required type="number" min="0.01" step="any" inputMode="decimal" className="farm-input mt-2" placeholder="Contoh: 150000" value={amount} onChange={e=>setAmount(e.target.value)}/></label><label className="farm-label sm:col-span-2">Untuk apa?<input required maxLength={200} className="farm-input mt-2" placeholder="Contoh: Pembelian pupuk" value={description} onChange={e=>setDescription(e.target.value)}/></label><label className="farm-label">Penjual / pemasok (opsional)<input maxLength={160} className="farm-input mt-2" value={vendor} onChange={e=>setVendor(e.target.value)}/></label><label className="farm-label">Nomor bon (opsional)<input maxLength={100} className="farm-input mt-2" value={receipt} onChange={e=>setReceipt(e.target.value)}/></label><button disabled={busy} aria-busy={busy} className="farm-button farm-button-primary sm:col-span-2">{busy?<span className="farm-spinner" aria-hidden="true"/>:<FarmIcon name="check" size={18}/>} {busy?"Menyimpan...":"Simpan pengeluaran"}</button></form></section>
   {notice&&<p role="status" aria-live="polite" className={"farm-notice text-sm "+(failed?"farm-notice-error":"")}>{notice}</p>}
@@ -73,7 +72,7 @@ export default function ExpenseManager({projects,initialExpenses}:{projects:Proj
        </div><strong className="farm-money shrink-0 text-right">{money(sum)}</strong></div>
        <div className="mt-4 flex flex-wrap gap-2"><Link href={'/keuangan/bon/'+(x.receipt_group??x.id)} className="farm-button farm-button-primary text-sm"><FarmIcon name="receipt" size={17}/> Lihat / Cetak Bon</Link><button type="button" disabled={busy} onClick={()=>remove(x.id,x.receipt_group)} className="farm-button farm-button-danger text-sm">Hapus</button></div>
       </article>;
-    }):<div className="farm-empty">{current.length===0&&<Image src="/brand/empty-expense.svg" alt="Ilustrasi bon pengeluaran" width={360} height={250} className="mx-auto h-auto w-full max-w-[220px]"/>}<p className="mt-2 text-sm">{current.length===0?'Belum ada pengeluaran untuk proyek ini.':'Tidak ada bon atau transaksi yang cocok dengan pencarian.'}</p></div>}
+    }):<p className="farm-empty">{current.length===0?'Belum ada pengeluaran untuk proyek ini.':'Tidak ada bon atau transaksi yang cocok dengan pencarian.'}</p>}
    </div>
   </section>
   </>}
