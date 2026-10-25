@@ -1,0 +1,183 @@
+/* Yanzen E-Farmer — shared responsive application shell.
+   Semantic classes replace one-off Tailwind styling in the core dashboard.
+   Farm legacy utility classes remain supported until each route is migrated. */
+
+.farmer-ui-page { font-family: var(--farmer-font); }
+.farmer-ui-page .farmer-ui-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+.farmer-ui-page .farmer-ui-description { font-size: 1rem; line-height: 1.55; }
+.farmer-ui-page .farmer-ui-eyebrow { font-size: .6875rem; letter-spacing: .12em; }
+.farmer-ui-page .farmer-ui-page-header { align-items: center; }
+.farmer-ui-page .farmer-ui-actions { flex-wrap: wrap; }
+.farmer-ui-page .farmer-ui-action { font-size: .875rem; }
+
+.farmer-account-menu { position: relative; z-index: 35; flex: 0 0 auto; }
+.farmer-account-menu > summary {
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--farmer-color-border);
+  background: white;
+  box-shadow: var(--farmer-shadow-card);
+  cursor: pointer;
+  list-style: none;
+}
+.farmer-account-menu > summary::-webkit-details-marker { display: none; }
+.farmer-account-menu > summary:focus-visible {
+  outline: 3px solid var(--farmer-color-focus); outline-offset: 3px;
+}
+.farmer-account-avatar {
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%; background: var(--farmer-color-forest);
+  color: white; font-size: .75rem; font-weight: 800;
+}
+.farmer-account-popover {
+  position: absolute; right: 0; top: calc(100% + .6rem); z-index: 45;
+  width: min(272px, calc(100vw - 2rem));
+  padding: .5rem;
+  border: 1px solid var(--farmer-color-border);
+  border-radius: var(--farmer-radius-md);
+  background: white;
+  box-shadow: var(--farmer-shadow-raised);
+}
+.farmer-account-caption {
+  margin: 0; padding: .6rem .75rem;
+  color: var(--farmer-color-subtle);
+  font-size: .75rem; font-weight: 700;
+}
+.farmer-account-popover a,
+.farmer-account-popover button {
+  display: flex; align-items: center; gap: .55rem;
+  width: 100%; min-height: 44px;
+  padding: .65rem .75rem; border: 0; border-radius: .75rem;
+  background: transparent; color: var(--farmer-color-forest);
+  text-decoration: none; font-size: .875rem;
+  font-weight: 700; text-align: left;
+}
+.farmer-account-popover a:hover,
+.farmer-account-popover button:hover { background: var(--farmer-color-soft); }
+.farmer-account-popover .farmer-account-signout { color: var(--farmer-color-danger); }
+.farmer-account-popover form { margin: .25rem 0 0; padding-top: .25rem; border-top: 1px solid var(--farmer-color-border); }
+
+/* Core workspace: one spacing and type scale across data and navigation cards. */
+.farmer-workspace .farmer-ui-page-header { margin-bottom: 1.25rem; }
+.farmer-workspace-top-links { display: flex; align-items: center; gap: .5rem; }
+.farmer-workspace-top-links a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .65rem 1rem;
+  border-radius: var(--farmer-radius-xs);
+  border: 1px solid var(--farmer-color-border);
+  background: white; color: var(--farmer-color-forest);
+  text-decoration: none; font-size: .875rem; font-weight: 750;
+}
+.farmer-workspace-top-links a:hover { background: var(--farmer-color-soft); }
+.farmer-workspace-quicklink {
+  display: block; min-width: 0; padding: 1rem 1.125rem;
+  border: 1px solid var(--farmer-color-border);
+  border-radius: var(--farmer-radius-lg);
+  background: var(--farmer-color-paper);
+  box-shadow: var(--farmer-shadow-card);
+  text-decoration: none; color: var(--farmer-color-text);
+}
+.farmer-workspace-quicklink:hover { border-color: var(--farmer-color-sage); }
+.farmer-workspace-quicklink-title { margin: 0; font-size: 1rem; line-height: 1.35; font-weight: 800; }
+.farmer-workspace-quicklink-description {
+  margin: .375rem 0 0; color: var(--farmer-color-subtle);
+  font-size: .875rem; line-height: 1.5;
+}
+.farmer-workspace-additional {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1rem 1.125rem; margin: 1rem 0;
+  background: var(--farmer-color-paper);
+  border: 1px solid var(--farmer-color-border);
+  border-radius: var(--farmer-radius-lg);
+  box-shadow: var(--farmer-shadow-card);
+}
+.farmer-workspace-additional-copy { display: flex; align-items: center; gap: .875rem; min-width: 0; }
+.farmer-workspace-additional-icon {
+  display: grid; place-items: center; flex: 0 0 42px;
+  width: 42px; height: 42px; border-radius: .875rem;
+  background: var(--farmer-color-soft); color: var(--farmer-color-moss);
+}
+.farmer-workspace-additional h2 { margin: 0; font-size: 1rem; font-weight: 800; line-height: 1.3; }
+.farmer-workspace-additional p { margin: .25rem 0 0; font-size: .875rem; color: var(--farmer-color-subtle); line-height: 1.45; }
+.farmer-workspace-additional-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; gap: .35rem; padding: .5rem .7rem;
+  white-space: nowrap; border-radius: var(--farmer-radius-xs);
+  font-size: .875rem; color: var(--farmer-color-moss);
+  font-weight: 800; text-decoration: none;
+}
+.farmer-workspace-additional-link:hover { background: var(--farmer-color-soft); }
+.farmer-workspace-insights { margin-bottom: 1.25rem; }
+.farmer-workspace-insights-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.farmer-workspace-insights-header h2 { margin: .25rem 0 0; font-size: 1.25rem; font-weight: 800; line-height: 1.25; }
+.farmer-workspace-eyebrow {
+  margin: 0; font-size: .6875rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--farmer-color-leaf); font-weight: 800;
+}
+.farmer-workspace-insights-link {
+  flex: 0 0 auto; display: inline-flex; align-items: center;
+  min-height: 44px; padding: .5rem .625rem; border-radius: .75rem;
+  font-size: .8125rem; font-weight: 800; text-decoration: none;
+  color: var(--farmer-color-moss);
+}
+.farmer-workspace-insights-link:hover { background: var(--farmer-color-soft); }
+.farmer-workspace-insights-list { margin: .875rem 0 0; padding: 0; list-style: none; }
+.farmer-workspace-insights-list li {
+  position: relative; margin: 0; padding: .65rem 0 .65rem 1.25rem;
+  color: var(--farmer-color-text); font-size: 1rem; line-height: 1.55;
+  border-bottom: 1px solid var(--farmer-color-border);
+}
+.farmer-workspace-insights-list li::before {
+  content: ""; position: absolute; left: 0; top: 1.1rem;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--farmer-color-leaf);
+}
+.farmer-workspace-insights-ok { font-size: 1rem; margin: .75rem 0 0; }
+.farmer-workspace-insights-details { margin-top: .75rem; }
+.farmer-workspace-insights-details summary {
+  cursor: pointer; padding: .625rem 0; min-height: 44px;
+  color: var(--farmer-color-moss); font-size: .875rem; font-weight: 800;
+}
+.farmer-workspace-insights-detail-body p { margin: .55rem 0; font-size: 1rem; line-height: 1.55; }
+.farmer-workspace-insights-detail-body .farmer-workspace-insights-note {
+  color: var(--farmer-color-subtle); font-size: .875rem; line-height: 1.5;
+}
+.farmer-workspace .farmer-ui-stat { padding: 1rem; }
+.farmer-workspace .farmer-ui-stat-value { font-size: clamp(1.125rem, 3vw, 1.625rem); }
+
+/* Legacy views still run; keep bottom navigation fixed but touch-friendly on iOS. */
+@media(max-width: 639px) {
+  .farmer-ui-page .farmer-ui-title { font-size: 1.5rem; }
+  .farmer-ui-page .farmer-ui-page-header { gap: .75rem; }
+  .farmer-workspace .farmer-ui-page-header { flex-wrap: nowrap; }
+  .farmer-workspace .farmer-ui-page-heading { flex: 1 1 auto; }
+  .farmer-workspace .farmer-ui-actions { width: auto; flex: 0 0 auto; }
+  .farmer-workspace-top-link-desktop { display: none !important; }
+  .farmer-workspace-top-links a { padding: .55rem .75rem; }
+  .farmer-workspace-additional { align-items: flex-start; padding: .875rem; gap: .5rem; }
+  .farmer-workspace-additional-copy { align-items: flex-start; gap: .625rem; }
+  .farmer-workspace-additional-icon { flex-basis: 36px; width: 36px; height: 36px; }
+  .farmer-workspace-additional-link { font-size: .8125rem; padding: .5rem .25rem; }
+  .farmer-workspace-insights-header { align-items: flex-start; }
+  .farmer-workspace-insights-link { padding: .4rem .25rem; }
+  .farmer-ui-page .farmer-ui-actions { gap: .5rem; }
+  .farm-nav-link { min-height: 62px; line-height: 1.2; font-size: .6875rem; }
+  .farm-nav-link > svg { width: 22px; height: 22px; }
+  .farm-nav-main-icon { width: 48px; height: 45px; border-radius: 15px; }
+}
+@media(max-width: 359px) {
+  .farmer-workspace-top-links a { padding-inline: .5rem; }
+  .farmer-workspace-additional { flex-direction: column; }
+  .farmer-workspace-additional-link { align-self: flex-end; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .farmer-account-menu *, .farmer-workspace * { scroll-behavior: auto; }
+}
