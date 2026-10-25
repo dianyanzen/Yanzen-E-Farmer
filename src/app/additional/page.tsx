@@ -3,6 +3,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import FarmIcon from "@/components/farm-icon";
+import { FarmActionLink, FarmPageTemplate } from "@/components/farm-template";
 import { additionalGroups, additionalModules } from "@/lib/farm/additional";
 export const dynamic = "force-dynamic";
 
@@ -10,14 +11,18 @@ export default async function AdditionalHub() {
   const db = await createClient();
   const { data, error } = await db.auth.getUser();
   if (error || !data.user) redirect("/login");
-  return <main className="farm-page farm-additional">
-    <header className="flex flex-wrap items-center justify-between gap-3">
-      <Link href="/home" className="text-sm font-bold text-[#225844]">← Kembali ke beranda</Link>
-      <div className="flex flex-wrap gap-2">
-        <Link href="/catat" className="farm-button farm-button-secondary text-sm">+ Catat</Link>
-        <Link href="/pengaturan" className="farm-button farm-button-secondary text-sm">Pengaturan usaha</Link>
-      </div>
-    </header>
+  return <FarmPageTemplate
+    className="farm-additional"
+    eyebrow="Ekosistem usaha tani"
+    title="Additional"
+    subtitle="Modul lanjutan yang melengkapi pekerjaan inti, tanpa meramaikan navigasi utama."
+    backHref="/home"
+    backLabel="Kembali ke beranda"
+    actions={<>
+      <FarmActionLink href="/catat" tone="primary" size="sm">+ Catat</FarmActionLink>
+      <FarmActionLink href="/pengaturan" tone="secondary" size="sm">Pengaturan usaha</FarmActionLink>
+    </>}
+  >
     <section className="farm-additional-hero relative mt-5 overflow-hidden rounded-[30px] bg-[#103e32] text-white">
       <Image src="/brand/farm-sunrise-photo.jpg" alt="" fill className="object-cover opacity-25" sizes="(max-width: 1100px) 100vw, 1080px" priority={false}/>
       <div className="relative z-10 max-w-2xl p-6 sm:p-10">
@@ -55,5 +60,9 @@ export default async function AdditionalHub() {
       <strong className="block text-base text-[#103e32]">Data nyata, satu sumber.</strong>
       Riwayat Additional memakai database usaha dan otorisasi yang sama. Pencatatan upah, pemakaian aset, stok, atau penjualan tidak otomatis disamakan dengan arus kas—pembayaran dan penggunaan dicatat sesuai jenis transaksinya.
     </aside>
-  </main>;
+    <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-[#596e61]">
+      <span>Seluruh halaman baru mengikuti Botanical Minimal Base Template.</span>
+      <Link href="/design-system" className="font-bold text-[#225844] underline underline-offset-4">Lihat Base Template →</Link>
+    </div>
+  </FarmPageTemplate>;
 }
