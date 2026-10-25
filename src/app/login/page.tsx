@@ -1,10 +1,12 @@
 'use client';
 import { useState, type FormEvent } from 'react';
 import Link from 'next/link';
+import {useRouter} from 'next/navigation';
 import Image from 'next/image';
 import FarmIcon from '@/components/farm-icon';
 import { createClient } from '@/lib/supabase/browser';
 export default function Login(){
+ const router=useRouter();
  const [mode,setMode]=useState<'login'|'signup'>('login');
  const [email,setEmail]=useState('');
  const [password,setPassword]=useState('');
@@ -24,7 +26,7 @@ export default function Login(){
     const {error}=await supabase.auth.signInWithPassword({email,password});
     if(error)throw error;
    }
-   window.location.assign('/home');
+   router.replace('/home');router.refresh();
   }catch{setFailed(true);setMessage(mode==='signup'?'Pendaftaran gagal. Periksa email dan kata sandi, atau coba masuk jika sudah terdaftar.':'Gagal masuk. Periksa email, kata sandi, dan konfirmasi akun.');}
   finally{setBusy(false);}
  }
