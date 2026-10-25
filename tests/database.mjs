@@ -105,47 +105,6 @@ const labor = {
   },
 };
 assert.equal(Number((await save(labor)).amount), 2400000);
-const assetEntry = await save({
-  ...base,
-  id: crypto.randomUUID(),
-  kind: "asset",
-  title: "Pompa irigasi",
-  amount: 3500000,
-  details: { category: "irigasi", serial: "PMP-001", location: "Gudang" },
-});
-const usedAsset = await save({
-  ...base,
-  id: crypto.randomUUID(),
-  kind: "asset_use",
-  title: "Pemakaian pompa",
-  parent_id: assetEntry.id,
-  amount: 500000,
-  details: { operator: "Tim irigasi", hours: 3.5, purpose: "Pengairan blok A", condition: "baik" },
-});
-assert.equal(Number(usedAsset.amount), 0, "Usage must not create duplicate expense");
-assert.equal(usedAsset.parent_id, assetEntry.id);
-await assert.rejects(
-  save({
-    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Tanpa petugas",
-    parent_id: assetEntry.id, details: { hours: 1 }
-  }),
-  /penanggung jawab/,
-);
-await assert.rejects(
-  save({
-    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Salah induk",
-    parent_id: labor.id, details: { operator: "Operator", hours: 1 }
-  }),
-  /Pemakaian harus terkait aset/,
-);
-await assert.rejects(
-  save({
-    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Durasi negatif",
-    parent_id: assetEntry.id, details: { operator: "Operator", hours: -1 }
-  }),
-  /Durasi penggunaan tidak valid/,
-);
-
 assert.equal(Number((await save(labor)).amount), 2400000);
 await assert.rejects(save({ ...labor, title: "different" }), /berbeda/);
 const adv = await save({
@@ -190,6 +149,49 @@ await assert.rejects(
 const report = (await one("select farm_report($1) result", [org])).result;
 assert.equal(Number(report.cash[0].balance), -2400000);
 assert.equal(report.outstanding.length, 0);
+// Asset usage comes after wage settlement assertions to keep liability tests independent.
+const assetEntry = await save({
+  ...base,
+  id: crypto.randomUUID(),
+  kind: "asset",
+  title: "Pompa irigasi",
+  amount: 3500000,
+  details: { category: "irigasi", serial: "PMP-001", location: "Gudang" },
+});
+const usedAsset = await save({
+  ...base,
+  id: crypto.randomUUID(),
+  kind: "asset_use",
+  title: "Pemakaian pompa",
+  parent_id: assetEntry.id,
+  amount: 500000,
+  details: { operator: "Tim irigasi", hours: 3.5, purpose: "Pengairan blok A", condition: "baik" },
+});
+assert.equal(Number(usedAsset.amount), 0, "Usage must not create duplicate expense");
+assert.equal(usedAsset.parent_id, assetEntry.id);
+await assert.rejects(
+  save({
+    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Tanpa petugas",
+    parent_id: assetEntry.id, details: { hours: 1 }
+  }),
+  /penanggung jawab/,
+);
+await assert.rejects(
+  save({
+    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Salah induk",
+    parent_id: labor.id, details: { operator: "Operator", hours: 1 }
+  }),
+  /Pemakaian harus terkait aset/,
+);
+await assert.rejects(
+  save({
+    ...base, id: crypto.randomUUID(), kind: "asset_use", title: "Durasi negatif",
+    parent_id: assetEntry.id, details: { operator: "Operator", hours: -1 }
+  }),
+  /Durasi penggunaan tidak valid/,
+);
+
+
 const harvest = await save({
   ...base,
   id: crypto.randomUUID(),
