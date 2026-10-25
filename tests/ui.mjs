@@ -21,15 +21,20 @@ await build({
   define: { "process.env.NODE_ENV": '"development"' },
   plugins: [
     {
-      name: "next-link-fixture",
+      name: "next-framework-fixtures",
       setup(b) {
         b.onResolve({ filter: /^next\/link$/ }, () => ({
           path: "link",
           namespace: "fixture",
         }));
-        b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-          contents:
-            "import React from 'react';export default function Link(p){return React.createElement('a',p)}",
+        b.onResolve({ filter: /^next\\/image$/ }, () => ({
+          path: "image",
+          namespace: "fixture",
+        }));
+        b.onLoad({ filter: /.*/, namespace: "fixture" }, (args) => ({
+          contents: args.path === "image"
+            ? "import React from 'react';export default function Image({priority,fill,sizes,...p}){return React.createElement('img',p)}"
+            : "import React from 'react';export default function Link(p){return React.createElement('a',p)}",
           resolveDir: process.cwd(),
         }));
       },
