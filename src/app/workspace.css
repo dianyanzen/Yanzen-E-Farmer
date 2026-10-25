@@ -181,3 +181,69 @@
 @media(prefers-reduced-motion: reduce) {
   .farmer-account-menu *, .farmer-workspace * { scroll-behavior: auto; }
 }
+
+/* Reusable farm cards: typography and spacing are declared once, not per JSX element. */
+.farmer-section-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.farmer-feature-card { display: block; padding: 1.125rem; text-decoration: none; }
+.farmer-feature-card strong { display: block; margin-top: 1rem; font-size: 1rem; }
+.farmer-feature-description { display: block; margin-top: .375rem; font-size: .875rem; color: var(--farmer-color-subtle); line-height: 1.5; }
+.farmer-metric-card .farm-kpi-label { margin-top: .75rem; }
+.farmer-metric-hint { margin: .25rem 0 0; font-size: .75rem; line-height: 1.5; color: var(--farmer-color-subtle); }
+.farmer-project-card { display: block; padding: 1.25rem; text-decoration: none; }
+.farmer-project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+.farmer-project-copy { min-width: 0; }
+.farmer-project-copy h2 { margin: .5rem 0 0; overflow-wrap: anywhere; font-size: 1.125rem; line-height: 1.35; font-weight: 800; }
+.farmer-project-copy p { margin: .25rem 0 0; font-size: .875rem; line-height: 1.5; color: var(--farmer-color-subtle); }
+.farmer-project-total { padding-top: 1rem; margin-top: 1.25rem; }
+.farmer-project-total p { margin: 0; font-size: .75rem; font-weight: 700; color: var(--farmer-color-subtle); }
+.farmer-project-total strong { display: block; margin-top: .25rem; font-size: 1.25rem; }
+
+/* Legacy finance + budget page shells progressively adopt the canonical template. */
+.farmer-budget-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1.25rem; }
+.farmer-budget-empty { grid-column: 1 / -1; }
+.farmer-budget-empty-image { display: block; width: min(100%, 235px); height: auto; margin-inline: auto; border-radius: 1rem; }
+.farmer-budget-empty p { margin: .75rem 0; }
+.farmer-new-project-page { max-width: 680px; }
+.farmer-new-project-form {
+  display: grid; gap: 1.25rem; margin-top: 1.25rem;
+  padding: 1.25rem; border: 1px solid var(--farmer-color-border);
+  border-radius: var(--farmer-radius-lg);
+  background: var(--farmer-color-paper);
+  box-shadow: var(--farmer-shadow-card);
+}
+.farmer-new-project-submit { width: 100%; }
+.farmer-finance-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: 1.5rem; margin-top: 1.25rem; border-radius: var(--farmer-radius-lg);
+  color: white;
+}
+.farmer-finance-hero-body { position: relative; z-index: 2; max-width: 34rem; }
+.farmer-finance-hero-eyebrow {
+  display: inline-flex; padding: .3rem .75rem; border-radius: 999px;
+  background: rgb(255 255 255 / 12%); color: #d8ecbb;
+  font-size: .75rem; font-weight: 800;
+}
+.farmer-finance-hero h2 { margin: .75rem 0 0; font-size: 1.5rem; line-height: 1.25; font-weight: 850; }
+.farmer-finance-hero p { margin: .65rem 0 1.25rem; font-size: 1rem; line-height: 1.6; color: #e1efdf; }
+.farmer-finance-hero-image { position: absolute; right: -4rem; bottom: -4rem; width: 390px; height: auto; opacity: .6; display: none; }
+.farmer-bon-page { max-width: 900px; }
+.farmer-bon-guide {
+  display: grid; align-items: center; gap: 1rem;
+  margin-top: 1.25rem; padding: 1.125rem;
+  overflow: hidden; border: 1px solid var(--farmer-color-border);
+  background: var(--farmer-color-soft); border-radius: var(--farmer-radius-lg);
+}
+.farmer-bon-guide h2 { margin: .5rem 0 0; font-size: 1.125rem; line-height: 1.3; font-weight: 800; }
+.farmer-bon-guide p:not(.farmer-workspace-eyebrow) { margin: .5rem 0 0; color: var(--farmer-color-subtle); font-size: .875rem; line-height: 1.55; }
+.farmer-bon-guide small { display: block; margin-top: .75rem; color: var(--farmer-color-moss); font-size: .75rem; font-weight: 700; }
+.farmer-bon-guide-image { display: none; width: 100%; height: auto; }
+@media(min-width: 640px) {
+  .farmer-budget-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .farmer-new-project-form { padding: 1.75rem; }
+  .farmer-finance-hero { padding: 2rem; }
+  .farmer-bon-guide { grid-template-columns: 1fr 175px; padding: 1.25rem; }
+  .farmer-bon-guide-image { display: block; }
+}
+@media(min-width: 1024px) {
+  .farmer-finance-hero-image { display: block; }
+}
