@@ -5,6 +5,7 @@ import type {
   ReactNode,
 } from "react";
 import Link from "next/link";
+import FarmAccountMenu from "@/components/farm-account-menu";
 
 type Tone = "primary" | "secondary" | "quiet" | "danger";
 type Size = "sm" | "md" | "lg";
@@ -79,7 +80,7 @@ export function FarmPageTemplate({
         <h1 className="farmer-ui-title">{title}</h1>
         {subtitle && <p className="farmer-ui-description">{subtitle}</p>}
       </div>
-      {actions && <div className="farmer-ui-actions">{actions}</div>}
+      <div className="farmer-ui-actions">{actions}<FarmAccountMenu /></div>
     </header>
     {children}
   </main>;
