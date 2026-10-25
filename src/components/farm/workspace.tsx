@@ -687,16 +687,15 @@ export default function Workspace({ view }: { view: string }) {
                   </Link>
                 ))}
               </section>
-              <section className="farm-card mt-4 overflow-hidden">
-                 <div className="grid items-center gap-3 p-5 sm:grid-cols-[1fr_auto]">
-                   <div>
-                     <span className="text-xs font-extrabold uppercase tracking-[.12em] text-[#387c55]">Additional · Semua kebutuhan usaha</span>
-                     <h2 className="mt-2 text-xl font-extrabold">Modul lanjutan tanpa meramaikan menu utama</h2>
-                     <p className="mt-2 text-sm farm-muted">Aset, pemakaian peralatan, stok, tenaga kerja, kasbon, panen, penjualan, perikanan, dan lainnya.</p>
-                   </div>
-                   <Link href="/additional" className="farm-button farm-button-primary">Jelajahi Additional →</Link>
-                 </div>
-               </section>
+              <section className="farm-compact-additional" aria-label="Modul tambahan">
+                <div className="farm-compact-additional-copy">
+                  <div>
+                    <h2>Modul Additional</h2>
+                    <p>Aset, stok, pekerja, kasbon, panen, penjualan, dan perikanan.</p>
+                  </div>
+                  <Link href="/additional" className="farm-compact-additional-link">Jelajahi →</Link>
+                </div>
+              </section>
               <Insights data={data} />
               <EntryList
                 rows={data.entries.slice(0, 5)}
@@ -1748,44 +1747,32 @@ function Reports({
 function Insights({ data }: { data: Snapshot }) {
   const messages: string[] = [];
   if (!data.lands.length)
-    messages.push(
-      "Lahan belum dicatat. Tambahkan luas dan lokasi agar hasil dapat dibandingkan per area.",
-    );
+    messages.push("Lahan belum dicatat. Tambahkan luas dan lokasi agar hasil dapat dibandingkan per area.");
   const unpaid = data.report.outstanding.filter((r) => r.kind === "sale");
   if (unpaid.length)
-    messages.push(
-      `${unpaid.length} penjualan masih memiliki piutang. Periksa penerimaan pembayaran.`,
-    );
+    messages.push(`${unpaid.length} penjualan masih memiliki piutang. Periksa penerimaan pembayaran.`);
   if (data.cycles.some((c) => !c.block_id))
-    messages.push(
-      "Ada budidaya tanpa bagian lahan. Laporan produktivitas per luas belum lengkap.",
-    );
+    messages.push("Ada budidaya tanpa bagian lahan. Laporan produktivitas per luas belum lengkap.");
   if (data.report.cash.some((a) => Number(a.balance) < 0))
-    messages.push(
-      "Ada saldo kas negatif. Periksa saldo awal dan penerimaan yang belum dicatat.",
-    );
+    messages.push("Ada saldo kas negatif. Periksa saldo awal dan penerimaan yang belum dicatat.");
   return (
-    <section className="farm-card p-5 mb-5">
-      <h2 className="font-bold text-xl">Yang perlu diperiksa</h2>
+    <section className="farm-card farm-compact-insights">
+      <div className="farm-compact-insights-header">
+        <h2>Yang perlu diperiksa</h2>
+        <Link href="/lahan" className="farm-compact-insights-link">Kelola lahan</Link>
+      </div>
       {messages.length ? (
-        messages.map((m) => (
-          <p key={m} className="mt-3 text-sm">
-            {m}
-          </p>
-        ))
+        <ul className="farm-compact-insights-list">
+          {messages.map((message) => <li key={message}>{message}</li>)}
+        </ul>
       ) : (
-        <p className="mt-3 text-sm">
-          Belum ada pengingat dari aturan pencatatan saat ini.
-        </p>
+        <p className="farm-compact-insights-empty">Tidak ada pengingat dari aturan pencatatan saat ini.</p>
       )}
-      <details className="mt-4">
-        <summary className="cursor-pointer text-sm font-bold">
-          Kebutuhan data komoditas
-        </summary>
-        {data.cycles
-          .filter((c) => c.status === "active")
-          .map((c) => (
-            <p key={c.id} className="mt-3 text-sm">
+      <details className="farm-compact-insights-details">
+        <summary>Kebutuhan data komoditas</summary>
+        <div className="farm-compact-insights-detail-content">
+          {data.cycles.filter((c) => c.status === "active").map((c) => (
+            <p key={c.id}>
               <strong>{String(c.commodity)}:</strong>{" "}
               {c.production_type === "fish"
                 ? "Catat jumlah tebar, pakan, kondisi air, kematian dan panen."
@@ -1794,11 +1781,11 @@ function Insights({ data }: { data: Snapshot }) {
                   : "Catat tanggal tanam, bahan yang digunakan, kondisi tanaman dan setiap panen."}
             </p>
           ))}
-        <p className="mt-3 text-xs">
-          Ini panduan kelengkapan catatan, bukan diagnosis atau rekomendasi
-          dosis. Kesesuaian komoditas belum dinilai tanpa data lokasi dan
-          referensi agronomi.
-        </p>
+          <p className="farm-compact-insights-disclaimer">
+            Ini panduan kelengkapan catatan, bukan diagnosis atau rekomendasi dosis.
+            Kesesuaian komoditas belum dinilai tanpa data lokasi dan referensi agronomi.
+          </p>
+        </div>
       </details>
     </section>
   );
