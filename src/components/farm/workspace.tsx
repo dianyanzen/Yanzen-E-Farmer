@@ -528,6 +528,24 @@ export default function Workspace({ view }: { view: string }) {
           </Link>
         </div>
       </header>
+      {view === "home" && (
+        <section className="farm-bon-promo mb-6 overflow-hidden rounded-[26px] border border-[#cbdcc3] bg-[#e9f2e0]">
+          <div className="grid items-center md:grid-cols-[1.1fr_.9fr]">
+            <div className="p-5 sm:p-7">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-extrabold text-[#286142]">FITUR UNGGULAN · BON / STRUK</span>
+              <h2 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#103e32] sm:text-3xl">Belanja hari ini, langsung buat bon.</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#526d5b]">Pilih proyek, isi beberapa barang, lalu simpan. Total dihitung otomatis dan bon bisa dicetak kapan pun.</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Link href="/keuangan/bon/baru" className="farm-button farm-button-primary">+ Buat Bon Pengeluaran</Link>
+                <Link href="/keuangan" className="farm-button farm-button-secondary">Lihat Riwayat Bon</Link>
+              </div>
+            </div>
+            <div className="hidden items-center justify-center p-4 md:flex" aria-hidden="true">
+              <img src="/brand/bon-pengeluaran-premium.svg" alt="" loading="lazy" className="max-h-[250px] w-full object-contain"/>
+            </div>
+          </div>
+        </section>
+      )}
       {data?.organizations?.length ? (
         <label className="farm-label mb-5 block">
           Usaha aktif

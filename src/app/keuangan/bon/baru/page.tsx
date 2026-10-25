@@ -3,6 +3,7 @@ import {redirect} from 'next/navigation';
 import {createClient} from '@/lib/supabase/server';
 import NewReceiptForm from './new-receipt-form';
 import FarmIcon from '@/components/farm-icon';
+import Image from 'next/image';
 export const dynamic='force-dynamic';
 
 export default async function NewBonPage(){
@@ -23,6 +24,15 @@ export default async function NewBonPage(){
       <h1 className="farm-section-title mt-1">Buat Bon Pengeluaran</h1>
       <p className="mt-2 text-sm leading-relaxed text-[#718177]">Satu bon untuk beberapa kebutuhan sekaligus. Total dihitung otomatis, lalu disimpan ke Supabase sebagai pengeluaran aktual.</p></div>
     </header>
+    <section className="mt-6 grid items-center gap-4 overflow-hidden rounded-[24px] border border-[#dce8d4] bg-[#f0f6e9] p-4 sm:grid-cols-[1fr_175px] sm:p-5">
+      <div>
+        <p className="text-xs font-extrabold uppercase tracking-[.13em] text-[#388255]">Cara cepat membuat bon</p>
+        <h2 className="mt-2 text-lg font-extrabold tracking-tight text-[#123f31]">Tiga langkah, satu struk tersimpan.</h2>
+        <p className="mt-2 text-sm leading-relaxed text-[#566c5d]">Pilih proyek dan tanggal · Tambahkan kebutuhan · Simpan untuk melihat dan mencetak bon.</p>
+        <p className="mt-3 text-xs font-semibold text-[#51745e]">Pengeluaran aktual tidak mengubah anggaran rencana.</p>
+      </div>
+      <Image src="/brand/bon-pengeluaran-premium.svg" alt="Ilustrasi bon pengeluaran digital" width={960} height={660} className="hidden h-auto w-full sm:block"/>
+    </section>
     <NewReceiptForm projects={projects??[]} budgetItems={budget??[]}/>
   </main>;
 }

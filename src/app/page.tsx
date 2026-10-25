@@ -25,7 +25,22 @@ export default function Landing(){
       <div className="rounded-2xl border border-white/15 bg-white/15 p-4 backdrop-blur-sm"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d8ecbb] text-[#153f32]"><FarmIcon name="receipt"/></span><strong className="mt-4 block">Bon & Struk</strong><span className="mt-1 block text-xs text-[#dce9db]">Simpan, cetak, dan arsipkan</span></div>
      </div>
     </div>
-    <Image src="/brand/cucumber-farm.svg" alt="" width={460} height={325} className="pointer-events-none absolute -right-24 -top-6 w-[430px] opacity-20" aria-hidden="true"/><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
+    <Image src="/brand/farm-sunrise-premium.svg" alt="" width={460} height={325} className="pointer-events-none absolute -right-24 -top-6 w-[430px] opacity-20" aria-hidden="true"/><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
+   </div>
+  </section>
+  <section id="bon-unggulan" className="border-y border-[#dce8d7] bg-[#edf4e7] px-5 py-14 sm:px-8 sm:py-20">
+   <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[.96fr_1.04fr] lg:gap-14">
+    <div className="order-2 lg:order-1">
+     <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-extrabold tracking-wide text-[#245b40] shadow-sm"><FarmIcon name="receipt" size={17}/> FITUR UTAMA · BON PENGELUARAN</div>
+     <h2 className="mt-5 max-w-xl text-3xl font-black leading-tight tracking-tight text-[#103e32] sm:text-5xl">Setiap belanja kebun, <span className="text-[#387c55]">ada buktinya.</span></h2>
+     <p className="mt-5 max-w-xl text-base leading-relaxed text-[#526d5b]">Buat bon pengeluaran dari HP, masukkan beberapa barang sekaligus, hitung total otomatis, dan simpan sebagai arsip digital. Bon dapat dicetak atau dijadikan PDF melalui browser.</p>
+     <div className="mt-5 flex flex-wrap gap-2 text-xs font-bold text-[#245b40]"><span className="rounded-full border border-[#bad6b2] bg-white px-3 py-2">Banyak item dalam satu bon</span><span className="rounded-full border border-[#bad6b2] bg-white px-3 py-2">Terhubung ke proyek</span><span className="rounded-full border border-[#bad6b2] bg-white px-3 py-2">Cetak dan arsip</span></div>
+     <Link href="/keuangan/bon/baru" className="farm-button farm-button-primary mt-7 min-h-12 px-6">Buat Bon Pengeluaran <FarmIcon name="arrow-right" size={18}/></Link>
+     <p className="mt-3 text-xs text-[#718177]">Memerlukan login · Bon internal, bukan nota resmi pemasok</p>
+    </div>
+    <div className="order-1 overflow-hidden rounded-[28px] border border-[#d7e3d2] bg-[#f8fbf6] shadow-[0_20px_50px_rgba(25,75,46,.10)] lg:order-2">
+      <Image src="/brand/bon-pengeluaran-premium.svg" alt="Ilustrasi bon pengeluaran, perincian biaya, dan tanaman timun" width={960} height={660} className="h-auto w-full" priority={false}/>
+    </div>
    </div>
   </section>
   <section id="fitur" className="border-t border-[#dfe6d8] bg-white px-5 py-16 sm:px-8">
