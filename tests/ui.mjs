@@ -113,6 +113,9 @@ try {
   page.on("pageerror", (e) => errors.push(e.message));
   const url = "http://127.0.0.1:" + server.address().port;
   await page.goto(url);
+  // Session navigation is present in the shared template without signing out.
+  assert.equal(await page.locator('form[action="/auth/signout"] button[type="submit"]').count(), 1);
+  assert.equal(await page.locator('details.farmer-account-menu summary').count(), 1);
   await page
     .getByRole("button", { name: "Pekerja kelompok", exact: true })
     .click();
