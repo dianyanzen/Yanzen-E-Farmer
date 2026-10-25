@@ -155,13 +155,22 @@ try {
     await page.getByLabel("Keterangan singkat").inputValue(),
     "Draf pupuk",
   );
+  await page.goto(url + "/?view=catat&action=entry:asset_use");
+  await page.getByRole("heading", { name: "Pemakaian aset" }).waitFor();
+  await page.getByLabel("Pemakai / penanggung jawab").fill("Tim pengairan");
+  await page.getByLabel("Durasi pemakaian (jam)").fill("4.5");
+  await page.getByLabel("Digunakan untuk").fill("Mengairi blok A");
+  assert.equal(
+    await page.getByLabel("Pemakai / penanggung jawab").inputValue(),
+    "Tim pengairan",
+  );
   await page.screenshot({
-    path: "/tmp/farmer-mobile-form.png",
+    path: "/tmp/farmer-mobile-asset-usage.png",
     fullPage: true,
   });
   assert.deepEqual(errors, []);
   console.log(
-    "PASS UI: mobile labor/overtime, atomic payment payload, conversion, offline draft restore",
+    "PASS UI: labor/overtime, atomic payment, conversion, draft restore, asset-use deep link",
   );
 } finally {
   await browser.close();
