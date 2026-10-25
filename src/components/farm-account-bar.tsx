@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import FarmIcon from "./farm-icon";
+import BrandLogo from "./brand-logo";
 import { FarmButton } from "./farm-template";
 
 export default function FarmAccountBar() {
@@ -31,7 +32,7 @@ export default function FarmAccountBar() {
 
   return <div className="farm-account-shell">
     <div className="farm-account-bar">
-      <Link href="/home" className="farm-account-brand">Yanzen E-Farmer</Link>
+      <BrandLogo href="/home" compact />
       <form action="/auth/signout" method="post" onSubmit={signOut}>
         <FarmButton type="submit" tone="secondary" disabled={busy} aria-busy={busy}>
           <FarmIcon name="log-out" size={18}/>{busy ? "Keluar…" : "Keluar"}
