@@ -1,19 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import FarmIcon from '@/components/farm-icon';
+import BrandLogo from '@/components/brand-logo';
 
 export default function Landing(){
  return <main className="min-h-dvh bg-[#f7f8f1]">
-  <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-   <Link href="/" className="flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="Logo Yanzen E-Farmer" width={45} height={45}/><span className="text-lg font-black tracking-tight text-[#103e32]">Yanzen E-Farmer</span></Link>
-   <Link href="/login" className="farm-button farm-button-secondary text-sm">Masuk <FarmIcon name="arrow-right" size={17}/></Link>
+  <header className="farm-landing-header">
+   <BrandLogo />
+   <Link href="/login" className="farm-landing-login">Masuk <FarmIcon name="arrow-right" size={17}/></Link>
   </header>
   <section className="mx-auto grid max-w-6xl items-center gap-9 px-5 pb-16 pt-7 sm:px-8 md:grid-cols-[1.08fr_.92fr] md:gap-12 md:pb-24 md:pt-20">
    <div className="relative z-10">
     <span className="inline-flex items-center gap-2 rounded-full border border-[#cbdcc2] bg-white px-4 py-2 text-xs font-extrabold text-[#225844]"><FarmIcon name="sprout" size={18}/> Smart Farming · Simple & Personal</span>
-    <h1 className="mt-7 max-w-xl text-[clamp(2.65rem,6vw,4.9rem)] font-black leading-[1.05] tracking-[-.045em] text-[#103e32]">Pertanian lebih <span className="text-[#387c55]">terencana.</span> Usaha lebih tertata.</h1>
-    <p className="mt-6 max-w-xl text-base leading-relaxed text-[#587166] sm:text-lg">Kelola proyek lahan, rencanakan anggaran, catat pengeluaran, dan buat bon yang bisa dicetak. Semuanya dalam satu aplikasi sederhana dan nyaman digunakan di HP.</p>
-    <div className="mt-8 flex flex-wrap gap-3"><Link href="/login" className="farm-button farm-button-primary min-h-12 px-7">Mulai Kelola Kebun <FarmIcon name="arrow-right" size={18}/></Link><Link href="#fitur" className="farm-button farm-button-secondary min-h-12 px-6">Lihat Fitur</Link></div>
+    <h1 className="farm-landing-hero-title mt-7 max-w-xl text-[clamp(2.65rem,6vw,4.9rem)] font-black leading-[1.05] tracking-[-.045em] text-[#103e32]">Pertanian lebih <span className="text-[#387c55]">terencana.</span> Usaha lebih tertata.</h1>
+    <p className="farm-landing-hero-description mt-6 max-w-xl text-base leading-relaxed text-[#587166] sm:text-lg">Kelola proyek lahan, rencanakan anggaran, catat pengeluaran, dan buat bon yang bisa dicetak. Semuanya dalam satu aplikasi sederhana dan nyaman digunakan di HP.</p>
+    <div className="farm-landing-actions mt-8 flex flex-wrap gap-3"><Link href="/login" className="farm-button farm-button-primary min-h-12 px-7">Mulai Kelola Kebun <FarmIcon name="arrow-right" size={18}/></Link><Link href="#fitur" className="farm-button farm-button-secondary min-h-12 px-6">Lihat Fitur</Link></div>
     <p className="mt-5 text-xs font-medium farm-muted">Akun pribadi · Penyimpanan cloud · Data pengeluaran terpisah dari anggaran</p>
    </div>
    <div className="farm-hero relative isolate overflow-hidden rounded-[32px] p-5 text-white shadow-[0_25px_65px_rgba(16,62,50,.16)] sm:p-8">

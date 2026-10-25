@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import Image from 'next/image';
 import FarmIcon from '@/components/farm-icon';
+import BrandLogo from '@/components/brand-logo';
 import { createClient } from '@/lib/supabase/browser';
 export default function Login(){
  const router=useRouter();
@@ -32,13 +33,13 @@ export default function Login(){
  }
  return <main className="min-h-dvh grid lg:grid-cols-2">
  <section className="farm-hero relative hidden overflow-hidden p-12 text-white lg:flex lg:flex-col lg:justify-between">
- <div className="flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="" width={44} height={44}/><strong className="text-xl">Yanzen E-Farmer</strong></div>
+ <BrandLogo dark href="/" />
  <div><p className="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-[#c9e3a2]">Bertani lebih terencana</p><h2 className="max-w-lg text-5xl font-extrabold leading-tight">Lebih mudah mengelola usaha pertanian.</h2><p className="mt-6 max-w-md text-lg text-[#dce9db]">Rencanakan biaya, pantau kebutuhan, dan kelola setiap proyek dari satu tempat.</p></div>
  <div className="relative z-10"><span className="farm-icon mb-4"><FarmIcon name="sprout"/></span><p className="text-sm text-[#c9e3a2]">Yanzen E-Farmer · Dibuat untuk penggunaan sehari-hari</p></div><Image src="/brand/farm-sunrise-photo.jpg" alt="" width={680} height={490} className="pointer-events-none absolute -bottom-20 -right-28 w-[620px] max-w-none opacity-25" aria-hidden="true"/><div aria-hidden="true" className="farm-hero-hill"/><div aria-hidden="true" className="farm-hero-hill farm-hero-hill-back"/>
  </section>
  <section className="flex min-h-dvh flex-col justify-center px-5 py-10 sm:px-10">
  <div className="mx-auto w-full max-w-md">
- <Link href="/" className="mb-10 inline-flex items-center gap-3"><Image src="/brand/yanzen-mark.svg" alt="Logo Yanzen E-Farmer" width={48} height={48}/><span className="text-lg font-extrabold">Yanzen E-Farmer</span></Link>
+ <BrandLogo className="farm-login-brand" href="/" />
  <p className="text-sm font-bold uppercase tracking-widest text-[#51745e]">{mode==='login'?'Selamat datang kembali':'Mulai dari sini'}</p>
  <h1 className="mt-3 text-4xl font-extrabold tracking-tight">{mode==='login'?'Masuk ke akun':'Buat akun baru'}</h1>
  <p className="mt-3 mb-8 farm-muted">{mode==='login'?'Lanjutkan pengelolaan pertanian dengan mudah.':'Setiap akun memiliki proyek dan anggarannya sendiri. Akun baru dimulai kosong.'}</p>
