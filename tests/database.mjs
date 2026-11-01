@@ -19,7 +19,17 @@ await db.exec(
 );
 await db.exec(await readFile("database/farm-operations.sql", "utf8"));
 await db.exec(await readFile("supabase/migrations/20261025191500_asset_usage_ledger.sql", "utf8"));
-console.log("Schema compiled with asset usage");
+await db.exec(await readFile("supabase/migrations/202611010001_security_performance_guardrails.sql", "utf8"));
+// Regression: member SELECT is covered by a single policy after the migration.
+const memberPolicies = (await db.query(
+  "select policyname, cmd from pg_policies where schemaname='public' and tablename='farm_members'"
+)).rows;
+assert.equal(
+  memberPolicies.filter((p) => p.cmd === 'SELECT' || p.cmd === 'ALL').length,
+  1,
+  "farm_members must expose exactly one SELECT-covering permissive policy",
+);
+console.log("Schema compiled with asset usage and security guardrails");
 await db.exec(
   `set role authenticated; set request.jwt.claim.sub='10000000-0000-0000-0000-000000000001';`,
 );
