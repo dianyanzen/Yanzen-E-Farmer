@@ -22,15 +22,41 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Install locked dependencies
+        id: install
         run: npm ci
       - name: Lint
+        id: lint
         run: npm run lint
       - name: Typecheck
+        id: types
         run: npm run typecheck
       - name: Database regression tests
+        id: database
         run: npm test
       - name: Build
+        id: build
         run: npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: placeholder-for-build-only
+      - name: Record step conclusions
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "Workflow verification summary"
+            echo "Repository: ${GITHUB_REPOSITORY}"
+            echo "Commit: ${GITHUB_SHA}"
+            echo "Install: ${{ steps.install.outcome }}"
+            echo "Lint: ${{ steps.lint.outcome }}"
+            echo "Typecheck: ${{ steps.types.outcome }}"
+            echo "Database: ${{ steps.database.outcome }}"
+            echo "Build: ${{ steps.build.outcome }}"
+          } > verify-results.txt
+      - name: Upload verification summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-summary
+          path: verify-results.txt
+          if-no-files-found: warn
