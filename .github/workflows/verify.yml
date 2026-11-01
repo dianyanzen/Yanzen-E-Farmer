@@ -23,8 +23,8 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
-      - name: Lint
-        run: npm run lint
+      - name: Lint (zero warnings)
+        run: npm run lint -- --max-warnings 0
       - name: Typecheck
         run: npm run typecheck
       - name: Database regression
@@ -34,6 +34,8 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: placeholder-for-build-only
+      - name: Responsive UI regression (mock API)
+        run: npm run test:ui
 
 # GitHub currently rejects hosted runners due to an account billing lock.
 # This workflow must pass after that account restriction is cleared.
