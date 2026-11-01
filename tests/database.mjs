@@ -19,7 +19,17 @@ await db.exec(
 );
 await db.exec(await readFile("database/farm-operations.sql", "utf8"));
 await db.exec(await readFile("supabase/migrations/20261025191500_asset_usage_ledger.sql", "utf8"));
-console.log("Schema compiled with asset usage");
+await db.exec(await readFile("supabase/migrations/202611010001_security_performance_guardrails.sql", "utf8"));
+// Regression: member SELECT is covered by a single policy after the migration.
+const memberPolicies = (await db.query(
+  "select policyname, cmd from pg_policies where schemaname='public' and tablename='farm_members'"
+)).rows;
+assert.equal(
+  memberPolicies.filter((p) => p.cmd === 'SELECT' || p.cmd === 'ALL').length,
+  1,
+  "farm_members must expose exactly one SELECT-covering permissive policy",
+);
+console.log("Schema compiled with asset usage and security guardrails");
 await db.exec(
   `set role authenticated; set request.jwt.claim.sub='10000000-0000-0000-0000-000000000001';`,
 );
@@ -422,4 +432,45 @@ assert.equal(
 console.log(
   "PASS: isolation, area, overlap, labor/overtime, idempotency, advances, settlement, cash, harvest/sale constraints",
 );
+// Finance audit regression: legacy expenses are NOT silently part of the V2 ledger.
+// This test documents current behavior; it does not claim a combined profit figure.
+await db.exec("set request.jwt.claim.sub='10000000-0000-0000-0000-000000000001'");
+const legacyProject = (await one(
+  "insert into farm_projects(user_id,name,crop,area_tumbak) values(auth.uid(),'Legacy audit','Timun',10) returning id",
+)).id;
+await one(
+  "insert into expenses(project_id,user_id,description,amount) values($1,auth.uid(),'Legacy fertilizer',125000)",
+  [legacyProject],
+);
+const legacySummary = (await one("select farm_budget_summary() result")).result;
+assert.equal(Number(legacySummary.find((x) => x.id === legacyProject).spent), 125000);
+const v2Before = (await one("select farm_report($1) result", [org])).result;
+assert.equal(
+  v2Before.by_kind.some((x) => x.kind === "expense" && Number(x.amount) === 125000),
+  false,
+  "Legacy expenses must not be assumed to be V2 ledger entries",
+);
+// Capital injections and owner withdrawals are cash movements, not sales revenue.
+const capitalAudit = await save({
+  organization_id: org,
+  id: crypto.randomUUID(),
+  entry_date: "2026-11-01",
+  kind: "capital",
+  title: "Owner capital",
+  amount: 500000,
+  account_id: account,
+});
+assert.equal(Number(capitalAudit.amount), 500000);
+const v2After = (await one("select farm_report($1) result", [org])).result;
+assert.equal(
+  Number(v2After.by_kind.find((x) => x.kind === "capital").amount),
+  500000,
+);
+assert.equal(
+  v2After.by_kind.some((x) => x.kind === "sale" && Number(x.amount) === 500000),
+  false,
+  "Capital must not be counted as sales",
+);
+console.log("PASS: legacy/V2 separation and capital versus sales guardrails");
+
 await db.close();

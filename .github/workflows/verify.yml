@@ -1,0 +1,41 @@
+name: Verify application
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Lint (zero warnings)
+        run: npm run lint -- --max-warnings 0
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Database regression
+        run: npm test
+      - name: Build with placeholder public client settings
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: placeholder-for-build-only
+      - name: Responsive UI regression (mock API)
+        run: npm run test:ui
+
+# GitHub currently rejects hosted runners due to an account billing lock.
+# This workflow must pass after that account restriction is cleared.
