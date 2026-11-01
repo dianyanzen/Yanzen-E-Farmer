@@ -422,4 +422,45 @@ assert.equal(
 console.log(
   "PASS: isolation, area, overlap, labor/overtime, idempotency, advances, settlement, cash, harvest/sale constraints",
 );
+// Finance audit regression: legacy expenses are NOT silently part of the V2 ledger.
+// This test documents current behavior; it does not claim a combined profit figure.
+await db.exec("set request.jwt.claim.sub='10000000-0000-0000-0000-000000000001'");
+const legacyProject = (await one(
+  "insert into farm_projects(user_id,name,crop,area_tumbak) values(auth.uid(),'Legacy audit','Timun',10) returning id",
+)).id;
+await one(
+  "insert into expenses(project_id,user_id,description,amount) values($1,auth.uid(),'Legacy fertilizer',125000)",
+  [legacyProject],
+);
+const legacySummary = (await one("select farm_budget_summary() result")).result;
+assert.equal(Number(legacySummary.find((x) => x.id === legacyProject).spent), 125000);
+const v2Before = (await one("select farm_report($1) result", [org])).result;
+assert.equal(
+  v2Before.by_kind.some((x) => x.kind === "expense" && Number(x.amount) === 125000),
+  false,
+  "Legacy expenses must not be assumed to be V2 ledger entries",
+);
+// Capital injections and owner withdrawals are cash movements, not sales revenue.
+const capitalAudit = await save({
+  organization_id: org,
+  id: crypto.randomUUID(),
+  entry_date: "2026-11-01",
+  kind: "capital",
+  title: "Owner capital",
+  amount: 500000,
+  account_id: account,
+});
+assert.equal(Number(capitalAudit.amount), 500000);
+const v2After = (await one("select farm_report($1) result", [org])).result;
+assert.equal(
+  Number(v2After.by_kind.find((x) => x.kind === "capital").amount),
+  500000,
+);
+assert.equal(
+  v2After.by_kind.some((x) => x.kind === "sale" && Number(x.amount) === 500000),
+  false,
+  "Capital must not be counted as sales",
+);
+console.log("PASS: legacy/V2 separation and capital versus sales guardrails");
+
 await db.close();
