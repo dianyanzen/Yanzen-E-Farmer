@@ -4,8 +4,8 @@ import GameClient from "./game-client";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "YZ Farm Life — Kampung Harmoni",
-  description: "Prototype game pertanian pixel-art dan cerita Kampung Harmoni."
+  title: "YZ Farm Life — Pasirluyu, Kota Bandung",
+  description: "Prototype game pertanian pixel-art dan cerita Pasirluyu, Kota Bandung."
 };
 
 export default async function GamePage() {
