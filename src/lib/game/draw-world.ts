@@ -81,9 +81,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState) {
     if(crop.watered){box(ctx,x+2,y+2,3,3,"#8ad0da");}
   }
   // Sign boards.
-  label(ctx,"KAMPUNG HARMONI",158,47);
-  label(ctx,"PASAR KOTA",333,46);
-  label(ctx,"KEBUN TIMUN",73,146);
+  label(ctx,"PASIRLUYU",158,47);
+  label(ctx,"WARUNG REGOL",333,46);
+  label(ctx,"KEBUN PASIRLUYU",73,146);
   // NPC sprites, appearance inspired by reference character sheets.
   drawPerson(ctx,13,8,"#506778","#eab58a","#212931");
   drawPerson(ctx,16,11,"#bc8d88","#e7b9a1","#ceb3a5");
