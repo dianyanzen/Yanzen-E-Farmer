@@ -15,6 +15,8 @@
 | Mobile accessibility | [Game Accessibility Guidelines — Basic](https://gameaccessibilityguidelines.com/basic/) | simple controls, subtitles, readable text, no color-only clues |
 | Contrast | [W3C WCAG 2.2](https://www.w3.org/TR/wcag/) | text/button contrast, accessible phone UI |
 | Licenses | [Creative Commons — CC0](https://creativecommons.org/public-domain/) | understand public-domain dedication limits |
+| CC0 urban pixel tiles | [Kenney RPG Urban Pack](https://kenney.nl/assets/rpg-urban-pack) | 16×16 city sprites; source sheet imported to vendor folder |
+| CC0 village tiles | [Kenney Tiny Town](https://kenney.nl/assets/tiny-town) | 16×16 village assets imported to vendor folder |
 | Sprite editing | [Pixelorama](https://pixelorama.org/) | 4-direction animation, palette and atlas exports |
 | Sprite editor alternative | [LibreSprite](https://github.com/LibreSprite/LibreSprite) | GPL-2.0 editor; user artwork is separate |
 | Kota Bandung (30 districts) | [Disdukcapil 2025 Bandung Population Profile](https://disdukcapil.bandung.go.id/api/public/uploads/buku-profil/PROFIL_PERKEMBANGAN_KEPENDUDUKAN_KOTA_BANDUNG_2025.pdf) | authoritative administrative names |
