@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
-  newGame, nextDay, NPCS, safeLoad, useFarmTool, Direction } from "@/lib/game/model";
+  newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction } from "@/lib/game/model";
 import { drawWorld } from "@/lib/game/draw-world";
 import "./game.css";
 
@@ -27,6 +28,7 @@ function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
 }
 export default function GameClient() {
+  const router = useRouter();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dbRef = useRef<ReturnType<typeof createClient> | null>(null);
   const queueRef = useRef<Promise<void>>(Promise.resolve());
@@ -48,7 +50,7 @@ export default function GameClient() {
     (async () => {
       const { data: auth, error: authError } = await db.auth.getUser();
       if (!active) return;
-      if (authError || !auth.user) { window.location.assign("/login"); return; }
+      if (authError || !auth.user) { router.replace("/login"); return; }
       const id = auth.user.id;
       const { data, error } = await db.from("yz_game_saves").select("data").eq("user_id", id).maybeSingle();
       if (!active) return;
@@ -71,7 +73,7 @@ export default function GameClient() {
       if(active){setErrorText("Gagal memuat save: " + String(e));setSaveStatus("error"); saveLockedRef.current = true;}
     });
     return () => { active = false; };
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if(canvasRef.current) drawWorld(canvasRef.current, game);
@@ -122,7 +124,7 @@ export default function GameClient() {
       setShowHelp(false);
       return;
     }
-    const result = useFarmTool(game, tool);
+    const result = applyFarmTool(game, tool);
     setGame(result.state); setToast(result.message);
     setShowHelp(false);
   }, [game, tool, phoneOpen, dialogue, saveStatus]);
@@ -230,11 +232,11 @@ export default function GameClient() {
                 <div className="yzg-phone-card"><b>Notifikasi kampung</b><p>{game.story.orderDone ? "Naya mengundangmu ke festival panen kota." : "Naya mengirim pesan tentang pesanan timun."}</p></div>
               </>}
               {phoneTab === "chat" && <>
-                <div className="yzg-phone-card"><b>✉ Naya · Pedagang pasar</b><p>"Halo, Nara! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar."</p>
+                <div className="yzg-phone-card"><b>✉ Naya · Pedagang pasar</b><p>&ldquo;Halo, Nara! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : "Pesanan diterima. Temui Naya setelah panen."}</small>}
                 </div>
-                <div className="yzg-phone-card"><b>✉ Raka</b><p>"Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik."</p></div>
+                <div className="yzg-phone-card"><b>✉ Raka</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
                 <div className="yzg-phone-card"><b>Pasar Bibit</b><p>Lima bibit timun — 40 G</p><button onClick={purchase} disabled={game.coins < 40}>Beli 5 bibit</button></div>
               </>}
               {phoneTab === "farm" && <>
