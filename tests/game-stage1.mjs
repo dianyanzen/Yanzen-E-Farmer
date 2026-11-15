@@ -9,7 +9,7 @@ const compiled = ts.transpileModule(source, {
 }).outputText;
 const mod = { exports: {} };
 vm.runInNewContext(compiled, { exports: mod.exports, module: mod }, { timeout: 1500 });
-const { newGame, movePlayer, useFarmTool, nextDay, acceptOrder, meetNpc, safeLoad, buySeeds } = mod.exports;
+const { newGame, movePlayer, applyFarmTool, nextDay, acceptOrder, meetNpc, safeLoad, buySeeds } = mod.exports;
 const initial = newGame();
 assert.equal(initial.day, 1);
 assert.equal(initial.coins, 280);
@@ -19,24 +19,24 @@ assert.equal(movePlayer({ ...initial, player: {x: 12, y: 5, dir:'up'} }, 'up').p
 assert.equal(movePlayer({ ...initial, player: {x: 12, y: 8, dir:'up'} }, 'right').player.x, 12, 'NPC collision');
 
 let state = { ...newGame(), player: { x: 11, y: 8, dir: 'left' }};
-let r = useFarmTool(state, 'hoe');state = r.state;
+let r = applyFarmTool(state, 'hoe');state = r.state;
 assert.equal(state.plots[0].stage, -1, 'till soil');
-r = useFarmTool(state, 'seed');state = r.state;
+r = applyFarmTool(state, 'seed');state = r.state;
 assert.equal(state.seeds, 11);
 assert.equal(state.plots[0].stage, 0);
 for(let day = 1; day <= 3; day++){
-  r = useFarmTool(state, 'water'); state = r.state;
+  r = applyFarmTool(state, 'water'); state = r.state;
   assert.equal(state.plots[0].watered, true);
   state = nextDay(state);
   assert.equal(state.plots[0].stage, day);
   assert.equal(state.plots[0].watered, false);
 }
 const before = state.coins;
-r = useFarmTool(state, 'harvest'); state = r.state;
+r = applyFarmTool(state, 'harvest'); state = r.state;
 assert.equal(state.harvested, 1);
 assert.equal(state.coins, before+25);
 assert.equal(state.plots.length, 0);
-assert.equal(useFarmTool(state, 'harvest').state.harvested, 1, 'no double harvest');
+assert.equal(applyFarmTool(state, 'harvest').state.harvested, 1, 'no double harvest');
 
 let story = newGame();
 story = meetNpc(story, 'raka').state;
