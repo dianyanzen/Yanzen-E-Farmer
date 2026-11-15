@@ -50,7 +50,7 @@ export function nextDay(s: GameState): GameState {
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
       watered: false })) };
 }
-export function useFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
+export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
   const at = facing(s.player);
   if (!isFarm(at.x, at.y)) return { state: s, message: "Arahkan karakter ke petak kebun lalu gunakan alat." };
   const index = s.plots.findIndex(p => p.x === at.x && p.y === at.y);
