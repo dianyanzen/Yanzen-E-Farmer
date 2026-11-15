@@ -60,10 +60,10 @@ Visual assets are illustrative, not real expense records or a replacement for th
 Proyek game 2D pixel-art `/game` pada branch prototipe terpisah. Basis cerita: **Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung**, dengan daftar 30 kecamatan dan YZ Phone fiktif. **Belum dirilis ke production.**
 
 - [Game Development Library](docs/game-dev/README.md) — titik masuk semua acuan.
-- [Asset catalog & licenses](game-assets/catalog/sources.json) — 7 pack kandidat (4 CC0 + 3 gratis komersial, dengan aturan redistribusi).
+- [Asset catalog & licenses](game-assets/catalog/sources.json) — 8 pack kandidat (5 CC0 + 3 gratis komersial, dengan aturan redistribusi).
 - [Inventaris 32 karakter dari Drive](game-assets/catalog/characters.json) — referensi visual pribadi, berkas mentah tetap privat.
 - [Asset audit](scripts/game-assets/verify-catalog.mjs) — jalankan `npm run assets:audit`.
 - [Panduan mendapatkan aset CC0](docs/game-dev/ASSET_PIPELINE.md) — koleksi yang aman, bukti lisensi dan optimasi.
 - [Desain cerita, portrait dan peta Bandung](docs/game-dev/GAME_DESIGN_DOCUMENT.md) — sasaran implementasi bertahap.
 
-**Status aset:** katalog dan dokumentasi sudah masuk GitHub; PNG/ZIP pihak ketiga belum diimpor ke runtime dan perlu diunduh serta diaudit pada tahap integrasi. Pengembangan aman melalui branch/PR tanpa mengubah data panen atau keuangan pertanian.
+**Status aset:** katalog dan dokumentasi sudah masuk GitHub; **dua pack tilesheet Kenney berlisensi CC0 telah diimpor sebagai sumber ke folder `game-assets/vendor`** beserta lisensinya. Belum ada aset pihak ketiga yang digunakan di runtime; tahap berikutnya adalah audit visual, atlas dan penggantian gambar game. Pengembangan aman melalui branch/PR tanpa mengubah data panen atau keuangan pertanian.
