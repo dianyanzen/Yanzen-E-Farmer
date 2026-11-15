@@ -1,11 +1,27 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+const internalMenus = new Set([
+  'additional', 'anggaran', 'catat', 'catatan', 'dashboard', 'design-system',
+  'home', 'keuangan', 'lahan', 'laporan', 'panen', 'pengaturan', 'pertanian', 'wawasan',
+]);
+
 export async function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const isNavigation = request.method === 'GET' || request.method === 'HEAD';
+  const isEntry = pathname === '/' || pathname === '/login';
+  const isInternal = internalMenus.has(pathname.split('/')[1]);
   let response = NextResponse.next({ request });
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-  if (!url || !key) return response;
+  if (!url || !key) {
+    if (isInternal && isNavigation) {
+      return NextResponse.redirect(new URL('/', request.url), {
+        headers: { 'Cache-Control': 'private, no-store' },
+      });
+    }
+    return response;
+  }
 
   const supabase = createServerClient(url, key, {
     cookies: {
@@ -18,12 +34,11 @@ export async function proxy(request: NextRequest) {
     },
   });
 
-  const { pathname } = request.nextUrl;
-  const isEntry = pathname === '/' || pathname === '/login';
-  if (isEntry && (request.method === 'GET' || request.method === 'HEAD')) {
+  if (isNavigation && (isEntry || isInternal)) {
     const { data } = await supabase.auth.getUser();
-    if (data.user) {
-      const redirect = NextResponse.redirect(new URL('/home', request.url));
+    const destination = data.user ? (isEntry ? '/home' : null) : (isInternal ? '/' : null);
+    if (destination) {
+      const redirect = NextResponse.redirect(new URL(destination, request.url));
       for (const cookie of response.cookies.getAll()) redirect.cookies.set(cookie);
       response = redirect;
     }
