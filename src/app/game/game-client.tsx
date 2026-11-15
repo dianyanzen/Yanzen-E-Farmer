@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
   newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction } from "@/lib/game/model";
 import { drawWorld } from "@/lib/game/draw-world";
+import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
@@ -40,8 +41,9 @@ export default function GameClient() {
   const [tool, setTool] = useState<FarmTool>("hoe");
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
+  const [selectedDistrict, setSelectedDistrict] = useState<string>("Regol");
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
-  const [toast, setToast] = useState("Selamat datang di Kampung Harmoni. Gunakan tombol arah dan E.");
+  const [toast, setToast] = useState("Selamat datang di Pasirluyu. Gunakan tombol arah dan E.");
   const [showHelp, setShowHelp] = useState(true);
 
   useEffect(() => {
@@ -183,7 +185,7 @@ export default function GameClient() {
       <div>
         <span className="yzg-eyebrow">PIXEL FARMING STORY · PROTOTYPE 01</span>
         <h1>YZ <span>Farm Life</span></h1>
-        <p>Kampung Harmoni — sawah dan cerita di tengah kota.</p>
+        <p>Pasirluyu — sawah dan cerita di tengah kota.</p>
       </div>
       <Link href="/home" className="yzg-back">← Kembali ke E-Farmer</Link>
     </header>
@@ -196,7 +198,7 @@ export default function GameClient() {
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
       <div className="yzg-viewport">
-        <canvas ref={canvasRef} width={480} height={320} aria-label="Peta piksel Kebun Timun dan Kampung Harmoni" role="img"/>
+        <canvas ref={canvasRef} width={480} height={320} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
         {!phoneOpen && !dialogue && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
@@ -224,7 +226,7 @@ export default function GameClient() {
             </div>
             <div className="yzg-phone-content">
               {phoneTab === "apps" && <>
-                <div className="yzg-phone-greeting">SELAMAT PAGI, NARA <strong>Hidup terus berjalan di Kampung Harmoni.</strong><small>Hari {game.day} · Cuaca cerah berawan</small></div>
+                <div className="yzg-phone-greeting">SELAMAT PAGI, NARA <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca cerah berawan</small></div>
                 <div className="yzg-app-grid">{APPS.map(app => <button key={app.id} onClick={() => {
                   setPhoneTab(app.id);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
@@ -252,9 +254,9 @@ export default function GameClient() {
                 <div className="yzg-phone-card yzg-id">
                   <small>IKD · IDENTITAS KARAKTER DIGITAL</small>
                   <div className="yzg-avatar">N</div><strong>NARA</strong>
-                  <p>Warga Kampung Harmoni</p>
+                  <p>Warga Pasirluyu</p>
                   <dl><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd>
-                    <dt>Domisili</dt><dd>Sawah Tengah, Kampung Harmoni</dd>
+                    <dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd>
                     <dt>Pekerjaan</dt><dd>Petani urban</dd>
                     <dt>Tahun tinggal</dt><dd>{game.day > 0 ? "Tahun 1" : "Baru pindah"}</dd>
                     <dt>Hari bermain</dt><dd>{game.day}</dd></dl>
@@ -262,12 +264,20 @@ export default function GameClient() {
                 </div>
               </>}
               {phoneTab === "map" && <>
-                <div className="yzg-phone-card"><b>Lokasi yang dapat dijelajahi</b>
-                  <p>✓ Kebun Timun · {(game.player.x <= 12 ? "Lokasimu dekat sini" : "Area hijau")}</p>
-                  <p>✓ Pasar Kota · Temui Naya</p>
-                  <p>✓ Gang Kampung · Bu Sari</p>
-                  <p>✓ Pinggir Kebun · Raka</p>
-                  <p>🔒 Saluran Tua · Petunjuk cerita berikutnya</p>
+                <div className="yzg-phone-card"><b>Lokasi kamu sekarang</b>
+                  <p>{START_LOCATION.village} · Kecamatan {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
+                  <small>Game menggunakan nama wilayah asli. Jalan, kebun dan NPC direka untuk cerita.</small>
+                </div>
+                <div className="yzg-phone-card"><b>Jelajah 30 Kecamatan</b>
+                  <label htmlFor="yzg-kecamatan" className="yzg-map-label">Pilih kecamatan</label>
+                  <select className="yzg-map-select" id="yzg-kecamatan"
+                    value={selectedDistrict} onChange={e => setSelectedDistrict(e.target.value)}>
+                    {BANDUNG_DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
+                  </select>
+                  {selectedDistrict === "Regol" ? <>
+                    <small>7 kelurahan asli · Wilayah yang bisa dimainkan saat ini: Pasirluyu</small>
+                    {REGOL_VILLAGES.map(v => <p key={v}>{v === "Pasirluyu" ? "✓" : "🔒"} {v}{v === "Pasirluyu" ? " — lokasi awal" : " — tahap berikutnya"}</p>)}
+                  </> : <p>🔒 {selectedDistrict} terdaftar dalam peta Kota Bandung. Area permainan untuk kecamatan ini belum dibuat.</p>}
                 </div>
               </>}
             </div>
