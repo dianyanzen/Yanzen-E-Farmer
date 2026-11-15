@@ -30,6 +30,7 @@ export default function GameClient() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dbRef = useRef<ReturnType<typeof createClient> | null>(null);
   const queueRef = useRef<Promise<void>>(Promise.resolve());
+  const saveLockedRef = useRef(false);
   const [game, setGame] = useState<GameState>(() => newGame());
   const [userId, setUserId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("loading");
@@ -53,21 +54,21 @@ export default function GameClient() {
       if (!active) return;
       if (error) {
         setErrorText("Database game belum siap atau tidak dapat diakses: " + error.message);
-        setSaveStatus("error");
+        setSaveStatus("error"); saveLockedRef.current = true;
         return;
       }
       if (data?.data) {
         const loaded = safeLoad(data.data);
         if (!loaded) {
           setErrorText("Data save tidak dikenali. Penyimpanan dinonaktifkan agar progres lama tidak tertimpa.");
-          setSaveStatus("error");
+          setSaveStatus("error"); saveLockedRef.current = true;
           return;
         }
         setGame(loaded); setToast("Progres cloud berhasil dimuat. Selamat kembali!");
       }
       setUserId(id); setSaveStatus("ready");
     })().catch(e => {
-      if(active){setErrorText("Gagal memuat save: " + String(e));setSaveStatus("error");}
+      if(active){setErrorText("Gagal memuat save: " + String(e));setSaveStatus("error"); saveLockedRef.current = true;}
     });
     return () => { active = false; };
   }, []);
@@ -77,7 +78,7 @@ export default function GameClient() {
   }, [game]);
 
   const persist = useCallback((snapshot: GameState) => {
-    if (!userId || !dbRef.current || saveStatus === "error") return;
+    if (!userId || !dbRef.current || saveLockedRef.current) return;
     const db = dbRef.current;
     const next = queueRef.current.then(async () => {
       setSaveStatus("saving");
@@ -87,16 +88,16 @@ export default function GameClient() {
       );
       if (error) throw error;
       setSaveStatus("saved");
-    }).catch(e => { setSaveStatus("error"); setErrorText("Gagal menyimpan: " + String(e)); });
+    }).catch(e => { saveLockedRef.current = true; setSaveStatus("error"); setErrorText("Gagal menyimpan: " + String(e)); });
     queueRef.current = next;
     return next;
-  }, [userId, saveStatus]);
+  }, [userId]);
 
   useEffect(() => {
-    if (!userId || saveStatus === "loading" || saveStatus === "error") return;
+    if (!userId || saveLockedRef.current) return;
     const t = window.setTimeout(() => { void persist(game); }, 1300);
     return () => window.clearTimeout(t);
-  }, [game, userId, persist, saveStatus]);
+  }, [game, userId, persist]);
 
   useEffect(() => {
     if (!toast) return;
