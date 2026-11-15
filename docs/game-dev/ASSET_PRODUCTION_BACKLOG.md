@@ -6,7 +6,8 @@
 - [x] Document primary art direction and technical sources.
 - [x] Add automated metadata validator and opt-in CC0 ZIP staging downloader.
 - [ ] Download first CC0 crops ZIP on a network-enabled developer machine and verify SHA-256 plus internal LICENSE file.
-- [ ] Download Kenney Tiny Town and Pixel UI only from official creator pages.
+- [x] Import CC0 source tilemaps, license and source provenance for Kenney Tiny Town and RPG Urban Pack from a public mirror; official creator pages used for license verification.
+- [ ] Download Kenney Pixel UI only from official creator page; keep UI source separate until matched with YZ Phone.
 - [ ] Manually review each reodesuxz archive/license before game embedding; no raw pack mirroring.
 
 ## Priority 1: portrait Pasirluyu prototype visual vertical slice
