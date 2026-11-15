@@ -3,7 +3,7 @@
 **Status:** prototype branch `feat/yz-farm-life-stage1`. The game is an additive, authenticated `/game` route. Do **not** merge or deploy to production until QA is complete.
 
 ## Product vision
-An original pixel-art urban-farming life simulation, inspired by the gameplay simplicity of Game Boy Advance farming games. It is not a clone of their code or assets. A small garden is embedded in a Bandung-inspired fictional city, Kampung Harmoni. The world is open-ended, with authored narrative branching, NPC memories, and a phone accessible inside the playfield like a diegetic game object.
+An original pixel-art urban-farming life simulation, inspired by the gameplay simplicity of Game Boy Advance farming games. It is not a clone of their code or assets. A small garden is embedded in a Bandung-inspired fictional city, Pasirluyu, Regol, Kota Bandung. The world is open-ended, with authored narrative branching, NPC memories, and a phone accessible inside the playfield like a diegetic game object.
 
 ## Stage 1 mechanics
 - 480×320 pixel canvas, responsive nearest-neighbor scaling, no additional JavaScript dependencies.
@@ -40,3 +40,6 @@ Drive folder: private owner-managed visual reference folder (URL deliberately ex
 
 ## What Stage 1 does not promise
 No 32 animated NPCs yet, no real IKD integration, no LLM-generated dialogue, no full town simulation, no offline mode or production-ready economy. The game can run without Phaser for this lightweight proof of concept; Phaser can replace the renderer later without rewriting the deterministic game state and story rules.
+
+## Bandung Atlas expansion
+See `docs/YZ_FARM_LIFE_BANDUNG_ATLAS.md`. Starting farm is a fictional farm in the **real Pasirluyu kelurahan**, Regol kecamatan, Bandung city. All 30 official district names and seven Regol kelurahan are registered in `src/lib/game/bandung-locations.ts` for the in-phone map browser; only the Pasirluyu starter scene is actually playable.
