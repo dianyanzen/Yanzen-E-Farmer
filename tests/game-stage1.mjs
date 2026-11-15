@@ -59,3 +59,20 @@ assert.equal(restored.player.x, 11);
 assert.equal(safeLoad({ ...state, version: 3 }), null);
 assert.equal(safeLoad({ ...state, plots: [{ x: 50, y: 50, stage: 0, watered: true }] }), null);
 console.log('YZ Farm Life Stage 1 model tests: PASS');
+
+const regionsSource = readFileSync(new URL('../src/lib/game/bandung-locations.ts', import.meta.url), 'utf8');
+const regionsCompiled = ts.transpileModule(regionsSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
+}).outputText;
+const regionsModule = { exports: {} };
+vm.runInNewContext(regionsCompiled, { exports: regionsModule.exports, module: regionsModule }, { timeout: 1500 });
+const { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION, isDistrictPlayable } = regionsModule.exports;
+assert.equal(BANDUNG_DISTRICTS.length, 30);
+assert.equal(new Set(BANDUNG_DISTRICTS).size, 30);
+assert.equal(REGOL_VILLAGES.length, 7);
+assert.equal(new Set(REGOL_VILLAGES).size, 7);
+assert.ok(BANDUNG_DISTRICTS.includes(START_LOCATION.district));
+assert.ok(REGOL_VILLAGES.includes(START_LOCATION.village));
+assert.equal(isDistrictPlayable('Regol'), true);
+assert.equal(isDistrictPlayable('Coblong'), false);
+console.log('YZ Farm Life Bandung atlas data tests: PASS');
