@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "project": "YZ Farm Life",
   "checkedOn": "2026-11-16",
-  "scope": "source registry only - binaries have not been imported or integrated",
+  "scope": "8 sources shortlisted; Kenney Tiny Town and RPG Urban source tilesheets are imported as CC0 vendor assets; none integrated into gameplay runtime",
   "standards": {
     "grid": [
       16,
@@ -50,14 +50,52 @@
         "overworld",
         "tileset"
       ],
-      "status": "shortlisted",
-      "notes": "130 tiles 16x16; 3/4 view; match perspective before import.",
+      "status": "reviewed",
+      "notes": "130 tiles 16x16; 3/4 view; match perspective before import. Original CC0 license and tilemap imported to vendor staging; not used in runtime.",
       "checkedOn": "2026-11-16",
       "licenseEvidenceUrl": "https://kenney.nl/assets/tiny-town",
-      "rawPresent": false,
+      "rawPresent": true,
       "runtimePresent": false,
       "sha256": null,
-      "plannedDirectory": "public/game/assets/tiles"
+      "plannedDirectory": "public/game/assets/tiles",
+      "rawFiles": [
+        "game-assets/vendor/kenney-tiny-town/tilemap.png",
+        "game-assets/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/vendor/kenney-tiny-town/preview.png",
+        "game-assets/vendor/kenney-tiny-town/LICENSE.txt"
+      ],
+      "sourceGitBlobSha": "21b5a0f879a47c8e679b7a5e07c220f30b6f89ab",
+      "upstreamMirrorUrl": "https://github.com/GeorgeQLe/assets-2d-city/tree/main/assets/kenney/tiny-town"
+    },
+    {
+      "id": "kenney-rpg-urban-pack",
+      "name": "RPG Urban Pack",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/rpg-urban-pack",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "urban",
+        "city",
+        "tileset"
+      ],
+      "status": "reviewed",
+      "notes": "~480 source assets at 16x16. Original CC0 license, tilemap, packed atlas and sample imported to vendor staging; not game-integrated.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/rpg-urban-pack",
+      "rawPresent": true,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles",
+      "rawFiles": [
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap.txt",
+        "game-assets/vendor/kenney-rpg-urban-pack/LICENSE.txt"
+      ],
+      "sourceGitBlobSha": "a626181ac628cfc314f23f3c7259a0d4a3931851",
+      "upstreamMirrorUrl": "https://github.com/GeorgeQLe/assets-2d-city/tree/main/assets/kenney/rpg-urban-pack"
     },
     {
       "id": "kenney-pixel-ui",
