@@ -22,7 +22,7 @@ An original pixel-art urban-farming life simulation, inspired by the gameplay si
 SQL migration: `supabase/migrations/20261116000100_yz_game_saves.sql`. A single JSONB record per authenticated user is intentional for the small prototype. Later stages should normalize world events and inventories when concurrency or larger saves require it. All game values are **fictional**, kept separate from operational tables.
 
 ## 32 visual references inventory
-Drive folder (private): https://drive.google.com/drive/folders/1vXNs7Ylud2XiLq1p2m1oGdpa_9z4MHYh
+Drive folder: private owner-managed visual reference folder (URL deliberately excluded from public repository).
 - A01–A16 (16 reference sheets)
 - C01–C16 (16 reference sheets, including C08.jpg)
 - Total 32; source sheets are 31 PNG + 1 JPG, roughly 80 MB before optimization.
