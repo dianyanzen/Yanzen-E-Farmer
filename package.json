@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
-    "test:ui": "node tests/ui.mjs"
+    "test:ui": "node tests/ui.mjs",
+    "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
+    "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
