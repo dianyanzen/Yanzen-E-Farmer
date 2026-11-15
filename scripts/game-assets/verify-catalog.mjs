@@ -26,6 +26,24 @@ for (const p of sources.records) {
   assert.ok(allowedStatuses.has(p.status), "invalid status: " + p.id);
   assert.equal(p.checkedOn, "2026-11-16", "unexpected evidence date (update manifest after recheck)");
   assert.ok(Array.isArray(p.tags) && p.tags.length > 0, "missing category: " + p.id);
+  if (p.rawPresent) {
+    assert.ok(["reviewed", "integrated"].includes(p.status), "raw source requires completed license review: " + p.id);
+    assert.ok(Array.isArray(p.rawFiles) && p.rawFiles.length >= 2, "raw asset path list is missing: " + p.id);
+    assert.match(p.sourceGitBlobSha ?? "", /^[a-f0-9]{40}$/, "raw asset source git blob SHA-1 required: " + p.id);
+    for (const relative of p.rawFiles) {
+      assert.ok(relative.startsWith("game-assets/vendor/") && !relative.includes(".."), "invalid vendor file path");
+      const local = resolve(root, relative);
+      assert.ok(local.startsWith(root + sep), "vendor path escapes repo");
+      assert.ok(existsSync(local), "missing imported vendor asset: " + relative);
+      if (relative.toLowerCase().endsWith(".png")) {
+        assert.equal(readFileSync(local).subarray(0,8).toString("hex"), "89504e470d0a1a0a", "invalid PNG magic: " + relative);
+      }
+      if (relative.endsWith("LICENSE.txt")) {
+        const license = readFileSync(local, "utf8");
+        assert.match(license, /CC0|Creative Commons Zero/i, "license evidence missing: " + relative);
+      }
+    }
+  }
   if (p.runtimePresent) {
     assert.ok(p.status === "integrated", "runtime file requires integrated status: " + p.id);
     assert.match(p.sha256 ?? "", /^[a-f0-9]{64}$/, "integrated file requires sha256: " + p.id);
@@ -56,4 +74,4 @@ for (const prefix of ["A", "C"]) for (let i = 1; i <= 16; i++) {
 const combinedText = JSON.stringify({sources,characters});
 assert.ok(!combinedText.includes("drive.google.com/drive/folders/"), "private Drive folder link must stay out of public repo");
 console.log("YZ Farm Life asset catalog validation: PASS");
-console.log(sources.records.length + " shortlisted source packs, " + characters.characters.length + " private character sheets; runtime imported: " + sources.records.filter(s=>s.runtimePresent).length);
+console.log(sources.records.length + " shortlisted source packs; vendor imported: " + sources.records.filter(s=>s.rawPresent).length + "; 32 private character references; runtime imported: " + sources.records.filter(s=>s.runtimePresent).length);
