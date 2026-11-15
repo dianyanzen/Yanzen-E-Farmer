@@ -16,9 +16,9 @@ This folder is the working knowledge base for YZ Farm Life, an original GBA-styl
 9. [Bandung Atlas plan](../YZ_FARM_LIFE_BANDUNG_ATLAS.md) — district metadata and geography methodology.
 
 ## Asset import status
-- **Shortlisted**: 7 external packs, 4 CC0 and 3 free-commercial/restricted-redistribution.
+- **Shortlisted**: 8 external packs, 5 CC0 and 3 free-commercial/restricted-redistribution.
 - **Verified owner inventory**: 32 private character visual sheets (A01–A16, C01–C16; C08.jpg).
-- **Imported into game runtime from those external packs**: **0**. No claim of visual integration until the files are downloaded, verified, optimized and rendered.
+- **Imported as source CC0 vendor tilesheets**: **2 packs** (Kenney Tiny Town and RPG Urban) with original license documents and provenance; see `game-assets/vendor/`. **Integrated into game runtime**: **0**; source tilesets have not yet replaced the prototype Canvas art.
 - **Prototype**: local hand-drawn Canvas pixel-art tiles and placeholder NPCs.
 - **Next integration gate**: manually obtain source files, preserve licenses, extract chosen frames, verify the exact sprite perspective and test mobile memory/performance.
 
