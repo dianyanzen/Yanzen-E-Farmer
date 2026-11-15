@@ -13,6 +13,9 @@ GAME-ASSETS PRIVATE STAGING (gitignored)
   ├─ _staging/       inspected extracted PNGs/credits
   └─ _originals/     source PSD/ASE/Pixelorama project files
 
+CC0 VENDOR SOURCES (tracked, verified by source license)
+  └─ game-assets/vendor/kenney-tiny-town/ and kenney-rpg-urban-pack/
+
 PUBLIC/SAFE OUTPUT FOR GAME (tracked only after review)
   └─ public/game/assets/
       ├─ tiles/       trimmed and optimized terrain PNGs + atlas metadata
@@ -52,6 +55,11 @@ node scripts/game-assets/fetch-cc0-crops.mjs --accept-cc0
 # Hasil masuk ke game-assets/_downloads (gitignored), bukan runtime.
 ```
 Jika unduhan gagal karena akses host, **catat hasilnya dan unduh manual dari halaman sumber**. Jangan memakai mirror tanpa bukti lisensi.
+
+## Status impor binary (16 November 2026)
+- Kenney Tiny Town: `game-assets/vendor/kenney-tiny-town/tilemap.png`, `tilemap_packed.png`, `preview.png` + `LICENSE.txt`. Provenance: official `https://kenney.nl/assets/tiny-town`, binary source mirror `https://github.com/GeorgeQLe/assets-2d-city`. License CC0.
+- Kenney RPG Urban Pack: `game-assets/vendor/kenney-rpg-urban-pack/tilemap.png`, `tilemap_packed.png`, `sample.png`, `tilemap.txt` + `LICENSE.txt`. Provenance: `https://kenney.nl/assets/rpg-urban-pack`, same mirror. License CC0.
+- These are **source assets in repo**, not yet loaded by gameplay. The rest of the pack downloads and all reference character originals remain external/private.
 
 ## Langkah kerja sprite nyata
 - **Characters:** buat animasi 4 arah dari 32 reference visuals: sebuah NPC minimal idle + 4-frame walk tiap arah. Gunakan nama fiktif/roles baru dan hindari simbol kelembagaan bawaan reference sheet.
