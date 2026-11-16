@@ -1,5 +1,11 @@
 # Perolehan, Audit Lisensi, dan Integrasi Aset Game
 
+## Character Pack v2 — 16 November 2026
+
+Paket karakter aktif berjumlah **16**: A01 satu-satunya main character, A02–A16 adalah 15 NPC. Lihat [paket, manifest, prompt, asal/lisensi dan audit QA](../../game-assets/characters/gba-v2/README.md) serta [galeri](../../game-assets/characters/gba-v2/PREVIEW.md). Sheet baru disimpan di katalog aset, belum dipasang ke runtime. Inventaris 32 referensi privat di bawah tetap mencatat bahan sumber A/C, bukan jumlah pemeran game.
+
+Pemeriksaan paket: `node scripts/game-assets/verify-character-pack.mjs`. Catatan QA membedakan hasil visual yang sudah diperiksa dari normalisasi piksel, pivot dan animasi yang masih diperlukan sebelum integrasi game.
+
 > **Status koleksi:** sumber telah dikurasi, file biner pihak ketiga **belum** diunduh atau dipasang ke game. Dilarang mengklaim aset sudah digunakan sebelum status manifest diperbarui.
 
 ## Pemisahan tiga tingkat

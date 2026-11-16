@@ -1,6 +1,11 @@
 {
   "schemaVersion": 1,
   "project": "YZ Farm Life",
+  "activeGeneratedPack": "game-assets/characters/gba-v2/manifest.json",
+  "activeCastCount": 16,
+  "mainCharacterId": "A01",
+  "activeNpcIds": ["A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10", "A11", "A12", "A13", "A14", "A15", "A16"],
+  "inventoryNote": "expectedCount below counts 32 private reference sheets only; active generated cast has 16 characters. See activeGeneratedPack for generated files, slicing and QA.",
   "verifiedOn": "2026-11-16",
   "sourceKind": "owner-private Google Drive folder 'Char'",
   "publicAccess": false,
