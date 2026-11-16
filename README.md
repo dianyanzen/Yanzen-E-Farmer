@@ -1,5 +1,12 @@
 # Yanzen E-Farmer
 
+## YZ Farm Life — Pasirluyu Bab 1 (development)
+
+Alur empat timun Inggit → petunjuk Ryan → foto Nani → dua pilihan akhir kini
+tersedia pada cabang pengembangan game. Jurnal, penjualan panen, kompatibilitas save
+lama dan pengujian desktop/mobile dijelaskan dalam [catatan Bab 1](docs/game-dev/PASIRLUYU_CHAPTER1.md).
+Jalankan `npm run test:game` dan `npm run test:game:ui`. Belum dirilis ke production.
+
 Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran rencana, pengeluaran aktual, dan bon internal. Identitas visual: **Botanical Luxury** (forest green, ivory, sage, gold).
 
 ## Aplikasi

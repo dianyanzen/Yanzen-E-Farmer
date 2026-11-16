@@ -3,11 +3,16 @@ on:
   push:
     branches:
       - feat/yz-farm-life-stage1
+      - feat/yz-pasirluyu-chapter1
   pull_request:
     paths:
       - "src/app/game/**"
       - "src/lib/game/**"
       - "tests/game-stage1.mjs"
+      - "tests/game-save.mjs"
+      - "tests/game-chapter1-ui.mjs"
+      - "public/game/assets/story/**"
+      - "game-assets/catalog/pasirluyu-story.json"
       - "supabase/migrations/*yz_game*"
 permissions:
   contents: read
@@ -28,6 +33,6 @@ jobs:
       - name: Check TypeScript
         run: npm run typecheck
       - name: Test game model
-        run: node tests/game-stage1.mjs
+        run: npm run test:game
       - name: Lint
         run: npm run lint

@@ -2,16 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
-  newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction } from "@/lib/game/model";
+  newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction, chapterJournal,
+  choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type Dialogue } from "@/lib/game/model";
 import { drawWorld, type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
-type Dialogue = { title: string; lines: string[] };
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const TOOLS: { id: FarmTool; name: string; glyph: string }[] = [
   { id: "hoe", name: "Cangkul", glyph: "01" },
@@ -52,11 +53,22 @@ export default function GameClient() {
   const [errorText, setErrorText] = useState("");
   const [tool, setTool] = useState<FarmTool>("hoe");
   const [phoneOpen, setPhoneOpen] = useState(false);
+  const phoneRef = useRef<HTMLDialogElement>(null);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
   const [selectedDistrict, setSelectedDistrict] = useState<string>("Regol");
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
+  const dialogueRef = useRef<HTMLDialogElement>(null);
   const [toast, setToast] = useState("Selamat datang di Pasirluyu. Gunakan tombol arah dan E.");
   const [showHelp, setShowHelp] = useState(true);
+
+  useEffect(() => {
+    const dialog = dialogueRef.current;
+    if (dialogue && dialog && !dialog.open) dialog.showModal();
+  }, [dialogue]);
+  useEffect(() => {
+    const dialog = phoneRef.current;
+    if (phoneOpen && dialog && !dialog.open) dialog.showModal();
+  }, [phoneOpen]);
 
   useEffect(() => {
     let active = true;
@@ -107,6 +119,7 @@ export default function GameClient() {
     if (!userId || !dbRef.current || saveLockedRef.current) return;
     const db = dbRef.current;
     const next = queueRef.current.then(async () => {
+      if (saveLockedRef.current) return;
       setSaveStatus("saving");
       const { error } = await db.from("yz_game_saves").upsert(
         { user_id: userId, version: 1, data: snapshot, updated_at: new Date().toISOString() },
@@ -144,14 +157,16 @@ export default function GameClient() {
     if (npc) {
       const result = meetNpc(game, npc.id);
       setGame(result.state);
-      setDialogue({ title: result.title, lines: result.lines });
+      setDialogue(result);
+      if (result.state !== game) void persist(result.state);
       setShowHelp(false);
       return;
     }
     const result = applyFarmTool(game, tool);
     setGame(result.state); setToast(result.message);
+    if (result.state !== game) void persist(result.state);
     setShowHelp(false);
-  }, [game, tool, phoneOpen, dialogue, saveStatus]);
+  }, [game, tool, phoneOpen, dialogue, saveStatus, persist]);
 
   const togglePhone = useCallback(() => {
     if (dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -163,6 +178,9 @@ export default function GameClient() {
       const element = e.target as HTMLElement | null;
       if (element && ["INPUT", "TEXTAREA", "SELECT"].includes(element.tagName)) return;
       const key = e.key.toLowerCase();
+      // Native buttons and dialogs own Enter/Space/Tab. Do not dismiss a
+      // meaningful choice before its focused button can activate.
+      if (dialogue || (element?.closest("button, a, dialog") && [" ", "enter"].includes(key))) return;
       if (["arrowup", "arrowdown", "arrowleft", "arrowright", " ", "p", "e", "escape"].includes(key) ||
         ["w", "a", "s", "d"].includes(key)) e.preventDefault();
       if (key === "escape") { setPhoneOpen(false); setDialogue(null); return; }
@@ -183,29 +201,54 @@ export default function GameClient() {
   }, [step, action, togglePhone, phoneOpen, dialogue]);
 
   const rest = () => {
-    if (phoneOpen || dialogue || saveStatus === "error") return;
-    setGame(s => nextDay(s));
+    if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
+    const next = nextDay(game);
+    setGame(next); void persist(next);
     setToast("Hari baru dimulai. Tanaman yang disiram kemarin bertumbuh.");
   };
   const markOrder = () => {
-    setGame(s => acceptOrder(s));
+    if (saveStatus === "loading" || saveStatus === "error") return;
+    const next = acceptOrder(game);
+    setGame(next); void persist(next);
     setToast("Quest: Bawa empat timun kepada Inggit di pasar.");
   };
   const purchase = () => {
+    if (saveStatus === "loading" || saveStatus === "error") return;
     const next = buySeeds(game);
     if (!next) { setToast("Koin belum cukup. Lima bibit berharga 40 G."); return; }
-    setGame(next); setToast("Berhasil membeli lima bibit.");
+    setGame(next); void persist(next); setToast("Berhasil membeli lima bibit.");
+  };
+  const decidePhoto = (choice: PhotoChoice) => {
+    if (saveStatus === "loading" || saveStatus === "error") return;
+    const next = choosePhoto(game, choice);
+    if (next === game) return;
+    setGame(next); void persist(next);
+    setDialogue({ title: "Bab 1 selesai · Empat Timun dan Satu Nama", photo: true, lines: [
+      choice === "nani" ? "Nani menyelipkan foto asli ke amplop. Ia akan menyiapkan kisah dengan suaranya sendiri; kamu tidak perlu membagikannya sebelum ia siap." :
+        "Nani menyimpan foto asli dan menitipkan salinan di warung. Inggit menyiapkan tempat untuk nama-nama yang diingat warga.",
+      "Pilihanmu tercatat di jurnal. Temui kembali Nani dan Inggit untuk melihat akibatnya. Bab Cimincrang belum tersedia; kebun dan warung tetap dapat dikunjungi."] });
+  };
+  const sell = () => {
+    if (saveStatus === "loading" || saveStatus === "error") return;
+    const quantity = sellableCucumbers(game);
+    if (!quantity) return;
+    const next = sellCucumbers(game);
+    setGame(next); void persist(next);
+    setDialogue({ title: "Inggit · Hasil Panen Diterima", shop: true, lines: [
+      `Inggit: ${quantity} timun sudah kuterima. Ini ${quantity * 25} G. Empat timun untuk pesanan yang masih aktif tetap kamu simpan.`] });
   };
 
   const planted = game.plots.filter(p => p.stage >= 0).length;
   const readyCrops = game.plots.filter(p => p.stage === 3).length;
   const unread = !game.story.orderAccepted && !game.phoneRead;
   const minutes = timeLabel(game.minutes);
+  const journal = chapterJournal(game);
+  const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main className="yzg-page">
     <header className="yzg-header">
       <div>
-        <span className="yzg-eyebrow">PIXEL FARMING STORY · PROTOTYPE 01</span>
+        <span className="yzg-eyebrow">BAB 1 · EMPAT TIMUN DAN SATU NAMA</span>
         <h1>YZ <span>Farm Life</span></h1>
         <p>Pasirluyu — sawah dan cerita di tengah kota.</p>
       </div>
@@ -219,6 +262,10 @@ export default function GameClient() {
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
+      <section className="yzg-objective" aria-label="Tujuan cerita">
+        <div><b>{journal.stage === 5 ? "Bab 1 selesai" : "Tujuan berikutnya"}</b><p>{journal.objective}</p></div>
+        <button onClick={() => { setShowHelp(false); setPhoneOpen(true); setPhoneTab("farm"); }} disabled={unavailable || !!dialogue}>Buka jurnal</button>
+      </section>
       <div className="yzg-viewport">
         <canvas ref={canvasRef} width={480} height={320} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
@@ -232,12 +279,22 @@ export default function GameClient() {
           Arahkan ke petak kebun, pilih alat, lalu tekan E.
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
         </div>}
-        {dialogue && <div className="yzg-dialog" role="dialog" aria-label={dialogue.title}>
+        {dialogue && <dialog ref={dialogueRef} className="yzg-dialog yzg-chapter-dialog" aria-label={dialogue.title} onCancel={() => setDialogue(null)} onClose={() => setDialogue(null)}>
           <div className="yzg-dialog-head"><b>{dialogue.title}</b><span>◈ CERITA</span></div>
+          {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>Foto pintu air · koleksi Nani · ilustrasi fiktif</figcaption></figure>}
           {dialogue.lines.map((line, i) => <p key={i}>{line}</p>)}
-          <button onClick={() => setDialogue(null)}>Lanjutkan ›</button>
-        </div>}
-        {phoneOpen && <div className="yzg-phone-backdrop" onClick={() => setPhoneOpen(false)}>
+          {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
+            <button onClick={() => decidePhoto("nani")} disabled={unavailable}>Percayakan foto asli kepada Nani<small>Kisah disimpan bersama keluarga.</small></button>
+            <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
+          </div>}
+          {dialogue.shop && <div className="yzg-shop">
+            <button onClick={purchase} disabled={unavailable || game.coins < 40}>Beli 5 bibit · 40 G</button>
+            <button onClick={sell} disabled={unavailable || !sellableCucumbers(game)}>Jual {sellableCucumbers(game)} timun · {sellableCucumbers(game) * 25} G</button>
+            {game.story.orderAccepted && !game.story.orderDone && <small>Empat timun dicadangkan untuk pesanan Inggit.</small>}
+          </div>}
+          <button onClick={() => setDialogue(null)}>{dialogue.choosePhoto ? "Putuskan nanti" : "Lanjutkan ›"}</button>
+        </dialog>}
+        {phoneOpen && <dialog ref={phoneRef} className="yzg-phone-backdrop" aria-label="YZ Phone" onCancel={() => setPhoneOpen(false)} onClose={() => setPhoneOpen(false)} onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
             <div className="yzg-phone-notch"/>
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
@@ -253,7 +310,7 @@ export default function GameClient() {
                   setPhoneTab(app.id);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
                 }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
-                <div className="yzg-phone-card"><b>Notifikasi kampung</b><p>{game.story.orderDone ? "Inggit mengundangmu ke festival panen kota." : "Inggit mengirim pesan tentang pesanan timun."}</p></div>
+                <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{journal.objective}</p></div>
               </>}
               {phoneTab === "chat" && <>
                 <div className="yzg-phone-card"><b>✉ Inggit · Pedagang pasar</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
@@ -261,15 +318,16 @@ export default function GameClient() {
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : "Pesanan diterima. Temui Inggit setelah panen."}</small>}
                 </div>
                 <div className="yzg-phone-card"><b>✉ Ryan</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
-                <div className="yzg-phone-card"><b>Pasar Bibit</b><p>Lima bibit timun — 40 G</p><button onClick={purchase} disabled={game.coins < 40}>Beli 5 bibit</button></div>
+                <div className="yzg-phone-card"><b>Pasar Bibit</b><p>Lima bibit timun — 40 G</p><button onClick={purchase} disabled={unavailable || game.coins < 40}>Beli 5 bibit</button></div>
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
                   <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{game.coins} G</strong></span></div>
                 </div>
-                <div className="yzg-phone-card"><b>Jurnal quest</b><p>{game.story.orderDone ? "✓ Empat timun untuk Inggit telah dikirim." : game.story.orderAccepted ? "Panen dan antar 4 timun kepada Inggit di pasar." : "Baca pesan Inggit untuk menerima pesanan."}</p>
-                  <p>{game.story.canalClue ? "✓ Rahasia saluran tua: cari petunjuk dari Nani." : "Temui Ryan di pinggir kebun."}</p>
-                  {game.story.sarisStory && <p>✓ Sudah mendengar kisah kampung dari Nani.</p>}
+                <div className="yzg-phone-card"><b>Jurnal · Bab 1</b><p>{journal.objective}</p>
+                  <ol className="yzg-journal">{journal.entries.map(entry => <li key={entry.title}>{entry.done ? "Selesai: " : "Belum: "}{entry.title}</li>)}</ol>
+                  {game.story.photoSeen && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="300px" alt="Foto lama pintu air milik Nani, dengan dua garis pada batu."/><figcaption>Petunjuk: Cimincrang</figcaption></figure>}
+                  {game.story.photoChoice && <p><b>Keputusan hari {game.story.completedDay}</b><br/>{game.story.photoChoice === "nani" ? "Foto asli dipercayakan kepada Nani; kisah keluarga disiapkan dengan suaranya sendiri." : "Salinan foto dititipkan di warung; warga dapat menambahkan nama. Foto asli tetap bersama Nani."}</p>}
                 </div>
               </>}
               {phoneTab === "ikd" && <>
@@ -305,7 +363,7 @@ export default function GameClient() {
             </div>
             <div className="yzg-phone-bottom"><button onClick={() => setPhoneTab("apps")}>●</button></div>
           </section>
-        </div>}
+        </dialog>}
       </div>
       <div className="yzg-controls">
         <div className="yzg-tools" aria-label="Alat pertanian">
@@ -329,9 +387,13 @@ export default function GameClient() {
       <div className="yzg-footer"><span>Jalan: WASD / arah · E: aksi · P: HP · Escape: tutup</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
         <b>Penyimpanan cloud bermasalah</b><p>{errorText}</p>
-        <button onClick={() => window.location.reload()}>Muat ulang dan coba kembali</button>
+        {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}
+        <button onClick={() => {
+          if (!userId) { window.location.reload(); return; }
+          saveLockedRef.current = false; setErrorText(""); void persist(game);
+        }}>{userId ? "Coba simpan kembali" : "Coba muat progres kembali"}</button>
       </div>}
     </section>
-    <p className="yzg-disclaimer">Prototipe terbatas · Data game dipisahkan dari transaksi dan panen E-Farmer nyata. Visual NPC sementara merupakan pixel art sederhana yang merujuk karakter A01, C01, dan C08; belum berupa sprite final dari lembar referensi.</p>
+    <p className="yzg-disclaimer">Bab 1 · Pasirluyu. Yanzen A01, Ryan A03, Nani C01, dan Inggit C08 memakai atlas runtime proyek. Cerita dan foto pintu air adalah fiksi. Progres game terpisah dari transaksi dan panen E-Farmer nyata. Perjalanan ke Cimincrang belum tersedia.</p>
   </main>;
 }

@@ -62,3 +62,26 @@
 @media(prefers-reduced-motion:reduce){.yzg-page *{animation:none!important;transition:none!important}}
 
 .yzg-map-label{display:block;margin:11px 0 5px;font-size:10px;color:#53705b;font-weight:800}.yzg-map-select{width:100%;min-height:34px;border:1px solid #bdd1b7;background:#f5f9f0;border-radius:8px;padding:7px;font-size:12px;color:#274a32}.yzg-map-select:focus-visible{outline:2px solid #4a835a;outline-offset:2px}
+
+/* Chapter interactions stay readable outside the small mobile map viewport. */
+.yzg-objective{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;background:#fff9e6;color:#253d30}
+.yzg-objective b{font-size:13px}.yzg-objective p{font-size:14px;line-height:1.5;margin:5px 0 0;max-width:70ch}
+.yzg-objective button{flex-shrink:0;background:#356748;color:#fff9e6;padding:10px 14px;border-radius:8px;min-height:44px}
+.yzg-page button:focus-visible,.yzg-page a:focus-visible{outline:3px solid #b47421;outline-offset:3px}
+.yzg-page button:disabled{opacity:.5;cursor:not-allowed}
+.yzg-chapter-dialog{position:fixed;inset:0;transform:none;margin:auto;width:min(92vw,620px);height:fit-content;max-height:88dvh;overflow-y:auto;padding:20px;background:#fff9e6}
+.yzg-chapter-dialog::backdrop{background:#0b1d17bb}
+.yzg-chapter-dialog .yzg-dialog-head{font-size:16px}.yzg-chapter-dialog p{font-size:15px;line-height:1.65;margin:12px 0}
+.yzg-chapter-dialog button{min-height:44px;font-size:14px}
+.yzg-story-photo{margin:12px 0}.yzg-story-photo img{width:100%;height:auto;max-height:220px;object-fit:contain;border-radius:5px;background:#e1caa2}
+.yzg-story-photo figcaption{font-size:12px;line-height:1.5;color:#596348;margin-top:5px}
+.yzg-photo-choices{display:grid;gap:10px;margin:16px 0}.yzg-photo-choices button{width:100%;text-align:left;line-height:1.5;padding:12px 14px;margin:0}
+.yzg-photo-choices small{display:block;font-weight:400;color:#fff9e6;margin-top:4px}
+.yzg-shop{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.yzg-shop button{margin:0}.yzg-shop small{flex-basis:100%;font-size:12px;line-height:1.5}
+.yzg-phone-backdrop{position:fixed;inset:0;margin:auto;width:100vw;height:100dvh;max-width:none;max-height:none;border:0;padding:16px;justify-content:center;background:transparent;backdrop-filter:none;box-sizing:border-box}
+.yzg-phone-backdrop::backdrop{background:#0b1d17b0;backdrop-filter:blur(2px)}
+.yzg-phone{width:min(360px,100%);max-width:360px;height:min(85dvh,640px);border-width:6px}
+.yzg-phone-top{height:auto;min-height:50px}.yzg-phone-top button{width:44px;height:44px;flex-shrink:0}
+.yzg-phone-card{font-size:14px}.yzg-phone-card b{font-size:15px}.yzg-phone-card small{font-size:12px}.yzg-phone-card button{font-size:14px;min-height:44px}
+.yzg-journal{padding-left:20px;line-height:1.7;font-size:13px}
+@media(max-width:480px){.yzg-objective{align-items:flex-start;gap:10px;padding:12px}.yzg-objective p{font-size:13px}.yzg-objective button{font-size:12px;padding:8px}.yzg-chapter-dialog{padding:15px}.yzg-story-photo img{max-height:160px}}

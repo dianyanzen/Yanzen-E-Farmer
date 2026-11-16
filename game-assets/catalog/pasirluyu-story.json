@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "assetId": "pasirluyu-canal-photo",
+  "sourceArchive": "YZ_Farm_Life_Explore_Bandung.zip",
+  "sourcePath": "cerita/foto-saluran.png",
+  "sourceArchiveCommit": "64352049ce62e0d70bf0e2ffd49cdc9ce028433e",
+  "sourceRepository": "https://github.com/dianyanzen/Yanzen-E-Farmer",
+  "runtimePath": "public/game/assets/story/foto-saluran.png",
+  "sha256": "db48fb5d3c242f9d4692948d61fbb82c7b159f267fe3b3e1e560f1dfb41fe2af",
+  "provenance": "User-supplied YZ Farm Life project illustration. No third-party or CC0 license is asserted.",
+  "reviewedOn": "2026-11-16",
+  "review": "Inspected illustration of a fictional canal gate with two marks. Used only in Nani dialogue and journal; not a real historical photograph.",
+  "changes": "Unchanged bytes from supplied archive. Rendered responsively through Next Image. Existing character and crop atlases reused; no generated assets required."
+}
