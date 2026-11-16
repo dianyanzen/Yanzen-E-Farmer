@@ -578,7 +578,7 @@
         "opaquePixels": 775,
         "cornersTransparent": true
       },
-      "name": "Adang",
+      "name": "Risky",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C02"
     },
@@ -1116,7 +1116,7 @@
         "opaquePixels": 169,
         "cornersTransparent": false
       },
-      "name": "Ratna",
+      "name": "Desi",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C04"
     },
@@ -1385,7 +1385,7 @@
         "opaquePixels": 461,
         "cornersTransparent": false
       },
-      "name": "Naufal",
+      "name": "Eza",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C05"
     },
@@ -1654,7 +1654,7 @@
         "opaquePixels": 1161,
         "cornersTransparent": true
       },
-      "name": "Alifia",
+      "name": "Yani",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C06"
     },
@@ -1923,7 +1923,7 @@
         "opaquePixels": 649,
         "cornersTransparent": false
       },
-      "name": "Agung",
+      "name": "Widi",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C07"
     },
@@ -2461,7 +2461,7 @@
         "opaquePixels": 480,
         "cornersTransparent": false
       },
-      "name": "Rhesa",
+      "name": "Bela",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C09"
     },
@@ -2730,7 +2730,7 @@
         "opaquePixels": 474,
         "cornersTransparent": true
       },
-      "name": "Toni",
+      "name": "Yogi",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C10"
     },
@@ -3268,7 +3268,7 @@
         "opaquePixels": 262,
         "cornersTransparent": false
       },
-      "name": "Leny",
+      "name": "Fatihah",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C12"
     },
@@ -3537,7 +3537,7 @@
         "opaquePixels": 714,
         "cornersTransparent": true
       },
-      "name": "Yayan",
+      "name": "Heri",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C13"
     },
@@ -3806,7 +3806,7 @@
         "opaquePixels": 373,
         "cornersTransparent": false
       },
-      "name": "Adep",
+      "name": "Arya",
       "profileCatalog": "game-assets/catalog/cast.json",
       "profileId": "C14"
     },

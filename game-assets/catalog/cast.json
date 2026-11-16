@@ -45,7 +45,7 @@
       "id": "A03",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Farid",
+      "name": "Ryan",
       "occupation": "Pengelola irigasi",
       "hobby": [
         "Memancing",
@@ -81,7 +81,7 @@
       "id": "A05",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Dian",
+      "name": "Vicky",
       "occupation": "Teknisi alat pertanian",
       "hobby": [
         "Merakit perkakas",
@@ -99,7 +99,7 @@
       "id": "A06",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Bima",
+      "name": "Asep",
       "occupation": "Kurir hasil kebun",
       "hobby": [
         "Bersepeda",
@@ -135,7 +135,7 @@
       "id": "A08",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Asti",
+      "name": "Astri",
       "occupation": "Perajin keranjang",
       "hobby": [
         "Menganyam bambu",
@@ -153,7 +153,7 @@
       "id": "A09",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Galih",
+      "name": "Fajar",
       "occupation": "Fotografer desa",
       "hobby": [
         "Fotografi alam",
@@ -189,7 +189,7 @@
       "id": "A11",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Rani",
+      "name": "Anggi",
       "occupation": "Pengelola pasar desa",
       "hobby": [
         "Memasak bersama",
@@ -225,7 +225,7 @@
       "id": "A13",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Fahima",
+      "name": "Nida",
       "occupation": "Penjaga perpustakaan benih",
       "hobby": [
         "Membaca",
@@ -243,7 +243,7 @@
       "id": "A14",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Arie",
+      "name": "Desna",
       "occupation": "Teknisi radio desa",
       "hobby": [
         "Merakit radio",
@@ -261,7 +261,7 @@
       "id": "A15",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2/manifest.json",
-      "name": "Bayu",
+      "name": "Heru",
       "occupation": "Pengurus koperasi tani",
       "hobby": [
         "Bermain bulu tangkis",
@@ -315,7 +315,7 @@
       "id": "C02",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Adang",
+      "name": "Risky",
       "occupation": "Petani kebun buah",
       "hobby": [
         "Mencangkok tanaman",
@@ -351,7 +351,7 @@
       "id": "C04",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Ratna",
+      "name": "Desi",
       "occupation": "Pembuat roti desa",
       "hobby": [
         "Mencoba resep roti",
@@ -369,7 +369,7 @@
       "id": "C05",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Naufal",
+      "name": "Eza",
       "occupation": "Pelajar dan peserta klub kebun",
       "hobby": [
         "Bermain sepak bola",
@@ -387,7 +387,7 @@
       "id": "C06",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Alifia",
+      "name": "Yani",
       "occupation": "Mahasiswi pertanian",
       "hobby": [
         "Membaca buku tanaman",
@@ -405,7 +405,7 @@
       "id": "C07",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Agung",
+      "name": "Widi",
       "occupation": "Pedagang hasil bumi",
       "hobby": [
         "Mencoba masakan lokal",
@@ -441,7 +441,7 @@
       "id": "C09",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Rhesa",
+      "name": "Bela",
       "occupation": "Ilustrator desa",
       "hobby": [
         "Menggambar lanskap",
@@ -459,7 +459,7 @@
       "id": "C10",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Toni",
+      "name": "Yogi",
       "occupation": "Pencatat keuangan koperasi",
       "hobby": [
         "Mengerjakan teka-teki angka",
@@ -495,7 +495,7 @@
       "id": "C12",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Leny",
+      "name": "Fatihah",
       "occupation": "Penjaga toko perlengkapan kebun",
       "hobby": [
         "Merawat tanaman pot",
@@ -513,7 +513,7 @@
       "id": "C13",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Yayan",
+      "name": "Heri",
       "occupation": "Penggerak kegiatan kampung",
       "hobby": [
         "Bermain catur",
@@ -531,7 +531,7 @@
       "id": "C14",
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
-      "name": "Adep",
+      "name": "Arya",
       "occupation": "Kurir kebutuhan desa",
       "hobby": [
         "Merawat sepeda motor",
@@ -583,5 +583,5 @@
     }
   ],
   "profileLanguage": "id",
-  "profileNote": "NPC names are short-name selections from a user-provided list. Occupations, hobbies and personalities are fictional game design, not claims about real people or deductions from appearance. No personnel IDs, full names, titles or employment records are imported."
+  "profileNote": "NPC names follow user selections from a supplied list and subsequent nickname revisions. Occupations, hobbies and personalities are fictional game design, not claims about real people or deductions from appearance. No personnel IDs, full names, titles or employment records are imported."
 }
