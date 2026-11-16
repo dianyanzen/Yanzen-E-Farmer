@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "expectedCount": 32,
+  "mainCharacter": "A01",
+  "status": "generated-art-staging",
+  "characters": [
+    {
+      "id": "A01",
+      "role": "main-character",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A02",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A03",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A04",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A05",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A06",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A07",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A08",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A09",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A10",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A11",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A12",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A13",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A14",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A15",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "A16",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json"
+    },
+    {
+      "id": "C01",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C02",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C03",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C04",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C05",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C06",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C07",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C08",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C09",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C10",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C11",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C12",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C13",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C14",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C15",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    },
+    {
+      "id": "C16",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json"
+    }
+  ]
+}

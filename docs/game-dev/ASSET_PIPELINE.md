@@ -2,7 +2,7 @@
 
 ## Character Pack v2 — 16 November 2026
 
-Paket karakter aktif berjumlah **16**: A01 satu-satunya main character, A02–A16 adalah 15 NPC. Lihat [paket, manifest, prompt, asal/lisensi dan audit QA](../../game-assets/characters/gba-v2/README.md) serta [galeri](../../game-assets/characters/gba-v2/PREVIEW.md). Sheet baru disimpan di katalog aset, belum dipasang ke runtime. Inventaris 32 referensi privat di bawah tetap mencatat bahan sumber A/C, bukan jumlah pemeran game.
+Katalog karakter kini berjumlah **32**: A01 satu-satunya main character, A02–A16 dan C01–C16 adalah 31 NPC. Lihat [paket A](../../game-assets/characters/gba-v2/README.md), [ekspansi C beserta manifest, prompt, asal/lisensi dan audit QA](../../game-assets/characters/gba-v2-c/README.md), [galeri C](../../game-assets/characters/gba-v2-c/PREVIEW.md) dan [katalog pemeran gabungan](../../game-assets/catalog/cast.json). C15 mempertahankan kursi roda pada semua pose. Sheet disimpan di katalog aset, belum dipasang ke runtime. Inventaris 32 referensi privat tetap dipisahkan dari keluaran sprite.
 
 Pemeriksaan paket: `node scripts/game-assets/verify-character-pack.mjs`. Catatan QA membedakan hasil visual yang sudah diperiksa dari normalisasi piksel, pivot dan animasi yang masih diperlukan sebelum integrasi game.
 
