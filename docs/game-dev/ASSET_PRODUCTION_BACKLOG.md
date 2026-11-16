@@ -14,9 +14,9 @@
 - [ ] Screenshot audit current landscape game and retain baseline.
 - [ ] Convert camera only after image-ready tile pipeline, to target 288×512 (16:9 portrait) using 16×16 tiles.
 - [ ] Produce **one** original 16px terrain atlas: grass, wet soil, path, water, crop trellis.
-- [ ] Derive 5-stage cucumber growth from CC0 source, using a stage adapter compatible with 4-step existing game state.
-- [ ] Create main character 4-direction 4-frame walk (no reference sheet copying).
-- [ ] Pixel-art NPC Raka (A01 reference), Bu Sari (C01 reference) and Naya (C08 reference), with original outfits.
+- [x] Original four-stage cucumber tiles matching planted states 0–3.
+- [x] Four-direction, three-pose walk atlas for Yanzen; runtime also includes Ryan, Nani and Inggit.
+- [ ] Next: Yanzen's hoe, sow, water and harvest animations with matching tool silhouettes.
 - [ ] Sprite dialogs portrait for these 3 NPCs, with 3 expressions each.
 - [ ] Build story-dedicated props (photo of old irrigation canal, letter in warung) not generic fetch-quest icons.
 - [ ] Test camera and YZ Phone on mobile screen sizes 360×800, 393×852, 430×932 CSS px.

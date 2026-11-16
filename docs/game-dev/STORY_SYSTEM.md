@@ -20,11 +20,11 @@ Each of 32 reference IDs eventually maps to one fictional character with:
   "district": "Regol",
   "title": "Saluran Lama Pasirluyu",
   "priority": 80,
-  "requires": ["met:raka", "day>=3"],
+  "requires": ["met:A03", "day>=3"],
   "excludes": ["resolved:canal-001"],
   "availableAt": ["irrigation-edge", "community-centre"],
   "choices": [
-    { "id": "investigate", "setFlags": ["raka:trust+1", "canal:investigation"], "unlocks": ["regol-photo-002"] },
+    { "id": "investigate", "setFlags": ["A03:trust+1", "canal:investigation"], "unlocks": ["regol-photo-002"] },
     { "id": "ask-neighbor", "setFlags": ["sari:quest-intro"], "unlocks": ["regol-memory-003"] }
   ],
   "cooldownDays": 0

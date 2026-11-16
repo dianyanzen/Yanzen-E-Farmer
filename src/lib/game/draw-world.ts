@@ -1,4 +1,4 @@
-import { GameState, NPCS, WORLD, facing, isFarm } from "./model";
+import { Direction, GameState, NPCS, WORLD, facing, isFarm } from "./model";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -24,7 +24,11 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export function drawWorld(canvas: HTMLCanvasElement, state: GameState) {
+export type WorldArt = { people?: HTMLImageElement; cucumber?: HTMLImageElement };
+const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3 } as const;
+const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
+
+export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: WorldArt = {}, pose = 1) {
   const ctx = canvas.getContext("2d"); if (!ctx) return;
   canvas.width = W*T; canvas.height = H*T;
   ctx.imageSmoothingEnabled = false;
@@ -69,9 +73,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState) {
   // Soil, crop stages and watering markers.
   for(const crop of state.plots) {
     const x=crop.x*T,y=crop.y*T;
-    box(ctx,x+2,y+3,16,13,"#775239");
+    box(ctx,x+2,y+3,16,13,crop.watered ? "#583e32" : "#775239");
     if(crop.stage===-1){box(ctx,x+4,y+7,12,2,"#b4865d");}
-    if(crop.stage>=0){
+    if(crop.stage>=0 && art.cucumber){
+      ctx.drawImage(art.cucumber, crop.stage*16, 0, 16, 16, x+2, y+2, 16, 16);
+    } else if(crop.stage>=0){
       const h=4+crop.stage*3;
       box(ctx,x+10,y+17-h,2,h,"#2d6c3f");
       box(ctx,x+6,y+12-crop.stage*2,5+crop.stage,3,"#428b4c");
@@ -84,14 +90,20 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState) {
   label(ctx,"PASIRLUYU",158,47);
   label(ctx,"WARUNG REGOL",333,46);
   label(ctx,"KEBUN PASIRLUYU",73,146);
-  // NPC sprites, appearance inspired by reference character sheets.
-  drawPerson(ctx,13,8,"#506778","#eab58a","#212931");
-  drawPerson(ctx,16,11,"#bc8d88","#e7b9a1","#ceb3a5");
-  drawPerson(ctx,19,7,"#ad7951","#efc4a1","#3d2c2c");
-  for(const npc of NPCS){ctx.font="bold 8px monospace";label(ctx,npc.name,npc.x*T-2,npc.y*T-3);}
+  function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
+    if (art.people) {
+      const row = actorRows[id] * 4 + facingRows[dir];
+      ctx!.drawImage(art.people, frame*24, row*32, 24, 32, x*T-2, y*T-12, 24, 32);
+    } else {
+      drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
+    }
+  }
+  for (const npc of NPCS) {
+    actor(npc.id, npc.x, npc.y, "down", 1, npc.color);
+    label(ctx, npc.name, npc.x*T-2, npc.y*T-14);
+  }
   // Player and their current tile target.
   const target=facing(state.player);
   if(isFarm(target.x,target.y)){ctx.strokeStyle="#f9e5b3";ctx.lineWidth=1;ctx.strokeRect(target.x*T+1,target.y*T+1,T-2,T-2);}
-  drawPerson(ctx,state.player.x,state.player.y,"#295d4d","#e4b48b","#553a2c",true);
-  box(ctx,state.player.x*T+8,state.player.y*T-3,5,2,"#fff6cb");
+  actor("A01", state.player.x, state.player.y, state.player.dir, pose, "#295d4d");
 }
