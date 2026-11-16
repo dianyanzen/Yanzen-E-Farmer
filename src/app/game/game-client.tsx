@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
   newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction } from "@/lib/game/model";
-import { drawWorld } from "@/lib/game/draw-world";
+import { drawWorld, type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import "./game.css";
 
@@ -30,6 +30,18 @@ function timeLabel(minutes: number) {
 }
 export default function GameClient() {
   const router = useRouter();
+  const [art, setArt] = useState<WorldArt>({});
+  const previousTile = useRef("");
+  useEffect(() => {
+    let active = true;
+    const sources = { people: "characters/stage1.png", cucumber: "tiles/cucumber.png" };
+    for (const [key, path] of Object.entries(sources)) {
+      const image = new Image();
+      image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
+      image.src = "/game/assets/" + path;
+    }
+    return () => { active = false; };
+  }, []);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dbRef = useRef<ReturnType<typeof createClient> | null>(null);
   const queueRef = useRef<Promise<void>>(Promise.resolve());
@@ -78,8 +90,18 @@ export default function GameClient() {
   }, [router]);
 
   useEffect(() => {
-    if(canvasRef.current) drawWorld(canvasRef.current, game);
-  }, [game]);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const { x, y } = game.player;
+    const tile = x + "," + y;
+    const moved = previousTile.current !== "" && previousTile.current !== tile;
+    previousTile.current = tile;
+    drawWorld(canvas, game, art, moved ? ((x+y)%2)*2 : 1);
+    if (moved) {
+      const timer = window.setTimeout(() => drawWorld(canvas, game, art), 120);
+      return () => window.clearTimeout(timer);
+    }
+  }, [game, art]);
 
   const persist = useCallback((snapshot: GameState) => {
     if (!userId || !dbRef.current || saveLockedRef.current) return;
@@ -167,7 +189,7 @@ export default function GameClient() {
   };
   const markOrder = () => {
     setGame(s => acceptOrder(s));
-    setToast("Quest: Bawa empat timun kepada Naya di pasar.");
+    setToast("Quest: Bawa empat timun kepada Inggit di pasar.");
   };
   const purchase = () => {
     const next = buySeeds(game);
@@ -202,10 +224,10 @@ export default function GameClient() {
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
         {!phoneOpen && !dialogue && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
-          <span><b>YZ Phone · Pesan baru</b><small>Naya: Ada pesanan timun untuk warungku!</small></span>
+          <span><b>YZ Phone · Pesan baru</b><small>Inggit: Ada pesanan timun untuk warungku!</small></span>
         </button>}
         {showHelp && <div className="yzg-help">
-          <b>Selamat datang, Nara!</b><br/>
+          <b>Selamat datang, Yanzen!</b><br/>
           Bergerak: WASD / panah · Interaksi: E · HP: P<br/>
           Arahkan ke petak kebun, pilih alat, lalu tekan E.
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
@@ -226,34 +248,34 @@ export default function GameClient() {
             </div>
             <div className="yzg-phone-content">
               {phoneTab === "apps" && <>
-                <div className="yzg-phone-greeting">SELAMAT PAGI, NARA <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca cerah berawan</small></div>
+                <div className="yzg-phone-greeting">SELAMAT PAGI, YANZEN <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca cerah berawan</small></div>
                 <div className="yzg-app-grid">{APPS.map(app => <button key={app.id} onClick={() => {
                   setPhoneTab(app.id);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
                 }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
-                <div className="yzg-phone-card"><b>Notifikasi kampung</b><p>{game.story.orderDone ? "Naya mengundangmu ke festival panen kota." : "Naya mengirim pesan tentang pesanan timun."}</p></div>
+                <div className="yzg-phone-card"><b>Notifikasi kampung</b><p>{game.story.orderDone ? "Inggit mengundangmu ke festival panen kota." : "Inggit mengirim pesan tentang pesanan timun."}</p></div>
               </>}
               {phoneTab === "chat" && <>
-                <div className="yzg-phone-card"><b>✉ Naya · Pedagang pasar</b><p>&ldquo;Halo, Nara! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
+                <div className="yzg-phone-card"><b>✉ Inggit · Pedagang pasar</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
-                  {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : "Pesanan diterima. Temui Naya setelah panen."}</small>}
+                  {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : "Pesanan diterima. Temui Inggit setelah panen."}</small>}
                 </div>
-                <div className="yzg-phone-card"><b>✉ Raka</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
+                <div className="yzg-phone-card"><b>✉ Ryan</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
                 <div className="yzg-phone-card"><b>Pasar Bibit</b><p>Lima bibit timun — 40 G</p><button onClick={purchase} disabled={game.coins < 40}>Beli 5 bibit</button></div>
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
                   <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{game.coins} G</strong></span></div>
                 </div>
-                <div className="yzg-phone-card"><b>Jurnal quest</b><p>{game.story.orderDone ? "✓ Empat timun untuk Naya telah dikirim." : game.story.orderAccepted ? "Panen dan antar 4 timun kepada Naya di pasar." : "Baca pesan Naya untuk menerima pesanan."}</p>
-                  <p>{game.story.canalClue ? "✓ Rahasia saluran tua: cari petunjuk dari Bu Sari." : "Temui Raka di pinggir kebun."}</p>
-                  {game.story.sarisStory && <p>✓ Sudah mendengar kisah kampung dari Bu Sari.</p>}
+                <div className="yzg-phone-card"><b>Jurnal quest</b><p>{game.story.orderDone ? "✓ Empat timun untuk Inggit telah dikirim." : game.story.orderAccepted ? "Panen dan antar 4 timun kepada Inggit di pasar." : "Baca pesan Inggit untuk menerima pesanan."}</p>
+                  <p>{game.story.canalClue ? "✓ Rahasia saluran tua: cari petunjuk dari Nani." : "Temui Ryan di pinggir kebun."}</p>
+                  {game.story.sarisStory && <p>✓ Sudah mendengar kisah kampung dari Nani.</p>}
                 </div>
               </>}
               {phoneTab === "ikd" && <>
                 <div className="yzg-phone-card yzg-id">
                   <small>IKD · IDENTITAS KARAKTER DIGITAL</small>
-                  <div className="yzg-avatar">N</div><strong>NARA</strong>
+                  <div className="yzg-avatar">Y</div><strong>YANZEN</strong>
                   <p>Warga Pasirluyu</p>
                   <dl><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd>
                     <dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd>

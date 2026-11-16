@@ -1,3 +1,5 @@
+import cast from "../../../game-assets/catalog/cast.json";
+
 export type Direction = "up" | "down" | "left" | "right";
 export type FarmTool = "hoe" | "seed" | "water" | "harvest";
 export type Plot = { x: number; y: number; stage: number; watered: boolean };
@@ -9,11 +11,17 @@ export type GameState = {
   phoneRead: boolean; story: StoryFlags;
 };
 export const WORLD = { width: 24, height: 16, tile: 20 } as const;
-export const NPCS = [
-  { id: "raka", name: "Raka", asset: "A01", x: 13, y: 8, color: "#314961", role: "Pengamat lingkungan" },
-  { id: "sari", name: "Bu Sari", asset: "C01", x: 16, y: 11, color: "#cba7a0", role: "Tetangga lama" },
-  { id: "naya", name: "Naya", asset: "C08", x: 19, y: 7, color: "#bc7651", role: "Pemilik warung pasar" },
+const placements = [
+  { id: "A03", x: 13, y: 8, color: "#314961" },
+  { id: "C01", x: 16, y: 11, color: "#cba7a0" },
+  { id: "C08", x: 19, y: 7, color: "#bc7651" },
 ] as const;
+
+export const NPCS = placements.map(placement => {
+  const profile = cast.characters.find(person => person.id === placement.id);
+  if (!profile || profile.role !== "npc") throw new Error("Invalid NPC " + placement.id);
+  return { ...placement, name: profile.name, role: profile.occupation };
+});
 export type NpcId = (typeof NPCS)[number]["id"];
 export const DEFAULT_STORY: StoryFlags = {
   orderAccepted: false, orderDone: false, canalClue: false, sarisStory: false,
@@ -62,7 +70,7 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
   }
   if (tool === "seed") {
     if (!p || p.stage !== -1) return { state: s, message: "Cangkul petak kosong terlebih dahulu." };
-    if (s.seeds < 1) return { state: s, message: "Bibit habis. Temui Naya untuk membeli bibit." };
+    if (s.seeds < 1) return { state: s, message: "Bibit habis. Temui Inggit untuk membeli bibit." };
     return { state: addMinutes({ ...s, seeds: s.seeds - 1,
       plots: s.plots.map(q => q === p ? { ...q, stage: 0 } : q) }),
       message: "Bibit timun ditanam. Siram dan istirahat agar tumbuh." };
@@ -84,28 +92,28 @@ export function acceptOrder(s: GameState): GameState {
   return { ...s, phoneRead: true, story: { ...s.story, orderAccepted: true } };
 }
 export function meetNpc(s: GameState, npc: NpcId): { state: GameState; title: string; lines: string[] } {
-  if (npc === "raka") return { state: { ...s, story: { ...s.story, canalClue: true } }, title: "Raka · Pinggir Kebun",
+  if (npc === "A03") return { state: { ...s, story: { ...s.story, canalClue: true } }, title: "Ryan · Pinggir Kebun",
     lines: s.story.canalClue
-      ? ["Raka: Saluran air yang lama masih tersambung ke sawah. Kita perlu mencari peta aslinya."]
-      : ["Raka: Dulu kebun di sini jauh lebih luas. Kota berkembang, tapi saluran air tua masih menyimpan rahasia.",
-         "Raka: Coba tanyakan kepada Bu Sari. Beliau pasti ingat apa yang terjadi dulu."] };
-  if (npc === "sari") return { state: { ...s, story: { ...s.story, sarisStory: true } }, title: "Bu Sari · Gang Kampung",
+      ? ["Ryan: Saluran air yang lama masih tersambung ke sawah. Kita perlu mencari peta aslinya."]
+      : ["Ryan: Dulu kebun di sini jauh lebih luas. Kota berkembang, tapi saluran air tua masih menyimpan rahasia.",
+         "Ryan: Coba tanyakan kepada Nani. Beliau pasti ingat apa yang terjadi dulu."] };
+  if (npc === "C01") return { state: { ...s, story: { ...s.story, sarisStory: true } }, title: "Nani · Gang Kampung",
     lines: s.story.canalClue
-      ? ["Bu Sari: Jadi Raka menemukan saluran tua itu? Dahulu di sini ada jembatan kecil tempat warga berbagi hasil panen.",
-         "Bu Sari: Aku menyimpan foto lama. Datanglah lagi setelah panen pertamamu."]
-      : ["Bu Sari: Selamat datang, Nak. Dulu suara air sawah lebih ramai daripada kendaraan.",
-         "Bu Sari: Kalau ingin tahu sejarah kampung, coba berbincang dengan Raka."] };
+      ? ["Nani: Jadi Ryan menemukan saluran tua itu? Dahulu di sini ada jembatan kecil tempat warga berbagi hasil panen.",
+         "Nani: Aku menyimpan foto lama. Datanglah lagi setelah panen pertamamu."]
+      : ["Nani: Selamat datang, Nak. Dulu suara air sawah lebih ramai daripada kendaraan.",
+         "Nani: Kalau ingin tahu sejarah kampung, coba berbincang dengan Ryan."] };
   if (s.story.orderAccepted && !s.story.orderDone && s.harvested >= 4) return {
     state: { ...s, harvested: s.harvested - 4, coins: s.coins + 160,
-      story: { ...s.story, orderDone: true } }, title: "Naya · Pesanan Selesai",
-    lines: ["Naya: Wah, kamu benar-benar membawa empat timun! Terima kasih!",
-      "Naya: Ini 160 G untuk jerih payahmu. Besok aku ingin mengenalkanmu pada pengelola pasar."] };
-  return { state: s, title: "Naya · Warung Pasar", lines: [
-    s.story.orderDone ? "Naya: Sejak bekerja sama denganmu, warungku mulai ramai. Kita perlu membuat acara panen bersama!" :
-    s.story.orderAccepted ? "Naya: Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
-    "Naya: Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
-    s.seeds <= 2 && s.coins >= 40 ? "Naya: Bibit hampir habis? Gunakan tombol Beli Bibit di menu percakapan HP." :
-      "Naya: Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
+      story: { ...s.story, orderDone: true } }, title: "Inggit · Pesanan Selesai",
+    lines: ["Inggit: Wah, kamu benar-benar membawa empat timun! Terima kasih!",
+      "Inggit: Ini 160 G untuk jerih payahmu. Besok aku ingin mengenalkanmu pada pengelola pasar."] };
+  return { state: s, title: "Inggit · Warung Pasar", lines: [
+    s.story.orderDone ? "Inggit: Sejak bekerja sama denganmu, warungku mulai ramai. Kita perlu membuat acara panen bersama!" :
+    s.story.orderAccepted ? "Inggit: Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
+    "Inggit: Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
+    s.seeds <= 2 && s.coins >= 40 ? "Inggit: Bibit hampir habis? Gunakan tombol Beli Bibit di menu percakapan HP." :
+      "Inggit: Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
 }
 export function buySeeds(s: GameState): GameState | null {
   if (s.coins < 40) return null;

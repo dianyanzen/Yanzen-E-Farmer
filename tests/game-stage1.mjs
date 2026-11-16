@@ -1,14 +1,15 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import { createRequire } from 'node:module';
 import ts from 'typescript';
 
 const source = readFileSync(new URL('../src/lib/game/model.ts', import.meta.url), 'utf8');
 const compiled = ts.transpileModule(source, {
-  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
+  compilerOptions: { esModuleInterop: true, module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
 }).outputText;
 const mod = { exports: {} };
-vm.runInNewContext(compiled, { exports: mod.exports, module: mod }, { timeout: 1500 });
+vm.runInNewContext(compiled, { exports: mod.exports, module: mod, require: createRequire(new URL('../src/lib/game/model.ts', import.meta.url)) }, { timeout: 1500 });
 const { newGame, movePlayer, applyFarmTool, nextDay, acceptOrder, meetNpc, safeLoad, buySeeds } = mod.exports;
 const initial = newGame();
 assert.equal(initial.day, 1);
@@ -39,13 +40,13 @@ assert.equal(state.plots.length, 0);
 assert.equal(applyFarmTool(state, 'harvest').state.harvested, 1, 'no double harvest');
 
 let story = newGame();
-story = meetNpc(story, 'raka').state;
+story = meetNpc(story, 'A03').state;
 assert.equal(story.story.canalClue, true);
-story = meetNpc(story, 'sari').state;
+story = meetNpc(story, 'C01').state;
 assert.equal(story.story.sarisStory, true);
 story = acceptOrder(story);
 story = { ...story, harvested: 4 };
-story = meetNpc(story, 'naya').state;
+story = meetNpc(story, 'C08').state;
 assert.equal(story.story.orderDone, true);
 assert.equal(story.harvested, 0);
 assert.equal(story.coins, 440);

@@ -10,10 +10,10 @@ An original pixel-art urban-farming life simulation, inspired by the gameplay si
 - W/A/S/D or arrows to walk; E/Space interacts with the tile in front or an adjacent NPC; P opens/closes YZ Phone; Escape exits overlays.
 - Mobile D-pad + action button + phone button.
 - Farm tools: hoe → seed → water → sleep → grow over three watered nights → harvest. Harvest earns fictional G currency.
-- Three NPCs with placeholder pixel sprites based loosely on **visual traits only** in user Drive character references A01, C01, C08. **No government logo, badge, or real-life role is imported.**
-  - Raka (A01): canal and environmental history.
-  - Bu Sari (C01): memories and neighborhood stories.
-  - Naya (C08): merchant with four-cucumber order quest.
+- Yanzen (A01) is the playable farmer. The first map uses three of the 31 catalog NPCs.
+  - Ryan (A03) follows the old irrigation canal.
+  - Nani (C01) remembers the neighborhood's history.
+  - Inggit (C08) orders four cucumbers for her market stall.
 - YZ Phone: in-world incoming notification, Chat, Kebunku/Jurnal, IKD (fictional character identity), Jelajah. The phone interrupts movement while open.
 - One-character save data via Supabase Auth, public.yz_game_saves with per-user RLS. Autosave is debounced after state changes and manual save is available.
 - The browser never receives database secrets or service-role credentials. If saving fails, further writes are disabled until reload to avoid overwriting old progress.
