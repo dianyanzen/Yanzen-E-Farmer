@@ -299,7 +299,10 @@
         "semiTransparentPixels": 504483,
         "opaquePixels": 277,
         "cornersTransparent": false
-      }
+      },
+      "name": "Yanzen",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A01"
     },
     {
       "id": "A02",
@@ -564,7 +567,10 @@
         "semiTransparentPixels": 459683,
         "opaquePixels": 585,
         "cornersTransparent": true
-      }
+      },
+      "name": "Nabila",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A02"
     },
     {
       "id": "A03",
@@ -829,7 +835,10 @@
         "semiTransparentPixels": 499912,
         "opaquePixels": 504,
         "cornersTransparent": false
-      }
+      },
+      "name": "Farid",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A03"
     },
     {
       "id": "A04",
@@ -1094,7 +1103,10 @@
         "semiTransparentPixels": 532014,
         "opaquePixels": 114,
         "cornersTransparent": false
-      }
+      },
+      "name": "Ayu",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A04"
     },
     {
       "id": "A05",
@@ -1359,7 +1371,10 @@
         "semiTransparentPixels": 465074,
         "opaquePixels": 725,
         "cornersTransparent": false
-      }
+      },
+      "name": "Dian",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A05"
     },
     {
       "id": "A06",
@@ -1624,7 +1639,10 @@
         "semiTransparentPixels": 468313,
         "opaquePixels": 870,
         "cornersTransparent": true
-      }
+      },
+      "name": "Bima",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A06"
     },
     {
       "id": "A07",
@@ -1889,7 +1907,10 @@
         "semiTransparentPixels": 654632,
         "opaquePixels": 601,
         "cornersTransparent": true
-      }
+      },
+      "name": "Dewi",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A07"
     },
     {
       "id": "A08",
@@ -2154,7 +2175,10 @@
         "semiTransparentPixels": 558506,
         "opaquePixels": 254,
         "cornersTransparent": false
-      }
+      },
+      "name": "Asti",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A08"
     },
     {
       "id": "A09",
@@ -2419,7 +2443,10 @@
         "semiTransparentPixels": 497939,
         "opaquePixels": 821,
         "cornersTransparent": true
-      }
+      },
+      "name": "Galih",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A09"
     },
     {
       "id": "A10",
@@ -2684,7 +2711,10 @@
         "semiTransparentPixels": 751343,
         "opaquePixels": 172,
         "cornersTransparent": false
-      }
+      },
+      "name": "Dadan",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A10"
     },
     {
       "id": "A11",
@@ -2949,7 +2979,10 @@
         "semiTransparentPixels": 479273,
         "opaquePixels": 559,
         "cornersTransparent": true
-      }
+      },
+      "name": "Rani",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A11"
     },
     {
       "id": "A12",
@@ -3214,7 +3247,10 @@
         "semiTransparentPixels": 611530,
         "opaquePixels": 452,
         "cornersTransparent": false
-      }
+      },
+      "name": "Denden",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A12"
     },
     {
       "id": "A13",
@@ -3479,7 +3515,10 @@
         "semiTransparentPixels": 552611,
         "opaquePixels": 934,
         "cornersTransparent": true
-      }
+      },
+      "name": "Fahima",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A13"
     },
     {
       "id": "A14",
@@ -3744,7 +3783,10 @@
         "semiTransparentPixels": 503867,
         "opaquePixels": 432,
         "cornersTransparent": true
-      }
+      },
+      "name": "Arie",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A14"
     },
     {
       "id": "A15",
@@ -4009,7 +4051,10 @@
         "semiTransparentPixels": 447916,
         "opaquePixels": 418,
         "cornersTransparent": true
-      }
+      },
+      "name": "Bayu",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A15"
     },
     {
       "id": "A16",
@@ -4274,7 +4319,10 @@
         "semiTransparentPixels": 528270,
         "opaquePixels": 321,
         "cornersTransparent": true
-      }
+      },
+      "name": "Khansa",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "A16"
     }
   ]
 }

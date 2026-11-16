@@ -1,5 +1,7 @@
 # YZ Farm Life — Character Pack v2
 
+Character names and fictional `occupation`, `hobby`, and `personality` attributes are in the [character bible](../../catalog/CHARACTER_BIBLE.md) and [canonical cast data](../../catalog/cast.json). A01 is named **Yanzen**. Each manifest character links to its profile by stable ID; the gallery displays short names without titles.
+
 16 fictional characters: **A01 is the only main character**, A02–A16 are NPCs. C-series reference sheets are outside this pack. The separate private-reference catalog remains an inventory of source material, not a playable cast.
 
 ## Contents and slicing

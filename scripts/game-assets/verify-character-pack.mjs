@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const allCharacters = [];
+const namesFromManifests = new Map();
 for (const [pack, prefix, mainCount] of [['gba-v2','A',1],['gba-v2-c','C',0]]) {
 const dir = new URL(`../../game-assets/characters/${pack}/`, import.meta.url);
 const m = JSON.parse(readFileSync(new URL('manifest.json', dir), 'utf8'));
@@ -14,6 +15,9 @@ assert.equal(m.characters.filter(c => c.role === 'npc').length, 16-mainCount);
 assert.deepEqual(m.characters.map(c=>c.id), Array.from({length:16},(_,i)=>prefix+String(i+1).padStart(2,'0')));
 assert.deepEqual(readdirSync(new URL('sheets/', dir)).sort(), Array.from({length:16}, (_,i)=>`${prefix}${String(i+1).padStart(2,'0')}.png`));
 for (const c of m.characters) {
+  assert.equal(c.profileCatalog,'game-assets/catalog/cast.json');
+  assert.equal(c.profileId,c.id);
+  namesFromManifests.set(c.id,c.name);
   assert.equal(c.sheet, `sheets/${c.id}.png`);
   assert.equal(c.role, c.id==='A01' ? 'main-character' : 'npc');
   const png = readFileSync(new URL(c.sheet, dir));
@@ -46,7 +50,19 @@ allCharacters.push(...m.characters.map(c=>({id:c.id,role:c.role,packManifest:`ga
 const cast = JSON.parse(readFileSync(new URL('../../game-assets/catalog/cast.json',import.meta.url),'utf8'));
 assert.equal(cast.expectedCount,32);
 assert.equal(cast.mainCharacter,'A01');
-assert.deepEqual(cast.characters,allCharacters);
+assert.deepEqual(cast.characters.map(({id,role,packManifest})=>({id,role,packManifest})),allCharacters);
+assert.equal(cast.profileLanguage,'id');
+assert.equal(cast.characters.find(c=>c.id==='A01').name,'Yanzen');
+assert.equal(new Set(cast.characters.map(c=>c.name)).size,32,'short names must be unique');
+for(const c of cast.characters) {
+  assert.match(c.name,/^[A-Z][a-z]+$/,'single short name without titles required');
+  assert.equal(namesFromManifests.get(c.id),c.name,'manifest and profile names differ');
+  assert.equal(c.profileKind,'fictional-game-design');
+  assert.ok(typeof c.occupation==='string' && c.occupation.trim().length>0);
+  assert.ok(Array.isArray(c.hobby) && c.hobby.length>=1 && c.hobby.every(h=>typeof h==='string' && h.trim()));
+  assert.ok(Array.isArray(c.personality) && c.personality.length>=1 && c.personality.every(p=>typeof p==='string' && p.trim()));
+  assert.ok(typeof c.designRationale==='string' && c.designRationale.trim().length>0);
+}
 assert.equal(new Set(allCharacters.map(c=>c.id)).size,32);
 assert.equal(allCharacters.filter(c=>c.role==='main-character').length,1);
 assert.equal(allCharacters.filter(c=>c.role==='npc').length,31);
@@ -55,3 +71,4 @@ assert.equal(catalog.activeCastCount,32);
 assert.deepEqual(catalog.activeGeneratedPacks, [...new Set(allCharacters.map(c=>c.packManifest))]);
 assert.deepEqual(catalog.activeNpcIds,allCharacters.filter(c=>c.role==='npc').map(c=>c.id));
 console.log('PASS: 32 RGBA sheets; A01 sole main character; 31 NPCs; 384 bounded, non-overlapping frame rectangles; hashes and combined cast verified; C15 wheelchair metadata checked. Visual anatomy is reviewed separately in each QA.md.');
+console.log('PASS: 32 unique short names; Yanzen main character; fictional occupation, hobby and personality profiles; manifest links verified.');

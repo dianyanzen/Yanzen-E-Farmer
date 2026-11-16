@@ -1,5 +1,7 @@
 # YZ Farm Life — C-series character expansion
 
+Short names and fictional `occupation`, `hobby`, and `personality` attributes are in the [character bible](../../catalog/CHARACTER_BIBLE.md) and [canonical cast data](../../catalog/cast.json). Each manifest character links to its profile by stable ID, and the gallery displays its short name.
+
 16 additional fictional NPCs, C01–C16, matching the A01 style anchor from [the original pack](../gba-v2/README.md). The combined cast is **32 characters: A01 is the only main character; A02–A16 and C01–C16 are 31 NPCs**. Original A-series PNGs are unchanged.
 
 ## Files and slicing

@@ -308,7 +308,10 @@
         "semiTransparentPixels": 588161,
         "opaquePixels": 604,
         "cornersTransparent": false
-      }
+      },
+      "name": "Nani",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C01"
     },
     {
       "id": "C02",
@@ -574,7 +577,10 @@
         "semiTransparentPixels": 499573,
         "opaquePixels": 775,
         "cornersTransparent": true
-      }
+      },
+      "name": "Adang",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C02"
     },
     {
       "id": "C03",
@@ -840,7 +846,10 @@
         "semiTransparentPixels": 495334,
         "opaquePixels": 925,
         "cornersTransparent": false
-      }
+      },
+      "name": "Tatang",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C03"
     },
     {
       "id": "C04",
@@ -1106,7 +1115,10 @@
         "semiTransparentPixels": 485734,
         "opaquePixels": 169,
         "cornersTransparent": false
-      }
+      },
+      "name": "Ratna",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C04"
     },
     {
       "id": "C05",
@@ -1372,7 +1384,10 @@
         "semiTransparentPixels": 488877,
         "opaquePixels": 461,
         "cornersTransparent": false
-      }
+      },
+      "name": "Naufal",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C05"
     },
     {
       "id": "C06",
@@ -1638,7 +1653,10 @@
         "semiTransparentPixels": 501750,
         "opaquePixels": 1161,
         "cornersTransparent": true
-      }
+      },
+      "name": "Alifia",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C06"
     },
     {
       "id": "C07",
@@ -1904,7 +1922,10 @@
         "semiTransparentPixels": 545063,
         "opaquePixels": 649,
         "cornersTransparent": false
-      }
+      },
+      "name": "Agung",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C07"
     },
     {
       "id": "C08",
@@ -2170,7 +2191,10 @@
         "semiTransparentPixels": 478290,
         "opaquePixels": 418,
         "cornersTransparent": true
-      }
+      },
+      "name": "Inggit",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C08"
     },
     {
       "id": "C09",
@@ -2436,7 +2460,10 @@
         "semiTransparentPixels": 517385,
         "opaquePixels": 480,
         "cornersTransparent": false
-      }
+      },
+      "name": "Rhesa",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C09"
     },
     {
       "id": "C10",
@@ -2702,7 +2729,10 @@
         "semiTransparentPixels": 502635,
         "opaquePixels": 474,
         "cornersTransparent": true
-      }
+      },
+      "name": "Toni",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C10"
     },
     {
       "id": "C11",
@@ -2968,7 +2998,10 @@
         "semiTransparentPixels": 466076,
         "opaquePixels": 512,
         "cornersTransparent": true
-      }
+      },
+      "name": "Ray",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C11"
     },
     {
       "id": "C12",
@@ -3234,7 +3267,10 @@
         "semiTransparentPixels": 524868,
         "opaquePixels": 262,
         "cornersTransparent": false
-      }
+      },
+      "name": "Leny",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C12"
     },
     {
       "id": "C13",
@@ -3500,7 +3536,10 @@
         "semiTransparentPixels": 450913,
         "opaquePixels": 714,
         "cornersTransparent": true
-      }
+      },
+      "name": "Yayan",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C13"
     },
     {
       "id": "C14",
@@ -3766,7 +3805,10 @@
         "semiTransparentPixels": 533815,
         "opaquePixels": 373,
         "cornersTransparent": false
-      }
+      },
+      "name": "Adep",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C14"
     },
     {
       "id": "C15",
@@ -4032,7 +4074,10 @@
         "semiTransparentPixels": 703811,
         "opaquePixels": 474,
         "cornersTransparent": true
-      }
+      },
+      "name": "Malik",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C15"
     },
     {
       "id": "C16",
@@ -4298,7 +4343,10 @@
         "semiTransparentPixels": 491910,
         "opaquePixels": 805,
         "cornersTransparent": false
-      }
+      },
+      "name": "Karisma",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C16"
     }
   ]
 }
