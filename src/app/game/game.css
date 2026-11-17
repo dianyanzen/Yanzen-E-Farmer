@@ -85,3 +85,16 @@
 .yzg-phone-card{font-size:14px}.yzg-phone-card b{font-size:15px}.yzg-phone-card small{font-size:12px}.yzg-phone-card button{font-size:14px;min-height:44px}
 .yzg-journal{padding-left:20px;line-height:1.7;font-size:13px}
 @media(max-width:480px){.yzg-objective{align-items:flex-start;gap:10px;padding:12px}.yzg-objective p{font-size:13px}.yzg-objective button{font-size:12px;padding:8px}.yzg-chapter-dialog{padding:15px}.yzg-story-photo img{max-height:160px}}
+
+/* Keep the landscape in view on short browser screens. */
+.yzg-page{background:#eae7d6;padding-top:12px}
+.yzg-header,.yzg-shell,.yzg-disclaimer{max-width:880px}
+.yzg-header{margin-bottom:10px;align-items:center}
+.yzg-header h1{font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);margin:2px 0}
+.yzg-shell{border-radius:8px;border-color:#514c36}
+.yzg-viewport{background:#293f32}
+.yzg-viewport canvas{max-height:min(62dvh,525px)}
+.yzg-objective{padding:7px 12px}
+.yzg-objective p{font-size:12px;margin:0}
+.yzg-tools button.active{background:#f5d38d;border-color:#875a35}
+@media(max-width:600px){.yzg-page{padding:6px 4px 40px}.yzg-header p{margin:0}.yzg-controls{padding:6px}.yzg-touch{padding:4px 14px 8px}.yzg-dpad button{touch-action:none;user-select:none}}

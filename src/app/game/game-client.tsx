@@ -29,13 +29,36 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
 function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
 }
+function DirectionButton({ direction, label, symbol, step }: {
+  direction: Direction; label: string; symbol: string; step: (dir: Direction) => void;
+}) {
+  const timer = useRef<number | undefined>(undefined);
+  const release = () => { window.clearInterval(timer.current); timer.current = undefined; };
+  useEffect(() => {
+    window.addEventListener("blur", release);
+    return () => { release(); window.removeEventListener("blur", release); };
+  }, []);
+  useEffect(() => release, [step]);
+  return <button className={direction} aria-label={label}
+    onPointerDown={event => {
+      if (!event.isPrimary || event.button !== 0) return;
+      event.currentTarget.setPointerCapture(event.pointerId);
+      release();
+      step(direction);
+      timer.current = window.setInterval(() => step(direction), 155);
+    }}
+    onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
+    onClick={event => { if (event.detail === 0) step(direction); }}>{symbol}</button>;
+}
+
 export default function GameClient() {
   const router = useRouter();
   const [art, setArt] = useState<WorldArt>({});
-  const previousTile = useRef("");
+  const drawnPosition = useRef<{ x: number; y: number } | null>(null);
+  const [swing, setSwing] = useState<{ tool: FarmTool; started: number } | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { people: "characters/stage1.png", cucumber: "tiles/cucumber.png" };
+    const sources = { people: "characters/stage1.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
@@ -58,7 +81,7 @@ export default function GameClient() {
   const [selectedDistrict, setSelectedDistrict] = useState<string>("Regol");
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const dialogueRef = useRef<HTMLDialogElement>(null);
-  const [toast, setToast] = useState("Selamat datang di Pasirluyu. Gunakan tombol arah dan E.");
+  const [toast, setToast] = useState("");
   const [showHelp, setShowHelp] = useState(true);
 
   useEffect(() => {
@@ -104,16 +127,26 @@ export default function GameClient() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const { x, y } = game.player;
-    const tile = x + "," + y;
-    const moved = previousTile.current !== "" && previousTile.current !== tile;
-    previousTile.current = tile;
-    drawWorld(canvas, game, art, moved ? ((x+y)%2)*2 : 1);
-    if (moved) {
-      const timer = window.setTimeout(() => drawWorld(canvas, game, art), 120);
-      return () => window.clearTimeout(timer);
+    const target = game.player;
+    const from = drawnPosition.current ?? target;
+    const distance = Math.abs(from.x-target.x) + Math.abs(from.y-target.y);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = distance > 0 && distance <= 2 && !reduceMotion ? 110 : 0;
+    const start = performance.now();
+    let frame = 0;
+    function paint(now: number) {
+      const t = duration ? Math.min(1, Math.max(0, (now-start)/duration)) : 1;
+      const position = { x: from.x+(target.x-from.x)*t, y: from.y+(target.y-from.y)*t };
+      drawnPosition.current = position;
+      const age = swing ? now-swing.started : Infinity;
+      const animation = swing && age < 330 && !reduceMotion
+        ? { tool: swing.tool, frame: Math.max(0, Math.floor(age/110)) } : undefined;
+      drawWorld(canvas!, game, art, position, t < 1 ? (target.x+target.y)%2*2 : 1, animation);
+      if (t < 1 || animation) frame = requestAnimationFrame(paint);
     }
-  }, [game, art]);
+    paint(start);
+    return () => cancelAnimationFrame(frame);
+  }, [game, art, swing]);
 
   const persist = useCallback((snapshot: GameState) => {
     if (!userId || !dbRef.current || saveLockedRef.current) return;
@@ -144,11 +177,12 @@ export default function GameClient() {
     return () => window.clearTimeout(t);
   }, [toast]);
 
+  const controlsLocked = phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
-    if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
+    if (controlsLocked) return;
     setGame(s => movePlayer(s, direction));
     setShowHelp(false);
-  }, [phoneOpen, dialogue, saveStatus]);
+  }, [controlsLocked]);
 
   const action = useCallback(() => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -163,6 +197,7 @@ export default function GameClient() {
       return;
     }
     const result = applyFarmTool(game, tool);
+    if (result.state !== game) setSwing({ tool, started: performance.now() });
     setGame(result.state); setToast(result.message);
     if (result.state !== game) void persist(result.state);
     setShowHelp(false);
@@ -194,6 +229,7 @@ export default function GameClient() {
         a: "left", arrowleft: "left", d: "right", arrowright: "right"
       };
       if (dirs[key]) step(dirs[key]);
+      if (/^[1-4]$/.test(key)) setTool(TOOLS[Number(key)-1].id);
       if ((key === " " || key === "e") && !e.repeat) action();
     };
     window.addEventListener("keydown", handle);
@@ -250,7 +286,7 @@ export default function GameClient() {
       <div>
         <span className="yzg-eyebrow">BAB 1 · EMPAT TIMUN DAN SATU NAMA</span>
         <h1>YZ <span>Farm Life</span></h1>
-        <p>Pasirluyu — sawah dan cerita di tengah kota.</p>
+        <p>Pasirluyu · Kecamatan Regol</p>
       </div>
       <Link href="/home" className="yzg-back">← Kembali ke E-Farmer</Link>
     </header>
@@ -267,7 +303,7 @@ export default function GameClient() {
         <button onClick={() => { setShowHelp(false); setPhoneOpen(true); setPhoneTab("farm"); }} disabled={unavailable || !!dialogue}>Buka jurnal</button>
       </section>
       <div className="yzg-viewport">
-        <canvas ref={canvasRef} width={480} height={320} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
+        <canvas ref={canvasRef} width={300} height={200} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
         {!phoneOpen && !dialogue && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
@@ -276,7 +312,7 @@ export default function GameClient() {
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
           Bergerak: WASD / panah · Interaksi: E · HP: P<br/>
-          Arahkan ke petak kebun, pilih alat, lalu tekan E.
+          Hadapi petak, pilih alat (1–4), lalu tekan E atau tombol Aksi.
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
         </div>}
         {dialogue && <dialog ref={dialogueRef} className="yzg-dialog yzg-chapter-dialog" aria-label={dialogue.title} onCancel={() => setDialogue(null)} onClose={() => setDialogue(null)}>
@@ -378,10 +414,10 @@ export default function GameClient() {
       </div>
       <div className="yzg-touch">
         <div className="yzg-dpad" aria-label="Kontrol bergerak">
-          <button className="up" onClick={() => step("up")} aria-label="Atas">▲</button>
-          <button className="left" onClick={() => step("left")} aria-label="Kiri">◀</button>
-          <button className="down" onClick={() => step("down")} aria-label="Bawah">▼</button>
-          <button className="right" onClick={() => step("right")} aria-label="Kanan">▶</button>
+          <DirectionButton direction="up" label="Atas" symbol="▲" step={step} />
+          <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} />
+          <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} />
+          <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} />
         </div>
         <button className="yzg-action" onClick={action}>A <small>AKSI</small></button>
       </div>
