@@ -202,6 +202,30 @@ try {
   await walk.getByRole('button',{name:'Lari',exact:true}).click();
   await observe('ArrowLeft',5);
   await walk.getByRole('button',{name:'Lari',exact:true}).click();
+  const steering=await browser.newPage({viewport:{width:390,height:844},hasTouch:true});
+  await start(steering);
+  await steering.evaluate(()=>{
+    window.__turns=[];
+    const original=CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.drawImage=function(im,...args){
+      if(im.src?.endsWith('/yanzen-turns.png'))window.__turns.push([args[0]/32,args[1]/40]);
+      return original.call(this,im,...args);
+    };
+  });
+  const center=async name=>{
+    const b=await steering.getByRole('button',{name,exact:true}).boundingBox();
+    return [b.x+b.width/2,b.y+b.height/2];
+  };
+  await steering.mouse.move(...await center('Kiri'));await steering.mouse.down();
+  await steering.waitForTimeout(240);
+  await steering.mouse.move(...await center('Atas'));await steering.waitForTimeout(240);
+  await steering.mouse.move(...await center('Bawah'));await steering.waitForTimeout(320);
+  await steering.mouse.up();await steering.waitForTimeout(250);
+  const turns=await steering.evaluate(()=>window.__turns);
+  assert.ok(turns.some(([col])=>col===0),'initial push-off');
+  assert.ok(turns.some(([col,row])=>col===1 && row%2===1),'diagonal pivot while dragging');
+  assert.ok(turns.some(([col,row])=>col===2 && row===0),'settles facing final drag direction');
+  await steering.close();
   const field = await browser.newPage();
   await field.addInitScript(() => {
     window.__fieldTrace = [];

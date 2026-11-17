@@ -1,3 +1,4 @@
+import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
 import { Direction, GameState, NPCS, WORLD, facing, isFarm } from "./model";
 
@@ -20,14 +21,15 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement };
+export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
 
 export type FarmAnimation = { use: ToolUse; frame: number; effect: number };
 export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: WorldArt,
                           position: { x: number; y: number; dir: Direction }, pose: number | null, running: boolean, action: FarmAnimation | undefined, camera: {x:number;y:number},
-                          ambient: number, plots: GameState["plots"]) {
+                          ambient: number, plots: GameState["plots"], weight?: WeightPose,
+                          dust?: {x:number;y:number;dir:Direction;phase:number}) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (camera.x + .5)*T - canvas.width/2)));
@@ -82,11 +84,26 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   // Player and their current tile target.
   const target=facing(state.player);
   if(isFarm(target.x,target.y)){ctx.strokeStyle="#f9e5b3";ctx.lineWidth=1;ctx.strokeRect(target.x*T+1,target.y*T+1,T-2,T-2);}
+  const footX=Math.round(position.x*T)+10, footY=Math.round(position.y*T)+17;
+  box(ctx,footX-5,footY-1,10,2,"rgba(55,54,33,.24)");
+  box(ctx,footX-3,footY+1,6,1,"rgba(55,54,33,.16)");
+  if (dust) {
+    const trailX=dust.dir==="right"?-1:dust.dir==="left"?1:0;
+    const trailY=dust.dir==="down"?-1:dust.dir==="up"?1:0;
+    for (let i=0;i<3;i++) {
+      const drift=(3+i*2)*dust.phase;
+      box(ctx,dust.x*T+10+trailX*(2+drift)+(i-1)*2,
+        dust.y*T+17+trailY*drift-drift*.65,1+(i===1?1:0),1,`rgba(222,195,135,${.8*(1-dust.phase)})`);
+    }
+  }
   if (action && art.actions && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y) {
     const index = { hoe: 0, seed: 1, water: 2, harvest: 3 }[action.use.tool];
     const row = index*4 + facingRows[action.use.origin.dir];
     ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
       Math.round(position.x*T)-14, Math.round(position.y*T)-23, 48, 48);
+  } else if (weight && art.turns) {
+    ctx.drawImage(art.turns,weight.column*32,weight.row*40,32,40,
+      Math.round(position.x*T)-6+weight.shiftX,Math.round(position.y*T)-18+weight.shiftY,32,40);
   } else if (pose !== null && art.gaits) {
     const row = facingRows[position.dir] + (running ? 4 : 0);
     ctx.drawImage(art.gaits, pose*32, row*40, 32, 40,

@@ -43,6 +43,17 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
       event.currentTarget.setPointerCapture(event.pointerId);
       press(id, direction);
     }}
+    onPointerMove={event => {
+      if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+      const pad = event.currentTarget.parentElement!.getBoundingClientRect();
+      const x = (event.clientX-pad.left)/pad.width*2-1;
+      const y = (event.clientY-pad.top)/pad.height*2-1;
+      if (Math.max(Math.abs(x),Math.abs(y)) < .2 || Math.max(Math.abs(x),Math.abs(y)) > 1.25) {
+        release(id);
+        return;
+      }
+      press(id, Math.abs(x)>Math.abs(y) ? (x<0?"left":"right") : (y<0?"up":"down"));
+    }}
     onPointerUp={() => release(id)} onPointerCancel={() => release(id)}
     onLostPointerCapture={() => release(id)}
     onClick={event => { if (event.detail === 0) step(direction); }}>{symbol}</button>;
@@ -57,7 +68,7 @@ export default function GameClient() {
   const [swing, setSwing] = useState<ToolUse | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png" };
+    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
@@ -161,7 +172,7 @@ export default function GameClient() {
   }, [controlsLocked]);
 
   const press = useCallback<WalkInput>((id, dir) => {
-    if (controlsLocked || field.held.has(id)) return;
+    if (controlsLocked || field.held.get(id) === dir) return;
     const first = field.held.size === 0;
     field.held.set(id, dir);
     if (first) {
