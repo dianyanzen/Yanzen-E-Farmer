@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
@@ -10,6 +10,7 @@ import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer
   choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type Dialogue } from "@/lib/game/model";
 import { drawWorld, type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
+import { WalkPath, STEP_MS } from "@/lib/game/walking";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
@@ -29,32 +30,29 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
 function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
 }
-function DirectionButton({ direction, label, symbol, step }: {
-  direction: Direction; label: string; symbol: string; step: (dir: Direction) => void;
+type WalkInput = (id: string, direction: Direction) => void;
+function DirectionButton({ direction, label, symbol, press, release, step }: {
+  direction: Direction; label: string; symbol: string; press: WalkInput;
+  release: (id: string) => void; step: (dir: Direction) => void;
 }) {
-  const timer = useRef<number | undefined>(undefined);
-  const release = () => { window.clearInterval(timer.current); timer.current = undefined; };
-  useEffect(() => {
-    window.addEventListener("blur", release);
-    return () => { release(); window.removeEventListener("blur", release); };
-  }, []);
-  useEffect(() => release, [step]);
+  const id = "pad:" + direction;
   return <button className={direction} aria-label={label}
     onPointerDown={event => {
       if (!event.isPrimary || event.button !== 0) return;
       event.currentTarget.setPointerCapture(event.pointerId);
-      release();
-      step(direction);
-      timer.current = window.setInterval(() => step(direction), 155);
+      press(id, direction);
     }}
-    onPointerUp={release} onPointerCancel={release} onLostPointerCapture={release}
+    onPointerUp={() => release(id)} onPointerCancel={() => release(id)}
+    onLostPointerCapture={() => release(id)}
     onClick={event => { if (event.detail === 0) step(direction); }}>{symbol}</button>;
 }
 
 export default function GameClient() {
   const router = useRouter();
   const [art, setArt] = useState<WorldArt>({});
-  const drawnPosition = useRef<{ x: number; y: number } | null>(null);
+  const path = useRef<WalkPath | null>(null);
+  const held = useRef(new Map<string, Direction>());
+  const nextStepAt = useRef(0);
   const [swing, setSwing] = useState<{ tool: FarmTool; started: number } | null>(null);
   useEffect(() => {
     let active = true;
@@ -115,6 +113,7 @@ export default function GameClient() {
           setSaveStatus("error"); saveLockedRef.current = true;
           return;
         }
+        path.current = new WalkPath(loaded.player);
         setGame(loaded); setToast("Progres cloud berhasil dimuat. Selamat kembali!");
       }
       setUserId(id); setSaveStatus("ready");
@@ -123,30 +122,6 @@ export default function GameClient() {
     });
     return () => { active = false; };
   }, [router]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const target = game.player;
-    const from = drawnPosition.current ?? target;
-    const distance = Math.abs(from.x-target.x) + Math.abs(from.y-target.y);
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const duration = distance > 0 && distance <= 2 && !reduceMotion ? 110 : 0;
-    const start = performance.now();
-    let frame = 0;
-    function paint(now: number) {
-      const t = duration ? Math.min(1, Math.max(0, (now-start)/duration)) : 1;
-      const position = { x: from.x+(target.x-from.x)*t, y: from.y+(target.y-from.y)*t };
-      drawnPosition.current = position;
-      const age = swing ? now-swing.started : Infinity;
-      const animation = swing && age < 330 && !reduceMotion
-        ? { tool: swing.tool, frame: Math.max(0, Math.floor(age/110)) } : undefined;
-      drawWorld(canvas!, game, art, position, t < 1 ? (target.x+target.y)%2*2 : 1, animation);
-      if (t < 1 || animation) frame = requestAnimationFrame(paint);
-    }
-    paint(start);
-    return () => cancelAnimationFrame(frame);
-  }, [game, art, swing]);
 
   const persist = useCallback((snapshot: GameState) => {
     if (!userId || !dbRef.current || saveLockedRef.current) return;
@@ -183,6 +158,71 @@ export default function GameClient() {
     setGame(s => movePlayer(s, direction));
     setShowHelp(false);
   }, [controlsLocked]);
+
+  const press = useCallback<WalkInput>((id, dir) => {
+    if (controlsLocked || held.current.has(id)) return;
+    const first = held.current.size === 0;
+    held.current.set(id, dir);
+    if (first) {
+      step(dir);
+      nextStepAt.current = performance.now() + STEP_MS;
+    }
+  }, [controlsLocked, step]);
+  const release = useCallback((id: string) => { held.current.delete(id); }, []);
+  const scene = useRef({ game, art, swing, step });
+  useLayoutEffect(() => {
+    scene.current = { game, art, swing, step };
+    if (!path.current) path.current = new WalkPath(game.player);
+    path.current.aim(game.player);
+    if (controlsLocked) held.current.clear();
+  }, [game, art, swing, step, controlsLocked]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let lastTime = performance.now(), frame = 0;
+    let lastScene: typeof scene.current | undefined;
+    let wasAnimating = false;
+    const clear = () => { held.current.clear(); lastTime = performance.now(); };
+    const keyup = (event: KeyboardEvent) => release(event.key.toLowerCase());
+    const paint = (now: number) => {
+      const current = scene.current, walk = path.current;
+      if (held.current.size && now >= nextStepAt.current) {
+        const directions = Array.from(held.current.values());
+        current.step(directions[directions.length-1]);
+        nextStepAt.current = (now-nextStepAt.current >= STEP_MS ? now : nextStepAt.current) + STEP_MS;
+      }
+      if (walk) {
+        const moving = walk.moving;
+        walk.advance(Math.max(0, now-lastTime), reduced.matches);
+        const age = current.swing ? now-current.swing.started : Infinity;
+        const effect = current.swing && age < 330 && !reduced.matches
+          ? { tool: current.swing.tool, frame: Math.max(0, Math.floor(age/110)) } : undefined;
+        const animating = moving || !!effect;
+        if (animating || wasAnimating || current !== lastScene) {
+          const walking = !reduced.matches && (walk.moving || (moving && held.current.size > 0));
+          const pose = walking ? [1, 0, 1, 2][Math.floor(walk.distance * 2) % 4] : 1;
+          drawWorld(canvas, current.game, current.art, walk, pose, effect);
+        }
+        wasAnimating = animating;
+        lastScene = current;
+      }
+      lastTime = now;
+      frame = requestAnimationFrame(paint);
+    };
+    frame = requestAnimationFrame(paint);
+    window.addEventListener("keyup", keyup);
+    window.addEventListener("blur", clear);
+    document.addEventListener("visibilitychange", clear);
+    return () => {
+      cancelAnimationFrame(frame);
+      clear();
+      window.removeEventListener("keyup", keyup);
+      window.removeEventListener("blur", clear);
+      document.removeEventListener("visibilitychange", clear);
+    };
+  }, [release]);
 
   const action = useCallback(() => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -228,13 +268,13 @@ export default function GameClient() {
         w: "up", arrowup: "up", s: "down", arrowdown: "down",
         a: "left", arrowleft: "left", d: "right", arrowright: "right"
       };
-      if (dirs[key]) step(dirs[key]);
+      if (dirs[key] && !e.repeat) press(key, dirs[key]);
       if (/^[1-4]$/.test(key)) setTool(TOOLS[Number(key)-1].id);
       if ((key === " " || key === "e") && !e.repeat) action();
     };
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
-  }, [step, action, togglePhone, phoneOpen, dialogue]);
+  }, [press, action, togglePhone, phoneOpen, dialogue]);
 
   const rest = () => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -414,10 +454,10 @@ export default function GameClient() {
       </div>
       <div className="yzg-touch">
         <div className="yzg-dpad" aria-label="Kontrol bergerak">
-          <DirectionButton direction="up" label="Atas" symbol="▲" step={step} />
-          <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} />
-          <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} />
-          <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} />
+          <DirectionButton direction="up" label="Atas" symbol="▲" step={step} press={press} release={release} />
+          <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} press={press} release={release} />
+          <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} press={press} release={release} />
+          <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
         </div>
         <button className="yzg-action" onClick={action}>A <small>AKSI</small></button>
       </div>

@@ -1,0 +1,59 @@
+import type { GameState } from "./model";
+
+type Player = GameState["player"];
+export const STEP_MS = 150;
+
+// The model keeps integer tiles for collision, interaction and saves.
+// This path tracks the feet between committed tiles, including corners.
+export class WalkPath {
+  x: number;
+  y: number;
+  dir: Player["dir"];
+  distance = 0;
+  private route: Player[] = [];
+  private destination: Player;
+
+  constructor(player: Player) {
+    this.x = player.x;
+    this.y = player.y;
+    this.dir = player.dir;
+    this.destination = player;
+  }
+
+  aim(player: Player) {
+    const delta = Math.abs(player.x-this.destination.x) + Math.abs(player.y-this.destination.y);
+    if (delta === 1) this.route.push(player);
+    else if (delta > 1) {
+      this.route = [];
+      this.x = player.x;
+      this.y = player.y;
+      this.distance = 0;
+    }
+    this.destination = player;
+    if (!this.route.length) this.dir = player.dir;
+  }
+
+  get moving() { return this.route.length > 0; }
+
+  advance(elapsed: number, reduced: boolean) {
+    // Bound a late frame. Quick discrete taps may briefly queue several tiles.
+    let budget = reduced ? Infinity : Math.min(60, elapsed) / STEP_MS * Math.min(3, Math.max(1, this.route.length - 1));
+    while (this.route.length && budget > 0) {
+      const next = this.route[0];
+      const dx = next.x-this.x, dy = next.y-this.y;
+      const remaining = Math.abs(dx) + Math.abs(dy);
+      const travel = Math.min(remaining, budget);
+      this.dir = next.dir;
+      this.distance += travel;
+      if (remaining <= budget) {
+        this.x = next.x; this.y = next.y;
+        this.route.shift();
+      } else {
+        this.x += Math.sign(dx)*travel;
+        this.y += Math.sign(dy)*travel;
+      }
+      budget -= travel;
+    }
+    if (!this.moving) this.dir = this.destination.dir;
+  }
+}

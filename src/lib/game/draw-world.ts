@@ -25,7 +25,7 @@ const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
 
 export type FarmAnimation = { tool: FarmTool; frame: number };
 export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: WorldArt,
-                          position: { x: number; y: number }, pose: number, action?: FarmAnimation) {
+                          position: { x: number; y: number; dir: Direction }, pose: number, action?: FarmAnimation) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (position.x + .5)*T - canvas.width/2)));
@@ -57,7 +57,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
       const row = actorRows[id] * 4 + facingRows[dir];
-      ctx!.drawImage(art.people, frame*24, row*32, 24, 32, x*T-2, y*T-12, 24, 32);
+      ctx!.drawImage(art.people, frame*24, row*32, 24, 32, Math.round(x*T)-2, Math.round(y*T)-12, 24, 32);
     } else {
       drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
     }
@@ -75,6 +75,6 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
       Math.round(position.x*T)-14, Math.round(position.y*T)-23, 48, 48);
   } else {
-    actor("A01", position.x, position.y, state.player.dir, pose, "#295d4d");
+    actor("A01", position.x, position.y, position.dir, pose, "#295d4d");
   }
 }

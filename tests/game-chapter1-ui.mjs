@@ -150,6 +150,28 @@ try {
   assert.ok(box.x >= 0 && box.y >= 0 && box.x + box.width <= 391 && box.y + box.height <= 845, 'mobile dialog stays in viewport');
   await mobile.getByRole('button', { name: /Percayakan foto asli kepada Nani/ }).click();
   await saved(mobile, () => JSON.parse(localStorage.getItem('yz-test-save')).data.story.photoChoice === 'nani');
+  // A single keydown must continue walking without OS key-repeat. Losing
+  // focus must stop movement even if the browser never sends a keyup.
+  const walk = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
+  await start(walk);
+  await walk.keyboard.down('ArrowLeft');
+  await walk.waitForTimeout(510);
+  await walk.evaluate(() => window.dispatchEvent(new Event('blur')));
+  await walk.keyboard.up('ArrowLeft');
+  const playerX = () => walk.evaluate(() => JSON.parse(localStorage.getItem('yz-test-save')).data.player.x);
+  await saved(walk, () => JSON.parse(localStorage.getItem('yz-test-save') || 'null')?.data.player.x <= 10);
+  const stopped = await playerX();
+  await walk.waitForTimeout(350);
+  const right = walk.getByRole('button', { name: 'Kanan', exact: true });
+  const rect = await right.boundingBox();
+  await walk.mouse.move(rect.x+rect.width/2,rect.y+rect.height/2);
+  await walk.mouse.down();
+  await walk.waitForTimeout(380);
+  await walk.mouse.up();
+  await saved(walk, () => document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
+  await walk.waitForTimeout(1500);
+  const afterPad = await playerX();
+  assert.ok(afterPad >= stopped+2 && afterPad <= stopped+4, 'held pad travels and stops on release');
   assert.equal(errors.length, 0, errors.join('\n'));
   console.log('Chapter 1 desktop/mobile story, reload, keyboard choice and save recovery: PASS');
   console.log('Screenshots:', output);
