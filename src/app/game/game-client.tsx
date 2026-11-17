@@ -354,6 +354,7 @@ export default function GameClient() {
                     value={selectedDistrict} onChange={e => setSelectedDistrict(e.target.value)}>
                     {BANDUNG_DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
                   </select>
+                  <a href={`/game/atlas/index.html?kecamatan=${encodeURIComponent(selectedDistrict)}`}>Buka atlas wilayah dan tanaman</a>
                   {selectedDistrict === "Regol" ? <>
                     <small>7 kelurahan asli · Wilayah yang bisa dimainkan saat ini: Pasirluyu</small>
                     {REGOL_VILLAGES.map(v => <p key={v}>{v === "Pasirluyu" ? "✓" : "🔒"} {v}{v === "Pasirluyu" ? " — lokasi awal" : " — tahap berikutnya"}</p>)}
