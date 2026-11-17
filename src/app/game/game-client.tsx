@@ -8,9 +8,10 @@ import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
   newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction, chapterJournal,
   choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type Dialogue } from "@/lib/game/model";
-import { drawWorld, type WorldArt } from "@/lib/game/draw-world";
+import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
-import { WalkPath, STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
+import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
+import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
@@ -50,15 +51,13 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
 export default function GameClient() {
   const router = useRouter();
   const [art, setArt] = useState<WorldArt>({});
-  const path = useRef<WalkPath | null>(null);
-  const held = useRef(new Map<string, Direction>());
-  const shiftHeld = useRef(false);
+  const [field] = useState(() => new FieldEngine());
+  const [sound, setSound] = useState(true);
   const [runMode, setRunMode] = useState(false);
-  const nextStepAt = useRef(0);
-  const [swing, setSwing] = useState<{ tool: FarmTool; started: number } | null>(null);
+  const [swing, setSwing] = useState<ToolUse | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png" };
+    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
@@ -115,7 +114,7 @@ export default function GameClient() {
           setSaveStatus("error"); saveLockedRef.current = true;
           return;
         }
-        path.current = new WalkPath(loaded.player);
+        field.reset(loaded.player);
         setGame(loaded); setToast("Progres cloud berhasil dimuat. Selamat kembali!");
       }
       setUserId(id); setSaveStatus("ready");
@@ -123,7 +122,7 @@ export default function GameClient() {
       if(active){setErrorText("Gagal memuat save: " + String(e));setSaveStatus("error"); saveLockedRef.current = true;}
     });
     return () => { active = false; };
-  }, [router]);
+  }, [router, field]);
 
   const persist = useCallback((snapshot: GameState) => {
     if (!userId || !dbRef.current || saveLockedRef.current) return;
@@ -162,74 +161,54 @@ export default function GameClient() {
   }, [controlsLocked]);
 
   const press = useCallback<WalkInput>((id, dir) => {
-    if (controlsLocked || held.current.has(id)) return;
-    const first = held.current.size === 0;
-    held.current.set(id, dir);
+    if (controlsLocked || field.held.has(id)) return;
+    const first = field.held.size === 0;
+    field.held.set(id, dir);
     if (first) {
       step(dir);
-      nextStepAt.current = performance.now() + (runMode || shiftHeld.current ? RUN_STEP_MS : STEP_MS);
+      field.nextStep = performance.now() + (runMode || field.shift ? RUN_STEP_MS : STEP_MS);
     }
-  }, [controlsLocked, step, runMode]);
-  const release = useCallback((id: string) => { held.current.delete(id); }, []);
+  }, [controlsLocked, step, runMode, field]);
+  const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
   const scene = useRef({ game, art, swing, step, runMode });
   useLayoutEffect(() => {
     scene.current = { game, art, swing, step, runMode };
-    if (!path.current) path.current = new WalkPath(game.player);
-    path.current.aim(game.player);
-    if (controlsLocked) { held.current.clear(); shiftHeld.current = false; }
-  }, [game, art, swing, step, controlsLocked, runMode]);
+    field.aim(game.player);
+    if (controlsLocked) { field.held.clear(); field.shift = false; }
+  }, [game, art, swing, step, controlsLocked, runMode, field]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let lastTime = performance.now(), frame = 0;
-    let lastScene: typeof scene.current | undefined;
-    let wasAnimating = false;
-    const clear = () => { held.current.clear(); shiftHeld.current = false; lastTime = performance.now(); };
+    let frame = 0;
+    const clear = () => { field.clear(); field.audio.pause(); };
+    const unlock = () => field.audio.unlock();
     const keyup = (event: KeyboardEvent) => {
-      if (event.key === "Shift") shiftHeld.current = event.shiftKey;
+      if (event.key === "Shift") field.shift = event.shiftKey;
       release(event.key.toLowerCase());
     };
     const paint = (now: number) => {
-      const current = scene.current, walk = path.current;
-      const running = current.runMode || shiftHeld.current;
-      const stepMs = running ? RUN_STEP_MS : STEP_MS;
-      if (held.current.size && now >= nextStepAt.current) {
-        const directions = Array.from(held.current.values());
-        current.step(directions[directions.length-1]);
-        nextStepAt.current = (now-nextStepAt.current >= stepMs ? now : nextStepAt.current) + stepMs;
-      }
-      if (walk) {
-        const moving = walk.moving;
-        walk.advance(Math.max(0, now-lastTime), reduced.matches, stepMs);
-        const age = current.swing ? now-current.swing.started : Infinity;
-        const effect = current.swing && age < 330 && !reduced.matches
-          ? { tool: current.swing.tool, frame: Math.max(0, Math.floor(age/110)) } : undefined;
-        const animating = moving || !!effect;
-        if (animating || wasAnimating || current !== lastScene) {
-          const walking = !reduced.matches && (walk.moving || (moving && held.current.size > 0));
-          const pose = walking ? Math.floor(walk.distance * (running ? 2.5 : 3)) % 6 : null;
-          drawWorld(canvas, current.game, current.art, walk, pose, running, effect);
-        }
-        wasAnimating = animating;
-        lastScene = current;
-      }
-      lastTime = now;
+      if (!document.hidden) field.paint(canvas, scene.current, now, reduced.matches);
       frame = requestAnimationFrame(paint);
     };
+    window.addEventListener("pointerdown", unlock);
+    window.addEventListener("keydown", unlock);
     frame = requestAnimationFrame(paint);
     window.addEventListener("keyup", keyup);
     window.addEventListener("blur", clear);
     document.addEventListener("visibilitychange", clear);
     return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("keydown", unlock);
+      field.audio.dispose();
       cancelAnimationFrame(frame);
       clear();
       window.removeEventListener("keyup", keyup);
       window.removeEventListener("blur", clear);
       document.removeEventListener("visibilitychange", clear);
     };
-  }, [release]);
+  }, [release, field]);
 
   const action = useCallback(() => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -244,7 +223,7 @@ export default function GameClient() {
       return;
     }
     const result = applyFarmTool(game, tool);
-    if (result.state !== game) setSwing({ tool, started: performance.now() });
+    if (result.state !== game) setSwing({ tool, started: performance.now(), origin: game.player, target: front, before: game.plots });
     setGame(result.state); setToast(result.message);
     if (result.state !== game) void persist(result.state);
     setShowHelp(false);
@@ -275,14 +254,14 @@ export default function GameClient() {
         w: "up", arrowup: "up", s: "down", arrowdown: "down",
         a: "left", arrowleft: "left", d: "right", arrowright: "right"
       };
-      shiftHeld.current = e.shiftKey;
+      field.shift = e.shiftKey;
       if (dirs[key] && !e.repeat) press(key, dirs[key]);
       if (/^[1-4]$/.test(key)) setTool(TOOLS[Number(key)-1].id);
       if ((key === " " || key === "e") && !e.repeat) action();
     };
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
-  }, [press, action, togglePhone, phoneOpen, dialogue]);
+  }, [press, action, togglePhone, phoneOpen, dialogue, field]);
 
   const rest = () => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -455,6 +434,7 @@ export default function GameClient() {
           {TOOLS.map(t => <button key={t.id} className={tool === t.id ? "active" : ""} aria-pressed={tool === t.id} onClick={() => setTool(t.id)}><span>{t.glyph}</span>{t.name}</button>)}
         </div>
         <div className="yzg-buttons">
+          <button aria-pressed={sound} onClick={() => { field.audio.toggle(!sound); setSound(!sound); }}>Suara {sound ? "aktif" : "mati"}</button>
           <button className="yzg-phone-trigger" onClick={togglePhone}>▣ YZ Phone {unread ? "•" : ""}</button>
           <button onClick={rest} disabled={saveStatus === "loading" || saveStatus === "error"}>☾ Tidur / Hari Baru</button>
           <button onClick={() => void persist(game)} disabled={saveStatus === "loading" || saveStatus === "error"}>☁ Simpan</button>

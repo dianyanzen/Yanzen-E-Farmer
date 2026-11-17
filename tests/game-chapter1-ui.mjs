@@ -202,6 +202,28 @@ try {
   await walk.getByRole('button',{name:'Lari',exact:true}).click();
   await observe('ArrowLeft',5);
   await walk.getByRole('button',{name:'Lari',exact:true}).click();
+  const field = await browser.newPage();
+  await field.addInitScript(() => {
+    window.__fieldTrace = [];
+    const draw = CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.drawImage = function (im,...args) {
+      if (im.src?.endsWith('/field-effects.png') || im.src?.endsWith('/actions.png'))
+        window.__fieldTrace.push([im.src.split('/').pop(),args[0],performance.now()]);
+      return draw.call(this,im,...args);
+    };
+  });
+  await start(field);
+  await go(field,'ArrowLeft'); // (11,10) faces the first plot.
+  await field.waitForTimeout(300);
+  await go(field,'e');
+  await field.waitForFunction(()=>window.__fieldTrace.some(e=>e[0]==='field-effects.png'));
+  const trace=await field.evaluate(()=>window.__fieldTrace);
+  assert.ok(trace.find(e=>e[0]==='field-effects.png')[2] > trace.find(e=>e[0]==='actions.png')[2],
+    'tool wind-up precedes contact at the target');
+  const mute=field.getByRole('button',{name:'Suara aktif'});
+  await mute.click();
+  await field.getByRole('button',{name:'Suara mati'}).click();
+  await mute.waitFor();
   assert.equal(errors.length, 0, errors.join('\n'));
   console.log('Chapter 1 desktop/mobile story, reload, keyboard choice and save recovery: PASS');
   console.log('Screenshots:', output);
