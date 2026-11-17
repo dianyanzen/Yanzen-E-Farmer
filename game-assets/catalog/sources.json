@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "checkedOn": "2026-11-16",
+  "scope": "8 sources shortlisted; Kenney Tiny Town and RPG Urban source tilesheets are imported as CC0 vendor assets; none integrated into gameplay runtime",
+  "standards": {
+    "grid": [
+      16,
+      16
+    ],
+    "projection": "top-down 3/4 pixel art",
+    "render": "nearest-neighbor",
+    "targetViewport": [
+      288,
+      512
+    ],
+    "runtimeFormat": "optimized PNG or WebP after visual QA"
+  },
+  "records": [
+    {
+      "id": "oga-farming-crops-16",
+      "name": "Farming Crops 16x16",
+      "author": "josehzz",
+      "sourceUrl": "https://opengameart.org/content/farming-crops-16x16",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "cucumber",
+        "rice",
+        "crops"
+      ],
+      "status": "shortlisted",
+      "notes": "20 crops; 5 growth stages; includes timun and padi.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://opengameart.org/content/farming-crops-16x16",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles"
+    },
+    {
+      "id": "kenney-tiny-town",
+      "name": "Tiny Town",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/tiny-town",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "town",
+        "overworld",
+        "tileset"
+      ],
+      "status": "reviewed",
+      "notes": "130 tiles 16x16; 3/4 view; match perspective before import. Original CC0 license and tilemap imported to vendor staging; not used in runtime.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/tiny-town",
+      "rawPresent": true,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles",
+      "rawFiles": [
+        "game-assets/vendor/kenney-tiny-town/tilemap.png",
+        "game-assets/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/vendor/kenney-tiny-town/preview.png",
+        "game-assets/vendor/kenney-tiny-town/LICENSE.txt"
+      ],
+      "sourceGitBlobSha": "21b5a0f879a47c8e679b7a5e07c220f30b6f89ab",
+      "upstreamMirrorUrl": "https://github.com/GeorgeQLe/assets-2d-city/tree/main/assets/kenney/tiny-town"
+    },
+    {
+      "id": "kenney-rpg-urban-pack",
+      "name": "RPG Urban Pack",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/rpg-urban-pack",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "urban",
+        "city",
+        "tileset"
+      ],
+      "status": "reviewed",
+      "notes": "~480 source assets at 16x16. Original CC0 license, tilemap, packed atlas and sample imported to vendor staging; not game-integrated.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/rpg-urban-pack",
+      "rawPresent": true,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles",
+      "rawFiles": [
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/vendor/kenney-rpg-urban-pack/tilemap.txt",
+        "game-assets/vendor/kenney-rpg-urban-pack/LICENSE.txt"
+      ],
+      "sourceGitBlobSha": "a626181ac628cfc314f23f3c7259a0d4a3931851",
+      "upstreamMirrorUrl": "https://github.com/GeorgeQLe/assets-2d-city/tree/main/assets/kenney/rpg-urban-pack"
+    },
+    {
+      "id": "kenney-pixel-ui",
+      "name": "Pixel UI Pack",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/pixel-ui-pack",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "ui",
+        "phone",
+        "dialog"
+      ],
+      "status": "shortlisted",
+      "notes": "750 UI elements; select small subset for in-game phone/dialog.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/pixel-ui-pack",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/ui"
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "name": "Interface Sounds",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "sound",
+        "phone",
+        "ui"
+      ],
+      "status": "shortlisted",
+      "notes": "100 UI sounds; select and normalize only needed audio.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/interface-sounds",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/audio"
+    },
+    {
+      "id": "reodesuxz-farm-16",
+      "name": "Free Pixel Top-down Farm Tileset 16x16",
+      "author": "reodesuxz",
+      "sourceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-farm-tileset-16x16",
+      "license": "custom-free-commercial",
+      "redistribution": "commercial-no-standalone-redistribution",
+      "tags": [
+        "farming",
+        "irrigation",
+        "tileset"
+      ],
+      "status": "external-download-required",
+      "notes": "108 assets; commercial use permitted; no resale or redistribution of asset pack.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-farm-tileset-16x16",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles"
+    },
+    {
+      "id": "reodesuxz-town-16",
+      "name": "Free Pixel Top-down Town Tileset 16x16",
+      "author": "reodesuxz",
+      "sourceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-town-tileset-16x16",
+      "license": "custom-free-commercial",
+      "redistribution": "commercial-no-standalone-redistribution",
+      "tags": [
+        "urban",
+        "road",
+        "market"
+      ],
+      "status": "external-download-required",
+      "notes": "92 assets; same creator as farm tiles; no redistribution of asset pack.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-town-tileset-16x16",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles"
+    },
+    {
+      "id": "reodesuxz-cozy-house",
+      "name": "Free Pixel Top-down Cozy House Tileset 16x16",
+      "author": "reodesuxz",
+      "sourceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-cozy-house-tileset-16x16",
+      "license": "custom-free-commercial",
+      "redistribution": "commercial-no-standalone-redistribution",
+      "tags": [
+        "interior",
+        "house",
+        "npc"
+      ],
+      "status": "external-download-required",
+      "notes": "Interiors and household props; do not mirror raw pack.",
+      "checkedOn": "2026-11-16",
+      "licenseEvidenceUrl": "https://reodesuxz.itch.io/free-pixel-top-down-cozy-house-tileset-16x16",
+      "rawPresent": false,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/tiles"
+    }
+  ]
+}

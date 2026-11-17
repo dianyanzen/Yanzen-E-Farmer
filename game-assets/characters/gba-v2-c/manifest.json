@@ -1,0 +1,4352 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "pack": "gba-character-pack-v2-c",
+  "createdOn": "2026-11-16",
+  "expectedCount": 16,
+  "mainCharacter": null,
+  "npcIds": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16"
+  ],
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "frameOrder": [
+    "step-left",
+    "idle",
+    "step-right"
+  ],
+  "frameOrderExceptions": {
+    "C15": [
+      "push-left",
+      "idle",
+      "push-right"
+    ]
+  },
+  "renderFilter": "nearest",
+  "status": "generated-art-staging",
+  "characters": [
+    {
+      "id": "C01",
+      "role": "npc",
+      "sheet": "sheets/C01.png",
+      "sha256": "c7fe51308d8c552a21f1d6fb97692b8f9a18a9b3a81d1d066e64f95e668c9c61",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            119,
+            31,
+            296,
+            345
+          ],
+          "originPixels": [
+            208,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            92,
+            31,
+            259,
+            339
+          ],
+          "originPixels": [
+            176,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            56,
+            31,
+            231,
+            345
+          ],
+          "originPixels": [
+            144,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            124,
+            29,
+            282,
+            337
+          ],
+          "originPixels": [
+            203,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            102,
+            28,
+            246,
+            337
+          ],
+          "originPixels": [
+            174,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            70,
+            28,
+            224,
+            335
+          ],
+          "originPixels": [
+            147,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            124,
+            28,
+            278,
+            334
+          ],
+          "originPixels": [
+            201,
+            334
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            105,
+            28,
+            249,
+            337
+          ],
+          "originPixels": [
+            177,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            69,
+            28,
+            224,
+            335
+          ],
+          "originPixels": [
+            146,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            114,
+            29,
+            286,
+            342
+          ],
+          "originPixels": [
+            200,
+            342
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            93,
+            28,
+            259,
+            339
+          ],
+          "originPixels": [
+            176,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            60,
+            29,
+            237,
+            346
+          ],
+          "originPixels": [
+            148,
+            346
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C01.png",
+      "sourceSha256": "57c1deea9bee57ae1a7e3c311eae7b33cbbd5d79263c1bd92a0ce7b05e00edce",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 984240,
+        "semiTransparentPixels": 588161,
+        "opaquePixels": 604,
+        "cornersTransparent": false
+      },
+      "name": "Nani",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C01"
+    },
+    {
+      "id": "C02",
+      "role": "npc",
+      "sheet": "sheets/C02.png",
+      "sha256": "357aefcfc42fa43ff50c57b5dd9e329869328664cb45fc9c250c27651d7ffdd5",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            113,
+            23,
+            264,
+            346
+          ],
+          "originPixels": [
+            188,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            101,
+            23,
+            248,
+            345
+          ],
+          "originPixels": [
+            174,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            83,
+            23,
+            239,
+            347
+          ],
+          "originPixels": [
+            161,
+            347
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            107,
+            20,
+            270,
+            344
+          ],
+          "originPixels": [
+            188,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            100,
+            20,
+            254,
+            344
+          ],
+          "originPixels": [
+            177,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            77,
+            20,
+            236,
+            344
+          ],
+          "originPixels": [
+            156,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            111,
+            18,
+            270,
+            338
+          ],
+          "originPixels": [
+            190,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            95,
+            17,
+            255,
+            339
+          ],
+          "originPixels": [
+            175,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            77,
+            18,
+            238,
+            335
+          ],
+          "originPixels": [
+            158,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            115,
+            15,
+            263,
+            338
+          ],
+          "originPixels": [
+            189,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            101,
+            15,
+            248,
+            337
+          ],
+          "originPixels": [
+            174,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            85,
+            15,
+            232,
+            339
+          ],
+          "originPixels": [
+            158,
+            339
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C02.png",
+      "sourceSha256": "c5bc27a959553f007060450d5a786903d5a7199272818b53fc0044b7ab5c12b5",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1072657,
+        "semiTransparentPixels": 499573,
+        "opaquePixels": 775,
+        "cornersTransparent": true
+      },
+      "name": "Risky",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C02"
+    },
+    {
+      "id": "C03",
+      "role": "npc",
+      "sheet": "sheets/C03.png",
+      "sha256": "d5e45c42ebf8c4771aa5ff15cdb3f38938dce17bb7794681ef3c8a1d819b0121",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            131,
+            33,
+            288,
+            350
+          ],
+          "originPixels": [
+            210,
+            350
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            33,
+            253,
+            343
+          ],
+          "originPixels": [
+            176,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            62,
+            33,
+            219,
+            350
+          ],
+          "originPixels": [
+            140,
+            350
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            125,
+            23,
+            288,
+            333
+          ],
+          "originPixels": [
+            206,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            92,
+            24,
+            241,
+            337
+          ],
+          "originPixels": [
+            166,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            59,
+            23,
+            216,
+            337
+          ],
+          "originPixels": [
+            138,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            130,
+            22,
+            286,
+            333
+          ],
+          "originPixels": [
+            208,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            100,
+            21,
+            251,
+            333
+          ],
+          "originPixels": [
+            176,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            62,
+            22,
+            220,
+            329
+          ],
+          "originPixels": [
+            141,
+            329
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            130,
+            20,
+            286,
+            337
+          ],
+          "originPixels": [
+            208,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            100,
+            20,
+            252,
+            331
+          ],
+          "originPixels": [
+            176,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            62,
+            20,
+            216,
+            337
+          ],
+          "originPixels": [
+            139,
+            337
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C03.png",
+      "sourceSha256": "daaba031ea4d351b04ffaabf886da0749ca10a3a2cc0b6d1b326dec563ec2d29",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1076746,
+        "semiTransparentPixels": 495334,
+        "opaquePixels": 925,
+        "cornersTransparent": false
+      },
+      "name": "Tatang",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C03"
+    },
+    {
+      "id": "C04",
+      "role": "npc",
+      "sheet": "sheets/C04.png",
+      "sha256": "4fcb56e98f7f79a5792030fe5bba9ab6bf0dbe99098f169cca1872635f804c43",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            135,
+            18,
+            277,
+            349
+          ],
+          "originPixels": [
+            206,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            106,
+            18,
+            241,
+            348
+          ],
+          "originPixels": [
+            174,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            71,
+            18,
+            216,
+            350
+          ],
+          "originPixels": [
+            144,
+            350
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            131,
+            22,
+            281,
+            332
+          ],
+          "originPixels": [
+            206,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            22,
+            249,
+            334
+          ],
+          "originPixels": [
+            174,
+            334
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            62,
+            23,
+            212,
+            331
+          ],
+          "originPixels": [
+            137,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            135,
+            21,
+            286,
+            335
+          ],
+          "originPixels": [
+            210,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            101,
+            22,
+            250,
+            337
+          ],
+          "originPixels": [
+            176,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            71,
+            21,
+            223,
+            333
+          ],
+          "originPixels": [
+            147,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            135,
+            20,
+            276,
+            350
+          ],
+          "originPixels": [
+            206,
+            350
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            107,
+            21,
+            243,
+            349
+          ],
+          "originPixels": [
+            175,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            68,
+            20,
+            216,
+            350
+          ],
+          "originPixels": [
+            142,
+            350
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C04.png",
+      "sourceSha256": "daf629203c2d0852b6fc651f1e0aec456f0bfb51572479a93f319becdf32a048",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1087102,
+        "semiTransparentPixels": 485734,
+        "opaquePixels": 169,
+        "cornersTransparent": false
+      },
+      "name": "Desi",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C04"
+    },
+    {
+      "id": "C05",
+      "role": "npc",
+      "sheet": "sheets/C05.png",
+      "sha256": "246d2997bb027149ea8c7e0a820a66642d9f71715cace106b31a8c9ae54867d8",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            125,
+            20,
+            284,
+            346
+          ],
+          "originPixels": [
+            204,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            20,
+            256,
+            344
+          ],
+          "originPixels": [
+            177,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            69,
+            20,
+            229,
+            346
+          ],
+          "originPixels": [
+            149,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            23,
+            284,
+            343
+          ],
+          "originPixels": [
+            205,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            95,
+            22,
+            251,
+            343
+          ],
+          "originPixels": [
+            173,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            62,
+            22,
+            219,
+            340
+          ],
+          "originPixels": [
+            140,
+            340
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            131,
+            18,
+            289,
+            337
+          ],
+          "originPixels": [
+            210,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            101,
+            18,
+            260,
+            337
+          ],
+          "originPixels": [
+            180,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            65,
+            18,
+            225,
+            333
+          ],
+          "originPixels": [
+            145,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            127,
+            13,
+            287,
+            340
+          ],
+          "originPixels": [
+            207,
+            340
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            95,
+            10,
+            256,
+            336
+          ],
+          "originPixels": [
+            176,
+            336
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            65,
+            13,
+            225,
+            338
+          ],
+          "originPixels": [
+            145,
+            338
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C05.png",
+      "sourceSha256": "d3892f1a73b6c5c7996875d27e59166232a56084a8e040605df93aa6e310513c",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1083667,
+        "semiTransparentPixels": 488877,
+        "opaquePixels": 461,
+        "cornersTransparent": false
+      },
+      "name": "Eza",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C05"
+    },
+    {
+      "id": "C06",
+      "role": "npc",
+      "sheet": "sheets/C06.png",
+      "sha256": "8e61a646e6472be7bab7577a3103586893c4a6adb0f2738d33fa704c5febbd9e",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            41,
+            279,
+            352
+          ],
+          "originPixels": [
+            202,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            102,
+            40,
+            249,
+            346
+          ],
+          "originPixels": [
+            176,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            70,
+            41,
+            224,
+            352
+          ],
+          "originPixels": [
+            147,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            118,
+            31,
+            274,
+            331
+          ],
+          "originPixels": [
+            196,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            101,
+            31,
+            244,
+            334
+          ],
+          "originPixels": [
+            172,
+            334
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            63,
+            32,
+            219,
+            331
+          ],
+          "originPixels": [
+            141,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            122,
+            26,
+            286,
+            326
+          ],
+          "originPixels": [
+            204,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            99,
+            26,
+            239,
+            331
+          ],
+          "originPixels": [
+            169,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            70,
+            26,
+            226,
+            326
+          ],
+          "originPixels": [
+            148,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            123,
+            26,
+            275,
+            332
+          ],
+          "originPixels": [
+            199,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            100,
+            25,
+            250,
+            332
+          ],
+          "originPixels": [
+            175,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            70,
+            26,
+            223,
+            336
+          ],
+          "originPixels": [
+            146,
+            336
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C06.png",
+      "sourceSha256": "ea66fe9cde070c5c034a6ceeebcf9340b06ec69f4a7f1843f413dc20d64c1abf",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1070094,
+        "semiTransparentPixels": 501750,
+        "opaquePixels": 1161,
+        "cornersTransparent": true
+      },
+      "name": "Yani",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C06"
+    },
+    {
+      "id": "C07",
+      "role": "npc",
+      "sheet": "sheets/C07.png",
+      "sha256": "980872a79f58bc073ef337cd286749229e2bed06b5c8372556b351bf70501733",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            127,
+            20,
+            278,
+            344
+          ],
+          "originPixels": [
+            202,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            99,
+            20,
+            248,
+            340
+          ],
+          "originPixels": [
+            174,
+            340
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            68,
+            20,
+            218,
+            344
+          ],
+          "originPixels": [
+            143,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            117,
+            17,
+            277,
+            338
+          ],
+          "originPixels": [
+            197,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            93,
+            18,
+            247,
+            338
+          ],
+          "originPixels": [
+            170,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            61,
+            18,
+            217,
+            338
+          ],
+          "originPixels": [
+            139,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            125,
+            14,
+            285,
+            329
+          ],
+          "originPixels": [
+            205,
+            329
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            98,
+            14,
+            253,
+            331
+          ],
+          "originPixels": [
+            176,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            67,
+            16,
+            224,
+            331
+          ],
+          "originPixels": [
+            146,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            129,
+            11,
+            278,
+            335
+          ],
+          "originPixels": [
+            204,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            12,
+            247,
+            332
+          ],
+          "originPixels": [
+            172,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            65,
+            12,
+            218,
+            335
+          ],
+          "originPixels": [
+            142,
+            335
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C07.png",
+      "sourceSha256": "ee84d910d89b1d51bb0eb016826c4cfc410eff304acba16a8e7c397230f143c7",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1027293,
+        "semiTransparentPixels": 545063,
+        "opaquePixels": 649,
+        "cornersTransparent": false
+      },
+      "name": "Widi",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C07"
+    },
+    {
+      "id": "C08",
+      "role": "npc",
+      "sheet": "sheets/C08.png",
+      "sha256": "788530e86901dfbf42f0888501dd242595cb9cc747d79ee807c46ce1b95083c2",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            130,
+            30,
+            262,
+            352
+          ],
+          "originPixels": [
+            196,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            109,
+            30,
+            241,
+            348
+          ],
+          "originPixels": [
+            175,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            86,
+            30,
+            222,
+            352
+          ],
+          "originPixels": [
+            154,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            106,
+            21,
+            271,
+            335
+          ],
+          "originPixels": [
+            188,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            104,
+            21,
+            250,
+            335
+          ],
+          "originPixels": [
+            177,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            72,
+            21,
+            226,
+            332
+          ],
+          "originPixels": [
+            149,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            111,
+            16,
+            280,
+            327
+          ],
+          "originPixels": [
+            196,
+            327
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            87,
+            17,
+            245,
+            331
+          ],
+          "originPixels": [
+            166,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            66,
+            17,
+            222,
+            328
+          ],
+          "originPixels": [
+            144,
+            328
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            125,
+            13,
+            264,
+            335
+          ],
+          "originPixels": [
+            194,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            108,
+            14,
+            243,
+            330
+          ],
+          "originPixels": [
+            176,
+            330
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            81,
+            14,
+            227,
+            336
+          ],
+          "originPixels": [
+            154,
+            336
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C08.jpg",
+      "sourceSha256": "a39a1a7b105b270517f98f4732eda4fc1f18778803e3dea5fb85c61ec9b09750",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1094297,
+        "semiTransparentPixels": 478290,
+        "opaquePixels": 418,
+        "cornersTransparent": true
+      },
+      "name": "Inggit",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C08"
+    },
+    {
+      "id": "C09",
+      "role": "npc",
+      "sheet": "sheets/C09.png",
+      "sha256": "7c80c440f3d618180fdedcdd52818bfaa81278761a71e35700efee7084ab710e",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            124,
+            18,
+            280,
+            345
+          ],
+          "originPixels": [
+            202,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            94,
+            18,
+            253,
+            345
+          ],
+          "originPixels": [
+            174,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            70,
+            20,
+            226,
+            350
+          ],
+          "originPixels": [
+            148,
+            350
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            111,
+            20,
+            278,
+            339
+          ],
+          "originPixels": [
+            194,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            96,
+            19,
+            249,
+            342
+          ],
+          "originPixels": [
+            172,
+            342
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            65,
+            21,
+            225,
+            342
+          ],
+          "originPixels": [
+            145,
+            342
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            123,
+            14,
+            286,
+            331
+          ],
+          "originPixels": [
+            204,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            99,
+            14,
+            256,
+            337
+          ],
+          "originPixels": [
+            178,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            68,
+            14,
+            232,
+            333
+          ],
+          "originPixels": [
+            150,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            10,
+            277,
+            341
+          ],
+          "originPixels": [
+            202,
+            341
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            99,
+            10,
+            252,
+            341
+          ],
+          "originPixels": [
+            176,
+            341
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            71,
+            11,
+            226,
+            342
+          ],
+          "originPixels": [
+            148,
+            342
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C09.png",
+      "sourceSha256": "8680f61ddc58946bf178ea42534d37babb92f694ca68ca2cb9a0db2d183b2a4e",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1055140,
+        "semiTransparentPixels": 517385,
+        "opaquePixels": 480,
+        "cornersTransparent": false
+      },
+      "name": "Bela",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C09"
+    },
+    {
+      "id": "C10",
+      "role": "npc",
+      "sheet": "sheets/C10.png",
+      "sha256": "979be2a961ec8cd1796e3daa4366ac4447df4d93f66731528e727ac504d178a6",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            131,
+            20,
+            283,
+            347
+          ],
+          "originPixels": [
+            207,
+            347
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            97,
+            19,
+            249,
+            344
+          ],
+          "originPixels": [
+            173,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            60,
+            19,
+            217,
+            347
+          ],
+          "originPixels": [
+            138,
+            347
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            125,
+            21,
+            281,
+            335
+          ],
+          "originPixels": [
+            203,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            89,
+            21,
+            245,
+            340
+          ],
+          "originPixels": [
+            167,
+            340
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            47,
+            22,
+            211,
+            335
+          ],
+          "originPixels": [
+            129,
+            335
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            128,
+            16,
+            284,
+            333
+          ],
+          "originPixels": [
+            206,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            96,
+            16,
+            255,
+            334
+          ],
+          "originPixels": [
+            176,
+            334
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            56,
+            16,
+            216,
+            332
+          ],
+          "originPixels": [
+            136,
+            332
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            128,
+            12,
+            277,
+            340
+          ],
+          "originPixels": [
+            202,
+            340
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            97,
+            13,
+            246,
+            337
+          ],
+          "originPixels": [
+            172,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            59,
+            12,
+            213,
+            340
+          ],
+          "originPixels": [
+            136,
+            340
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C10.png",
+      "sourceSha256": "22ec4725b859c5f28699a7efeb9fa42055438b08cec1407b6dfad98b3e26df1c",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1069896,
+        "semiTransparentPixels": 502635,
+        "opaquePixels": 474,
+        "cornersTransparent": true
+      },
+      "name": "Yogi",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C10"
+    },
+    {
+      "id": "C11",
+      "role": "npc",
+      "sheet": "sheets/C11.png",
+      "sha256": "2dfc8dd7955e74faeb2fb4a46288384b94ddf2023aa11b22a79cf75d57a60a3c",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            145,
+            19,
+            294,
+            344
+          ],
+          "originPixels": [
+            220,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            102,
+            19,
+            249,
+            337
+          ],
+          "originPixels": [
+            176,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            57,
+            19,
+            210,
+            344
+          ],
+          "originPixels": [
+            134,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            147,
+            23,
+            288,
+            326
+          ],
+          "originPixels": [
+            218,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            106,
+            23,
+            247,
+            326
+          ],
+          "originPixels": [
+            176,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            62,
+            23,
+            202,
+            326
+          ],
+          "originPixels": [
+            132,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            147,
+            15,
+            291,
+            313
+          ],
+          "originPixels": [
+            219,
+            313
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            107,
+            15,
+            249,
+            314
+          ],
+          "originPixels": [
+            178,
+            314
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            58,
+            15,
+            206,
+            311
+          ],
+          "originPixels": [
+            132,
+            311
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            147,
+            8,
+            291,
+            331
+          ],
+          "originPixels": [
+            219,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            104,
+            8,
+            247,
+            326
+          ],
+          "originPixels": [
+            176,
+            326
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            61,
+            8,
+            205,
+            332
+          ],
+          "originPixels": [
+            133,
+            332
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C11.png",
+      "sourceSha256": "8dd91a5bf032b79179f844220d843e79c73003932acfe39e4dd55d773057c327",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1106417,
+        "semiTransparentPixels": 466076,
+        "opaquePixels": 512,
+        "cornersTransparent": true
+      },
+      "name": "Ray",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C11"
+    },
+    {
+      "id": "C12",
+      "role": "npc",
+      "sheet": "sheets/C12.png",
+      "sha256": "7ca96bbd99399921dc9739c79e98199bae74bb975a74a6909f63e001a6f0ad8e",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            26,
+            290,
+            355
+          ],
+          "originPixels": [
+            208,
+            355
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            26,
+            253,
+            352
+          ],
+          "originPixels": [
+            176,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            63,
+            26,
+            224,
+            354
+          ],
+          "originPixels": [
+            144,
+            354
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            120,
+            24,
+            295,
+            348
+          ],
+          "originPixels": [
+            208,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            101,
+            23,
+            249,
+            351
+          ],
+          "originPixels": [
+            175,
+            351
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            57,
+            24,
+            231,
+            348
+          ],
+          "originPixels": [
+            144,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            125,
+            22,
+            296,
+            345
+          ],
+          "originPixels": [
+            210,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            101,
+            21,
+            247,
+            348
+          ],
+          "originPixels": [
+            174,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            60,
+            23,
+            230,
+            345
+          ],
+          "originPixels": [
+            145,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            124,
+            22,
+            282,
+            349
+          ],
+          "originPixels": [
+            203,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            97,
+            22,
+            250,
+            348
+          ],
+          "originPixels": [
+            174,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            61,
+            22,
+            217,
+            349
+          ],
+          "originPixels": [
+            139,
+            349
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C12.png",
+      "sourceSha256": "dbbeb4d0e9044a13b940a89764f5ba850abf9fdc921324f97cd71619fdb58a79",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1047875,
+        "semiTransparentPixels": 524868,
+        "opaquePixels": 262,
+        "cornersTransparent": false
+      },
+      "name": "Fatihah",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C12"
+    },
+    {
+      "id": "C13",
+      "role": "npc",
+      "sheet": "sheets/C13.png",
+      "sha256": "f6397cf4512b1263c510a69ae7c817e29a19a12144aa201c5bd942eda6966745",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            36,
+            275,
+            349
+          ],
+          "originPixels": [
+            200,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            105,
+            36,
+            247,
+            349
+          ],
+          "originPixels": [
+            176,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            75,
+            36,
+            227,
+            349
+          ],
+          "originPixels": [
+            151,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            121,
+            34,
+            275,
+            343
+          ],
+          "originPixels": [
+            198,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            108,
+            34,
+            239,
+            348
+          ],
+          "originPixels": [
+            174,
+            348
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            70,
+            34,
+            218,
+            343
+          ],
+          "originPixels": [
+            144,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            127,
+            34,
+            278,
+            343
+          ],
+          "originPixels": [
+            202,
+            343
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            109,
+            34,
+            239,
+            347
+          ],
+          "originPixels": [
+            174,
+            347
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            71,
+            34,
+            222,
+            344
+          ],
+          "originPixels": [
+            146,
+            344
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            126,
+            36,
+            272,
+            345
+          ],
+          "originPixels": [
+            199,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            107,
+            36,
+            245,
+            345
+          ],
+          "originPixels": [
+            176,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            74,
+            36,
+            222,
+            345
+          ],
+          "originPixels": [
+            148,
+            345
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C13.png",
+      "sourceSha256": "f0cebb21dd5f90a2aecc9a64f8c96bed49d0aee2e0c461f95fa399500e1ff68e",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1121378,
+        "semiTransparentPixels": 450913,
+        "opaquePixels": 714,
+        "cornersTransparent": true
+      },
+      "name": "Heri",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C13"
+    },
+    {
+      "id": "C14",
+      "role": "npc",
+      "sheet": "sheets/C14.png",
+      "sha256": "3e2b9e211f817c9724442062949f1770569cba7ab31774d5b34f68a62f4c0191",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            116,
+            35,
+            264,
+            347
+          ],
+          "originPixels": [
+            190,
+            347
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            105,
+            35,
+            245,
+            346
+          ],
+          "originPixels": [
+            175,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            93,
+            35,
+            240,
+            346
+          ],
+          "originPixels": [
+            166,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            105,
+            32,
+            261,
+            339
+          ],
+          "originPixels": [
+            183,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            97,
+            32,
+            238,
+            339
+          ],
+          "originPixels": [
+            168,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            87,
+            32,
+            238,
+            338
+          ],
+          "originPixels": [
+            162,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            108,
+            26,
+            264,
+            330
+          ],
+          "originPixels": [
+            186,
+            330
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            107,
+            26,
+            247,
+            333
+          ],
+          "originPixels": [
+            177,
+            333
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            89,
+            26,
+            240,
+            329
+          ],
+          "originPixels": [
+            164,
+            329
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            119,
+            24,
+            254,
+            338
+          ],
+          "originPixels": [
+            186,
+            338
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            105,
+            24,
+            245,
+            337
+          ],
+          "originPixels": [
+            175,
+            337
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            91,
+            24,
+            234,
+            338
+          ],
+          "originPixels": [
+            162,
+            338
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C14.png",
+      "sourceSha256": "c0d8643c07d84b289abbf70aedf8b96f0587212b3be19f10387ab170f703ca79",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1038817,
+        "semiTransparentPixels": 533815,
+        "opaquePixels": 373,
+        "cornersTransparent": false
+      },
+      "name": "Arya",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C14"
+    },
+    {
+      "id": "C15",
+      "role": "npc",
+      "sheet": "sheets/C15.png",
+      "sha256": "527c0ce9f31d33593547bc83462d17c1d69a411d9726d797408aca6920a43732",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-push-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            84,
+            47,
+            282,
+            361
+          ],
+          "originPixels": [
+            183,
+            361
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            80,
+            47,
+            271,
+            361
+          ],
+          "originPixels": [
+            176,
+            361
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-push-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            71,
+            47,
+            268,
+            361
+          ],
+          "originPixels": [
+            170,
+            361
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-push-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            81,
+            43,
+            280,
+            352
+          ],
+          "originPixels": [
+            180,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            76,
+            42,
+            265,
+            352
+          ],
+          "originPixels": [
+            170,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-push-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            68,
+            42,
+            264,
+            352
+          ],
+          "originPixels": [
+            166,
+            352
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-push-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            84,
+            37,
+            281,
+            349
+          ],
+          "originPixels": [
+            182,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            80,
+            37,
+            274,
+            349
+          ],
+          "originPixels": [
+            177,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-push-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            69,
+            37,
+            268,
+            349
+          ],
+          "originPixels": [
+            168,
+            349
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-push-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            87,
+            37,
+            275,
+            342
+          ],
+          "originPixels": [
+            181,
+            342
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            80,
+            37,
+            271,
+            342
+          ],
+          "originPixels": [
+            176,
+            342
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-push-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            75,
+            37,
+            265,
+            342
+          ],
+          "originPixels": [
+            170,
+            342
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C15.png",
+      "sourceSha256": "4f4ca835d6faff6ee1a4908cf22e5c7b8b5e3a1526c518d7fc1cc281b746c4d4",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "manual-wheelchair",
+      "alphaAudit": {
+        "transparentPixels": 868720,
+        "semiTransparentPixels": 703811,
+        "opaquePixels": 474,
+        "cornersTransparent": true
+      },
+      "name": "Malik",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C15"
+    },
+    {
+      "id": "C16",
+      "role": "npc",
+      "sheet": "sheets/C16.png",
+      "sha256": "0ff40688d6212114ef9d5231c839050f0939537bbc8ad85f6706570fec5dcb08",
+      "size": [
+        1055,
+        1491
+      ],
+      "columns": 3,
+      "rows": 4,
+      "frames": [
+        {
+          "name": "south-step-left",
+          "rect": [
+            0,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            122,
+            48,
+            283,
+            346
+          ],
+          "originPixels": [
+            202,
+            346
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-idle",
+          "rect": [
+            352,
+            0,
+            351,
+            373
+          ],
+          "contentBounds": [
+            98,
+            48,
+            257,
+            339
+          ],
+          "originPixels": [
+            178,
+            339
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "south-step-right",
+          "rect": [
+            703,
+            0,
+            352,
+            373
+          ],
+          "contentBounds": [
+            74,
+            47,
+            236,
+            345
+          ],
+          "originPixels": [
+            155,
+            345
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-left",
+          "rect": [
+            0,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            114,
+            41,
+            279,
+            328
+          ],
+          "originPixels": [
+            196,
+            328
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-idle",
+          "rect": [
+            352,
+            373,
+            351,
+            373
+          ],
+          "contentBounds": [
+            99,
+            41,
+            248,
+            331
+          ],
+          "originPixels": [
+            174,
+            331
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "west-step-right",
+          "rect": [
+            703,
+            373,
+            352,
+            373
+          ],
+          "contentBounds": [
+            73,
+            41,
+            231,
+            329
+          ],
+          "originPixels": [
+            152,
+            329
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-left",
+          "rect": [
+            0,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            118,
+            29,
+            279,
+            323
+          ],
+          "originPixels": [
+            198,
+            323
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-idle",
+          "rect": [
+            352,
+            746,
+            351,
+            372
+          ],
+          "contentBounds": [
+            102,
+            29,
+            253,
+            324
+          ],
+          "originPixels": [
+            178,
+            324
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "east-step-right",
+          "rect": [
+            703,
+            746,
+            352,
+            372
+          ],
+          "contentBounds": [
+            72,
+            29,
+            233,
+            323
+          ],
+          "originPixels": [
+            152,
+            323
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-left",
+          "rect": [
+            0,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            124,
+            25,
+            272,
+            334
+          ],
+          "originPixels": [
+            198,
+            334
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-idle",
+          "rect": [
+            352,
+            1118,
+            351,
+            373
+          ],
+          "contentBounds": [
+            99,
+            25,
+            249,
+            328
+          ],
+          "originPixels": [
+            174,
+            328
+          ],
+          "nonempty": true
+        },
+        {
+          "name": "north-step-right",
+          "rect": [
+            703,
+            1118,
+            352,
+            373
+          ],
+          "contentBounds": [
+            77,
+            25,
+            230,
+            334
+          ],
+          "originPixels": [
+            154,
+            334
+          ],
+          "nonempty": true
+        }
+      ],
+      "sourceReference": "C16.png",
+      "sourceSha256": "d08f8b84216ee00e91771f76df77c270db009f31791db40b96ac0d660d6f53ff",
+      "generator": "OpenAI built-in image_gen",
+      "license": "LicenseRef-YZ-Owner-Review",
+      "runtimeIntegrated": false,
+      "mobility": "walking",
+      "alphaAudit": {
+        "transparentPixels": 1080290,
+        "semiTransparentPixels": 491910,
+        "opaquePixels": 805,
+        "cornersTransparent": false
+      },
+      "name": "Karisma",
+      "profileCatalog": "game-assets/catalog/cast.json",
+      "profileId": "C16"
+    }
+  ]
+}

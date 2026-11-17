@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "expectedCount": 32,
+  "mainCharacter": "A01",
+  "status": "generated-art-staging",
+  "characters": [
+    {
+      "id": "A01",
+      "role": "main-character",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Yanzen",
+      "occupation": "Petani dan pengelola kebun",
+      "hobby": [
+        "Berkebun",
+        "Menjelajah desa"
+      ],
+      "personality": [
+        "Penasaran",
+        "Tekun",
+        "Suka membantu"
+      ],
+      "designRationale": "Rompi kerja dan pakaian lapangan menjadi arah desain petani utama yang aktif menjelajah.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A02",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Nabila",
+      "occupation": "Perawat kebun bunga",
+      "hobby": [
+        "Merangkai bunga",
+        "Membuat teh herbal"
+      ],
+      "personality": [
+        "Ramah",
+        "Telaten",
+        "Optimistis"
+      ],
+      "designRationale": "Tunik sage memberi arah palet untuk kebun bunga; sifat dan minat merupakan pilihan cerita.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A03",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Ryan",
+      "occupation": "Pengelola irigasi",
+      "hobby": [
+        "Memancing",
+        "Merakit saluran air mini"
+      ],
+      "personality": [
+        "Tenang",
+        "Praktis",
+        "Tegas"
+      ],
+      "designRationale": "Ciri visual lebih matang dan baju kerja ochre cocok untuk rancangan mentor pekerjaan lapangan.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A04",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Ayu",
+      "occupation": "Penjual benih",
+      "hobby": [
+        "Mengoleksi benih",
+        "Menggambar tanaman"
+      ],
+      "personality": [
+        "Ceria",
+        "Komunikatif",
+        "Antusias"
+      ],
+      "designRationale": "Palet biru lembut dipakai untuk karakter toko benih yang mudah dikenali.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A05",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Vicky",
+      "occupation": "Teknisi alat pertanian",
+      "hobby": [
+        "Merakit perkakas",
+        "Bermain catur"
+      ],
+      "personality": [
+        "Analitis",
+        "Teliti",
+        "Pendiam"
+      ],
+      "designRationale": "Kacamata dan kemeja teal menjadi ciri desain teknisi; kemampuan teknis ditetapkan untuk cerita.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A06",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Asep",
+      "occupation": "Kurir hasil kebun",
+      "hobby": [
+        "Bersepeda",
+        "Bermain sepak bola"
+      ],
+      "personality": [
+        "Energik",
+        "Spontan",
+        "Setia kawan"
+      ],
+      "designRationale": "Kemeja jingga dan siluet muda memberi arah karakter kurir yang dinamis.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A07",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Dewi",
+      "occupation": "Pengelola persemaian",
+      "hobby": [
+        "Merawat anggrek",
+        "Memasak sayur"
+      ],
+      "personality": [
+        "Sabar",
+        "Penyayang",
+        "Teratur"
+      ],
+      "designRationale": "Kesan visual dewasa dan palet taupe-olive dipakai untuk rancangan pembimbing persemaian.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A08",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Astri",
+      "occupation": "Perajin keranjang",
+      "hobby": [
+        "Menganyam bambu",
+        "Membuat hiasan rumah"
+      ],
+      "personality": [
+        "Kreatif",
+        "Mandiri",
+        "Ramah"
+      ],
+      "designRationale": "Sanggul dan pakaian terracotta menjadi identitas visual perajin di pasar desa.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A09",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Fajar",
+      "occupation": "Fotografer desa",
+      "hobby": [
+        "Fotografi alam",
+        "Mengamati burung"
+      ],
+      "personality": [
+        "Observatif",
+        "Santai",
+        "Ingin tahu"
+      ],
+      "designRationale": "Kacamata dan palet plum membedakannya sebagai karakter dokumentasi alam dalam cerita.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A10",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Dadan",
+      "occupation": "Penjaga kebun bersama",
+      "hobby": [
+        "Latihan kebugaran",
+        "Merawat bonsai"
+      ],
+      "personality": [
+        "Disiplin",
+        "Dapat diandalkan",
+        "Lugas"
+      ],
+      "designRationale": "Alis tegas dan kemeja hijau menjadi arah desain penjaga kebun; sifat merupakan rancangan fiktif.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A11",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Anggi",
+      "occupation": "Pengelola pasar desa",
+      "hobby": [
+        "Memasak bersama",
+        "Mengoleksi resep"
+      ],
+      "personality": [
+        "Supel",
+        "Adil",
+        "Suka berinisiatif"
+      ],
+      "designRationale": "Palet mauve-mustard dipakai sebagai penanda visual penghubung para pedagang.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A12",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Denden",
+      "occupation": "Pengemudi angkutan panen",
+      "hobby": [
+        "Merawat kendaraan",
+        "Berkemah"
+      ],
+      "personality": [
+        "Tangguh",
+        "Humoris",
+        "Praktis"
+      ],
+      "designRationale": "Siluet matang dan kemeja merah bata memberi arah karakter transportasi panen.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A13",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Nida",
+      "occupation": "Penjaga perpustakaan benih",
+      "hobby": [
+        "Membaca",
+        "Menyusun jurnal tanaman"
+      ],
+      "personality": [
+        "Tenang",
+        "Cermat",
+        "Penuh pertimbangan"
+      ],
+      "designRationale": "Palet lavender dan navy digunakan untuk rancangan penjaga arsip benih; masker hanya unsur penampilan.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A14",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Desna",
+      "occupation": "Teknisi radio desa",
+      "hobby": [
+        "Merakit radio",
+        "Mendengarkan musik"
+      ],
+      "personality": [
+        "Logis",
+        "Sabar",
+        "Suka memecahkan masalah"
+      ],
+      "designRationale": "Kacamata dan kemeja slate memberi identitas visual teknisi komunikasi desa.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A15",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Heru",
+      "occupation": "Pengurus koperasi tani",
+      "hobby": [
+        "Bermain bulu tangkis",
+        "Merencanakan kegiatan desa"
+      ],
+      "personality": [
+        "Percaya diri",
+        "Kooperatif",
+        "Bertanggung jawab"
+      ],
+      "designRationale": "Overshirt olive dipakai untuk rancangan karakter yang menghubungkan para petani.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "A16",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2/manifest.json",
+      "name": "Khansa",
+      "occupation": "Perancang sistem kebun",
+      "hobby": [
+        "Membuat sketsa tata kebun",
+        "Mengerjakan teka-teki"
+      ],
+      "personality": [
+        "Fokus",
+        "Kreatif",
+        "Terstruktur"
+      ],
+      "designRationale": "Sanggul tinggi, kacamata, dan palet rose menjadi identitas perancang; keahlian adalah pilihan cerita.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C01",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Nani",
+      "occupation": "Pekebun bunga senior",
+      "hobby": [
+        "Menanam melati",
+        "Membuat kue tradisional"
+      ],
+      "personality": [
+        "Hangat",
+        "Sabar",
+        "Gemar bercerita"
+      ],
+      "designRationale": "Ciri lansia dan motif bunga pada baju memberi arah mentor kebun bunga.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C02",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Risky",
+      "occupation": "Petani kebun buah",
+      "hobby": [
+        "Mencangkok tanaman",
+        "Memancing"
+      ],
+      "personality": [
+        "Pekerja keras",
+        "Peduli",
+        "Bersahaja"
+      ],
+      "designRationale": "Kemeja olive dan ciri visual matang digunakan untuk rancangan petani kebun buah.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C03",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Tatang",
+      "occupation": "Perajin kayu senior",
+      "hobby": [
+        "Membuat mainan kayu",
+        "Bermain catur"
+      ],
+      "personality": [
+        "Bijaksana",
+        "Humoris",
+        "Telaten"
+      ],
+      "designRationale": "Rambut abu-abu, kumis, kacamata, dan topi datar memberi identitas mentor kerajinan.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C04",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Desi",
+      "occupation": "Pembuat roti desa",
+      "hobby": [
+        "Mencoba resep roti",
+        "Merawat tanaman dapur"
+      ],
+      "personality": [
+        "Ramah",
+        "Cekatan",
+        "Perhatian"
+      ],
+      "designRationale": "Kardigan krem dan sanggul dipakai sebagai arah visual karakter toko roti.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C05",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Eza",
+      "occupation": "Pelajar dan peserta klub kebun",
+      "hobby": [
+        "Bermain sepak bola",
+        "Menanam sayur percobaan"
+      ],
+      "personality": [
+        "Antusias",
+        "Mudah penasaran",
+        "Kadang terburu-buru"
+      ],
+      "designRationale": "Siluet remaja dan kemeja lilac cocok untuk rancangan pelajar; usia cerita tidak diambil dari data pegawai.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C06",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Yani",
+      "occupation": "Mahasiswi pertanian",
+      "hobby": [
+        "Membaca buku tanaman",
+        "Menggambar jurnal lapangan"
+      ],
+      "personality": [
+        "Ingin tahu",
+        "Rajin",
+        "Sedikit pemalu"
+      ],
+      "designRationale": "Hoodie krem dan kacamata dipakai untuk rancangan peserta belajar pertanian.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C07",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Widi",
+      "occupation": "Pedagang hasil bumi",
+      "hobby": [
+        "Mencoba masakan lokal",
+        "Bermain bulu tangkis"
+      ],
+      "personality": [
+        "Luwes",
+        "Percaya diri",
+        "Pandai bernegosiasi"
+      ],
+      "designRationale": "Kemeja charcoal dan celana beige memberi arah visual pedagang hasil bumi.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C08",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Inggit",
+      "occupation": "Penjual makanan pasar",
+      "hobby": [
+        "Bereksperimen dengan resep",
+        "Berkebun cabai"
+      ],
+      "personality": [
+        "Ceria",
+        "Cekatan",
+        "Kreatif"
+      ],
+      "designRationale": "Apron pada sprite menjadi petunjuk desain paling langsung untuk usaha makanan.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C09",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Bela",
+      "occupation": "Ilustrator desa",
+      "hobby": [
+        "Menggambar lanskap",
+        "Fotografi"
+      ],
+      "personality": [
+        "Imajinatif",
+        "Mandiri",
+        "Santai"
+      ],
+      "designRationale": "Kacamata dan overshirt olive digunakan sebagai identitas karakter pekerja kreatif.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C10",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Yogi",
+      "occupation": "Pencatat keuangan koperasi",
+      "hobby": [
+        "Mengerjakan teka-teki angka",
+        "Menyeduh kopi"
+      ],
+      "personality": [
+        "Rapi",
+        "Teliti",
+        "Dapat dipercaya"
+      ],
+      "designRationale": "Kemeja biru polos menjadi arah desain petugas pencatatan koperasi, bukan jabatan pegawai asli.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C11",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Ray",
+      "occupation": "Pemagang kebun keliling",
+      "hobby": [
+        "Menjelajah jalur desa",
+        "Membuat jurnal perjalanan"
+      ],
+      "personality": [
+        "Adaptif",
+        "Berani mencoba",
+        "Ramah"
+      ],
+      "designRationale": "Hoodie dan celana cargo memberi arah karakter pendatang yang belajar dari kebun ke kebun.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C12",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Fatihah",
+      "occupation": "Penjaga toko perlengkapan kebun",
+      "hobby": [
+        "Merawat tanaman pot",
+        "Menyusun dekorasi etalase"
+      ],
+      "personality": [
+        "Teratur",
+        "Sopan",
+        "Teguh pendirian"
+      ],
+      "designRationale": "Tunik plum menjadi identitas penjaga toko sipil; atribut jabatan pada referensi tidak diadopsi.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C13",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Heri",
+      "occupation": "Penggerak kegiatan kampung",
+      "hobby": [
+        "Bermain catur",
+        "Mengoleksi cerita rakyat"
+      ],
+      "personality": [
+        "Ramah",
+        "Bijaksana",
+        "Suka bermusyawarah"
+      ],
+      "designRationale": "Peci, rambut beruban, dan motif baju digunakan untuk rancangan tokoh senior kampung tanpa jabatan resmi.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C14",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Arya",
+      "occupation": "Kurir kebutuhan desa",
+      "hobby": [
+        "Merawat sepeda motor",
+        "Mencari jalur baru"
+      ],
+      "personality": [
+        "Gesit",
+        "Suka membantu",
+        "Optimistis"
+      ],
+      "designRationale": "Helm polos dan jaket kerja menjadi petunjuk desain profesi kurir tanpa merek.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C15",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Malik",
+      "occupation": "Perancang peta desa",
+      "hobby": [
+        "Menggambar peta",
+        "Bermain permainan strategi"
+      ],
+      "personality": [
+        "Mandiri",
+        "Kreatif",
+        "Terbuka untuk kerja sama"
+      ],
+      "designRationale": "Perancang peta dipilih untuk variasi pekerjaan dalam cerita, bukan disimpulkan dari kursi roda; mobilitas sprite tetap dipertahankan.",
+      "profileKind": "fictional-game-design"
+    },
+    {
+      "id": "C16",
+      "role": "npc",
+      "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "name": "Karisma",
+      "occupation": "Perangkai bunga",
+      "hobby": [
+        "Merangkai bunga liar",
+        "Melukis"
+      ],
+      "personality": [
+        "Ekspresif",
+        "Ramah",
+        "Penuh ide"
+      ],
+      "designRationale": "Rambut panjang dan jaket denim memberi identitas visual perangkai bunga dengan gaya kasual.",
+      "profileKind": "fictional-game-design"
+    }
+  ],
+  "profileLanguage": "id",
+  "profileNote": "NPC names follow user selections from a supplied list and subsequent nickname revisions. Occupations, hobbies and personalities are fictional game design, not claims about real people or deductions from appearance. No personnel IDs, full names, titles or employment records are imported."
+}

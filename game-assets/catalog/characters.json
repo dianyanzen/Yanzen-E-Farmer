@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "activeGeneratedPack": "game-assets/characters/gba-v2/manifest.json",
+  "activeGeneratedPacks": ["game-assets/characters/gba-v2/manifest.json", "game-assets/characters/gba-v2-c/manifest.json"],
+  "combinedCast": "game-assets/catalog/cast.json",
+  "activeCastCount": 32,
+  "mainCharacterId": "A01",
+  "activeNpcIds": ["A02", "A03", "A04", "A05", "A06", "A07", "A08", "A09", "A10", "A11", "A12", "A13", "A14", "A15", "A16", "C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12", "C13", "C14", "C15", "C16"],
+  "inventoryNote": "expectedCount below counts 32 private reference sheets; the generated cast now also has 32 characters: A01 sole main character and 31 NPCs. activeGeneratedPack is the legacy A-pack pointer; use activeGeneratedPacks or combinedCast for the complete cast.",
+  "verifiedOn": "2026-11-16",
+  "sourceKind": "owner-private Google Drive folder 'Char'",
+  "publicAccess": false,
+  "notes": "Reference sheets only. No government roles, uniforms, logos, organizational affiliations or personal identities are imported by default. Characters are fictional and remain unassigned until Character Bible approval. Do not commit original reference images to this public repository.",
+  "expectedCount": 32,
+  "characters": [
+    {
+      "id": "A01",
+      "filename": "A01.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A02",
+      "filename": "A02.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A03",
+      "filename": "A03.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A04",
+      "filename": "A04.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A05",
+      "filename": "A05.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A06",
+      "filename": "A06.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A07",
+      "filename": "A07.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A08",
+      "filename": "A08.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A09",
+      "filename": "A09.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A10",
+      "filename": "A10.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A11",
+      "filename": "A11.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A12",
+      "filename": "A12.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A13",
+      "filename": "A13.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A14",
+      "filename": "A14.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A15",
+      "filename": "A15.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "A16",
+      "filename": "A16.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C01",
+      "filename": "C01.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C02",
+      "filename": "C02.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C03",
+      "filename": "C03.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C04",
+      "filename": "C04.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C05",
+      "filename": "C05.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C06",
+      "filename": "C06.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C07",
+      "filename": "C07.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C08",
+      "filename": "C08.jpg",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C09",
+      "filename": "C09.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C10",
+      "filename": "C10.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C11",
+      "filename": "C11.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C12",
+      "filename": "C12.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C13",
+      "filename": "C13.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C14",
+      "filename": "C14.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C15",
+      "filename": "C15.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    },
+    {
+      "id": "C16",
+      "filename": "C16.png",
+      "status": "reference-only",
+      "npcRole": "unassigned",
+      "gameSpriteReady": false,
+      "artReview": "pending",
+      "publicAssetPath": null
+    }
+  ]
+}

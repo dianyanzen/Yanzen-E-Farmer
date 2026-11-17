@@ -1,0 +1,16 @@
+/* YZ Motion System · opt-in, GPU-friendly, accessible.
+   Only applied to the home workspace; financial inputs, tables and dialogs stay untouched. */
+@keyframes yz-home-enter {
+  from { opacity: 0; transform: translate3d(0, 9px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.yz-motion-home {
+  animation: yz-home-enter 220ms cubic-bezier(.22, 1, .36, 1) both;
+}
+.yz-motion-home :is(.farm-kpi, .farm-compact-insights) {
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .yz-motion-home { animation: none !important; }
+  .yz-motion-home :is(.farm-kpi, .farm-compact-insights) { transition: none !important; }
+}
