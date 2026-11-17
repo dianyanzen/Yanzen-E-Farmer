@@ -15,3 +15,5 @@ using `python scripts/game-assets/export-stage1.py`. Source hashes and project
 usage notices remain in the A/C pack manifests and PROVENANCE files.
 `tiles/cucumber.png` is original game pixel art, four 16×16 cells ordered by
 plot stage: planted seed, seedling, flowering vine and harvestable cucumbers.
+
+The player movement sheet `characters/yanzen-gaits.png` uses A01 as its source. Each 32×40 cell has its feet anchored at (16,36). Six columns form one stride cycle. Rows 0–3 are walk and 4–7 are run, ordered down, left, right, up. Idle uses the original center frame of stage1.png.

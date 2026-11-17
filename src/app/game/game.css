@@ -98,3 +98,6 @@
 .yzg-objective p{font-size:12px;margin:0}
 .yzg-tools button.active{background:#f5d38d;border-color:#875a35}
 @media(max-width:600px){.yzg-page{padding:6px 4px 40px}.yzg-header p{margin:0}.yzg-controls{padding:6px}.yzg-touch{padding:4px 14px 8px}.yzg-dpad button{touch-action:none;user-select:none}}
+
+.yzg-run{margin-left:auto;margin-right:12px;min-height:44px;padding:0 14px;border:2px solid #897348;border-radius:8px;background:#f7e7bf;color:#533d26;font-weight:bold}
+.yzg-run[aria-pressed=true]{background:#315e46;color:#fff9dc;border-color:#223e30}

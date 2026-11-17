@@ -172,6 +172,36 @@ try {
   await walk.waitForTimeout(1500);
   const afterPad = await playerX();
   assert.ok(afterPad >= stopped+2 && afterPad <= stopped+4, 'held pad travels and stops on release');
+  // Observe the actual sprites submitted to the canvas, including the idle
+  // transition. Catch accidentally rendering the standing atlas during travel.
+  await walk.evaluate(() => {
+    const proto = CanvasRenderingContext2D.prototype, original = proto.drawImage;
+    window.__gaitFrames = [];
+    proto.drawImage = function(image, ...args) {
+      if (image.src?.endsWith('/yanzen-gaits.png')) window.__gaitFrames.push([args[0]/32,args[1]/40]);
+      if (image.src?.endsWith('/stage1.png') && args[1]<128 && args[0]===24)
+        window.__gaitFrames.push(['idle']);
+      return original.call(this,image,...args);
+    };
+  });
+  async function observe(chord, expectedRow) {
+    await walk.evaluate(() => { window.__gaitFrames=[]; });
+    await walk.keyboard.down(chord);
+    await walk.waitForTimeout(520);
+    await walk.keyboard.up(chord);
+    await walk.waitForTimeout(240);
+    const frames=await walk.evaluate(()=>window.__gaitFrames);
+    assert.ok(new Set(frames.filter(f=>f[1]===expectedRow).map(f=>f[0])).size >= 4,
+      'different moving poses drawn from row '+expectedRow);
+    assert.equal(frames.at(-1)[0],'idle');
+  }
+  await observe('ArrowDown',0);
+  await walk.keyboard.down('Shift');
+  await observe('ArrowUp',7);
+  await walk.keyboard.up('Shift');
+  await walk.getByRole('button',{name:'Lari',exact:true}).click();
+  await observe('ArrowLeft',5);
+  await walk.getByRole('button',{name:'Lari',exact:true}).click();
   assert.equal(errors.length, 0, errors.join('\n'));
   console.log('Chapter 1 desktop/mobile story, reload, keyboard choice and save recovery: PASS');
   console.log('Screenshots:', output);

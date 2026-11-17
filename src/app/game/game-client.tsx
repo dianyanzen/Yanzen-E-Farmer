@@ -10,7 +10,7 @@ import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer
   choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type Dialogue } from "@/lib/game/model";
 import { drawWorld, type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
-import { WalkPath, STEP_MS } from "@/lib/game/walking";
+import { WalkPath, STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
@@ -52,11 +52,13 @@ export default function GameClient() {
   const [art, setArt] = useState<WorldArt>({});
   const path = useRef<WalkPath | null>(null);
   const held = useRef(new Map<string, Direction>());
+  const shiftHeld = useRef(false);
+  const [runMode, setRunMode] = useState(false);
   const nextStepAt = useRef(0);
   const [swing, setSwing] = useState<{ tool: FarmTool; started: number } | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { people: "characters/stage1.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png" };
+    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
@@ -165,17 +167,17 @@ export default function GameClient() {
     held.current.set(id, dir);
     if (first) {
       step(dir);
-      nextStepAt.current = performance.now() + STEP_MS;
+      nextStepAt.current = performance.now() + (runMode || shiftHeld.current ? RUN_STEP_MS : STEP_MS);
     }
-  }, [controlsLocked, step]);
+  }, [controlsLocked, step, runMode]);
   const release = useCallback((id: string) => { held.current.delete(id); }, []);
-  const scene = useRef({ game, art, swing, step });
+  const scene = useRef({ game, art, swing, step, runMode });
   useLayoutEffect(() => {
-    scene.current = { game, art, swing, step };
+    scene.current = { game, art, swing, step, runMode };
     if (!path.current) path.current = new WalkPath(game.player);
     path.current.aim(game.player);
-    if (controlsLocked) held.current.clear();
-  }, [game, art, swing, step, controlsLocked]);
+    if (controlsLocked) { held.current.clear(); shiftHeld.current = false; }
+  }, [game, art, swing, step, controlsLocked, runMode]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -184,26 +186,31 @@ export default function GameClient() {
     let lastTime = performance.now(), frame = 0;
     let lastScene: typeof scene.current | undefined;
     let wasAnimating = false;
-    const clear = () => { held.current.clear(); lastTime = performance.now(); };
-    const keyup = (event: KeyboardEvent) => release(event.key.toLowerCase());
+    const clear = () => { held.current.clear(); shiftHeld.current = false; lastTime = performance.now(); };
+    const keyup = (event: KeyboardEvent) => {
+      if (event.key === "Shift") shiftHeld.current = event.shiftKey;
+      release(event.key.toLowerCase());
+    };
     const paint = (now: number) => {
       const current = scene.current, walk = path.current;
+      const running = current.runMode || shiftHeld.current;
+      const stepMs = running ? RUN_STEP_MS : STEP_MS;
       if (held.current.size && now >= nextStepAt.current) {
         const directions = Array.from(held.current.values());
         current.step(directions[directions.length-1]);
-        nextStepAt.current = (now-nextStepAt.current >= STEP_MS ? now : nextStepAt.current) + STEP_MS;
+        nextStepAt.current = (now-nextStepAt.current >= stepMs ? now : nextStepAt.current) + stepMs;
       }
       if (walk) {
         const moving = walk.moving;
-        walk.advance(Math.max(0, now-lastTime), reduced.matches);
+        walk.advance(Math.max(0, now-lastTime), reduced.matches, stepMs);
         const age = current.swing ? now-current.swing.started : Infinity;
         const effect = current.swing && age < 330 && !reduced.matches
           ? { tool: current.swing.tool, frame: Math.max(0, Math.floor(age/110)) } : undefined;
         const animating = moving || !!effect;
         if (animating || wasAnimating || current !== lastScene) {
           const walking = !reduced.matches && (walk.moving || (moving && held.current.size > 0));
-          const pose = walking ? [1, 0, 1, 2][Math.floor(walk.distance * 2) % 4] : 1;
-          drawWorld(canvas, current.game, current.art, walk, pose, effect);
+          const pose = walking ? Math.floor(walk.distance * (running ? 2.5 : 3)) % 6 : null;
+          drawWorld(canvas, current.game, current.art, walk, pose, running, effect);
         }
         wasAnimating = animating;
         lastScene = current;
@@ -268,6 +275,7 @@ export default function GameClient() {
         w: "up", arrowup: "up", s: "down", arrowdown: "down",
         a: "left", arrowleft: "left", d: "right", arrowright: "right"
       };
+      shiftHeld.current = e.shiftKey;
       if (dirs[key] && !e.repeat) press(key, dirs[key]);
       if (/^[1-4]$/.test(key)) setTool(TOOLS[Number(key)-1].id);
       if ((key === " " || key === "e") && !e.repeat) action();
@@ -459,9 +467,10 @@ export default function GameClient() {
           <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} press={press} release={release} />
           <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
         </div>
+        <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
         <button className="yzg-action" onClick={action}>A <small>AKSI</small></button>
       </div>
-      <div className="yzg-footer"><span>Jalan: WASD / arah · E: aksi · P: HP · Escape: tutup</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
+      <div className="yzg-footer"><span>WASD / arah: jalan · Shift + arah: lari · E: aksi · P: HP · Escape: tutup</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
         <b>Penyimpanan cloud bermasalah</b><p>{errorText}</p>
         {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}

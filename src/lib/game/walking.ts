@@ -2,6 +2,7 @@ import type { GameState } from "./model";
 
 type Player = GameState["player"];
 export const STEP_MS = 150;
+export const RUN_STEP_MS = 95;
 
 // The model keeps integer tiles for collision, interaction and saves.
 // This path tracks the feet between committed tiles, including corners.
@@ -35,9 +36,9 @@ export class WalkPath {
 
   get moving() { return this.route.length > 0; }
 
-  advance(elapsed: number, reduced: boolean) {
+  advance(elapsed: number, reduced: boolean, stepMs = STEP_MS) {
     // Bound a late frame. Quick discrete taps may briefly queue several tiles.
-    let budget = reduced ? Infinity : Math.min(60, elapsed) / STEP_MS * Math.min(3, Math.max(1, this.route.length - 1));
+    let budget = reduced ? Infinity : Math.min(60, elapsed) / stepMs * Math.min(3, Math.max(1, this.route.length - 1));
     while (this.route.length && budget > 0) {
       const next = this.route[0];
       const dx = next.x-this.x, dy = next.y-this.y;

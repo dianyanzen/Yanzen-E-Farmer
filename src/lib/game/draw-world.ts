@@ -19,13 +19,13 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = { people?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; actions?: HTMLImageElement };
+export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; actions?: HTMLImageElement };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
 
 export type FarmAnimation = { tool: FarmTool; frame: number };
 export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: WorldArt,
-                          position: { x: number; y: number; dir: Direction }, pose: number, action?: FarmAnimation) {
+                          position: { x: number; y: number; dir: Direction }, pose: number | null, running: boolean, action?: FarmAnimation) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (position.x + .5)*T - canvas.width/2)));
@@ -74,7 +74,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const row = index*4 + facingRows[state.player.dir];
     ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
       Math.round(position.x*T)-14, Math.round(position.y*T)-23, 48, 48);
+  } else if (pose !== null && art.gaits) {
+    const row = facingRows[position.dir] + (running ? 4 : 0);
+    ctx.drawImage(art.gaits, pose*32, row*40, 32, 40,
+      Math.round(position.x*T)-6, Math.round(position.y*T)-18, 32, 40);
   } else {
-    actor("A01", position.x, position.y, position.dir, pose, "#295d4d");
+    actor("A01", position.x, position.y, position.dir, pose === null ? 1 : (pose < 3 ? 0 : 2), "#295d4d");
   }
 }
