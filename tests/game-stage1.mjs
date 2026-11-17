@@ -139,3 +139,23 @@ assert.ok(REGOL_VILLAGES.includes(START_LOCATION.village));
 assert.equal(isDistrictPlayable('Regol'), true);
 assert.equal(isDistrictPlayable('Coblong'), false);
 console.log('YZ Farm Life Bandung atlas data tests: PASS');
+
+const walkingSource = readFileSync(new URL('../src/lib/game/walking.ts', import.meta.url), 'utf8');
+const compiledWalking = ts.transpileModule(walkingSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
+}).outputText;
+const walking = {};
+vm.runInNewContext(compiledWalking, { exports: walking }, { timeout: 1500 });
+for (const hz of [30, 60, 120]) {
+  const path = new walking.WalkPath({x:5,y:5,dir:'right'});
+  path.aim({x:6,y:5,dir:'right'});
+  path.aim({x:6,y:6,dir:'down'});
+  for (let i=0; i<Math.ceil(hz*.32); ++i) {
+    path.advance(1000/hz,false);
+    assert.ok(path.x===6 || path.y===5, 'feet must follow the corner');
+  }
+  assert.equal(path.x,6); assert.equal(path.y,6);
+  assert.ok(Math.abs(path.distance-2)<0.00001);
+  path.aim({x:6,y:6,dir:'left'});
+  assert.equal(path.dir,'left'); assert.equal(path.moving,false);
+}
