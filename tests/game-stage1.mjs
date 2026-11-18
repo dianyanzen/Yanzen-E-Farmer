@@ -12,6 +12,10 @@ const mod = { exports: {} };
 vm.runInNewContext(compiled, { exports: mod.exports, module: mod, require: createRequire(new URL('../src/lib/game/model.ts', import.meta.url)) }, { timeout: 1500 });
 const { newGame, movePlayer, applyFarmTool, nextDay, acceptOrder, meetNpc, safeLoad, buySeeds,
   choosePhoto, sellCucumbers, sellableCucumbers, chapterJournal } = mod.exports;
+function sleepAtHome(s) {
+  const rested = nextDay({ ...s, location: "home", player: { x: 9, y: 8, dir: "up" } });
+  return { ...rested, location: s.location, player: s.player };
+}
 const initial = newGame();
 assert.equal(initial.day, 1);
 assert.equal(initial.coins, 280);
@@ -29,7 +33,7 @@ assert.equal(state.plots[0].stage, 0);
 for(let day = 1; day <= 3; day++){
   r = applyFarmTool(state, 'water'); state = r.state;
   assert.equal(state.plots[0].watered, true);
-  state = nextDay(state);
+  state = sleepAtHome(state);
   assert.equal(state.plots[0].stage, day);
   assert.equal(state.plots[0].watered, false);
 }
@@ -56,7 +60,7 @@ for (let day = 0; day < 3; day++) {
     story = { ...story, player: { x, y: 7, dir: 'down' } };
     story = applyFarmTool(story, 'water').state;
   }
-  story = nextDay(story);
+  story = sleepAtHome(story);
 }
 for (let x = 3; x <= 6; x++) {
   story = { ...story, player: { x, y: 7, dir: 'down' } };

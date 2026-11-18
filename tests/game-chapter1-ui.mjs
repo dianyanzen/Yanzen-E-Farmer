@@ -28,6 +28,7 @@ export function createClient(){return {
 };}`;
 await build({
   stdin: { contents: `import React from 'react';import {createRoot} from 'react-dom/client';import Game from './src/app/game/game-client';createRoot(document.getElementById('root')).render(<Game/>);`, resolveDir: process.cwd(), loader: 'tsx' },
+  external: ["/game/*"],
   bundle: true, outfile: path.join(output, 'app.js'), jsx: 'automatic',
   define: { 'process.env.NODE_ENV': '"development"' },
   plugins: [{ name: 'game-test-only-adapters', setup(b) {
@@ -69,8 +70,18 @@ async function start(page) {
   await page.getByRole('button', { name: 'Buka jurnal' }).waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
 }
+async function advanceDialogue(page) {
+  while (await page.getByRole("button",{name:"Lanjut ›",exact:true}).count()) await page.getByRole("button",{name:"Lanjut ›",exact:true}).click();
+}
+async function sleepFromFarm(page) {
+  await go(page,"ArrowUp"); await go(page,"ArrowUp"); await go(page,"e");
+  await go(page,"ArrowLeft",3);await go(page,"ArrowUp",4);await go(page,"e");
+  await page.getByRole("button",{name:"Tidur sampai pagi",exact:true}).click();
+  await go(page,"ArrowDown",4);await go(page,"ArrowRight",3);await go(page,"ArrowDown");await go(page,"e");
+  await go(page,"ArrowDown",2);
+}
 try {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion:"reduce" });
   await start(page);
   await page.getByRole('button', { name: /YZ Phone · Pesan baru/ }).click();
   await page.getByRole('button', { name: /Pesan$/ }).click();
@@ -88,7 +99,7 @@ try {
   }
   // The player stands on row seven; crops are on row nine, reached from row eight.
   for (let day = 0; day < 3; day++) {
-    await page.getByRole('button', { name: /Tidur/ }).click();
+    await sleepFromFarm(page);
     if (day < 2) {
       for (let x = 3; x <= 6; x++) {
         await go(page, 'ArrowDown'); await go(page, 'e'); await go(page, 'ArrowUp');
@@ -106,23 +117,24 @@ try {
   // Reach Inggit's west side at (18,7), facing right into (19,7).
   await go(page, 'ArrowRight', 13); await go(page, 'e');
   await page.getByRole('dialog', { name: /Empat Timun untuk Satu Meja/ }).waitFor();
-  await page.getByRole('button', { name: 'Lanjutkan ›' }).click();
+  await advanceDialogue(page); await page.getByRole("button",{name:"Akhiri percakapan"}).click();
   await go(page, 'ArrowLeft', 5); await go(page, 'ArrowDown'); await go(page, 'e');
   await page.getByRole('dialog', { name: /Dua Garis/ }).waitFor();
-  await page.getByRole('button', { name: 'Lanjutkan ›' }).click();
+  await advanceDialogue(page); await page.getByRole("button",{name:"Akhiri percakapan"}).click();
   await go(page, 'ArrowRight', 3); await go(page, 'ArrowDown', 4); await go(page, 'e');
   await page.getByRole('dialog', { name: /Foto yang Dilipat/ }).waitFor();
-  await page.getByRole('button', { name: 'Putuskan nanti' }).click();
+  await advanceDialogue(page); await page.getByRole("button",{name:"Putuskan nanti"}).click();
   await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.story.photoSeen);
   await page.reload(); await page.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
   await page.getByRole('button', { name: 'Mengerti' }).click();
   await go(page, 'e');
+  await advanceDialogue(page);
   const decision = page.getByRole('button', { name: /Titip salinan di warung/ });
   await decision.focus(); await page.keyboard.press('Enter');
   await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.story.photoChoice === 'warung');
   await page.getByRole('dialog', { name: /Bab 1 selesai/ }).waitFor();
   await page.screenshot({ path: path.join(output, 'chapter1-desktop.png') });
-  await page.getByRole('button', { name: 'Lanjutkan ›' }).click();
+  await advanceDialogue(page); await page.getByRole("button",{name:"Akhiri percakapan"}).click();
   const save = await page.evaluate(() => JSON.parse(localStorage.getItem('yz-test-save')));
   assert.equal(save.data.coins, 440); assert.equal(save.data.harvested, 0);
   await page.reload(); await page.getByRole('button', { name: 'Mengerti' }).click();
@@ -131,19 +143,20 @@ try {
   await page.getByText(/Salinan foto dititipkan di warung/).waitFor();
   await page.getByRole('button', { name: 'Tutup ponsel' }).click();
   await page.evaluate(() => { window.__failSave = true; });
-  await page.getByRole('button', { name: /Tidur/ }).click();
+  await page.getByRole('button', { name: '☁ Simpan' }).click();
   await page.getByRole('button', { name: 'Coba simpan kembali' }).waitFor();
   await page.evaluate(() => { window.__failSave = false; });
   await page.getByRole('button', { name: 'Coba simpan kembali' }).click();
-  await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.day === 5);
+  await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.day === 4);
 
-  const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion:"reduce" });
   await mobile.goto(url);
   // Resume a deferred choice on mobile. It came from actual desktop gameplay.
   await mobile.evaluate(row => { row.data.story.photoChoice = null; row.data.story.completedDay = null; localStorage.setItem('yz-test-save', JSON.stringify(row)); }, save);
   await mobile.reload(); await mobile.getByRole('button', { name: 'Mengerti' }).click();
   await mobile.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
   await mobile.getByRole('button', { name: 'A AKSI' }).click();
+  await advanceDialogue(mobile);
   await mobile.getByRole('button', { name: /Percayakan foto asli kepada Nani/ }).waitFor();
   await mobile.screenshot({ path: path.join(output, 'chapter1-mobile.png') });
   const box = await mobile.getByRole('dialog').boundingBox();

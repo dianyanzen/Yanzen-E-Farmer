@@ -1,6 +1,6 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, NPCS, WORLD, facing, isFarm } from "./model";
+import { Direction, GameState, NPCS, WORLD, facing, isFarm, HOME } from "./model";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -37,11 +37,41 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
+  if (state.location === "home") {
+    box(ctx,0,0,W*T,H*T,"#292b2b");
+    box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
+    box(ctx,8*T,6*T,9*T,8*T,"#bc9668");
+    for(let row=6;row<14;row++) for(let col=8;col<17;col++) {
+      box(ctx,col*T,row*T,19,1,"#896949");
+      box(ctx,col*T,row*T,1,20,"#d3ad7b");
+    }
+    box(ctx,7*T,5*T,11*T,15,"#83664c");
+    box(ctx,9*T,6*T,2*T,2*T,"#5b3b32");
+    box(ctx,9*T+3,6*T+3,34,12,"#f6ebce");
+    box(ctx,9*T+3,6*T+17,34,20,"#698b82");
+    box(ctx,9*T+3,7*T+12,34,4,"#b9d3b7");
+    box(ctx,15*T,6*T,2*T,3*T,"#6c4b37");
+    box(ctx,15*T+4,6*T+5,30,24,"#a1804d");
+    box(ctx,12*T,7*T,20,20,"#785539");
+    box(ctx,12*T+2,7*T+2,16,4,"#d6bb7d");
+    box(ctx,13*T,5*T+2,25,12,"#94c2bd");
+    box(ctx,HOME.exit.x*T,HOME.exit.y*T,20,20,"#694b34");
+    label(ctx,"RUMAH YANZEN",9*T,5*T-4);
+    label(ctx,"Tidur: dekati ranjang + Aksi",8*T,14*T+14);
+    if(art.people) {
+      const row=facingRows[position.dir];
+      ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
+    } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    return;
+  }
+  // Home entrance is an explicit interaction on the village building edge.
   if (art.landscape) ctx.drawImage(art.landscape, 0, 0);
   else {
     box(ctx,0,0,W*T,H*T,"#a7c465");
     box(ctx,3*T,8*T,8*T,6*T,"#b58c57");
   }
+  box(ctx,HOME.door.x*T,HOME.door.y*T,20,8,"#725039");
+  label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {
     const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;
