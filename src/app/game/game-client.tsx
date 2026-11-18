@@ -7,23 +7,18 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
   newGame, nextDay, NPCS, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, equipFarmTool, cycleFarmTool, TOOL_LABELS, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
 import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
 import CharacterGallery from "./character-gallery";
 import DialoguePanel, { Portrait } from "./dialogue-panel";
+import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats" | "characters";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
-const TOOLS: { id: FarmTool; name: string; glyph: string }[] = [
-  { id: "hoe", name: "Cangkul", glyph: "01" },
-  { id: "seed", name: "Tanam", glyph: "02" },
-  { id: "water", name: "Siram", glyph: "03" },
-  { id: "harvest", name: "Panen", glyph: "04" },
-];
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
@@ -116,6 +111,7 @@ export default function GameClient() {
   const [userId, setUserId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("loading");
   const [errorText, setErrorText] = useState("");
+  const [storageOpen, setStorageOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const phoneRef = useRef<HTMLDialogElement>(null);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
@@ -195,7 +191,7 @@ export default function GameClient() {
     return () => window.clearTimeout(t);
   }, [toast]);
 
-  const controlsLocked = phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
+  const controlsLocked = storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
     if (controlsLocked) return;
     setGame(s => movePlayer(s, direction));
@@ -252,16 +248,30 @@ export default function GameClient() {
     };
   }, [release, field]);
 
-  const equip = useCallback((next:FarmTool) => {
-    if(controlsLocked) return;
+  const equip=useCallback((next:ToolId)=>{
+    if(controlsLocked||!game.carriedTools.includes(next))return;
     setGame(current=>equipFarmTool(current,next));
-    setToast("Alat aktif: "+TOOL_LABELS[next]+". Gunakan hanya pada petak kebun.");
+    setToast("Alat aktif: "+toolName(next)+(TOOL_CATALOG[next].status==="planned"?" · Belum ada lokasi pemakaian untuk alat ini.":""));
     setShowHelp(false);
-  },[controlsLocked]);
+  },[controlsLocked,game.carriedTools]);
   const swapTool=useCallback((direction:1|-1)=>{
-    if(controlsLocked) return;
-    equip(cycleFarmTool(game.equippedTool,direction));
-  },[controlsLocked,game.equippedTool,equip]);
+    if(controlsLocked)return;
+    const next=cycleFarmTool(game.equippedTool,direction,game.carriedTools);
+    if(next)equip(next);
+    else setToast("Tas alat kosong. Ambil alat dari gudang.");
+  },[controlsLocked,game.equippedTool,game.carriedTools,equip]);
+  const transfer=(id:ToolId,direction:"store"|"take")=>{
+    if(saveStatus==="loading"||saveStatus==="error")return;
+    const result=transferTool(game,id,direction);
+    if(result.state!==game){setGame(result.state);void persist(result.state);}
+    setToast(result.message);
+  };
+  const upgrade=()=>{
+    if(saveStatus==="loading"||saveStatus==="error")return;
+    const result=upgradeToolBag(game);
+    if(result.state!==game){setGame(result.state);void persist(result.state);}
+    setToast(result.message);
+  };
 
   const action=useCallback(()=>{
     if(controlsLocked) return;
@@ -276,18 +286,24 @@ export default function GameClient() {
       const result=meetNpc(game,context.npcId);
       setGame(result.state);setDialogue(result);
       if(result.state!==game) void persist(result.state);
+    }else if(context.kind==="storage"){
+      setStorageOpen(true);
     }else if(context.kind==="inspect"){
       setToast(context.text);
-    }else if(context.kind==="farm"){
-      const selected=game.equippedTool;
+    }else if(context.kind==="farm"||context.kind==="plant"||context.kind==="harvest"){
+      // Plant and harvest with empty hands, regardless of equipped gear.
+      const selected:FarmTool=context.kind==="plant"?"seed":context.kind==="harvest"?"harvest":
+        game.equippedTool==="water"?"water":"hoe";
       const result=applyFarmTool(game,selected);
       if(result.state!==game){
         setSwing({tool:selected,started:performance.now(),origin:game.player,target:facing(game.player),before:game.plots});
         setGame(result.state);void persist(result.state);
       }
       setToast(result.message);
+    }else if(context.kind==="need-tool"){
+      setToast(context.label+" · Ambil alat dari gudang dan pilih sebagai alat aktif.");
     }else{
-      setToast("Tidak ada objek untuk berinteraksi di depanmu. Hadap NPC, pintu, kasur, atau petak kebun.");
+      setToast("Tidak ada objek untuk berinteraksi di depanmu.");
     }
     setShowHelp(false);
   },[game,controlsLocked,persist,field]);
@@ -308,9 +324,9 @@ export default function GameClient() {
       if (dialogue || (element?.closest("button, a, dialog") && [" ", "enter"].includes(key))) return;
       if (["arrowup", "arrowdown", "arrowleft", "arrowright", " ", "p", "e", "escape", "q", "r"].includes(key) ||
         ["w", "a", "s", "d"].includes(key)) e.preventDefault();
-      if (key === "escape") { setPhoneOpen(false); setDialogue(null); return; }
+      if (key === "escape") { setStorageOpen(false); setPhoneOpen(false); setDialogue(null); return; }
       if (key === "p") { if (!e.repeat) togglePhone(); return; }
-      if (phoneOpen || dialogue) {
+      if (phoneOpen || dialogue || storageOpen) {
         if (dialogue && (key === "e" || key === " " || key === "enter")) setDialogue(null);
         return;
       }
@@ -321,12 +337,16 @@ export default function GameClient() {
       field.setShift(e.shiftKey);
       if (dirs[key] && !e.repeat) press(key, dirs[key]);
       if (!e.repeat && (key==="q" || key==="r")) { swapTool(key==="q"?-1:1); return; }
-      if (!e.repeat && /^[1-4]$/.test(key)) { equip(TOOLS[Number(key)-1].id); return; }
+      if(!e.repeat && /^[1-9]$/.test(key)) {
+        const id=game.carriedTools[Number(key)-1];
+        if(id)equip(id);
+        return;
+      }
       if ((key === " " || key === "e") && !e.repeat) action();
     };
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
-  }, [press, action, togglePhone, phoneOpen, dialogue, field, equip, swapTool]);
+  }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools]);
 
   const rest = () => {
     if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
@@ -379,7 +399,7 @@ export default function GameClient() {
   const minutes = timeLabel(game.minutes);
   const journal = chapterJournal(game);
   const context = getActionContext(game);
-  const actionLabel = context.kind === "farm" ? "Gunakan " + TOOL_LABELS[game.equippedTool] : context.label;
+  const actionLabel = context.label;
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main ref={screenRef} className="yzg-page">
@@ -397,7 +417,7 @@ export default function GameClient() {
         <span>☀ Hari {game.day} · {minutes}</span>
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
-        <span>Lv. {playerLevel(game)} · Stamina {game.stats.stamina}/100 · {game.location === "home" ? "Rumah" : "Pasirluyu"}</span>
+        <span>Lv. {playerLevel(game)} · Stamina {game.stats.stamina}/100 · {game.location === "home" ? "Rumah" : game.location === "shed" ? "Gudang" : "Pasirluyu"}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
@@ -414,7 +434,7 @@ export default function GameClient() {
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
           Bergerak: WASD / panah · Aksi sesuai objek: E · HP: P<br/>
-          Hadapi petak untuk memakai alat. Q/R mengganti alat, 1–4 memilih langsung. Di luar kebun, E berinteraksi dengan objek di depan.
+          Tanah siap tanam dan tanaman matang cukup tekan Aksi (tangan kosong). Cangkul dan siram butuh alat. Q/R mengganti alat yang dibawa.
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
         </div>}
         {dialogue && <dialog ref={dialogueRef} className="yzg-dialog yzg-chapter-dialog" aria-label={dialogue.title} onCancel={() => setDialogue(null)} onClose={() => setDialogue(null)}>
@@ -438,6 +458,8 @@ export default function GameClient() {
           <button onClick={() => setDialogue(null)}>{dialogue.sleep ? "Belum tidur" : dialogue.choosePhoto ? "Putuskan nanti" : "Akhiri percakapan"}</button>
           </DialoguePanel>
         </dialog>}
+        {storageOpen && <ToolWarehouse game={game} disabled={unavailable}
+          onClose={()=>setStorageOpen(false)} onTransfer={transfer} onUpgrade={upgrade}/>}
         {phoneOpen && <dialog ref={phoneRef} className="yzg-phone-backdrop" aria-label="YZ Phone" onCancel={() => setPhoneOpen(false)} onClose={() => setPhoneOpen(false)} onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
             <div className="yzg-phone-notch"/>
@@ -536,14 +558,19 @@ export default function GameClient() {
       </div>
       <div className="yzg-controls">
         <div className="yzg-action-context" role="status">Objek di depan: <strong>{actionLabel}</strong></div>
-        <div className="yzg-toolbelt" aria-label="Tas alat pertanian">
-          <div className="yzg-tool-status" aria-live="polite">Alat di tangan: <strong>{TOOL_LABELS[game.equippedTool]}</strong><small>Q/R tukar alat · 1–4 pilih langsung</small></div>
+        <div className="yzg-toolbelt" aria-label="Tas peralatan">
+          <div className="yzg-tool-status" aria-live="polite">Alat di tangan: <strong>{toolName(game.equippedTool)}</strong>
+            <small>Tas {game.carriedTools.length}/{bagCapacity(game.bagTier)} · Lv. {game.bagTier} · Q/R tukar</small></div>
           <div className="yzg-tool-switch">
-            <button type="button" onClick={() => swapTool(-1)} disabled={controlsLocked} aria-label="Alat sebelumnya" title="Alat sebelumnya · Q">‹</button>
-            <button type="button" onClick={() => swapTool(1)} disabled={controlsLocked} aria-label="Alat berikutnya" title="Alat berikutnya · R">›</button>
+            <button type="button" onClick={() => swapTool(-1)} disabled={controlsLocked||!game.carriedTools.length} aria-label="Alat sebelumnya" title="Alat sebelumnya · Q">‹</button>
+            <button type="button" onClick={() => swapTool(1)} disabled={controlsLocked||!game.carriedTools.length} aria-label="Alat berikutnya" title="Alat berikutnya · R">›</button>
           </div>
-          <div className="yzg-tools" role="toolbar" aria-label="Pilih alat pertanian">
-            {TOOLS.map(t => <button key={t.id} type="button" className={game.equippedTool === t.id ? "active" : ""} aria-label={"Pilih " + t.name} aria-pressed={game.equippedTool === t.id} aria-keyshortcuts={t.glyph.slice(1)} disabled={controlsLocked} onClick={() => equip(t.id)}><span>{t.glyph}</span>{t.name}</button>)}
+          <div className="yzg-tools" role="toolbar" aria-label="Pilih alat yang dibawa">
+            {game.carriedTools.length===0?<small>Tas kosong. Kunjungi gudang.</small>:game.carriedTools.map((id,index)=>
+              <button key={id} type="button" className={game.equippedTool===id?"active":""} aria-label={"Pilih "+toolName(id)}
+                aria-pressed={game.equippedTool===id} disabled={controlsLocked} onClick={()=>equip(id)}>
+                <span>{index+1}</span>{toolName(id)}
+              </button>)}
           </div>
         </div>
         <div className="yzg-buttons">
@@ -565,7 +592,7 @@ export default function GameClient() {
         <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
         <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>AKSI</small></button>
       </div>
-      <div className="yzg-footer"><span>WASD / arah: jalan · Shift: lari · E: aksi · Q/R: tukar alat · 1–4: pilih alat · P: HP</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
+      <div className="yzg-footer"><span>WASD: jalan · E: aksi otomatis · Q/R: tukar alat · 1–9: pilih alat · P: HP</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
         <b>Penyimpanan cloud bermasalah</b><p>{errorText}</p>
         {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}
