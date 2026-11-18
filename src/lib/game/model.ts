@@ -128,6 +128,14 @@ export const AREAS:Record<OutdoorLocation,{name:string;description:string;landma
 export function areaTitle(location:GameLocation):string {
   return location==="home"?"Rumah Yanzen":location==="shed"?"Gudang Peralatan":AREAS[location].name;
 }
+export function weatherForDay(day:number):"cerah"|"berawan"|"hujan"{
+  const cycle=["cerah","cerah","berawan","cerah","hujan","cerah","berawan"] as const;
+  return cycle[(day-1)%cycle.length]??"cerah";
+}
+export function timeGreeting(minutes:number):string{
+  return minutes<660?"Selamat pagi":minutes<900?"Selamat siang":
+    minutes<1080?"Selamat sore":"Selamat malam";
+}
 /** Outdoor crossings occur ONLY on visible road/bridge connectors, never on arbitrary map edges. */
 export function mapExit(location:OutdoorLocation,x:number,y:number,dir:Direction):
   {location:OutdoorLocation;x:number;y:number;dir:Direction}|null {
@@ -286,7 +294,7 @@ export function nextDay(s: GameState): GameState {
   return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
-      watered: false })) };
+      watered: p.stage>=0 && p.stage<3 && weatherForDay(s.day+1)==="hujan" })) };
 }
 export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
   if(s.location!=="field")return {state:s,message:"Alat tani hanya digunakan di kebun."};
@@ -509,7 +517,7 @@ export function interactDoor(s: GameState): GameState {
   return s;
 }
 export type ActionContext =
-  | {kind:"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"none"|"wait"|"need-tool";label:string}
+  | {kind:"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string};
 /** One action key resolves the object in front before ever considering a farm tool. */
@@ -535,13 +543,15 @@ export function getActionContext(s:GameState):ActionContext {
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if(s.location!=="field"){
     const exit=mapExit(s.location,s.player.x,s.player.y,s.player.dir);
-    if(exit)return {kind:"none",label:"Jalan menuju "+areaTitle(exit.location)};
+    if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
     if(s.location==="sungai"&&front.x<=7)return {kind:"inspect",
       label:"Periksa sungai",text:"Permukaan air mengalir ke hilir. Ryan mencatatnya setiap siang."};
     if(s.location==="pasar"&&front.y<=8)return {kind:"inspect",
       label:"Lihat lapak pasar",text:"Sayur dan rempah ditata rapi. Berbicaralah dengan pedagang yang hadir."};
     return {kind:"none",label:"Jelajahi "+areaTitle(s.location)};
   }
+  const exit=mapExit("field",s.player.x,s.player.y,s.player.dir);
+  if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
   if(isFarm(front.x,front.y)){
     const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};
