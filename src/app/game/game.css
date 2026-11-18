@@ -186,3 +186,7 @@
  .yzg-toolbelt .yzg-tools{justify-content:flex-start}
  .yzg-toolbelt .yzg-tools button{flex:0 1 auto;padding:7px 8px}
 }
+
+/* Ensure relationship and stat text has a nonzero line box in the in-game phone. */
+.yzg-bond-card small{min-height:1.4em;line-height:1.4}
+.yzg-phone-stats strong{min-height:1.4em;line-height:1.4}
