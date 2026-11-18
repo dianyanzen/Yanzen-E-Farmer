@@ -190,3 +190,18 @@
 /* Ensure relationship and stat text has a nonzero line box in the in-game phone. */
 .yzg-bond-card small{min-height:1.4em;line-height:1.4}
 .yzg-phone-stats strong{min-height:1.4em;line-height:1.4}
+
+/* Data-backed field HUD: concise, readable guidance for touch and keyboard. */
+.yzg-farm-guidance{flex:1 0 100%;background:#f6f8ed;border:1px solid #c5d5b7;
+  border-radius:10px;padding:9px 11px;color:#375444;font-size:12px;line-height:1.45}
+.yzg-farm-counts{display:flex;align-items:center;gap:5px 9px;flex-wrap:wrap}
+.yzg-farm-counts strong{font-size:11px;letter-spacing:.08em;color:#295b40}
+.yzg-farm-counts span{background:#e2ebd7;border-radius:6px;padding:3px 7px;white-space:nowrap}
+.yzg-farm-guidance p{margin:7px 0 0}
+.yzg-farm-guidance p strong{color:#285f41}
+.yzg-action small{max-width:100%;font-size:8px;line-height:1.2;overflow-wrap:anywhere}
+@media(max-width:600px){
+  .yzg-farm-guidance{padding:7px 9px;font-size:11px}
+  .yzg-farm-counts{gap:4px}
+  .yzg-farm-counts span{font-size:10px;padding:2px 5px}
+}
