@@ -135,3 +135,11 @@
 .yzg-expression-picker button{font-size:11px;padding:6px 8px;min-height:36px}
 .yzg-expression-picker button[aria-pressed=true]{background:#b37136;outline:2px solid #dec18b}
 #yzg-character-search{display:block;width:100%;border:1px solid #9eaf97;border-radius:7px;padding:9px;margin-top:6px;background:#fffdf4;color:#253d30;font-size:14px}
+
+/* Fullscreen keeps dialogs inside the fullscreen root and preserves pixel aspect ratio. */
+.yzg-page:fullscreen{width:100%;height:100dvh;padding:0;overflow:auto;background:#1f3e30}
+.yzg-page:fullscreen .yzg-header,.yzg-page:fullscreen .yzg-disclaimer{display:none}
+.yzg-page:fullscreen .yzg-shell{max-width:none;width:100%;min-height:100%;border:0;border-radius:0;display:flex;flex-direction:column}
+.yzg-page:fullscreen .yzg-viewport{flex:1;min-height:180px}
+.yzg-page:fullscreen .yzg-viewport canvas{width:100%;height:100%;max-height:calc(100dvh - 210px);object-fit:contain}
+@media(max-width:849px){.yzg-page:fullscreen .yzg-viewport canvas{max-height:calc(100dvh - 340px)}}
