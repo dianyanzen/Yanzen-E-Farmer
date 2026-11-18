@@ -156,3 +156,37 @@
 .yzg-toolbelt .yzg-tools button{min-height:44px}
 .yzg-toolbelt .yzg-tools button.active{outline:2px solid #e0ab45;outline-offset:1px}
 @media(max-width:600px){.yzg-controls{align-items:stretch}.yzg-toolbelt{width:100%;gap:6px}.yzg-tool-status{min-width:92px}.yzg-tool-status small{font-size:9px}.yzg-toolbelt .yzg-tools{width:100%;justify-content:space-between;gap:4px}.yzg-toolbelt .yzg-tools button{flex:1 1 22%;min-width:0;padding:6px 3px}.yzg-action-context{font-size:11px}}
+
+/* Gudang alat: daftar peralatan, upgrade tas, dan katalog pengembangan. */
+.yzg-storage-dialog{position:fixed;inset:0;margin:auto;width:min(95vw,920px);max-height:86dvh;
+ overflow:auto;z-index:20;padding:18px;background:#faf3df;color:#294537;border:4px double #97764a;border-radius:12px;
+ box-shadow:0 12px 38px #10201977;font:14px/1.5 Arial,sans-serif}
+.yzg-storage-dialog::backdrop{background:#0b1d17bb}
+.yzg-storage-head,.yzg-storage-meta,.yzg-storage-upgrade{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.yzg-storage-head b{font-size:21px}
+.yzg-storage-dialog small{display:block;color:#65715b;font-size:12px}
+.yzg-storage-dialog button{min-height:40px;padding:8px 13px;background:#305e46;color:#fff8e2;border-radius:8px;font-weight:700}
+.yzg-storage-meta{flex-wrap:wrap;background:#e3ebd4;padding:10px;border-radius:8px;margin:12px 0}
+.yzg-storage-upgrade{background:#fff;border:1px solid #d8caa7;border-radius:9px;padding:12px}
+.yzg-storage-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}
+.yzg-storage-columns section{background:#f0eddf;border-radius:9px;padding:12px;min-width:0}
+.yzg-storage-columns h3{font-size:16px;margin:0 0 12px}
+.yzg-storage-item{display:flex;gap:8px;justify-content:space-between;align-items:center;
+ background:#fff;border:1px solid #dedec8;border-radius:7px;padding:8px;margin-bottom:8px}
+.yzg-storage-item>div{min-width:0}.yzg-storage-item button{flex-shrink:0}
+.yzg-tool-catalog{border-top:1px solid #c9c9ae;padding-top:12px}
+.yzg-tool-catalog summary{cursor:pointer;font-weight:800}
+.yzg-tool-catalog>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 0}
+.yzg-catalog-item{padding:9px;border-radius:7px;background:#fff;border:1px solid #ddd5ba;font-size:12px}
+.yzg-toolbelt .yzg-tools button{font-size:12px}
+@media(max-width:650px){
+ .yzg-storage-dialog{padding:10px;max-height:91dvh}
+ .yzg-storage-columns,.yzg-tool-catalog>div{grid-template-columns:1fr}
+ .yzg-storage-item{padding:6px}.yzg-storage-dialog small{font-size:11px}
+ .yzg-toolbelt .yzg-tools{justify-content:flex-start}
+ .yzg-toolbelt .yzg-tools button{flex:0 1 auto;padding:7px 8px}
+}
+
+/* Ensure relationship and stat text has a nonzero line box in the in-game phone. */
+.yzg-bond-card small{min-height:1.4em;line-height:1.4}
+.yzg-phone-stats strong{min-height:1.4em;line-height:1.4}
