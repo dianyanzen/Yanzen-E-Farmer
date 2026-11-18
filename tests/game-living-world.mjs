@@ -26,6 +26,10 @@ assert.equal(mapExit("field",22,10,"right").location,"gang");
 assert.equal(areaBlocked("sungai",3,11),true,"river is a physical limit");
 assert.equal(areaBlocked("sungai",12,11),false);
 assert.equal(areaBlocked("pasar",5,7),true,"stall collision");
+assert.equal(areaBlocked("field",23,9),true,"solid east hedge");
+assert.equal(areaBlocked("field",12,15),true,"natural south hedge");
+assert.equal(safeLoad({...newGame(),player:{x:23,y:15,dir:"right"}}).player.x,22,"old edge save migrates safely");
+assert.equal(safeLoad({...newGame(),player:{x:23,y:15,dir:"right"}}).player.y,14,"old southern edge migrates safely");
 assert.equal(areaBlocked("gang",5,7),true,"house collision");
 
 let step=movePlayer({...s,player:{x:22,y:10,dir:"right"}},"right");
