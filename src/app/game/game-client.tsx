@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
   newGame, nextDay, NPCS, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
@@ -284,7 +284,7 @@ export default function GameClient() {
       field.clear();field.reset(next.player);setSwing(null);setGame(next);void persist(next);
       setToast(next.location==="home"?"Masuk rumah. Hadapkan karakter ke kasur untuk tidur.":"Kembali ke Pasirluyu.");
     }else if(context.kind==="sleep"){
-      setDialogue({title:"Rumah Yanzen · Istirahat",sleep:true,lines:["Tidur sampai besok pagi? Stamina pulih dan tanaman yang sudah disiram akan tumbuh."]});
+      setDialogue({title:"Rumah Yanzen · Istirahat",sleep:true,lines:["Tidur sampai besok pagi? Tanaman yang sudah disiram akan tumbuh, dan hari baru dimulai."]});
     }else if(context.kind==="npc"){
       const result=meetNpc(game,context.npcId);
       setGame(result.state);setDialogue(result);
@@ -303,10 +303,14 @@ export default function GameClient() {
         setGame(result.state);void persist(result.state);
       }
       setToast(result.message);
+    }else if(context.kind==="wait"){
+      setToast("Tanaman ini sudah disiram hari ini. Siram petak lain atau tidur di rumah agar besok tumbuh!");
     }else if(context.kind==="need-tool"){
       setToast(context.label+" · Ambil alat dari gudang dan pilih sebagai alat aktif.");
     }else{
-      setToast("Tidak ada objek untuk berinteraksi di depanmu.");
+      setToast(game.location==="field"
+        ? "Hadapkan karakter ke petak kebun, pintu, atau warga untuk berinteraksi."
+        : "Hadapkan karakter ke objek yang bisa digunakan.");
     }
     setShowHelp(false);
   },[game,controlsLocked,persist,field]);
@@ -402,7 +406,14 @@ export default function GameClient() {
   const minutes = timeLabel(game.minutes);
   const journal = chapterJournal(game);
   const context = getActionContext(game);
+  const farming = farmOverview(game);
   const actionLabel = context.label;
+  const actionVerb = context.kind==="plant"?"TANAM":
+    context.kind==="harvest"?"PANEN":context.kind==="farm"?
+    (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
+    context.kind==="wait"?"INFO":context.kind==="sleep"?"TIDUR":
+    context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
+    context.kind==="door"?"MASUK":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main ref={screenRef} className="yzg-page">
@@ -420,7 +431,7 @@ export default function GameClient() {
         <span>☀ Hari {game.day} · {minutes}</span>
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
-        <span>Lv. {playerLevel(game)} · Stamina {game.stats.stamina}/100 · {game.location === "home" ? "Rumah" : game.location === "shed" ? "Gudang" : "Pasirluyu"}</span>
+        <span>Lv. {playerLevel(game)} · {game.location === "home" ? "Rumah" : game.location === "shed" ? "Gudang" : "Pasirluyu"}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
@@ -491,7 +502,8 @@ export default function GameClient() {
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
-                  <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{game.coins} G</strong></span></div>
+                  <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Perlu disiram<strong>{farming.needsWater}</strong></span><span>Sudah disiram<strong>{farming.watered}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{game.coins} G</strong></span></div>
+                  <p>{farming.next}</p>
                 </div>
                 <div className="yzg-phone-card"><b>Jurnal · Bab 1</b><p>{journal.objective}</p>
                   <ol className="yzg-journal">{journal.entries.map(entry => <li key={entry.title}>{entry.done ? "Selesai: " : "Belum: "}{entry.title}</li>)}</ol>
@@ -527,8 +539,7 @@ export default function GameClient() {
               </>}
               {phoneTab === "stats" && <>
                 <div className="yzg-phone-card"><b>YANZEN · Lv. {playerLevel(game)}</b><p>Petani urban · Hari {game.day}</p>
-                  <label>Stamina {game.stats.stamina}/100<meter min={0} max={100} value={game.stats.stamina}/></label>
-                  <small>Pulihkan stamina dengan tidur di ranjang rumah. Pintu rumah ada di utara kebun.</small>
+                  <p>Berjalan, bertani dan berinteraksi tanpa batas energi. Tidur di rumah untuk berganti hari dan menumbuhkan tanaman.</p>
                   <div className="yzg-phone-stats">
                     <span>Pengalaman<strong>{game.stats.xp} XP</strong></span><span>Aksi bertani<strong>{game.stats.actions}</strong></span>
                     <span>Total panen<strong>{game.stats.harvests}</strong></span><span>Percakapan<strong>{game.stats.conversations}</strong></span>
@@ -561,6 +572,16 @@ export default function GameClient() {
       </div>
       <div className="yzg-controls">
         <div className="yzg-action-context" role="status">Objek di depan: <strong>{actionLabel}</strong></div>
+        {game.location==="field" && <div className="yzg-farm-guidance" aria-label="Panduan dan kondisi kebun">
+          <div className="yzg-farm-counts">
+            <strong>KEBUN</strong>
+            <span>Siap panen {farming.ready}</span>
+            <span>Perlu air {farming.needsWater}</span>
+            <span>Sudah disiram {farming.watered}</span>
+            <span>Siap tanam {farming.tilled}</span>
+          </div>
+          <p><strong>Berikutnya:</strong> {farming.next}</p>
+        </div>}
         <div className="yzg-toolbelt" aria-label="Tas peralatan">
           <div className="yzg-tool-status" aria-live="polite">Alat di tangan: <strong>{toolName(game.equippedTool)}</strong>
             <small>Tas {game.carriedTools.length}/{bagCapacity(game.bagTier)} · Lv. {game.bagTier} · Q/R tukar</small></div>
@@ -593,9 +614,9 @@ export default function GameClient() {
           <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
         </div>
         <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
-        <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>AKSI</small></button>
+        <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>{actionVerb}</small></button>
       </div>
-      <div className="yzg-footer"><span>WASD: jalan · E: aksi otomatis · Q/R: tukar alat · 1–9: pilih alat · P: HP</span><span>Petak disiram tumbuh saat hari berganti.</span></div>
+      <div className="yzg-footer"><span>WASD: jalan · E: aksi otomatis · Q/R: tukar alat · 1–9: pilih alat · P: HP</span><span>Tanam dan panen otomatis · Tidur di rumah untuk menumbuhkan tanaman.</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
         <b>Penyimpanan cloud bermasalah</b><p>{errorText}</p>
         {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}
