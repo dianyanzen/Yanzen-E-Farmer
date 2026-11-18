@@ -1,6 +1,6 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, type NpcPlacement } from "./model";
+import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
 import { drawOutdoorArea } from "./pasirluyu-areas";
 
 const { width: W, height: H, tile: T } = WORLD;
@@ -117,6 +117,10 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
     label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   }
+  // The right edge is an actual connected street, not an invisible map wall.
+  box(ctx,22*T+4,10*T+5,13,2,"#ecd39c");
+  box(ctx,23*T,10*T+2,20,36,"rgba(239,210,151,.22)");
+  label(ctx,"GANG →",19*T,10*T-6);
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {
     const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;
@@ -229,5 +233,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.fillStyle=`rgba(62,45,94,${dusk*.32})`;
     ctx.fillRect(cameraX,cameraY,canvas.width,canvas.height);
   }
-
+  if(weatherForDay(state.day)==="hujan"){
+    // Deterministic, low-cost rain overlay; crop moisture is simulated in nextDay().
+    for(let i=0;i<44;i++){
+      const px=(i*79+ambient*7)%(W*T),py=(i*47+ambient*11)%(H*T);
+      box(ctx,px,py,1,5,"rgba(188,226,242,.63)");
+    }
+    ctx.fillStyle="rgba(37,71,82,.08)";
+    ctx.fillRect(cameraX,cameraY,canvas.width,canvas.height);
+  }
 }
