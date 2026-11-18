@@ -49,3 +49,11 @@ Pengujian browser memakai adapter autentikasi/cloud khusus tes. Integrasi cloud 
 - Rumah tetap berpintu `(3,4)`; kasur `(9,7)`; rak gudang `(9,7)` saat di gudang. Gudang **dipindahkan ke bangunan tengah (9,4)** agar tidak bertabrakan dengan Warung Inggit di sebelah kanan. Perubahan pintu tidak mengubah skema save `location` ataupun jenis inventaris.
 - Visual siang/sore mengikuti waktu internal game; tidak mengubah data musim/quest. Aset fallback Canvas yang lama tetap digunakan jika salah satu file tidak termuat.
 - Concept board eksterior/interior/lingkungan/peralatan hasil desain AI berfungsi sebagai referensi visual. File SVG runtime ini adalah adaptasi terstruktur tersendiri agar ukuran dan posisi elemen cocok dengan grid engine.
+
+## Pembenahan alur bertani & UX (18 November)
+- **Stamina dihapus dari gameplay.** Tidak ada pemotongan energi atau pembatasan aktivitas, dan semua label stamina hilang dari UI. Properti lama `stats.stamina` disimpan sebagai field kompatibilitas save versi 1, tetapi tidak memengaruhi permainan sama sekali.
+- Tidur di kasur tetap menjadi syarat berganti hari dan menumbuhkan tanaman disiram; tidak lagi untuk memulihkan stamina.
+- Peta `pasirluyu.png` masih menggambar tanaman dekoratif yang tidak punya state. Renderer sekarang menimpa seluruh **48 petak** berdasarkan `game.plots` yang benar: tanah kosong, siap tanam, tanaman bertumbuh, basah, dan panen matang.
+- Petak yang sudah disiram diberi kondisi `wait`; tombol Aksi mengingatkan tidur/menyiram petak lain, bukan pesan menyesatkan "tidak ada objek".
+- HUD menampilkan petunjuk langkah terbaik, jumlah petak siap panen, perlu air, sudah disiram, siap tanam; label tombol utama menjadi TANAM/PANEN/SIRAM/TIDUR/BICARA sesuai target. YZ Phone juga menampilkan kondisi dan anjuran tindakan.
+- Tidak ada perubahan skema Supabase atau jalur produksi E-Farmer. Pengujian model mencakup progres dari kondisi stamina lama nol.

@@ -75,6 +75,8 @@ try {
  for (const width of [1280,393]) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:"reduce"});
   await start(page);
+  assert.equal(await page.locator(".yzg-headsup").getByText(/stamina/i).count(),0,"stamina removed from HUD");
+  await page.getByText("Petak masih kosong:",{exact:false}).waitFor();
   // Verify newly rendered assets are actually readable by the game browser.
   await page.waitForFunction(() => performance.getEntriesByType("resource").some(r => r.name.endsWith("/game/assets/pasirluyu/house-neighborhood-day.svg")));
   const assetCheck = await page.evaluate(async () => {
