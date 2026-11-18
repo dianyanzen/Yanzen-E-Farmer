@@ -284,14 +284,14 @@ export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
   if(x<1||x>22||y<5||y>14)return true;
   if(location==="gang"){
     // Two houses and a small garden; road connectors remain open.
-    return (x>=3&&x<=8&&y>=5&&y<=8)||(x>=16&&x<=20&&y>=5&&y<=8);
+    return (x>=3&&x<=8&&y>=5&&y<=7)||(x>=16&&x<=20&&y>=5&&y<=7);
   }
   if(location==="pasar"){
     // Only stall counters are solid; walking aisles remain open.
     return (x>=3&&x<=9&&y>=6&&y<=8)||(x>=15&&x<=20&&y>=6&&y<=8);
   }
   // Canal forms a physical natural border. Small bridge is a walkable connector.
-  return x<=6&&y>=6&&y<=14;
+  return x<=6;
 }
 export function facing(p: GameState["player"]) {
   return { x: p.x + (p.dir === "left" ? -1 : p.dir === "right" ? 1 : 0),
