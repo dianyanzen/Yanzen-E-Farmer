@@ -2,6 +2,7 @@ import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
 import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
 import { drawOutdoorArea } from "./pasirluyu-areas";
+import {drawFieldRoads,drawRouteClosures} from "./pasirluyu-master-map";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -117,9 +118,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
     label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   }
-  // The right edge is an actual connected street, not an invisible map wall.
-  box(ctx,22*T+4,10*T+5,13,2,"#ecd39c");
-  box(ctx,23*T,10*T+2,20,36,"rgba(239,210,151,.22)");
+  // Both sides of the road use identical world-coordinate atlas texture.
+  drawFieldRoads(ctx);
   label(ctx,"GANG →",19*T,10*T-6);
   // Natural East and South edges now have visible trees/fence matching collisions.
   for(let y=5;y<16;y++)if(y!==10&&y!==11){
@@ -179,6 +179,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       box(ctx,px+2,py+4,2,3,"#ffdb81");
     }
   }
+  drawRouteClosures(ctx,"field");
   }
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
