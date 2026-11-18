@@ -1,0 +1,52 @@
+/** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
+export const TOOL_CATALOG = {
+  hoe: {name:"Cangkul",category:"Bertani",function:"Mengolah petak tanah kosong untuk ditanami.",target:"Petak tanah",status:"active"},
+  water: {name:"Gembor Penyiram",category:"Bertani",function:"Menyiram tanaman yang belum disiram hari ini.",target:"Tanaman",status:"active"},
+  axe: {name:"Kapak",category:"Kehutanan",function:"Menebang pohon kecil dan memotong batang menjadi kayu.",target:"Pohon/kayu",status:"planned"},
+  sickle: {name:"Sabit",category:"Bertani",function:"Memotong rumput dan gulma secara manual.",target:"Rumput",status:"planned"},
+  scythe: {name:"Pemotong Rumput",category:"Bertani",function:"Membersihkan rumpun rumput pada beberapa petak.",target:"Area rumput",status:"planned"},
+  shovel: {name:"Sekop",category:"Bertani",function:"Menggali tanah, kompos, dan mencari barang terpendam.",target:"Tanah",status:"planned"},
+  spade: {name:"Sekop Tanam",category:"Bertani",function:"Membuat lubang untuk bibit pohon dan tanaman besar.",target:"Lahan pohon",status:"planned"},
+  pruning_shears: {name:"Gunting Pangkas",category:"Bertani",function:"Memangkas ranting dan tanaman kebun.",target:"Tanaman",status:"planned"},
+  fertilizer_spreader: {name:"Penebar Pupuk",category:"Bertani",function:"Mengaplikasikan pupuk pada bedengan.",target:"Tanah/tanaman",status:"planned"},
+  seed_spreader: {name:"Penabur Benih",category:"Bertani",function:"Mempercepat penanaman pada beberapa petak.",target:"Petak siap tanam",status:"planned"},
+  pesticide_sprayer: {name:"Alat Semprot",category:"Bertani",function:"Mengaplikasikan larutan perlindungan tanaman sesuai aturan game.",target:"Tanaman",status:"planned"},
+  soil_meter: {name:"Pengukur Tanah",category:"Bertani",function:"Mengecek kelembapan dan kesuburan tanah.",target:"Tanah",status:"planned"},
+  irrigation_wrench: {name:"Kunci Irigasi",category:"Bertani",function:"Memperbaiki katup dan pipa irigasi.",target:"Jaringan air",status:"planned"},
+  watering_hose: {name:"Selang Air",category:"Bertani",function:"Menyiram banyak tanaman dari sumber air terhubung.",target:"Tanaman",status:"planned"},
+  wheelbarrow: {name:"Gerobak Dorong",category:"Transportasi",function:"Mengangkut bahan, kompos, dan panen dalam jumlah besar.",target:"Barang angkut",status:"planned"},
+  harvesting_basket: {name:"Keranjang Panen",category:"Bertani",function:"Menambah kapasitas atau kualitas pengumpulan panen.",target:"Hasil panen",status:"planned"},
+  pickaxe: {name:"Beliung Tambang",category:"Pertambangan",function:"Memecahkan batu dan menambang bijih.",target:"Batuan",status:"planned"},
+  mining_hammer: {name:"Palu Tambang",category:"Pertambangan",function:"Menghancurkan bongkahan mineral keras.",target:"Batu besar",status:"planned"},
+  mining_drill: {name:"Bor Tambang",category:"Pertambangan",function:"Mengebor lapisan batu pada area khusus.",target:"Dinding tambang",status:"planned"},
+  lantern: {name:"Lentera",category:"Eksplorasi",function:"Menerangi area gelap termasuk gua.",target:"Lingkungan",status:"planned"},
+  flashlight: {name:"Senter",category:"Eksplorasi",function:"Memberi cahaya terarah di malam hari.",target:"Lingkungan",status:"planned"},
+  compass: {name:"Kompas",category:"Eksplorasi",function:"Membantu orientasi ketika menjelajah.",target:"Peta",status:"planned"},
+  metal_detector: {name:"Detektor Logam",category:"Eksplorasi",function:"Mendeteksi benda logam terkubur.",target:"Tanah",status:"planned"},
+  fishing_rod: {name:"Joran Pancing",category:"Memancing",function:"Memancing ikan di sungai atau kolam.",target:"Air",status:"planned"},
+  fishing_net: {name:"Jaring Ikan",category:"Memancing",function:"Menangkap ikan kecil atau umpan.",target:"Air",status:"planned"},
+  crab_trap: {name:"Perangkap Kepiting",category:"Memancing",function:"Memasang perangkap dan mengambil hasil setelah waktu tertentu.",target:"Tepi air",status:"planned"},
+  fish_bucket: {name:"Ember Ikan",category:"Memancing",function:"Menyimpan sementara ikan hidup hasil tangkapan.",target:"Hasil tangkap",status:"planned"},
+  milking_pail: {name:"Ember Perah Sapi",category:"Peternakan",function:"Memerah susu sapi secara manual.",target:"Sapi siap perah",status:"planned"},
+  milking_machine: {name:"Mesin Perah Sapi",category:"Peternakan",function:"Memerah susu lebih cepat pada peternakan maju.",target:"Sapi siap perah",status:"planned"},
+  wool_shears: {name:"Gunting Wol",category:"Peternakan",function:"Mencukur bulu domba tanpa melukai hewan.",target:"Domba",status:"planned"},
+  animal_brush: {name:"Sikat Hewan",category:"Peternakan",function:"Membersihkan hewan untuk meningkatkan kenyamanan.",target:"Hewan ternak",status:"planned"},
+  feed_scoop: {name:"Sekop Pakan",category:"Peternakan",function:"Mengambil dan memberikan pakan ternak.",target:"Tempat makan",status:"planned"},
+  pitchfork: {name:"Garpu Jerami",category:"Peternakan",function:"Mengangkat jerami, kompos, dan alas kandang.",target:"Kandang",status:"planned"},
+  egg_basket: {name:"Keranjang Telur",category:"Peternakan",function:"Mengumpulkan telur dengan aman.",target:"Kandang ayam",status:"planned"},
+  veterinary_kit: {name:"Kotak Perawatan Hewan",category:"Peternakan",function:"Memberikan perawatan ringan sesuai sistem kesehatan hewan.",target:"Hewan ternak",status:"planned"},
+  carpenter_hammer: {name:"Palu Tukang",category:"Konstruksi",function:"Merakit atau memperbaiki furnitur dan bangunan.",target:"Bangunan",status:"planned"},
+  handsaw: {name:"Gergaji Tangan",category:"Konstruksi",function:"Memotong kayu untuk membuat furnitur.",target:"Kayu",status:"planned"},
+  paintbrush: {name:"Kuas Cat",category:"Konstruksi",function:"Mengubah warna atau dekorasi furnitur.",target:"Furnitur",status:"planned"},
+  cooking_knife: {name:"Pisau Dapur",category:"Memasak",function:"Mengolah bahan makanan di meja dapur.",target:"Meja dapur",status:"planned"},
+  cooking_pan: {name:"Wajan",category:"Memasak",function:"Memasak resep tumis atau goreng di kompor.",target:"Kompor",status:"planned"},
+  camera: {name:"Kamera",category:"Eksplorasi",function:"Memotret tempat menarik untuk album dan quest.",target:"Objek/landmark",status:"planned"},
+  binoculars: {name:"Teropong",category:"Eksplorasi",function:"Mengamati burung, hewan, dan pemandangan dari jauh.",target:"Lingkungan",status:"planned"},
+  bug_net: {name:"Jaring Serangga",category:"Eksplorasi",function:"Menangkap serangga untuk koleksi atau penelitian.",target:"Serangga",status:"planned"},
+  climbing_rope: {name:"Tali Panjat",category:"Eksplorasi",function:"Mencapai lokasi curam melalui titik pendakian aman.",target:"Titik pendakian",status:"planned"}
+} as const;
+export type ToolId = keyof typeof TOOL_CATALOG;
+export type ToolCategory = (typeof TOOL_CATALOG)[ToolId]["category"];
+export const TOOL_IDS = Object.keys(TOOL_CATALOG) as ToolId[];
+export function toolName(id:ToolId|null):string {return id ? TOOL_CATALOG[id].name : "Tangan kosong";}
+export const ACTIVE_FARM_TOOL_IDS:readonly ToolId[]=["hoe","water"];

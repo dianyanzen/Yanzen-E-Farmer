@@ -1,15 +1,52 @@
 import cast from "../../../game-assets/catalog/cast.json";
+import { TOOL_CATALOG, TOOL_IDS, type ToolId, toolName } from "./tool-catalog";
 
 export type Direction = "up" | "down" | "left" | "right";
 export type FarmTool = "hoe" | "seed" | "water" | "harvest";
 export const FARM_TOOLS: readonly FarmTool[] = ["hoe","seed","water","harvest"];
-export const TOOL_LABELS: Record<FarmTool,string> = {hoe:"Cangkul",seed:"Tanam",water:"Siram",harvest:"Panen"};
-export function equipFarmTool(state:GameState,tool:FarmTool):GameState {
-  return !FARM_TOOLS.includes(tool) || state.equippedTool===tool ? state : {...state,equippedTool:tool};
+/** Legacy commands seed/harvest remain for save-independent model tests. */
+export const TOOL_LABELS: Record<FarmTool,string> = {hoe:"Cangkul",seed:"Tanam",water:"Gembor Penyiram",harvest:"Panen"};
+export const BAG_CAPACITIES=[0,3,5,8,12] as const;
+export const BAG_UPGRADE_COSTS=[0,0,120,400,1000] as const;
+export const BAG_UNLOCK_LEVELS=[0,1,2,4,7] as const;
+export type BagTier=1|2|3|4;
+export function bagCapacity(tier:BagTier){return BAG_CAPACITIES[tier];}
+export function equipFarmTool(state:GameState,tool:ToolId):GameState {
+  return !state.carriedTools.includes(tool)||state.equippedTool===tool ? state : {...state,equippedTool:tool};
 }
-export function cycleFarmTool(tool:FarmTool,direction:1|-1):FarmTool {
-  const index=FARM_TOOLS.indexOf(tool);
-  return FARM_TOOLS[(index+FARM_TOOLS.length+direction)%FARM_TOOLS.length] ?? "hoe";
+export function cycleFarmTool(tool:ToolId|null,direction:1|-1,available:readonly ToolId[]= ["hoe","water"]):ToolId|null {
+  if(!available.length) return null;
+  const index=available.indexOf(tool as ToolId);
+  return available[index<0 ? (direction===1?0:available.length-1) :
+    (index+available.length+direction)%available.length] ?? null;
+}
+export function canManageTools(s:GameState):boolean{
+  const front=facing(s.player);
+  return s.location==="shed"&&front.x===SHED.rack.x&&front.y===SHED.rack.y;
+}
+export function transferTool(s:GameState,tool:ToolId,direction:"store"|"take"):{state:GameState;message:string}{
+  if(!canManageTools(s)) return {state:s,message:"Buka rak gudang dahulu untuk memindahkan alat."};
+  if(!TOOL_IDS.includes(tool)) return {state:s,message:"Alat tidak dikenal."};
+  if(direction==="store"){
+    if(!s.carriedTools.includes(tool)) return {state:s,message:"Alat tidak berada dalam tas."};
+    const carrying=s.carriedTools.filter(id=>id!==tool);
+    return {state:{...s,carriedTools:carrying,storedTools:[...s.storedTools,tool],
+      equippedTool:s.equippedTool===tool ? (carrying[0]??null) : s.equippedTool},
+      message:toolName(tool)+" disimpan di gudang."};
+  }
+  if(!s.storedTools.includes(tool)) return {state:s,message:"Alat belum tersedia di gudang."};
+  if(s.carriedTools.length>=bagCapacity(s.bagTier)) return {state:s,message:"Tas penuh. Simpan alat atau upgrade tas."};
+  return {state:{...s,carriedTools:[...s.carriedTools,tool],storedTools:s.storedTools.filter(id=>id!==tool),
+    equippedTool:s.equippedTool??tool},message:toolName(tool)+" dimasukkan ke tas."};
+}
+export function upgradeToolBag(s:GameState):{state:GameState;message:string}{
+  if(!canManageTools(s))return {state:s,message:"Tas hanya dapat ditingkatkan melalui gudang."};
+  if(s.bagTier===4)return {state:s,message:"Tas sudah maksimal."};
+  const next=(s.bagTier+1) as BagTier,cost=BAG_UPGRADE_COSTS[next];
+  if(playerLevel(s)<BAG_UNLOCK_LEVELS[next])return {state:s,message:"Perlu level pemain "+BAG_UNLOCK_LEVELS[next]+"."};
+  if(s.coins<cost)return {state:s,message:"Perlu "+cost+" G untuk upgrade tas."};
+  return {state:{...s,bagTier:next,coins:s.coins-cost},
+    message:"Tas Lv. "+next+" terbuka: "+bagCapacity(next)+" slot."};
 }
 export type Plot = { x: number; y: number; stage: number; watered: boolean };
 export type PhotoChoice = "nani" | "warung";
@@ -23,8 +60,9 @@ export type Dialogue = {
 export type GameState = {
   version: 1; day: number; minutes: number;
   player: { x: number; y: number; dir: Direction };
-  plots: Plot[]; seeds: number; harvested: number; coins: number; equippedTool: FarmTool;
-  phoneRead: boolean; story: StoryFlags; location: "field" | "home"; bonds: Record<NpcId, Bond>; stats: LifeStats;
+  plots: Plot[]; seeds: number; harvested: number; coins: number;
+  equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
+  phoneRead: boolean; story: StoryFlags; location: "field" | "home" | "shed"; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 export const WORLD = { width: 24, height: 16, tile: 20 } as const;
 const placements = [
@@ -45,7 +83,8 @@ export const DEFAULT_STORY: StoryFlags = {
 };
 export function newGame(): GameState {
   return { version: 1, location: "field", bonds: newBonds(), stats: newStats(), day: 1, minutes: 6 * 60 + 20,
-    player: { x: 12, y: 10, dir: "left" }, plots: [], seeds: 12, equippedTool: "hoe",
+    player: { x: 12, y: 10, dir: "left" }, plots: [], seeds: 12,
+    equippedTool:"hoe",carriedTools:["hoe","water"],storedTools:["axe","sickle","fishing_rod","pickaxe"],bagTier:1,
     harvested: 0, coins: 280, phoneRead: false, story: { ...DEFAULT_STORY } };
 }
 export function isFarm(x: number, y: number): boolean {
@@ -61,7 +100,7 @@ export function facing(p: GameState["player"]) {
 }
 export function movePlayer(s: GameState, dir: Direction): GameState {
   const candidate = facing({ ...s.player, dir });
-  const collision = s.location === "home" ? homeBlocked : blocked;
+  const collision = s.location!=="field" ? homeBlocked : blocked;
   return { ...s, player: {
     x: collision(candidate.x, candidate.y) ? s.player.x : candidate.x,
     y: collision(candidate.x, candidate.y) ? s.player.y : candidate.y, dir
@@ -78,7 +117,9 @@ export function nextDay(s: GameState): GameState {
       watered: false })) };
 }
 export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
-  if (s.location === "home") return { state: s, message: "Alat tani hanya digunakan di kebun." };
+  if(s.location!=="field")return {state:s,message:"Alat tani hanya digunakan di kebun."};
+  if((tool==="hoe"||tool==="water") && !s.carriedTools.includes(tool))
+    return {state:s,message:"Alat harus dibawa dari gudang sebelum digunakan."};
   if (s.stats.stamina < 4) return { state: s, message: "Stamina habis. Pulang dan tidur di tempat tidur rumah." };
   const at = facing(s.player);
   if (!isFarm(at.x, at.y)) return { state: s, message: "Arahkan karakter ke petak kebun lalu gunakan alat." };
@@ -192,7 +233,7 @@ export function safeLoad(value: unknown): GameState | null {
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
       !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, 5, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
-      (value.location === "home" ? homeBlocked(player.x, player.y) : blocked(player.x, player.y)) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
+      (value.location === "home" || value.location === "shed" ? homeBlocked(player.x, player.y) : blocked(player.x, player.y)) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
   }
@@ -206,8 +247,24 @@ export function safeLoad(value: unknown): GameState | null {
   if (completedDay !== null && !integer(completedDay, 1, value.day)) return null;
   if ((photoChoice === null) !== (completedDay === null) ||
       (photoSeen && (!story.orderDone || !story.canalClue)) || (photoChoice && !photoSeen)) return null;
-  if (value.location !== undefined && value.location !== "field" && value.location !== "home") return null;
-  if (value.equippedTool !== undefined && !FARM_TOOLS.includes(value.equippedTool as FarmTool)) return null;
+  if(value.location!==undefined && !["field","home","shed"].includes(value.location as string))return null;
+  const hasInventory=value.carriedTools!==undefined||value.storedTools!==undefined||value.bagTier!==undefined;
+  let carriedTools:ToolId[],storedTools:ToolId[],bagTier:BagTier,equippedTool:ToolId|null;
+  if(hasInventory){
+    if(!Array.isArray(value.carriedTools)||!Array.isArray(value.storedTools)||!integer(value.bagTier,1,4))return null;
+    const owned=[...value.carriedTools,...value.storedTools];
+    if(new Set(owned).size!==owned.length || owned.some(id=>typeof id!=="string"||!TOOL_IDS.includes(id as ToolId)) ||
+       value.carriedTools.length>bagCapacity(value.bagTier as BagTier))return null;
+    carriedTools=value.carriedTools as ToolId[];storedTools=value.storedTools as ToolId[];bagTier=value.bagTier as BagTier;
+    if(value.equippedTool!==null&&value.equippedTool!==undefined&&!carriedTools.includes(value.equippedTool as ToolId))return null;
+    equippedTool=value.equippedTool===undefined?(carriedTools[0]??null):value.equippedTool as ToolId|null;
+  }else{
+    if(value.equippedTool!==undefined&&value.equippedTool!==null&&
+      ![...TOOL_IDS,"seed","harvest"].includes(value.equippedTool as string))return null;
+    // Legacy seed/harvest are hand actions, not inventory items.
+    equippedTool=value.equippedTool==="water"?"water":"hoe";
+    carriedTools=["hoe","water"];storedTools=["axe","sickle","fishing_rod","pickaxe"];bagTier=1;
+  }
   const bonds = newBonds(), stats = newStats();
   if (value.bonds !== undefined) {
     if (!record(value.bonds)) return null;
@@ -235,10 +292,10 @@ export function safeLoad(value: unknown): GameState | null {
     coordinates.add(key);
     plots.push({ x: p.x, y: p.y, stage: p.stage, watered: p.watered });
   }
-  return { version: 1, location: value.location === "home" ? "home" : "field", bonds, stats, day: value.day, minutes: value.minutes,
+  return { version: 1, location: value.location==="home"?"home":value.location==="shed"?"shed":"field",
+    equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     player: { x: player.x, y: player.y, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
-    equippedTool: value.equippedTool === undefined ? "hoe" : value.equippedTool as FarmTool,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
       canalClue: story.canalClue as boolean, sarisStory: story.sarisStory as boolean,
       photoSeen: photoSeen as boolean, photoChoice, completedDay: completedDay as number | null } };
@@ -250,6 +307,7 @@ export type Bond = { points: number; lastTalkDay: number; talks: number; mood: E
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
 export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
+export const SHED = { door:{x:17,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
 export function newBonds(): Record<NpcId, Bond> {
   return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral" }])) as Record<NpcId, Bond>;
 }
@@ -266,20 +324,30 @@ export function homeBlocked(x: number, y: number) {
 }
 export function interactDoor(s: GameState): GameState {
   const at = facing(s.player);
-  if (s.location === "field" && at.x === HOME.door.x && at.y === HOME.door.y)
-    return { ...s, location: "home", player: { ...HOME.spawn, dir: "up" } };
+  if(s.location==="field"&&at.x===HOME.door.x&&at.y===HOME.door.y)
+    return {...s,location:"home",player:{...HOME.spawn,dir:"up"}};
+  if(s.location==="field"&&at.x===SHED.door.x&&at.y===SHED.door.y)
+    return {...s,location:"shed",player:{...SHED.spawn,dir:"up"}};
+  if(s.location==="shed"&&((at.x===SHED.exit.x&&at.y===SHED.exit.y)||
+    (s.player.x===SHED.exit.x&&s.player.y===SHED.exit.y)))
+    return {...s,location:"field",player:{...SHED.door,y:SHED.door.y+1,dir:"down"}};
   if (s.location === "home" && ((at.x === HOME.exit.x && at.y === HOME.exit.y) ||
       (s.player.x === HOME.exit.x && s.player.y === HOME.exit.y)))
     return { ...s, location: "field", player: { ...HOME.door, y: HOME.door.y + 1, dir: "down" } };
   return s;
 }
 export type ActionContext =
-  | {kind:"door"|"sleep"|"farm"|"none";label:string}
+  | {kind:"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"none"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string};
 /** One action key resolves the object in front before ever considering a farm tool. */
 export function getActionContext(s:GameState):ActionContext {
   const front=facing(s.player);
+  if(s.location==="shed"){
+    if(interactDoor(s)!==s)return {kind:"door",label:"Keluar gudang"};
+    if(canManageTools(s))return {kind:"storage",label:"Buka gudang peralatan"};
+    return {kind:"none",label:"Tidak ada objek"};
+  }
   if(s.location==="home"){
     if(interactDoor(s)!==s) return {kind:"door",label:"Keluar rumah"};
     if(canSleep(s)) return {kind:"sleep",label:"Tidur di kasur"};
@@ -289,10 +357,22 @@ export function getActionContext(s:GameState):ActionContext {
       return {kind:"inspect",label:"Periksa lemari",text:"Lemari Yanzen. Fitur mengganti pakaian belum tersedia."};
     return {kind:"none",label:"Tidak ada objek"};
   }
-  if(front.x===HOME.door.x && front.y===HOME.door.y) return {kind:"door",label:"Masuk rumah"};
+  if(front.x===HOME.door.x && front.y===HOME.door.y)return {kind:"door",label:"Masuk rumah"};
+  if(front.x===SHED.door.x && front.y===SHED.door.y)return {kind:"door",label:"Masuk gudang"};
   const npc=NPCS.find(n=>n.x===front.x && n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
-  if(isFarm(front.x,front.y)) return {kind:"farm",label:"Gunakan alat"};
+  if(isFarm(front.x,front.y)){
+    const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
+    if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};
+    if(plot?.stage===-1)return {kind:"plant",label:"Tanam bibit dengan tangan"};
+    if(plot && plot.stage>=0){
+      if(plot.watered)return {kind:"none",label:"Tanaman sudah disiram"};
+      return s.equippedTool==="water"&&s.carriedTools.includes("water")?
+        {kind:"farm",label:"Siram dengan gembor"}:{kind:"need-tool",label:"Perlu Gembor Penyiram"};
+    }
+    return s.equippedTool==="hoe"&&s.carriedTools.includes("hoe")?
+      {kind:"farm",label:"Cangkul petak kosong"}:{kind:"need-tool",label:"Perlu Cangkul"};
+  }
   if(front.x<=1 && front.y>=9) return {kind:"inspect",label:"Periksa saluran air",
     text:"Air mengalir ke arah hilir. Ryan mungkin mengetahui cerita saluran ini."};
   return {kind:"none",label:"Tidak ada objek"};

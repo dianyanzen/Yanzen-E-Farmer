@@ -1,6 +1,6 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, NPCS, WORLD, facing, isFarm, HOME } from "./model";
+import { Direction, GameState, NPCS, WORLD, facing, isFarm, HOME, SHED } from "./model";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -37,6 +37,27 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
+  if(state.location==="shed"){
+    box(ctx,0,0,W*T,H*T,"#282c2b");
+    box(ctx,7*T,5*T,11*T,10*T,"#53402f");
+    box(ctx,8*T,6*T,9*T,8*T,"#af8960");
+    for(let row=6;row<14;row++)for(let col=8;col<17;col++){
+      box(ctx,col*T,row*T,19,1,"#75593d");box(ctx,col*T,row*T,1,20,"#cea67a");
+    }
+    box(ctx,9*T,6*T,2*T,2*T,"#60442d");
+    box(ctx,9*T+3,6*T+3,34,9,"#caa476");
+    box(ctx,9*T+3,6*T+14,34,8,"#7b5232");
+    box(ctx,9*T+3,7*T+6,34,8,"#9c743f");
+    box(ctx,14*T,6*T,2*T,2*T,"#526750");
+    box(ctx,14*T+3,6*T+3,30,8,"#849a78");
+    box(ctx,SHED.exit.x*T,SHED.exit.y*T,20,20,"#60432f");
+    label(ctx,"GUDANG ALAT",9*T,5*T-4);
+    label(ctx,"Rak: dekati + Aksi",8*T,14*T+14);
+    if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
+      Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
+    else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    return;
+  }
   if (state.location === "home") {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
@@ -71,6 +92,10 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,3*T,8*T,8*T,6*T,"#b58c57");
   }
   box(ctx,HOME.door.x*T,HOME.door.y*T,20,8,"#725039");
+  box(ctx,16*T,3*T,3*T,2*T,"#736046");
+  box(ctx,16*T+4,3*T+5,3*T-8,12,"#9d8156");
+  box(ctx,SHED.door.x*T,SHED.door.y*T,20,8,"#59412f");
+  label(ctx,"GUDANG",16*T,SHED.door.y*T-8);
   label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {

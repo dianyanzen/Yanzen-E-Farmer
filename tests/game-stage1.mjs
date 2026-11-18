@@ -163,3 +163,5 @@ for (const hz of [30, 60, 120]) {
   path.aim({x:6,y:6,dir:'left'});
   assert.equal(path.dir,'left'); assert.equal(path.moving,false);
 }
+
+// Hands-only legacy commands remain valid for chapter tests; ownership applies to physical equipment.
