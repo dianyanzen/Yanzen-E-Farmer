@@ -6,7 +6,7 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
-  newGame, nextDay, NPCS, NPC_SOULS, npcWhere, areaTitle, AREAS, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  newGame, nextDay, NPCS, NPC_SOULS, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, PASIRLUYU_MASTER, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
@@ -617,13 +617,20 @@ export default function GameClient() {
               {phoneTab === "map" && <>
                 <div className="yzg-phone-card"><b>Lokasi kamu sekarang</b>
                   <p>{areaTitle(game.location)} · {START_LOCATION.village}, {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
-                  <small>Jelajahi empat kawasan dengan berjalan melewati ujung jalan.</small>
-                  <div className="yzg-local-map" aria-label="Jaringan kawasan Pasirluyu">
-                    <div className={game.location==="pasar"?"current":""}>PASAR</div>
-                    <div className={game.location==="gang"?"current":""}>GANG</div>
-                    <div className={game.location==="sungai"?"current":""}>SUNGAI</div>
-                    <div className={game.location==="field"?"current":""}>KEBUN — jalan timur menuju gang</div>
+                  <small>Master map {PASIRLUYU_MASTER.width} × {PASIRLUYU_MASTER.height} tile · empat kawasan aktif, dua area pengembangan.</small>
+                  <div className="yzg-local-map yzg-master-minimap" aria-label="Peta master Pasirluyu terdiri dari enam chunk">
+                    <div className="locked">Taman Kampung <small>Belum dibuka</small></div>
+                    <div className={game.location==="pasar"?"current":""}>Pasar Warga <small>Utara gang</small></div>
+                    <div className={game.location==="field"?"current":""}>Kebun Yanzen <small>Barat gang</small></div>
+                    <div className={game.location==="gang"?"current":""}>Gang Pasirluyu <small>Jalur utama</small></div>
+                    <div className="locked">Kebun Selatan <small>Belum dibuka</small></div>
+                    <div className={game.location==="sungai"?"current":""}>Bantaran Sungai <small>Selatan gang</small></div>
                   </div>
+                  <details className="yzg-road-closure-info">
+                    <summary>{ROUTE_BARRIERS.length} jalan yang belum terbuka — lihat alasannya</summary>
+                    {ROUTE_BARRIERS.map(b=><p key={b.id}><b>{b.label}</b>
+                      <small>{AREAS[b.location].name} → {b.future}. {b.message}</small></p>)}
+                  </details>
                   {(["field","gang","pasar","sungai"] as const).map(id=><p key={id}><b>{id===game.location?"● ":"○ "}{AREAS[id].name}</b><small>{AREAS[id].description}</small></p>)}
                   <small>Game menggunakan nama wilayah asli. Jalan, kebun dan NPC direka untuk cerita.</small>
                 </div>
