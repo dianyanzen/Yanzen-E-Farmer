@@ -1,6 +1,7 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, NPCS, WORLD, facing, isFarm, HOME, SHED } from "./model";
+import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, type NpcPlacement } from "./model";
+import { drawOutdoorArea } from "./pasirluyu-areas";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -94,6 +95,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
     return;
   }
+  // Keep farm art and terrain separate from other real, connected neighborhoods.
+  const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
+  if(state.location!=="field"){
+    drawOutdoorArea(ctx,state.location,ambient);
+  }else{
   // Home entrance is an explicit interaction on the village building edge.
   if (art.landscape) ctx.drawImage(art.landscape, 0, 0);
   else {
@@ -119,7 +125,6 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   // IMPORTANT: pasirluyu.png shows decorative mature cucumber rows.
   // Cover the whole farm with state-backed tiles so the visuals NEVER lie:
   // empty = dry soil, -1 = furrows, 0..2 = growing, 3 = harvestable.
-  const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
   for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
     const px=x*T, py=y*T;
     const plot=byTile.get(x+","+y);
@@ -159,6 +164,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       box(ctx,px+2,py+4,2,3,"#ffdb81");
     }
   }
+  }
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
       const row = actorRows[id] * 4 + facingRows[dir];
@@ -167,7 +173,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
     }
   }
-  function drawNpc(npc: typeof NPCS[number]) {
+  function drawNpc(npc: NpcPlacement) {
     const dx=position.x-npc.x,dy=position.y-npc.y;
     const near=Math.abs(dx)+Math.abs(dy)<=2;
     let dir: Direction="down";
@@ -175,11 +181,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     actor(npc.id,npc.x,npc.y,dir,1,npc.color);
     if (near) label(ctx!,npc.name,npc.x*T-2,npc.y*T-15);
   }
-  const ordered=NPCS.slice().sort((a,b)=>a.y-b.y);
+  const ordered=npcHere(state).sort((a,b)=>a.y-b.y);
   for (const npc of ordered) if (npc.y<=position.y) drawNpc(npc);
   // Player and their current tile target.
   const target=facing(state.player);
-  if(isFarm(target.x,target.y)){
+  if(state.location==="field" && isFarm(target.x,target.y)){
     const plot=byTile.get(target.x+","+target.y);
     ctx.strokeStyle=plot?.stage===3?"#ffd46e":plot?.watered?"#89dbe8":"#f9e5b3";
     ctx.lineWidth=1;
