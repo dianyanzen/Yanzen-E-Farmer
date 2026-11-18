@@ -165,3 +165,15 @@ for (const hz of [30, 60, 120]) {
 }
 
 // Hands-only legacy commands remain valid for chapter tests; ownership applies to physical equipment.
+
+const pasirluyuAssets = [
+  "house-neighborhood-day.svg","house-neighborhood-evening.svg",
+  "rumah-yanzen-interior-day.svg","rumah-yanzen-interior-evening.svg","gudang-interior.svg"
+];
+for (const file of pasirluyuAssets) {
+  const svg = readFileSync("public/game/assets/pasirluyu/"+file,"utf8");
+  assert.ok(svg.includes('viewBox="0 0 480 320"'),file+" uses exact world grid");
+  assert.ok(svg.startsWith('<svg') && svg.trim().endsWith("</svg>"),file+" is SVG");
+  assert.ok(svg.length>4000,file+" has more than placeholder art");
+}
+console.log("Pasirluyu visual assets & scene dimensions: PASS");

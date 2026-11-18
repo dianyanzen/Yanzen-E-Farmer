@@ -49,7 +49,7 @@ const server = createServer(async (req, res) => {
     path.join(output, url.pathname === '/' ? 'index.html' : url.pathname);
   try {
     const data = await readFile(target);
-    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : 'text/html');
+    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : target.endsWith('.svg') ? 'image/svg+xml' : 'text/html');
     res.end(data);
   } catch { res.statusCode = 404; res.end('Not found'); }
 });

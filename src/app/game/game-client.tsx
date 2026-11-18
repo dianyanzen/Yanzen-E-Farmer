@@ -95,7 +95,10 @@ export default function GameClient() {
   const [swing, setSwing] = useState<ToolUse | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png" };
+    const sources = { people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", landscape: "tiles/pasirluyu.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png",
+      pasirluyuDay: "pasirluyu/house-neighborhood-day.svg", pasirluyuEvening: "pasirluyu/house-neighborhood-evening.svg",
+      rumahDay: "pasirluyu/rumah-yanzen-interior-day.svg", rumahEvening: "pasirluyu/rumah-yanzen-interior-evening.svg",
+      gudangInterior: "pasirluyu/gudang-interior.svg" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };

@@ -49,7 +49,7 @@ const server = createServer(async (req, res) => {
     path.join(output, url.pathname === '/' ? 'index.html' : url.pathname);
   try {
     const data = await readFile(target);
-    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : 'text/html');
+    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : target.endsWith('.svg') ? 'image/svg+xml' : 'text/html');
     res.end(data);
   } catch { res.statusCode = 404; res.end('Not found'); }
 });
@@ -75,6 +75,17 @@ try {
  for (const width of [1280,393]) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:"reduce"});
   await start(page);
+  // Verify newly rendered assets are actually readable by the game browser.
+  await page.waitForFunction(() => performance.getEntriesByType("resource").some(r => r.name.endsWith("/game/assets/pasirluyu/house-neighborhood-day.svg")));
+  const assetCheck = await page.evaluate(async () => {
+    const assets=["house-neighborhood-day.svg","house-neighborhood-evening.svg",
+       "rumah-yanzen-interior-day.svg","rumah-yanzen-interior-evening.svg","gudang-interior.svg"];
+    return Promise.all(assets.map(file=>new Promise(resolve=>{
+      const image=new Image();image.onload=()=>resolve(image.naturalWidth===480 && image.naturalHeight===320);
+      image.onerror=()=>resolve(false);image.src="/game/assets/pasirluyu/"+file;
+    })));
+  });
+  assert.equal(assetCheck.every(Boolean),true,"Pasirluyu sprite scenes load in browser");
   assert.equal(await page.getByRole("button",{name:/Tidur \/ Hari Baru/}).count(),0);
   await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
   await page.getByText("Alat di tangan: Gembor Penyiram").waitFor();
@@ -87,7 +98,7 @@ try {
   await page.getByText("Tidak ada objek untuk berinteraksi di depanmu.",{exact:false}).waitFor();
   await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
   // Gudang: simpan dan ambil alat, lalu kembali ke titik awal tanpa kehilangan progres.
-  await go(page,"ArrowRight",5); await go(page,"ArrowUp",5); await go(page,"e");
+  await go(page,"ArrowLeft",3); await go(page,"ArrowUp",5); await go(page,"e");
   await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.location==="shed");
   await go(page,"ArrowLeft",3); await go(page,"ArrowUp",4); await go(page,"e");
   const storage=page.getByRole("dialog",{name:"Gudang peralatan"});
@@ -99,7 +110,7 @@ try {
   await storage.getByRole("button",{name:"Tutup"}).click();
   await go(page,"ArrowDown",4); await go(page,"ArrowRight",3); await go(page,"ArrowDown"); await go(page,"e");
   await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.location==="field");
-  await go(page,"ArrowDown",5); await go(page,"ArrowLeft",5);
+  await go(page,"ArrowDown",5); await go(page,"ArrowRight",3);
   await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
   await go(page,"ArrowUp",2);await go(page,"ArrowRight");await go(page,"e");
   await page.getByRole("dialog").waitFor();

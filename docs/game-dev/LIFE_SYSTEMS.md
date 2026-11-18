@@ -42,3 +42,10 @@ Pengujian browser memakai adapter autentikasi/cloud khusus tes. Integrasi cloud 
 - Katalog saat ini berisi **44 jenis alat dan fungsinya**; hanya cangkul dan gembor punya aksi gameplay. Alat berstatus `planned` tidak memberikan fungsi sebelum map/hewan/ikan/tambang ditambahkan.
 - Tindakan menanam/memanen bukan item alat. Bibit dan panen adalah persediaan terpisah, tidak memakan slot tas peralatan.
 - Migrasi save v1 memindahkan logika alat lama `seed`/`harvest` ke aksi tangan tanpa menghapus progres quest, bibit, panen, atau saldo.
+
+## Desain lingkungan Pasirluyu — implementasi visual
+- Aset runtime baru: `public/game/assets/pasirluyu/house-neighborhood-day.svg` dan `house-neighborhood-evening.svg`, `rumah-yanzen-interior-day.svg` dan `rumah-yanzen-interior-evening.svg`, `gudang-interior.svg`. Semua menggunakan kanvas 480 × 320 dan gambar vektor pixel-art dengan grid sesuai peta stage 1, bukan foto penuh atau gambar konsep ditempel di layar game.
+- Rumah Yanzen: atap terakota, teras, tanaman, batu jalur masuk, jendela dan lampu. Interior: lantai kayu, tempat tidur, meja kerja, lemari, pot tanaman, dapur kecil, sudut ibadah dan dekorasi. Gudang: rak peralatan dengan interior tersendiri.
+- Rumah tetap berpintu `(3,4)`; kasur `(9,7)`; rak gudang `(9,7)` saat di gudang. Gudang **dipindahkan ke bangunan tengah (9,4)** agar tidak bertabrakan dengan Warung Inggit di sebelah kanan. Perubahan pintu tidak mengubah skema save `location` ataupun jenis inventaris.
+- Visual siang/sore mengikuti waktu internal game; tidak mengubah data musim/quest. Aset fallback Canvas yang lama tetap digunakan jika salah satu file tidak termuat.
+- Concept board eksterior/interior/lingkungan/peralatan hasil desain AI berfungsi sebagai referensi visual. File SVG runtime ini adalah adaptasi terstruktur tersendiri agar ukuran dan posisi elemen cocok dengan grid engine.
