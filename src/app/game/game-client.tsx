@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
@@ -11,6 +11,7 @@ import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
+import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
 import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
 import CharacterGallery from "./character-gallery";
 import DialoguePanel, { Portrait } from "./dialogue-panel";
@@ -90,6 +91,8 @@ export default function GameClient() {
   }, [toggleFullscreen]);
   const [art, setArt] = useState<WorldArt>({});
   const [field] = useState(() => new FieldEngine());
+  const tapRoute = useRef<TapRoute|null>(null);
+  const [tapTick,setTapTick] = useState(0);
   const [sound, setSound] = useState(true);
   const [runMode, setRunMode] = useState(false);
   const [swing, setSwing] = useState<ToolUse | null>(null);
@@ -197,6 +200,7 @@ export default function GameClient() {
   const controlsLocked = storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
     if (controlsLocked) return;
+    tapRoute.current=null;
     setGame(s => movePlayer(s, direction));
     setShowHelp(false);
   }, [controlsLocked]);
@@ -328,6 +332,48 @@ export default function GameClient() {
     setShowHelp(false);
   },[game,controlsLocked,persist,field]);
 
+  const tapOnWorld=useCallback((event:ReactMouseEvent<HTMLCanvasElement>)=>{
+    if(controlsLocked)return;
+    const tile=field.pickTile(event.currentTarget,event.clientX,event.clientY);
+    if(!tile)return;
+    const route=planTapRoute(game,tile.x,tile.y);
+    if(!route){setToast("Jalur belum tersedia. Ketuk jalan atau objek yang dapat dijangkau.");return;}
+    tapRoute.current=route;
+    setTapTick(t=>t+1);
+    setShowHelp(false);
+  },[controlsLocked,field,game]);
+
+  useEffect(()=>{
+    if(controlsLocked||!tapRoute.current)return;
+    const timer=window.setTimeout(()=>{
+      const route=tapRoute.current;
+      if(!route)return;
+      if(route.steps.length){
+        const dir=route.steps.shift()!;
+        const next=movePlayer(game,dir);
+        if(next.location===game.location&&
+           next.player.x===game.player.x&&next.player.y===game.player.y){
+          tapRoute.current=null;setToast("Jalur terhalang. Pilih jalan lain.");return;
+        }
+        setGame(next);setTapTick(t=>t+1);return;
+      }
+      if(route.face){
+        const dir=route.face;route.face=null;
+        if(game.player.dir!==dir)setGame({...game,player:{...game.player,dir}});
+        setTapTick(t=>t+1);return;
+      }
+      tapRoute.current=null;
+      if(route.exit){
+        const next=movePlayer(game,route.exit);
+        if(next.location!==game.location){
+          field.clear();field.reset(next.player);setGame(next);
+          setToast("Selamat datang di "+areaTitle(next.location)+".");
+        }
+      }else if(route.interact)action();
+    },145);
+    return ()=>window.clearTimeout(timer);
+  },[game,tapTick,controlsLocked,action,field]);
+
   const togglePhone = useCallback(() => {
     if (dialogue || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setShowHelp(false);
@@ -452,7 +498,9 @@ export default function GameClient() {
         <button onClick={() => { setShowHelp(false); setPhoneOpen(true); setPhoneTab("farm"); }} disabled={unavailable || !!dialogue}>Buka jurnal</button>
       </section>
       <div className="yzg-viewport">
-        <canvas ref={canvasRef} width={300} height={200} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
+        <canvas ref={canvasRef} width={300} height={200} onClick={tapOnWorld}
+          aria-label="Peta Pasirluyu. Ketuk jalan untuk berjalan atau ketuk objek untuk berinteraksi."
+          role="img" style={{cursor:"pointer"}}/>
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
         {!phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
@@ -460,8 +508,8 @@ export default function GameClient() {
         </button>}
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
-          Bergerak: WASD / panah · Aksi sesuai objek: E · HP: P<br/>
-          Tanah siap tanam dan tanaman matang cukup tekan Aksi (tangan kosong). Cangkul dan siram butuh alat. Q/R mengganti alat yang dibawa.
+          Bergerak: WASD / panah atau ketuk tujuan di peta · Aksi: E · HP: P<br/>
+          Ketuk petak untuk mendekat dan beraksi. Tanam dan panen otomatis; cangkul dan siram membutuhkan alat yang sesuai. Ikuti jalan di batas peta untuk menjelajah.
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
         </div>}
         {dialogue && <dialog ref={dialogueRef} className="yzg-dialog yzg-chapter-dialog" aria-label={dialogue.title} onCancel={() => setDialogue(null)} onClose={() => setDialogue(null)}>
@@ -645,7 +693,7 @@ export default function GameClient() {
         <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
         <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>{actionVerb}</small></button>
       </div>
-      <div className="yzg-footer"><span>WASD: jalan · E: aksi otomatis · Q/R: tukar alat · 1–9: pilih alat · P: HP</span><span>Tanam dan panen otomatis · Tidur di rumah untuk menumbuhkan tanaman.</span></div>
+      <div className="yzg-footer"><span>WASD: jalan · E: aksi otomatis · Q/R: tukar alat · 1–9: pilih alat · P: HP</span><span>Ketuk peta untuk berjalan · Jelajah Pasirluyu · Tidur di rumah untuk menumbuhkan tanaman.</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
         <b>Penyimpanan cloud bermasalah</b><p>{errorText}</p>
         {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}
