@@ -41,7 +41,8 @@ const before = state.coins;
 r = applyFarmTool(state, 'harvest'); state = r.state;
 assert.equal(state.harvested, 1);
 assert.equal(state.coins, before, 'harvest is inventory, not an automatic sale');
-assert.equal(state.plots.length, 0);
+assert.equal(state.plots.length, 1,"timun regrows after first harvest");
+assert.equal(state.plots[0].stage,1);assert.equal(state.plots[0].harvests,1);
 assert.equal(applyFarmTool(state, 'harvest').state.harvested, 1, 'no double harvest');
 
 let story = newGame();

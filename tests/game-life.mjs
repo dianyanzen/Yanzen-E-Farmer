@@ -145,3 +145,13 @@ const mature={...firstWatered,plots:[{x:10,y:8,stage:3,watered:true}],equippedTo
 assert.equal(getActionContext(mature).kind,"harvest","harvest overrides equipment");
 assert.equal(applyFarmTool(mature,"harvest").state.harvested,1);
 console.log("Farm loop: real plot status, no stamina gate, wet guidance, sleep, harvest: PASS");
+
+const renewable={...newGame(),player:{x:11,y:8,dir:"left"},
+  plots:[{x:10,y:8,stage:3,watered:false,harvests:2}]};
+const third=applyFarmTool(renewable,"harvest").state;
+assert.equal(third.plots[0].stage,1,"third harvest regrows");
+assert.equal(third.plots[0].harvests,3);
+const fourth=applyFarmTool({...third,plots:[{x:10,y:8,stage:3,watered:false,harvests:3}]},"harvest").state;
+assert.equal(fourth.plots.length,0,"fourth harvest ends productive life");
+assert.equal(safeLoad({...renewable,plots:[{x:10,y:8,stage:2,watered:false,harvests:50}]}),null);
+console.log("Cucumber repeat harvest: four harvest cycles and save validation: PASS");

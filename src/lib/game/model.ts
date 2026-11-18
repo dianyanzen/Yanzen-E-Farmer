@@ -100,7 +100,8 @@ export function upgradeToolBag(s:GameState):{state:GameState;message:string}{
   return {state:{...s,bagTier:next,coins:s.coins-cost},
     message:"Tas Lv. "+next+" terbuka: "+bagCapacity(next)+" slot."};
 }
-export type Plot = { x: number; y: number; stage: number; watered: boolean };
+export type Plot = { x: number; y: number; stage: number; watered: boolean; harvests?:number };
+export const CUCUMBER_MAX_HARVESTS=4;
 export type PhotoChoice = "nani" | "warung";
 export type StoryFlags = {
   orderAccepted: boolean; orderDone: boolean; canalClue: boolean; sarisStory: boolean;
@@ -324,10 +325,15 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
       message: "Tanaman disiram! Pertumbuhan terjadi setelah tidur." };
   }
   if (!p || p.stage < 3) return { state: s, message: "Timun belum siap dipanen." };
-  return { state: addMinutes({ ...s,
-    stats: { ...s.stats, harvests: Math.min(99999999,s.stats.harvests + 1) }, harvested: s.harvested + 1,
-    plots: s.plots.filter(q => q !== p) }),
-    message: "Panen berhasil! +1 timun masuk persediaan. Antar pesanan atau jual di warung." };
+  const cycles=(p.harvests??0)+1, exhausted=cycles>=CUCUMBER_MAX_HARVESTS;
+  return { state:addMinutes({ ...s,
+    stats:{...s.stats,harvests:Math.min(99999999,s.stats.harvests+1)},
+    harvested:s.harvested+1,
+    plots:exhausted?s.plots.filter(q=>q!==p):
+      s.plots.map(q=>q===p?{...q,stage:1,watered:false,harvests:cycles}:q) }),
+    message:exhausted
+      ?"Panen berhasil! +1 timun. Tanaman sudah selesai masa produktifnya; petak bisa dicangkul lagi."
+      :"Panen berhasil! +1 timun. Tanaman tetap hidup dan bisa dipanen lagi setelah dirawat." };
 }
 export function acceptOrder(s: GameState): GameState {
   return { ...s, phoneRead: true, story: { ...s.story, orderAccepted: true } };
@@ -465,11 +471,12 @@ export function safeLoad(value: unknown): GameState | null {
   const coordinates = new Set<string>();
   for (const p of value.plots) {
     if (!record(p) || !integer(p.x, 3, 10) || !integer(p.y, 8, 13) ||
-        !integer(p.stage, -1, 3) || typeof p.watered !== "boolean") return null;
+        !integer(p.stage, -1, 3) || typeof p.watered !== "boolean" ||
+        (p.harvests!==undefined&&!integer(p.harvests,0,CUCUMBER_MAX_HARVESTS-1))) return null;
     const key = `${p.x},${p.y}`;
     if (coordinates.has(key)) return null;
     coordinates.add(key);
-    plots.push({ x: p.x, y: p.y, stage: p.stage, watered: p.watered });
+    plots.push({x:p.x,y:p.y,stage:p.stage,watered:p.watered,harvests:p.harvests??0});
   }
   return { version: 1, location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
