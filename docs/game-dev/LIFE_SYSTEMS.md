@@ -13,9 +13,9 @@ Implementasi memperluas build `release/yz-life-production-20261117`.
 - Setiap aksi tani berhasil memakai 4 stamina dan memberi 5 XP. Jawaban sosial pertama ke setiap NPC per hari memberi 8 XP. Level pemain = floor(sqrt(XP/50))+1.
 
 ## Aksi kontekstual dan pertukaran alat
-- Tombol **E / Aksi** memeriksa objek satu petak di depan: pintu → masuk/keluar, kasur → tidur, NPC → dialog, meja/lemari/saluran air → inspeksi, petak kebun → alat aktif. Tanpa target, tidak ada perubahan progres atau stamina.
-- Alat aktif terlihat di HUD dan dapat diganti lewat Q/R, angka 1–4, atau tombol alat dan panah ‹/› pada HP. Alat hanya digunakan pada petak kebun, bukan di rumah atau jalan.
-- Alat yang dipegang disimpan dalam JSONB save versi 1. Save lama otomatis diberi cangkul tanpa mengubah cerita, saldo, atau tanaman.
+- Tombol **E / Aksi** membaca petak di depan: pintu → masuk/keluar, kasur → tidur, NPC → dialog, objek → inspeksi, tanah siap tanam → tanam tangan kosong, tanaman matang → panen tangan kosong, petak kosong → cangkul aktif, tanaman belum disiram → gembor aktif. Tanpa target, tidak ada perubahan progres atau stamina.
+- Alat aktif terlihat di HUD dan hanya alat dalam tas dapat diganti lewat Q/R, angka 1–9, atau tombol alat dan panah ‹/› pada HP. Cangkul/gembor terbatas pada petak kebun; alat lain masih direncanakan.
+- Alat aktif, isi tas, isi gudang, dan tingkat tas disimpan dalam JSONB save versi 1. Save lama dimigrasikan tanpa mengubah cerita, saldo, atau tanaman.
 - Tidur mensyaratkan karakter **menghadap kasur**. Periksa lemari/meja saat ini hanya menampilkan informasi; belum ada sistem furnitur/pakaian.
 - Inspirasi berasal dari pola farming klasik; tidak memakai aset maupun kode Harvest Moon.
 

@@ -86,6 +86,21 @@ try {
   await go(page,"e");
   await page.getByText("Tidak ada objek untuk berinteraksi di depanmu.",{exact:false}).waitFor();
   await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
+  // Gudang: simpan dan ambil alat, lalu kembali ke titik awal tanpa kehilangan progres.
+  await go(page,"ArrowRight",5); await go(page,"ArrowUp",5); await go(page,"e");
+  await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.location==="shed");
+  await go(page,"ArrowLeft",3); await go(page,"ArrowUp",4); await go(page,"e");
+  const storage=page.getByRole("dialog",{name:"Gudang peralatan"});
+  await storage.waitFor();
+  await storage.locator(".yzg-storage-item").filter({hasText:"Gembor Penyiram"}).getByRole("button",{name:"Simpan"}).click();
+  await saved(page,()=>!JSON.parse(localStorage.getItem("yz-test-save")).data.carriedTools.includes("water"));
+  await storage.locator(".yzg-storage-item").filter({hasText:"Gembor Penyiram"}).getByRole("button",{name:"Ambil"}).click();
+  await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.carriedTools.includes("water"));
+  await storage.getByRole("button",{name:"Tutup"}).click();
+  await go(page,"ArrowDown",4); await go(page,"ArrowRight",3); await go(page,"ArrowDown"); await go(page,"e");
+  await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.location==="field");
+  await go(page,"ArrowDown",5); await go(page,"ArrowLeft",5);
+  await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
   await go(page,"ArrowUp",2);await go(page,"ArrowRight");await go(page,"e");
   await page.getByRole("dialog").waitFor();
   await page.getByRole("button",{name:"Ada yang bisa kubantu?"}).click();
