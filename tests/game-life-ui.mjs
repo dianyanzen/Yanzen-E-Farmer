@@ -49,7 +49,7 @@ const server = createServer(async (req, res) => {
     path.join(output, url.pathname === '/' ? 'index.html' : url.pathname);
   try {
     const data = await readFile(target);
-    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : 'text/html');
+    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : target.endsWith('.svg') ? 'image/svg+xml' : 'text/html');
     res.end(data);
   } catch { res.statusCode = 404; res.end('Not found'); }
 });
@@ -75,6 +75,17 @@ try {
  for (const width of [1280,393]) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:"reduce"});
   await start(page);
+  // Verify newly rendered assets are actually readable by the game browser.
+  await page.waitForFunction(() => performance.getEntriesByType("resource").some(r => r.name.endsWith("/game/assets/pasirluyu/house-neighborhood-day.svg")));
+  const assetCheck = await page.evaluate(async () => {
+    const assets=["house-neighborhood-day.svg","house-neighborhood-evening.svg",
+       "rumah-yanzen-interior-day.svg","rumah-yanzen-interior-evening.svg","gudang-interior.svg"];
+    return Promise.all(assets.map(file=>new Promise(resolve=>{
+      const image=new Image();image.onload=()=>resolve(image.naturalWidth===480 && image.naturalHeight===320);
+      image.onerror=()=>resolve(false);image.src="/game/assets/pasirluyu/"+file;
+    })));
+  });
+  assert.equal(assetCheck.every(Boolean),true,"Pasirluyu sprite scenes load in browser");
   assert.equal(await page.getByRole("button",{name:/Tidur \/ Hari Baru/}).count(),0);
   await page.getByRole("button",{name:"Pilih Gembor Penyiram"}).click();
   await page.getByText("Alat di tangan: Gembor Penyiram").waitFor();
