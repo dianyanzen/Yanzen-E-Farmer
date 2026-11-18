@@ -280,7 +280,7 @@ export function blocked(x: number, y: number): boolean {
 }
 export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
   if(location==="home"||location==="shed")return homeBlocked(x,y);
-  if(location==="field")return blocked(x,y);
+  if(location==="field")return blocked(x,y)||x>=23||y>=15;
   if(x<1||x>22||y<5||y>14)return true;
   if(location==="gang"){
     // Two houses and a small garden; road connectors remain open.
@@ -436,12 +436,17 @@ export function safeLoad(value: unknown): GameState | null {
     typeof v === "number" && Number.isInteger(v) && v >= min && v <= max;
   if (!record(value) || value.version !== 1 || !record(value.player) || !record(value.story)) return null;
   const { player, story } = value;
+  // Migrate old outdoor edge saves inward rather than rejecting cloud progress
+  // when the redesigned map receives solid trees/fences along its boundaries.
+  const isOldField=value.location===undefined||value.location==="field";
+  const playerX=isOldField&&typeof player.x==="number"?Math.min(22,player.x):player.x;
+  const playerY=isOldField&&typeof player.y==="number"?Math.min(14,player.y):player.y;
   if (!integer(value.day, 1, 100000) || !integer(value.minutes, 0, 1320) ||
       !integer(value.coins, 0, 99999999) || !integer(value.seeds, 0, 99999999) ||
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
       !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, 5, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
-      areaBlocked((value.location === undefined?"field":value.location) as GameLocation,player.x,player.y) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
+      areaBlocked((value.location === undefined?"field":value.location) as GameLocation,playerX as number,playerY as number) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
   }
@@ -504,7 +509,7 @@ export function safeLoad(value: unknown): GameState | null {
   }
   return { version: 1, location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
-    player: { x: player.x, y: player.y, dir: player.dir as Direction }, plots,
+    player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
       canalClue: story.canalClue as boolean, sarisStory: story.sarisStory as boolean,
