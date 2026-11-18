@@ -1,4 +1,5 @@
 import { drawWorld, type WorldArt } from "./draw-world";
+import { WORLD } from "./model";
 import { Footwork } from "./footwork";
 import { FieldAudio } from "./field-audio";
 import { type Direction, type FarmTool, type GameState } from "./model";
@@ -31,6 +32,21 @@ export class FieldEngine {
   private active = false;
   private camera?: {x:number;y:number};
 
+  /** Convert phone/desktop canvas taps into the currently visible world tile. */
+  pickTile(canvas:HTMLCanvasElement,clientX:number,clientY:number){
+    const bounds=canvas.getBoundingClientRect();
+    if(!bounds.width||!bounds.height)return null;
+    const u=(clientX-bounds.left)/bounds.width,v=(clientY-bounds.top)/bounds.height;
+    if(u<0||u>1||v<0||v>1)return null;
+    /* WORLD is the same immutable grid used by the renderer. */
+    const camera=this.camera??{x:this.walk?.x??12,y:this.walk?.y??10};
+    const dx=Math.round(Math.min(WORLD.width*WORLD.tile-canvas.width,
+      Math.max(0,(camera.x+.5)*WORLD.tile-canvas.width/2)));
+    const dy=Math.round(Math.min(WORLD.height*WORLD.tile-canvas.height,
+      Math.max(0,(camera.y+.5)*WORLD.tile-canvas.height/2)));
+    return {x:Math.floor((dx+u*canvas.width)/WORLD.tile),
+      y:Math.floor((dy+v*canvas.height)/WORLD.tile)};
+  }
   setShift(value: boolean) { this.shift = value; }
   delayStep(time: number) { this.nextStep = time; }
   reset(player: GameState["player"]) { this.walk = new WalkPath(player); this.camera=undefined; this.feet=new Footwork(player.dir); this.scuff=undefined; }

@@ -1,6 +1,7 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, NPCS, WORLD, facing, isFarm, HOME, SHED } from "./model";
+import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
+import { drawOutdoorArea } from "./pasirluyu-areas";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -94,6 +95,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
     return;
   }
+  // Keep farm art and terrain separate from other real, connected neighborhoods.
+  const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
+  if(state.location!=="field"){
+    drawOutdoorArea(ctx,state.location,ambient);
+  }else{
   // Home entrance is an explicit interaction on the village building edge.
   if (art.landscape) ctx.drawImage(art.landscape, 0, 0);
   else {
@@ -111,6 +117,21 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
     label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   }
+  // The right edge is an actual connected street, not an invisible map wall.
+  box(ctx,22*T+4,10*T+5,13,2,"#ecd39c");
+  box(ctx,23*T,10*T+2,20,36,"rgba(239,210,151,.22)");
+  label(ctx,"GANG →",19*T,10*T-6);
+  // Natural East and South edges now have visible trees/fence matching collisions.
+  for(let y=5;y<16;y++)if(y!==10&&y!==11){
+    box(ctx,23*T,y*T,20,20,"#406745");
+    box(ctx,23*T+4,y*T+2,14,11,"#629059");
+    box(ctx,23*T+8,y*T+12,5,7,"#6a5137");
+  }
+  for(let x=0;x<23;x++){
+    box(ctx,x*T,15*T,20,20,x%2?"#547d4b":"#466c44");
+    box(ctx,x*T+2,15*T+2,16,9,"#75a265");
+    box(ctx,x*T+3,15*T+15,15,2,"#6d583f");
+  }
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {
     const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;
@@ -119,7 +140,6 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   // IMPORTANT: pasirluyu.png shows decorative mature cucumber rows.
   // Cover the whole farm with state-backed tiles so the visuals NEVER lie:
   // empty = dry soil, -1 = furrows, 0..2 = growing, 3 = harvestable.
-  const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
   for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
     const px=x*T, py=y*T;
     const plot=byTile.get(x+","+y);
@@ -159,6 +179,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       box(ctx,px+2,py+4,2,3,"#ffdb81");
     }
   }
+  }
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
       const row = actorRows[id] * 4 + facingRows[dir];
@@ -167,7 +188,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
     }
   }
-  function drawNpc(npc: typeof NPCS[number]) {
+  function drawNpc(npc: NpcPlacement) {
     const dx=position.x-npc.x,dy=position.y-npc.y;
     const near=Math.abs(dx)+Math.abs(dy)<=2;
     let dir: Direction="down";
@@ -175,11 +196,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     actor(npc.id,npc.x,npc.y,dir,1,npc.color);
     if (near) label(ctx!,npc.name,npc.x*T-2,npc.y*T-15);
   }
-  const ordered=NPCS.slice().sort((a,b)=>a.y-b.y);
+  const ordered=npcHere(state).sort((a,b)=>a.y-b.y);
   for (const npc of ordered) if (npc.y<=position.y) drawNpc(npc);
   // Player and their current tile target.
   const target=facing(state.player);
-  if(isFarm(target.x,target.y)){
+  if(state.location==="field" && isFarm(target.x,target.y)){
     const plot=byTile.get(target.x+","+target.y);
     ctx.strokeStyle=plot?.stage===3?"#ffd46e":plot?.watered?"#89dbe8":"#f9e5b3";
     ctx.lineWidth=1;
@@ -223,5 +244,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.fillStyle=`rgba(62,45,94,${dusk*.32})`;
     ctx.fillRect(cameraX,cameraY,canvas.width,canvas.height);
   }
-
+  if(weatherForDay(state.day)==="hujan"){
+    // Deterministic, low-cost rain overlay; crop moisture is simulated in nextDay().
+    for(let i=0;i<44;i++){
+      const px=(i*79+ambient*7)%(W*T),py=(i*47+ambient*11)%(H*T);
+      box(ctx,px,py,1,5,"rgba(188,226,242,.63)");
+    }
+    ctx.fillStyle="rgba(37,71,82,.08)";
+    ctx.fillRect(cameraX,cameraY,canvas.width,canvas.height);
+  }
 }

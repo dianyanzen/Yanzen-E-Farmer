@@ -13,7 +13,7 @@ const tabs=[
 
 export default function FarmBottomNav(){
  const pathname=usePathname();
- if(pathname==='/'||pathname.startsWith('/login')||pathname.startsWith('/auth'))return null;
+ if(pathname==='/'||pathname.startsWith('/login')||pathname.startsWith('/auth')||pathname==='/game'||pathname.startsWith('/game/'))return null;
  return <nav aria-label="Navigasi utama" className="farm-nav">
   <div className="farm-nav-items">
    {tabs.map(t=>{
