@@ -230,3 +230,18 @@
  .yzg-touch{padding-bottom:calc(env(safe-area-inset-bottom) + 8px)}
  .yzg-action-context small{display:block;margin-top:2px}
 }
+
+/* Master atlas minimap is positioned exactly as authored chunks: 2 columns × 3 rows. */
+.yzg-master-minimap{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;background:#e0ebd7}
+.yzg-master-minimap div{min-height:57px;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;gap:3px;padding:7px 3px;line-height:1.2;font-weight:700;font-size:11px}
+.yzg-master-minimap div:last-child{grid-column:auto}
+.yzg-master-minimap div small{font-weight:400;font-size:10px;opacity:.75}
+.yzg-master-minimap div.locked{background:#d4dec9;border:1px dashed #a8bba1;
+  color:#617363;position:relative}
+.yzg-master-minimap div.locked::after{content:"";position:absolute;right:6px;top:6px;
+  width:7px;height:8px;border:2px solid #6e866c;border-radius:2px;background:transparent}
+.yzg-road-closure-info{margin:10px 0;font-size:12px;color:#375745}
+.yzg-road-closure-info summary{cursor:pointer;font-weight:700}
+.yzg-road-closure-info p{margin:6px 0;padding:7px 9px;background:#edf2e7;border-left:3px solid #c6a46e;border-radius:5px}
+.yzg-road-closure-info small{display:block;font-size:11px;margin-top:3px;line-height:1.35}
