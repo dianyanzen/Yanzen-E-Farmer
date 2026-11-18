@@ -142,6 +142,26 @@ export function newGame(): GameState {
 export function isFarm(x: number, y: number): boolean {
   return x >= 3 && x <= 10 && y >= 8 && y <= 13;
 }
+/** The persisted plot array (not scenery art) is the source of farm truth. */
+export const FARM_PLOT_COUNT=48;
+export function farmOverview(s:GameState){
+  const ready=s.plots.filter(p=>p.stage===3).length;
+  const tilled=s.plots.filter(p=>p.stage===-1).length;
+  const watered=s.plots.filter(p=>p.stage>=0&&p.stage<3&&p.watered).length;
+  const needsWater=s.plots.filter(p=>p.stage>=0&&p.stage<3&&!p.watered).length;
+  const empty=FARM_PLOT_COUNT-s.plots.length;
+  let next:string;
+  if(ready)next="Ada timun matang: hadap tanaman lalu tekan Aksi untuk panen.";
+  else if(needsWater&&!s.carriedTools.includes("water"))next="Ambil gembor dari gudang agar tanaman bisa disiram.";
+  else if(needsWater)next="Pilih Gembor Penyiram lalu siram tanaman yang belum basah.";
+  else if(tilled&&!s.seeds)next="Bibit habis! Beli bibit dari YZ Phone → Pesan.";
+  else if(tilled)next="Tanah siap tanam: hadapkan karakter ke petak dan tekan Aksi.";
+  else if(watered)next="Tanaman sudah disiram. Tidur di kasur rumah untuk berganti hari dan menumbuhkannya.";
+  else if(empty&&!s.carriedTools.includes("hoe"))next="Ambil cangkul dari gudang untuk membuka lahan.";
+  else if(empty)next="Petak masih kosong: pilih Cangkul lalu tekan Aksi di depan petak.";
+  else next="Seluruh petak sudah diproses. Lanjutkan aktivitas atau berganti hari.";
+  return {ready,tilled,watered,needsWater,empty,next};
+}
 export function blocked(x: number, y: number): boolean {
   return x < 0 || y < 0 || x >= WORLD.width || y >= WORLD.height ||
     y <= 4 || (x <= 1 && y >= 9) || NPCS.some(n => n.x === x && n.y === y);
@@ -159,11 +179,11 @@ export function movePlayer(s: GameState, dir: Direction): GameState {
   }};
 }
 function addMinutes(s: GameState, amount = 15): GameState {
-  return { ...s, stats: { ...s.stats, stamina: Math.max(0,s.stats.stamina - 4), xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
+  return { ...s, stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
 }
 export function nextDay(s: GameState): GameState {
   if (!canSleep(s)) return s;
-  return { ...s, stats: { ...s.stats, stamina: 100, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, minutes: 6 * 60 + 20,
+  return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
       watered: false })) };
@@ -172,7 +192,6 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
   if(s.location!=="field")return {state:s,message:"Alat tani hanya digunakan di kebun."};
   if((tool==="hoe"||tool==="water") && !s.carriedTools.includes(tool))
     return {state:s,message:"Alat harus dibawa dari gudang sebelum digunakan."};
-  if (s.stats.stamina < 4) return { state: s, message: "Stamina habis. Pulang dan tidur di tempat tidur rumah." };
   const at = facing(s.player);
   if (!isFarm(at.x, at.y)) return { state: s, message: "Arahkan karakter ke petak kebun lalu gunakan alat." };
   const index = s.plots.findIndex(p => p.x === at.x && p.y === at.y);
@@ -356,6 +375,7 @@ export function safeLoad(value: unknown): GameState | null {
 export type Emotion = "neutral" | "happy" | "sad" | "worried" | "surprised" | "annoyed" | "shy" | "laughing";
 export type SocialChoice = "listen" | "help" | "dismiss" | "confide";
 export type Bond = { points: number; lastTalkDay: number; talks: number; mood: Emotion };
+/** stamina is a deprecated v1-save field: ignored by gameplay, kept only for backward compatibility. */
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
 export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
@@ -389,7 +409,7 @@ export function interactDoor(s: GameState): GameState {
   return s;
 }
 export type ActionContext =
-  | {kind:"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"none"|"need-tool";label:string}
+  | {kind:"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string};
 /** One action key resolves the object in front before ever considering a farm tool. */
@@ -418,7 +438,7 @@ export function getActionContext(s:GameState):ActionContext {
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};
     if(plot?.stage===-1)return {kind:"plant",label:"Tanam bibit dengan tangan"};
     if(plot && plot.stage>=0){
-      if(plot.watered)return {kind:"none",label:"Tanaman sudah disiram"};
+      if(plot.watered)return {kind:"wait",label:"Sudah disiram · Tunggu hari berikutnya"};
       return s.equippedTool==="water"&&s.carriedTools.includes("water")?
         {kind:"farm",label:"Siram dengan gembor"}:{kind:"need-tool",label:"Perlu Gembor Penyiram"};
     }
