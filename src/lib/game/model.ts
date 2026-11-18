@@ -455,8 +455,9 @@ export function safeLoad(value: unknown): GameState | null {
     if (!record(value.bonds)) return null;
     for (const npc of NPCS) {
       const b = value.bonds[npc.id];
-      if (!record(b) || !integer(b.points,0,1000) || !integer(b.lastTalkDay,0,value.day) || !integer(b.talks,0,99999999) || !EMOTIONS.includes(b.mood as Emotion)) return null;
-      bonds[npc.id] = { points:b.points, lastTalkDay:b.lastTalkDay, talks:b.talks, mood:b.mood as Emotion };
+      if (!record(b) || !integer(b.points,0,1000) || !integer(b.lastTalkDay,0,value.day) || !integer(b.talks,0,99999999) || !EMOTIONS.includes(b.mood as Emotion) ||
+        (b.lastChoice!==undefined && b.lastChoice!==null && !["listen","help","dismiss","confide"].includes(b.lastChoice as string))) return null;
+      bonds[npc.id] = { points:b.points,lastTalkDay:b.lastTalkDay,talks:b.talks,mood:b.mood as Emotion,lastChoice:(b.lastChoice??null) as SocialChoice|null };
     }
   }
   if (value.stats !== undefined) {
@@ -489,14 +490,14 @@ export function safeLoad(value: unknown): GameState | null {
 
 export type Emotion = "neutral" | "happy" | "sad" | "worried" | "surprised" | "annoyed" | "shy" | "laughing";
 export type SocialChoice = "listen" | "help" | "dismiss" | "confide";
-export type Bond = { points: number; lastTalkDay: number; talks: number; mood: Emotion };
+export type Bond = { points: number; lastTalkDay: number; talks: number; mood: Emotion; lastChoice?: SocialChoice | null };
 /** stamina is a deprecated v1-save field: ignored by gameplay, kept only for backward compatibility. */
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
 export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
 export const SHED = { door:{x:9,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
 export function newBonds(): Record<NpcId, Bond> {
-  return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral" }])) as Record<NpcId, Bond>;
+  return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral", lastChoice: null }])) as Record<NpcId, Bond>;
 }
 export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0, harvests: 0, conversations: 0, nights: 0 }; }
 export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
@@ -604,7 +605,7 @@ export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { 
   const delta = fresh ? (choice === "dismiss" ? -8 : choice === "help" ? 20 : choice === "confide" ? 18 : 12) : 0;
   const reaction = reactions[npc][choice];
   const state: GameState = { ...s, bonds: { ...s.bonds, [npc]: { points: Math.max(0, Math.min(1000, bond.points + delta)),
-    lastTalkDay: s.day, talks: Math.min(99999999, bond.talks + 1), mood: reaction.emotion } },
+    lastTalkDay: s.day, talks: Math.min(99999999, bond.talks + 1), mood: reaction.emotion, lastChoice: choice } },
     stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + (fresh ? 8 : 0)), conversations: Math.min(99999999,s.stats.conversations + 1) } };
   return { state, npcId: npc, emotion: reaction.emotion, title: NPCS.find(n => n.id === npc)!.name + " · Jawabanmu",
     lines: [reaction.line, fresh ? (delta >= 0 ? "Kedekatan +" + delta : "Kedekatan " + delta) + " · " + bondLabel(state.bonds[npc].points) : "Kalian sudah berbincang hari ini. Poin kedekatan berikutnya bisa diperoleh besok."] };
