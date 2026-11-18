@@ -207,17 +207,40 @@ export function npcWhere(s:GameState,id:NpcId):NpcPlacement{
 }
 export function npcAmbient(s:GameState,id:NpcId):string{
   const bond=s.bonds[id],place=npcWhere(s,id),soul=NPC_SOULS[id];
-  const afterHours=s.minutes>=1080;
-  if(bond.points>=200&&bond.mood==="worried")
+  const yesterday=bond.lastTalkDay>0 && bond.lastTalkDay<s.day;
+  if(bond.points>=300 && bond.lastChoice==="confide")
+    return "Terima kasih sudah mendengarkan sesuatu yang sulit kuceritakan kepada orang lain.";
+  if(yesterday && bond.lastChoice==="dismiss")
+    return id==="A03"?"Kemarin kamu terburu-buru. Aku tetap mencatat air untuk kebunmu.":
+      id==="C01"?"Kemarin kita belum sempat berbincang. Tidak apa, cerita tak harus buru-buru.":
+      "Kemarin kamu sibuk. Kalau perlu duduk sebentar, warungku selalu terbuka.";
+  if(yesterday && bond.lastChoice==="help")
+    return id==="A03"?"Aku masih ingat tawaran bantuanmu. Pintu air terasa lebih mudah dijaga.":
+      id==="C01"?"Bantuan kecilmu membuat tanaman melatiku lebih terawat.":
+      "Terima kasih sudah membantu. Pagi ini aku menyiapkan sayur lebih banyak.";
+  if(weatherForDay(s.day)==="hujan")
+    return id==="A03"?"Air sungai naik setelah hujan. Aku harus memeriksa pintu air.":
+      id==="C01"?"Saat hujan begini, melati perlu tempat yang tidak tergenang.":
+      "Warung sepi saat hujan. Aku memasak sesuatu yang hangat untuk warga.";
+  if(bond.points>=200 && bond.mood==="worried")
     return "Ada hal yang belum selesai kupikirkan. Aku senang kamu tidak mendesakku bercerita.";
-  if(bond.points>=100&&bond.lastTalkDay===s.day)
+  if(bond.points>=100 && bond.lastTalkDay===s.day)
     return "Terima kasih sudah mampir. Rasanya lebih mudah menghadapi hari setelah mengobrol.";
-  if(afterHours)return `Aku masih memikirkan pekerjaanku: ${soul.desire.toLowerCase()}.`;
-  return place.activity+". "+(id==="A03"?
-    "Kalau air hulu cukup, kebun hilir juga harus kebagian.":
-    id==="C01"?"Melati tumbuh perlahan; kisah orang juga perlu waktu.":
-      "Warung bukan cuma tempat jual beli, tapi tempat warga saling mendengar.");
+  if(s.minutes>=1080)return "Hari sudah sore. Harapanku tetap sama: "+soul.desire.toLowerCase()+".";
+  const lines=[
+    id==="A03"?"Kalau air hulu cukup, kebun hilir juga harus kebagian.":
+      id==="C01"?"Melati tumbuh perlahan; kisah orang juga perlu waktu.":
+        "Warung bukan cuma tempat jual beli, tetapi tempat warga saling mendengar.",
+    id==="A03"?"Aku menyimpan buku kecil untuk mencatat perubahan aliran air.":
+      id==="C01"?"Kadang aku ingat satu nama lama ketika menyiram tanaman.":
+        "Aku tahu siapa suka acar manis dan siapa suka pedas.",
+    id==="A03"?"Pintu air tua itu punya bekas goresan yang belum kupahami.":
+      id==="C01"?"Beberapa foto sebaiknya dibuka hanya saat pemiliknya siap.":
+        "Saat warung ramai, aku suka mendengar cerita warga satu per satu."
+  ];
+  return place.activity+". "+lines[(s.day-1)%lines.length];
 }
+
 export const DEFAULT_STORY: StoryFlags = {
   orderAccepted: false, orderDone: false, canalClue: false, sarisStory: false,
   photoSeen: false, photoChoice: null, completedDay: null,
