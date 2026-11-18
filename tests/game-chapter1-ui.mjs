@@ -92,9 +92,9 @@ try {
   for (let x = 6; x >= 3; x--) {
     // Work from row eight, facing the crop on row nine.
     await go(page, 'ArrowDown');
-    await page.getByRole('button', { name: '01 Cangkul' }).click(); await go(page, 'e');
-    await page.getByRole('button', { name: '02 Tanam' }).click(); await go(page, 'e');
-    await page.getByRole('button', { name: '03 Siram' }).click(); await go(page, 'e');
+    await page.getByRole('button', { name: 'Pilih Cangkul' }).click(); await go(page, 'e');
+    await go(page, 'e'); // Tanam otomatis dengan tangan.
+    await page.getByRole('button', { name: 'Pilih Gembor Penyiram' }).click(); await go(page, 'e');
     await go(page, 'ArrowUp'); if (x > 3) await go(page, 'ArrowLeft');
   }
   // The player stands on row seven; crops are on row nine, reached from row eight.
@@ -108,7 +108,7 @@ try {
       await go(page, 'ArrowLeft', 3);
     }
   }
-  await page.getByRole('button', { name: '04 Panen' }).click();
+  // Panen otomatis dengan tangan, walaupun Gembor tetap dipegang.
   for (let x = 3; x <= 6; x++) {
     await go(page, 'ArrowDown'); await go(page, 'e'); await go(page, 'ArrowUp');
     if (x < 6) await go(page, 'ArrowRight');
@@ -155,7 +155,7 @@ try {
   await mobile.evaluate(row => { row.data.story.photoChoice = null; row.data.story.completedDay = null; localStorage.setItem('yz-test-save', JSON.stringify(row)); }, save);
   await mobile.reload(); await mobile.getByRole('button', { name: 'Mengerti' }).click();
   await mobile.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
-  await mobile.getByRole('button', { name: 'A AKSI' }).click();
+  await mobile.getByRole('button', { name: 'Aksi' }).click();
   await advanceDialogue(mobile);
   await mobile.getByRole('button', { name: /Percayakan foto asli kepada Nani/ }).waitFor();
   await mobile.screenshot({ path: path.join(output, 'chapter1-mobile.png') });

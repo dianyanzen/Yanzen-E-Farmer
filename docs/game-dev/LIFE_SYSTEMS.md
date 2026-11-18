@@ -32,3 +32,13 @@ Potret kini mencakup seluruh 32 karakter dengan delapan ekspresi (256 potret), m
 - Build produksi Next.js.
 
 Pengujian browser memakai adapter autentikasi/cloud khusus tes. Integrasi cloud produksi belum diuji langsung dalam pembaruan ini.
+
+## Gudang, kapasitas tas, dan aksi otomatis
+- **Menanam dan memanen menggunakan tangan**. Saat menghadap tanah yang sudah dicangkul, tombol E/Aksi menanam satu bibit dari persediaan. Saat menghadap tanaman matang, E/Aksi langsung panen, meskipun memegang kapak atau alat lainnya.
+- **Cangkul** hanya berfungsi pada petak tanah kosong; **gembor** hanya digunakan untuk menyiram tanaman yang membutuhkan air. Keduanya harus dibawa dan sedang dipilih. Petak yang membutuhkan alat menampilkan pesan alat yang diperlukan.
+- Gudang berada di sebelah utara peta awal (pintu tile 17,4). Berdiri di (17,5) menghadap atas dan tekan E; interior terpisah. Di dekat rak dalam gudang (pemain tile 9,8 menghadap atas), E membuka daftar alat dan katalog.
+- Perpindahan alat dan peningkatan tas hanya dapat dilakukan saat di depan rak gudang. Awal permainan membawa cangkul dan gembor (2/3 slot); gudang menampung kapak, sabit, joran, beliung sebagai aset peralatan potensial **belum aktif**.
+- Tas Lv. 1=3 slot, Lv. 2=5, Lv. 3=8, Lv. 4=12. Upgrade perlu saldo dan level pemain (lihat `BAG_UPGRADE_COSTS` / `BAG_UNLOCK_LEVELS`). Hotbar hanya menampilkan item yang dibawa, dengan Q/R dan angka 1–9.
+- Katalog saat ini berisi **44 jenis alat dan fungsinya**; hanya cangkul dan gembor punya aksi gameplay. Alat berstatus `planned` tidak memberikan fungsi sebelum map/hewan/ikan/tambang ditambahkan.
+- Tindakan menanam/memanen bukan item alat. Bibit dan panen adalah persediaan terpisah, tidak memakan slot tas peralatan.
+- Migrasi save v1 memindahkan logika alat lama `seed`/`harvest` ke aksi tangan tanpa menghapus progres quest, bibit, panen, atau saldo.
