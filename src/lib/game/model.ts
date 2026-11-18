@@ -114,9 +114,37 @@ export type GameState = {
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
   equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
-  phoneRead: boolean; story: StoryFlags; location: "field" | "home" | "shed"; bonds: Record<NpcId, Bond>; stats: LifeStats;
+  phoneRead: boolean; story: StoryFlags; location: GameLocation; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 export const WORLD = { width: 24, height: 16, tile: 20 } as const;
+export type GameLocation = "field"|"home"|"shed"|"gang"|"pasar"|"sungai";
+export type OutdoorLocation = "field"|"gang"|"pasar"|"sungai";
+export const AREAS:Record<OutdoorLocation,{name:string;description:string;landmark:string}> = {
+  field:{name:"Kebun Yanzen",description:"Rumah, gudang, petak timun, dan saluran irigasi",landmark:"Jalan kampung ke timur"},
+  gang:{name:"Gang Pasirluyu",description:"Rumah tetangga, bangku warga, dan jalan utama",landmark:"Jalan menuju pasar dan sungai"},
+  pasar:{name:"Pasar Warga",description:"Warung Inggit, kios sayur, dan lapak warga",landmark:"Kembali ke gang di selatan"},
+  sungai:{name:"Bantaran Sungai",description:"Jembatan kecil, pintu air, dan kebun hilir",landmark:"Kembali ke gang di utara"}
+};
+export function areaTitle(location:GameLocation):string {
+  return location==="home"?"Rumah Yanzen":location==="shed"?"Gudang Peralatan":AREAS[location].name;
+}
+/** Outdoor crossings occur ONLY on visible road/bridge connectors, never on arbitrary map edges. */
+export function mapExit(location:OutdoorLocation,x:number,y:number,dir:Direction):
+  {location:OutdoorLocation;x:number;y:number;dir:Direction}|null {
+  if(location==="field" && dir==="right" && x>=22 && (y===10||y===11))
+    return {location:"gang",x:1,y,dir};
+  if(location==="gang" && dir==="left" && x<=1 && (y===10||y===11))
+    return {location:"field",x:22,y,dir};
+  if(location==="gang" && dir==="up" && y<=5 && (x===11||x===12))
+    return {location:"pasar",x,y:14,dir};
+  if(location==="pasar" && dir==="down" && y>=14 && (x===11||x===12))
+    return {location:"gang",x,y:6,dir};
+  if(location==="gang" && dir==="down" && y>=14 && (x===11||x===12))
+    return {location:"sungai",x,y:5,dir};
+  if(location==="sungai" && dir==="up" && y<=5 && (x===11||x===12))
+    return {location:"gang",x,y:14,dir};
+  return null;
+}
 const placements = [
   { id: "A03", x: 13, y: 8, color: "#314961" },
   { id: "C01", x: 16, y: 11, color: "#cba7a0" },
@@ -129,6 +157,58 @@ export const NPCS = placements.map(placement => {
   return { ...placement, name: profile.name, role: profile.occupation };
 });
 export type NpcId = (typeof NPCS)[number]["id"];
+export const NPC_SOULS:Record<NpcId,{
+  home:string;work:string;desire:string;fear:string;habit:string;connection:string;
+}> = {
+  A03:{home:"Gang Pasirluyu",work:"Penjaga saluran air",desire:"Air kebun hulu dan hilir terbagi adil",
+    fear:"Dituduh merugikan tetangga ketika pintu air rusak",habit:"Mengecek catatan tinggi air setiap siang",
+    connection:"Menghormati Nani; kerap mengantar catatan ke warung Inggit"},
+  C01:{home:"Gang Pasirluyu",work:"Perawat tanaman dan pengingat sejarah warga",
+    desire:"Kisah masa lalu disimpan tanpa membuka luka keluarga",fear:"Foto keluarga dipakai tanpa izin",
+    habit:"Merawat melati sebelum bertemu tetangga",connection:"Mempercayai Ryan menyimpan catatan pintu air"},
+  C08:{home:"Pasirluyu",work:"Pemilik warung dan pedagang sayur",
+    desire:"Warungnya menjadi tempat warga saling membantu",fear:"Bahan makanan terbuang dan dagangan tidak laku",
+    habit:"Menyusun dagangan pagi, merapikan lapak sore",
+    connection:"Menunggu panen Yanzen; memberi kabar tentang Ryan dan Nani"}
+};
+export type NpcPlacement = typeof NPCS[number] & {location:OutdoorLocation;activity:string};
+/** Fixed authored daily rhythms. Deterministic: same game day/time means same person and place. */
+export function npcSchedule(s:Pick<GameState,"day"|"minutes">):NpcPlacement[]{
+  const hour=s.minutes;
+  return NPCS.map(npc=>{
+    const slot=npc.id==="A03"?
+      (hour<720?{location:"field",x:13,y:8,activity:"Memeriksa kebun timun"}:
+       hour<1080?{location:"sungai",x:8,y:8,activity:"Mengukur debit sungai"}:
+                 {location:"gang",x:11,y:10,activity:"Menulis laporan air"}):
+    npc.id==="C01"?
+      (hour<720?{location:"field",x:16,y:11,activity:"Merawat melati di dekat kebun"}:
+       hour<1080?{location:"gang",x:6,y:10,activity:"Menyapa tetangga di depan rumah"}:
+                 {location:"gang",x:7,y:11,activity:"Istirahat di bangku gang"}):
+      (hour<720?{location:"field",x:19,y:7,activity:"Menawarkan sayuran di warung"}:
+       hour<1140?{location:"pasar",x:15,y:10,activity:"Menjaga lapak pasar"}:
+                 {location:"field",x:19,y:7,activity:"Menutup warung dan menghitung dagangan"});
+    return {...npc,...slot} as NpcPlacement;
+  });
+}
+export function npcHere(s:GameState):NpcPlacement[]{
+  return npcSchedule(s).filter(n=>n.location===s.location);
+}
+export function npcWhere(s:GameState,id:NpcId):NpcPlacement{
+  return npcSchedule(s).find(n=>n.id===id)!;
+}
+export function npcAmbient(s:GameState,id:NpcId):string{
+  const bond=s.bonds[id],place=npcWhere(s,id),soul=NPC_SOULS[id];
+  const afterHours=s.minutes>=1080;
+  if(bond.points>=200&&bond.mood==="worried")
+    return "Ada hal yang belum selesai kupikirkan. Aku senang kamu tidak mendesakku bercerita.";
+  if(bond.points>=100&&bond.lastTalkDay===s.day)
+    return "Terima kasih sudah mampir. Rasanya lebih mudah menghadapi hari setelah mengobrol.";
+  if(afterHours)return `Aku masih memikirkan pekerjaanku: ${soul.desire.toLowerCase()}.`;
+  return place.activity+". "+(id==="A03"?
+    "Kalau air hulu cukup, kebun hilir juga harus kebagian.":
+    id==="C01"?"Melati tumbuh perlahan; kisah orang juga perlu waktu.":
+      "Warung bukan cuma tempat jual beli, tapi tempat warga saling mendengar.");
+}
 export const DEFAULT_STORY: StoryFlags = {
   orderAccepted: false, orderDone: false, canalClue: false, sarisStory: false,
   photoSeen: false, photoChoice: null, completedDay: null,
@@ -164,19 +244,39 @@ export function farmOverview(s:GameState){
 }
 export function blocked(x: number, y: number): boolean {
   return x < 0 || y < 0 || x >= WORLD.width || y >= WORLD.height ||
-    y <= 4 || (x <= 1 && y >= 9) || NPCS.some(n => n.x === x && n.y === y);
+    y <= 4 || (x <= 1 && y >= 9);
+}
+export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
+  if(location==="home"||location==="shed")return homeBlocked(x,y);
+  if(location==="field")return blocked(x,y);
+  if(x<1||x>22||y<5||y>14)return true;
+  if(location==="gang"){
+    // Two houses and a small garden; road connectors remain open.
+    return (x>=3&&x<=8&&y>=5&&y<=8)||(x>=16&&x<=20&&y>=5&&y<=8);
+  }
+  if(location==="pasar"){
+    // Only stall counters are solid; walking aisles remain open.
+    return (x>=3&&x<=9&&y>=6&&y<=8)||(x>=15&&x<=20&&y>=6&&y<=8);
+  }
+  // Canal forms a physical natural border. Small bridge is a walkable connector.
+  return x<=6&&y>=6&&y<=14;
 }
 export function facing(p: GameState["player"]) {
   return { x: p.x + (p.dir === "left" ? -1 : p.dir === "right" ? 1 : 0),
            y: p.y + (p.dir === "up" ? -1 : p.dir === "down" ? 1 : 0) };
 }
 export function movePlayer(s: GameState, dir: Direction): GameState {
-  const candidate = facing({ ...s.player, dir });
-  const collision = s.location!=="field" ? homeBlocked : blocked;
-  return { ...s, player: {
-    x: collision(candidate.x, candidate.y) ? s.player.x : candidate.x,
-    y: collision(candidate.x, candidate.y) ? s.player.y : candidate.y, dir
-  }};
+  if(s.location!=="home"&&s.location!=="shed"){
+    const crossing=mapExit(s.location,s.player.x,s.player.y,dir);
+    if(crossing)return {...s,location:crossing.location,
+      player:{x:crossing.x,y:crossing.y,dir},minutes:Math.min(1320,s.minutes+2)};
+  }
+  const at=facing({...s.player,dir});
+  const occupied=npcSchedule(s).some(n=>n.location===s.location&&n.x===at.x&&n.y===at.y);
+  if(areaBlocked(s.location,at.x,at.y)||occupied)
+    return {...s,player:{...s.player,dir}};
+  return {...s,player:{x:at.x,y:at.y,dir},
+    minutes:s.location==="home"||s.location==="shed"?s.minutes:Math.min(1320,s.minutes+2)};
 }
 function addMinutes(s: GameState, amount = 15): GameState {
   return { ...s, stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
@@ -304,7 +404,7 @@ export function safeLoad(value: unknown): GameState | null {
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
       !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, 5, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
-      (value.location === "home" || value.location === "shed" ? homeBlocked(player.x, player.y) : blocked(player.x, player.y)) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
+      areaBlocked((value.location === undefined?"field":value.location) as GameLocation,player.x,player.y) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
   }
@@ -318,7 +418,7 @@ export function safeLoad(value: unknown): GameState | null {
   if (completedDay !== null && !integer(completedDay, 1, value.day)) return null;
   if ((photoChoice === null) !== (completedDay === null) ||
       (photoSeen && (!story.orderDone || !story.canalClue)) || (photoChoice && !photoSeen)) return null;
-  if(value.location!==undefined && !["field","home","shed"].includes(value.location as string))return null;
+  if(value.location!==undefined && !["field","home","shed","gang","pasar","sungai"].includes(value.location as string))return null;
   const hasInventory=value.carriedTools!==undefined||value.storedTools!==undefined||value.bagTier!==undefined;
   let carriedTools:ToolId[],storedTools:ToolId[],bagTier:BagTier,equippedTool:ToolId|null;
   if(hasInventory){
@@ -363,7 +463,7 @@ export function safeLoad(value: unknown): GameState | null {
     coordinates.add(key);
     plots.push({ x: p.x, y: p.y, stage: p.stage, watered: p.watered });
   }
-  return { version: 1, location: value.location==="home"?"home":value.location==="shed"?"shed":"field",
+  return { version: 1, location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     player: { x: player.x, y: player.y, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
@@ -429,10 +529,19 @@ export function getActionContext(s:GameState):ActionContext {
       return {kind:"inspect",label:"Periksa lemari",text:"Lemari Yanzen. Fitur mengganti pakaian belum tersedia."};
     return {kind:"none",label:"Tidak ada objek"};
   }
-  if(front.x===HOME.door.x && front.y===HOME.door.y)return {kind:"door",label:"Masuk rumah"};
-  if(front.x===SHED.door.x && front.y===SHED.door.y)return {kind:"door",label:"Masuk gudang"};
-  const npc=NPCS.find(n=>n.x===front.x && n.y===front.y);
+  if(front.x===HOME.door.x && front.y===HOME.door.y && s.location==="field")return {kind:"door",label:"Masuk rumah"};
+  if(front.x===SHED.door.x && front.y===SHED.door.y && s.location==="field")return {kind:"door",label:"Masuk gudang"};
+  const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
+  if(s.location!=="field"){
+    const exit=mapExit(s.location,s.player.x,s.player.y,s.player.dir);
+    if(exit)return {kind:"none",label:"Jalan menuju "+areaTitle(exit.location)};
+    if(s.location==="sungai"&&front.x<=7)return {kind:"inspect",
+      label:"Periksa sungai",text:"Permukaan air mengalir ke hilir. Ryan mencatatnya setiap siang."};
+    if(s.location==="pasar"&&front.y<=8)return {kind:"inspect",
+      label:"Lihat lapak pasar",text:"Sayur dan rempah ditata rapi. Berbicaralah dengan pedagang yang hadir."};
+    return {kind:"none",label:"Jelajahi "+areaTitle(s.location)};
+  }
   if(isFarm(front.x,front.y)){
     const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};
@@ -485,7 +594,9 @@ export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { 
 }
 export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   const result = storyDialogue(s, npc);
-  return { ...result, npcId: npc, emotion: npc === "C01" && result.photo ? "worried" : s.bonds[npc].mood,
+  return { ...result,
+    lines:[...result.lines,npcAmbient(s,npc)],
+    npcId: npc, emotion: npc === "C01" && result.photo ? "worried" : s.bonds[npc].mood,
     choices: [
       { id: "listen", label: "Aku ingin mendengar ceritamu." },
       { id: "help", label: "Ada yang bisa kubantu?" },
