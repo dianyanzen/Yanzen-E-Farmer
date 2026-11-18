@@ -21,7 +21,10 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement };
+export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
+  pasirluyuDay?: HTMLImageElement; pasirluyuEvening?: HTMLImageElement;
+  rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement;
+};
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
 
@@ -38,6 +41,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
   if(state.location==="shed"){
+    if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
+    else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
     box(ctx,7*T,5*T,11*T,10*T,"#53402f");
     box(ctx,8*T,6*T,9*T,8*T,"#af8960");
@@ -53,12 +58,15 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,SHED.exit.x*T,SHED.exit.y*T,20,20,"#60432f");
     label(ctx,"GUDANG ALAT",9*T,5*T-4);
     label(ctx,"Rak: dekati + Aksi",8*T,14*T+14);
+    }
     if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
       Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
     else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
     return;
   }
   if (state.location === "home") {
+    if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
+    else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
     box(ctx,8*T,6*T,9*T,8*T,"#bc9668");
@@ -79,6 +87,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,HOME.exit.x*T,HOME.exit.y*T,20,20,"#694b34");
     label(ctx,"RUMAH YANZEN",9*T,5*T-4);
     label(ctx,"Tidur: dekati ranjang + Aksi",8*T,14*T+14);
+    }
     if(art.people) {
       const row=facingRows[position.dir];
       ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
@@ -91,12 +100,17 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,0,0,W*T,H*T,"#a7c465");
     box(ctx,3*T,8*T,8*T,6*T,"#b58c57");
   }
-  box(ctx,HOME.door.x*T,HOME.door.y*T,20,8,"#725039");
-  box(ctx,16*T,3*T,3*T,2*T,"#736046");
-  box(ctx,16*T+4,3*T+5,3*T-8,12,"#9d8156");
-  box(ctx,SHED.door.x*T,SHED.door.y*T,20,8,"#59412f");
-  label(ctx,"GUDANG",16*T,SHED.door.y*T-8);
-  label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
+  // Decorative overlay is aligned with the original 480×320 Pasirluyu collision map.
+  // The town's right-hand Warung Inggit remains visible and interactive.
+  const villageArt = state.minutes>=18*60 && art.pasirluyuEvening ?
+    art.pasirluyuEvening : (art.pasirluyuDay ?? art.pasirluyuEvening);
+  if(villageArt) ctx.drawImage(villageArt,0,0,W*T,H*T);
+  else {
+    box(ctx,HOME.door.x*T,HOME.door.y*T,20,8,"#725039");
+    box(ctx,SHED.door.x*T,SHED.door.y*T,20,8,"#59412f");
+    label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
+    label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
+  }
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {
     const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;

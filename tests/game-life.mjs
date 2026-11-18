@@ -92,7 +92,7 @@ assert.equal(getActionContext(empty).kind,"need-tool");
 assert.equal(applyFarmTool(empty,"water").state,empty);
 assert.equal(bagCapacity(1),3);assert.equal(bagCapacity(4),12);
 assert.equal(newGame().storedTools.includes("fishing_rod"),true);
-const shedDoor=interactDoor({...newGame(),player:{x:17,y:5,dir:"up"}});
+const shedDoor=interactDoor({...newGame(),player:{x:9,y:5,dir:"up"}});
 assert.equal(shedDoor.location,"shed");
 const rack={...shedDoor,player:{x:9,y:8,dir:"up"}};
 assert.equal(getActionContext(rack).kind,"storage");
