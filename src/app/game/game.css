@@ -120,3 +120,18 @@
 .yzg-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .yzg-caret{font-style:normal;color:#77724a}
 @media(max-width:480px){.yzg-chapter-dialog{padding:12px;max-height:80dvh}.yzg-dialog-scene{gap:10px}.yzg-portrait{width:80px;flex-basis:80px}.yzg-chapter-dialog .yzg-spoken{font-size:14px;min-height:6.6em}.yzg-dialog-copy>small{font-size:10px}.yzg-chapter-dialog .yzg-dialog-head{font-size:14px}}
+
+/* Per-character eight-expression strips, loaded only when their portraits appear. */
+.yzg-portrait{position:relative;overflow:hidden;background-image:none;aspect-ratio:3/4}
+.yzg-portrait img{position:absolute;top:0;display:block;width:800%;height:100%;max-width:none;image-rendering:pixelated;object-fit:fill}
+.yzg-portrait-fallback{display:grid;place-items:center;height:100%;font:bold 32px Georgia;color:#675735}
+.yzg-id-portrait{display:flex;justify-content:center;margin:12px auto}
+.yzg-id-portrait .yzg-portrait{width:96px;flex-basis:96px}
+.yzg-character-card{display:flex;align-items:flex-start;gap:10px}
+.yzg-character-card .yzg-portrait{width:80px;flex-basis:80px}
+.yzg-character-card>div{flex:1;min-width:0}
+.yzg-character-card p{font-size:12px;margin:6px 0}
+.yzg-expression-picker{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+.yzg-expression-picker button{font-size:11px;padding:6px 8px;min-height:36px}
+.yzg-expression-picker button[aria-pressed=true]{background:#b37136;outline:2px solid #dec18b}
+#yzg-character-search{display:block;width:100%;border:1px solid #9eaf97;border-radius:7px;padding:9px;margin-top:6px;background:#fffdf4;color:#253d30;font-size:14px}

@@ -14,7 +14,9 @@
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
-    "test:game:life:ui": "node tests/game-life-ui.mjs"
+    "test:game:life:ui": "node tests/game-life-ui.mjs",
+    "test:portraits": "node tests/game-portraits.mjs",
+    "test:portraits:ui": "node tests/game-portraits-ui.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

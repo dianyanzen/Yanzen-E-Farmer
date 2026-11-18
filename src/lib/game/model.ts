@@ -233,11 +233,11 @@ export function safeLoad(value: unknown): GameState | null {
       photoSeen: photoSeen as boolean, photoChoice, completedDay: completedDay as number | null } };
 }
 
-export type Emotion = "neutral" | "happy" | "sad" | "worried" | "surprised" | "annoyed";
+export type Emotion = "neutral" | "happy" | "sad" | "worried" | "surprised" | "annoyed" | "shy" | "laughing";
 export type SocialChoice = "listen" | "help" | "dismiss" | "confide";
 export type Bond = { points: number; lastTalkDay: number; talks: number; mood: Emotion };
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
-export const EMOTIONS: Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed"];
+export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
 export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
 export function newBonds(): Record<NpcId, Bond> {
   return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral" }])) as Record<NpcId, Bond>;

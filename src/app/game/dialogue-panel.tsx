@@ -1,13 +1,20 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { EMOTIONS, NPCS, bondLabel, bondLevel, type Dialogue, type Emotion, type GameState } from "@/lib/game/model";
+import NextImage from "next/image";
+import { portraitCharacter, portraitColumn, EMOTION_LABELS, PORTRAIT_EMOTIONS } from "@/lib/game/portraits";
+import { NPCS, bondLabel, bondLevel, type Dialogue, type Emotion, type GameState } from "@/lib/game/model";
 
 export function Portrait({ npcId, emotion = "neutral" }: { npcId: string; emotion?: Emotion }) {
-  const row = ["A03", "C01", "C08"].indexOf(npcId);
-  const column = Math.max(0, EMOTIONS.indexOf(emotion));
-  return <span role="img" aria-label={(NPCS.find(n => n.id === npcId)?.name || "Warga") + " · " + emotion}
-    className="yzg-portrait" style={{ backgroundPosition: (column * 20) + "% " + (Math.max(0,row) * 50) + "%" }}/>;
+  const person = portraitCharacter(npcId);
+  const [failedFor, setFailedFor] = useState<string | null>(null);
+  const column = portraitColumn(emotion);
+  const label = (person?.name || "Karakter belum dikenal") + " · " + EMOTION_LABELS[PORTRAIT_EMOTIONS[column]];
+  return <span role="img" aria-label={label} className="yzg-portrait" data-character={npcId} data-emotion={PORTRAIT_EMOTIONS[column]}>
+    {person && failedFor !== person.id ? <NextImage key={person.id} src={person.sheet} alt="" aria-hidden="true" width={1536} height={256} unoptimized
+      loading="lazy" onError={() => setFailedFor(person.id)} style={{ left: (-column * 100) + "%" }}/>
+      : <span className="yzg-portrait-fallback" aria-hidden="true">{person?.name.slice(0,1) || "?"}</span>}
+  </span>;
 }
 
 function DialogueLine({ line, onNext, last }: { line: string; onNext: () => void; last: boolean }) {

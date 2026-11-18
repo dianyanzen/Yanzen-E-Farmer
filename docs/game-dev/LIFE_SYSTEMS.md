@@ -15,7 +15,7 @@ Implementasi memperluas build `release/yz-life-production-20261117`.
 ## Penyimpanan dan aset
 Save tetap versi 1. Save lama yang belum memiliki location/bonds/stats dimigrasikan dengan nilai awal; progres cerita, tanaman, persediaan, dan saldo dipertahankan. Save baru menyimpan rumah, stamina, statistik, suasana, dan kedekatan dalam JSONB yang sama; tidak perlu migrasi database tambahan.
 
-`public/game/assets/characters/portraits.png`: 1536×1024, 6 kolom × 3 baris, 18 potret original dibuat dengan OpenAI image generation. Urutan baris: Ryan (A03), Nani (C01), Inggit (C08). Kolom: neutral, happy, sad, worried, surprised, annoyed. CSS memakai posisi persentase atlas. Ini ekspor untuk runtime, bukan lembar referensi karakter penuh. Interior rumah dirender dengan Canvas.
+Potret kini mencakup seluruh 32 karakter dengan delapan ekspresi (256 potret), mengikuti sprite asli. Runtime memakai strip per karakter pada `public/game/assets/portraits/`; lihat [PORTRAIT_CATALOG.md](PORTRAIT_CATALOG.md). Interior rumah dirender dengan Canvas.
 
 ## Validasi
 - TypeScript dan ESLint untuk berkas implementasi.

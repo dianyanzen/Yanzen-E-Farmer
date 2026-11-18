@@ -80,7 +80,7 @@ try {
   await page.getByRole("dialog").waitFor();
   await page.getByRole("button",{name:"Ada yang bisa kubantu?"}).click();
   await saved(page,()=>JSON.parse(localStorage.getItem("yz-test-save")).data.bonds.A03.points===20);
-  assert.ok((await page.locator(".yzg-portrait").getAttribute("aria-label")).includes("surprised"));
+  assert.ok((await page.locator(".yzg-portrait").getAttribute("data-emotion")) === "surprised");
   await page.screenshot({path:path.join(output,"dialogue-"+width+".png"),fullPage:true});
   await page.getByRole("button",{name:"Lanjut ›"}).click();
   await page.getByRole("button",{name:"Akhiri percakapan"}).click();
@@ -104,7 +104,7 @@ try {
   await page.screenshot({path:path.join(output,"life-"+width+".png"),fullPage:true});
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
   assert.equal(overflow,false,"no horizontal overflow");
-  assert.equal(await page.evaluate(()=>{const i=new Image();return new Promise(r=>{i.onload=()=>r(i.naturalWidth===1536);i.onerror=()=>r(false);i.src="/game/assets/characters/portraits.png"})}),true);
+  assert.equal(await page.evaluate(()=>{const i=new Image();return new Promise(r=>{i.onload=()=>r(i.naturalWidth===1536);i.onerror=()=>r(false);i.src="/game/assets/portraits/A01.png"})}),true);
   await page.close();
  }
  assert.deepEqual(errors,[]);

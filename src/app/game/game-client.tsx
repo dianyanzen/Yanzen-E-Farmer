@@ -12,10 +12,11 @@ import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
 import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
+import CharacterGallery from "./character-gallery";
 import DialoguePanel, { Portrait } from "./dialogue-panel";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats";
+type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats" | "characters";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const TOOLS: { id: FarmTool; name: string; glyph: string }[] = [
   { id: "hoe", name: "Cangkul", glyph: "01" },
@@ -30,6 +31,7 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "map", name: "Jelajah", icon: "⌖" },
   { id: "friends", name: "Kedekatan", icon: "♡" },
   { id: "stats", name: "Statistik", icon: "▤" },
+  { id: "characters", name: "Warga", icon: "☷" },
 ];
 function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
@@ -401,7 +403,7 @@ export default function GameClient() {
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
               <button aria-label="Kembali" onClick={() => phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : "Jelajah"}</b>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content">
@@ -434,7 +436,7 @@ export default function GameClient() {
               {phoneTab === "ikd" && <>
                 <div className="yzg-phone-card yzg-id">
                   <small>IKD · IDENTITAS KARAKTER DIGITAL</small>
-                  <div className="yzg-avatar">Y</div><strong>YANZEN</strong>
+                  <div className="yzg-id-portrait"><Portrait npcId="A01"/></div><strong>YANZEN</strong>
                   <p>Warga Pasirluyu</p>
                   <dl><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd>
                     <dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd>
@@ -444,6 +446,7 @@ export default function GameClient() {
                   <small>Seluruh identitas ini fiktif. Bukan IKD pemerintah atau data kependudukan asli.</small>
                 </div>
               </>}
+              {phoneTab === "characters" && <CharacterGallery/>}
               {phoneTab === "friends" && <>
                 <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kenali warga melalui jawabanmu. Poin kedekatan dihitung sekali per NPC setiap hari.</p></div>
                 {NPCS.map(npc => {
