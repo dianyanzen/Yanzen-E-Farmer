@@ -2,6 +2,15 @@ import cast from "../../../game-assets/catalog/cast.json";
 
 export type Direction = "up" | "down" | "left" | "right";
 export type FarmTool = "hoe" | "seed" | "water" | "harvest";
+export const FARM_TOOLS: readonly FarmTool[] = ["hoe","seed","water","harvest"];
+export const TOOL_LABELS: Record<FarmTool,string> = {hoe:"Cangkul",seed:"Tanam",water:"Siram",harvest:"Panen"};
+export function equipFarmTool(state:GameState,tool:FarmTool):GameState {
+  return !FARM_TOOLS.includes(tool) || state.equippedTool===tool ? state : {...state,equippedTool:tool};
+}
+export function cycleFarmTool(tool:FarmTool,direction:1|-1):FarmTool {
+  const index=FARM_TOOLS.indexOf(tool);
+  return FARM_TOOLS[(index+FARM_TOOLS.length+direction)%FARM_TOOLS.length] ?? "hoe";
+}
 export type Plot = { x: number; y: number; stage: number; watered: boolean };
 export type PhotoChoice = "nani" | "warung";
 export type StoryFlags = {
@@ -14,7 +23,7 @@ export type Dialogue = {
 export type GameState = {
   version: 1; day: number; minutes: number;
   player: { x: number; y: number; dir: Direction };
-  plots: Plot[]; seeds: number; harvested: number; coins: number;
+  plots: Plot[]; seeds: number; harvested: number; coins: number; equippedTool: FarmTool;
   phoneRead: boolean; story: StoryFlags; location: "field" | "home"; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 export const WORLD = { width: 24, height: 16, tile: 20 } as const;
@@ -36,7 +45,7 @@ export const DEFAULT_STORY: StoryFlags = {
 };
 export function newGame(): GameState {
   return { version: 1, location: "field", bonds: newBonds(), stats: newStats(), day: 1, minutes: 6 * 60 + 20,
-    player: { x: 12, y: 10, dir: "left" }, plots: [], seeds: 12,
+    player: { x: 12, y: 10, dir: "left" }, plots: [], seeds: 12, equippedTool: "hoe",
     harvested: 0, coins: 280, phoneRead: false, story: { ...DEFAULT_STORY } };
 }
 export function isFarm(x: number, y: number): boolean {
@@ -198,6 +207,7 @@ export function safeLoad(value: unknown): GameState | null {
   if ((photoChoice === null) !== (completedDay === null) ||
       (photoSeen && (!story.orderDone || !story.canalClue)) || (photoChoice && !photoSeen)) return null;
   if (value.location !== undefined && value.location !== "field" && value.location !== "home") return null;
+  if (value.equippedTool !== undefined && !FARM_TOOLS.includes(value.equippedTool as FarmTool)) return null;
   const bonds = newBonds(), stats = newStats();
   if (value.bonds !== undefined) {
     if (!record(value.bonds)) return null;
@@ -228,6 +238,7 @@ export function safeLoad(value: unknown): GameState | null {
   return { version: 1, location: value.location === "home" ? "home" : "field", bonds, stats, day: value.day, minutes: value.minutes,
     player: { x: player.x, y: player.y, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
+    equippedTool: value.equippedTool === undefined ? "hoe" : value.equippedTool as FarmTool,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
       canalClue: story.canalClue as boolean, sarisStory: story.sarisStory as boolean,
       photoSeen: photoSeen as boolean, photoChoice, completedDay: completedDay as number | null } };
@@ -246,7 +257,10 @@ export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0
 export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
 export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "Mulai dekat", "Teman", "Teman baik", "Akrab", "Dipercaya", "Sahabat", "Sahabat dekat", "Seperti keluarga", "Ikatan istimewa"][bondLevel(points)]; }
 export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
-export function canSleep(s: GameState) { return s.location === "home" && Math.abs(s.player.x - HOME.bed.x) + Math.abs(s.player.y - HOME.bed.y) <= 1; }
+export function canSleep(s: GameState) {
+  const front=facing(s.player);
+  return s.location==="home" && front.x===HOME.bed.x && front.y===HOME.bed.y;
+}
 export function homeBlocked(x: number, y: number) {
   return x < 8 || x > 16 || y < 6 || y > 13 || (x <= 10 && y <= 7) || (x >= 15 && y <= 8) || (x === 12 && y === 7);
 }
@@ -259,6 +273,31 @@ export function interactDoor(s: GameState): GameState {
     return { ...s, location: "field", player: { ...HOME.door, y: HOME.door.y + 1, dir: "down" } };
   return s;
 }
+export type ActionContext =
+  | {kind:"door"|"sleep"|"farm"|"none";label:string}
+  | {kind:"npc";label:string;npcId:NpcId}
+  | {kind:"inspect";label:string;text:string};
+/** One action key resolves the object in front before ever considering a farm tool. */
+export function getActionContext(s:GameState):ActionContext {
+  const front=facing(s.player);
+  if(s.location==="home"){
+    if(interactDoor(s)!==s) return {kind:"door",label:"Keluar rumah"};
+    if(canSleep(s)) return {kind:"sleep",label:"Tidur di kasur"};
+    if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
+      text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
+    if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
+      return {kind:"inspect",label:"Periksa lemari",text:"Lemari Yanzen. Fitur mengganti pakaian belum tersedia."};
+    return {kind:"none",label:"Tidak ada objek"};
+  }
+  if(front.x===HOME.door.x && front.y===HOME.door.y) return {kind:"door",label:"Masuk rumah"};
+  const npc=NPCS.find(n=>n.x===front.x && n.y===front.y);
+  if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
+  if(isFarm(front.x,front.y)) return {kind:"farm",label:"Gunakan alat"};
+  if(front.x<=1 && front.y>=9) return {kind:"inspect",label:"Periksa saluran air",
+    text:"Air mengalir ke arah hilir. Ryan mungkin mengetahui cerita saluran ini."};
+  return {kind:"none",label:"Tidak ada objek"};
+}
+
 const reactions: Record<NpcId, Record<SocialChoice, { emotion: Emotion; line: string }>> = {
   A03: {
     listen: { emotion: "happy", line: "Ryan: Kamu mau mendengar dulu. Aku suka itu. Saluran ini mengajarkan kita sabar sebelum bertindak." },
