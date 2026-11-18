@@ -121,6 +121,17 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   box(ctx,22*T+4,10*T+5,13,2,"#ecd39c");
   box(ctx,23*T,10*T+2,20,36,"rgba(239,210,151,.22)");
   label(ctx,"GANG →",19*T,10*T-6);
+  // Natural East and South edges now have visible trees/fence matching collisions.
+  for(let y=5;y<16;y++)if(y!==10&&y!==11){
+    box(ctx,23*T,y*T,20,20,"#406745");
+    box(ctx,23*T+4,y*T+2,14,11,"#629059");
+    box(ctx,23*T+8,y*T+12,5,7,"#6a5137");
+  }
+  for(let x=0;x<23;x++){
+    box(ctx,x*T,15*T,20,20,x%2?"#547d4b":"#466c44");
+    box(ctx,x*T+2,15*T+2,16,9,"#75a265");
+    box(ctx,x*T+3,15*T+15,15,2,"#6d583f");
+  }
   // World-space ripples stay inside the original canal banks.
   for (let i=0;i<16;i++) {
     const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;
