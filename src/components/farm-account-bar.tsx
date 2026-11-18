@@ -12,7 +12,7 @@ export default function FarmAccountBar() {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  if (pathname === "/" || pathname.startsWith("/login") || pathname.startsWith("/auth")) return null;
+  if (pathname === "/" || pathname.startsWith("/login") || pathname.startsWith("/auth") || pathname === "/game" || pathname.startsWith("/game/")) return null;
 
   async function signOut(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
