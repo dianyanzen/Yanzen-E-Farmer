@@ -101,3 +101,22 @@
 
 .yzg-run{margin-left:auto;margin-right:12px;min-height:44px;padding:0 14px;border:2px solid #897348;border-radius:8px;background:#f7e7bf;color:#533d26;font-weight:bold}
 .yzg-run[aria-pressed=true]{background:#315e46;color:#fff9dc;border-color:#223e30}
+
+/* Original portrait dialogue: village remains visible behind the conversation. */
+.yzg-chapter-dialog{inset:auto 0 max(16px,env(safe-area-inset-bottom));margin:0 auto;width:min(96vw,800px);max-height:82dvh;border:5px double #967442;background:#fff1bd;box-shadow:0 6px 0 #4e4434,0 15px 45px #172d2966;border-radius:7px;padding:14px 18px}
+.yzg-chapter-dialog::backdrop{background:#10271c38}
+.yzg-dialog-scene{display:flex;gap:18px;align-items:flex-start;padding-top:12px}
+.yzg-portrait{display:block;flex:0 0 112px;width:112px;aspect-ratio:1;background-image:url("/game/assets/characters/portraits.png");background-size:600% 300%;background-repeat:no-repeat;image-rendering:pixelated;border-radius:8px;background-color:#e7dca6}
+.yzg-dialog-copy{min-width:0;flex:1}.yzg-dialog-copy>small{display:block;font-size:12px;color:#6f6044}
+.yzg-chapter-dialog .yzg-spoken{font:16px/1.65 ui-monospace,monospace;min-height:4.95em;color:#343a29}
+.yzg-dialog-options{border-top:1px solid #c8ae72;padding-top:10px;margin-top:12px}
+.yzg-response-list{display:grid;gap:7px}.yzg-response-list button{margin:0;width:100%;text-align:left;min-height:44px;background:#f9f3dc;color:#294637;border:1px solid #9eaa7a;padding:9px 12px}
+.yzg-response-list button:hover:not(:disabled){background:#dfe9c2}.yzg-response-list small{display:block;font-size:11px;font-weight:400}
+.yzg-dialog button:focus-visible{outline:3px solid #c5732c;outline-offset:2px}
+.yzg-home-hint{font:11px/1.5 monospace;color:#5b6145;max-width:190px;align-self:center;padding:5px}
+.yzg-bond-card{display:flex;gap:9px;align-items:flex-start}.yzg-bond-card .yzg-portrait{width:66px;flex-basis:66px}
+.yzg-bond-card>div{min-width:0;flex:1}.yzg-bond-card p{margin:5px 0}
+.yzg-phone-card meter{display:block;width:100%;height:18px;accent-color:#4d8151}
+.yzg-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.yzg-caret{font-style:normal;color:#77724a}
+@media(max-width:480px){.yzg-chapter-dialog{padding:12px;max-height:80dvh}.yzg-dialog-scene{gap:10px}.yzg-portrait{width:80px;flex-basis:80px}.yzg-chapter-dialog .yzg-spoken{font-size:14px;min-height:6.6em}.yzg-dialog-copy>small{font-size:10px}.yzg-chapter-dialog .yzg-dialog-head{font-size:14px}}

@@ -6,15 +6,16 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
-  newGame, nextDay, NPCS, safeLoad, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type Dialogue } from "@/lib/game/model";
+  newGame, nextDay, NPCS, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  choosePhoto, sellCucumbers, sellableCucumbers, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
 import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
+import DialoguePanel, { Portrait } from "./dialogue-panel";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map";
+type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const TOOLS: { id: FarmTool; name: string; glyph: string }[] = [
   { id: "hoe", name: "Cangkul", glyph: "01" },
@@ -27,6 +28,8 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "farm", name: "Kebunku", icon: "✿" },
   { id: "ikd", name: "IKD", icon: "▣" },
   { id: "map", name: "Jelajah", icon: "⌖" },
+  { id: "friends", name: "Kedekatan", icon: "♡" },
+  { id: "stats", name: "Statistik", icon: "▤" },
 ];
 function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
@@ -177,7 +180,7 @@ export default function GameClient() {
     field.held.set(id, dir);
     if (first) {
       step(dir);
-      field.nextStep = performance.now() + (runMode || field.shift ? RUN_STEP_MS : STEP_MS);
+      field.delayStep(performance.now() + (runMode || field.shift ? RUN_STEP_MS : STEP_MS));
     }
   }, [controlsLocked, step, runMode, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
@@ -185,7 +188,7 @@ export default function GameClient() {
   useLayoutEffect(() => {
     scene.current = { game, art, swing, step, runMode };
     field.aim(game.player);
-    if (controlsLocked) { field.held.clear(); field.shift = false; }
+    if (controlsLocked) { field.held.clear(); field.setShift(false); }
   }, [game, art, swing, step, controlsLocked, runMode, field]);
 
   useEffect(() => {
@@ -196,7 +199,7 @@ export default function GameClient() {
     const clear = () => { field.clear(); field.audio.pause(); };
     const unlock = () => field.audio.unlock();
     const keyup = (event: KeyboardEvent) => {
-      if (event.key === "Shift") field.shift = event.shiftKey;
+      if (event.key === "Shift") field.setShift(event.shiftKey);
       release(event.key.toLowerCase());
     };
     const paint = (now: number) => {
@@ -223,8 +226,18 @@ export default function GameClient() {
 
   const action = useCallback(() => {
     if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
+    const door = interactDoor(game);
+    if (door !== game) {
+      field.clear(); field.reset(door.player); setSwing(null); setGame(door); void persist(door);
+      setToast(door.location === "home" ? "Di dalam rumah. Dekati ranjang lalu tekan Aksi untuk tidur." : "Kembali ke Pasirluyu.");
+      setShowHelp(false); return;
+    }
+    if (canSleep(game)) {
+      setDialogue({ title: "Rumah Yanzen · Istirahat", sleep: true, lines: ["Tidur sampai besok pagi? Stamina pulih dan tanaman yang sudah disiram akan tumbuh."] });
+      return;
+    }
     const front = facing(game.player);
-    const npc = NPCS.find(n => n.x === front.x && n.y === front.y);
+    const npc = game.location === "field" && NPCS.find(n => n.x === front.x && n.y === front.y);
     if (npc) {
       const result = meetNpc(game, npc.id);
       setGame(result.state);
@@ -238,7 +251,7 @@ export default function GameClient() {
     setGame(result.state); setToast(result.message);
     if (result.state !== game) void persist(result.state);
     setShowHelp(false);
-  }, [game, tool, phoneOpen, dialogue, saveStatus, persist]);
+  }, [game, tool, phoneOpen, dialogue, saveStatus, persist, field]);
 
   const togglePhone = useCallback(() => {
     if (dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -265,7 +278,7 @@ export default function GameClient() {
         w: "up", arrowup: "up", s: "down", arrowdown: "down",
         a: "left", arrowleft: "left", d: "right", arrowright: "right"
       };
-      field.shift = e.shiftKey;
+      field.setShift(e.shiftKey);
       if (dirs[key] && !e.repeat) press(key, dirs[key]);
       if (/^[1-4]$/.test(key)) setTool(TOOLS[Number(key)-1].id);
       if ((key === " " || key === "e") && !e.repeat) action();
@@ -275,10 +288,17 @@ export default function GameClient() {
   }, [press, action, togglePhone, phoneOpen, dialogue, field]);
 
   const rest = () => {
-    if (phoneOpen || dialogue || saveStatus === "loading" || saveStatus === "error") return;
+    if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
     const next = nextDay(game);
+    setDialogue(null);
     setGame(next); void persist(next);
     setToast("Hari baru dimulai. Tanaman yang disiram kemarin bertumbuh.");
+  };
+  const respond = (choice: SocialChoice) => {
+    if (saveStatus === "loading" || saveStatus === "error" || !dialogue?.npcId) return;
+    const result = chooseSocial(game, dialogue.npcId, choice);
+    setGame(result.state); setDialogue(result);
+    if (result.state !== game) void persist(result.state);
   };
   const markOrder = () => {
     if (saveStatus === "loading" || saveStatus === "error") return;
@@ -334,6 +354,7 @@ export default function GameClient() {
         <span>☀ Hari {game.day} · {minutes}</span>
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
+        <span>Lv. {playerLevel(game)} · Stamina {game.stats.stamina}/100 · {game.location === "home" ? "Rumah" : "Pasirluyu"}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
@@ -343,7 +364,7 @@ export default function GameClient() {
       <div className="yzg-viewport">
         <canvas ref={canvasRef} width={300} height={200} aria-label="Peta piksel Kebun Timun dan Pasirluyu" role="img"/>
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
-        {!phoneOpen && !dialogue && unread && <button className="yzg-notif" onClick={togglePhone}>
+        {!phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
           <span><b>YZ Phone · Pesan baru</b><small>Inggit: Ada pesanan timun untuk warungku!</small></span>
         </button>}
@@ -354,9 +375,9 @@ export default function GameClient() {
           <button onClick={() => setShowHelp(false)}>Mengerti</button>
         </div>}
         {dialogue && <dialog ref={dialogueRef} className="yzg-dialog yzg-chapter-dialog" aria-label={dialogue.title} onCancel={() => setDialogue(null)} onClose={() => setDialogue(null)}>
-          <div className="yzg-dialog-head"><b>{dialogue.title}</b><span>◈ CERITA</span></div>
+          <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={dialogue} game={game}>
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>Foto pintu air · koleksi Nani · ilustrasi fiktif</figcaption></figure>}
-          {dialogue.lines.map((line, i) => <p key={i}>{line}</p>)}
+
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
             <button onClick={() => decidePhoto("nani")} disabled={unavailable}>Percayakan foto asli kepada Nani<small>Kisah disimpan bersama keluarga.</small></button>
             <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
@@ -366,7 +387,13 @@ export default function GameClient() {
             <button onClick={sell} disabled={unavailable || !sellableCucumbers(game)}>Jual {sellableCucumbers(game)} timun · {sellableCucumbers(game) * 25} G</button>
             {game.story.orderAccepted && !game.story.orderDone && <small>Empat timun dicadangkan untuk pesanan Inggit.</small>}
           </div>}
-          <button onClick={() => setDialogue(null)}>{dialogue.choosePhoto ? "Putuskan nanti" : "Lanjutkan ›"}</button>
+          {dialogue.choices && <div className="yzg-response-list" aria-label="Pilih jawaban">{dialogue.choices.map(choice => {
+            const locked = bondLevel(game.bonds[dialogue.npcId!].points) < (choice.minLevel || 0);
+            return <button key={choice.id} disabled={unavailable || locked} onClick={() => respond(choice.id)}>{choice.label}{locked && <small>Terbuka pada kedekatan Lv. {choice.minLevel}</small>}</button>;
+          })}</div>}
+          {dialogue.sleep && <button onClick={rest} disabled={unavailable}>Tidur sampai pagi</button>}
+          <button onClick={() => setDialogue(null)}>{dialogue.sleep ? "Belum tidur" : dialogue.choosePhoto ? "Putuskan nanti" : "Akhiri percakapan"}</button>
+          </DialoguePanel>
         </dialog>}
         {phoneOpen && <dialog ref={phoneRef} className="yzg-phone-backdrop" aria-label="YZ Phone" onCancel={() => setPhoneOpen(false)} onClose={() => setPhoneOpen(false)} onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
@@ -374,7 +401,7 @@ export default function GameClient() {
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
               <button aria-label="Kembali" onClick={() => phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : "Jelajah"}</b>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content">
@@ -417,6 +444,29 @@ export default function GameClient() {
                   <small>Seluruh identitas ini fiktif. Bukan IKD pemerintah atau data kependudukan asli.</small>
                 </div>
               </>}
+              {phoneTab === "friends" && <>
+                <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kenali warga melalui jawabanmu. Poin kedekatan dihitung sekali per NPC setiap hari.</p></div>
+                {NPCS.map(npc => {
+                  const bond = game.bonds[npc.id], level = bondLevel(bond.points);
+                  return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
+                    <Portrait npcId={npc.id} emotion={bond.mood}/>
+                    <div><b>{npc.name}</b><small>{npc.role}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
+                    <meter min={0} max={1000} value={bond.points} aria-label={"Kedekatan " + npc.name}/><small>{bond.points}/1000 poin · {bond.talks} percakapan</small>
+                    <small>{bond.lastTalkDay === game.day ? "Sudah berbincang hari ini" : "Belum berbincang hari ini"} · {level < 2 ? "Cerita pribadi terbuka di Lv. 2" : "Cerita pribadi terbuka"}</small></div>
+                  </div>;
+                })}
+              </>}
+              {phoneTab === "stats" && <>
+                <div className="yzg-phone-card"><b>YANZEN · Lv. {playerLevel(game)}</b><p>Petani urban · Hari {game.day}</p>
+                  <label>Stamina {game.stats.stamina}/100<meter min={0} max={100} value={game.stats.stamina}/></label>
+                  <small>Pulihkan stamina dengan tidur di ranjang rumah. Pintu rumah ada di utara kebun.</small>
+                  <div className="yzg-phone-stats">
+                    <span>Pengalaman<strong>{game.stats.xp} XP</strong></span><span>Aksi bertani<strong>{game.stats.actions}</strong></span>
+                    <span>Total panen<strong>{game.stats.harvests}</strong></span><span>Percakapan<strong>{game.stats.conversations}</strong></span>
+                    <span>Malam beristirahat<strong>{game.stats.nights}</strong></span><span>Saldo<strong>{game.coins} G</strong></span>
+                  </div>
+                </div>
+              </>}
               {phoneTab === "map" && <>
                 <div className="yzg-phone-card"><b>Lokasi kamu sekarang</b>
                   <p>{START_LOCATION.village} · Kecamatan {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
@@ -447,7 +497,7 @@ export default function GameClient() {
         <div className="yzg-buttons">
           <button aria-pressed={sound} onClick={() => { field.audio.toggle(!sound); setSound(!sound); }}>Suara {sound ? "aktif" : "mati"}</button>
           <button className="yzg-phone-trigger" onClick={togglePhone}>▣ YZ Phone {unread ? "•" : ""}</button>
-          <button onClick={rest} disabled={saveStatus === "loading" || saveStatus === "error"}>☾ Tidur / Hari Baru</button>
+          <span className="yzg-home-hint">☾ Tidur: masuk rumah → ranjang → Aksi</span>
           <button onClick={() => void persist(game)} disabled={saveStatus === "loading" || saveStatus === "error"}>☁ Simpan</button>
         </div>
       </div>

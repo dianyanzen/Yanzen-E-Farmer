@@ -9,13 +9,13 @@ export type StoryFlags = {
   photoSeen: boolean; photoChoice: PhotoChoice | null; completedDay: number | null;
 };
 export type Dialogue = {
-  title: string; lines: string[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
+  title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
 };
 export type GameState = {
   version: 1; day: number; minutes: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
-  phoneRead: boolean; story: StoryFlags;
+  phoneRead: boolean; story: StoryFlags; location: "field" | "home"; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 export const WORLD = { width: 24, height: 16, tile: 20 } as const;
 const placements = [
@@ -35,7 +35,7 @@ export const DEFAULT_STORY: StoryFlags = {
   photoSeen: false, photoChoice: null, completedDay: null,
 };
 export function newGame(): GameState {
-  return { version: 1, day: 1, minutes: 6 * 60 + 20,
+  return { version: 1, location: "field", bonds: newBonds(), stats: newStats(), day: 1, minutes: 6 * 60 + 20,
     player: { x: 12, y: 10, dir: "left" }, plots: [], seeds: 12,
     harvested: 0, coins: 280, phoneRead: false, story: { ...DEFAULT_STORY } };
 }
@@ -52,21 +52,25 @@ export function facing(p: GameState["player"]) {
 }
 export function movePlayer(s: GameState, dir: Direction): GameState {
   const candidate = facing({ ...s.player, dir });
+  const collision = s.location === "home" ? homeBlocked : blocked;
   return { ...s, player: {
-    x: blocked(candidate.x, candidate.y) ? s.player.x : candidate.x,
-    y: blocked(candidate.x, candidate.y) ? s.player.y : candidate.y, dir
+    x: collision(candidate.x, candidate.y) ? s.player.x : candidate.x,
+    y: collision(candidate.x, candidate.y) ? s.player.y : candidate.y, dir
   }};
 }
 function addMinutes(s: GameState, amount = 15): GameState {
-  return { ...s, minutes: Math.min(22 * 60, s.minutes + amount) };
+  return { ...s, stats: { ...s.stats, stamina: Math.max(0,s.stats.stamina - 4), xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
 }
 export function nextDay(s: GameState): GameState {
-  return { ...s, day: s.day + 1, minutes: 6 * 60 + 20,
+  if (!canSleep(s)) return s;
+  return { ...s, stats: { ...s.stats, stamina: 100, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
       watered: false })) };
 }
 export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
+  if (s.location === "home") return { state: s, message: "Alat tani hanya digunakan di kebun." };
+  if (s.stats.stamina < 4) return { state: s, message: "Stamina habis. Pulang dan tidur di tempat tidur rumah." };
   const at = facing(s.player);
   if (!isFarm(at.x, at.y)) return { state: s, message: "Arahkan karakter ke petak kebun lalu gunakan alat." };
   const index = s.plots.findIndex(p => p.x === at.x && p.y === at.y);
@@ -92,14 +96,14 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
   }
   if (!p || p.stage < 3) return { state: s, message: "Timun belum siap dipanen." };
   return { state: addMinutes({ ...s,
-    harvested: s.harvested + 1,
+    stats: { ...s.stats, harvests: Math.min(99999999,s.stats.harvests + 1) }, harvested: s.harvested + 1,
     plots: s.plots.filter(q => q !== p) }),
     message: "Panen berhasil! +1 timun masuk persediaan. Antar pesanan atau jual di warung." };
 }
 export function acceptOrder(s: GameState): GameState {
   return { ...s, phoneRead: true, story: { ...s.story, orderAccepted: true } };
 }
-export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
+function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
       "Ryan: Inggit sedang menunggu empat timun untuk acar. Selesaikan dulu pesananmu; setelah itu kita cocokkan tanda di pintu air."] };
@@ -179,7 +183,7 @@ export function safeLoad(value: unknown): GameState | null {
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
       !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, 5, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
-      blocked(player.x, player.y) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
+      (value.location === "home" ? homeBlocked(player.x, player.y) : blocked(player.x, player.y)) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
   }
@@ -193,6 +197,24 @@ export function safeLoad(value: unknown): GameState | null {
   if (completedDay !== null && !integer(completedDay, 1, value.day)) return null;
   if ((photoChoice === null) !== (completedDay === null) ||
       (photoSeen && (!story.orderDone || !story.canalClue)) || (photoChoice && !photoSeen)) return null;
+  if (value.location !== undefined && value.location !== "field" && value.location !== "home") return null;
+  const bonds = newBonds(), stats = newStats();
+  if (value.bonds !== undefined) {
+    if (!record(value.bonds)) return null;
+    for (const npc of NPCS) {
+      const b = value.bonds[npc.id];
+      if (!record(b) || !integer(b.points,0,1000) || !integer(b.lastTalkDay,0,value.day) || !integer(b.talks,0,99999999) || !EMOTIONS.includes(b.mood as Emotion)) return null;
+      bonds[npc.id] = { points:b.points, lastTalkDay:b.lastTalkDay, talks:b.talks, mood:b.mood as Emotion };
+    }
+  }
+  if (value.stats !== undefined) {
+    if (!record(value.stats)) return null;
+    for (const key of Object.keys(stats) as (keyof LifeStats)[]) {
+      const v = value.stats[key];
+      if (!integer(v,0,key === "stamina" ? 100 : 99999999)) return null;
+      stats[key] = v;
+    }
+  }
   const plots: Plot[] = [];
   const coordinates = new Set<string>();
   for (const p of value.plots) {
@@ -203,10 +225,80 @@ export function safeLoad(value: unknown): GameState | null {
     coordinates.add(key);
     plots.push({ x: p.x, y: p.y, stage: p.stage, watered: p.watered });
   }
-  return { version: 1, day: value.day, minutes: value.minutes,
+  return { version: 1, location: value.location === "home" ? "home" : "field", bonds, stats, day: value.day, minutes: value.minutes,
     player: { x: player.x, y: player.y, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
       canalClue: story.canalClue as boolean, sarisStory: story.sarisStory as boolean,
       photoSeen: photoSeen as boolean, photoChoice, completedDay: completedDay as number | null } };
+}
+
+export type Emotion = "neutral" | "happy" | "sad" | "worried" | "surprised" | "annoyed";
+export type SocialChoice = "listen" | "help" | "dismiss" | "confide";
+export type Bond = { points: number; lastTalkDay: number; talks: number; mood: Emotion };
+export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
+export const EMOTIONS: Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed"];
+export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
+export function newBonds(): Record<NpcId, Bond> {
+  return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral" }])) as Record<NpcId, Bond>;
+}
+export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0, harvests: 0, conversations: 0, nights: 0 }; }
+export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
+export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "Mulai dekat", "Teman", "Teman baik", "Akrab", "Dipercaya", "Sahabat", "Sahabat dekat", "Seperti keluarga", "Ikatan istimewa"][bondLevel(points)]; }
+export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
+export function canSleep(s: GameState) { return s.location === "home" && Math.abs(s.player.x - HOME.bed.x) + Math.abs(s.player.y - HOME.bed.y) <= 1; }
+export function homeBlocked(x: number, y: number) {
+  return x < 8 || x > 16 || y < 6 || y > 13 || (x <= 10 && y <= 7) || (x >= 15 && y <= 8) || (x === 12 && y === 7);
+}
+export function interactDoor(s: GameState): GameState {
+  const at = facing(s.player);
+  if (s.location === "field" && at.x === HOME.door.x && at.y === HOME.door.y)
+    return { ...s, location: "home", player: { ...HOME.spawn, dir: "up" } };
+  if (s.location === "home" && ((at.x === HOME.exit.x && at.y === HOME.exit.y) ||
+      (s.player.x === HOME.exit.x && s.player.y === HOME.exit.y)))
+    return { ...s, location: "field", player: { ...HOME.door, y: HOME.door.y + 1, dir: "down" } };
+  return s;
+}
+const reactions: Record<NpcId, Record<SocialChoice, { emotion: Emotion; line: string }>> = {
+  A03: {
+    listen: { emotion: "happy", line: "Ryan: Kamu mau mendengar dulu. Aku suka itu. Saluran ini mengajarkan kita sabar sebelum bertindak." },
+    help: { emotion: "surprised", line: "Ryan: Mau ikut memeriksa pintu air? Wah, terima kasih. Besok kubawakan catatanku agar kita bisa belajar bersama." },
+    dismiss: { emotion: "annoyed", line: "Ryan: Baik, selesaikan urusanmu dulu. Lain kali katakan saja kalau kamu sedang terburu-buru." },
+    confide: { emotion: "worried", line: "Ryan: Kadang aku takut airnya tidak cukup untuk kebun hilir. Rasanya lebih ringan setelah bisa bercerita kepadamu." }
+  },
+  C01: {
+    listen: { emotion: "happy", line: "Nani: Duduk sebentar, Nak. Senang ada yang mau mendengar tanpa buru-buru meminta akhir ceritanya." },
+    help: { emotion: "surprised", line: "Nani: Mau membantu merawat melati? Tangan tuaku akan sangat terbantu. Terima kasih sudah menawarkan." },
+    dismiss: { emotion: "sad", line: "Nani: Oh... tidak apa-apa. Kuenya kusimpan dulu. Semoga lain kali ada waktu untuk bercerita." },
+    confide: { emotion: "worried", line: "Nani: Ada kenangan yang masih sulit kuucapkan. Terima kasih sudah membiarkanku memilih kapan siap bercerita." }
+  },
+  C08: {
+    listen: { emotion: "happy", line: "Inggit: Kamu ingin dengar cerita warung? Resep acar ini berawal dari timun kecil yang hampir tidak dipilih siapa-siapa!" },
+    help: { emotion: "surprised", line: "Inggit: Serius mau membantu? Wah, pasar pagi bisa ramai sekali. Kehadiran tetangga seperti kamu bikin semangat." },
+    dismiss: { emotion: "sad", line: "Inggit: Oh, sedang sibuk ya. Aku kembali menata dagangan dulu. Semoga harimu lancar." },
+    confide: { emotion: "worried", line: "Inggit: Aku sering khawatir makanan tersisa. Kalau kamu mampir, rasanya warung ini punya teman." }
+  }
+};
+export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { state: GameState } & Dialogue {
+  const bond = s.bonds[npc];
+  if (!NPCS.some(n => n.id === npc) || !["listen", "help", "dismiss", "confide"].includes(choice) ||
+      (choice === "confide" && bondLevel(bond.points) < 2)) return { state: s, title: "Percakapan", lines: ["Kita perlu lebih mengenal satu sama lain dahulu."] };
+  const fresh = bond.lastTalkDay !== s.day;
+  const delta = fresh ? (choice === "dismiss" ? -8 : choice === "help" ? 20 : choice === "confide" ? 18 : 12) : 0;
+  const reaction = reactions[npc][choice];
+  const state: GameState = { ...s, bonds: { ...s.bonds, [npc]: { points: Math.max(0, Math.min(1000, bond.points + delta)),
+    lastTalkDay: s.day, talks: Math.min(99999999, bond.talks + 1), mood: reaction.emotion } },
+    stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + (fresh ? 8 : 0)), conversations: Math.min(99999999,s.stats.conversations + 1) } };
+  return { state, npcId: npc, emotion: reaction.emotion, title: NPCS.find(n => n.id === npc)!.name + " · Jawabanmu",
+    lines: [reaction.line, fresh ? (delta >= 0 ? "Kedekatan +" + delta : "Kedekatan " + delta) + " · " + bondLabel(state.bonds[npc].points) : "Kalian sudah berbincang hari ini. Poin kedekatan berikutnya bisa diperoleh besok."] };
+}
+export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
+  const result = storyDialogue(s, npc);
+  return { ...result, npcId: npc, emotion: npc === "C01" && result.photo ? "worried" : s.bonds[npc].mood,
+    choices: [
+      { id: "listen", label: "Aku ingin mendengar ceritamu." },
+      { id: "help", label: "Ada yang bisa kubantu?" },
+      { id: "dismiss", label: "Aku sedang sibuk, lain kali saja." },
+      { id: "confide", label: "Apa yang sedang kamu pikirkan?", minLevel: 2 }
+    ] };
 }

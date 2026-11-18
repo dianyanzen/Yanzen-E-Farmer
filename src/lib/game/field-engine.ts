@@ -31,6 +31,8 @@ export class FieldEngine {
   private active = false;
   private camera?: {x:number;y:number};
 
+  setShift(value: boolean) { this.shift = value; }
+  delayStep(time: number) { this.nextStep = time; }
   reset(player: GameState["player"]) { this.walk = new WalkPath(player); this.camera=undefined; this.feet=new Footwork(player.dir); this.scuff=undefined; }
   aim(player: GameState["player"]) { this.feet ??= new Footwork(player.dir); this.walk ??= new WalkPath(player); this.walk.aim(player); }
   clear() { this.held.clear(); this.shift=false; this.lastTime=0; }

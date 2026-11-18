@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "asset": "dialogue-portraits",
+  "createdOn": "2026-11-18",
+  "generator": "OpenAI image_gen",
+  "path": "/game/assets/characters/portraits.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "columns": 6,
+  "rows": 3,
+  "rowCharacters": [
+    "A03",
+    "C01",
+    "C08"
+  ],
+  "columnEmotions": [
+    "neutral",
+    "happy",
+    "sad",
+    "worried",
+    "surprised",
+    "annoyed"
+  ],
+  "runtimeIntegrated": true,
+  "notes": "Original generated portraits; no Harvest Moon artwork included."
+}
