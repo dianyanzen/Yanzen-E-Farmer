@@ -66,6 +66,33 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
 
 export default function GameClient() {
   const router = useRouter();
+  const screenRef = useRef<HTMLElement>(null);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [screenError, setScreenError] = useState("");
+  const toggleFullscreen = useCallback(async () => {
+    try {
+      setScreenError("");
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else if (screenRef.current?.requestFullscreen) await screenRef.current.requestFullscreen();
+      else setScreenError("Browser ini belum mendukung fullscreen. Gunakan mode layar penuh browser.");
+    } catch {
+      setScreenError("Fullscreen belum dapat dibuka. Coba tombol Layar penuh kembali.");
+    }
+  }, []);
+  useEffect(() => {
+    const sync = () => setFullscreen(document.fullscreenElement === screenRef.current);
+    const shortcut = (event: KeyboardEvent) => {
+      if (event.key !== "Enter" || !event.altKey || event.repeat) return;
+      event.preventDefault();
+      void toggleFullscreen();
+    };
+    document.addEventListener("fullscreenchange", sync);
+    window.addEventListener("keydown", shortcut);
+    return () => {
+      document.removeEventListener("fullscreenchange", sync);
+      window.removeEventListener("keydown", shortcut);
+    };
+  }, [toggleFullscreen]);
   const [art, setArt] = useState<WorldArt>({});
   const [field] = useState(() => new FieldEngine());
   const [sound, setSound] = useState(true);
@@ -341,7 +368,7 @@ export default function GameClient() {
   const journal = chapterJournal(game);
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
-  return <main className="yzg-page">
+  return <main ref={screenRef} className="yzg-page">
     <header className="yzg-header">
       <div>
         <span className="yzg-eyebrow">BAB 1 · EMPAT TIMUN DAN SATU NAMA</span>
@@ -498,6 +525,8 @@ export default function GameClient() {
           {TOOLS.map(t => <button key={t.id} className={tool === t.id ? "active" : ""} aria-pressed={tool === t.id} onClick={() => setTool(t.id)}><span>{t.glyph}</span>{t.name}</button>)}
         </div>
         <div className="yzg-buttons">
+          <button onClick={() => void toggleFullscreen()} aria-pressed={fullscreen}>{fullscreen ? "Keluar layar penuh" : "Layar penuh"} · Alt+Enter</button>
+          {screenError && <span role="alert">{screenError}</span>}
           <button aria-pressed={sound} onClick={() => { field.audio.toggle(!sound); setSound(!sound); }}>Suara {sound ? "aktif" : "mati"}</button>
           <button className="yzg-phone-trigger" onClick={togglePhone}>▣ YZ Phone {unread ? "•" : ""}</button>
           <span className="yzg-home-hint">☾ Tidur: masuk rumah → ranjang → Aksi</span>
