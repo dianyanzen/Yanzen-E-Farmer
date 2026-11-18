@@ -6,7 +6,7 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/browser";
 import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
-  newGame, nextDay, NPCS, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  newGame, nextDay, NPCS, NPC_SOULS, npcWhere, areaTitle, AREAS, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
@@ -212,8 +212,13 @@ export default function GameClient() {
   }, [controlsLocked, step, runMode, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
   const scene = useRef({ game, art, swing, step, runMode });
+  const lastArea = useRef(game.location);
   useLayoutEffect(() => {
     scene.current = { game, art, swing, step, runMode };
+    if(lastArea.current!==game.location){
+      field.clear();field.reset(game.player);
+      lastArea.current=game.location;
+    }
     field.aim(game.player);
     if (controlsLocked) { field.held.clear(); field.setShift(false); }
   }, [game, art, swing, step, controlsLocked, runMode, field]);
@@ -282,7 +287,15 @@ export default function GameClient() {
     if(context.kind==="door"){
       const next=interactDoor(game);
       field.clear();field.reset(next.player);setSwing(null);setGame(next);void persist(next);
-      setToast(next.location==="home"?"Masuk rumah. Hadapkan karakter ke kasur untuk tidur.":"Kembali ke Pasirluyu.");
+      setToast(next.location==="home"?"Masuk rumah. Hadapkan karakter ke kasur untuk tidur.":
+        next.location==="shed"?"Selamat datang di gudang. Dekati rak untuk menyimpan alat.":
+        "Kembali ke kebun Pasirluyu.");
+    }else if(context.kind==="travel"){
+      const next=movePlayer(game,game.player.dir);
+      if(next.location!==game.location){
+        field.clear();field.reset(next.player);setSwing(null);setGame(next);void persist(next);
+        setToast("Sekarang berada di "+areaTitle(next.location)+".");
+      }
     }else if(context.kind==="sleep"){
       setDialogue({title:"Rumah Yanzen · Istirahat",sleep:true,lines:["Tidur sampai besok pagi? Tanaman yang sudah disiram akan tumbuh, dan hari baru dimulai."]});
     }else if(context.kind==="npc"){
@@ -360,7 +373,7 @@ export default function GameClient() {
     const next = nextDay(game);
     setDialogue(null);
     setGame(next); void persist(next);
-    setToast("Hari baru dimulai. Tanaman yang disiram kemarin bertumbuh.");
+    setToast("Hari baru di Pasirluyu · Cuaca "+weatherForDay(next.day)+". Tanaman yang disiram tumbuh!");
   };
   const respond = (choice: SocialChoice) => {
     if (saveStatus === "loading" || saveStatus === "error" || !dialogue?.npcId) return;
@@ -413,7 +426,7 @@ export default function GameClient() {
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="sleep"?"TIDUR":
     context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
-    context.kind==="door"?"MASUK":context.kind==="inspect"?"LIHAT":"AKSI";
+    context.kind==="door"?"MASUK":context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main ref={screenRef} className="yzg-page">
@@ -428,10 +441,10 @@ export default function GameClient() {
 
     <section className="yzg-shell" aria-label="Permainan YZ Farm Life">
       <div className="yzg-headsup">
-        <span>☀ Hari {game.day} · {minutes}</span>
+        <span>{weatherForDay(game.day)==="hujan"?"☂":weatherForDay(game.day)==="berawan"?"☁":"☀"} Hari {game.day} · {minutes} · {weatherForDay(game.day)}</span>
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
-        <span>Lv. {playerLevel(game)} · {game.location === "home" ? "Rumah" : game.location === "shed" ? "Gudang" : "Pasirluyu"}</span>
+        <span>Lv. {playerLevel(game)} · {areaTitle(game.location)}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>☁ {saveStatus === "loading" ? "Memuat cloud" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Gagal save"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
@@ -485,7 +498,7 @@ export default function GameClient() {
             </div>
             <div className="yzg-phone-content">
               {phoneTab === "apps" && <>
-                <div className="yzg-phone-greeting">SELAMAT PAGI, YANZEN <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca cerah berawan</small></div>
+                <div className="yzg-phone-greeting">{timeGreeting(game.minutes).toUpperCase()}, YANZEN <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca {weatherForDay(game.day)} · {areaTitle(game.location)}</small></div>
                 <div className="yzg-app-grid">{APPS.map(app => <button key={app.id} onClick={() => {
                   setPhoneTab(app.id);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
@@ -529,9 +542,15 @@ export default function GameClient() {
                 <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kenali warga melalui jawabanmu. Poin kedekatan dihitung sekali per NPC setiap hari.</p></div>
                 {NPCS.map(npc => {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
+                  const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
                   return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
                     <Portrait npcId={npc.id} emotion={bond.mood}/>
-                    <div><b>{npc.name}</b><small>{npc.role}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
+                    <div><b>{npc.name}</b><small>{npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
+                    <p className="yzg-npc-where">Lokasi: {areaTitle(place.location)} · {place.activity}</p>
+                    {level>=1&&<small>Kebiasaan: {soul.habit}</small>}
+                    {level>=2&&<small>Harapan: {soul.desire}</small>}
+                    {level>=3&&<small>Hal yang dikhawatirkan: {soul.fear}</small>}
+                    {level>=2&&<small>Hubungan warga: {soul.connection}</small>}
                     <meter min={0} max={1000} value={bond.points} aria-label={"Kedekatan " + npc.name}/><small>{bond.points}/1000 poin · {bond.talks} percakapan</small>
                     <small>{bond.lastTalkDay === game.day ? "Sudah berbincang hari ini" : "Belum berbincang hari ini"} · {level < 2 ? "Cerita pribadi terbuka di Lv. 2" : "Cerita pribadi terbuka"}</small></div>
                   </div>;
@@ -549,7 +568,15 @@ export default function GameClient() {
               </>}
               {phoneTab === "map" && <>
                 <div className="yzg-phone-card"><b>Lokasi kamu sekarang</b>
-                  <p>{START_LOCATION.village} · Kecamatan {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
+                  <p>{areaTitle(game.location)} · {START_LOCATION.village}, {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
+                  <small>Jelajahi empat kawasan dengan berjalan melewati ujung jalan.</small>
+                  <div className="yzg-local-map" aria-label="Jaringan kawasan Pasirluyu">
+                    <div className={game.location==="pasar"?"current":""}>PASAR</div>
+                    <div className={game.location==="gang"?"current":""}>GANG</div>
+                    <div className={game.location==="sungai"?"current":""}>SUNGAI</div>
+                    <div className={game.location==="field"?"current":""}>KEBUN — jalan timur menuju gang</div>
+                  </div>
+                  {(["field","gang","pasar","sungai"] as const).map(id=><p key={id}><b>{id===game.location?"● ":"○ "}{AREAS[id].name}</b><small>{AREAS[id].description}</small></p>)}
                   <small>Game menggunakan nama wilayah asli. Jalan, kebun dan NPC direka untuk cerita.</small>
                 </div>
                 <div className="yzg-phone-card"><b>Jelajah 30 Kecamatan</b>
@@ -571,7 +598,9 @@ export default function GameClient() {
         </dialog>}
       </div>
       <div className="yzg-controls">
-        <div className="yzg-action-context" role="status">Objek di depan: <strong>{actionLabel}</strong></div>
+        <div className="yzg-action-context" role="status">Objek di depan: <strong>{actionLabel}</strong>
+          {game.location!=="home"&&game.location!=="shed"&&<small> · {areaTitle(game.location)} · Ikuti jalan untuk berpindah kawasan</small>}
+        </div>
         {game.location==="field" && <div className="yzg-farm-guidance" aria-label="Panduan dan kondisi kebun">
           <div className="yzg-farm-counts">
             <strong>KEBUN</strong>
