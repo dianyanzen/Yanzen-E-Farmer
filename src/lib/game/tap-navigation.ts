@@ -1,4 +1,4 @@
-import { areaBlocked, HOME, SHED, isFarm, mapExit, npcHere,
+import { areaBlocked, HOME, SHED, isFarm, mapExit, npcHere, routeBarrierAt,
   type Direction,type GameState, type OutdoorLocation } from "./model";
 
 export type TapRoute={steps:Direction[];face:Direction|null;interact:boolean;exit:Direction|null};
@@ -12,7 +12,8 @@ export function planTapRoute(s:GameState,tx:number,ty:number):TapRoute|null {
   const people=npcHere(s);
   const occupied=(x:number,y:number)=>people.some(n=>n.x===x&&n.y===y);
   const traversable=(x:number,y:number)=>!areaBlocked(s.location,x,y)&&!occupied(x,y);
-  const clickable=occupied(tx,ty) ||
+  const isLocked=s.location!=="home"&&s.location!=="shed"&&!!routeBarrierAt(s.location,tx,ty);
+  const clickable=isLocked || occupied(tx,ty) ||
     (s.location==="field" && (isFarm(tx,ty) ||
       (tx===HOME.door.x&&ty===HOME.door.y)||(tx===SHED.door.x&&ty===SHED.door.y))) ||
     (s.location==="home" && ((tx===HOME.bed.x&&ty===HOME.bed.y)||
