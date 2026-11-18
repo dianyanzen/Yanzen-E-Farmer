@@ -70,3 +70,8 @@ Note: the positions above are *conceptual topology*; they do not describe offici
 14. Dinkum journal and milestones: https://www.neoseeker.com/dinkum/The_Basics — player-facing activity goals.
 
 No copied sprites, proprietary character designs, game scripts or map tiles from these games are used here. Any prior uploaded commercial guide PDFs must be read directly before quoting or making content-specific claims about them; the current implementation is based on gameplay patterns and public references.
+
+15. Spiritfarer: https://thunderlotusgames.com/games/spiritfarer/ — character-specific care and emotionally significant life stories; use as a reference for empathy and meaningful consequences, not copied content.
+16. Littlewood townsfolk: https://littlewood.fandom.com/wiki/Townsfolk — inhabitants have wishes/quests that link to housing and layout instead of random map placement.
+17. Kynseed routines: https://wiki.kynseed.com/wiki/Time — 3-hour schedule slots for characters, and long-term daily-life structure as a future possibility; **generational aging is NOT implemented**.
+18. Rune Factory 4 town events: https://therunefactory.fandom.com/wiki/Town_Events_%28RF4%29 — town-wide events and character-specific narrative beats.
