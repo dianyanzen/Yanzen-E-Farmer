@@ -61,7 +61,7 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
     onClick={event => { if (event.detail === 0) step(direction); }}>{symbol}</button>;
 }
 
-export default function GameClient() {
+export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | "phaser" }) {
   const router = useRouter();
   const screenRef = useRef<HTMLElement>(null);
   const [fullscreen, setFullscreen] = useState(false);
@@ -111,6 +111,35 @@ export default function GameClient() {
     return () => { active = false; };
   }, []);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const phaserHostRef = useRef<HTMLDivElement>(null);
+  const [phaserReady, setPhaserReady] = useState(false);
+  const [phaserError, setPhaserError] = useState("");
+  useEffect(() => {
+    if (engine !== "phaser") return;
+    const host = phaserHostRef.current;
+    if (!host) return;
+    let active = true;
+    let adapter: { draw: (frame: import("@/lib/game/field-engine").FieldFrame) => void; destroy: () => void } | null = null;
+    void import("@/lib/game/phaser-world")
+      .then(module => module.mountPhaserWorld(host))
+      .then(mounted => {
+        if (!active) { mounted.destroy(); return; }
+        adapter = mounted;
+        field.setRenderer(mounted);
+        setPhaserReady(true);
+      }).catch(error => {
+        if (!active) return;
+        console.error("Phaser bootstrap failed; Canvas 2D remains available.", error);
+        setPhaserError("Renderer Phaser tidak dapat dijalankan. Game tetap menggunakan Canvas.");
+        field.setRenderer(null);
+        setPhaserReady(false);
+      });
+    return () => {
+      active = false;
+      field.setRenderer(null);
+      adapter?.destroy();
+    };
+  }, [engine, field]);
   const dbRef = useRef<ReturnType<typeof createClient> | null>(null);
   const queueRef = useRef<Promise<void>>(Promise.resolve());
   const saveLockedRef = useRef(false);
@@ -332,16 +361,26 @@ export default function GameClient() {
     setShowHelp(false);
   },[game,controlsLocked,persist,field]);
 
-  const tapOnWorld=useCallback((event:ReactMouseEvent<HTMLCanvasElement>)=>{
-    if(controlsLocked)return;
-    const tile=field.pickTile(event.currentTarget,event.clientX,event.clientY);
-    if(!tile)return;
-    const route=planTapRoute(game,tile.x,tile.y);
-    if(!route){setToast("Jalur belum tersedia. Ketuk jalan atau objek yang dapat dijangkau.");return;}
-    tapRoute.current=route;
-    setTapTick(t=>t+1);
+  const selectWorldTile = useCallback((canvas: HTMLCanvasElement, x: number, y: number) => {
+    if (controlsLocked) return;
+    const tile = field.pickTile(canvas, x, y);
+    if (!tile) return;
+    const route = planTapRoute(game, tile.x, tile.y);
+    if (!route) {
+      setToast("Jalur belum tersedia. Ketuk jalan atau objek yang dapat dijangkau.");
+      return;
+    }
+    tapRoute.current = route;
+    setTapTick(t => t+1);
     setShowHelp(false);
-  },[controlsLocked,field,game]);
+  }, [controlsLocked, field, game]);
+  const tapOnWorld = useCallback((event:ReactMouseEvent<HTMLCanvasElement>) => {
+    selectWorldTile(event.currentTarget, event.clientX, event.clientY);
+  }, [selectWorldTile]);
+  const tapOnPhaserWorld = useCallback((event:ReactMouseEvent<HTMLDivElement>) => {
+    const canvas = event.currentTarget.querySelector("canvas");
+    if (canvas) selectWorldTile(canvas, event.clientX, event.clientY);
+  }, [selectWorldTile]);
 
   useEffect(()=>{
     if(controlsLocked||!tapRoute.current)return;
@@ -500,7 +539,13 @@ export default function GameClient() {
       <div className="yzg-viewport">
         <canvas ref={canvasRef} width={300} height={200} onClick={tapOnWorld}
           aria-label="Peta Pasirluyu. Ketuk jalan untuk berjalan atau ketuk objek untuk berinteraksi."
-          role="img" style={{cursor:"pointer"}}/>
+          role="img" style={{cursor:"pointer",visibility:phaserReady?"hidden":"visible",
+            pointerEvents:phaserReady?"none":"auto"}}/>
+        {engine === "phaser" && <div ref={phaserHostRef} className="yzg-phaser-host"
+          role="region" aria-label="Peta permainan menggunakan Phaser"
+          onClick={tapOnPhaserWorld}
+          style={{opacity:phaserReady?1:0,pointerEvents:phaserReady?"auto":"none"}} />}
+        {phaserError && <div className="yzg-toast" role="status">{phaserError}</div>}
         {toast && <div className="yzg-toast" role="status">{toast}</div>}
         {!phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
           <span className="yzg-notif-icon">✉</span>
