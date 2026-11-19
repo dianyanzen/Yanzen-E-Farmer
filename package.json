@@ -10,14 +10,17 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs",
+    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node scripts/game-world/verify-toolkit.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
     "test:game:life:ui": "node tests/game-life-ui.mjs",
     "test:portraits": "node tests/game-portraits.mjs",
     "test:portraits:ui": "node tests/game-portraits-ui.mjs",
-    "test:world": "node tests/game-bandung-world.mjs"
+    "test:world": "node tests/game-bandung-world.mjs",
+    "tools:tiled:export": "node scripts/game-world/export-tiled.mjs",
+    "tools:tiled:check": "node scripts/game-world/export-tiled.mjs --check",
+    "tools:github:check": "node scripts/game-world/verify-toolkit.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
