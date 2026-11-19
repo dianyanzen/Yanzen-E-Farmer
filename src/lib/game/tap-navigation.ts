@@ -1,6 +1,5 @@
 import { areaBlocked, HOME, SHED, isFarm, mapExit, npcHere, routeBarrierAt,
-  type Direction,type GameState, type OutdoorLocation } from "./model";
-import { signpostAt } from "./signposts";
+  type Direction,type GameState, type OutdoorLocation, signpostAt } from "./model";
 
 export type TapRoute={steps:Direction[];face:Direction|null;interact:boolean;exit:Direction|null};
 const dirs:{dir:Direction;dx:number;dy:number}[]=[
