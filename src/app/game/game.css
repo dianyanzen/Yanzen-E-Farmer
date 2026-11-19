@@ -273,3 +273,9 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
   .yzg-world-village{gap:6px;padding:7px 6px;font-size:11px}
   .yzg-world-village span.playable,.yzg-world-village span.planned{font-size:9px}
 }
+
+/* Phaser renders the scene in a second canvas without replacing the model. */
+.yzg-phaser-host{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .15s linear}
+.yzg-phaser-host canvas{display:block;max-height:min(62dvh,525px);image-rendering:pixelated;image-rendering:crisp-edges;cursor:pointer}
+.yzg-page:fullscreen .yzg-phaser-host canvas{max-height:calc(100dvh - 210px)}
+@media(max-width:849px){.yzg-page:fullscreen .yzg-phaser-host canvas{max-height:calc(100dvh - 340px)}}
