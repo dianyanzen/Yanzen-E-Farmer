@@ -107,6 +107,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,0,0,W*T,H*T,"#a7c465");
     box(ctx,3*T,8*T,8*T,6*T,"#b58c57");
   }
+  // Road network lives above base terrain but BELOW house/yard decorations.
+  // Its winding silhouette blends the old hand-drawn trail into the shared east corridor.
+  drawFieldRoads(ctx);
   // Decorative overlay is aligned with the original 480×320 Pasirluyu collision map.
   // The town's right-hand Warung Inggit remains visible and interactive.
   const villageArt = state.minutes>=18*60 && art.pasirluyuEvening ?
@@ -118,8 +121,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
     label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
   }
-  // Both sides of the road use identical world-coordinate atlas texture.
-  drawFieldRoads(ctx);
+  // The shared corridor keeps its width and material right through the exit.
   label(ctx,"GANG →",19*T,10*T-6);
   // Natural East and South edges now have visible trees/fence matching collisions.
   for(let y=5;y<16;y++)if(y!==10&&y!==11){
