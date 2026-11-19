@@ -245,3 +245,31 @@
 .yzg-road-closure-info summary{cursor:pointer;font-weight:700}
 .yzg-road-closure-info p{margin:6px 0;padding:7px 9px;background:#edf2e7;border-left:3px solid #c6a46e;border-radius:5px}
 .yzg-road-closure-info small{display:block;font-size:11px;margin-top:3px;line-height:1.35}
+
+/* Master World Directory — responsive, clearly distinguishing planned and playable zones. */
+.yzg-world-regions{display:grid;gap:9px;min-width:0}
+.yzg-world-scope{margin:5px 0 2px;font-size:12px;line-height:1.45;color:#365c48}
+.yzg-world-regions .yzg-map-label{display:block;margin-bottom:-6px}
+.yzg-world-regions input.yzg-map-select{width:100%;min-height:42px}
+.yzg-world-village-list{display:grid;gap:5px;margin:8px 0;max-height:350px;overflow-y:auto;
+  padding:2px;scrollbar-gutter:stable}
+.yzg-world-village{border:1px solid #d1d7c7;border-radius:8px;background:#fcfaed;
+  display:flex;align-items:center;justify-content:space-between;text-align:left;
+  gap:12px;padding:9px 10px;color:#314f3a;font-size:12px;min-height:42px}
+button.yzg-world-village{width:100%;cursor:pointer}
+button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
+.yzg-world-village>span:first-child{display:flex;flex-direction:column;min-width:0}
+.yzg-world-village small{display:block;font-size:10px;font-weight:400;color:#6a7568}
+.yzg-world-village span.playable,.yzg-world-village span.planned{font-size:10px;
+  font-weight:700;white-space:nowrap;padding:3px 6px;border-radius:5px}
+.yzg-world-village span.playable{background:#d5e9d0;color:#2e6746}
+.yzg-world-village span.planned{background:#e8e9df;color:#697367}
+.yzg-world-regions details{border-top:1px solid #d6dac9;padding-top:8px;font-size:12px}
+.yzg-world-regions summary{cursor:pointer;font-weight:700}
+.yzg-world-regions ul{padding-left:18px;margin:7px 0;line-height:1.5}
+.yzg-world-disclaimer{line-height:1.5}
+@media(max-width:520px){
+  .yzg-world-village-list{max-height:300px}
+  .yzg-world-village{gap:6px;padding:7px 6px;font-size:11px}
+  .yzg-world-village span.playable,.yzg-world-village span.planned{font-size:9px}
+}
