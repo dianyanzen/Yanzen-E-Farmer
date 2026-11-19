@@ -5,6 +5,20 @@ import { FieldAudio } from "./field-audio";
 import { type Direction, type FarmTool, type GameState } from "./model";
 import { WalkPath, STEP_MS, RUN_STEP_MS } from "./walking";
 
+export type FieldFrame = {
+  state: GameState;
+  position: { x: number; y: number; dir: Direction };
+  pose: number | null;
+  running: boolean;
+  action: { use: ToolUse; frame: number; effect: number } | undefined;
+  camera: { x: number; y: number };
+  ambient: number;
+  plots: GameState["plots"];
+  weight: import("./footwork").WeightPose | undefined;
+  dust: { x: number; y: number; dir: Direction; phase: number } | undefined;
+};
+export type FieldRendererAdapter = { draw(frame: FieldFrame): void };
+
 export type ToolUse = {
   tool: FarmTool; started: number; before: GameState["plots"];
   origin: GameState["player"]; target: { x: number; y: number };
@@ -31,6 +45,14 @@ export class FieldEngine {
   private lastHit?: ToolUse;
   private active = false;
   private camera?: {x:number;y:number};
+  private renderer: FieldRendererAdapter | null = null;
+
+  setRenderer(renderer: FieldRendererAdapter | null) {
+    this.renderer = renderer;
+    this.lastScene = undefined;
+    this.lastAmbient = -1;
+    this.active = true;
+  }
 
   /** Convert phone/desktop canvas taps into the currently visible world tile. */
   pickTile(canvas:HTMLCanvasElement,clientX:number,clientY:number){
@@ -96,8 +118,15 @@ export class FieldEngine {
     const ambient=reduced?0:Math.floor(now/170);
     const active=wasMoving || !!action || !!weight || !!dust || pan;
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {
-      drawWorld(canvas,scene.game,scene.art,walk,pose,running,action,camera,ambient,
-        swing && age<impact && !reduced?swing.before:scene.game.plots,weight,dust);
+      const plots = swing && age<impact && !reduced ? swing.before : scene.game.plots;
+      if (this.renderer) {
+        this.renderer.draw({
+          state: scene.game, position: { x: walk.x, y: walk.y, dir: walk.dir },
+          pose, running, action, camera: { ...camera }, ambient, plots, weight, dust
+        });
+      } else {
+        drawWorld(canvas,scene.game,scene.art,walk,pose,running,action,camera,ambient,plots,weight,dust);
+      }
       if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,scene.game.minutes);
     }
     this.lastScene=scene;this.lastAmbient=ambient;this.active=active;
