@@ -113,7 +113,8 @@ export class FieldEngine {
     const previousX=camera.x,previousY=camera.y;
     // Small dead zone keeps the scenery still during a short step or reversal.
     const follow=(c:number,p:number,zone:number)=> c+Math.sign(p-c)*Math.max(0,Math.abs(p-c)-zone)*(reduced?1:1-Math.exp(-dt/48));
-    camera.x=follow(camera.x,walk.x,.65);camera.y=follow(camera.y,walk.y,.45);
+    // A smaller camera dead-zone follows short walks without sudden late pans.
+    camera.x=follow(camera.x,walk.x,.30);camera.y=follow(camera.y,walk.y,.28);
     const pan=Math.abs(camera.x-previousX)+Math.abs(camera.y-previousY)>.001;
     const ambient=reduced?0:Math.floor(now/170);
     const active=wasMoving || !!action || !!weight || !!dust || pan;
