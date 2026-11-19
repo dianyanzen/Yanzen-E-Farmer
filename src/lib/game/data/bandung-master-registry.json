@@ -1,0 +1,1667 @@
+{
+  "schema_version": 1,
+  "city_id": "bdg",
+  "city_name": "Kota Bandung",
+  "province": "Jawa Barat",
+  "country": "Indonesia",
+  "administrative_counts": {
+    "districts": 30,
+    "villages": 151
+  },
+  "geometry_status": "not_imported",
+  "atlas_scope": "administrative_catalog_not_playable_map",
+  "source_references": [
+    {
+      "name": "Disdukcapil Kota Bandung, Profil Kependudukan 2025",
+      "url": "https://disdukcapil.bandung.go.id/api/public/uploads/buku-profil/PROFIL_PERKEMBANGAN_KEPENDUDUKAN_KOTA_BANDUNG_2025.pdf",
+      "purpose": "count_and_administrative_scope"
+    },
+    {
+      "name": "Bandung public GeoJSON tree: municipality/district/village file hierarchy",
+      "url": "https://github.com/tryfatur/geojson-bandung",
+      "purpose": "district_village_name_parent_mapping_only_no_geometries_copied"
+    },
+    {
+      "name": "Existing YZ Farm Life atlas",
+      "path": "public/game/atlas/index.html",
+      "purpose": "match_existing_151_asset_labels"
+    }
+  ],
+  "districts": [
+    {
+      "id": "bdg/andir",
+      "name": "Andir",
+      "slug": "andir",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/andir/campaka",
+          "name": "Campaka",
+          "slug": "campaka",
+          "play_state": "planned",
+          "atlas_label": "Campaka",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/andir/ciroyom",
+          "name": "Ciroyom",
+          "slug": "ciroyom",
+          "play_state": "planned",
+          "atlas_label": "Ciroyom",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/andir/dungus-cariang",
+          "name": "Dunguscariang",
+          "slug": "dungus-cariang",
+          "play_state": "planned",
+          "atlas_label": "Dunguscariang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/andir/garuda",
+          "name": "Garuda",
+          "slug": "garuda",
+          "play_state": "planned",
+          "atlas_label": "Garuda",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/andir/kebon-jeruk",
+          "name": "Kebon Jeruk",
+          "slug": "kebon-jeruk",
+          "play_state": "planned",
+          "atlas_label": "Kebon Jeruk",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/andir/maleber",
+          "name": "Maleber",
+          "slug": "maleber",
+          "play_state": "planned",
+          "atlas_label": "Maleber",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/antapani",
+      "name": "Antapani",
+      "slug": "antapani",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/antapani/antapani-kidul",
+          "name": "Antapani Kidul",
+          "slug": "antapani-kidul",
+          "play_state": "planned",
+          "atlas_label": "Antapani Kidul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/antapani/antapani-kulon",
+          "name": "Antapani Kulon",
+          "slug": "antapani-kulon",
+          "play_state": "planned",
+          "atlas_label": "Antapani Kulon",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/antapani/antapani-tengah",
+          "name": "Antapani Tengah",
+          "slug": "antapani-tengah",
+          "play_state": "planned",
+          "atlas_label": "Antapani Tengah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/antapani/antapani-wetan",
+          "name": "Antapani Wetan",
+          "slug": "antapani-wetan",
+          "play_state": "planned",
+          "atlas_label": "Antapani Wetan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/arcamanik",
+      "name": "Arcamanik",
+      "slug": "arcamanik",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/arcamanik/cisaranten-bina-harapan",
+          "name": "Cisaranten Bina Harapan",
+          "slug": "cisaranten-bina-harapan",
+          "play_state": "planned",
+          "atlas_label": "Cisaranten Bina Harapan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/arcamanik/cisaranten-endah",
+          "name": "Cisaranten Endah",
+          "slug": "cisaranten-endah",
+          "play_state": "planned",
+          "atlas_label": "Cisaranten Endah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/arcamanik/cisaranten-kulon",
+          "name": "Cisaranten Kulon",
+          "slug": "cisaranten-kulon",
+          "play_state": "planned",
+          "atlas_label": "Cisaranten Kulon",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/arcamanik/sukamiskin",
+          "name": "Sukamiskin",
+          "slug": "sukamiskin",
+          "play_state": "planned",
+          "atlas_label": "Sukamiskin",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/astanaanyar",
+      "name": "Astanaanyar",
+      "slug": "astanaanyar",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/astanaanyar/cibadak",
+          "name": "Cibadak",
+          "slug": "cibadak",
+          "play_state": "planned",
+          "atlas_label": "Cibadak",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/astanaanyar/karang-anyar",
+          "name": "Karanganyar",
+          "slug": "karang-anyar",
+          "play_state": "planned",
+          "atlas_label": "Karanganyar",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/astanaanyar/karasak",
+          "name": "Karasak",
+          "slug": "karasak",
+          "play_state": "planned",
+          "atlas_label": "Karasak",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/astanaanyar/nyengseret",
+          "name": "Nyengseret",
+          "slug": "nyengseret",
+          "play_state": "planned",
+          "atlas_label": "Nyengseret",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/astanaanyar/panjunan",
+          "name": "Panjunan",
+          "slug": "panjunan",
+          "play_state": "planned",
+          "atlas_label": "Panjunan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/astanaanyar/pelindung-hewan",
+          "name": "Pelindung Hewan",
+          "slug": "pelindung-hewan",
+          "play_state": "planned",
+          "atlas_label": "Pelindung Hewan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/babakan-ciparay",
+      "name": "Babakan Ciparay",
+      "slug": "babakan-ciparay",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/babakan-ciparay/babakan",
+          "name": "Babakan",
+          "slug": "babakan",
+          "play_state": "planned",
+          "atlas_label": "Babakan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/babakan-ciparay/babakan-ciparay",
+          "name": "Babakan Ciparay",
+          "slug": "babakan-ciparay",
+          "play_state": "planned",
+          "atlas_label": "Babakan Ciparay",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/babakan-ciparay/cirangrang",
+          "name": "Cirangrang",
+          "slug": "cirangrang",
+          "play_state": "planned",
+          "atlas_label": "Cirangrang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/babakan-ciparay/margahayu-utara",
+          "name": "Margahayu Utara",
+          "slug": "margahayu-utara",
+          "play_state": "planned",
+          "atlas_label": "Margahayu Utara",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/babakan-ciparay/margasuka",
+          "name": "Margasuka",
+          "slug": "margasuka",
+          "play_state": "planned",
+          "atlas_label": "Margasuka",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/babakan-ciparay/sukahaji",
+          "name": "Sukahaji",
+          "slug": "sukahaji",
+          "play_state": "planned",
+          "atlas_label": "Sukahaji",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/bandung-kidul",
+      "name": "Bandung Kidul",
+      "slug": "bandung-kidul",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/bandung-kidul/batununggal",
+          "name": "Batununggal",
+          "slug": "batununggal",
+          "play_state": "planned",
+          "atlas_label": "Batununggal",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kidul/kujangsari",
+          "name": "Kujangsari",
+          "slug": "kujangsari",
+          "play_state": "planned",
+          "atlas_label": "Kujangsari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kidul/mengger",
+          "name": "Mengger",
+          "slug": "mengger",
+          "play_state": "planned",
+          "atlas_label": "Mengger",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kidul/wates",
+          "name": "Wates",
+          "slug": "wates",
+          "play_state": "planned",
+          "atlas_label": "Wates",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/bandung-kulon",
+      "name": "Bandung Kulon",
+      "slug": "bandung-kulon",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/bandung-kulon/caringin",
+          "name": "Caringin",
+          "slug": "caringin",
+          "play_state": "planned",
+          "atlas_label": "Caringin",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/cibuntu",
+          "name": "Cibuntu",
+          "slug": "cibuntu",
+          "play_state": "planned",
+          "atlas_label": "Cibuntu",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/cigondewah-kaler",
+          "name": "Cigondewah Kaler",
+          "slug": "cigondewah-kaler",
+          "play_state": "planned",
+          "atlas_label": "Cigondewah Kaler",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/cigondewah-kidul",
+          "name": "Cigondewah Kidul",
+          "slug": "cigondewah-kidul",
+          "play_state": "planned",
+          "atlas_label": "Cigondewah Kidul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/cigondewah-rahayu",
+          "name": "Cigondewah Rahayu",
+          "slug": "cigondewah-rahayu",
+          "play_state": "planned",
+          "atlas_label": "Cigondewah Rahayu",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/cijerah",
+          "name": "Cijerah",
+          "slug": "cijerah",
+          "play_state": "planned",
+          "atlas_label": "Cijerah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/gempol-sari",
+          "name": "Gempolsari",
+          "slug": "gempol-sari",
+          "play_state": "planned",
+          "atlas_label": "Gempolsari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-kulon/warung-muncang",
+          "name": "Warung Muncang",
+          "slug": "warung-muncang",
+          "play_state": "planned",
+          "atlas_label": "Warung Muncang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/bandung-wetan",
+      "name": "Bandung Wetan",
+      "slug": "bandung-wetan",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/bandung-wetan/cihapit",
+          "name": "Cihapit",
+          "slug": "cihapit",
+          "play_state": "planned",
+          "atlas_label": "Cihapit",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-wetan/citarum",
+          "name": "Citarum",
+          "slug": "citarum",
+          "play_state": "planned",
+          "atlas_label": "Citarum",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bandung-wetan/taman-sari",
+          "name": "Tamansari",
+          "slug": "taman-sari",
+          "play_state": "planned",
+          "atlas_label": "Tamansari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/batununggal",
+      "name": "Batununggal",
+      "slug": "batununggal",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/batununggal/binong",
+          "name": "Binong",
+          "slug": "binong",
+          "play_state": "planned",
+          "atlas_label": "Binong",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/cibangkong",
+          "name": "Cibangkong",
+          "slug": "cibangkong",
+          "play_state": "planned",
+          "atlas_label": "Cibangkong",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/gumuruh",
+          "name": "Gumuruh",
+          "slug": "gumuruh",
+          "play_state": "planned",
+          "atlas_label": "Gumuruh",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/kacapiring",
+          "name": "Kacapiring",
+          "slug": "kacapiring",
+          "play_state": "planned",
+          "atlas_label": "Kacapiring",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/kebon-gedang",
+          "name": "Kebon Gedang",
+          "slug": "kebon-gedang",
+          "play_state": "planned",
+          "atlas_label": "Kebon Gedang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/kebon-waru",
+          "name": "Kebonwaru",
+          "slug": "kebon-waru",
+          "play_state": "planned",
+          "atlas_label": "Kebonwaru",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/maleer",
+          "name": "Maleer",
+          "slug": "maleer",
+          "play_state": "planned",
+          "atlas_label": "Maleer",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/batununggal/samoja",
+          "name": "Samoja",
+          "slug": "samoja",
+          "play_state": "planned",
+          "atlas_label": "Samoja",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/bojongloa-kaler",
+      "name": "Bojongloa Kaler",
+      "slug": "bojongloa-kaler",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/bojongloa-kaler/babakan-asih",
+          "name": "Babakan Asih",
+          "slug": "babakan-asih",
+          "play_state": "planned",
+          "atlas_label": "Babakan Asih",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kaler/babakan-tarogong",
+          "name": "Babakan Tarogong",
+          "slug": "babakan-tarogong",
+          "play_state": "planned",
+          "atlas_label": "Babakan Tarogong",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kaler/jamika",
+          "name": "Jamika",
+          "slug": "jamika",
+          "play_state": "planned",
+          "atlas_label": "Jamika",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kaler/kopo",
+          "name": "Kopo",
+          "slug": "kopo",
+          "play_state": "planned",
+          "atlas_label": "Kopo",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kaler/suka-asih",
+          "name": "Suka Asih",
+          "slug": "suka-asih",
+          "play_state": "planned",
+          "atlas_label": "Suka Asih",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/bojongloa-kidul",
+      "name": "Bojongloa Kidul",
+      "slug": "bojongloa-kidul",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/bojongloa-kidul/cibaduyut",
+          "name": "Cibaduyut",
+          "slug": "cibaduyut",
+          "play_state": "planned",
+          "atlas_label": "Cibaduyut",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kidul/cibaduyut-kidul",
+          "name": "Cibaduyut Kidul",
+          "slug": "cibaduyut-kidul",
+          "play_state": "planned",
+          "atlas_label": "Cibaduyut Kidul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kidul/cibaduyut-wetan",
+          "name": "Cibaduyut Wetan",
+          "slug": "cibaduyut-wetan",
+          "play_state": "planned",
+          "atlas_label": "Cibaduyut Wetan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kidul/kebon-lega",
+          "name": "Kebon Lega",
+          "slug": "kebon-lega",
+          "play_state": "planned",
+          "atlas_label": "Kebon Lega",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kidul/mekar-wangi",
+          "name": "Mekarwangi",
+          "slug": "mekar-wangi",
+          "play_state": "planned",
+          "atlas_label": "Mekarwangi",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/bojongloa-kidul/situsaeur",
+          "name": "Situsaeur",
+          "slug": "situsaeur",
+          "play_state": "planned",
+          "atlas_label": "Situsaeur",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/buahbatu",
+      "name": "Buahbatu",
+      "slug": "buahbatu",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/buahbatu/cijaura",
+          "name": "Cijawura",
+          "slug": "cijaura",
+          "play_state": "planned",
+          "atlas_label": "Cijawura",
+          "name_variants": [
+            "cijaura"
+          ],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/buahbatu/jati-sari",
+          "name": "Jatisari",
+          "slug": "jati-sari",
+          "play_state": "planned",
+          "atlas_label": "Jatisari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/buahbatu/margasari",
+          "name": "Margasari",
+          "slug": "margasari",
+          "play_state": "planned",
+          "atlas_label": "Margasari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/buahbatu/sekejati",
+          "name": "Sekejati",
+          "slug": "sekejati",
+          "play_state": "planned",
+          "atlas_label": "Sekejati",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cibeunying-kaler",
+      "name": "Cibeunying Kaler",
+      "slug": "cibeunying-kaler",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cibeunying-kaler/cigadung",
+          "name": "Cigadung",
+          "slug": "cigadung",
+          "play_state": "planned",
+          "atlas_label": "Cigadung",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kaler/cihaurgeulis",
+          "name": "Cihargeulis",
+          "slug": "cihaurgeulis",
+          "play_state": "planned",
+          "atlas_label": "Cihargeulis",
+          "name_variants": [
+            "cihaurgeulis"
+          ],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kaler/neglasari",
+          "name": "Neglasari",
+          "slug": "neglasari",
+          "play_state": "planned",
+          "atlas_label": "Neglasari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kaler/sukaluyu",
+          "name": "Sukaluyu",
+          "slug": "sukaluyu",
+          "play_state": "planned",
+          "atlas_label": "Sukaluyu",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cibeunying-kidul",
+      "name": "Cibeunying Kidul",
+      "slug": "cibeunying-kidul",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cibeunying-kidul/cicadas",
+          "name": "Cicadas",
+          "slug": "cicadas",
+          "play_state": "planned",
+          "atlas_label": "Cicadas",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kidul/cikutra",
+          "name": "Cikutra",
+          "slug": "cikutra",
+          "play_state": "planned",
+          "atlas_label": "Cikutra",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kidul/padasuka",
+          "name": "Padasuka",
+          "slug": "padasuka",
+          "play_state": "planned",
+          "atlas_label": "Padasuka",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kidul/pasirlayung",
+          "name": "Pasirlayung",
+          "slug": "pasirlayung",
+          "play_state": "planned",
+          "atlas_label": "Pasirlayung",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kidul/sukamaju",
+          "name": "Sukamaju",
+          "slug": "sukamaju",
+          "play_state": "planned",
+          "atlas_label": "Sukamaju",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibeunying-kidul/sukapada",
+          "name": "Sukapada",
+          "slug": "sukapada",
+          "play_state": "planned",
+          "atlas_label": "Sukapada",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cibiru",
+      "name": "Cibiru",
+      "slug": "cibiru",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cibiru/cipadung",
+          "name": "Cipadung",
+          "slug": "cipadung",
+          "play_state": "planned",
+          "atlas_label": "Cipadung",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibiru/cisurupan",
+          "name": "Cisurupan",
+          "slug": "cisurupan",
+          "play_state": "planned",
+          "atlas_label": "Cisurupan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibiru/palasari",
+          "name": "Palasari",
+          "slug": "palasari",
+          "play_state": "planned",
+          "atlas_label": "Palasari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cibiru/pasir-biru",
+          "name": "Pasirbiru",
+          "slug": "pasir-biru",
+          "play_state": "planned",
+          "atlas_label": "Pasirbiru",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cicendo",
+      "name": "Cicendo",
+      "slug": "cicendo",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cicendo/arjuna",
+          "name": "Arjuna",
+          "slug": "arjuna",
+          "play_state": "planned",
+          "atlas_label": "Arjuna",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cicendo/husein-sastranegara",
+          "name": "Husein Sastranegara",
+          "slug": "husein-sastranegara",
+          "play_state": "planned",
+          "atlas_label": "Husein Sastranegara",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cicendo/pajajaran",
+          "name": "Pajajaran",
+          "slug": "pajajaran",
+          "play_state": "planned",
+          "atlas_label": "Pajajaran",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cicendo/pamoyanan",
+          "name": "Pamoyanan",
+          "slug": "pamoyanan",
+          "play_state": "planned",
+          "atlas_label": "Pamoyanan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cicendo/pasirkaliki",
+          "name": "Pasirkaliki",
+          "slug": "pasirkaliki",
+          "play_state": "planned",
+          "atlas_label": "Pasirkaliki",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cicendo/sukaraja",
+          "name": "Sukaraja",
+          "slug": "sukaraja",
+          "play_state": "planned",
+          "atlas_label": "Sukaraja",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cidadap",
+      "name": "Cidadap",
+      "slug": "cidadap",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cidadap/ciumbuleuit",
+          "name": "Ciumbuleuit",
+          "slug": "ciumbuleuit",
+          "play_state": "planned",
+          "atlas_label": "Ciumbuleuit",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cidadap/hegarmanah",
+          "name": "Hegarmanah",
+          "slug": "hegarmanah",
+          "play_state": "planned",
+          "atlas_label": "Hegarmanah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cidadap/ledeng",
+          "name": "Ledeng",
+          "slug": "ledeng",
+          "play_state": "planned",
+          "atlas_label": "Ledeng",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/cinambo",
+      "name": "Cinambo",
+      "slug": "cinambo",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/cinambo/babakan-penghulu",
+          "name": "Babakan Penghulu",
+          "slug": "babakan-penghulu",
+          "play_state": "planned",
+          "atlas_label": "Babakan Penghulu",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cinambo/cisaranten-wetan",
+          "name": "Cisaranten Wetan",
+          "slug": "cisaranten-wetan",
+          "play_state": "planned",
+          "atlas_label": "Cisaranten Wetan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cinambo/pakemitan",
+          "name": "Pakemitan",
+          "slug": "pakemitan",
+          "play_state": "planned",
+          "atlas_label": "Pakemitan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/cinambo/sukamulya",
+          "name": "Sukamulya",
+          "slug": "sukamulya",
+          "play_state": "planned",
+          "atlas_label": "Sukamulya",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/coblong",
+      "name": "Coblong",
+      "slug": "coblong",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/coblong/cipaganti",
+          "name": "Cipaganti",
+          "slug": "cipaganti",
+          "play_state": "planned",
+          "atlas_label": "Cipaganti",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/coblong/dago",
+          "name": "Dago",
+          "slug": "dago",
+          "play_state": "planned",
+          "atlas_label": "Dago",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/coblong/lebak-siliwangi",
+          "name": "Lebak Siliwangi",
+          "slug": "lebak-siliwangi",
+          "play_state": "planned",
+          "atlas_label": "Lebak Siliwangi",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/coblong/lebak-gede",
+          "name": "Lebakgede",
+          "slug": "lebak-gede",
+          "play_state": "planned",
+          "atlas_label": "Lebakgede",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/coblong/sadang-serang",
+          "name": "Sadang Serang",
+          "slug": "sadang-serang",
+          "play_state": "planned",
+          "atlas_label": "Sadang Serang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/coblong/sekeloa",
+          "name": "Sekeloa",
+          "slug": "sekeloa",
+          "play_state": "planned",
+          "atlas_label": "Sekeloa",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/gedebage",
+      "name": "Gedebage",
+      "slug": "gedebage",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/gedebage/cimencrang",
+          "name": "Cimincrang",
+          "slug": "cimencrang",
+          "play_state": "planned",
+          "atlas_label": "Cimincrang",
+          "name_variants": [
+            "cimencrang"
+          ],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/gedebage/cisaranten-kidul",
+          "name": "Cisaranten Kidul",
+          "slug": "cisaranten-kidul",
+          "play_state": "planned",
+          "atlas_label": "Cisaranten Kidul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/gedebage/rancabolang",
+          "name": "Rancabolang",
+          "slug": "rancabolang",
+          "play_state": "planned",
+          "atlas_label": "Rancabolang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/gedebage/rancanumpang",
+          "name": "Rancanumpang",
+          "slug": "rancanumpang",
+          "play_state": "planned",
+          "atlas_label": "Rancanumpang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/kiaracondong",
+      "name": "Kiaracondong",
+      "slug": "kiaracondong",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/kiaracondong/babakan-sari",
+          "name": "Babakan Sari",
+          "slug": "babakan-sari",
+          "play_state": "planned",
+          "atlas_label": "Babakan Sari",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/kiaracondong/babakan-surabaya",
+          "name": "Babakan Surabaya",
+          "slug": "babakan-surabaya",
+          "play_state": "planned",
+          "atlas_label": "Babakan Surabaya",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/kiaracondong/cicaheum",
+          "name": "Cicaheum",
+          "slug": "cicaheum",
+          "play_state": "planned",
+          "atlas_label": "Cicaheum",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/kiaracondong/kebon-jayanti",
+          "name": "Kebon Jayanti",
+          "slug": "kebon-jayanti",
+          "play_state": "planned",
+          "atlas_label": "Kebon Jayanti",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/kiaracondong/kebon-kangkung",
+          "name": "Kebon Kangkung",
+          "slug": "kebon-kangkung",
+          "play_state": "planned",
+          "atlas_label": "Kebon Kangkung",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/kiaracondong/sukapura",
+          "name": "Sukapura",
+          "slug": "sukapura",
+          "play_state": "planned",
+          "atlas_label": "Sukapura",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/lengkong",
+      "name": "Lengkong",
+      "slug": "lengkong",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/lengkong/burangrang",
+          "name": "Burangrang",
+          "slug": "burangrang",
+          "play_state": "planned",
+          "atlas_label": "Burangrang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/cijagra",
+          "name": "Cijagra",
+          "slug": "cijagra",
+          "play_state": "planned",
+          "atlas_label": "Cijagra",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/cikawao",
+          "name": "Cikawao",
+          "slug": "cikawao",
+          "play_state": "planned",
+          "atlas_label": "Cikawao",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/lingkar-selatan",
+          "name": "Lingkar Selatan",
+          "slug": "lingkar-selatan",
+          "play_state": "planned",
+          "atlas_label": "Lingkar Selatan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/malabar",
+          "name": "Malabar",
+          "slug": "malabar",
+          "play_state": "planned",
+          "atlas_label": "Malabar",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/paledang",
+          "name": "Paledang",
+          "slug": "paledang",
+          "play_state": "planned",
+          "atlas_label": "Paledang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/lengkong/turangga",
+          "name": "Turangga",
+          "slug": "turangga",
+          "play_state": "planned",
+          "atlas_label": "Turangga",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/mandalajati",
+      "name": "Mandalajati",
+      "slug": "mandalajati",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/mandalajati/jatihandap",
+          "name": "Jatihandap",
+          "slug": "jatihandap",
+          "play_state": "planned",
+          "atlas_label": "Jatihandap",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/mandalajati/karang-pamulang",
+          "name": "Karang Pamulang",
+          "slug": "karang-pamulang",
+          "play_state": "planned",
+          "atlas_label": "Karang Pamulang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/mandalajati/pasir-impun",
+          "name": "Pasir Impun",
+          "slug": "pasir-impun",
+          "play_state": "planned",
+          "atlas_label": "Pasir Impun",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/mandalajati/sindang-jaya",
+          "name": "Sindang Jaya",
+          "slug": "sindang-jaya",
+          "play_state": "planned",
+          "atlas_label": "Sindang Jaya",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/panyileukan",
+      "name": "Panyileukan",
+      "slug": "panyileukan",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/panyileukan/cipadung-kidul",
+          "name": "Cipadung Kidul",
+          "slug": "cipadung-kidul",
+          "play_state": "planned",
+          "atlas_label": "Cipadung Kidul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/panyileukan/cipadung-kulon",
+          "name": "Cipadung Kulon",
+          "slug": "cipadung-kulon",
+          "play_state": "planned",
+          "atlas_label": "Cipadung Kulon",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/panyileukan/cipadung-wetan",
+          "name": "Cipadung Wetan",
+          "slug": "cipadung-wetan",
+          "play_state": "planned",
+          "atlas_label": "Cipadung Wetan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/panyileukan/mekar-mulya",
+          "name": "Mekarmulya",
+          "slug": "mekar-mulya",
+          "play_state": "planned",
+          "atlas_label": "Mekarmulya",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/rancasari",
+      "name": "Rancasari",
+      "slug": "rancasari",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/rancasari/cipamokolan",
+          "name": "Cipamokolan",
+          "slug": "cipamokolan",
+          "play_state": "planned",
+          "atlas_label": "Cipamokolan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/rancasari/derwati",
+          "name": "Derwati",
+          "slug": "derwati",
+          "play_state": "planned",
+          "atlas_label": "Derwati",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/rancasari/manjahlega",
+          "name": "Manjahlega",
+          "slug": "manjahlega",
+          "play_state": "planned",
+          "atlas_label": "Manjahlega",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/rancasari/mekar-jaya",
+          "name": "Mekarjaya",
+          "slug": "mekar-jaya",
+          "play_state": "planned",
+          "atlas_label": "Mekarjaya",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/regol",
+      "name": "Regol",
+      "slug": "regol",
+      "play_state": "partial",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/regol/ancol",
+          "name": "Ancol",
+          "slug": "ancol",
+          "play_state": "planned",
+          "atlas_label": "Ancol",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/balong-gede",
+          "name": "Balonggede",
+          "slug": "balong-gede",
+          "play_state": "planned",
+          "atlas_label": "Balonggede",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/ciateul",
+          "name": "Ciateul",
+          "slug": "ciateul",
+          "play_state": "planned",
+          "atlas_label": "Ciateul",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/cigereleng",
+          "name": "Cigereleng",
+          "slug": "cigereleng",
+          "play_state": "planned",
+          "atlas_label": "Cigereleng",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/ciseureuh",
+          "name": "Ciseureuh",
+          "slug": "ciseureuh",
+          "play_state": "planned",
+          "atlas_label": "Ciseureuh",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/pasirluyu",
+          "name": "Pasirluyu",
+          "slug": "pasirluyu",
+          "play_state": "playable",
+          "atlas_label": "Pasirluyu",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/regol/pungkur",
+          "name": "Pungkur",
+          "slug": "pungkur",
+          "play_state": "planned",
+          "atlas_label": "Pungkur",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/sukajadi",
+      "name": "Sukajadi",
+      "slug": "sukajadi",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/sukajadi/cipedes",
+          "name": "Cipedes",
+          "slug": "cipedes",
+          "play_state": "planned",
+          "atlas_label": "Cipedes",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukajadi/pasteur",
+          "name": "Pasteur",
+          "slug": "pasteur",
+          "play_state": "planned",
+          "atlas_label": "Pasteur",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukajadi/sukabungah",
+          "name": "Sukabungah",
+          "slug": "sukabungah",
+          "play_state": "planned",
+          "atlas_label": "Sukabungah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukajadi/sukagalih",
+          "name": "Sukagalih",
+          "slug": "sukagalih",
+          "play_state": "planned",
+          "atlas_label": "Sukagalih",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukajadi/sukawarna",
+          "name": "Sukawarna",
+          "slug": "sukawarna",
+          "play_state": "planned",
+          "atlas_label": "Sukawarna",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/sukasari",
+      "name": "Sukasari",
+      "slug": "sukasari",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/sukasari/gegerkalong",
+          "name": "Gegerkalong",
+          "slug": "gegerkalong",
+          "play_state": "planned",
+          "atlas_label": "Gegerkalong",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukasari/isola",
+          "name": "Isola",
+          "slug": "isola",
+          "play_state": "planned",
+          "atlas_label": "Isola",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukasari/sarijadi",
+          "name": "Sarijadi",
+          "slug": "sarijadi",
+          "play_state": "planned",
+          "atlas_label": "Sarijadi",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sukasari/sukarasa",
+          "name": "Sukarasa",
+          "slug": "sukarasa",
+          "play_state": "planned",
+          "atlas_label": "Sukarasa",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/sumur-bandung",
+      "name": "Sumur Bandung",
+      "slug": "sumur-bandung",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/sumur-bandung/babakan-ciamis",
+          "name": "Babakan Ciamis",
+          "slug": "babakan-ciamis",
+          "play_state": "planned",
+          "atlas_label": "Babakan Ciamis",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sumur-bandung/braga",
+          "name": "Braga",
+          "slug": "braga",
+          "play_state": "planned",
+          "atlas_label": "Braga",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sumur-bandung/kebon-pisang",
+          "name": "Kebon Pisang",
+          "slug": "kebon-pisang",
+          "play_state": "planned",
+          "atlas_label": "Kebon Pisang",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/sumur-bandung/merdeka",
+          "name": "Merdeka",
+          "slug": "merdeka",
+          "play_state": "planned",
+          "atlas_label": "Merdeka",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    },
+    {
+      "id": "bdg/ujungberung",
+      "name": "Ujungberung",
+      "slug": "ujungberung",
+      "play_state": "planned",
+      "boundary_state": "not_imported",
+      "villages": [
+        {
+          "id": "bdg/ujungberung/cigending",
+          "name": "Cigending",
+          "slug": "cigending",
+          "play_state": "planned",
+          "atlas_label": "Cigending",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/ujungberung/pasanggrahan",
+          "name": "Pasanggrahan",
+          "slug": "pasanggrahan",
+          "play_state": "planned",
+          "atlas_label": "Pasanggrahan",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/ujungberung/pasir-endah",
+          "name": "Pasir Endah",
+          "slug": "pasir-endah",
+          "play_state": "planned",
+          "atlas_label": "Pasir Endah",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/ujungberung/pasir-wangi",
+          "name": "Pasir Wangi",
+          "slug": "pasir-wangi",
+          "play_state": "planned",
+          "atlas_label": "Pasir Wangi",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        },
+        {
+          "id": "bdg/ujungberung/pasirjati",
+          "name": "Pasirjati",
+          "slug": "pasirjati",
+          "play_state": "planned",
+          "atlas_label": "Pasirjati",
+          "name_variants": [],
+          "boundary_state": "not_imported"
+        }
+      ]
+    }
+  ]
+}
