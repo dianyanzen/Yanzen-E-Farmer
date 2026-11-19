@@ -3,6 +3,7 @@ import type { ToolUse } from "./field-engine";
 import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
 import { drawOutdoorArea } from "./pasirluyu-areas";
 import {drawFieldRoads,drawRouteClosures} from "./pasirluyu-master-map";
+import {drawSignposts} from "./signposts";
 
 const { width: W, height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -120,7 +121,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   // Both sides of the road use identical world-coordinate atlas texture.
   drawFieldRoads(ctx);
-  label(ctx,"GANG →",19*T,10*T-6);
+  // Directions are displayed on physical inspectable signposts, not floating text.
   // Natural East and South edges now have visible trees/fence matching collisions.
   for(let y=5;y<16;y++)if(y!==10&&y!==11){
     box(ctx,23*T,y*T,20,20,"#406745");
@@ -180,6 +181,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }
   }
   drawRouteClosures(ctx,"field");
+  drawSignposts(ctx,"field");
   }
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
