@@ -279,3 +279,25 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-phaser-host canvas{display:block;max-height:min(62dvh,525px);image-rendering:pixelated;image-rendering:crisp-edges;cursor:pointer}
 .yzg-page:fullscreen .yzg-phaser-host canvas{max-height:calc(100dvh - 210px)}
 @media(max-width:849px){.yzg-page:fullscreen .yzg-phaser-host canvas{max-height:calc(100dvh - 340px)}}
+
+/* Phaser prototype: the field stays primary; detailed goals, status and controls live in YZ Phone. */
+.yzg-page--phaser .yzg-objective,
+.yzg-page--phaser .yzg-farm-guidance,
+.yzg-page--phaser .yzg-home-hint,
+.yzg-page--phaser .yzg-footer{display:none}
+.yzg-page--phaser .yzg-headsup{min-height:36px;padding:7px 12px;gap:10px;font-size:12px}
+.yzg-page--phaser .yzg-headsup>span:nth-child(3),
+.yzg-page--phaser .yzg-headsup>span:nth-child(4){display:none}
+.yzg-page--phaser .yzg-controls{gap:8px;padding:8px 12px}
+.yzg-page--phaser .yzg-action-context{flex:1 1 150px;border:0;background:transparent;padding:3px 0;font-size:12px}
+.yzg-page--phaser .yzg-action-context small{display:none}
+.yzg-page--phaser .yzg-tool-status small{display:none}
+.yzg-page--phaser .yzg-viewport{background:#263c2e}
+.yzg-page--phaser .yzg-phone-card{line-height:1.55}
+@media(max-width:600px){
+  .yzg-page--phaser .yzg-header{display:none}
+  .yzg-page--phaser .yzg-headsup{font-size:11px;padding:6px 8px}
+  .yzg-page--phaser .yzg-toolbelt{flex:1 1 100%}
+  .yzg-page--phaser .yzg-action-context{font-size:11px}
+  .yzg-page--phaser .yzg-controls{padding:6px 8px}
+}
