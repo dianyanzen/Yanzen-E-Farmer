@@ -1,0 +1,929 @@
+{
+  "schemaVersion": 1,
+  "createdOn": "2026-11-18",
+  "generator": "OpenAI image_gen",
+  "groups": [
+    {
+      "group": 0,
+      "characters": [
+        "A01",
+        "A02",
+        "A03",
+        "A04"
+      ],
+      "prompt": "Create an ORIGINAL production pixel-art game dialogue PORTRAIT ATLAS using the attached four-character reference board. Preserve each character's exact hairstyle, face shape, skin tone, headwear, and outfit COLORS. Enlarge to expressive shoulder-up portraits, NO hands. EXACT 8 equal columns x 4 equal rows, 32 portraits total, 1536x1024 canvas, each cell 192x256. No words, no labels, no dividers, no borders, no overlapping cells. Each portrait centered inside its cell with generous 10% padding, full head visible. Every row is ONE SAME character repeated with eight expressions. ROWS TOP TO BOTTOM: 1 Yanzen A01: Indonesian young adult man, thick tousled BLACK hair, cream work shirt with dark navy vest; 2 Nabila A02: Indonesian woman, NAVY HIJAB, sage green tunic; 3 Ryan A03: Indonesian mature man, thick tousled BLACK hair, ochre work shirt, serious eyebrows; 4 Ayu A04: Indonesian woman, muted slate blue HIJAB and matching muted blue top. All identities must closely match the attached reference, especially Yanzen and Ryan have BLACK hair not blond. COLUMNS LEFT TO RIGHT in EACH row: neutral attentive, happy warm smile, sad downcast, worried concerned, surprised wide eyes, annoyed frown, shy bashful friendly smile, laughing joyous closed eyes open smile. Shy is ordinary social modesty, not romance. Cohesive original GBA-era farming RPG pixel art, precise dark outlines, warm limited palette, deliberate pixel clusters, crisp sharp high definition no blurry painterly rendering, consistent head size, no logos, no game screenshots. Transparent background around each bust. Eight clearly DIFFERENT expressions in every row.",
+      "correction": null
+    },
+    {
+      "group": 1,
+      "characters": [
+        "A05",
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "prompt": "Create ORIGINAL production pixel-art game dialogue portrait atlas using the attached character board as exact visual reference. EXACT 8 equal columns x 4 equal rows = 32 bust portraits, canvas 1536x1024, cells192x256. Four rows ONE CHARACTER per row repeated in 8 expressions. TOP TO BOTTOM rows: Vicky A05, Indonesian young adult man, tousled BLACK hair, rectangular thin glasses, dark teal button shirt. Asep A06, Indonesian young adult man, tousled BLACK hair, orange short sleeve work shirt, no glasses. Dewi A07, Indonesian adult woman, taupe HIJAB, olive green blouse. Astri A08, Indonesian adult woman, BLACK hair in low tidy bun with side fringe, terracotta blouse. Preserve reference hairstyle/headwear/outfit/skin tones exactly, recognizable distinct faces and consistent identity across each row. Columns left to right for EVERY row: neutral, happy smile, sad, worried, surprised, annoyed, shy friendly modest smile, laughing closed eyes broad open smile. Shoulder-up only, NO hands, full heads and all headwear visible, 10% empty padding in each cell, no overlap. No text or labels or borders or separators. Warm original GBA-era farming RPG pixel art, deliberate crisp pixel clusters and dark outlines, no blurry painterly gradients, high definition sharp. Transparent surrounding portraits. Do not mix identities between rows or add or remove glasses/hijab.",
+      "correction": null
+    },
+    {
+      "group": 2,
+      "characters": [
+        "A09",
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "prompt": "Original production pixel art farming RPG dialogue portraits. Use attached FOUR character reference board, preserve exact identity, outfit, hairstyle and accessories. EXACT atlas 8 columns x4 rows (32 portraits) canvas1536x1024 cell192x256. No labels/text/borders/lines. Shoulder-up, no hands, full heads, 10% padding per cell. ROW1 Fajar A09 Indonesian young adult man, tousled BLACK hair, round glasses, muted PLUM button shirt. ROW2 Dadan A10 Indonesian adult man, tousled BLACK hair, strong straight eyebrows, forest green button shirt, NO glasses. ROW3 Anggi A11 Indonesian adult woman, MAUVE/BURGUNDY HIJAB, MUSTARD blouse, warm face. ROW4 Denden A12 Indonesian adult man, short tousled BLACK hair, broad eyebrows, BRICK RED shirt, no glasses. Every row repeats SAME character eight expressions in EXACT columns: neutral attentive, happy smile, sad downcast, worried, surprised, annoyed frown, shy friendly modest smile, laughing broad open smile eyes closed. Non-romantic shy. Match attached references closely and make faces distinct. Consistent high quality GBA-inspired original pixel art with crisp dark outlines, deliberate clean pixel clusters, warm cohesive limited palette and sharp high definition. Transparent empty background. Do not add hats, beards or glasses unless reference has them.",
+      "correction": null
+    },
+    {
+      "group": 3,
+      "characters": [
+        "A13",
+        "A14",
+        "A15",
+        "A16"
+      ],
+      "prompt": "Create a production pixel art dialogue portrait atlas from attached FOUR character board. Preserve each exact hairstyle, glasses, hijab, surgical mask and clothing. EXACT 8 columns x 4 rows, total32 portraits, 1536x1024, eachcell192x256. Eachrow repeats ONE same character 8 expressions. ROW1 Nida A13 Indonesian young adult woman, NAVY HIJAB, lavender blouse, WHITE/LIGHT LAVENDER SURGICAL FACE MASK covering nose and mouth IN EVERY EXPRESSION. Convey expressions through eyebrows, eyes and cheeks above mask; NEVER remove or lower mask. ROW2 Desna A14 Indonesian adult man, tousled BLACK hair, rectangular glasses, SLATE BLUE button shirt. ROW3 Heru A15 Indonesian adult man, tousled BLACK hair, OLIVE open overshirt over cream tee, no glasses. ROW4 Khansa A16 Indonesian adult woman, BLACK hair in HIGH BUN, rectangular BLACK glasses, muted ROSE button shirt. Eight columns lefttoright EXACT: neutral, happy, sad, worried, surprised, annoyed, shy friendly modest smile, laughing joyous closedeyes. Nida stays fully masked even when laughing. All others show natural mouth expressions. Bust shoulderup only NO hands. Full heads with10% padding allcells, no overlapping. No labels or text or borders or dividers. Original cozy GBA-era farmingRPG pixel art, crisp precise dark outlines, deliberate pixel clusters, consistent warm palette, high definition not blurry. Transparent around portraits.",
+      "correction": null
+    },
+    {
+      "group": 4,
+      "characters": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "prompt": "Create ORIGINAL production pixel-art farming RPG dialogue portraits using attached reference board for exact identities. EXACT 8 equal columns x4 equal rows=32 portraits,1536x1024, cells192x256. Same character each row repeated 8 expressions, no identity drift. ROW1 Nani C01 ELDERLY Indonesian woman, gentle wrinkled face and mature eyelids, TAUPE/BEIGE HIJAB fully covering hair, CREAM blouse with DUSTY ROSE FLOWER pattern. Keep her elderly, never young, never gray bun: she wears a HIJAB exactly like reference. ROW2 Risky C02 middle-aged Indonesian man, BLACK tousled hair, light dark stubble around chin, OLIVE work shirt. ROW3 Tatang C03 ELDERLY Indonesian man, BROWN FLAT CAP, GRAY hair, WHITE MUSTACHE, ROUND glasses, cream cardigan over dark shirt; preserve age and all accessories. ROW4 Desi C04 Indonesian adult woman, DARK BROWN HAIR IN HIGH BUN with loose side bangs, CREAM CARDIGAN over pale beige top. Exact columns lefttoright: neutral, happy, sad, worried, surprised, annoyed, shy friendly modest smile, laughing closedeyes broad smile. Everyrow eight distinct readable expressions; elderly age lines remain in all columns. Shoulderup NO hands; fullheads/headwear,10%padding in eachcell,no overlap. No text labels borders or separators. Warm limited palette, crisp pixel clusters with dark outlines, original cozy GBA-era farmRPG, sharp highdefinition no softpainterlyblur. Transparent around busts.",
+      "correction": "Restore Risky's dark stubble and Tatang's white mustache consistently across all eight expressions."
+    },
+    {
+      "group": 5,
+      "characters": [
+        "C05",
+        "C06",
+        "C07",
+        "C08"
+      ],
+      "prompt": "Create original production dialogue portrait sprite atlas based EXACTLY on attached fourcharacter board. Canvas1536x1024 EXACT8 equal columns x4equal rows=32busts. Eachrow samecharacter with8expressions. ROW1 Eza C05 Indonesian teen boy/student, tousled BLACK hair, youthful round face, LILAC short sleeve collared shirt; age appropriate innocent expressions, no beard or adult aging. ROW2 Yani C06 Indonesian young adult woman, PALE GRAY/MAUVE HIJAB with ROUND glasses, CREAM hoodie with drawstrings. ROW3 Widi C07 Indonesian adult man, tousled BLACK hair, CHARCOAL short sleeve collared shirt, NO glasses. ROW4 Inggit C08 Indonesian adult woman, DARKBROWN hair HIGH BUN and sideswept fringe, TAN BROWN COOKING APRON over DARK BROWN shirt. She does NOT wear a hijab; follow reference bun exactly. Columns lefttoright for allrows: neutral, happy, sad, worried, surprised, annoyed, shy modest friendly smile, laughing eyesclosed broad smile. No romance symbols. Preserve each exact clothing/headwear/accessory and skin tone acrossexpressions. Shoulderup NO hands, fullheads,10%padding eachcell,no overlap. No labels,text,borders,dividers. Warm GBA-era cozy pixelart darkoutline cleanpixelclusters, crisp sharp high definition no painterlyblur. Transparent around busts.",
+      "correction": null
+    },
+    {
+      "group": 6,
+      "characters": [
+        "C09",
+        "C10",
+        "C11",
+        "C12"
+      ],
+      "prompt": "Create ORIGINAL production pixelart farmingRPG dialogue portrait atlas from attached FOURcharacter sprite references. Preserve identities and exact outfits. EXACT8 equal columns by4equal rows=32 portraits on1536x1024canvas with192x256cells. Rows topbottom: Bela C09 Indonesian adult illustrator, short tousled BLACK hair, ROUND glasses, OLIVE open overshirt over CHARCOAL tee, soft youthful face following reference. Yogi C10 Indonesian adult man, tousled BLACK hair, PALE BLUE collared button shirt, NO glasses. Ray C11 Indonesian young adult man, tousled BLACK hair, CREAM hoodie with drawstrings, no glasses. Fatihah C12 Indonesian adult woman, BEIGE HIJAB, PLUM long sleeve tunic. Eight expressions lefttoright everyrow: neutral attentive, happy smile, sad downcast, worried concern, surprised wideeyes, annoyed frown, shy modest friendly smile, laughing eyesclosed broad open smile. All characters recognizeably different and match reference. No hands, bust shoulderup, fullhead/headwear,10%padding allcells,no overlap. No writing,labels,borders,dividers. Original cozy GBA-era pixelart, precise darkoutline,purposeful pixelclusters, cohesive warmpalette, crisp sharp HD, no painterlyblur. Transparent surrounding busts.",
+      "correction": null
+    },
+    {
+      "group": 7,
+      "characters": [
+        "C13",
+        "C14",
+        "C15",
+        "C16"
+      ],
+      "prompt": "Create ORIGINAL production pixelart farmingRPG dialogue portrait atlas from attached FOURcharacter sprites. EXACT8 equalcolumns x4equalrows=32bustportraits canvas1536x1024,192x256cells. Samecharacter8expressions perrow. ROW1 Heri C13 ELDERLY Indonesian man, BLACK PECI cap, GRAY side hair, GRAY MUSTACHE, rectangular GLASSES, ORANGE BROWN BATIK shirt with restrained dark floral motif, mature friendly wrinkled face; preserve senior age all expressions. ROW2 Arya C14 Indonesian adult man, BLACK hair beneath OLIVE plain motorcycle HELMET, OLIVE workjacket over charcoal shirt, no logos, no glasses. Keep helmet consistent all8expressions, face unobstructed. ROW3 Malik C15 Indonesian adult male wheelchair user per reference: tousled BLACK hair, RECTANGULAR dark GLASSES, NAVY blazer over CREAM collared shirt, warm thoughtful face. This is shoulderup seated portrait; only shoulders/head no hands or lowerbody. ROW4 Karisma C16 Indonesian adult woman, LONG WAVY DARKBROWN hair with sidebangs, BLUE DENIM jacket over lightbeige top, expressive friendlyface. EXACTcolumns allrows: neutral, happy smile, sad, worried, surprised, annoyed, shy friendly modest smile, laughing closedeyes open smile. Nohands, full heads/headwear with10%padding, nooverlap between cells. No text labels,borders or dividers. Reference-matching warm original GBA-era cozyRPG pixelart with crisp darkoutline, deliberate pixelclusters, highdefinition sharp, not blurry painting. Transparent around busts.",
+      "correction": "Preserve Heri's gray mustache in every expression."
+    }
+  ],
+  "characters": [
+    {
+      "id": "A01",
+      "name": "Yanzen",
+      "sheet": "/game/assets/portraits/A01.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 163677,
+      "sha256": "5e791c6dfccfb2f9da837c932fd7c101b05bbf5f19a3b2b56b1ed1a00cea00cb",
+      "source": "game-assets/characters/gba-v2/sheets/A01.png",
+      "sourceSha256": "ada5239626d8c20b32f914324e460faafcff82a3a468192f36ea013bf4915e93"
+    },
+    {
+      "id": "A02",
+      "name": "Nabila",
+      "sheet": "/game/assets/portraits/A02.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 163061,
+      "sha256": "b55201f7655acc981ecaf9737aea7ed599aff258794dc32d3d7f06694c8a0b58",
+      "source": "game-assets/characters/gba-v2/sheets/A02.png",
+      "sourceSha256": "9534d5cd82fc23398e7070dfb036f91025af5bd7b4a09135b9eda9713eedf2ff"
+    },
+    {
+      "id": "A03",
+      "name": "Ryan",
+      "sheet": "/game/assets/portraits/A03.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 167326,
+      "sha256": "50dd698caebb2080555609326c55274e5be72fcc36378e8a36ac722c4fd6211f",
+      "source": "game-assets/characters/gba-v2/sheets/A03.png",
+      "sourceSha256": "8d63c537c1608ca4fd383604e3c8cb365055d3f56d47fa275b84c3c28020fe64"
+    },
+    {
+      "id": "A04",
+      "name": "Ayu",
+      "sheet": "/game/assets/portraits/A04.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 173971,
+      "sha256": "49533bc221d4e2fca9e2f80cf6ff5a223a354119054880e21e5bc2973a538ce9",
+      "source": "game-assets/characters/gba-v2/sheets/A04.png",
+      "sourceSha256": "17779087d71a3c494ace5570f8de9df6cf6dcf0e4254ec804fd7d26f5669cdf2"
+    },
+    {
+      "id": "A05",
+      "name": "Vicky",
+      "sheet": "/game/assets/portraits/A05.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 169637,
+      "sha256": "5ccaaabde257b8ecca21ce7427904f15c9cea8115a8e10f07689294dc1b54bdc",
+      "source": "game-assets/characters/gba-v2/sheets/A05.png",
+      "sourceSha256": "aa7c229deb7209aa071f077cb2c9f2230f3bbbb196ab2cb5fcd0f9f47cc299bf"
+    },
+    {
+      "id": "A06",
+      "name": "Asep",
+      "sheet": "/game/assets/portraits/A06.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 169606,
+      "sha256": "510cd47f088f083193dce0cdea34cf391f11da0159eb65099b578fe2a20ea467",
+      "source": "game-assets/characters/gba-v2/sheets/A06.png",
+      "sourceSha256": "21ece4bd8ee0f22ab748bea602e7593b821f04ffa2a3c870899b596712865a30"
+    },
+    {
+      "id": "A07",
+      "name": "Dewi",
+      "sheet": "/game/assets/portraits/A07.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 179490,
+      "sha256": "c06807c6453321e5d6eeba42add3cb8bc271d1351f381cd7c4cbc72850ca7468",
+      "source": "game-assets/characters/gba-v2/sheets/A07.png",
+      "sourceSha256": "7a7bb53bef36d84443712febbe32043bf62e04d0a994cd2a2fff4d142edff4a6"
+    },
+    {
+      "id": "A08",
+      "name": "Astri",
+      "sheet": "/game/assets/portraits/A08.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 177108,
+      "sha256": "e249d9bfbcd8373cd1e88f3ab982e5692141f4f2890944d5cbdebcf9ad91cac1",
+      "source": "game-assets/characters/gba-v2/sheets/A08.png",
+      "sourceSha256": "ae863cd87b6b482e4891d30ff0779da3641ed6cec8e0caf6c149b62de8907f78"
+    },
+    {
+      "id": "A09",
+      "name": "Fajar",
+      "sheet": "/game/assets/portraits/A09.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 158838,
+      "sha256": "781da1861c2103613028149da12658a5f356c79b9ae08c38402376992fbea1c0",
+      "source": "game-assets/characters/gba-v2/sheets/A09.png",
+      "sourceSha256": "1e4b418e514078f9ea6eee667b553fd3d1bc6a3b33e2a88694103c7a04a4f0f3"
+    },
+    {
+      "id": "A10",
+      "name": "Dadan",
+      "sheet": "/game/assets/portraits/A10.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 161406,
+      "sha256": "3f9b47217ddea35855c15765ec719be6e0c5e7698382b406cfbb63e68ec50677",
+      "source": "game-assets/characters/gba-v2/sheets/A10.png",
+      "sourceSha256": "f20a441aec9d4cc230274297991d37598ed2b9f8f27e3ff79ee3af75b3567642"
+    },
+    {
+      "id": "A11",
+      "name": "Anggi",
+      "sheet": "/game/assets/portraits/A11.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 149488,
+      "sha256": "73bf46466e85de1623775b0aebed5c3451e36a617d5249bdd58f7c0af3cc8c8b",
+      "source": "game-assets/characters/gba-v2/sheets/A11.png",
+      "sourceSha256": "e69e5a40f3e90274dc7601bca841fdbd824aed591782f7ba5cf57c5aaf446f62"
+    },
+    {
+      "id": "A12",
+      "name": "Denden",
+      "sheet": "/game/assets/portraits/A12.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 157248,
+      "sha256": "ee1755014663ebcb98ae6308243e385217d5c35ededdb8230aacdd4216f0ee9c",
+      "source": "game-assets/characters/gba-v2/sheets/A12.png",
+      "sourceSha256": "1071ee4813391b6aa1f4efe8443a5ebca3fe3e14f000e429d8640d4c1754d18a"
+    },
+    {
+      "id": "A13",
+      "name": "Nida",
+      "sheet": "/game/assets/portraits/A13.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 168251,
+      "sha256": "578a3bb31cc10ee31e74d834016fa06ea5cc3585c173356493d50479f13fee99",
+      "source": "game-assets/characters/gba-v2/sheets/A13.png",
+      "sourceSha256": "2499c24044682004047ac8a6529b984a36ee75cad186d4899afd914cbb94c8c6"
+    },
+    {
+      "id": "A14",
+      "name": "Desna",
+      "sheet": "/game/assets/portraits/A14.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 174745,
+      "sha256": "447da799941128e960c7758e824b3354c6aa588a6a82b5144c5bba984b99eb53",
+      "source": "game-assets/characters/gba-v2/sheets/A14.png",
+      "sourceSha256": "ad175b4945142a6aba5c9db6039d9b31af1eeed3b576dcefa8625dc08b95d1c9"
+    },
+    {
+      "id": "A15",
+      "name": "Heru",
+      "sheet": "/game/assets/portraits/A15.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 174193,
+      "sha256": "066d29c95daffe9ebd12ce38fa49091c761a1a920f364d4fe306c676f08704c3",
+      "source": "game-assets/characters/gba-v2/sheets/A15.png",
+      "sourceSha256": "5315865102c383feb5ce70806af59d4b91c548568e50b3d023a73a13ff8c6701"
+    },
+    {
+      "id": "A16",
+      "name": "Khansa",
+      "sheet": "/game/assets/portraits/A16.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 182412,
+      "sha256": "168bd8df3fb3db3166b814c54cd3e5d6eca0028e5deed446989aa8c55e3757b5",
+      "source": "game-assets/characters/gba-v2/sheets/A16.png",
+      "sourceSha256": "fa7b40b0f1fd7e44759f14267ff76f8fb2ab8fe410d83140c3b8cc6484cf3d98"
+    },
+    {
+      "id": "C01",
+      "name": "Nani",
+      "sheet": "/game/assets/portraits/C01.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 183032,
+      "sha256": "e995b4af7b0bb4373682ee8b466f17327934893e3936f6bf6154e71628b0f09a",
+      "source": "game-assets/characters/gba-v2-c/sheets/C01.png",
+      "sourceSha256": "c7fe51308d8c552a21f1d6fb97692b8f9a18a9b3a81d1d066e64f95e668c9c61"
+    },
+    {
+      "id": "C02",
+      "name": "Risky",
+      "sheet": "/game/assets/portraits/C02.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 183670,
+      "sha256": "7c779d6f32894841bb2a4484f9a2c8680f720290ecd0c5836ee9fca212c76431",
+      "source": "game-assets/characters/gba-v2-c/sheets/C02.png",
+      "sourceSha256": "357aefcfc42fa43ff50c57b5dd9e329869328664cb45fc9c250c27651d7ffdd5"
+    },
+    {
+      "id": "C03",
+      "name": "Tatang",
+      "sheet": "/game/assets/portraits/C03.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 180666,
+      "sha256": "f43fc2a77189cfded6f9ed7828f319600b0fe6b6c35c241217371bda81a91c76",
+      "source": "game-assets/characters/gba-v2-c/sheets/C03.png",
+      "sourceSha256": "d5e45c42ebf8c4771aa5ff15cdb3f38938dce17bb7794681ef3c8a1d819b0121"
+    },
+    {
+      "id": "C04",
+      "name": "Desi",
+      "sheet": "/game/assets/portraits/C04.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 170886,
+      "sha256": "a5fdbe7e36d57c98c7b70a0cc62ce275e69c2369ba8cfeb38f36c52db98be028",
+      "source": "game-assets/characters/gba-v2-c/sheets/C04.png",
+      "sourceSha256": "4fcb56e98f7f79a5792030fe5bba9ab6bf0dbe99098f169cca1872635f804c43"
+    },
+    {
+      "id": "C05",
+      "name": "Eza",
+      "sheet": "/game/assets/portraits/C05.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 156975,
+      "sha256": "9824e2ad01e27db49c9930fadf162382b25ec42db39027b1f11042b5d798b7c6",
+      "source": "game-assets/characters/gba-v2-c/sheets/C05.png",
+      "sourceSha256": "246d2997bb027149ea8c7e0a820a66642d9f71715cace106b31a8c9ae54867d8"
+    },
+    {
+      "id": "C06",
+      "name": "Yani",
+      "sheet": "/game/assets/portraits/C06.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 156020,
+      "sha256": "f5d093db13d2fe6cde02f5720b2d66f23c2aa8f190f5e96a6c74d37321142def",
+      "source": "game-assets/characters/gba-v2-c/sheets/C06.png",
+      "sourceSha256": "8e61a646e6472be7bab7577a3103586893c4a6adb0f2738d33fa704c5febbd9e"
+    },
+    {
+      "id": "C07",
+      "name": "Widi",
+      "sheet": "/game/assets/portraits/C07.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 166825,
+      "sha256": "ffe290a33786730c183285840599867c30e36a18ac06ca64a05dff18e04ff23e",
+      "source": "game-assets/characters/gba-v2-c/sheets/C07.png",
+      "sourceSha256": "980872a79f58bc073ef337cd286749229e2bed06b5c8372556b351bf70501733"
+    },
+    {
+      "id": "C08",
+      "name": "Inggit",
+      "sheet": "/game/assets/portraits/C08.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 166356,
+      "sha256": "9fa93e45ea31be4cf3ef9fc2458354d587b5595539fcf78f886e09576c065066",
+      "source": "game-assets/characters/gba-v2-c/sheets/C08.png",
+      "sourceSha256": "788530e86901dfbf42f0888501dd242595cb9cc747d79ee807c46ce1b95083c2"
+    },
+    {
+      "id": "C09",
+      "name": "Bela",
+      "sheet": "/game/assets/portraits/C09.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 166641,
+      "sha256": "3b2da3876adbe32d898bb47a462c6a01126af1f53dfc2275e2ebffa015c114ef",
+      "source": "game-assets/characters/gba-v2-c/sheets/C09.png",
+      "sourceSha256": "7c80c440f3d618180fdedcdd52818bfaa81278761a71e35700efee7084ab710e"
+    },
+    {
+      "id": "C10",
+      "name": "Yogi",
+      "sheet": "/game/assets/portraits/C10.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 159624,
+      "sha256": "acb4c21bdaa33243db7a1e08a0f43a0ce35bbb502fdb2413aacca6f8f52b9cd6",
+      "source": "game-assets/characters/gba-v2-c/sheets/C10.png",
+      "sourceSha256": "979be2a961ec8cd1796e3daa4366ac4447df4d93f66731528e727ac504d178a6"
+    },
+    {
+      "id": "C11",
+      "name": "Ray",
+      "sheet": "/game/assets/portraits/C11.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 164202,
+      "sha256": "8acad84d328afb14076a555584d8103bf9212b6f719b7cbc8e1bb25e09163693",
+      "source": "game-assets/characters/gba-v2-c/sheets/C11.png",
+      "sourceSha256": "2dfc8dd7955e74faeb2fb4a46288384b94ddf2023aa11b22a79cf75d57a60a3c"
+    },
+    {
+      "id": "C12",
+      "name": "Fatihah",
+      "sheet": "/game/assets/portraits/C12.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 160951,
+      "sha256": "e89beacc290c12bacb9cdc3fcf4ef79a7a60cdde656e8059c4a18795ca2a6b4f",
+      "source": "game-assets/characters/gba-v2-c/sheets/C12.png",
+      "sourceSha256": "7ca96bbd99399921dc9739c79e98199bae74bb975a74a6909f63e001a6f0ad8e"
+    },
+    {
+      "id": "C13",
+      "name": "Heri",
+      "sheet": "/game/assets/portraits/C13.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 156439,
+      "sha256": "84f9efc7f081197098261946948e00886abcb96e933347c6624c09a1b02be39a",
+      "source": "game-assets/characters/gba-v2-c/sheets/C13.png",
+      "sourceSha256": "f6397cf4512b1263c510a69ae7c817e29a19a12144aa201c5bd942eda6966745"
+    },
+    {
+      "id": "C14",
+      "name": "Arya",
+      "sheet": "/game/assets/portraits/C14.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 166516,
+      "sha256": "f808ac4d7f53712c2add4ef716f7d435b43683ded4ad0176e6261db235052c2f",
+      "source": "game-assets/characters/gba-v2-c/sheets/C14.png",
+      "sourceSha256": "3e2b9e211f817c9724442062949f1770569cba7ab31774d5b34f68a62f4c0191"
+    },
+    {
+      "id": "C15",
+      "name": "Malik",
+      "sheet": "/game/assets/portraits/C15.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 180761,
+      "sha256": "44f30ae87d79fbdc2256cc7d2b883ef76e1ac2eaa8976f01fd21016472a6f94b",
+      "source": "game-assets/characters/gba-v2-c/sheets/C15.png",
+      "sourceSha256": "527c0ce9f31d33593547bc83462d17c1d69a411d9726d797408aca6920a43732"
+    },
+    {
+      "id": "C16",
+      "name": "Karisma",
+      "sheet": "/game/assets/portraits/C16.png",
+      "width": 1536,
+      "height": 256,
+      "frameSize": [
+        192,
+        256
+      ],
+      "columns": 8,
+      "emotions": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "bytes": 190656,
+      "sha256": "8a7fb2509844e5e96a2325878987cce2c769d73033bf9a381e53d253ec2aeb71",
+      "source": "game-assets/characters/gba-v2-c/sheets/C16.png",
+      "sourceSha256": "0ff40688d6212114ef9d5231c839050f0939537bbc8ad85f6706570fec5dcb08"
+    }
+  ]
+}

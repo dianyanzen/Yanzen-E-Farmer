@@ -1,0 +1,141 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "transparent_background": true,
+  "styleAnchor": "generated A01",
+  "prompts": [
+    {
+      "id": "A01",
+      "references": [
+        "private A01.png"
+      ],
+      "prompt": "Generate a production pixel sprite sheet for YZ Farm Life, character A01, sole main character. Reference image is identity inspiration ONLY: retain young adult man, messy black hair, warm tan skin. Replace ALL official uniform with plain cream rolled sleeve farm shirt, plain navy work vest, charcoal pants, brown boots. NO logos, badges, flags, text, lanyard, gadgets, tools. GBA era top-down 3/4 farming RPG pixel art, crisp deliberate square pixels, limited warm palette, dark colored outlines, chibi 2.5 heads tall. Exactly 12 full-body sprites in a regular 3 columns x 4 rows grid, equally sized cells, consistent bottom-center anchor, generous transparent padding. Row 1 faces south/front, row 2 west/left, row 3 east/right, row 4 north/back. Each row three walking frames: left foot forward, neutral idle, right foot forward. Same outfit and scale across frames. Every pose anatomically has exactly TWO arms with TWO hands and TWO legs with TWO feet; arms relaxed away from torso; no extra limbs or floating skin marks. No labels, grid lines, shadows, props, decorations. Transparent background. Sheet is one asset, all 12 poses, aligned for slicing."
+    },
+    {
+      "id": "A02",
+      "references": [
+        "private A02.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A02. Identity: young adult woman, navy hijab, warm brown eyes. Civilian outfit: sage green long sleeve tunic, brown trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A03",
+      "references": [
+        "private A03.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A03. Identity: mature man age 40, short black hair gray temples, light stubble. Civilian outfit: ochre shirt, dark brown trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A04",
+      "references": [
+        "private A04.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A04. Identity: young woman, blue gray hijab, cheerful brown eyes. Civilian outfit: dusty blue long sleeve tunic, cream trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A05",
+      "references": [
+        "private A05.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A05. Identity: man age 30, neat black fringe, rectangular glasses. Civilian outfit: plain teal long sleeve shirt, charcoal trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A06",
+      "references": [
+        "private A06.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A06. Identity: young man, short spiky black hair, cheerful face. Civilian outfit: rust orange shirt, navy trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A07",
+      "references": [
+        "private A07.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A07. Identity: mature woman, beige taupe hijab, gentle face. Civilian outfit: olive long sleeve tunic, chocolate trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A08",
+      "references": [
+        "private A08.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A08. Identity: woman age 29, black hair in low bun with side fringe. Civilian outfit: terracotta long sleeve blouse, dark blue trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A09",
+      "references": [
+        "private A09.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A09. Identity: young man, wavy black hair, thin oval glasses. Civilian outfit: muted plum shirt, tan trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A10",
+      "references": [
+        "private A10.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A10. Identity: man age 33, swept short black hair, angular brows. Civilian outfit: forest green shirt, tan trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A11",
+      "references": [
+        "private A11.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A11. Identity: woman age 30, muted mauve hijab. Civilian outfit: mustard long sleeve tunic, dark brown trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A12",
+      "references": [
+        "private A12.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A12. Identity: mature man, close cut black hair, small goatee. Civilian outfit: brick red shirt, charcoal trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A13",
+      "references": [
+        "private A13.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A13. Identity: woman, navy hijab, plain white face mask. Civilian outfit: lavender long sleeve tunic, loose navy trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A14",
+      "references": [
+        "private A14.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A14. Identity: man, side swept black hair, rectangular black glasses. Civilian outfit: slate blue shirt, cream trousers, brown boots; no headset. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A15",
+      "references": [
+        "private A15.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A15. Identity: man, voluminous swept black hair, strong brows. Civilian outfit: olive overshirt, cream undershirt, dark trousers, brown boots. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    },
+    {
+      "id": "A16",
+      "references": [
+        "private A16.png",
+        "generated A01 sheet"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one sprite sheet for YZ Farm Life NPC A16. Identity: woman, black messy high bun, rectangular glasses. Civilian outfit: muted rose long sleeve blouse, charcoal trousers, brown boots; no headset. Image 1 is identity inspiration ONLY; image 2 is the mandatory sprite style and layout standard. Match image 2 exactly: GBA top down 3/4 farming RPG, chibi 2.5 heads tall, crisp square pixels, limited palette, dark colored outline, same body scale. Replace every official garment with the civilian clothes described. Absolutely no IKD or government uniform, badges, flags, lettering, lanyards, bags, devices, tools, logos or props. Exactly 12 complete full-body sprites, regular 3 column x 4 row grid, equal cell sizes, transparent background, no labels or lines. Rows south/front, west/left, east/right, north/back. Columns left foot forward, neutral idle, right foot forward. Both walking poses MUST have opposite lead legs. Each pose anatomically exactly TWO arms TWO hands TWO legs TWO feet; no extra skin blobs. Preserve same character in every pose. Consistent bottom-center anchor in every cell, generous padding. Output same 1080x1440 3:4 canvas as style standard, each cell 360x360."
+    }
+  ],
+  "corrections": [
+    {
+      "id": "A06",
+      "prompt": "Edit this A06 sprite sheet only: remove ALL gray smoky textured background and all haze. Keep exactly the existing 12 characters, outfits, colors, poses, scale, and their coordinates unchanged. Background must be entirely genuinely transparent alpha=0 outside sprite silhouettes. No shadows, texture or floating marks. Do not add any limbs. Preserve exactly two hands and two feet anatomically per character. This is transparent background extraction, not a redraw.",
+      "reason": "Reject gray textured background; use transparent correction"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 2,
+  "deprecatedAtlas": "/game/assets/characters/portraits.png",
+  "manifest": "/game/assets/portraits/manifest.json",
+  "characterCount": 32,
+  "portraitCount": 256
+}
