@@ -15,11 +15,13 @@ const root=resolve(fileURLToPath(new URL("../../",import.meta.url)));
 const modelPath=resolve(root,"src/lib/game/model.ts");
 const src=readFileSync(modelPath,"utf8");
 const js=ts.transpileModule(src,{compilerOptions:{
-  target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS
+  target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true
 }}).outputText;
 const m={exports:{}};
-vm.runInNewContext(js,{exports:m.exports,module:m,require:()=>{
-  throw Error("Unexpected dependency in world map data; audit before export");
+vm.runInNewContext(js,{exports:m.exports,module:m,require:(id)=>{
+  if(id==="../../../game-assets/catalog/cast.json")
+    return JSON.parse(readFileSync(resolve(root,"game-assets/catalog/cast.json"),"utf8"));
+  throw Error("Unexpected dependency in world map data: "+id+"; audit before export");
 }},{timeout:3000});
 const model=m.exports;
 const {PASIRLUYU_MASTER, PASIRLUYU_CHUNKS, ROUTE_PORTALS, ROUTE_BARRIERS,areaTitle}=model;
