@@ -46,7 +46,7 @@ for(const d of WORLD_DISTRICTS){
   assert.ok(d.villages.every(v=>v.id.startsWith(d.id+"/")));
   assert.equal(d.boundary_state,"not_imported");
 }
-assert.deepEqual(getWorldVillages("Unknown"),[]);
+assert.equal(getWorldVillages("Unknown").length,0,"unknown district has no villages");
 assert.equal(getWorldDistrict("unknown"),null);
 assert.equal(getWorldDistrict("regol").name,"Regol");
 assert.equal(getWorldVillageById("bdg/regol/pasirluyu").name,"Pasirluyu");
