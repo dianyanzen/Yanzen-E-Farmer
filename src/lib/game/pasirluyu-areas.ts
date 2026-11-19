@@ -1,6 +1,7 @@
 /** Original, deterministic pixel-art zones for Pasirluyu. All paths align with model.ts collisions. */
 import type {OutdoorLocation} from "./model";
 import {drawMasterGround,drawMasterRoadTile,drawRouteClosures} from "./pasirluyu-master-map";
+import {drawSignposts} from "./signposts";
 type C=CanvasRenderingContext2D;
 const T=20,W=24,H=16;
 function r(c:C,x:number,y:number,w:number,h:number,color:string){
@@ -77,8 +78,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     r(ctx,15*T,12*T,52,2,"#8c7258");r(ctx,15*T+2,12*T+1,2,20,"#766042");r(ctx,15*T+48,12*T+1,2,20,"#766042");
     r(ctx,16*T,12*T+3,10,9,"#ddc69e");r(ctx,16*T+15,12*T+3,13,9,"#b4c8bf");
     for(let i=0;i<5;i++)flower(ctx,4*T+i*10,13*T+7,i%2?"#efc7b0":"#f5e1a2");
-    txt(ctx,"PASAR  ↑    SUNGAI  ↓",9*T,9*T-4);
-    txt(ctx,"KEBUN  ←",T,10*T-4);
+    // Road directions are marked by the signpost entity at the north entrance.
   }else if(where==="pasar"){
     for(let y=5;y<15;y++)for(let x=1;x<23;x++)road(ctx,x,y,true);
     for(let x=0;x<W;x++){if(x!==11&&x!==12)boundaryTree(ctx,x,4,x+2);
@@ -89,7 +89,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     r(ctx,5*T,11*T,48,23,"#9b784e");r(ctx,5*T+4,11*T+3,40,17,"#b99762");
     r(ctx,5*T+14,11*T-9,7,13,"#c7a352");r(ctx,5*T+24,11*T-5,8,11,"#628e4f");
     r(ctx,18*T,12*T+5,42,12,"#74583f");r(ctx,18*T+3,12*T+7,36,4,"#bfa16a");
-    txt(ctx,"← KIOS / WARUNG →",7*T,10*T-5);txt(ctx,"GANG  ↓",10*T,14*T-3);
+    // In-world market stalls keep their name plaques; route help lives in the signpost.
   }else{
     // Natural western edge: deep river and rocky bank; central entrance path.
     for(let y=0;y<H;y++)for(let x=0;x<=6;x++){
@@ -111,8 +111,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     r(ctx,13*T,10*T,63,2,"#765f46");r(ctx,13*T,10*T+2,2,13,"#6f563f");
     r(ctx,13*T+60,10*T+2,2,13,"#6f563f");
     for(let i=0;i<7;i++)flower(ctx,14*T+i*9,12*T+5,i%2?"#d9dfab":"#f4c6d5");
-    txt(ctx,"BANTARAN SUNGAI",9*T,6*T);
-    txt(ctx,"GANG  ↑",10*T,5*T-5);
+    // A small wooden sign replaces persistent location banners.
   }
   // Shared road corridor is painted last so it never misaligns at a chunk seam.
   for(let y=0;y<16;y++)for(let x=0;x<24;x++){
@@ -122,4 +121,5 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
       drawMasterRoadTile(ctx,where,x,y);
   }
   drawRouteClosures(ctx,where);
+  drawSignposts(ctx,where);
 }
