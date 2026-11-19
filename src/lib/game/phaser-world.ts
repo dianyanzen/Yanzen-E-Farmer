@@ -12,6 +12,7 @@ import { HOME, SHED, WORLD, npcHere, weatherForDay, type OutdoorLocation } from 
 import type { FieldFrame } from "./field-engine";
 import { drawOutdoorArea } from "./pasirluyu-areas";
 import { drawFieldRoads, drawRouteClosures } from "./pasirluyu-master-map";
+import { drawSignposts } from "./signposts";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -53,6 +54,7 @@ function decorateField(ctx: CanvasRenderingContext2D) {
     block(x*TILE+3, 15*TILE+15, 15, 2, "#6d583f");
   }
   drawRouteClosures(ctx, "field");
+  drawSignposts(ctx, "field");
 }
 
 class YZWorldScene extends Phaser.Scene {
