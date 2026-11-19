@@ -21,7 +21,7 @@ This experimental branch is based on Open Source Toolkit PR #27 and does not cha
 - No production deployment, no merge to main, no claim of verified FPS gains.
 
 ## QA checklist
-1. Sign in and open /game/phaser and /game side-by-side in the same browser; test home, field, gang, pasar, sungai, and shed.
+1. Sign in and compare /game and /game/phaser **sequentially** (not simultaneously in two active tabs, because both use the same Supabase save). Test home, field, gang, pasar, sungai and shed.
 2. Check arrow/WASD, run, pointer/tap navigation, dialogue, inventory, YZ Phone, sleep, farming and reload (save persistence).
 3. Safari iPhone: portrait, landscape, touch, scroll prevention, audio unlock, fullscreen availability.
 4. Record FPS/frametime on device; compare 95th-percentile frame time, input-to-motion latency, and memory.
