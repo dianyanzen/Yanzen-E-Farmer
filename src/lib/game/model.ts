@@ -1,4 +1,5 @@
 import cast from "../../../game-assets/catalog/cast.json";
+import { signpostAt } from "./signposts";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
 export const TOOL_CATALOG = {
   hoe: {name:"Cangkul",category:"Bertani",function:"Mengolah petak tanah kosong untuk ditanami.",target:"Petak tanah",status:"active"},
@@ -642,6 +643,8 @@ export function getActionContext(s:GameState):ActionContext {
   if(front.x===SHED.door.x && front.y===SHED.door.y && s.location==="field")return {kind:"door",label:"Masuk gudang"};
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
+  const sign = signpostAt(s.location as OutdoorLocation, front.x, front.y);
+  if(sign) return {kind:"inspect",label:sign.title,text:sign.message};
   if(s.location!=="field"){
     const exit=mapExit(s.location,s.player.x,s.player.y,s.player.dir);
     if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
