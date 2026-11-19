@@ -1,5 +1,4 @@
 import cast from "../../../game-assets/catalog/cast.json";
-import { signpostAt } from "./signposts";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
 export const TOOL_CATALOG = {
   hoe: {name:"Cangkul",category:"Bertani",function:"Mengolah petak tanah kosong untuk ditanami.",target:"Petak tanah",status:"active"},
@@ -127,6 +126,32 @@ export const AREAS:Record<OutdoorLocation,{name:string;description:string;landma
   pasar:{name:"Pasar Warga",description:"Warung Inggit, kios sayur, dan lapak warga",landmark:"Kembali ke gang di selatan"},
   sungai:{name:"Bantaran Sungai",description:"Jembatan kecil, pintu air, dan kebun hilir",landmark:"Kembali ke gang di utara"}
 };
+export type Signpost = {
+  location: OutdoorLocation;
+  x: number; y: number; symbol: string;
+  title: string; message: string;
+};
+
+export const SIGNPOSTS: readonly Signpost[] = [
+  {location:"field", x:23, y:9, symbol:"→",
+    title:"Plang Gang Pasirluyu",
+    message:"Jalan di sebelah timur kebun menuju Gang Pasirluyu. Ikuti jalur tanah lalu berjalan ke kanan."},
+  {location:"gang", x:10, y:4, symbol:"↑",
+    title:"Plang Pasar Warga",
+    message:"Jalur di utara gang membawa kamu ke Pasar Warga. Di sana ada lapak dan Warung Inggit."},
+  {location:"pasar", x:10, y:4, symbol:"↓",
+    title:"Plang Kembali ke Gang",
+    message:"Ikuti jalan ke selatan untuk kembali ke Gang Pasirluyu, lalu pilih jalur menuju kebun atau sungai."},
+  {location:"sungai", x:10, y:4, symbol:"↑",
+    title:"Plang Gang Pasirluyu",
+    message:"Jalan utama di utara bantaran sungai terhubung kembali ke Gang Pasirluyu."}
+];
+
+export function signpostAt(location: OutdoorLocation, x: number, y: number): Signpost | null {
+  return SIGNPOSTS.find(s => s.location === location && s.x === x && s.y === y) ?? null;
+}
+
+
 /** Master world with one global tile coordinate grid, rendered as 24×16 chunks. */
 export const PASIRLUYU_MASTER={width:48,height:48,chunkWidth:24,chunkHeight:16,tileSize:20} as const;
 export const PASIRLUYU_CHUNKS:Record<OutdoorLocation,{col:number;row:number;originX:number;originY:number}>={
