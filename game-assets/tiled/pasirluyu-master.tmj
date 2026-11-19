@@ -1,0 +1,885 @@
+{
+  "compressionlevel": -1,
+  "height": 48,
+  "infinite": false,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "tiledversion": "1.11.2",
+  "tileheight": 20,
+  "tilewidth": 20,
+  "type": "map",
+  "version": "1.10",
+  "width": 48,
+  "layers": [
+    {
+      "id": 1,
+      "name": "01 | Chunk wilayah (referensi)",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 1,
+          "name": "Zona pengembangan",
+          "rotation": 0,
+          "visible": true,
+          "x": 0,
+          "y": 0,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "unbuilt"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "planned"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Pasar Warga",
+          "rotation": 0,
+          "visible": true,
+          "x": 480,
+          "y": 0,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "pasar"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "playable"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Kebun Yanzen",
+          "rotation": 0,
+          "visible": true,
+          "x": 0,
+          "y": 320,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "field"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "playable"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Gang Pasirluyu",
+          "rotation": 0,
+          "visible": true,
+          "x": 480,
+          "y": 320,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "playable"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Zona pengembangan",
+          "rotation": 0,
+          "visible": true,
+          "x": 0,
+          "y": 640,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "unbuilt"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "planned"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 2
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Bantaran Sungai",
+          "rotation": 0,
+          "visible": true,
+          "x": 480,
+          "y": 640,
+          "width": 480,
+          "height": 320,
+          "properties": [
+            {
+              "name": "scene",
+              "type": "string",
+              "value": "sungai"
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "value": "playable"
+            },
+            {
+              "name": "chunk_col",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "chunk_row",
+              "type": "int",
+              "value": 2
+            },
+            {
+              "name": "note",
+              "type": "string",
+              "value": "Editor reference only: no geographic polygon or authored tileset"
+            },
+            {
+              "name": "district",
+              "type": "string",
+              "value": "Regol"
+            },
+            {
+              "name": "village",
+              "type": "string",
+              "value": "Pasirluyu"
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "name": "02 | Portal jalan tersambung",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 7,
+          "name": "field to gang",
+          "rotation": 0,
+          "visible": true,
+          "x": 460,
+          "y": 520,
+          "width": 20,
+          "height": 40,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "field"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "right"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 10
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 11
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "gang to field",
+          "rotation": 0,
+          "visible": true,
+          "x": 480,
+          "y": 520,
+          "width": 20,
+          "height": 40,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "field"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "left"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 10
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 11
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "name": "gang to pasar",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 320,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "pasar"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "up"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 11
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 12
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "pasar to gang",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 300,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "pasar"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "down"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 11
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 12
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "name": "gang to sungai",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 620,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "sungai"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "down"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 11
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 12
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "sungai to gang",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 640,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "from",
+              "type": "string",
+              "value": "sungai"
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "direction",
+              "type": "string",
+              "value": "up"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": true
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "portal"
+            },
+            {
+              "name": "start_tile",
+              "type": "int",
+              "value": 11
+            },
+            {
+              "name": "end_tile",
+              "type": "int",
+              "value": 12
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "name": "03 | Penutup jalan dan interaksi",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 13,
+          "name": "Gerbang melati yang merambat",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 0,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "location",
+              "type": "string",
+              "value": "pasar"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "route_blocker"
+            },
+            {
+              "name": "artwork",
+              "type": "string",
+              "value": "jasmine_gate"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Sulur melati memenuhi gerbang taman. Nani ingin merawatnya sebelum jalur dibuka."
+            },
+            {
+              "name": "future",
+              "type": "string",
+              "value": "Taman Kampung"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "name": "side",
+              "type": "string",
+              "value": "up"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "Gerobak buah Mang Ujang",
+          "rotation": 0,
+          "visible": true,
+          "x": 940,
+          "y": 520,
+          "width": 20,
+          "height": 40,
+          "properties": [
+            {
+              "name": "location",
+              "type": "string",
+              "value": "gang"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "route_blocker"
+            },
+            {
+              "name": "artwork",
+              "type": "string",
+              "value": "fruit_cart"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Gerobak penuh jeruk dan pisang sedang diparkir. Mang Ujang akan memindahkannya selepas pasar."
+            },
+            {
+              "name": "future",
+              "type": "string",
+              "value": "Gang Timur"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "name": "side",
+              "type": "string",
+              "value": "right"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "Jembatan bambu yang diperbaiki",
+          "rotation": 0,
+          "visible": true,
+          "x": 700,
+          "y": 940,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "location",
+              "type": "string",
+              "value": "sungai"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "route_blocker"
+            },
+            {
+              "name": "artwork",
+              "type": "string",
+              "value": "bamboo_bridge"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Papan jembatan sedang diperbaiki. Ada pita peringatan dan bebek menunggu di tepi air."
+            },
+            {
+              "name": "future",
+              "type": "string",
+              "value": "Kebun Hilir"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "name": "side",
+              "type": "string",
+              "value": "down"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "Pagar kebun dan kambing tidur",
+          "rotation": 0,
+          "visible": true,
+          "x": 360,
+          "y": 620,
+          "width": 40,
+          "height": 20,
+          "properties": [
+            {
+              "name": "location",
+              "type": "string",
+              "value": "field"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "route_blocker"
+            },
+            {
+              "name": "artwork",
+              "type": "string",
+              "value": "goat_fence"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Dua kambing sedang tidur di depan pagar bambu. Pemilik kebun belum membuka jalan setapak."
+            },
+            {
+              "name": "future",
+              "type": "string",
+              "value": "Kebun Selatan"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "name": "side",
+              "type": "string",
+              "value": "down"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "Persiapan hiasan festival",
+          "rotation": 0,
+          "visible": true,
+          "x": 940,
+          "y": 200,
+          "width": 20,
+          "height": 40,
+          "properties": [
+            {
+              "name": "location",
+              "type": "string",
+              "value": "pasar"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "route_blocker"
+            },
+            {
+              "name": "artwork",
+              "type": "string",
+              "value": "festival"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Umbul-umbul warna-warni baru dipasang. Jalan ke lapangan warga belum dibuka."
+            },
+            {
+              "name": "future",
+              "type": "string",
+              "value": "Lapangan Warga"
+            },
+            {
+              "name": "passable",
+              "type": "bool",
+              "value": false
+            },
+            {
+              "name": "side",
+              "type": "string",
+              "value": "right"
+            }
+          ]
+        }
+      ],
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "nextlayerid": 4,
+  "nextobjectid": 18,
+  "properties": [
+    {
+      "name": "game",
+      "type": "string",
+      "value": "YZ Farm Life"
+    },
+    {
+      "name": "world",
+      "type": "string",
+      "value": "Pasirluyu"
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "value": "Bandung"
+    },
+    {
+      "name": "authoritative_runtime",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "road_geometry_complete",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "info",
+      "type": "string",
+      "value": "Blueprint objek untuk Tiled. Artwork dan collision runtime tetap di game."
+    }
+  ],
+  "tilesets": []
+}
