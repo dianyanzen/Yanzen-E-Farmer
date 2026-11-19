@@ -19,7 +19,7 @@ import DialoguePanel, { Portrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats" | "characters";
+type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
@@ -29,6 +29,7 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "friends", name: "Kedekatan", icon: "♡" },
   { id: "stats", name: "Statistik", icon: "▤" },
   { id: "characters", name: "Warga", icon: "☷" },
+  { id: "guide", name: "Panduan", icon: "?" },
 ];
 function timeLabel(minutes: number) {
   return String(Math.floor(minutes / 60)).padStart(2, "0") + ":" + String(minutes % 60).padStart(2, "0");
@@ -92,7 +93,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
   }, [toggleFullscreen]);
   const [art, setArt] = useState<WorldArt>({});
   const [field] = useState(() => new FieldEngine());
-  const tapRoute = useRef<TapRoute|null>(null);
+  const tapRoute = useRef<(TapRoute & { initial?: boolean })|null>(null);
   const [tapTick,setTapTick] = useState(0);
   const [sound, setSound] = useState(true);
   const [runMode, setRunMode] = useState(false);
@@ -154,7 +155,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const dialogueRef = useRef<HTMLDialogElement>(null);
   const [toast, setToast] = useState("");
-  const [showHelp, setShowHelp] = useState(true);
+  const [showHelp, setShowHelp] = useState(engine === "canvas");
 
   useEffect(() => {
     const dialog = dialogueRef.current;
@@ -370,7 +371,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
       setToast("Jalur belum tersedia. Ketuk jalan atau objek yang dapat dijangkau.");
       return;
     }
-    tapRoute.current = route;
+    tapRoute.current = { ...route, initial: true };
     setTapTick(t => t+1);
     setShowHelp(false);
   }, [controlsLocked, field, game]);
@@ -387,6 +388,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
     const timer=window.setTimeout(()=>{
       const route=tapRoute.current;
       if(!route)return;
+      route.initial = false;
       if(route.steps.length){
         const dir=route.steps.shift()!;
         const next=movePlayer(game,dir);
@@ -409,9 +411,9 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
           setToast("Selamat datang di "+areaTitle(next.location)+".");
         }
       }else if(route.interact)action();
-    },145);
+    },tapRoute.current?.initial ? 0 : (runMode || field.shift ? RUN_STEP_MS : STEP_MS));
     return ()=>window.clearTimeout(timer);
-  },[game,tapTick,controlsLocked,action,field]);
+  },[game,tapTick,controlsLocked,action,field,runMode]);
 
   const togglePhone = useCallback(() => {
     if (dialogue || saveStatus === "loading" || saveStatus === "error") return;
@@ -514,7 +516,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
     context.kind==="door"?"MASUK":context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
-  return <main ref={screenRef} className="yzg-page">
+  return <main ref={screenRef} className={engine === "phaser" ? "yzg-page yzg-page--phaser" : "yzg-page"}>
     <header className="yzg-header">
       <div>
         <span className="yzg-eyebrow">BAB 1 · EMPAT TIMUN DAN SATU NAMA</span>
@@ -586,7 +588,7 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
               <button aria-label="Kembali" onClick={() => phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : "Jelajah"}</b>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content">
@@ -631,6 +633,24 @@ export default function GameClient({ engine = "canvas" }: { engine?: "canvas" | 
                 </div>
               </>}
               {phoneTab === "characters" && <CharacterGallery/>}
+              {phoneTab === "guide" && <>
+                <div className="yzg-phone-card">
+                  <b>Mulai bermain</b>
+                  <p>Jelajahi Pasirluyu, kenali tetangga, rawat kebun timun, dan jalani cerita. Jurnal tugas tersedia di aplikasi Kebunku.</p>
+                </div>
+                <div className="yzg-phone-card"><b>Gerak & interaksi</b>
+                  <p>PC: WASD atau tombol panah untuk berjalan. E atau Spasi untuk berinteraksi, P untuk membuka YZ Phone, Alt+Enter untuk layar penuh.</p>
+                  <p>HP: gunakan tombol arah atau ketuk jalan dan objek. Tombol A untuk berinteraksi. Aktifkan Lari agar bergerak lebih cepat.</p>
+                </div>
+                <div className="yzg-phone-card"><b>Alat & bertani</b>
+                  <p>PC: Q/R mengganti alat, 1–9 memilih alat. Gunakan cangkul untuk mengolah tanah, tanam bibit, siram dengan gembor, dan panen saat matang.</p>
+                  <p>Buka gudang dari pintu bangunan untuk mengambil dan menyimpan alat.</p>
+                </div>
+                <div className="yzg-phone-card"><b>Waktu & progres</b>
+                  <p>Untuk mengakhiri hari, masuk ke rumah, hadap ranjang, lalu pilih Tidur. Progres disimpan ke cloud sesuai status penyimpanan.</p>
+                  <p>Kenali warga lewat dialog interaktif, dan pantau kedekatan di aplikasi Kedekatan.</p>
+                </div>
+              </>}
               {phoneTab === "friends" && <>
                 <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kenali warga melalui jawabanmu. Poin kedekatan dihitung sekali per NPC setiap hari.</p></div>
                 {NPCS.map(npc => {
