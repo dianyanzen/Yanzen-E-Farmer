@@ -9,7 +9,8 @@ import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer
   newGame, nextDay, NPCS, NPC_SOULS, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, PASIRLUYU_MASTER, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { type WorldArt } from "@/lib/game/draw-world";
-import { BANDUNG_DISTRICTS, REGOL_VILLAGES, START_LOCATION } from "@/lib/game/bandung-locations";
+import { START_LOCATION } from "@/lib/game/bandung-locations";
+import WorldRegionDirectory from "./world-region-directory";
 import { FieldEngine, type ToolUse } from "@/lib/game/field-engine";
 import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
 import { STEP_MS, RUN_STEP_MS } from "@/lib/game/walking";
@@ -121,7 +122,6 @@ export default function GameClient() {
   const [phoneOpen, setPhoneOpen] = useState(false);
   const phoneRef = useRef<HTMLDialogElement>(null);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("Regol");
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const dialogueRef = useRef<HTMLDialogElement>(null);
   const [toast, setToast] = useState("");
@@ -634,18 +634,7 @@ export default function GameClient() {
                   {(["field","gang","pasar","sungai"] as const).map(id=><p key={id}><b>{id===game.location?"● ":"○ "}{AREAS[id].name}</b><small>{AREAS[id].description}</small></p>)}
                   <small>Game menggunakan nama wilayah asli. Jalan, kebun dan NPC direka untuk cerita.</small>
                 </div>
-                <div className="yzg-phone-card"><b>Jelajah 30 Kecamatan</b>
-                  <label htmlFor="yzg-kecamatan" className="yzg-map-label">Pilih kecamatan</label>
-                  <select className="yzg-map-select" id="yzg-kecamatan"
-                    value={selectedDistrict} onChange={e => setSelectedDistrict(e.target.value)}>
-                    {BANDUNG_DISTRICTS.map(d => <option key={d} value={d}>{d}</option>)}
-                  </select>
-                  <a href={`/game/atlas/index.html?kecamatan=${encodeURIComponent(selectedDistrict)}`}>Buka atlas wilayah dan tanaman</a>
-                  {selectedDistrict === "Regol" ? <>
-                    <small>7 kelurahan asli · Wilayah yang bisa dimainkan saat ini: Pasirluyu</small>
-                    {REGOL_VILLAGES.map(v => <p key={v}>{v === "Pasirluyu" ? "✓" : "🔒"} {v}{v === "Pasirluyu" ? " — lokasi awal" : " — tahap berikutnya"}</p>)}
-                  </> : <p>🔒 {selectedDistrict} terdaftar dalam peta Kota Bandung. Area permainan untuk kecamatan ini belum dibuat.</p>}
-                </div>
+                <WorldRegionDirectory/>
               </>}
             </div>
             <div className="yzg-phone-bottom"><button onClick={() => setPhoneTab("apps")}>●</button></div>
