@@ -126,6 +126,62 @@ export const AREAS:Record<OutdoorLocation,{name:string;description:string;landma
   pasar:{name:"Pasar Warga",description:"Warung Inggit, kios sayur, dan lapak warga",landmark:"Kembali ke gang di selatan"},
   sungai:{name:"Bantaran Sungai",description:"Jembatan kecil, pintu air, dan kebun hilir",landmark:"Kembali ke gang di utara"}
 };
+/** Master world with one global tile coordinate grid, rendered as 24×16 chunks. */
+export const PASIRLUYU_MASTER={width:48,height:48,chunkWidth:24,chunkHeight:16,tileSize:20} as const;
+export const PASIRLUYU_CHUNKS:Record<OutdoorLocation,{col:number;row:number;originX:number;originY:number}>={
+  pasar:{col:1,row:0,originX:24,originY:0},
+  field:{col:0,row:1,originX:0,originY:16},
+  gang:{col:1,row:1,originX:24,originY:16},
+  sungai:{col:1,row:2,originX:24,originY:32}
+};
+export function toWorldTile(location:OutdoorLocation,x:number,y:number){
+  const c=PASIRLUYU_CHUNKS[location];return {x:c.originX+x,y:c.originY+y};
+}
+export const ROUTE_PORTALS=[
+  {from:"field",direction:"right",start:10,end:11,to:"gang"},
+  {from:"gang",direction:"left",start:10,end:11,to:"field"},
+  {from:"gang",direction:"up",start:11,end:12,to:"pasar"},
+  {from:"pasar",direction:"down",start:11,end:12,to:"gang"},
+  {from:"gang",direction:"down",start:11,end:12,to:"sungai"},
+  {from:"sungai",direction:"up",start:11,end:12,to:"gang"}
+] as const;
+export type RouteBarrier={
+  id:string;location:OutdoorLocation;side:Direction;start:number;end:number;
+  artwork:"jasmine_gate"|"fruit_cart"|"bamboo_bridge"|"goat_fence"|"festival";
+  label:string;message:string;future:string;
+};
+export const ROUTE_BARRIERS:readonly RouteBarrier[]=[
+  {id:"pasar_taman",location:"pasar",side:"up",start:11,end:12,artwork:"jasmine_gate",
+    label:"Gerbang melati yang merambat",future:"Taman Kampung",
+    message:"Sulur melati memenuhi gerbang taman. Nani ingin merawatnya sebelum jalur dibuka."},
+  {id:"gang_timur",location:"gang",side:"right",start:10,end:11,artwork:"fruit_cart",
+    label:"Gerobak buah Mang Ujang",future:"Gang Timur",
+    message:"Gerobak penuh jeruk dan pisang sedang diparkir. Mang Ujang akan memindahkannya selepas pasar."},
+  {id:"sungai_hilir",location:"sungai",side:"down",start:11,end:12,artwork:"bamboo_bridge",
+    label:"Jembatan bambu yang diperbaiki",future:"Kebun Hilir",
+    message:"Papan jembatan sedang diperbaiki. Ada pita peringatan dan bebek menunggu di tepi air."},
+  {id:"field_selatan",location:"field",side:"down",start:18,end:19,artwork:"goat_fence",
+    label:"Pagar kebun dan kambing tidur",future:"Kebun Selatan",
+    message:"Dua kambing sedang tidur di depan pagar bambu. Pemilik kebun belum membuka jalan setapak."},
+  {id:"pasar_timur",location:"pasar",side:"right",start:10,end:11,artwork:"festival",
+    label:"Persiapan hiasan festival",future:"Lapangan Warga",
+    message:"Umbul-umbul warna-warni baru dipasang. Jalan ke lapangan warga belum dibuka."}
+];
+export function routeBarrierAt(location:OutdoorLocation,x:number,y:number):RouteBarrier|null{
+  return ROUTE_BARRIERS.find(b=>b.location===location&&(
+    (b.side==="up"&&y===0&&x>=b.start&&x<=b.end)||
+    (b.side==="down"&&y===15&&x>=b.start&&x<=b.end)||
+    (b.side==="left"&&x===0&&y>=b.start&&y<=b.end)||
+    (b.side==="right"&&x===23&&y>=b.start&&y<=b.end)
+  ))??null;
+}
+export function isMasterRoad(location:OutdoorLocation,x:number,y:number):boolean{
+  if(location==="field")return (y>=10&&y<=11&&x>=17)||(y>=13&&x>=18&&x<=19);
+  if(location==="gang")return (y>=10&&y<=11)||(x>=11&&x<=12);
+  if(location==="pasar")return (x>=11&&x<=12)||
+    (y>=5&&y<=14&&x>=1&&x<=22)||(y>=10&&y<=11&&x>=20);
+  return x>=11&&x<=12;
+}
 export function areaTitle(location:GameLocation):string {
   return location==="home"?"Rumah Yanzen":location==="shed"?"Gudang Peralatan":AREAS[location].name;
 }
@@ -137,22 +193,16 @@ export function timeGreeting(minutes:number):string{
   return minutes<660?"Selamat pagi":minutes<900?"Selamat siang":
     minutes<1080?"Selamat sore":"Selamat malam";
 }
-/** Outdoor crossings occur ONLY on visible road/bridge connectors, never on arbitrary map edges. */
+/** Adjacent chunks share the same world coordinates at their border tiles. */
 export function mapExit(location:OutdoorLocation,x:number,y:number,dir:Direction):
   {location:OutdoorLocation;x:number;y:number;dir:Direction}|null {
-  if(location==="field" && dir==="right" && x>=22 && (y===10||y===11))
-    return {location:"gang",x:1,y,dir};
-  if(location==="gang" && dir==="left" && x<=1 && (y===10||y===11))
-    return {location:"field",x:22,y,dir};
-  if(location==="gang" && dir==="up" && y<=5 && (x===11||x===12))
-    return {location:"pasar",x,y:14,dir};
-  if(location==="pasar" && dir==="down" && y>=14 && (x===11||x===12))
-    return {location:"gang",x,y:6,dir};
-  if(location==="gang" && dir==="down" && y>=14 && (x===11||x===12))
-    return {location:"sungai",x,y:5,dir};
-  if(location==="sungai" && dir==="up" && y<=5 && (x===11||x===12))
-    return {location:"gang",x,y:14,dir};
-  return null;
+  const p=ROUTE_PORTALS.find(p=>p.from===location&&p.direction===dir&&
+    (dir==="left"||dir==="right"?y>=p.start&&y<=p.end:x>=p.start&&x<=p.end));
+  if(!p)return null;
+  if((dir==="right"&&x!==23)||(dir==="left"&&x!==0)||
+     (dir==="up"&&y!==0)||(dir==="down"&&y!==15))return null;
+  return {location:p.to as OutdoorLocation,x:dir==="right"?0:dir==="left"?23:x,
+    y:dir==="down"?0:dir==="up"?15:y,dir};
 }
 const placements = [
   { id: "A03", x: 13, y: 8, color: "#314961" },
@@ -278,20 +328,34 @@ export function blocked(x: number, y: number): boolean {
   return x < 0 || y < 0 || x >= WORLD.width || y >= WORLD.height ||
     y <= 4 || (x <= 1 && y >= 9);
 }
+/** All collision and passage decisions come from the shared atlas specification. */
 export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
   if(location==="home"||location==="shed")return homeBlocked(x,y);
-  if(location==="field")return blocked(x,y)||x>=23||y>=15;
-  if(x<1||x>22||y<5||y>14)return true;
+  if(x<0||x>=24||y<0||y>=16)return true;
+  if(routeBarrierAt(location,x,y))return true;
+  if(location==="field"){
+    if(y<=4||(x<=1&&y>=9)||y===15)return true;
+    if(x===23)return y!==10&&y!==11;
+    return false;
+  }
   if(location==="gang"){
-    // Two houses and a small garden; road connectors remain open.
+    if(x===0)return y!==10&&y!==11;
+    if(x===23)return true; // Closed east-bound cart road.
+    if(y===0||y===15)return x!==11&&x!==12;
+    if(y<=4)return x!==11&&x!==12;
     return (x>=3&&x<=8&&y>=5&&y<=7)||(x>=16&&x<=20&&y>=5&&y<=7);
   }
   if(location==="pasar"){
-    // Only stall counters are solid; walking aisles remain open.
+    if(y===0)return true; // The garden gate is not unlocked yet.
+    if(y===15)return x!==11&&x!==12;
+    if(x===0||x===23)return true;
+    if(y<=4)return x!==11&&x!==12;
     return (x>=3&&x<=9&&y>=6&&y<=8)||(x>=15&&x<=20&&y>=6&&y<=8);
   }
-  // Canal forms a physical natural border. Small bridge is a walkable connector.
-  return x<=6;
+  // River to the west, with one dry entrance and an unfinished south bridge.
+  if(x<=6||x===23||y===15)return true;
+  if(y===0||y<=4)return x!==11&&x!==12;
+  return false;
 }
 export function facing(p: GameState["player"]) {
   return { x: p.x + (p.dir === "left" ? -1 : p.dir === "right" ? 1 : 0),
@@ -439,12 +503,13 @@ export function safeLoad(value: unknown): GameState | null {
   // Migrate old outdoor edge saves inward rather than rejecting cloud progress
   // when the redesigned map receives solid trees/fences along its boundaries.
   const isOldField=value.location===undefined||value.location==="field";
-  const playerX=isOldField&&typeof player.x==="number"?Math.min(22,player.x):player.x;
+  const playerX=isOldField&&typeof player.x==="number"&&player.x===23&&
+    player.y!==10&&player.y!==11?22:player.x;
   const playerY=isOldField&&typeof player.y==="number"?Math.min(14,player.y):player.y;
   if (!integer(value.day, 1, 100000) || !integer(value.minutes, 0, 1320) ||
       !integer(value.coins, 0, 99999999) || !integer(value.seeds, 0, 99999999) ||
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
-      !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, 5, WORLD.height - 1) ||
+      !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, (value.location==="home"||value.location==="shed")?5:0, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
       areaBlocked((value.location === undefined?"field":value.location) as GameLocation,playerX as number,playerY as number) || !Array.isArray(value.plots) || value.plots.length > 48) return null;
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
@@ -580,6 +645,8 @@ export function getActionContext(s:GameState):ActionContext {
   if(s.location!=="field"){
     const exit=mapExit(s.location,s.player.x,s.player.y,s.player.dir);
     if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
+    const closed=routeBarrierAt(s.location,front.x,front.y);
+    if(closed)return {kind:"inspect",label:closed.label,text:closed.message};
     if(s.location==="sungai"&&front.x<=7)return {kind:"inspect",
       label:"Periksa sungai",text:"Permukaan air mengalir ke hilir. Ryan mencatatnya setiap siang."};
     if(s.location==="pasar"&&front.y<=8)return {kind:"inspect",
@@ -588,6 +655,8 @@ export function getActionContext(s:GameState):ActionContext {
   }
   const exit=mapExit("field",s.player.x,s.player.y,s.player.dir);
   if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
+  const fieldBarrier=routeBarrierAt("field",front.x,front.y);
+  if(fieldBarrier)return {kind:"inspect",label:fieldBarrier.label,text:fieldBarrier.message};
   if(isFarm(front.x,front.y)){
     const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};

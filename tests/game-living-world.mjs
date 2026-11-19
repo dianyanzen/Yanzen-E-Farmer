@@ -12,7 +12,8 @@ const compiled=ts.transpileModule(readFileSync(root,"utf8"),{compilerOptions:{
 vm.runInNewContext(compiled,{exports:m.exports,module:m,require:createRequire(root)},{timeout:1500});
 const model=m.exports;
 const {newGame,movePlayer,npcSchedule,npcHere,npcAmbient,npcWhere,areaTitle,
-  getActionContext,chooseSocial,safeLoad,weatherForDay,nextDay,areaBlocked,mapExit}=model;
+  getActionContext,chooseSocial,safeLoad,weatherForDay,nextDay,areaBlocked,mapExit,
+  PASIRLUYU_MASTER,PASIRLUYU_CHUNKS,ROUTE_BARRIERS,toWorldTile,isMasterRoad,routeBarrierAt}=model;
 let s=newGame();
 assert.equal(npcHere(s).length,3,"intro NPCs all visible on early morning");
 assert.equal(npcWhere(s,"A03").location,"field");
@@ -22,7 +23,7 @@ assert.equal(npcWhere({...s,minutes:13*60},"C08").location,"pasar");
 assert.equal(npcWhere({...s,minutes:20*60},"C08").location,"field");
 assert.equal(areaTitle("sungai"),"Bantaran Sungai");
 assert.equal(mapExit("field",22,10,"up"),null);
-assert.equal(mapExit("field",22,10,"right").location,"gang");
+assert.equal(mapExit("field",23,10,"right").location,"gang");
 assert.equal(areaBlocked("sungai",3,11),true,"river is a physical limit");
 assert.equal(areaBlocked("sungai",12,11),false);
 assert.equal(areaBlocked("pasar",5,7),true,"stall collision");
@@ -32,19 +33,19 @@ assert.equal(safeLoad({...newGame(),player:{x:23,y:15,dir:"right"}}).player.x,22
 assert.equal(safeLoad({...newGame(),player:{x:23,y:15,dir:"right"}}).player.y,14,"old southern edge migrates safely");
 assert.equal(areaBlocked("gang",5,7),true,"house collision");
 
-let step=movePlayer({...s,player:{x:22,y:10,dir:"right"}},"right");
-assert.equal(step.location,"gang");assert.equal(step.player.x,1);assert.equal(step.player.y,10);
+let step=movePlayer({...s,player:{x:23,y:10,dir:"right"}},"right");
+assert.equal(step.location,"gang");assert.equal(step.player.x,0);assert.equal(step.player.y,10);
 assert.equal(safeLoad(JSON.parse(JSON.stringify(step))).location,"gang","zone survives save/reload");
-let back=movePlayer({...step,player:{x:1,y:10,dir:"left"}},"left");
-assert.equal(back.location,"field");assert.equal(back.player.x,22);
-const market=movePlayer({...step,player:{x:11,y:5,dir:"up"}},"up");
-assert.equal(market.location,"pasar");assert.equal(market.player.y,14);
-const toGang=movePlayer({...market,player:{x:11,y:14,dir:"down"}},"down");
-assert.equal(toGang.location,"gang");assert.equal(toGang.player.y,6);
-const river=movePlayer({...toGang,player:{x:11,y:14,dir:"down"}},"down");
-assert.equal(river.location,"sungai");assert.equal(river.player.y,5);
-const riverBack=movePlayer({...river,player:{x:11,y:5,dir:"up"}},"up");
-assert.equal(riverBack.location,"gang");assert.equal(riverBack.player.y,14);
+let back=movePlayer({...step,player:{x:0,y:10,dir:"left"}},"left");
+assert.equal(back.location,"field");assert.equal(back.player.x,23);
+const market=movePlayer({...step,player:{x:11,y:0,dir:"up"}},"up");
+assert.equal(market.location,"pasar");assert.equal(market.player.y,15);
+const toGang=movePlayer({...market,player:{x:11,y:15,dir:"down"}},"down");
+assert.equal(toGang.location,"gang");assert.equal(toGang.player.y,0);
+const river=movePlayer({...toGang,player:{x:11,y:15,dir:"down"}},"down");
+assert.equal(river.location,"sungai");assert.equal(river.player.y,0);
+const riverBack=movePlayer({...river,player:{x:11,y:0,dir:"up"}},"up");
+assert.equal(riverBack.location,"gang");assert.equal(riverBack.player.y,15);
 
 const afternoon={...s,minutes:780,location:"pasar",player:{x:15,y:11,dir:"up"}};
 assert.equal(getActionContext(afternoon).kind,"npc","Inggit is interactable at market");
@@ -76,11 +77,41 @@ const {planTapRoute}=nav.exports;
 const till=planTapRoute(s,10,10);
 assert.ok(till && till.interact && till.face,"tap farm plot plans interaction");
 assert.ok(till.steps.length>=1);
-const portal=planTapRoute(s,22,10);
+const portal=planTapRoute(s,23,10);
 assert.equal(portal.exit,"right");
 const talk=planTapRoute(s,13,8);
 assert.ok(talk?.interact,"tap NPC plans approach and talk");
 assert.equal(planTapRoute(s,-1,8),null,"cannot tap outside world");
 assert.equal(planTapRoute({...s,location:"sungai",player:{x:12,y:8,dir:"left"}},3,8),null,
   "cannot auto-walk through river");
+
+assert.equal(PASIRLUYU_MASTER.width,48);
+assert.equal(PASIRLUYU_MASTER.height,48);
+assert.equal(Object.keys(PASIRLUYU_CHUNKS).length,4);
+const a=toWorldTile("field",23,10),b=toWorldTile("gang",0,10);
+assert.equal(b.x-a.x,1);assert.equal(a.y,b.y,"East-west road shares the same global row");
+assert.equal(isMasterRoad("field",23,10),true);
+assert.equal(isMasterRoad("gang",0,10),true);
+const c=toWorldTile("pasar",11,15),d=toWorldTile("gang",11,0);
+assert.equal(d.y-c.y,1);assert.equal(c.x,d.x,"Market and gang borders meet with no teleport");
+const e=toWorldTile("gang",12,15),f=toWorldTile("sungai",12,0);
+assert.equal(f.y-e.y,1);assert.equal(f.x,e.x);
+for(const location of ["pasar","gang","sungai","field"]){
+  const closures=ROUTE_BARRIERS.filter(r=>r.location===location);
+  for(const block of closures){
+    const x=block.side==="left"?0:block.side==="right"?23:block.start;
+    const y=block.side==="up"?0:block.side==="down"?15:block.start;
+    assert.equal(areaBlocked(location,x,y),true,"Closure is a real collision: "+block.id);
+    assert.equal(routeBarrierAt(location,x,y).id,block.id);
+    assert.ok(block.message.length>35,"Closure has a narrative reason: "+block.id);
+  }
+}
+assert.equal(new Set(ROUTE_BARRIERS.map(b=>b.artwork)).size,5,"Five unique blocked road artworks");
+assert.equal(getActionContext({...s,location:"pasar",player:{x:11,y:1,dir:"up"}}).kind,"inspect");
+const lockedTap=planTapRoute({...s,location:"pasar",player:{x:11,y:6,dir:"up"}},11,0);
+assert.ok(lockedTap?.interact,"Tap on locked gate approaches for inspection");
+assert.equal(safeLoad({...newGame(),location:"gang",player:{x:11,y:0,dir:"up"}}).location,"gang","Portal-border save persists");
+assert.equal(safeLoad({...newGame(),location:"field",player:{x:23,y:10,dir:"right"}}).player.x,23);
+console.log("Master Atlas QA: border continuity, 5 blockers, tap inspections, save continuity: PASS");
+
 console.log("Living-world QA: 4 maps, 6 transitions, NPC schedules, choice memory, rain, taps: PASS");
