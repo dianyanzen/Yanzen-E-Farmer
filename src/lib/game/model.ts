@@ -178,8 +178,7 @@ export function routeBarrierAt(location:OutdoorLocation,x:number,y:number):Route
 export function isMasterRoad(location:OutdoorLocation,x:number,y:number):boolean{
   if(location==="field")return (y>=10&&y<=11&&x>=17)||(y>=13&&x>=18&&x<=19);
   if(location==="gang")return (y>=10&&y<=11)||(x>=11&&x<=12);
-  if(location==="pasar")return (x>=11&&x<=12)||
-    (y>=5&&y<=14&&x>=1&&x<=22)||(y>=10&&y<=11&&x>=20);
+  if(location==="pasar")return (x>=11&&x<=12)||(y>=10&&y<=11&&x>=17);
   return x>=11&&x<=12;
 }
 export function areaTitle(location:GameLocation):string {

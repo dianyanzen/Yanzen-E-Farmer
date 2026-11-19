@@ -31,6 +31,9 @@ export class FieldEngine {
   private lastHit?: ToolUse;
   private active = false;
   private camera?: {x:number;y:number};
+  private previousAreaFrame?: HTMLCanvasElement;
+  private previousAreaSince = 0;
+  private readonly transitionDurationMs=260;
 
   /** Convert phone/desktop canvas taps into the currently visible world tile. */
   pickTile(canvas:HTMLCanvasElement,clientX:number,clientY:number){
@@ -54,6 +57,18 @@ export class FieldEngine {
   clear() { this.held.clear(); this.shift=false; this.lastTime=0; }
 
   paint(canvas: HTMLCanvasElement, scene: Scene, now: number, reduced: boolean) {
+    // Low-cost scene crossfade: the old frame is captured once at the REAL
+    // portal crossing, never on ordinary walking, NPC or inventory updates.
+    // Deliberate shade transition is better than a hard jump between unlike areas.
+    if(this.lastScene && scene.game.location!==this.lastScene.game.location){
+      if(!reduced && typeof document!=="undefined"){
+        const snapshot=document.createElement("canvas");
+        snapshot.width=canvas.width;snapshot.height=canvas.height;
+        snapshot.getContext("2d")?.drawImage(canvas,0,0);
+        this.previousAreaFrame=snapshot;
+        this.previousAreaSince=now;
+      }else this.previousAreaFrame=undefined;
+    }
     const walk=this.walk;
     if (!walk) return;
     const running=scene.runMode || this.shift, stepMs=running?RUN_STEP_MS:STEP_MS;
@@ -94,10 +109,21 @@ export class FieldEngine {
     camera.x=follow(camera.x,walk.x,.65);camera.y=follow(camera.y,walk.y,.45);
     const pan=Math.abs(camera.x-previousX)+Math.abs(camera.y-previousY)>.001;
     const ambient=reduced?0:Math.floor(now/170);
-    const active=wasMoving || !!action || !!weight || !!dust || pan;
+    const transitionAge=now-this.previousAreaSince;
+    const transitioning=!!this.previousAreaFrame && transitionAge<this.transitionDurationMs;
+    const active=wasMoving || !!action || !!weight || !!dust || pan || transitioning;
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {
       drawWorld(canvas,scene.game,scene.art,walk,pose,running,action,camera,ambient,
         swing && age<impact && !reduced?swing.before:scene.game.plots,weight,dust);
+      if(transitioning && this.previousAreaFrame){
+        const ctx=canvas.getContext("2d");
+        if(ctx){
+          ctx.save();ctx.setTransform(1,0,0,1,0,0);
+          ctx.globalAlpha=Math.pow(1-transitionAge/this.transitionDurationMs,1.6);
+          ctx.drawImage(this.previousAreaFrame,0,0);
+          ctx.restore();
+        }
+      }else if(this.previousAreaFrame)this.previousAreaFrame=undefined;
       if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,scene.game.minutes);
     }
     this.lastScene=scene;this.lastAmbient=ambient;this.active=active;

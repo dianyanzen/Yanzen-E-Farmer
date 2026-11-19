@@ -1,6 +1,6 @@
 /** Original, deterministic pixel-art zones for Pasirluyu. All paths align with model.ts collisions. */
 import type {OutdoorLocation} from "./model";
-import {drawMasterGround,drawMasterRoadTile,drawRouteClosures} from "./pasirluyu-master-map";
+import {drawMasterGround,drawMarketCourtyard,drawRouteClosures} from "./pasirluyu-master-map";
 type C=CanvasRenderingContext2D;
 const T=20,W=24,H=16;
 function r(c:C,x:number,y:number,w:number,h:number,color:string){
@@ -49,18 +49,9 @@ function boundaryTree(c:C,x:number,y:number,seed:number){
   r(c,x*T+4,y*T+1,12,7,"#6b9859");
   r(c,x*T+12,y*T+3,4,2,"#92b875");
 }
-function road(c:C,x:number,y:number,cobble=false){
-  const px=x*T,py=y*T;
-  r(c,px,py,T,T,cobble?"#ab9b7c":"#b99a6e");
-  r(c,px+1,py+2,18,1,"#c7ad80");
-  if(cobble){r(c,px+3,py+9,8,1,"#8d846d");r(c,px+13,py+16,5,1,"#d2bf9c");}
-  else{r(c,px+11,py+14,4,1,"#927b5d");}
-}
 export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,ambient:number) {
   drawMasterGround(ctx,where);
   if(where==="gang"){
-    for(let y=9;y<=11;y++)for(let x=0;x<W;x++)road(ctx,x,y);
-    for(let y=5;y<15;y++)for(let x=11;x<=12;x++)road(ctx,x,y);
     // Path ends are proper connected roads; other edges are hedges and fences.
     for(let x=0;x<W;x++){
       if(x!==11&&x!==12){boundaryTree(ctx,x,4,x);boundaryTree(ctx,x,15,x+4);}
@@ -80,7 +71,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     txt(ctx,"PASAR  ↑    SUNGAI  ↓",9*T,9*T-4);
     txt(ctx,"KEBUN  ←",T,10*T-4);
   }else if(where==="pasar"){
-    for(let y=5;y<15;y++)for(let x=1;x<23;x++)road(ctx,x,y,true);
+    drawMarketCourtyard(ctx);
     for(let x=0;x<W;x++){if(x!==11&&x!==12)boundaryTree(ctx,x,4,x+2);
       if(x!==11&&x!==12)boundaryTree(ctx,x,15,x);}
     for(let y=5;y<15;y++){boundaryTree(ctx,0,y,y);boundaryTree(ctx,23,y,y+2);}
@@ -101,7 +92,6 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
       r(ctx,7*T+8,y*T,10,T,"#8d795a");
       r(ctx,8*T,y*T,T,T,y%2?"#b0ac86":"#bdb895");
     }
-    for(let y=5;y<15;y++)for(let x=11;x<=12;x++)road(ctx,x,y);
     for(let x=8;x<=22;x++)if(x!==11&&x!==12)boundaryTree(ctx,x,4,x);
     for(let x=7;x<W;x++)if(x!==11&&x!==12)boundaryTree(ctx,x,15,x+3);
     for(let y=5;y<15;y++)boundaryTree(ctx,23,y,y+5);
@@ -114,12 +104,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     txt(ctx,"BANTARAN SUNGAI",9*T,6*T);
     txt(ctx,"GANG  ↑",10*T,5*T-5);
   }
-  // Shared road corridor is painted last so it never misaligns at a chunk seam.
-  for(let y=0;y<16;y++)for(let x=0;x<24;x++){
-    if(where==="gang"&&((x===11||x===12)||(y===10||y===11)) ||
-       where==="pasar"&&(x===11||x===12||(x>=21&&(y===10||y===11))) ||
-       where==="sungai"&&(x===11||x===12))
-      drawMasterRoadTile(ctx,where,x,y);
-  }
+  // Roads are drawn by the master terrain layer, BEFORE structures and props.
+  // Never repaint rectangular lane tiles over authored scenery at the end.
   drawRouteClosures(ctx,where);
 }
