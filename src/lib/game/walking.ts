@@ -38,7 +38,9 @@ export class WalkPath {
 
   advance(elapsed: number, reduced: boolean, stepMs = STEP_MS) {
     // Bound a late frame. Quick discrete taps may briefly queue several tiles.
-    let budget = reduced ? Infinity : Math.min(60, elapsed) / stepMs * Math.min(3, Math.max(1, this.route.length - 1));
+    // Movement speed must not depend on how many queued waypoints remain.
+    // Bound long background-tab stalls without turning a long click route into a sprint.
+    let budget = reduced ? Infinity : Math.min(80, Math.max(0, elapsed)) / stepMs;
     while (this.route.length && budget > 0) {
       const next = this.route[0];
       const dx = next.x-this.x, dy = next.y-this.y;
