@@ -1,0 +1,37 @@
+[
+ {
+  "id": "sawah",
+  "nama": "Sawah berpematang",
+  "pengelolaan": "Air di petak diatur menurut tanaman dan fase. Untuk palawija, gunakan fase rotasi saat petak ditiriskan."
+ },
+ {
+  "id": "bedengan",
+  "nama": "Kebun sayur berbedengan",
+  "pengelolaan": "Tanah gembur dan drainase baik. Ajir, suhu dan varietas menjadi atribut tambahan."
+ },
+ {
+  "id": "tegal",
+  "nama": "Tegalan atau ladang",
+  "pengelolaan": "Lahan kering tanpa genangan terencana. Sesuaikan waktu tanam dengan hujan atau irigasi tambahan."
+ },
+ {
+  "id": "pekarangan",
+  "nama": "Pekarangan rumah",
+  "pengelolaan": "Petak kecil atau wadah. Pilih volume media dan cahaya menurut tanaman."
+ },
+ {
+  "id": "buah",
+  "nama": "Kebun buah campuran",
+  "pengelolaan": "Alokasikan ruang antartanaman dan ruang tajuk menurut jenis."
+ },
+ {
+  "id": "perkebunan",
+  "nama": "Kebun tanaman tahunan",
+  "pengelolaan": "Zona produksi jangka panjang. Periksa kesesuaian varietas, suhu dan naungan per komoditas."
+ },
+ {
+  "id": "rawa",
+  "nama": "Lahan rawa",
+  "pengelolaan": "Kelola tata air menurut tipe rawa, kualitas air dan tanaman. Petak rawa pasang surut memerlukan profil tersendiri."
+ }
+]

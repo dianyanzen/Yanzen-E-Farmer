@@ -1,0 +1,142 @@
+[
+ {
+  "id": "rumah",
+  "nama": "Pekarangan Pasirluyu",
+  "bab": 1,
+  "lahan": "pekarangan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "kebun",
+  "nama": "Kebun sayur Pasirluyu",
+  "bab": 1,
+  "lahan": "bedengan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "pasar",
+  "nama": "Pasar Pasirluyu",
+  "bab": 1,
+  "lahan": null,
+  "kegiatan": "Pasokan pedagang"
+ },
+ {
+  "id": "dapur",
+  "nama": "Dapur dan pengolah mitra pasar",
+  "bab": 1,
+  "lahan": null,
+  "kegiatan": "Pengolahan"
+ },
+ {
+  "id": "sawah",
+  "nama": "Hamparan sawah mitra",
+  "bab": 2,
+  "lahan": "sawah",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "ladang",
+  "nama": "Tegalan mitra",
+  "bab": 2,
+  "lahan": "tegal",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "kolam",
+  "nama": "Kolam air tawar mitra",
+  "bab": 2,
+  "lahan": null,
+  "kegiatan": "Budidaya air tawar"
+ },
+ {
+  "id": "lereng",
+  "nama": "Kebun sayur lereng",
+  "bab": 3,
+  "lahan": "bedengan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "kumbung",
+  "nama": "Kumbung mitra lereng",
+  "bab": 3,
+  "lahan": null,
+  "kegiatan": "Budidaya jamur"
+ },
+ {
+  "id": "buah",
+  "nama": "Kampung kebun buah",
+  "bab": 4,
+  "lahan": "buah",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "ternak",
+  "nama": "Sentra kandang dan unggas",
+  "bab": 4,
+  "lahan": null,
+  "kegiatan": "Peternakan"
+ },
+ {
+  "id": "bunga",
+  "nama": "Kebun bunga mitra",
+  "bab": 3,
+  "lahan": "bedengan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "kebun-rakyat",
+  "nama": "Gerai kemitraan kebun rempah",
+  "bab": 5,
+  "lahan": null,
+  "kegiatan": "Distribusi mitra luar daerah"
+ },
+ {
+  "id": "rawa",
+  "nama": "Lapak hasil rawa kiriman",
+  "bab": 6,
+  "lahan": null,
+  "kegiatan": "Distribusi mitra luar daerah"
+ },
+ {
+  "id": "tambak",
+  "nama": "Depot kiriman hasil tambak",
+  "bab": 6,
+  "lahan": null,
+  "kegiatan": "Distribusi mitra luar daerah"
+ },
+ {
+  "id": "laut",
+  "nama": "Lapak ikan laut pemasok",
+  "bab": 6,
+  "lahan": null,
+  "kegiatan": "Distribusi mitra luar daerah"
+ },
+ {
+  "id": "garam",
+  "nama": "Gudang garam pemasok",
+  "bab": 6,
+  "lahan": null,
+  "kegiatan": "Distribusi mitra luar daerah"
+ },
+ {
+  "id": "jahe-karasak",
+  "nama": "Petak jahe Karasak",
+  "bab": 5,
+  "lahan": "pekarangan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "teras-kopi",
+  "nama": "Teras Kopi Cisurupan",
+  "bab": 3,
+  "lahan": "perkebunan",
+  "kegiatan": "Tanam"
+ },
+ {
+  "id": "cekungan-air-tawar",
+  "nama": "Kebun Rawa Cimincrang",
+  "bab": 2,
+  "lahan": "rawa",
+  "kegiatan": "Tanam"
+ }
+]

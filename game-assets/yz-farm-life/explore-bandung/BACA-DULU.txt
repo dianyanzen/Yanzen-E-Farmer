@@ -1,0 +1,14 @@
+EDISI BANDUNG SELEPAS SENJA
+Buka Bandung-Selepas-Senja.html untuk ekspansi profesi dan malam kota. Mulai-di-sini.html memuat alur induk edisi 151 wilayah. Database gabungan berisi seluruh misi lama dan baru.
+
+EDISI ALUR KOTA BANDUNG
+Buka Mulai-di-sini.html untuk alur terbaru dan rincian NPC. Peta modular fiksi 151 wilayah berada di kelurahan/. Database gabungan berada di YZ_Farm_Life_Aset.sqlite. Katalog.html, Audit-73-paket.json, dan cerita/ adalah arsip dari paket dasar. Alur kota terbaru ada di cerita-kota/. Tahap ini praproduksi.
+
+YZ FARM LIFE • PAKET ASET KERJA
+Buka Katalog.html setelah mengekstrak seluruh ZIP. Cari berdasarkan nama barang, karakter, kelompok, atau kecamatan. Berkas TMJ bisa dibuka di Tiled.
+Karakter: sel 32 × 40, kolom langkah kiri/diam/langkah kanan, baris selatan/barat/timur/utara. A01 adalah Yanzen. Avatar bersumber dari pose depan. Aksi tani memakai sel 48 × 48, urutan arah yang sama, tiga pose per aksi.
+Pasar: kolom rect di atlas.json berisi x, y, lebar, tinggi. Ikon memakai siluet per keluarga barang. Nama barang perlu tetap ditampilkan. Tanaman: sel 32 × 40; urutan semai, muda, berkembang, siap panen. Tampilan prototipe berdasarkan keluarga, belum mewakili morfologi setiap spesies. Timun asli tersedia di runtime-asli.
+Peta: ubin 16 × 16, luas 24 × 16 ubin. Lapisan Tabrakan: GID 1 terhalang, 0 bebas. Interaksi memuat spawn, NPC, pesanan, dan akses zona sesuai database. Posisi fisik merupakan rancangan fiksi. Tiap distrik menggunakan tata letak modular. Peta belum disambungkan ke navigasi game.
+Audio: WAV PCM mono 22.050 Hz. Dua sketsa musik, tiga suasana, sembilan efek. Uji transisi loop dan volume pada perangkat sasaran.
+Asal: karakter dan runtime-asli dari dianyanzen/Yanzen-E-Farmer, commit ded2634a66c6c9f6526f6256625816569f1557ea. Catatan sumber karakter ada di sumber-karakter. Dua tileset Kenney menyertakan LICENSE.txt masing-masing. Sampul dibuat dengan AI untuk proyek ini. Ikon, peta, variasi tanaman, dan audio dibuat untuk paket ini.
+Audit-73-paket.json membandingkan paket dengan kriteria database asli. Status bahan tersedia masih memerlukan penilaian visual dan uji di game. Prioritas uji: siklus timun Pasirluyu, kaki karakter dan kursi roda C15, lalu keterbacaan ikon dan keunikan lokasi.

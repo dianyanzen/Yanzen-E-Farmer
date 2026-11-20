@@ -1,0 +1,513 @@
+[
+ {
+  "id": "INT-01",
+  "nama": "Aktor Pasirluyu",
+  "kriteria": "ID peta sama dengan profil dan sprite",
+  "bukti": "runtime-asli/characters",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "SUM-01",
+  "nama": "Profil fiktif",
+  "kriteria": "32 ID unik, satu pemain, semua referensi atlas valid",
+  "bukti": "data/karakter.json",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "SUM-02",
+  "nama": "Lembar gerak sumber",
+  "kriteria": "32 ID unik, satu pemain, semua referensi atlas valid",
+  "bukti": "sumber-karakter",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "TIM-01",
+  "nama": "Pertumbuhan timun",
+  "kriteria": "Tahap dan hasil panen sesuai save",
+  "bukti": "runtime-asli/tiles",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "VEN-01",
+  "nama": "Kenney Tiny Town",
+  "kriteria": "Pilih potongan yang cocok dengan perspektif 3/4",
+  "bukti": "vendor/kenney-tiny-town",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "VEN-02",
+  "nama": "Kenney RPG Urban",
+  "kriteria": "Pilih potongan yang cocok dengan perspektif 3/4",
+  "bukti": "vendor/kenney-rpg-urban-pack",
+  "status": "Sumber tersedia"
+ },
+ {
+  "id": "YAN-01",
+  "nama": "Mencangkul",
+  "kriteria": "Empat arah, kaki stabil, tangan sesuai alat, efek tepat di petak depan",
+  "bukti": "aksi/hoe.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "YAN-02",
+  "nama": "Menanam",
+  "kriteria": "Empat arah, kaki stabil, tangan sesuai alat, efek tepat di petak depan",
+  "bukti": "aksi/seed.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "YAN-03",
+  "nama": "Menyiram",
+  "kriteria": "Empat arah, kaki stabil, tangan sesuai alat, efek tepat di petak depan",
+  "bukti": "aksi/water.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "YAN-04",
+  "nama": "Memanen",
+  "kriteria": "Empat arah, kaki stabil, tangan sesuai alat, efek tepat di petak depan",
+  "bukti": "aksi/harvest.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KIT-01",
+  "nama": "Alat di tangan",
+  "kriteria": "Terbaca di peta atau slot inventaris sesuai fungsi",
+  "bukti": "properti",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KIT-02",
+  "nama": "Benih timun",
+  "kriteria": "Terbaca di peta atau slot inventaris sesuai fungsi",
+  "bukti": "properti/benih.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KIT-03",
+  "nama": "Timun panen",
+  "kriteria": "Terbaca di peta atau slot inventaris sesuai fungsi",
+  "bukti": "pasar",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KIT-04",
+  "nama": "Ikon aksi tani",
+  "kriteria": "Terbaca di peta atau slot inventaris sesuai fungsi",
+  "bukti": "antarmuka/aksi",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-01",
+  "nama": "Tanah garapan",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "peta/ubin.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-02",
+  "nama": "Tepi bedengan",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "peta/ubin.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-03",
+  "nama": "Ajir dan rambatan",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "properti/ajir.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-04",
+  "nama": "Saluran air",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "peta/ubin.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-05",
+  "nama": "Permukaan air",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "peta/ubin.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-06",
+  "nama": "Pematang dan lintasan",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "peta/ubin.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KEB-07",
+  "nama": "Pagar dan pintu kebun",
+  "kriteria": "Sambungan antartile mulus, air dan tanah terbaca saat diam",
+  "bukti": "properti/gerbang.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "FX-01",
+  "nama": "Serpih tanah",
+  "kriteria": "Efek berakhir sendiri dan tidak menutupi target",
+  "bukti": "efek/hoe.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "FX-02",
+  "nama": "Benih jatuh",
+  "kriteria": "Efek berakhir sendiri dan tidak menutupi target",
+  "bukti": "efek/seed.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "FX-03",
+  "nama": "Air menyiram",
+  "kriteria": "Efek berakhir sendiri dan tidak menutupi target",
+  "bukti": "efek/water.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "FX-04",
+  "nama": "Petikan panen",
+  "kriteria": "Efek berakhir sendiri dan tidak menutupi target",
+  "bukti": "efek/harvest.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "POT-01",
+  "nama": "Ryan A03",
+  "kriteria": "Wajah dikenali pada ukuran dialog ponsel",
+  "bukti": "avatar/A03.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "POT-02",
+  "nama": "Nani C01",
+  "kriteria": "Wajah dikenali pada ukuran dialog ponsel",
+  "bukti": "avatar/C01.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "POT-03",
+  "nama": "Inggit C08",
+  "kriteria": "Wajah dikenali pada ukuran dialog ponsel",
+  "bukti": "avatar/C08.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "CER-01",
+  "nama": "Foto saluran lama",
+  "kriteria": "ID barang, dialog, jurnal dan kondisi cerita saling cocok",
+  "bukti": "cerita/foto-saluran.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "CER-02",
+  "nama": "Surat pesanan warung",
+  "kriteria": "ID barang, dialog, jurnal dan kondisi cerita saling cocok",
+  "bukti": "cerita/telepon.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "CER-03",
+  "nama": "Percakapan inti",
+  "kriteria": "ID barang, dialog, jurnal dan kondisi cerita saling cocok",
+  "bukti": "data/interaksi.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-01",
+  "nama": "Tata letak Pasirluyu",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "peta/kec-regol.tmj",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-02",
+  "nama": "Rumah Yanzen",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "properti/rumah.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-03",
+  "nama": "Warung Inggit",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "properti/warung.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-04",
+  "nama": "Gang kampung",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "peta/kec-regol.tmj",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-05",
+  "nama": "Tepi kanal",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "peta/kec-regol.tmj",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-06",
+  "nama": "Vegetasi",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "properti/pohon.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-07",
+  "nama": "Penanda arah",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "properti/papan.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "MAP-08",
+  "nama": "Lapisan peta",
+  "kriteria": "Pintu, jalan serta titik interaksi dapat dicapai",
+  "bukti": "peta",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-01",
+  "nama": "HUD waktu dan kebun",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-02",
+  "nama": "Kontrol sentuh",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-03",
+  "nama": "Penanda interaksi",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-04",
+  "nama": "Dialog dan notifikasi",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-05",
+  "nama": "YZ Phone dan aplikasi",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "UI-06",
+  "nama": "Simpan dan pulihkan",
+  "kriteria": "Dapat dibaca dan ditekan satu tangan pada tiga ukuran layar",
+  "bukti": "antarmuka",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "NAR-01",
+  "nama": "Pasirluyu tahap dua",
+  "kriteria": "Cabang dapat dituntaskan dan hadiah tidak berulang",
+  "bukti": "cerita/episode.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "NAR-02",
+  "nama": "Tambahan penghuni Pasirluyu",
+  "kriteria": "Cabang dapat dituntaskan dan hadiah tidak berulang",
+  "bukti": "cerita/episode.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "NAR-03",
+  "nama": "Data kehidupan NPC",
+  "kriteria": "Cabang dapat dituntaskan dan hadiah tidak berulang",
+  "bukti": "data/ciri_karakter.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "NAR-04",
+  "nama": "Konten telepon",
+  "kriteria": "Cabang dapat dituntaskan dan hadiah tidak berulang",
+  "bukti": "cerita/telepon.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "SND-01",
+  "nama": "Suara aktivitas kebun",
+  "kriteria": "Volume seimbang, tanpa klik, loop mulus, kontrol suara tersedia",
+  "bukti": "audio",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "SND-02",
+  "nama": "Langkah kaki",
+  "kriteria": "Volume seimbang, tanpa klik, loop mulus, kontrol suara tersedia",
+  "bukti": "audio",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "SND-03",
+  "nama": "Antarmuka dan imbalan",
+  "kriteria": "Volume seimbang, tanpa klik, loop mulus, kontrol suara tersedia",
+  "bukti": "audio",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "SND-04",
+  "nama": "Suasana lokasi",
+  "kriteria": "Volume seimbang, tanpa klik, loop mulus, kontrol suara tersedia",
+  "bukti": "audio",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "SND-05",
+  "nama": "Musik awal",
+  "kriteria": "Volume seimbang, tanpa klik, loop mulus, kontrol suara tersedia",
+  "bukti": "audio",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-01",
+  "nama": "Atlas Kota Bandung",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "peta/tujuan.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-02",
+  "nama": "Hub Regol",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "peta/kec-regol.tmj",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-03",
+  "nama": "Paket distrik berikutnya",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "peta",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-04",
+  "nama": "Transit",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "properti/angkot.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-05",
+  "nama": "NPC belum aktif",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "karakter",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-06",
+  "nama": "Gerak kursi roda Malik C15",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "karakter/C15.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-07",
+  "nama": "Cuaca dan waktu",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "cuaca",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-08",
+  "nama": "Cerita lanjutan",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "cerita/episode.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "EKS-09",
+  "nama": "Festival panen",
+  "kriteria": "Setiap lokasi memiliki aktivitas, karakter, cerita dan jalur pulang",
+  "bukti": "properti/meja-festival.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KOM-01",
+  "nama": "Padi",
+  "kriteria": "Model tumbuh dan alat sesuai komoditas",
+  "bukti": "tanaman/padi.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KOM-02",
+  "nama": "Buncis",
+  "kriteria": "Model tumbuh dan alat sesuai komoditas",
+  "bukti": "tanaman/buncis.png",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "KOM-03",
+  "nama": "Ikan",
+  "kriteria": "Model tumbuh dan alat sesuai komoditas",
+  "bukti": "pasar",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-01",
+  "nama": "Panduan visual terapan",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "BACA-DULU.txt",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-02",
+  "nama": "Metadata atlas",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "pasar/atlas.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-03",
+  "nama": "Katalog asal aset",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "BACA-DULU.txt",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-04",
+  "nama": "Identitas game",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "sampul",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-05",
+  "nama": "Aksesibilitas",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "antarmuka/label_aksesibel.json",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-06",
+  "nama": "Paket uji visual",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "Katalog.html",
+  "status": "Bahan tersedia, cek kriteria"
+ },
+ {
+  "id": "RIL-07",
+  "nama": "Distribusi aset",
+  "kriteria": "Ekspor dan uji pada perangkat target",
+  "bukti": "Katalog.html",
+  "status": "Bahan tersedia, cek kriteria"
+ }
+]

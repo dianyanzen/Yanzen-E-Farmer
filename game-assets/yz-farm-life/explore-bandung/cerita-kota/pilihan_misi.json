@@ -1,0 +1,1094 @@
+[
+ {
+  "misi": "A02-3",
+  "opsi": "Buka petak benih bunga",
+  "flag": "A02-3-0",
+  "dampak": "Buka petak benih bunga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A02-3",
+  "opsi": "Buka kelas merangkai bunga kering",
+  "flag": "A02-3-1",
+  "dampak": "Buka kelas merangkai bunga kering; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A03-3",
+  "opsi": "Pasang papan giliran terbuka",
+  "flag": "A03-3-0",
+  "dampak": "Pasang papan giliran terbuka; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A03-3",
+  "opsi": "Buat penanda tinggi air di hilir",
+  "flag": "A03-3-1",
+  "dampak": "Buat penanda tinggi air di hilir; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A04-3",
+  "opsi": "Cetak label asal benih",
+  "flag": "A04-3-0",
+  "dampak": "Cetak label asal benih; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A04-3",
+  "opsi": "Simpan contoh induk untuk dipinjam",
+  "flag": "A04-3-1",
+  "dampak": "Simpan contoh induk untuk dipinjam; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A05-3",
+  "opsi": "Buka meja reparasi warga",
+  "flag": "A05-3-0",
+  "dampak": "Buka meja reparasi warga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A05-3",
+  "opsi": "Jadikan cangkul lama alat praktik",
+  "flag": "A05-3-1",
+  "dampak": "Jadikan cangkul lama alat praktik; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A06-3",
+  "opsi": "Buka kiriman beralas anyaman",
+  "flag": "A06-3-0",
+  "dampak": "Buka kiriman beralas anyaman; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A06-3",
+  "opsi": "Buka pemeriksaan saat serah terima",
+  "flag": "A06-3-1",
+  "dampak": "Buka pemeriksaan saat serah terima; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A07-3",
+  "opsi": "Buka naungan bibit",
+  "flag": "A07-3-0",
+  "dampak": "Buka naungan bibit; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A07-3",
+  "opsi": "Buka meja percobaan warga",
+  "flag": "A07-3-1",
+  "dampak": "Buka meja percobaan warga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A08-3",
+  "opsi": "Buka pola gagang silang",
+  "flag": "A08-3-0",
+  "dampak": "Buka pola gagang silang; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A08-3",
+  "opsi": "Buka pesanan keranjang ukuran khusus",
+  "flag": "A08-3-1",
+  "dampak": "Buka pesanan keranjang ukuran khusus; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A09-3",
+  "opsi": "Pajang foto dengan suara warga",
+  "flag": "A09-3-0",
+  "dampak": "Pajang foto dengan suara warga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A09-3",
+  "opsi": "Pajang dua sudut pengambilan",
+  "flag": "A09-3-1",
+  "dampak": "Pajang dua sudut pengambilan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A10-3",
+  "opsi": "Titip kunci di warung",
+  "flag": "A10-3-0",
+  "dampak": "Titip kunci di warung; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A10-3",
+  "opsi": "Buka giliran penjaga malam",
+  "flag": "A10-3-1",
+  "dampak": "Buka giliran penjaga malam; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A11-3",
+  "opsi": "Buka giliran tempat teduh",
+  "flag": "A11-3-0",
+  "dampak": "Buka giliran tempat teduh; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A11-3",
+  "opsi": "Buka papan arah lapak kecil",
+  "flag": "A11-3-1",
+  "dampak": "Buka papan arah lapak kecil; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A12-3",
+  "opsi": "Tetapkan kursi pendamping",
+  "flag": "A12-3-0",
+  "dampak": "Tetapkan kursi pendamping; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A12-3",
+  "opsi": "Buka jadwal angkut peti terpisah",
+  "flag": "A12-3-1",
+  "dampak": "Buka jadwal angkut peti terpisah; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A13-3",
+  "opsi": "Buka katalog nama lokal",
+  "flag": "A13-3-0",
+  "dampak": "Buka katalog nama lokal; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A13-3",
+  "opsi": "Buka arsip silsilah benih",
+  "flag": "A13-3-1",
+  "dampak": "Buka arsip silsilah benih; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A14-3",
+  "opsi": "Buka siaran cuaca pagi",
+  "flag": "A14-3-0",
+  "dampak": "Buka siaran cuaca pagi; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A14-3",
+  "opsi": "Buka siaran cerita malam",
+  "flag": "A14-3-1",
+  "dampak": "Buka siaran cerita malam; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A15-3",
+  "opsi": "Buka lumbung pinjam",
+  "flag": "A15-3-0",
+  "dampak": "Buka lumbung pinjam; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A15-3",
+  "opsi": "Buka dana tebus panen",
+  "flag": "A15-3-1",
+  "dampak": "Buka dana tebus panen; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A16-3",
+  "opsi": "Buka kursi teduh",
+  "flag": "A16-3-0",
+  "dampak": "Buka kursi teduh; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "A16-3",
+  "opsi": "Buka lintasan gerobak lebar",
+  "flag": "A16-3-1",
+  "dampak": "Buka lintasan gerobak lebar; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C01-3",
+  "opsi": "Simpan kesaksian dalam arsip keluarga",
+  "flag": "C01-3-0",
+  "dampak": "Simpan kesaksian dalam arsip keluarga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C01-3",
+  "opsi": "Titip salinan bersuara di pameran",
+  "flag": "C01-3-1",
+  "dampak": "Titip salinan bersuara di pameran; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C02-3",
+  "opsi": "Buka kebun induk asam",
+  "flag": "C02-3-0",
+  "dampak": "Buka kebun induk asam; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C02-3",
+  "opsi": "Buka kebun sambung campuran",
+  "flag": "C02-3-1",
+  "dampak": "Buka kebun sambung campuran; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C03-3",
+  "opsi": "Pasang bangku pertemuan",
+  "flag": "C03-3-0",
+  "dampak": "Pasang bangku pertemuan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C03-3",
+  "opsi": "Pasang rak nama perajin",
+  "flag": "C03-3-1",
+  "dampak": "Pasang rak nama perajin; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C04-3",
+  "opsi": "Buka resep roti saku",
+  "flag": "C04-3-0",
+  "dampak": "Buka resep roti saku; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C04-3",
+  "opsi": "Buka meja sarapan",
+  "flag": "C04-3-1",
+  "dampak": "Buka meja sarapan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C05-3",
+  "opsi": "Buka jurnal kesalahan klub",
+  "flag": "C05-3-0",
+  "dampak": "Buka jurnal kesalahan klub; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C05-3",
+  "opsi": "Buka kebun ukur berpasangan",
+  "flag": "C05-3-1",
+  "dampak": "Buka kebun ukur berpasangan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C06-3",
+  "opsi": "Buka percobaan ulang",
+  "flag": "C06-3-0",
+  "dampak": "Buka percobaan ulang; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C06-3",
+  "opsi": "Buka jurnal pengamatan warga",
+  "flag": "C06-3-1",
+  "dampak": "Buka jurnal pengamatan warga; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C07-3",
+  "opsi": "Buka keranjang matang hari ini",
+  "flag": "C07-3-0",
+  "dampak": "Buka keranjang matang hari ini; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C07-3",
+  "opsi": "Buka titip olah buah sisa",
+  "flag": "C07-3-1",
+  "dampak": "Buka titip olah buah sisa; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C08-3",
+  "opsi": "Buka resep acar warung",
+  "flag": "C08-3-0",
+  "dampak": "Buka resep acar warung; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C08-3",
+  "opsi": "Buka meja makan bersama",
+  "flag": "C08-3-1",
+  "dampak": "Buka meja makan bersama; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C09-3",
+  "opsi": "Buka label bertekstur",
+  "flag": "C09-3-0",
+  "dampak": "Buka label bertekstur; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C09-3",
+  "opsi": "Buka kartu bergambar bentuk",
+  "flag": "C09-3-1",
+  "dampak": "Buka kartu bergambar bentuk; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C10-3",
+  "opsi": "Buka buku timbang ganda",
+  "flag": "C10-3-0",
+  "dampak": "Buka buku timbang ganda; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C10-3",
+  "opsi": "Buka kuitansi per kiriman",
+  "flag": "C10-3-1",
+  "dampak": "Buka kuitansi per kiriman; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C11-3",
+  "opsi": "Buka jurnal lapangan pemula",
+  "flag": "C11-3-0",
+  "dampak": "Buka jurnal lapangan pemula; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C11-3",
+  "opsi": "Buka giliran pendamping magang",
+  "flag": "C11-3-1",
+  "dampak": "Buka giliran pendamping magang; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C12-3",
+  "opsi": "Buka rak sewa",
+  "flag": "C12-3-0",
+  "dampak": "Buka rak sewa; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C12-3",
+  "opsi": "Buka bengkel berbagi alat",
+  "flag": "C12-3-1",
+  "dampak": "Buka bengkel berbagi alat; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C13-3",
+  "opsi": "Buka forum sore",
+  "flag": "C13-3-0",
+  "dampak": "Buka forum sore; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C13-3",
+  "opsi": "Buka buku usul keliling",
+  "flag": "C13-3-1",
+  "dampak": "Buka buku usul keliling; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C14-3",
+  "opsi": "Buka rute patok tetap",
+  "flag": "C14-3-0",
+  "dampak": "Buka rute patok tetap; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C14-3",
+  "opsi": "Buka kartu arah bergambar",
+  "flag": "C14-3-1",
+  "dampak": "Buka kartu arah bergambar; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C15-3",
+  "opsi": "Pasang landai di jembatan",
+  "flag": "C15-3-0",
+  "dampak": "Pasang landai di jembatan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C15-3",
+  "opsi": "Buka jalur beratap lewat warung",
+  "flag": "C15-3-1",
+  "dampak": "Buka jalur beratap lewat warung; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C16-3",
+  "opsi": "Buka meja bunga berbagi",
+  "flag": "C16-3-0",
+  "dampak": "Buka meja bunga berbagi; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "C16-3",
+  "opsi": "Buka karangan bibit hidup",
+  "flag": "C16-3-1",
+  "dampak": "Buka karangan bibit hidup; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "P01-3",
+  "opsi": "Pasang papan ukur bersama",
+  "flag": "P01-3-0",
+  "dampak": "Pasang papan ukur bersama; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "P01-3",
+  "opsi": "Buka arsip air lintas kebun",
+  "flag": "P01-3-1",
+  "dampak": "Buka arsip air lintas kebun; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "P02-3",
+  "opsi": "Buka pintu masuk pasar kedua",
+  "flag": "P02-3-0",
+  "dampak": "Buka pintu masuk pasar kedua; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "P02-3",
+  "opsi": "Buka jam kirim yang lebih tenang",
+  "flag": "P02-3-1",
+  "dampak": "Buka jam kirim yang lebih tenang; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N01-3",
+  "opsi": "Buka kotak eram",
+  "flag": "N01-3-0",
+  "dampak": "Buka kotak eram; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N01-3",
+  "opsi": "Buka halaman umbar berpagar",
+  "flag": "N01-3-1",
+  "dampak": "Buka halaman umbar berpagar; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N02-3",
+  "opsi": "Buka kunjungan kandang rutin",
+  "flag": "N02-3-0",
+  "dampak": "Buka kunjungan kandang rutin; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N02-3",
+  "opsi": "Buka kelas perawatan ternak",
+  "flag": "N02-3-1",
+  "dampak": "Buka kelas perawatan ternak; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N03-3",
+  "opsi": "Buka jurnal ikan",
+  "flag": "N03-3-0",
+  "dampak": "Buka jurnal ikan; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N03-3",
+  "opsi": "Buka titik pancing teduh",
+  "flag": "N03-3-1",
+  "dampak": "Buka titik pancing teduh; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N04-3",
+  "opsi": "Buka jalur bunga bergilir",
+  "flag": "N04-3-0",
+  "dampak": "Buka jalur bunga bergilir; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N04-3",
+  "opsi": "Buka kalender panen madu",
+  "flag": "N04-3-1",
+  "dampak": "Buka kalender panen madu; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N05-3",
+  "opsi": "Buka ruang singgah",
+  "flag": "N05-3-0",
+  "dampak": "Buka ruang singgah; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N05-3",
+  "opsi": "Buka bekal pemulih stamina dalam game",
+  "flag": "N05-3-1",
+  "dampak": "Buka bekal pemulih stamina dalam game; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N06-3",
+  "opsi": "Buka meja identifikasi mineral",
+  "flag": "N06-3-0",
+  "dampak": "Buka meja identifikasi mineral; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "N06-3",
+  "opsi": "Buka kelas penguatan alat",
+  "flag": "N06-3-1",
+  "dampak": "Buka kelas penguatan alat; perubahan tersedia saat kunjungan berikut."
+ },
+ {
+  "misi": "BAB-1",
+  "opsi": "Percayakan foto asli kepada Nani. Pameran kelak memakai rekaman suaranya.",
+  "flag": "BAB-1-0",
+  "dampak": "Percayakan foto asli kepada Nani. Pameran kelak memakai rekaman suaranya."
+ },
+ {
+  "misi": "BAB-1",
+  "opsi": "Titip salinan di warung. Pelanggan bisa menambahkan nama pada bagian belakang.",
+  "flag": "BAB-1-1",
+  "dampak": "Titip salinan di warung. Pelanggan bisa menambahkan nama pada bagian belakang."
+ },
+ {
+  "misi": "BAB-2",
+  "opsi": "Dahulukan petak hilir. Persemaian hulu meminta penampung sementara.",
+  "flag": "BAB-2-0",
+  "dampak": "Dahulukan petak hilir. Persemaian hulu meminta penampung sementara."
+ },
+ {
+  "misi": "BAB-2",
+  "opsi": "Bangun tampungan hulu. Petani hilir perlu giliran tambahan sebelum tampungan penuh.",
+  "flag": "BAB-2-1",
+  "dampak": "Bangun tampungan hulu. Petani hilir perlu giliran tambahan sebelum tampungan penuh."
+ },
+ {
+  "misi": "BAB-3",
+  "opsi": "Cantumkan dua keluarga pada label. Koperasi membuka pesanan bersama.",
+  "flag": "BAB-3-0",
+  "dampak": "Cantumkan dua keluarga pada label. Koperasi membuka pesanan bersama."
+ },
+ {
+  "misi": "BAB-3",
+  "opsi": "Simpan dua galur terpisah. Perpustakaan benih membuka dua jalur peminjaman.",
+  "flag": "BAB-3-1",
+  "dampak": "Simpan dua galur terpisah. Perpustakaan benih membuka dua jalur peminjaman."
+ },
+ {
+  "misi": "BAB-4",
+  "opsi": "Ubah menu festival. Desi mencatat resep tanpa telur.",
+  "flag": "BAB-4-0",
+  "dampak": "Ubah menu festival. Desi mencatat resep tanpa telur."
+ },
+ {
+  "misi": "BAB-4",
+  "opsi": "Tukar giliran pasokan. Koperasi mencatat utang barang yang bisa dilunasi setelah festival.",
+  "flag": "BAB-4-1",
+  "dampak": "Tukar giliran pasokan. Koperasi mencatat utang barang yang bisa dilunasi setelah festival."
+ },
+ {
+  "misi": "BAB-5",
+  "opsi": "Catat tara pada wadah. Kontrak grosir memakai peti pakai ulang.",
+  "flag": "BAB-5-0",
+  "dampak": "Catat tara pada wadah. Kontrak grosir memakai peti pakai ulang."
+ },
+ {
+  "misi": "BAB-5",
+  "opsi": "Timbang ulang di depan pemasok. Pasar membuka jam timbang bersama.",
+  "flag": "BAB-5-1",
+  "dampak": "Timbang ulang di depan pemasok. Pasar membuka jam timbang bersama."
+ },
+ {
+  "misi": "BAB-6",
+  "opsi": "Dirikan arsip hidup di warung. Tahun kedua dimulai dengan permintaan cerita baru.",
+  "flag": "BAB-6-0",
+  "dampak": "Dirikan arsip hidup di warung. Tahun kedua dimulai dengan permintaan cerita baru."
+ },
+ {
+  "misi": "BAB-6",
+  "opsi": "Dirikan koperasi benih keliling. Tahun kedua dimulai dengan giliran pinjam dan kunjungan baru.",
+  "flag": "BAB-6-1",
+  "dampak": "Dirikan koperasi benih keliling. Tahun kedua dimulai dengan giliran pinjam dan kunjungan baru."
+ },
+ {
+  "misi": "K01-3",
+  "opsi": "Simpan satu sela hening di pola baru",
+  "flag": "K01-3-pilih-1",
+  "dampak": "Simpan satu sela hening di pola baru; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K01-3",
+  "opsi": "Ganti balasan dengan lampu untuk warga yang sulit mendengar",
+  "flag": "K01-3-pilih-2",
+  "dampak": "Ganti balasan dengan lampu untuk warga yang sulit mendengar; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K02-3",
+  "opsi": "Buka rak kargo seimbang",
+  "flag": "K02-3-pilih-1",
+  "dampak": "Buka rak kargo seimbang; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K02-3",
+  "opsi": "Pinjamkan sepeda antar sarapan",
+  "flag": "K02-3-pilih-2",
+  "dampak": "Pinjamkan sepeda antar sarapan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K03-3",
+  "opsi": "Buka loker pengambilan sore",
+  "flag": "K03-3-pilih-1",
+  "dampak": "Buka loker pengambilan sore; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K03-3",
+  "opsi": "Buka layanan titip di warung",
+  "flag": "K03-3-pilih-2",
+  "dampak": "Buka layanan titip di warung; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K04-3",
+  "opsi": "Pasang papan dua sisi",
+  "flag": "K04-3-pilih-1",
+  "dampak": "Pasang papan dua sisi; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K04-3",
+  "opsi": "Tambahkan panah bertekstur",
+  "flag": "K04-3-pilih-2",
+  "dampak": "Tambahkan panah bertekstur; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K05-3",
+  "opsi": "Jadikan mangkuk pajangan dengan kisahnya",
+  "flag": "K05-3-pilih-1",
+  "dampak": "Jadikan mangkuk pajangan dengan kisahnya; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K05-3",
+  "opsi": "Sumbangkan jatah hariannya ke meja sarapan",
+  "flag": "K05-3-pilih-2",
+  "dampak": "Sumbangkan jatah hariannya ke meja sarapan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K06-3",
+  "opsi": "Buka lintasan kawanan yang landai",
+  "flag": "K06-3-pilih-1",
+  "dampak": "Buka lintasan kawanan yang landai; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K06-3",
+  "opsi": "Bangun tempat singgah beratap",
+  "flag": "K06-3-pilih-2",
+  "dampak": "Bangun tempat singgah beratap; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K07-3",
+  "opsi": "Pakai takik pada tutup",
+  "flag": "K07-3-pilih-1",
+  "dampak": "Pakai takik pada tutup; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K07-3",
+  "opsi": "Buka rak contoh berpasangan",
+  "flag": "K07-3-pilih-2",
+  "dampak": "Buka rak contoh berpasangan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K08-3",
+  "opsi": "Pasang pompa di teras",
+  "flag": "K08-3-pilih-1",
+  "dampak": "Pasang pompa di teras; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K08-3",
+  "opsi": "Buka giliran servis keliling",
+  "flag": "K08-3-pilih-2",
+  "dampak": "Buka giliran servis keliling; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K09-3",
+  "opsi": "Simpan derit dalam arsip suara",
+  "flag": "K09-3-pilih-1",
+  "dampak": "Simpan derit dalam arsip suara; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K09-3",
+  "opsi": "Jadikan figur alat latihan pemain baru",
+  "flag": "K09-3-pilih-2",
+  "dampak": "Jadikan figur alat latihan pemain baru; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K10-3",
+  "opsi": "Buka varian tahu kuah",
+  "flag": "K10-3-pilih-1",
+  "dampak": "Buka varian tahu kuah; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K10-3",
+  "opsi": "Simpan cetakan untuk kelas perajin",
+  "flag": "K10-3-pilih-2",
+  "dampak": "Simpan cetakan untuk kelas perajin; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K11-3",
+  "opsi": "Terbitkan cerita tanpa identitas",
+  "flag": "K11-3-pilih-1",
+  "dampak": "Terbitkan cerita tanpa identitas; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K11-3",
+  "opsi": "Simpan amplop tertutup untuk keluarga",
+  "flag": "K11-3-pilih-2",
+  "dampak": "Simpan amplop tertutup untuk keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K12-3",
+  "opsi": "Buka stasiun dengar",
+  "flag": "K12-3-pilih-1",
+  "dampak": "Buka stasiun dengar; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K12-3",
+  "opsi": "Pasang penanda jalur gelap satwa",
+  "flag": "K12-3-pilih-2",
+  "dampak": "Pasang penanda jalur gelap satwa; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K13-3",
+  "opsi": "Pajang dua sisi bergiliran",
+  "flag": "K13-3-pilih-1",
+  "dampak": "Pajang dua sisi bergiliran; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K13-3",
+  "opsi": "Buat salinan balik untuk keluarga",
+  "flag": "K13-3-pilih-2",
+  "dampak": "Buat salinan balik untuk keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K14-3",
+  "opsi": "Buat perpustakaan bunyi jalan",
+  "flag": "K14-3-pilih-1",
+  "dampak": "Buat perpustakaan bunyi jalan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K14-3",
+  "opsi": "Kirim rekaman utuh kepada keluarga",
+  "flag": "K14-3-pilih-2",
+  "dampak": "Kirim rekaman utuh kepada keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K15-3",
+  "opsi": "Buka peta layanan anonim",
+  "flag": "K15-3-pilih-1",
+  "dampak": "Buka peta layanan anonim; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K15-3",
+  "opsi": "Pasang penanda arah umum",
+  "flag": "K15-3-pilih-2",
+  "dampak": "Pasang penanda arah umum; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K16-3",
+  "opsi": "Pertahankan penutup lewat isyarat",
+  "flag": "K16-3-pilih-1",
+  "dampak": "Pertahankan penutup lewat isyarat; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K16-3",
+  "opsi": "Ciptakan penutup dua generasi",
+  "flag": "K16-3-pilih-2",
+  "dampak": "Ciptakan penutup dua generasi; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K17-3",
+  "opsi": "Buka arsip warna tua",
+  "flag": "K17-3-pilih-1",
+  "dampak": "Buka arsip warna tua; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K17-3",
+  "opsi": "Buka seri kain dua rona",
+  "flag": "K17-3-pilih-2",
+  "dampak": "Buka seri kain dua rona; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K18-3",
+  "opsi": "Buka ruang dengar pemain",
+  "flag": "K18-3-pilih-1",
+  "dampak": "Buka ruang dengar pemain; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K18-3",
+  "opsi": "Buka kelas mengenali getaran",
+  "flag": "K18-3-pilih-2",
+  "dampak": "Buka kelas mengenali getaran; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K19-3",
+  "opsi": "Buka perpustakaan pola keluarga",
+  "flag": "K19-3-pilih-1",
+  "dampak": "Buka perpustakaan pola keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K19-3",
+  "opsi": "Buka label pencipta pada pesanan",
+  "flag": "K19-3-pilih-2",
+  "dampak": "Buka label pencipta pada pesanan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K20-3",
+  "opsi": "Buka pesanan acuan per kaki",
+  "flag": "K20-3-pilih-1",
+  "dampak": "Buka pesanan acuan per kaki; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K20-3",
+  "opsi": "Buka layanan ganti sol terpisah",
+  "flag": "K20-3-pilih-2",
+  "dampak": "Buka layanan ganti sol terpisah; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K21-3",
+  "opsi": "Simpan cangkir asli sebagai benda cerita",
+  "flag": "K21-3-pilih-1",
+  "dampak": "Simpan cangkir asli sebagai benda cerita; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K21-3",
+  "opsi": "Bagikan pola takaran warung",
+  "flag": "K21-3-pilih-2",
+  "dampak": "Bagikan pola takaran warung; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K22-3",
+  "opsi": "Buka segmen kiriman audio",
+  "flag": "K22-3-pilih-1",
+  "dampak": "Buka segmen kiriman audio; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K22-3",
+  "opsi": "Buka sesi mendengar tanpa siaran",
+  "flag": "K22-3-pilih-2",
+  "dampak": "Buka sesi mendengar tanpa siaran; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K23-3",
+  "opsi": "Sepakati rumah utama dan jam kunjung",
+  "flag": "K23-3-pilih-1",
+  "dampak": "Sepakati rumah utama dan jam kunjung; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K23-3",
+  "opsi": "Buat jadwal rawat bersama kedua warga",
+  "flag": "K23-3-pilih-2",
+  "dampak": "Buat jadwal rawat bersama kedua warga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K24-3",
+  "opsi": "Buka rak contoh terjangkau",
+  "flag": "K24-3-pilih-1",
+  "dampak": "Buka rak contoh terjangkau; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K24-3",
+  "opsi": "Buka kartu label lepas",
+  "flag": "K24-3-pilih-2",
+  "dampak": "Buka kartu label lepas; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K25-3",
+  "opsi": "Buka pegangan bertekstur",
+  "flag": "K25-3-pilih-1",
+  "dampak": "Buka pegangan bertekstur; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K25-3",
+  "opsi": "Buka tempat parkir dengan nomor timbul",
+  "flag": "K25-3-pilih-2",
+  "dampak": "Buka tempat parkir dengan nomor timbul; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K26-3",
+  "opsi": "Buka ruang karantina retur",
+  "flag": "K26-3-pilih-1",
+  "dampak": "Buka ruang karantina retur; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K26-3",
+  "opsi": "Buka jadwal kedatangan bertahap",
+  "flag": "K26-3-pilih-2",
+  "dampak": "Buka jadwal kedatangan bertahap; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K27-3",
+  "opsi": "Buka pola jaket kurir",
+  "flag": "K27-3-pilih-1",
+  "dampak": "Buka pola jaket kurir; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K27-3",
+  "opsi": "Pajang denah di lorong pasar",
+  "flag": "K27-3-pilih-2",
+  "dampak": "Pajang denah di lorong pasar; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K28-3",
+  "opsi": "Buka pengumuman sebelum halte",
+  "flag": "K28-3-pilih-1",
+  "dampak": "Buka pengumuman sebelum halte; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K28-3",
+  "opsi": "Pasang tanda halte dua arah",
+  "flag": "K28-3-pilih-2",
+  "dampak": "Pasang tanda halte dua arah; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K29-3",
+  "opsi": "Pasang jam baku dan lonceng toleransi",
+  "flag": "K29-3-pilih-1",
+  "dampak": "Pasang jam baku dan lonceng toleransi; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K29-3",
+  "opsi": "Pertahankan jam lama sebagai saksi di serambi",
+  "flag": "K29-3-pilih-2",
+  "dampak": "Pertahankan jam lama sebagai saksi di serambi; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K30-3",
+  "opsi": "Gelar pemutaran dengan pembaca teks",
+  "flag": "K30-3-pilih-1",
+  "dampak": "Gelar pemutaran dengan pembaca teks; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "K30-3",
+  "opsi": "Buka lokakarya arsip gambar bergerak",
+  "flag": "K30-3-pilih-2",
+  "dampak": "Buka lokakarya arsip gambar bergerak; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-01",
+  "opsi": "Minta Euis menulis nama penjaga lama",
+  "flag": "MALAM-01-pilih-1",
+  "dampak": "Minta Euis menulis nama penjaga lama; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-01",
+  "opsi": "Simpan jeda ketiga dalam rekaman",
+  "flag": "MALAM-01-pilih-2",
+  "dampak": "Simpan jeda ketiga dalam rekaman; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-02",
+  "opsi": "Titip satu kalimat anonim untuk keluarga",
+  "flag": "MALAM-02-pilih-1",
+  "dampak": "Titip satu kalimat anonim untuk keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-02",
+  "opsi": "Bantu lipat tikar dan simpan halaman tetap kosong",
+  "flag": "MALAM-02-pilih-2",
+  "dampak": "Bantu lipat tikar dan simpan halaman tetap kosong; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-03",
+  "opsi": "Buat rekaman dua posisi atas izin Karta",
+  "flag": "MALAM-03-pilih-1",
+  "dampak": "Buat rekaman dua posisi atas izin Karta; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-03",
+  "opsi": "Tinggalkan kartu kenangan di kursi",
+  "flag": "MALAM-03-pilih-2",
+  "dampak": "Tinggalkan kartu kenangan di kursi; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-04",
+  "opsi": "Simpan catatan dua kemungkinan",
+  "flag": "MALAM-04-pilih-1",
+  "dampak": "Simpan catatan dua kemungkinan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-04",
+  "opsi": "Putar kembali film dengan lampu lorong menyala",
+  "flag": "MALAM-04-pilih-2",
+  "dampak": "Putar kembali film dengan lampu lorong menyala; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-05",
+  "opsi": "Kembalikan pelampung kepada keluarga",
+  "flag": "MALAM-05-pilih-1",
+  "dampak": "Kembalikan pelampung kepada keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-05",
+  "opsi": "Titip pelampung di meja pengamatan Ratih",
+  "flag": "MALAM-05-pilih-2",
+  "dampak": "Titip pelampung di meja pengamatan Ratih; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-06",
+  "opsi": "Catat pengamatan tanpa lokasi sarang",
+  "flag": "MALAM-06-pilih-1",
+  "dampak": "Catat pengamatan tanpa lokasi sarang; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-06",
+  "opsi": "Jadikan serambi titik dengar tanpa lampu sorot",
+  "flag": "MALAM-06-pilih-2",
+  "dampak": "Jadikan serambi titik dengar tanpa lampu sorot; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-07",
+  "opsi": "Simpan salinan dengan tanda belum terjelaskan",
+  "flag": "MALAM-07-pilih-1",
+  "dampak": "Simpan salinan dengan tanda belum terjelaskan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-07",
+  "opsi": "Hapus bagian pribadi dan undang pendengar berkirim kisah",
+  "flag": "MALAM-07-pilih-2",
+  "dampak": "Hapus bagian pribadi dan undang pendengar berkirim kisah; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-08",
+  "opsi": "Sediakan bantalan tongkat di bengkel",
+  "flag": "MALAM-08-pilih-1",
+  "dampak": "Sediakan bantalan tongkat di bengkel; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-08",
+  "opsi": "Catat cerita asal pola dengan izin pemilik",
+  "flag": "MALAM-08-pilih-2",
+  "dampak": "Catat cerita asal pola dengan izin pemilik; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-09",
+  "opsi": "Pasang tabung sebagai penanda angin",
+  "flag": "MALAM-09-pilih-1",
+  "dampak": "Pasang tabung sebagai penanda angin; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-09",
+  "opsi": "Simpan suaranya dalam arsip sanggar",
+  "flag": "MALAM-09-pilih-2",
+  "dampak": "Simpan suaranya dalam arsip sanggar; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-10",
+  "opsi": "Buka bagian tulisan lama sebagai jendela sejarah",
+  "flag": "MALAM-10-pilih-1",
+  "dampak": "Buka bagian tulisan lama sebagai jendela sejarah; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-10",
+  "opsi": "Salin sketsa untuk arsip keluarga",
+  "flag": "MALAM-10-pilih-2",
+  "dampak": "Salin sketsa untuk arsip keluarga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-11",
+  "opsi": "Bantu bereskan meja",
+  "flag": "MALAM-11-pilih-1",
+  "dampak": "Bantu bereskan meja; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-11",
+  "opsi": "Titip catatan terima kasih tanpa nama",
+  "flag": "MALAM-11-pilih-2",
+  "dampak": "Titip catatan terima kasih tanpa nama; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-12",
+  "opsi": "Catat versi Empi dan versi pemain berdampingan",
+  "flag": "MALAM-12-pilih-1",
+  "dampak": "Catat versi Empi dan versi pemain berdampingan; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-12",
+  "opsi": "Jadikan jeda itu pembuka pertemuan jam tua",
+  "flag": "MALAM-12-pilih-2",
+  "dampak": "Jadikan jeda itu pembuka pertemuan jam tua; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "EK-4",
+  "opsi": "Buka arsip keliling yang bisa dibaca dan diraba",
+  "flag": "EK-4-pilih-1",
+  "dampak": "Buka arsip keliling yang bisa dibaca dan diraba; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "EK-4",
+  "opsi": "Buka studio warga dengan jam siaran malam",
+  "flag": "EK-4-pilih-2",
+  "dampak": "Buka studio warga dengan jam siaran malam; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-13",
+  "opsi": "Beri nama halte lama di arsip suara",
+  "flag": "MALAM-13-pilih-1",
+  "dampak": "Beri nama halte lama di arsip suara; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-13",
+  "opsi": "Simpan karcis tanpa nama penumpang",
+  "flag": "MALAM-13-pilih-2",
+  "dampak": "Simpan karcis tanpa nama penumpang; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-14",
+  "opsi": "Rekam kesaksian berdua",
+  "flag": "MALAM-14-pilih-1",
+  "dampak": "Rekam kesaksian berdua; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-14",
+  "opsi": "Simpan simpul pita di buku jaga",
+  "flag": "MALAM-14-pilih-2",
+  "dampak": "Simpan simpul pita di buku jaga; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-15",
+  "opsi": "Tulis kenangan pisang manis dengan izin",
+  "flag": "MALAM-15-pilih-1",
+  "dampak": "Tulis kenangan pisang manis dengan izin; tersimpan di jurnal ekspedisi."
+ },
+ {
+  "misi": "MALAM-15",
+  "opsi": "Titip bunga kepada keluarga dan simpan buku",
+  "flag": "MALAM-15-pilih-2",
+  "dampak": "Titip bunga kepada keluarga dan simpan buku; tersimpan di jurnal ekspedisi."
+ }
+]

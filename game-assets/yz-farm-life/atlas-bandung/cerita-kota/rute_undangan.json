@@ -1,0 +1,92 @@
+[
+ {
+  "misi": "MALAM-01",
+  "pemicu": "Kenal Euis lewat misi perkenalan; datang Kamis 20:00–22:00",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-02",
+  "pemicu": "Kenal Sasmita lewat misi perkenalan; datang Kamis 18:30–20:30",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-03",
+  "pemicu": "Kenal Karta lewat misi perkenalan; datang Kamis 21:00–23:00",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-04",
+  "pemicu": "Kenal Mira lewat misi perkenalan; datang Kamis 20:30–23:30",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-05",
+  "pemicu": "Kenal Darsa lewat misi perkenalan; datang Semua 19:00–21:00",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-06",
+  "pemicu": "Kenal Manda lewat misi perkenalan; datang Semua 18:00–21:00",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-07",
+  "pemicu": "Kenal Bima lewat misi perkenalan; datang Kamis 22:00–23:55",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-08",
+  "pemicu": "Kenal Oman lewat misi perkenalan; datang Semua 19:30–22:30",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-09",
+  "pemicu": "Kenal Yuda lewat misi perkenalan; datang Kamis 19:00–21:30",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-10",
+  "pemicu": "Kenal Gilang lewat misi perkenalan; datang Semua 20:00–22:15",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-11",
+  "pemicu": "Kenal Aci lewat misi perkenalan; datang Kamis 18:30–20:00",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-12",
+  "pemicu": "Kenal Empi lewat misi perkenalan; datang Kamis 21:30–23:30",
+  "kembali": "Kembali ke pangkalan kecamatan bersama tuan rumah atau menuju rumah.",
+  "ulang": "Datang pada jendela berikutnya; keluar sebelum selesai mempertahankan petunjuk yang sudah dicatat."
+ },
+ {
+  "misi": "MALAM-13",
+  "pemicu": "Selesaikan EK-1, K28-1 lalu terima undangan Ridho.",
+  "kembali": "Kembali ditemani ke pangkalan atau serambi.",
+  "ulang": "Undangan berikutnya pada Kamis di jam yang sama."
+ },
+ {
+  "misi": "MALAM-14",
+  "pemicu": "Selesaikan K25-1, MALAM-01 lalu terima undangan Bagja.",
+  "kembali": "Kembali ditemani ke pangkalan atau serambi.",
+  "ulang": "Undangan berikutnya pada Kamis di jam yang sama."
+ },
+ {
+  "misi": "MALAM-15",
+  "pemicu": "Selesaikan K11-1 lalu terima undangan Sasmita.",
+  "kembali": "Kembali ditemani ke pangkalan atau serambi.",
+  "ulang": "Undangan berikutnya pada Kamis di jam yang sama."
+ }
+]

@@ -1,0 +1,22 @@
+{
+ "aksi": {
+  "hoe": "Cangkul tanah",
+  "seed": "Tanam benih",
+  "water": "Siram tanaman",
+  "harvest": "Petik hasil"
+ },
+ "fase_tanaman": [
+  "Baru disemai",
+  "Tanaman muda",
+  "Sedang tumbuh",
+  "Siap panen"
+ ],
+ "cuaca": [
+  "Cerah",
+  "Hujan"
+ ],
+ "isyarat_audio": {
+  "imbalan": "Pesanan selesai",
+  "water": "Tanaman disiram"
+ }
+}

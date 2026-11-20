@@ -1,0 +1,34 @@
+[
+ {
+  "id": "hoe",
+  "nama": "Mencangkul",
+  "kondisi": "Petak kebun kosong",
+  "hasil": "Tanah siap tanam",
+  "menit_game": 15,
+  "paket_animasi": "YAN-01"
+ },
+ {
+  "id": "seed",
+  "nama": "Menanam",
+  "kondisi": "Tanah siap dan stok benih ≥1",
+  "hasil": "Kurangi satu benih, tanaman tahap 0",
+  "menit_game": 15,
+  "paket_animasi": "YAN-02"
+ },
+ {
+  "id": "water",
+  "nama": "Menyiram",
+  "kondisi": "Tahap ≥0 dan belum disiram hari ini",
+  "hasil": "Tandai petak sudah disiram",
+  "menit_game": 15,
+  "paket_animasi": "YAN-03"
+ },
+ {
+  "id": "harvest",
+  "nama": "Memanen",
+  "kondisi": "Tanaman tahap 3",
+  "hasil": "Tambah satu timun dan 25 G, kosongkan petak",
+  "menit_game": 15,
+  "paket_animasi": "YAN-04"
+ }
+]

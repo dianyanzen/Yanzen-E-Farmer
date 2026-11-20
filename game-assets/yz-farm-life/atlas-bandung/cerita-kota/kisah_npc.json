@@ -1,0 +1,485 @@
+[
+ {
+  "npc": "A02",
+  "wilayah": "kel-neglasari",
+  "judul": "Bunga yang dibiarkan mekar",
+  "premis": "Nabila menyisakan bunga terbaik sampai layu. Pembeli mengira ia ceroboh, padahal di bawah kelopaknya ada benih pertama kebun ibunya.",
+  "potret": "avatar/A02.png"
+ },
+ {
+  "npc": "A03",
+  "wilayah": "kel-pasirluyu",
+  "judul": "Garis kedua pada batu",
+  "premis": "Ryan hafal giliran air, tetapi angka di buku ayahnya mendahului aliran satu jam. Ia takut petak hilir selama ini membayar kesalahan catat itu.",
+  "potret": "avatar/A03.png"
+ },
+ {
+  "npc": "A04",
+  "wilayah": "kel-jatisari",
+  "judul": "Bungkus tanpa merek",
+  "premis": "Ayu mengenali benih keluarga dari lipatan kertasnya. Saat pesanan membesar, ia harus menentukan siapa yang pantas dicantumkan sebagai pemulia.",
+  "potret": "avatar/A04.png"
+ },
+ {
+  "npc": "A05",
+  "wilayah": "kel-sukamiskin",
+  "judul": "Palu di bawah meja",
+  "premis": "Vicky selalu menyimpan alat yang dikembalikan rusak. Salah satunya cangkul pertama yang ia perbaiki bersama gurunya.",
+  "potret": "avatar/A05.png"
+ },
+ {
+  "npc": "A06",
+  "wilayah": "kel-arjuna",
+  "judul": "Kiriman tanpa tanda terima",
+  "premis": "Asep menanggung sendiri harga buah memar karena pelanggan sudah telanjur pulang. Ia ingin membuktikan buah rusak sebelum tikungan terakhir.",
+  "potret": "avatar/A06.png"
+ },
+ {
+  "npc": "A07",
+  "wilayah": "kel-antapani-tengah",
+  "judul": "Baki nomor nol",
+  "premis": "Dewi menyimpan satu baki bibit cacat di belakang persemaian. Salah satunya tumbuh paling baik ketika dipindah ke tempat teduh.",
+  "potret": "avatar/A07.png"
+ },
+ {
+  "npc": "A08",
+  "wilayah": "kel-binong",
+  "judul": "Anyaman untuk tangan kiri",
+  "premis": "Astri mendapat kembali keranjang buatannya tanpa penjelasan. Pegangannya menggesek pergelangan pemetik kidal.",
+  "potret": "avatar/A08.png"
+ },
+ {
+  "npc": "A09",
+  "wilayah": "kel-braga",
+  "judul": "Orang di luar bingkai",
+  "premis": "Fajar ingin memamerkan foto panen terbaiknya. Nani mengenali seseorang yang terpotong di tepi gambar dan meminta ia mencari nama itu.",
+  "potret": "avatar/A09.png"
+ },
+ {
+  "npc": "A10",
+  "wilayah": "kel-mengger",
+  "judul": "Kunci pagar kedua",
+  "premis": "Dadan mengunci kebun setiap sore. Suatu malam ia melihat orang membawa ember untuk menyelamatkan bibit yang tertinggal.",
+  "potret": "avatar/A10.png"
+ },
+ {
+  "npc": "A11",
+  "wilayah": "kel-kebon-jeruk",
+  "judul": "Lapak di ujung lorong",
+  "premis": "Anggi melihat lapak paling sepi selalu mendapat nomor undian yang sama. Ternyata orang memilih jalur yang teduh.",
+  "potret": "avatar/A11.png"
+ },
+ {
+  "npc": "A12",
+  "wilayah": "kel-babakan-ciparay",
+  "judul": "Kursi kosong di bak depan",
+  "premis": "Denden biasa mengangkut muatan penuh. Malik ingin ikut memeriksa rute, tetapi tidak ada ruang aman untuk peralatannya.",
+  "potret": "avatar/A12.png"
+ },
+ {
+  "npc": "A13",
+  "wilayah": "kel-isola",
+  "judul": "Nama di balik amplop",
+  "premis": "Nida menerima dua benih bernama sama dengan riwayat berbeda. Menghapus salah satunya berarti menghapus ingatan satu keluarga.",
+  "potret": "avatar/A13.png"
+ },
+ {
+  "npc": "A14",
+  "wilayah": "kel-tamansari",
+  "judul": "Radio pukul lima",
+  "premis": "Desna mendengar potongan suara ayahnya pada kaset siaran kebun. Warga justru menunggu ramalan hujan pagi itu.",
+  "potret": "avatar/A14.png"
+ },
+ {
+  "npc": "A15",
+  "wilayah": "kel-sadang-serang",
+  "judul": "Cap pada karung kosong",
+  "premis": "Heru mengira stok koperasi hilang. Karung kosong ternyata menandai pinjaman bahan makan yang tak pernah ditagih.",
+  "potret": "avatar/A15.png"
+ },
+ {
+  "npc": "A16",
+  "wilayah": "kel-karang-pamulang",
+  "judul": "Garis yang tidak lurus",
+  "premis": "Khansa menggambar bedengan sempurna di atas kertas. Di lapangan garis itu melewati tempat warga biasanya duduk selepas bekerja.",
+  "potret": "avatar/A16.png"
+ },
+ {
+  "npc": "C01",
+  "wilayah": "kel-pasirluyu",
+  "judul": "Foto yang dilipat ke dalam",
+  "premis": "Nani melipat bagian foto yang memperlihatkan ibunya mengalihkan air ke kebun tetangga. Ia belum tahu apakah keluarga di hilir mengingatnya dengan baik.",
+  "potret": "avatar/C01.png"
+ },
+ {
+  "npc": "C02",
+  "wilayah": "kel-pasirjati",
+  "judul": "Cabang terakhir",
+  "premis": "Risky hendak mengganti pohon tua yang hampir tak berbuah. Satu cabang ternyata selalu dipesan untuk rujak karena rasanya asam.",
+  "potret": "avatar/C02.png"
+ },
+ {
+  "npc": "C03",
+  "wilayah": "kel-mekarmulya",
+  "judul": "Bangku dengan satu takik",
+  "premis": "Tatang mengikis takik pada bangku warung setiap kali sahabatnya pindah rumah. Hanya satu tempat tersisa.",
+  "potret": "avatar/C03.png"
+ },
+ {
+  "npc": "C04",
+  "wilayah": "kel-lingkar-selatan",
+  "judul": "Roti yang pulang utuh",
+  "premis": "Desi membuat roti sayur untuk pekerja pagi. Bungkus kosong kembali tetapi rotinya utuh karena sulit dimakan sambil bekerja.",
+  "potret": "avatar/C04.png"
+ },
+ {
+  "npc": "C05",
+  "wilayah": "kel-sadang-serang",
+  "judul": "Pita ukur terlalu pendek",
+  "premis": "Eza yakin tanaman klubnya tumbuh semalam. Ternyata papan namanya tertukar. Ia harus menceritakannya sendiri pada teman-temannya.",
+  "potret": "avatar/C05.png"
+ },
+ {
+  "npc": "C06",
+  "wilayah": "kel-ciumbuleuit",
+  "judul": "Halaman yang basah",
+  "premis": "Yani kehilangan angka percobaan setelah hujan. Ia tergoda mengisi bagian kosong dari ingatan agar laporan selesai.",
+  "potret": "avatar/C06.png"
+ },
+ {
+  "npc": "C07",
+  "wilayah": "kel-karasak",
+  "judul": "Harga menjelang tutup",
+  "premis": "Widi selalu memotong harga sore hari. Petani mengira ia mempermainkan pasar, sedangkan pelanggan justru menunggu harga murah itu.",
+  "potret": "avatar/C07.png"
+ },
+ {
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "judul": "Empat timun untuk satu meja",
+  "premis": "Inggit memesan empat timun agar bisa membuat acar bagi pelanggan lama yang pulang setelah bertahun-tahun. Ia lupa takaran terakhir karena dulu memakai cangkir retak milik ibunya.",
+  "potret": "avatar/C08.png"
+ },
+ {
+  "npc": "C09",
+  "wilayah": "kel-babakan-penghulu",
+  "judul": "Warna yang terasa sama",
+  "premis": "Bela membuat kartu panen merah dan hijau. Seorang pembeli memilih kartu keliru dan Bela meminta kesempatan memperbaikinya.",
+  "potret": "avatar/C09.png"
+ },
+ {
+  "npc": "C10",
+  "wilayah": "kel-jamika",
+  "judul": "Satu angka di bawah lipatan",
+  "premis": "Yogi selalu membulatkan catatan saat pasar ramai. Satu selisih kecil membuat pengantar dibayar kurang.",
+  "potret": "avatar/C10.png"
+ },
+ {
+  "npc": "C11",
+  "wilayah": "kel-derwati",
+  "judul": "Jurnal yang terlalu bersih",
+  "premis": "Ray menyalin catatan petani lain karena takut ketahuan gagal saat magang. Di margin ada gambar tanaman yang hanya ia sendiri perhatikan.",
+  "potret": "avatar/C11.png"
+ },
+ {
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut",
+  "judul": "Barang yang tak pernah dibeli",
+  "premis": "Fatihah menyimpan alat mahal di etalase. Warga sebenarnya hanya memerlukannya satu kali setiap musim.",
+  "potret": "avatar/C12.png"
+ },
+ {
+  "npc": "C13",
+  "wilayah": "kel-padasuka",
+  "judul": "Kursi yang selalu kosong",
+  "premis": "Heri mengundang warga rapat saat para pedagang masih berjualan. Ia baru sadar keputusan kampung selalu diambil orang yang sama.",
+  "potret": "avatar/C13.png"
+ },
+ {
+  "npc": "C14",
+  "wilayah": "kel-babakan-sari",
+  "judul": "Alamat di belakang nota",
+  "premis": "Arya menghafal gang dari warna pintu. Satu pengecatan serentak membuat semua alamat dalam bukunya kehilangan arti.",
+  "potret": "avatar/C14.png"
+ },
+ {
+  "npc": "C15",
+  "wilayah": "kel-cisurupan",
+  "judul": "Peta selepas gerimis",
+  "premis": "Malik bisa mencapai pasar saat kering. Seusai gerimis, roda kursinya tertahan di bibir jembatan. Ia sendiri memimpin survei ulang.",
+  "potret": "avatar/C15.png"
+ },
+ {
+  "npc": "C16",
+  "wilayah": "kel-sukagalih",
+  "judul": "Karangan yang boleh dibongkar",
+  "premis": "Karisma membenci melihat bunga festival dibuang utuh. Ia merancang rangkaian yang boleh dibawa pulang satu tangkai per keluarga.",
+  "potret": "avatar/C16.png"
+ },
+ {
+  "npc": "P01",
+  "wilayah": "kel-cimincrang",
+  "judul": "Dua ujung saluran",
+  "premis": "Dalam cerita fiksi, Gubernur Dedi Mulyadi menghadiri temu warga. Dua kelompok membawa peta air berbeda dan sama-sama bisa menunjukkan buktinya.",
+  "potret": "potret-baru/P01.png"
+ },
+ {
+  "npc": "P02",
+  "wilayah": "kel-braga",
+  "judul": "Meja yang menghadap gang",
+  "premis": "Dalam cerita fiksi, Wali Kota Muhammad Farhan berkunjung ke pasar. Malik mengusulkan agar rute kunjungan dimulai dari pintu yang biasanya terkunci.",
+  "potret": "potret-baru/P02.png"
+ },
+ {
+  "npc": "N01",
+  "wilayah": "kel-pasirjati",
+  "judul": "Ayam yang tak pulang ke kandang",
+  "premis": "Sinta mengira ayam kesayangannya hilang. Setiap sore terdengar ciap dari tumpukan keranjang kosong.",
+  "potret": "potret-baru/N01.png"
+ },
+ {
+  "npc": "N02",
+  "wilayah": "kel-pasirjati",
+  "judul": "Bel di pagar kandang",
+  "premis": "Surya, dokter hewan keliling, menemukan bel panggilnya berkarat. Peternak baru ternyata malu meminta bantuan.",
+  "potret": "potret-baru/N02.png"
+ },
+ {
+  "npc": "N03",
+  "wilayah": "kel-cimincrang",
+  "judul": "Umpan peninggalan kakak",
+  "premis": "Ratih menyimpan pelampung pecah dari kakaknya. Ikan yang dahulu sering tertangkap kini terlihat di sisi kolam yang lebih teduh.",
+  "potret": "potret-baru/N03.png"
+ },
+ {
+  "npc": "N04",
+  "wilayah": "kel-cisurupan",
+  "judul": "Madu yang tidak dipanen",
+  "premis": "Jalu dituduh lupa mengambil madu. Ia sengaja menyisakannya saat bunga di jalur terbang mulai habis.",
+  "potret": "potret-baru/N04.png"
+ },
+ {
+  "npc": "N05",
+  "wilayah": "kel-pasirluyu",
+  "judul": "Kursi di depan klinik",
+  "premis": "Laras melihat pekerja mengaku sehat agar tidak kehilangan giliran panen. Kursi ruang tunggunya justru selalu kosong.",
+  "potret": "potret-baru/N05.png"
+ },
+ {
+  "npc": "N06",
+  "wilayah": "kel-karasak",
+  "judul": "Batu yang bernyanyi",
+  "premis": "Ujang mengenali batu dari bunyinya. Saat dengarnya berkurang, ia mengajari murid membedakan bahan melalui guratan dan berat.",
+  "potret": "potret-baru/N06.png"
+ },
+ {
+  "npc": "K01",
+  "wilayah": "kel-pasirluyu",
+  "judul": "Sela sesudah ketukan ketiga",
+  "premis": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga.",
+  "potret": "potret-profesi/K01.png"
+ },
+ {
+  "npc": "K02",
+  "wilayah": "kel-antapani-tengah",
+  "judul": "Sepeda yang selalu belok kiri",
+  "premis": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi.",
+  "potret": "potret-profesi/K02.png"
+ },
+ {
+  "npc": "K03",
+  "wilayah": "kel-mengger",
+  "judul": "Sapu tangan tak bertuan",
+  "premis": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu.",
+  "potret": "potret-profesi/K03.png"
+ },
+ {
+  "npc": "K04",
+  "wilayah": "kel-jatisari",
+  "judul": "Huruf yang hilang saat senja",
+  "premis": "Papan Gilang terlihat jelas pada siang hari. Menjelang petang, bayangan kisi menelan satu huruf nama toko.",
+  "potret": "potret-profesi/K04.png"
+ },
+ {
+  "npc": "K05",
+  "wilayah": "kel-lingkar-selatan",
+  "judul": "Mangkuk biru",
+  "premis": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak.",
+  "potret": "potret-profesi/K05.png"
+ },
+ {
+  "npc": "K06",
+  "wilayah": "kel-cimincrang",
+  "judul": "Itik paling belakang",
+  "premis": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya.",
+  "potret": "potret-profesi/K06.png"
+ },
+ {
+  "npc": "K07",
+  "wilayah": "kel-derwati",
+  "judul": "Dua botol tertukar",
+  "premis": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya.",
+  "potret": "potret-profesi/K07.png"
+ },
+ {
+  "npc": "K08",
+  "wilayah": "kel-sukamiskin",
+  "judul": "Pompa terakhir",
+  "premis": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi.",
+  "potret": "potret-profesi/K08.png"
+ },
+ {
+  "npc": "K09",
+  "wilayah": "kel-mekarmulya",
+  "judul": "Tokoh tanpa bayangan",
+  "premis": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya.",
+  "potret": "potret-profesi/K09.png"
+ },
+ {
+  "npc": "K10",
+  "wilayah": "kel-cibuntu",
+  "judul": "Kotak dengan satu sudut miring",
+  "premis": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah.",
+  "potret": "potret-profesi/K10.png"
+ },
+ {
+  "npc": "K11",
+  "wilayah": "kel-cisurupan",
+  "judul": "Nama yang boleh disimpan",
+  "premis": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam.",
+  "potret": "potret-profesi/K11.png"
+ },
+ {
+  "npc": "K12",
+  "wilayah": "kel-ciumbuleuit",
+  "judul": "Langit di sela jemuran",
+  "premis": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah.",
+  "potret": "potret-profesi/K12.png"
+ },
+ {
+  "npc": "K13",
+  "wilayah": "kel-isola",
+  "judul": "Daftar absen di balik poster",
+  "premis": "Tuti menemukan nama penjaga gedung pada belakang poster pertunjukan. Memajang poster menutupi satu-satunya catatan tentang dirinya.",
+  "potret": "potret-profesi/K13.png"
+ },
+ {
+  "npc": "K14",
+  "wilayah": "kel-sadang-serang",
+  "judul": "Lima detik kosong",
+  "premis": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya.",
+  "potret": "potret-profesi/K14.png"
+ },
+ {
+  "npc": "K15",
+  "wilayah": "kel-karang-pamulang",
+  "judul": "Gang yang berganti pagar",
+  "premis": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya.",
+  "potret": "potret-profesi/K15.png"
+ },
+ {
+  "npc": "K16",
+  "wilayah": "kel-pasirjati",
+  "judul": "Satu bangku kosong di latihan",
+  "premis": "Karta menghentikan latihan sebelum ketukan penutup. Ia biasa menyerahkannya pada rekan yang kini hanya sanggup datang sebagai penonton.",
+  "potret": "potret-profesi/K16.png"
+ },
+ {
+  "npc": "K17",
+  "wilayah": "kel-neglasari",
+  "judul": "Biru pada ujung lengan",
+  "premis": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset.",
+  "potret": "potret-profesi/K17.png"
+ },
+ {
+  "npc": "K18",
+  "wilayah": "kel-padasuka",
+  "judul": "Nada yang enggan pulang",
+  "premis": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan.",
+  "potret": "potret-profesi/K18.png"
+ },
+ {
+  "npc": "K19",
+  "wilayah": "kel-binong",
+  "judul": "Satu tusuk sengaja kosong",
+  "premis": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya.",
+  "potret": "potret-profesi/K19.png"
+ },
+ {
+  "npc": "K20",
+  "wilayah": "kel-cibaduyut",
+  "judul": "Sol kiri lebih tipis",
+  "premis": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda.",
+  "potret": "potret-profesi/K20.png"
+ },
+ {
+  "npc": "K21",
+  "wilayah": "kel-karasak",
+  "judul": "Cangkir yang tetap retak",
+  "premis": "Aci menemukan cangkir yang dulu ia lecetkan saat magang. Pemiliknya telah memakai bekas itu untuk garis takar.",
+  "potret": "potret-profesi/K21.png"
+ },
+ {
+  "npc": "K22",
+  "wilayah": "kel-tamansari",
+  "judul": "Permintaan lagu tanpa judul",
+  "premis": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan.",
+  "potret": "potret-profesi/K22.png"
+ },
+ {
+  "npc": "K23",
+  "wilayah": "kel-sukagalih",
+  "judul": "Kucing di atas kardus",
+  "premis": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka.",
+  "potret": "potret-profesi/K23.png"
+ },
+ {
+  "npc": "K24",
+  "wilayah": "kel-babakan-penghulu",
+  "judul": "Titik yang terlalu dekat tepi",
+  "premis": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru.",
+  "potret": "potret-profesi/K24.png"
+ },
+ {
+  "npc": "K25",
+  "wilayah": "kel-babakan-sari",
+  "judul": "Troli yang bunyinya berbeda",
+  "premis": "Bagja menandai tiap troli lewat suara roda. Setelah semuanya diganti, seorang pekerja kehilangan cara mengenal troli bagiannya.",
+  "potret": "potret-profesi/K25.png"
+ },
+ {
+  "npc": "K26",
+  "wilayah": "kel-babakan-ciparay",
+  "judul": "Petak kosong nomor empat",
+  "premis": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya.",
+  "potret": "potret-profesi/K26.png"
+ },
+ {
+  "npc": "K27",
+  "wilayah": "kel-kebon-jeruk",
+  "judul": "Saku di dalam saku",
+  "premis": "Endah menemukan saku kedua di jaket lama kurir. Ada denah singkat jalan pasar yang tak pernah masuk peta.",
+  "potret": "potret-profesi/K27.png"
+ },
+ {
+  "npc": "K28",
+  "wilayah": "kel-arjuna",
+  "judul": "Karcis tanpa lubang pulang",
+  "premis": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan.",
+  "potret": "potret-profesi/K28.png"
+ },
+ {
+  "npc": "K29",
+  "wilayah": "kel-jamika",
+  "judul": "Tujuh menit untuk menunggu",
+  "premis": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang.",
+  "potret": "potret-profesi/K29.png"
+ },
+ {
+  "npc": "K30",
+  "wilayah": "kel-braga",
+  "judul": "Kursi ketiga dari belakang",
+  "premis": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks.",
+  "potret": "potret-profesi/K30.png"
+ }
+]

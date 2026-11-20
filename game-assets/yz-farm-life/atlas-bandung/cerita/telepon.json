@@ -1,0 +1,22 @@
+[
+ {
+  "id": "order",
+  "npc": "C08",
+  "teks": "Yanzen, titip empat timun untuk acar warung, ya. Kabari kalau sudah dipetik."
+ },
+ {
+  "id": "accept",
+  "npc": "C08",
+  "teks": "Siap, Bu. Nanti saya antar ke warung."
+ },
+ {
+  "id": "reminder",
+  "npc": "C08",
+  "teks": "Keranjangnya sudah Ibu siapkan di sebelah timbangan."
+ },
+ {
+  "id": "receipt",
+  "npc": "C08",
+  "teks": "Sudah Ibu hitung, pas empat. Hatur nuhun, Yanzen!"
+ }
+]

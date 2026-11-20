@@ -1,0 +1,1059 @@
+[
+ {
+  "kelurahan": "kel-pasirluyu",
+  "mentor": "K01",
+  "titik": "KERJA-pasirluyu",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Tanam lalu antar empat timun ke Inggit"
+ },
+ {
+  "kelurahan": "kel-ancol",
+  "mentor": "K01",
+  "titik": "KERJA-ancol",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-balonggede",
+  "mentor": "K01",
+  "titik": "KERJA-balonggede",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-ciateul",
+  "mentor": "K01",
+  "titik": "KERJA-ciateul",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-cigereleng",
+  "mentor": "K01",
+  "titik": "KERJA-cigereleng",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-ciseureuh",
+  "mentor": "K01",
+  "titik": "KERJA-ciseureuh",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-pungkur",
+  "mentor": "K01",
+  "titik": "KERJA-pungkur",
+  "rute_pulang": "kel-pasirluyu",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu."
+ },
+ {
+  "kelurahan": "kel-antapani-tengah",
+  "mentor": "K02",
+  "titik": "KERJA-antapani-tengah",
+  "rute_pulang": "kel-antapani-tengah",
+  "peran_lokal": "Bandingkan dua baki semai dan pilih bibit untuk kebun"
+ },
+ {
+  "kelurahan": "kel-antapani-kidul",
+  "mentor": "K02",
+  "titik": "KERJA-antapani-kidul",
+  "rute_pulang": "kel-antapani-tengah",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah."
+ },
+ {
+  "kelurahan": "kel-antapani-kulon",
+  "mentor": "K02",
+  "titik": "KERJA-antapani-kulon",
+  "rute_pulang": "kel-antapani-tengah",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah."
+ },
+ {
+  "kelurahan": "kel-antapani-wetan",
+  "mentor": "K02",
+  "titik": "KERJA-antapani-wetan",
+  "rute_pulang": "kel-antapani-tengah",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah."
+ },
+ {
+  "kelurahan": "kel-mengger",
+  "mentor": "K03",
+  "titik": "KERJA-mengger",
+  "rute_pulang": "kel-mengger",
+  "peran_lokal": "Pisahkan sisa daun dari hasil layak jual"
+ },
+ {
+  "kelurahan": "kel-batununggal",
+  "mentor": "K03",
+  "titik": "KERJA-batununggal",
+  "rute_pulang": "kel-mengger",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger."
+ },
+ {
+  "kelurahan": "kel-kujangsari",
+  "mentor": "K03",
+  "titik": "KERJA-kujangsari",
+  "rute_pulang": "kel-mengger",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger."
+ },
+ {
+  "kelurahan": "kel-wates",
+  "mentor": "K03",
+  "titik": "KERJA-wates",
+  "rute_pulang": "kel-mengger",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger."
+ },
+ {
+  "kelurahan": "kel-jatisari",
+  "mentor": "K04",
+  "titik": "KERJA-jatisari",
+  "rute_pulang": "kel-jatisari",
+  "peran_lokal": "Rawat satu baris tanaman untuk menghasilkan benih"
+ },
+ {
+  "kelurahan": "kel-cijawura",
+  "mentor": "K04",
+  "titik": "KERJA-cijawura",
+  "rute_pulang": "kel-jatisari",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari."
+ },
+ {
+  "kelurahan": "kel-margasari",
+  "mentor": "K04",
+  "titik": "KERJA-margasari",
+  "rute_pulang": "kel-jatisari",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari."
+ },
+ {
+  "kelurahan": "kel-sekejati",
+  "mentor": "K04",
+  "titik": "KERJA-sekejati",
+  "rute_pulang": "kel-jatisari",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari."
+ },
+ {
+  "kelurahan": "kel-lingkar-selatan",
+  "mentor": "K05",
+  "titik": "KERJA-lingkar-selatan",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Rakit paket bahan karedok sesuai pesanan dapur"
+ },
+ {
+  "kelurahan": "kel-burangrang",
+  "mentor": "K05",
+  "titik": "KERJA-burangrang",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-cijagra",
+  "mentor": "K05",
+  "titik": "KERJA-cijagra",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-cikawao",
+  "mentor": "K05",
+  "titik": "KERJA-cikawao",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-malabar",
+  "mentor": "K05",
+  "titik": "KERJA-malabar",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-paledang",
+  "mentor": "K05",
+  "titik": "KERJA-paledang",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-turangga",
+  "mentor": "K05",
+  "titik": "KERJA-turangga",
+  "rute_pulang": "kel-lingkar-selatan",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan."
+ },
+ {
+  "kelurahan": "kel-cimincrang",
+  "mentor": "K06",
+  "titik": "KERJA-cimincrang",
+  "rute_pulang": "kel-cimincrang",
+  "peran_lokal": "Buka petak bersama Heru dan atur pintu air bersama Ryan"
+ },
+ {
+  "kelurahan": "kel-cisaranten-kidul",
+  "mentor": "K06",
+  "titik": "KERJA-cisaranten-kidul",
+  "rute_pulang": "kel-cimincrang",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang."
+ },
+ {
+  "kelurahan": "kel-rancabolang",
+  "mentor": "K06",
+  "titik": "KERJA-rancabolang",
+  "rute_pulang": "kel-cimincrang",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang."
+ },
+ {
+  "kelurahan": "kel-rancanumpang",
+  "mentor": "K06",
+  "titik": "KERJA-rancanumpang",
+  "rute_pulang": "kel-cimincrang",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang."
+ },
+ {
+  "kelurahan": "kel-derwati",
+  "mentor": "K07",
+  "titik": "KERJA-derwati",
+  "rute_pulang": "kel-derwati",
+  "peran_lokal": "Catat pertumbuhan satu kelompok ikan sampai ukuran pesanan"
+ },
+ {
+  "kelurahan": "kel-cipamokolan",
+  "mentor": "K07",
+  "titik": "KERJA-cipamokolan",
+  "rute_pulang": "kel-derwati",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati."
+ },
+ {
+  "kelurahan": "kel-manjahlega",
+  "mentor": "K07",
+  "titik": "KERJA-manjahlega",
+  "rute_pulang": "kel-derwati",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati."
+ },
+ {
+  "kelurahan": "kel-mekarjaya",
+  "mentor": "K07",
+  "titik": "KERJA-mekarjaya",
+  "rute_pulang": "kel-derwati",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati."
+ },
+ {
+  "kelurahan": "kel-sukamiskin",
+  "mentor": "K08",
+  "titik": "KERJA-sukamiskin",
+  "rute_pulang": "kel-sukamiskin",
+  "peran_lokal": "Perbaiki pompa untuk giliran siram ladang jagung"
+ },
+ {
+  "kelurahan": "kel-cisaranten-bina-harapan",
+  "mentor": "K08",
+  "titik": "KERJA-cisaranten-bina-harapan",
+  "rute_pulang": "kel-sukamiskin",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin."
+ },
+ {
+  "kelurahan": "kel-cisaranten-endah",
+  "mentor": "K08",
+  "titik": "KERJA-cisaranten-endah",
+  "rute_pulang": "kel-sukamiskin",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin."
+ },
+ {
+  "kelurahan": "kel-cisaranten-kulon",
+  "mentor": "K08",
+  "titik": "KERJA-cisaranten-kulon",
+  "rute_pulang": "kel-sukamiskin",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin."
+ },
+ {
+  "kelurahan": "kel-mekarmulya",
+  "mentor": "K09",
+  "titik": "KERJA-mekarmulya",
+  "rute_pulang": "kel-mekarmulya",
+  "peran_lokal": "Rakit rak pengering dan kelola dua kiriman gabah"
+ },
+ {
+  "kelurahan": "kel-cipadung-kidul",
+  "mentor": "K09",
+  "titik": "KERJA-cipadung-kidul",
+  "rute_pulang": "kel-mekarmulya",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya."
+ },
+ {
+  "kelurahan": "kel-cipadung-kulon",
+  "mentor": "K09",
+  "titik": "KERJA-cipadung-kulon",
+  "rute_pulang": "kel-mekarmulya",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya."
+ },
+ {
+  "kelurahan": "kel-cipadung-wetan",
+  "mentor": "K09",
+  "titik": "KERJA-cipadung-wetan",
+  "rute_pulang": "kel-mekarmulya",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya."
+ },
+ {
+  "kelurahan": "kel-cibuntu",
+  "mentor": "K10",
+  "titik": "KERJA-cibuntu",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Kirim kedelai dan pilih pesanan tahu atau tempe"
+ },
+ {
+  "kelurahan": "kel-caringin",
+  "mentor": "K10",
+  "titik": "KERJA-caringin",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-cigondewah-kaler",
+  "mentor": "K10",
+  "titik": "KERJA-cigondewah-kaler",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-cigondewah-kidul",
+  "mentor": "K10",
+  "titik": "KERJA-cigondewah-kidul",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-cigondewah-rahayu",
+  "mentor": "K10",
+  "titik": "KERJA-cigondewah-rahayu",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-cijerah",
+  "mentor": "K10",
+  "titik": "KERJA-cijerah",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-gempolsari",
+  "mentor": "K10",
+  "titik": "KERJA-gempolsari",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-warung-muncang",
+  "mentor": "K10",
+  "titik": "KERJA-warung-muncang",
+  "rute_pulang": "kel-cibuntu",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu."
+ },
+ {
+  "kelurahan": "kel-cisurupan",
+  "mentor": "K11",
+  "titik": "KERJA-cisurupan",
+  "rute_pulang": "kel-cisurupan",
+  "peran_lokal": "Petakan akses panen tanpa tangga bersama Malik"
+ },
+ {
+  "kelurahan": "kel-cipadung",
+  "mentor": "K11",
+  "titik": "KERJA-cipadung",
+  "rute_pulang": "kel-cisurupan",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan."
+ },
+ {
+  "kelurahan": "kel-palasari",
+  "mentor": "K11",
+  "titik": "KERJA-palasari",
+  "rute_pulang": "kel-cisurupan",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan."
+ },
+ {
+  "kelurahan": "kel-pasirbiru",
+  "mentor": "K11",
+  "titik": "KERJA-pasirbiru",
+  "rute_pulang": "kel-cisurupan",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan."
+ },
+ {
+  "kelurahan": "kel-ciumbuleuit",
+  "mentor": "K12",
+  "titik": "KERJA-ciumbuleuit",
+  "rute_pulang": "kel-ciumbuleuit",
+  "peran_lokal": "Bandingkan hasil selada dari petak dengan naungan berbeda"
+ },
+ {
+  "kelurahan": "kel-hegarmanah",
+  "mentor": "K12",
+  "titik": "KERJA-hegarmanah",
+  "rute_pulang": "kel-ciumbuleuit",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit."
+ },
+ {
+  "kelurahan": "kel-ledeng",
+  "mentor": "K12",
+  "titik": "KERJA-ledeng",
+  "rute_pulang": "kel-ciumbuleuit",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit."
+ },
+ {
+  "kelurahan": "kel-isola",
+  "mentor": "K13",
+  "titik": "KERJA-isola",
+  "rute_pulang": "kel-isola",
+  "peran_lokal": "Catat asal benih buncis lalu tukar dengan penanam lain"
+ },
+ {
+  "kelurahan": "kel-gegerkalong",
+  "mentor": "K13",
+  "titik": "KERJA-gegerkalong",
+  "rute_pulang": "kel-isola",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola."
+ },
+ {
+  "kelurahan": "kel-sarijadi",
+  "mentor": "K13",
+  "titik": "KERJA-sarijadi",
+  "rute_pulang": "kel-isola",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola."
+ },
+ {
+  "kelurahan": "kel-sukarasa",
+  "mentor": "K13",
+  "titik": "KERJA-sukarasa",
+  "rute_pulang": "kel-isola",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola."
+ },
+ {
+  "kelurahan": "kel-sadang-serang",
+  "mentor": "K14",
+  "titik": "KERJA-sadang-serang",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Dampingi klub kebun menanam hingga panen pertama"
+ },
+ {
+  "kelurahan": "kel-cipaganti",
+  "mentor": "K14",
+  "titik": "KERJA-cipaganti",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang."
+ },
+ {
+  "kelurahan": "kel-dago",
+  "mentor": "K14",
+  "titik": "KERJA-dago",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang."
+ },
+ {
+  "kelurahan": "kel-lebakgede",
+  "mentor": "K14",
+  "titik": "KERJA-lebakgede",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang."
+ },
+ {
+  "kelurahan": "kel-lebak-siliwangi",
+  "mentor": "K14",
+  "titik": "KERJA-lebak-siliwangi",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang."
+ },
+ {
+  "kelurahan": "kel-sekeloa",
+  "mentor": "K14",
+  "titik": "KERJA-sekeloa",
+  "rute_pulang": "kel-sadang-serang",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang."
+ },
+ {
+  "kelurahan": "kel-karang-pamulang",
+  "mentor": "K15",
+  "titik": "KERJA-karang-pamulang",
+  "rute_pulang": "kel-karang-pamulang",
+  "peran_lokal": "Susun jalur limpasan agar petak jahe tidak tergerus"
+ },
+ {
+  "kelurahan": "kel-jatihandap",
+  "mentor": "K15",
+  "titik": "KERJA-jatihandap",
+  "rute_pulang": "kel-karang-pamulang",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang."
+ },
+ {
+  "kelurahan": "kel-pasir-impun",
+  "mentor": "K15",
+  "titik": "KERJA-pasir-impun",
+  "rute_pulang": "kel-karang-pamulang",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang."
+ },
+ {
+  "kelurahan": "kel-sindang-jaya",
+  "mentor": "K15",
+  "titik": "KERJA-sindang-jaya",
+  "rute_pulang": "kel-karang-pamulang",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang."
+ },
+ {
+  "kelurahan": "kel-pasirjati",
+  "mentor": "K16",
+  "titik": "KERJA-pasirjati",
+  "rute_pulang": "kel-pasirjati",
+  "peran_lokal": "Pilih tingkat kematangan jambu untuk kiriman Anggi"
+ },
+ {
+  "kelurahan": "kel-cigending",
+  "mentor": "K16",
+  "titik": "KERJA-cigending",
+  "rute_pulang": "kel-pasirjati",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati."
+ },
+ {
+  "kelurahan": "kel-pasanggrahan",
+  "mentor": "K16",
+  "titik": "KERJA-pasanggrahan",
+  "rute_pulang": "kel-pasirjati",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati."
+ },
+ {
+  "kelurahan": "kel-pasir-endah",
+  "mentor": "K16",
+  "titik": "KERJA-pasir-endah",
+  "rute_pulang": "kel-pasirjati",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati."
+ },
+ {
+  "kelurahan": "kel-pasir-wangi",
+  "mentor": "K16",
+  "titik": "KERJA-pasir-wangi",
+  "rute_pulang": "kel-pasirjati",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati."
+ },
+ {
+  "kelurahan": "kel-neglasari",
+  "mentor": "K17",
+  "titik": "KERJA-neglasari",
+  "rute_pulang": "kel-neglasari",
+  "peran_lokal": "Atur giliran tanam agar bunga siap menjelang acara"
+ },
+ {
+  "kelurahan": "kel-cigadung",
+  "mentor": "K17",
+  "titik": "KERJA-cigadung",
+  "rute_pulang": "kel-neglasari",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari."
+ },
+ {
+  "kelurahan": "kel-cihargeulis",
+  "mentor": "K17",
+  "titik": "KERJA-cihargeulis",
+  "rute_pulang": "kel-neglasari",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari."
+ },
+ {
+  "kelurahan": "kel-sukaluyu",
+  "mentor": "K17",
+  "titik": "KERJA-sukaluyu",
+  "rute_pulang": "kel-neglasari",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari."
+ },
+ {
+  "kelurahan": "kel-padasuka",
+  "mentor": "K18",
+  "titik": "KERJA-padasuka",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Koordinasikan konsumsi bagi kelompok pertunjukan"
+ },
+ {
+  "kelurahan": "kel-cicadas",
+  "mentor": "K18",
+  "titik": "KERJA-cicadas",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka."
+ },
+ {
+  "kelurahan": "kel-cikutra",
+  "mentor": "K18",
+  "titik": "KERJA-cikutra",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka."
+ },
+ {
+  "kelurahan": "kel-pasirlayung",
+  "mentor": "K18",
+  "titik": "KERJA-pasirlayung",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka."
+ },
+ {
+  "kelurahan": "kel-sukamaju",
+  "mentor": "K18",
+  "titik": "KERJA-sukamaju",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka."
+ },
+ {
+  "kelurahan": "kel-sukapada",
+  "mentor": "K18",
+  "titik": "KERJA-sukapada",
+  "rute_pulang": "kel-padasuka",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka."
+ },
+ {
+  "kelurahan": "kel-binong",
+  "mentor": "K19",
+  "titik": "KERJA-binong",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Uji tas rajut agar pesanan buah tiba utuh"
+ },
+ {
+  "kelurahan": "kel-cibangkong",
+  "mentor": "K19",
+  "titik": "KERJA-cibangkong",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-gumuruh",
+  "mentor": "K19",
+  "titik": "KERJA-gumuruh",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-kacapiring",
+  "mentor": "K19",
+  "titik": "KERJA-kacapiring",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-kebon-gedang",
+  "mentor": "K19",
+  "titik": "KERJA-kebon-gedang",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-kebonwaru",
+  "mentor": "K19",
+  "titik": "KERJA-kebonwaru",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-maleer",
+  "mentor": "K19",
+  "titik": "KERJA-maleer",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-samoja",
+  "mentor": "K19",
+  "titik": "KERJA-samoja",
+  "rute_pulang": "kel-binong",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong."
+ },
+ {
+  "kelurahan": "kel-cibaduyut",
+  "mentor": "K20",
+  "titik": "KERJA-cibaduyut",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Uji alas kaki kerja saat membawa hasil dari petak berlumpur"
+ },
+ {
+  "kelurahan": "kel-cibaduyut-kidul",
+  "mentor": "K20",
+  "titik": "KERJA-cibaduyut-kidul",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut."
+ },
+ {
+  "kelurahan": "kel-cibaduyut-wetan",
+  "mentor": "K20",
+  "titik": "KERJA-cibaduyut-wetan",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut."
+ },
+ {
+  "kelurahan": "kel-kebon-lega",
+  "mentor": "K20",
+  "titik": "KERJA-kebon-lega",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut."
+ },
+ {
+  "kelurahan": "kel-mekarwangi",
+  "mentor": "K20",
+  "titik": "KERJA-mekarwangi",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut."
+ },
+ {
+  "kelurahan": "kel-situsaeur",
+  "mentor": "K20",
+  "titik": "KERJA-situsaeur",
+  "rute_pulang": "kel-cibaduyut",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut."
+ },
+ {
+  "kelurahan": "kel-karasak",
+  "mentor": "K21",
+  "titik": "KERJA-karasak",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Bawa contoh jahe ke Widi dan temui mitra kebun kopi"
+ },
+ {
+  "kelurahan": "kel-cibadak",
+  "mentor": "K21",
+  "titik": "KERJA-cibadak",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak."
+ },
+ {
+  "kelurahan": "kel-karanganyar",
+  "mentor": "K21",
+  "titik": "KERJA-karanganyar",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak."
+ },
+ {
+  "kelurahan": "kel-nyengseret",
+  "mentor": "K21",
+  "titik": "KERJA-nyengseret",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak."
+ },
+ {
+  "kelurahan": "kel-panjunan",
+  "mentor": "K21",
+  "titik": "KERJA-panjunan",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak."
+ },
+ {
+  "kelurahan": "kel-pelindung-hewan",
+  "mentor": "K21",
+  "titik": "KERJA-pelindung-hewan",
+  "rute_pulang": "kel-karasak",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak."
+ },
+ {
+  "kelurahan": "kel-tamansari",
+  "mentor": "K22",
+  "titik": "KERJA-tamansari",
+  "rute_pulang": "kel-tamansari",
+  "peran_lokal": "Konfirmasi kabar panen sebelum mengumumkan pesanan lewat radio"
+ },
+ {
+  "kelurahan": "kel-cihapit",
+  "mentor": "K22",
+  "titik": "KERJA-cihapit",
+  "rute_pulang": "kel-tamansari",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari."
+ },
+ {
+  "kelurahan": "kel-citarum",
+  "mentor": "K22",
+  "titik": "KERJA-citarum",
+  "rute_pulang": "kel-tamansari",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari."
+ },
+ {
+  "kelurahan": "kel-sukagalih",
+  "mentor": "K23",
+  "titik": "KERJA-sukagalih",
+  "rute_pulang": "kel-sukagalih",
+  "peran_lokal": "Gabungkan bunga kiriman menjadi rangkaian pesanan warga"
+ },
+ {
+  "kelurahan": "kel-cipedes",
+  "mentor": "K23",
+  "titik": "KERJA-cipedes",
+  "rute_pulang": "kel-sukagalih",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih."
+ },
+ {
+  "kelurahan": "kel-pasteur",
+  "mentor": "K23",
+  "titik": "KERJA-pasteur",
+  "rute_pulang": "kel-sukagalih",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih."
+ },
+ {
+  "kelurahan": "kel-sukabungah",
+  "mentor": "K23",
+  "titik": "KERJA-sukabungah",
+  "rute_pulang": "kel-sukagalih",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih."
+ },
+ {
+  "kelurahan": "kel-sukawarna",
+  "mentor": "K23",
+  "titik": "KERJA-sukawarna",
+  "rute_pulang": "kel-sukagalih",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih."
+ },
+ {
+  "kelurahan": "kel-babakan-penghulu",
+  "mentor": "K24",
+  "titik": "KERJA-babakan-penghulu",
+  "rute_pulang": "kel-babakan-penghulu",
+  "peran_lokal": "Buat label asal dan cocokkan dengan kelompok panen"
+ },
+ {
+  "kelurahan": "kel-cisaranten-wetan",
+  "mentor": "K24",
+  "titik": "KERJA-cisaranten-wetan",
+  "rute_pulang": "kel-babakan-penghulu",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu."
+ },
+ {
+  "kelurahan": "kel-pakemitan",
+  "mentor": "K24",
+  "titik": "KERJA-pakemitan",
+  "rute_pulang": "kel-babakan-penghulu",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu."
+ },
+ {
+  "kelurahan": "kel-sukamulya",
+  "mentor": "K24",
+  "titik": "KERJA-sukamulya",
+  "rute_pulang": "kel-babakan-penghulu",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu."
+ },
+ {
+  "kelurahan": "kel-babakan-sari",
+  "mentor": "K25",
+  "titik": "KERJA-babakan-sari",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Gabungkan dua kiriman kecil agar satu perjalanan cukup"
+ },
+ {
+  "kelurahan": "kel-babakan-surabaya",
+  "mentor": "K25",
+  "titik": "KERJA-babakan-surabaya",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari."
+ },
+ {
+  "kelurahan": "kel-cicaheum",
+  "mentor": "K25",
+  "titik": "KERJA-cicaheum",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari."
+ },
+ {
+  "kelurahan": "kel-kebon-kangkung",
+  "mentor": "K25",
+  "titik": "KERJA-kebon-kangkung",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari."
+ },
+ {
+  "kelurahan": "kel-kebon-jayanti",
+  "mentor": "K25",
+  "titik": "KERJA-kebon-jayanti",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari."
+ },
+ {
+  "kelurahan": "kel-sukapura",
+  "mentor": "K25",
+  "titik": "KERJA-sukapura",
+  "rute_pulang": "kel-babakan-sari",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari."
+ },
+ {
+  "kelurahan": "kel-babakan-ciparay",
+  "mentor": "K26",
+  "titik": "KERJA-babakan-ciparay",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Temui Denden untuk mencocokkan pasokan ikan dengan pesanan"
+ },
+ {
+  "kelurahan": "kel-babakan",
+  "mentor": "K26",
+  "titik": "KERJA-babakan",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay."
+ },
+ {
+  "kelurahan": "kel-cirangrang",
+  "mentor": "K26",
+  "titik": "KERJA-cirangrang",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay."
+ },
+ {
+  "kelurahan": "kel-margahayu-utara",
+  "mentor": "K26",
+  "titik": "KERJA-margahayu-utara",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay."
+ },
+ {
+  "kelurahan": "kel-margasuka",
+  "mentor": "K26",
+  "titik": "KERJA-margasuka",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay."
+ },
+ {
+  "kelurahan": "kel-sukahaji",
+  "mentor": "K26",
+  "titik": "KERJA-sukahaji",
+  "rute_pulang": "kel-babakan-ciparay",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay."
+ },
+ {
+  "kelurahan": "kel-kebon-jeruk",
+  "mentor": "K27",
+  "titik": "KERJA-kebon-jeruk",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Titipkan satu kelompok barang dan bandingkan hasilnya dengan jual putus"
+ },
+ {
+  "kelurahan": "kel-campaka",
+  "mentor": "K27",
+  "titik": "KERJA-campaka",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk."
+ },
+ {
+  "kelurahan": "kel-ciroyom",
+  "mentor": "K27",
+  "titik": "KERJA-ciroyom",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk."
+ },
+ {
+  "kelurahan": "kel-dunguscariang",
+  "mentor": "K27",
+  "titik": "KERJA-dunguscariang",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk."
+ },
+ {
+  "kelurahan": "kel-garuda",
+  "mentor": "K27",
+  "titik": "KERJA-garuda",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk."
+ },
+ {
+  "kelurahan": "kel-maleber",
+  "mentor": "K27",
+  "titik": "KERJA-maleber",
+  "rute_pulang": "kel-kebon-jeruk",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk."
+ },
+ {
+  "kelurahan": "kel-arjuna",
+  "mentor": "K28",
+  "titik": "KERJA-arjuna",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Pilih rute yang menjaga stroberi tiba sebelum batas terima"
+ },
+ {
+  "kelurahan": "kel-husein-sastranegara",
+  "mentor": "K28",
+  "titik": "KERJA-husein-sastranegara",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna."
+ },
+ {
+  "kelurahan": "kel-pajajaran",
+  "mentor": "K28",
+  "titik": "KERJA-pajajaran",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna."
+ },
+ {
+  "kelurahan": "kel-pamoyanan",
+  "mentor": "K28",
+  "titik": "KERJA-pamoyanan",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna."
+ },
+ {
+  "kelurahan": "kel-pasirkaliki",
+  "mentor": "K28",
+  "titik": "KERJA-pasirkaliki",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna."
+ },
+ {
+  "kelurahan": "kel-sukaraja",
+  "mentor": "K28",
+  "titik": "KERJA-sukaraja",
+  "rute_pulang": "kel-arjuna",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna."
+ },
+ {
+  "kelurahan": "kel-jamika",
+  "mentor": "K29",
+  "titik": "KERJA-jamika",
+  "rute_pulang": "kel-jamika",
+  "peran_lokal": "Cocokkan jumlah kiriman, retur dan pembayaran pedagang"
+ },
+ {
+  "kelurahan": "kel-babakan-asih",
+  "mentor": "K29",
+  "titik": "KERJA-babakan-asih",
+  "rute_pulang": "kel-jamika",
+  "peran_lokal": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika."
+ },
+ {
+  "kelurahan": "kel-babakan-tarogong",
+  "mentor": "K29",
+  "titik": "KERJA-babakan-tarogong",
+  "rute_pulang": "kel-jamika",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika."
+ },
+ {
+  "kelurahan": "kel-kopo",
+  "mentor": "K29",
+  "titik": "KERJA-kopo",
+  "rute_pulang": "kel-jamika",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika."
+ },
+ {
+  "kelurahan": "kel-suka-asih",
+  "mentor": "K29",
+  "titik": "KERJA-suka-asih",
+  "rute_pulang": "kel-jamika",
+  "peran_lokal": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika."
+ },
+ {
+  "kelurahan": "kel-braga",
+  "mentor": "K30",
+  "titik": "KERJA-braga",
+  "rute_pulang": "kel-braga",
+  "peran_lokal": "Kumpulkan foto dan cerita asal hasil kebun untuk pameran"
+ },
+ {
+  "kelurahan": "kel-babakan-ciamis",
+  "mentor": "K30",
+  "titik": "KERJA-babakan-ciamis",
+  "rute_pulang": "kel-braga",
+  "peran_lokal": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga."
+ },
+ {
+  "kelurahan": "kel-kebon-pisang",
+  "mentor": "K30",
+  "titik": "KERJA-kebon-pisang",
+  "rute_pulang": "kel-braga",
+  "peran_lokal": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga."
+ },
+ {
+  "kelurahan": "kel-merdeka",
+  "mentor": "K30",
+  "titik": "KERJA-merdeka",
+  "rute_pulang": "kel-braga",
+  "peran_lokal": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga."
+ }
+]

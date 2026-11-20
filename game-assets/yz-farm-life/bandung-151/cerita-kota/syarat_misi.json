@@ -1,0 +1,1374 @@
+[
+ {
+  "misi": "C14-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A02-2",
+  "pendahulu": "A02-1"
+ },
+ {
+  "misi": "C02-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-cipadung-kulon",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C09-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-sukawarna",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-sukaraja",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A12-2",
+  "pendahulu": "A12-1"
+ },
+ {
+  "misi": "A06-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cimincrang",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A12-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-campaka",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C03-3",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "N04-2",
+  "pendahulu": "N04-1"
+ },
+ {
+  "misi": "C05-3",
+  "pendahulu": "C05-2"
+ },
+ {
+  "misi": "N01-3",
+  "pendahulu": "N01-2"
+ },
+ {
+  "misi": "JEL-gegerkalong",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A15-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A08-2",
+  "pendahulu": "A08-1"
+ },
+ {
+  "misi": "C03-3",
+  "pendahulu": "A12-1"
+ },
+ {
+  "misi": "BAB-1",
+  "pendahulu": "C08-1"
+ },
+ {
+  "misi": "JEL-cisaranten-wetan",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "N02-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A15-3",
+  "pendahulu": "A15-2"
+ },
+ {
+  "misi": "JEL-mekarmulya",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C02-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C12-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C10-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cisaranten-bina-harapan",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-arjuna",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A02-3",
+  "pendahulu": "A07-1"
+ },
+ {
+  "misi": "BAB-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A16-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-sukamiskin",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C16-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A13-3",
+  "pendahulu": "A13-2"
+ },
+ {
+  "misi": "C15-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A11-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cibadak",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "BAB-6",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "N03-3",
+  "pendahulu": "A03-1"
+ },
+ {
+  "misi": "JEL-cibuntu",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C08-2",
+  "pendahulu": "C08-1"
+ },
+ {
+  "misi": "JEL-sukarasa",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "N06-3",
+  "pendahulu": "N06-2"
+ },
+ {
+  "misi": "A12-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cihargeulis",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "P01-3",
+  "pendahulu": "A03-1"
+ },
+ {
+  "misi": "JEL-pasir-impun",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-gempolsari",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C03-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "N01-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-binong",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C13-3",
+  "pendahulu": "A11-1"
+ },
+ {
+  "misi": "JEL-panjunan",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-pasir-endah",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C16-2",
+  "pendahulu": "C16-1"
+ },
+ {
+  "misi": "C13-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C11-3",
+  "pendahulu": "C11-2"
+ },
+ {
+  "misi": "JEL-cipaganti",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A12-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A09-2",
+  "pendahulu": "A09-1"
+ },
+ {
+  "misi": "JEL-merdeka",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cigending",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A10-2",
+  "pendahulu": "A10-1"
+ },
+ {
+  "misi": "N05-2",
+  "pendahulu": "N05-1"
+ },
+ {
+  "misi": "A07-3",
+  "pendahulu": "A07-2"
+ },
+ {
+  "misi": "JEL-cipamokolan",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-caringin",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C08-3",
+  "pendahulu": "C01-1"
+ },
+ {
+  "misi": "A06-2",
+  "pendahulu": "A06-1"
+ },
+ {
+  "misi": "JEL-pasir-wangi",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A03-3",
+  "pendahulu": "A03-2"
+ },
+ {
+  "misi": "A14-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C10-2",
+  "pendahulu": "C10-1"
+ },
+ {
+  "misi": "A14-3",
+  "pendahulu": "A14-2"
+ },
+ {
+  "misi": "JEL-maleber",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-pasanggrahan",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-cijerah",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A06-3",
+  "pendahulu": "A08-1"
+ },
+ {
+  "misi": "A04-3",
+  "pendahulu": "A13-1"
+ },
+ {
+  "misi": "C13-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C05-2",
+  "pendahulu": "C05-1"
+ },
+ {
+  "misi": "JEL-tamansari",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-pasirbiru",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-cigadung",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-cipedes",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A16-3",
+  "pendahulu": "A16-2"
+ },
+ {
+  "misi": "JEL-cihapit",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-kebon-jeruk",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A16-2",
+  "pendahulu": "A16-1"
+ },
+ {
+  "misi": "N02-2",
+  "pendahulu": "N02-1"
+ },
+ {
+  "misi": "C09-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-pajajaran",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A15-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-sekeloa",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A02-3",
+  "pendahulu": "A02-2"
+ },
+ {
+  "misi": "JEL-cipadung",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-jamika",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cibaduyut",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-babakan-tarogong",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "P02-3",
+  "pendahulu": "P02-2"
+ },
+ {
+  "misi": "A14-2",
+  "pendahulu": "A14-1"
+ },
+ {
+  "misi": "JEL-nyengseret",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C07-2",
+  "pendahulu": "C07-1"
+ },
+ {
+  "misi": "A09-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C11-2",
+  "pendahulu": "C11-1"
+ },
+ {
+  "misi": "JEL-dunguscariang",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C15-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A15-2",
+  "pendahulu": "A15-1"
+ },
+ {
+  "misi": "JEL-neglasari",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-citarum",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A16-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A07-3",
+  "pendahulu": "C06-1"
+ },
+ {
+  "misi": "N04-3",
+  "pendahulu": "N04-2"
+ },
+ {
+  "misi": "A07-2",
+  "pendahulu": "A07-1"
+ },
+ {
+  "misi": "A15-3",
+  "pendahulu": "C08-1"
+ },
+ {
+  "misi": "C06-2",
+  "pendahulu": "C06-1"
+ },
+ {
+  "misi": "C05-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A05-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A12-3",
+  "pendahulu": "A12-2"
+ },
+ {
+  "misi": "A16-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-cipadung-kidul",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "N02-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-sukamaju",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "N06-3",
+  "pendahulu": "A05-1"
+ },
+ {
+  "misi": "C12-3",
+  "pendahulu": "A05-1"
+ },
+ {
+  "misi": "N04-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-pasirjati",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-hegarmanah",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C12-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A11-3",
+  "pendahulu": "A11-2"
+ },
+ {
+  "misi": "A10-3",
+  "pendahulu": "A15-1"
+ },
+ {
+  "misi": "JEL-cigondewah-kaler",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "BAB-4",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-kebon-kangkung",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-braga",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cicadas",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C06-3",
+  "pendahulu": "C05-1"
+ },
+ {
+  "misi": "N02-3",
+  "pendahulu": "N01-1"
+ },
+ {
+  "misi": "JEL-karang-pamulang",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C15-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-sukamulya",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-pamoyanan",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C01-2",
+  "pendahulu": "C01-1"
+ },
+ {
+  "misi": "A11-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "N01-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A04-2",
+  "pendahulu": "A04-1"
+ },
+ {
+  "misi": "C04-3",
+  "pendahulu": "C04-2"
+ },
+ {
+  "misi": "A05-2",
+  "pendahulu": "A05-1"
+ },
+ {
+  "misi": "A09-3",
+  "pendahulu": "C01-1"
+ },
+ {
+  "misi": "C02-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C15-3",
+  "pendahulu": "A16-1"
+ },
+ {
+  "misi": "A08-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-lebak-siliwangi",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-cicaheum",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C05-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-sukagalih",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C05-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-palasari",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A13-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C06-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-kebon-jayanti",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C14-2",
+  "pendahulu": "C14-1"
+ },
+ {
+  "misi": "JEL-ledeng",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "N01-3",
+  "pendahulu": "N02-1"
+ },
+ {
+  "misi": "C10-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "N06-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-kopo",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-rancanumpang",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A13-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C07-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A09-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C13-2",
+  "pendahulu": "C13-1"
+ },
+ {
+  "misi": "C06-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "N03-3",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A06-3",
+  "pendahulu": "A06-2"
+ },
+ {
+  "misi": "C03-2",
+  "pendahulu": "C03-1"
+ },
+ {
+  "misi": "JEL-kacapiring",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A11-3",
+  "pendahulu": "C07-1"
+ },
+ {
+  "misi": "JEL-sadang-serang",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A12-3",
+  "pendahulu": "C15-1"
+ },
+ {
+  "misi": "A13-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "P01-3",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-kebon-pisang",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C11-3",
+  "pendahulu": "C06-1"
+ },
+ {
+  "misi": "P01-1",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-cisaranten-kidul",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C09-3",
+  "pendahulu": "C15-1"
+ },
+ {
+  "misi": "JEL-babakan",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A14-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-cigondewah-rahayu",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A16-3",
+  "pendahulu": "C15-1"
+ },
+ {
+  "misi": "N01-2",
+  "pendahulu": "N01-1"
+ },
+ {
+  "misi": "JEL-cigondewah-kidul",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C02-3",
+  "pendahulu": "C02-2"
+ },
+ {
+  "misi": "C04-3",
+  "pendahulu": "A06-1"
+ },
+ {
+  "misi": "JEL-cirangrang",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C01-3",
+  "pendahulu": "C01-2"
+ },
+ {
+  "misi": "JEL-margasuka",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-babakan-asih",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A02-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A02-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A06-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-sukabungah",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-babakan-sari",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C02-3",
+  "pendahulu": "C01-1"
+ },
+ {
+  "misi": "A08-3",
+  "pendahulu": "A06-1"
+ },
+ {
+  "misi": "JEL-warung-muncang",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "N06-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C10-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C09-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C11-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A03-2",
+  "pendahulu": "A03-1"
+ },
+ {
+  "misi": "JEL-jatihandap",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-dago",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A11-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-situsaeur",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A03-3",
+  "pendahulu": "C01-1"
+ },
+ {
+  "misi": "JEL-pelindung-hewan",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "N04-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-suka-asih",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C03-3",
+  "pendahulu": "C03-2"
+ },
+ {
+  "misi": "JEL-husein-sastranegara",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A08-3",
+  "pendahulu": "A08-2"
+ },
+ {
+  "misi": "C14-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A05-3",
+  "pendahulu": "A05-2"
+ },
+ {
+  "misi": "A04-3",
+  "pendahulu": "A04-2"
+ },
+ {
+  "misi": "C10-3",
+  "pendahulu": "A15-1"
+ },
+ {
+  "misi": "JEL-babakan-surabaya",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "N03-2",
+  "pendahulu": "N03-1"
+ },
+ {
+  "misi": "BAB-3",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C10-3",
+  "pendahulu": "C10-2"
+ },
+ {
+  "misi": "JEL-karanganyar",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-gumuruh",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "N05-3",
+  "pendahulu": "N05-2"
+ },
+ {
+  "misi": "JEL-pasirlayung",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "N03-3",
+  "pendahulu": "N03-2"
+ },
+ {
+  "misi": "JEL-sukapada",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-lebakgede",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C13-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-pakemitan",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C16-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-sukaluyu",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A06-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "N04-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A09-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-sukahaji",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "BAB-4",
+  "pendahulu": "N01-1"
+ },
+ {
+  "misi": "JEL-pasteur",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-mekarjaya",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-garuda",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C07-3",
+  "pendahulu": "C07-2"
+ },
+ {
+  "misi": "N02-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A08-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C02-2",
+  "pendahulu": "C02-1"
+ },
+ {
+  "misi": "A08-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C12-3",
+  "pendahulu": "C12-2"
+ },
+ {
+  "misi": "C12-2",
+  "pendahulu": "C12-1"
+ },
+ {
+  "misi": "C15-2",
+  "pendahulu": "C15-1"
+ },
+ {
+  "misi": "JEL-isola",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-rancabolang",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-kebon-gedang",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A10-3",
+  "pendahulu": "A10-2"
+ },
+ {
+  "misi": "JEL-kebon-lega",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "N02-3",
+  "pendahulu": "N02-2"
+ },
+ {
+  "misi": "JEL-padasuka",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A14-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C14-3",
+  "pendahulu": "C14-2"
+ },
+ {
+  "misi": "C14-3",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-cibaduyut-kidul",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C07-3",
+  "pendahulu": "A11-1"
+ },
+ {
+  "misi": "JEL-babakan-ciparay",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C03-1",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-cibangkong",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "N06-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "P01-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-kebonwaru",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "A11-2",
+  "pendahulu": "A11-1"
+ },
+ {
+  "misi": "C07-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C07-2",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C04-2",
+  "pendahulu": "C04-1"
+ },
+ {
+  "misi": "C12-1",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "P02-3",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A09-3",
+  "pendahulu": "A09-2"
+ },
+ {
+  "misi": "N05-3",
+  "pendahulu": "A15-1"
+ },
+ {
+  "misi": "A13-2",
+  "pendahulu": "A13-1"
+ },
+ {
+  "misi": "P02-3",
+  "pendahulu": "C15-1"
+ },
+ {
+  "misi": "C01-3",
+  "pendahulu": "A03-1"
+ },
+ {
+  "misi": "BAB-2",
+  "pendahulu": "A03-1"
+ },
+ {
+  "misi": "N03-2",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-margahayu-utara",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "N06-2",
+  "pendahulu": "N06-1"
+ },
+ {
+  "misi": "A15-1",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "P01-2",
+  "pendahulu": "P01-1"
+ },
+ {
+  "misi": "C05-3",
+  "pendahulu": "C06-1"
+ },
+ {
+  "misi": "JEL-sukapura",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A05-3",
+  "pendahulu": "C03-1"
+ },
+ {
+  "misi": "JEL-pasirkaliki",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-sarijadi",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "A05-3",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C16-3",
+  "pendahulu": "A08-1"
+ },
+ {
+  "misi": "C15-3",
+  "pendahulu": "C15-2"
+ },
+ {
+  "misi": "JEL-sindang-jaya",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-manjahlega",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-babakan-ciamis",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "C09-3",
+  "pendahulu": "C09-2"
+ },
+ {
+  "misi": "JEL-samoja",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "P02-2",
+  "pendahulu": "P02-1"
+ },
+ {
+  "misi": "C06-3",
+  "pendahulu": "C06-2"
+ },
+ {
+  "misi": "A02-3",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-cisurupan",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "JEL-cibaduyut-wetan",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-babakan-penghulu",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "N01-2",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "P02-1",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-karasak",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "JEL-cikutra",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "JEL-mekarwangi",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "BAB-5",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "C16-3",
+  "pendahulu": "C16-2"
+ },
+ {
+  "misi": "C09-2",
+  "pendahulu": "C09-1"
+ },
+ {
+  "misi": "JEL-ciroyom",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "A05-1",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C16-1",
+  "pendahulu": "BAB-4"
+ },
+ {
+  "misi": "A13-3",
+  "pendahulu": "A04-1"
+ },
+ {
+  "misi": "C13-3",
+  "pendahulu": "C13-2"
+ },
+ {
+  "misi": "JEL-maleer",
+  "pendahulu": "BAB-3"
+ },
+ {
+  "misi": "C06-2",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C11-1",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "C14-3",
+  "pendahulu": "C11-1"
+ },
+ {
+  "misi": "N03-1",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-ciumbuleuit",
+  "pendahulu": "BAB-2"
+ },
+ {
+  "misi": "C08-3",
+  "pendahulu": "C08-2"
+ },
+ {
+  "misi": "C11-3",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-derwati",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "P01-3",
+  "pendahulu": "P01-2"
+ },
+ {
+  "misi": "N04-3",
+  "pendahulu": "A02-1"
+ },
+ {
+  "misi": "JEL-cisaranten-kulon",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "JEL-cisaranten-endah",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "P02-2",
+  "pendahulu": "BAB-5"
+ },
+ {
+  "misi": "JEL-cipadung-wetan",
+  "pendahulu": "BAB-1"
+ },
+ {
+  "misi": "A14-3",
+  "pendahulu": "A03-1"
+ }
+]

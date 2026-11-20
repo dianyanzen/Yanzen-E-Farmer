@@ -1,0 +1,50 @@
+[
+ {
+  "bab": 1,
+  "nama_wilayah_cerita": "Pasirluyu",
+  "inspirasi_geografis": "Regol, Kota Bandung",
+  "bentuk_akses": "Kebun rumah dan pasar awal",
+  "kelurahan_id": "kel-pasirluyu",
+  "sumber_pemilihan": "geo-kel-pasirluyu"
+ },
+ {
+  "bab": 2,
+  "nama_wilayah_cerita": "Cimincrang",
+  "inspirasi_geografis": "Gedebage, Kota Bandung",
+  "bentuk_akses": "Petak sawah dan tegalan serta kolam mitra",
+  "kelurahan_id": "kel-cimincrang",
+  "sumber_pemilihan": "geo-kel-cimincrang"
+ },
+ {
+  "bab": 3,
+  "nama_wilayah_cerita": "Cisurupan",
+  "inspirasi_geografis": "Cibiru, Kota Bandung",
+  "bentuk_akses": "Kebun sayur, bunga dan kumbung rancangan game",
+  "kelurahan_id": "kel-cisurupan",
+  "sumber_pemilihan": "geo-kel-cisurupan"
+ },
+ {
+  "bab": 4,
+  "nama_wilayah_cerita": "Pasirjati",
+  "inspirasi_geografis": "Ujungberung, Kota Bandung",
+  "bentuk_akses": "Kebun warga dan kemitraan ternak dalam cerita Pasir Kunci",
+  "kelurahan_id": "kel-pasirjati",
+  "sumber_pemilihan": "geo-kel-pasirjati"
+ },
+ {
+  "bab": 5,
+  "nama_wilayah_cerita": "Karasak",
+  "inspirasi_geografis": "Astanaanyar, Kota Bandung",
+  "bentuk_akses": "Petak jahe warga dan kontrak pemasok rempah lintas daerah. Tugas lanjutan membuka Teras Kopi Cisurupan.",
+  "kelurahan_id": "kel-karasak",
+  "sumber_pemilihan": "geo-kel-karasak"
+ },
+ {
+  "bab": 6,
+  "nama_wilayah_cerita": "Babakan Ciparay",
+  "inspirasi_geografis": "Babakan Ciparay, Kota Bandung",
+  "bentuk_akses": "Lapak distribusi ikan, hasil rawa dan garam dari mitra luar kota. Tugas lanjutan membuka Kebun Rawa Cimincrang.",
+  "kelurahan_id": "kel-babakan-ciparay",
+  "sumber_pemilihan": "geo-kel-babakan-ciparay"
+ }
+]

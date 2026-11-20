@@ -1,0 +1,4742 @@
+{
+ "timun": {
+  "nama": "Timun",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   0,
+   0,
+   24,
+   24
+  ]
+ },
+ "terung-ungu": {
+  "nama": "Terung ungu",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   24,
+   0,
+   24,
+   24
+  ]
+ },
+ "terung-hijau": {
+  "nama": "Terung hijau",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   48,
+   0,
+   24,
+   24
+  ]
+ },
+ "tomat": {
+  "nama": "Tomat",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   72,
+   0,
+   24,
+   24
+  ]
+ },
+ "cabai-rawit": {
+  "nama": "Cabai rawit",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   96,
+   0,
+   24,
+   24
+  ]
+ },
+ "cabai-merah-besar": {
+  "nama": "Cabai merah besar",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   120,
+   0,
+   24,
+   24
+  ]
+ },
+ "cabai-keriting": {
+  "nama": "Cabai keriting",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   144,
+   0,
+   24,
+   24
+  ]
+ },
+ "kacang-panjang": {
+  "nama": "Kacang panjang",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   168,
+   0,
+   24,
+   24
+  ]
+ },
+ "oyong": {
+  "nama": "Oyong",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   192,
+   0,
+   24,
+   24
+  ]
+ },
+ "pare": {
+  "nama": "Pare",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   216,
+   0,
+   24,
+   24
+  ]
+ },
+ "labu-air": {
+  "nama": "Labu air",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   240,
+   0,
+   24,
+   24
+  ]
+ },
+ "labu-kuning": {
+  "nama": "Labu kuning",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   264,
+   0,
+   24,
+   24
+  ]
+ },
+ "kecipir": {
+  "nama": "Kecipir",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   288,
+   0,
+   24,
+   24
+  ]
+ },
+ "okra": {
+  "nama": "Okra",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   312,
+   0,
+   24,
+   24
+  ]
+ },
+ "leunca": {
+  "nama": "Leunca",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   336,
+   0,
+   24,
+   24
+  ]
+ },
+ "gambas-ular": {
+  "nama": "Gambas ular",
+  "kelompok": "Sayur buah dan polong",
+  "rect": [
+   360,
+   0,
+   24,
+   24
+  ]
+ },
+ "bayam-hijau": {
+  "nama": "Bayam hijau",
+  "kelompok": "Sayur daun",
+  "rect": [
+   384,
+   0,
+   24,
+   24
+  ]
+ },
+ "bayam-merah": {
+  "nama": "Bayam merah",
+  "kelompok": "Sayur daun",
+  "rect": [
+   408,
+   0,
+   24,
+   24
+  ]
+ },
+ "kangkung-darat": {
+  "nama": "Kangkung darat",
+  "kelompok": "Sayur daun",
+  "rect": [
+   432,
+   0,
+   24,
+   24
+  ]
+ },
+ "caisim": {
+  "nama": "Caisim",
+  "kelompok": "Sayur daun",
+  "rect": [
+   456,
+   0,
+   24,
+   24
+  ]
+ },
+ "pakcoy": {
+  "nama": "Pakcoy",
+  "kelompok": "Sayur daun",
+  "rect": [
+   480,
+   0,
+   24,
+   24
+  ]
+ },
+ "daun-katuk": {
+  "nama": "Daun katuk",
+  "kelompok": "Sayur daun",
+  "rect": [
+   504,
+   0,
+   24,
+   24
+  ]
+ },
+ "daun-kelor": {
+  "nama": "Daun kelor",
+  "kelompok": "Sayur daun",
+  "rect": [
+   528,
+   0,
+   24,
+   24
+  ]
+ },
+ "kenikir": {
+  "nama": "Kenikir",
+  "kelompok": "Sayur daun",
+  "rect": [
+   552,
+   0,
+   24,
+   24
+  ]
+ },
+ "kemangi": {
+  "nama": "Kemangi",
+  "kelompok": "Sayur daun",
+  "rect": [
+   0,
+   24,
+   24,
+   24
+  ]
+ },
+ "genjer": {
+  "nama": "Genjer",
+  "kelompok": "Sayur daun",
+  "rect": [
+   24,
+   24,
+   24,
+   24
+  ]
+ },
+ "wortel": {
+  "nama": "Wortel",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   48,
+   24,
+   24,
+   24
+  ]
+ },
+ "kentang": {
+  "nama": "Kentang",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   72,
+   24,
+   24,
+   24
+  ]
+ },
+ "kubis": {
+  "nama": "Kubis",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   96,
+   24,
+   24,
+   24
+  ]
+ },
+ "kubis-merah": {
+  "nama": "Kubis merah",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   120,
+   24,
+   24,
+   24
+  ]
+ },
+ "buncis": {
+  "nama": "Buncis",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   144,
+   24,
+   24,
+   24
+  ]
+ },
+ "kapri": {
+  "nama": "Kapri",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   168,
+   24,
+   24,
+   24
+  ]
+ },
+ "brokoli": {
+  "nama": "Brokoli",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   192,
+   24,
+   24,
+   24
+  ]
+ },
+ "kembang-kol": {
+  "nama": "Kembang kol",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   216,
+   24,
+   24,
+   24
+  ]
+ },
+ "lobak": {
+  "nama": "Lobak",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   240,
+   24,
+   24,
+   24
+  ]
+ },
+ "bit": {
+  "nama": "Bit",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   264,
+   24,
+   24,
+   24
+  ]
+ },
+ "paprika": {
+  "nama": "Paprika",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   288,
+   24,
+   24,
+   24
+  ]
+ },
+ "zukini": {
+  "nama": "Zukini",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   312,
+   24,
+   24,
+   24
+  ]
+ },
+ "labu-siam": {
+  "nama": "Labu siam",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   336,
+   24,
+   24,
+   24
+  ]
+ },
+ "selada": {
+  "nama": "Selada",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   360,
+   24,
+   24,
+   24
+  ]
+ },
+ "sawi-putih": {
+  "nama": "Sawi putih",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   384,
+   24,
+   24,
+   24
+  ]
+ },
+ "seledri": {
+  "nama": "Seledri",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   408,
+   24,
+   24,
+   24
+  ]
+ },
+ "daun-bawang": {
+  "nama": "Daun bawang",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   432,
+   24,
+   24,
+   24
+  ]
+ },
+ "kailan": {
+  "nama": "Kailan",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   456,
+   24,
+   24,
+   24
+  ]
+ },
+ "peterseli": {
+  "nama": "Peterseli",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   480,
+   24,
+   24,
+   24
+  ]
+ },
+ "selada-air": {
+  "nama": "Selada air",
+  "kelompok": "Sayur dataran sejuk",
+  "rect": [
+   504,
+   24,
+   24,
+   24
+  ]
+ },
+ "bawang-putih": {
+  "nama": "Bawang putih",
+  "kelompok": "Bumbu umbi",
+  "rect": [
+   528,
+   24,
+   24,
+   24
+  ]
+ },
+ "bawang-merah": {
+  "nama": "Bawang merah",
+  "kelompok": "Bumbu umbi",
+  "rect": [
+   552,
+   24,
+   24,
+   24
+  ]
+ },
+ "jahe": {
+  "nama": "Jahe",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   0,
+   48,
+   24,
+   24
+  ]
+ },
+ "jahe-merah": {
+  "nama": "Jahe merah",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   24,
+   48,
+   24,
+   24
+  ]
+ },
+ "kunyit": {
+  "nama": "Kunyit",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   48,
+   48,
+   24,
+   24
+  ]
+ },
+ "kencur": {
+  "nama": "Kencur",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   72,
+   48,
+   24,
+   24
+  ]
+ },
+ "temulawak": {
+  "nama": "Temulawak",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   96,
+   48,
+   24,
+   24
+  ]
+ },
+ "lengkuas": {
+  "nama": "Lengkuas",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   120,
+   48,
+   24,
+   24
+  ]
+ },
+ "temu-kunci": {
+  "nama": "Temu kunci",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   144,
+   48,
+   24,
+   24
+  ]
+ },
+ "lempuyang": {
+  "nama": "Lempuyang",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   168,
+   48,
+   24,
+   24
+  ]
+ },
+ "serai-dapur": {
+  "nama": "Serai dapur",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   192,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-pandan": {
+  "nama": "Daun pandan",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   216,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-salam": {
+  "nama": "Daun salam",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   240,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-jeruk-purut": {
+  "nama": "Daun jeruk purut",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   264,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-kunyit": {
+  "nama": "Daun kunyit",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   288,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-mint": {
+  "nama": "Daun mint",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   312,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-kari": {
+  "nama": "Daun kari",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   336,
+   48,
+   24,
+   24
+  ]
+ },
+ "jeruk-limau": {
+  "nama": "Jeruk limau",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   360,
+   48,
+   24,
+   24
+  ]
+ },
+ "belimbing-wuluh": {
+  "nama": "Belimbing wuluh",
+  "kelompok": "Rimpang dan bumbu segar",
+  "rect": [
+   384,
+   48,
+   24,
+   24
+  ]
+ },
+ "gabah-padi": {
+  "nama": "Gabah padi",
+  "kelompok": "Serealia",
+  "rect": [
+   408,
+   48,
+   24,
+   24
+  ]
+ },
+ "gabah-ketan-putih": {
+  "nama": "Gabah ketan putih",
+  "kelompok": "Serealia",
+  "rect": [
+   432,
+   48,
+   24,
+   24
+  ]
+ },
+ "gabah-ketan-hitam": {
+  "nama": "Gabah ketan hitam",
+  "kelompok": "Serealia",
+  "rect": [
+   456,
+   48,
+   24,
+   24
+  ]
+ },
+ "jagung-pipilan": {
+  "nama": "Jagung pipilan",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   480,
+   48,
+   24,
+   24
+  ]
+ },
+ "jagung-manis": {
+  "nama": "Jagung manis",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   504,
+   48,
+   24,
+   24
+  ]
+ },
+ "singkong": {
+  "nama": "Singkong",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   528,
+   48,
+   24,
+   24
+  ]
+ },
+ "daun-singkong": {
+  "nama": "Daun singkong",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   552,
+   48,
+   24,
+   24
+  ]
+ },
+ "ubi-jalar": {
+  "nama": "Ubi jalar",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   0,
+   72,
+   24,
+   24
+  ]
+ },
+ "ubi-ungu": {
+  "nama": "Ubi ungu",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   24,
+   72,
+   24,
+   24
+  ]
+ },
+ "talas": {
+  "nama": "Talas",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   48,
+   72,
+   24,
+   24
+  ]
+ },
+ "garut": {
+  "nama": "Garut",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   72,
+   72,
+   24,
+   24
+  ]
+ },
+ "ganyong": {
+  "nama": "Ganyong",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   96,
+   72,
+   24,
+   24
+  ]
+ },
+ "sorgum": {
+  "nama": "Sorgum",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   120,
+   72,
+   24,
+   24
+  ]
+ },
+ "jewawut": {
+  "nama": "Jewawut",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   144,
+   72,
+   24,
+   24
+  ]
+ },
+ "kacang-tanah": {
+  "nama": "Kacang tanah",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   168,
+   72,
+   24,
+   24
+  ]
+ },
+ "kedelai": {
+  "nama": "Kedelai",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   192,
+   72,
+   24,
+   24
+  ]
+ },
+ "edamame": {
+  "nama": "Edamame",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   216,
+   72,
+   24,
+   24
+  ]
+ },
+ "kacang-hijau": {
+  "nama": "Kacang hijau",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   240,
+   72,
+   24,
+   24
+  ]
+ },
+ "kacang-merah": {
+  "nama": "Kacang merah",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   264,
+   72,
+   24,
+   24
+  ]
+ },
+ "kacang-tunggak": {
+  "nama": "Kacang tunggak",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   288,
+   72,
+   24,
+   24
+  ]
+ },
+ "wijen": {
+  "nama": "Wijen",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   312,
+   72,
+   24,
+   24
+  ]
+ },
+ "porang": {
+  "nama": "Porang",
+  "kelompok": "Pangan ladang",
+  "rect": [
+   336,
+   72,
+   24,
+   24
+  ]
+ },
+ "semangka": {
+  "nama": "Semangka",
+  "kelompok": "Buah semusim",
+  "rect": [
+   360,
+   72,
+   24,
+   24
+  ]
+ },
+ "melon": {
+  "nama": "Melon",
+  "kelompok": "Buah semusim",
+  "rect": [
+   384,
+   72,
+   24,
+   24
+  ]
+ },
+ "blewah": {
+  "nama": "Blewah",
+  "kelompok": "Buah semusim",
+  "rect": [
+   408,
+   72,
+   24,
+   24
+  ]
+ },
+ "timun-suri": {
+  "nama": "Timun suri",
+  "kelompok": "Buah semusim",
+  "rect": [
+   432,
+   72,
+   24,
+   24
+  ]
+ },
+ "stroberi": {
+  "nama": "Stroberi",
+  "kelompok": "Buah kebun sejuk",
+  "rect": [
+   456,
+   72,
+   24,
+   24
+  ]
+ },
+ "markisa": {
+  "nama": "Markisa",
+  "kelompok": "Buah kebun sejuk",
+  "rect": [
+   480,
+   72,
+   24,
+   24
+  ]
+ },
+ "avokad": {
+  "nama": "Avokad",
+  "kelompok": "Buah kebun sejuk",
+  "rect": [
+   504,
+   72,
+   24,
+   24
+  ]
+ },
+ "apel": {
+  "nama": "Apel",
+  "kelompok": "Buah kebun sejuk",
+  "rect": [
+   528,
+   72,
+   24,
+   24
+  ]
+ },
+ "kesemek": {
+  "nama": "Kesemek",
+  "kelompok": "Buah kebun sejuk",
+  "rect": [
+   552,
+   72,
+   24,
+   24
+  ]
+ },
+ "pisang-ambon": {
+  "nama": "Pisang ambon",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   0,
+   96,
+   24,
+   24
+  ]
+ },
+ "pisang-kepok": {
+  "nama": "Pisang kepok",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   24,
+   96,
+   24,
+   24
+  ]
+ },
+ "pisang-raja": {
+  "nama": "Pisang raja",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   48,
+   96,
+   24,
+   24
+  ]
+ },
+ "jantung-pisang": {
+  "nama": "Jantung pisang",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   72,
+   96,
+   24,
+   24
+  ]
+ },
+ "pepaya": {
+  "nama": "Pepaya",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   96,
+   96,
+   24,
+   24
+  ]
+ },
+ "mangga": {
+  "nama": "Mangga",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   120,
+   96,
+   24,
+   24
+  ]
+ },
+ "jambu-biji": {
+  "nama": "Jambu biji",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   144,
+   96,
+   24,
+   24
+  ]
+ },
+ "jambu-air": {
+  "nama": "Jambu air",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   168,
+   96,
+   24,
+   24
+  ]
+ },
+ "jeruk-siam": {
+  "nama": "Jeruk siam",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   192,
+   96,
+   24,
+   24
+  ]
+ },
+ "jeruk-keprok": {
+  "nama": "Jeruk keprok",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   216,
+   96,
+   24,
+   24
+  ]
+ },
+ "jeruk-bali": {
+  "nama": "Jeruk bali",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   240,
+   96,
+   24,
+   24
+  ]
+ },
+ "jeruk-nipis": {
+  "nama": "Jeruk nipis",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   264,
+   96,
+   24,
+   24
+  ]
+ },
+ "lemon": {
+  "nama": "Lemon",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   288,
+   96,
+   24,
+   24
+  ]
+ },
+ "durian": {
+  "nama": "Durian",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   312,
+   96,
+   24,
+   24
+  ]
+ },
+ "rambutan": {
+  "nama": "Rambutan",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   336,
+   96,
+   24,
+   24
+  ]
+ },
+ "manggis": {
+  "nama": "Manggis",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   360,
+   96,
+   24,
+   24
+  ]
+ },
+ "duku": {
+  "nama": "Duku",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   384,
+   96,
+   24,
+   24
+  ]
+ },
+ "langsat": {
+  "nama": "Langsat",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   408,
+   96,
+   24,
+   24
+  ]
+ },
+ "salak": {
+  "nama": "Salak",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   432,
+   96,
+   24,
+   24
+  ]
+ },
+ "nanas": {
+  "nama": "Nanas",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   456,
+   96,
+   24,
+   24
+  ]
+ },
+ "nangka": {
+  "nama": "Nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   480,
+   96,
+   24,
+   24
+  ]
+ },
+ "cempedak": {
+  "nama": "Cempedak",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   504,
+   96,
+   24,
+   24
+  ]
+ },
+ "sukun": {
+  "nama": "Sukun",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   528,
+   96,
+   24,
+   24
+  ]
+ },
+ "sirsak": {
+  "nama": "Sirsak",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   552,
+   96,
+   24,
+   24
+  ]
+ },
+ "srikaya": {
+  "nama": "Srikaya",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   0,
+   120,
+   24,
+   24
+  ]
+ },
+ "sawo": {
+  "nama": "Sawo",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   24,
+   120,
+   24,
+   24
+  ]
+ },
+ "belimbing": {
+  "nama": "Belimbing",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   48,
+   120,
+   24,
+   24
+  ]
+ },
+ "buah-naga": {
+  "nama": "Buah naga",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   72,
+   120,
+   24,
+   24
+  ]
+ },
+ "delima": {
+  "nama": "Delima",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   96,
+   120,
+   24,
+   24
+  ]
+ },
+ "kelengkeng": {
+  "nama": "Kelengkeng",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   120,
+   120,
+   24,
+   24
+  ]
+ },
+ "kedondong": {
+  "nama": "Kedondong",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   144,
+   120,
+   24,
+   24
+  ]
+ },
+ "matoa": {
+  "nama": "Matoa",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   168,
+   120,
+   24,
+   24
+  ]
+ },
+ "kecapi": {
+  "nama": "Kecapi",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   192,
+   120,
+   24,
+   24
+  ]
+ },
+ "jamblang": {
+  "nama": "Jamblang",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   216,
+   120,
+   24,
+   24
+  ]
+ },
+ "petai": {
+  "nama": "Petai",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   240,
+   120,
+   24,
+   24
+  ]
+ },
+ "jengkol": {
+  "nama": "Jengkol",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   264,
+   120,
+   24,
+   24
+  ]
+ },
+ "melinjo": {
+  "nama": "Melinjo",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   288,
+   120,
+   24,
+   24
+  ]
+ },
+ "daun-melinjo": {
+  "nama": "Daun melinjo",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   312,
+   120,
+   24,
+   24
+  ]
+ },
+ "buah-kopi": {
+  "nama": "Buah kopi",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   336,
+   120,
+   24,
+   24
+  ]
+ },
+ "biji-kakao": {
+  "nama": "Biji kakao",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   360,
+   120,
+   24,
+   24
+  ]
+ },
+ "kelapa": {
+  "nama": "Kelapa",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   384,
+   120,
+   24,
+   24
+  ]
+ },
+ "kelapa-muda": {
+  "nama": "Kelapa muda",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   408,
+   120,
+   24,
+   24
+  ]
+ },
+ "pucuk-teh": {
+  "nama": "Pucuk teh",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   432,
+   120,
+   24,
+   24
+  ]
+ },
+ "cengkeh": {
+  "nama": "Cengkeh",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   456,
+   120,
+   24,
+   24
+  ]
+ },
+ "biji-pala": {
+  "nama": "Biji pala",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   480,
+   120,
+   24,
+   24
+  ]
+ },
+ "fuli": {
+  "nama": "Fuli",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   504,
+   120,
+   24,
+   24
+  ]
+ },
+ "lada": {
+  "nama": "Lada",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   528,
+   120,
+   24,
+   24
+  ]
+ },
+ "kayu-manis": {
+  "nama": "Kayu manis",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   552,
+   120,
+   24,
+   24
+  ]
+ },
+ "vanili": {
+  "nama": "Vanili",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   0,
+   144,
+   24,
+   24
+  ]
+ },
+ "kapulaga": {
+  "nama": "Kapulaga",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   24,
+   144,
+   24,
+   24
+  ]
+ },
+ "kemiri": {
+  "nama": "Kemiri",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   48,
+   144,
+   24,
+   24
+  ]
+ },
+ "asam-jawa": {
+  "nama": "Asam jawa",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   72,
+   144,
+   24,
+   24
+  ]
+ },
+ "kluwek": {
+  "nama": "Kluwek",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   96,
+   144,
+   24,
+   24
+  ]
+ },
+ "pinang": {
+  "nama": "Pinang",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   120,
+   144,
+   24,
+   24
+  ]
+ },
+ "biji-jambu-mete": {
+  "nama": "Biji jambu mete",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   144,
+   144,
+   24,
+   24
+  ]
+ },
+ "nira-aren": {
+  "nama": "Nira aren",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   168,
+   144,
+   24,
+   24
+  ]
+ },
+ "tebu": {
+  "nama": "Tebu",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   192,
+   144,
+   24,
+   24
+  ]
+ },
+ "tandan-sawit": {
+  "nama": "Tandan sawit",
+  "kelompok": "Perkebunan dan rempah",
+  "rect": [
+   216,
+   144,
+   24,
+   24
+  ]
+ },
+ "batang-sagu": {
+  "nama": "Batang sagu",
+  "kelompok": "Pangan rawa",
+  "rect": [
+   240,
+   144,
+   24,
+   24
+  ]
+ },
+ "mawar-potong": {
+  "nama": "Mawar potong",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   264,
+   144,
+   24,
+   24
+  ]
+ },
+ "krisan-potong": {
+  "nama": "Krisan potong",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   288,
+   144,
+   24,
+   24
+  ]
+ },
+ "sedap-malam": {
+  "nama": "Sedap malam",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   312,
+   144,
+   24,
+   24
+  ]
+ },
+ "gladiol": {
+  "nama": "Gladiol",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   336,
+   144,
+   24,
+   24
+  ]
+ },
+ "gerbera": {
+  "nama": "Gerbera",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   360,
+   144,
+   24,
+   24
+  ]
+ },
+ "bunga-melati": {
+  "nama": "Bunga melati",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   384,
+   144,
+   24,
+   24
+  ]
+ },
+ "anggrek-potong": {
+  "nama": "Anggrek potong",
+  "kelompok": "Bunga pasar",
+  "rect": [
+   408,
+   144,
+   24,
+   24
+  ]
+ },
+ "jamur-tiram": {
+  "nama": "Jamur tiram",
+  "kelompok": "Jamur",
+  "rect": [
+   432,
+   144,
+   24,
+   24
+  ]
+ },
+ "jamur-kuping": {
+  "nama": "Jamur kuping",
+  "kelompok": "Jamur",
+  "rect": [
+   456,
+   144,
+   24,
+   24
+  ]
+ },
+ "jamur-merang": {
+  "nama": "Jamur merang",
+  "kelompok": "Jamur",
+  "rect": [
+   480,
+   144,
+   24,
+   24
+  ]
+ },
+ "jamur-kancing": {
+  "nama": "Jamur kancing",
+  "kelompok": "Jamur",
+  "rect": [
+   504,
+   144,
+   24,
+   24
+  ]
+ },
+ "jamur-shiitake": {
+  "nama": "Jamur shiitake",
+  "kelompok": "Jamur",
+  "rect": [
+   528,
+   144,
+   24,
+   24
+  ]
+ },
+ "lele": {
+  "nama": "Lele",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   552,
+   144,
+   24,
+   24
+  ]
+ },
+ "nila": {
+  "nama": "Nila",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   0,
+   168,
+   24,
+   24
+  ]
+ },
+ "gurami": {
+  "nama": "Gurami",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   24,
+   168,
+   24,
+   24
+  ]
+ },
+ "patin": {
+  "nama": "Patin",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   48,
+   168,
+   24,
+   24
+  ]
+ },
+ "ikan-mas": {
+  "nama": "Ikan mas",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   72,
+   168,
+   24,
+   24
+  ]
+ },
+ "mujair": {
+  "nama": "Mujair",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   96,
+   168,
+   24,
+   24
+  ]
+ },
+ "ikan-bawal-air-tawar": {
+  "nama": "Ikan bawal air tawar",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   120,
+   168,
+   24,
+   24
+  ]
+ },
+ "ikan-gabus": {
+  "nama": "Ikan gabus",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   144,
+   168,
+   24,
+   24
+  ]
+ },
+ "bandeng": {
+  "nama": "Bandeng",
+  "kelompok": "Hasil tambak",
+  "rect": [
+   168,
+   168,
+   24,
+   24
+  ]
+ },
+ "udang-vaname": {
+  "nama": "Udang vaname",
+  "kelompok": "Hasil tambak",
+  "rect": [
+   192,
+   168,
+   24,
+   24
+  ]
+ },
+ "udang-windu": {
+  "nama": "Udang windu",
+  "kelompok": "Hasil tambak",
+  "rect": [
+   216,
+   168,
+   24,
+   24
+  ]
+ },
+ "kepiting-bakau": {
+  "nama": "Kepiting bakau",
+  "kelompok": "Hasil tambak",
+  "rect": [
+   240,
+   168,
+   24,
+   24
+  ]
+ },
+ "tongkol": {
+  "nama": "Tongkol",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   264,
+   168,
+   24,
+   24
+  ]
+ },
+ "tuna": {
+  "nama": "Tuna",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   288,
+   168,
+   24,
+   24
+  ]
+ },
+ "cakalang": {
+  "nama": "Cakalang",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   312,
+   168,
+   24,
+   24
+  ]
+ },
+ "kembung": {
+  "nama": "Kembung",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   336,
+   168,
+   24,
+   24
+  ]
+ },
+ "teri": {
+  "nama": "Teri",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   360,
+   168,
+   24,
+   24
+  ]
+ },
+ "tenggiri": {
+  "nama": "Tenggiri",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   384,
+   168,
+   24,
+   24
+  ]
+ },
+ "kakap-merah": {
+  "nama": "Kakap merah",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   408,
+   168,
+   24,
+   24
+  ]
+ },
+ "kerapu": {
+  "nama": "Kerapu",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   432,
+   168,
+   24,
+   24
+  ]
+ },
+ "selar": {
+  "nama": "Selar",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   456,
+   168,
+   24,
+   24
+  ]
+ },
+ "bawal-laut": {
+  "nama": "Bawal laut",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   480,
+   168,
+   24,
+   24
+  ]
+ },
+ "cumi-cumi": {
+  "nama": "Cumi-cumi",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   504,
+   168,
+   24,
+   24
+  ]
+ },
+ "sotong": {
+  "nama": "Sotong",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   528,
+   168,
+   24,
+   24
+  ]
+ },
+ "gurita": {
+  "nama": "Gurita",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   552,
+   168,
+   24,
+   24
+  ]
+ },
+ "rajungan": {
+  "nama": "Rajungan",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   0,
+   192,
+   24,
+   24
+  ]
+ },
+ "kerang-darah": {
+  "nama": "Kerang darah",
+  "kelompok": "Hasil perairan",
+  "rect": [
+   24,
+   192,
+   24,
+   24
+  ]
+ },
+ "rumput-laut": {
+  "nama": "Rumput laut",
+  "kelompok": "Budidaya laut",
+  "rect": [
+   48,
+   192,
+   24,
+   24
+  ]
+ },
+ "kerang-hijau": {
+  "nama": "Kerang hijau",
+  "kelompok": "Budidaya laut",
+  "rect": [
+   72,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-sapi": {
+  "nama": "Daging sapi",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   96,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-kambing": {
+  "nama": "Daging kambing",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   120,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-domba": {
+  "nama": "Daging domba",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   144,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-kerbau": {
+  "nama": "Daging kerbau",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   168,
+   192,
+   24,
+   24
+  ]
+ },
+ "ayam-ras": {
+  "nama": "Ayam ras",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   192,
+   192,
+   24,
+   24
+  ]
+ },
+ "ayam-kampung": {
+  "nama": "Ayam kampung",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   216,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-bebek": {
+  "nama": "Daging bebek",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   240,
+   192,
+   24,
+   24
+  ]
+ },
+ "hati-ayam": {
+  "nama": "Hati ayam",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   264,
+   192,
+   24,
+   24
+  ]
+ },
+ "ampela-ayam": {
+  "nama": "Ampela ayam",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   288,
+   192,
+   24,
+   24
+  ]
+ },
+ "ceker-ayam": {
+  "nama": "Ceker ayam",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   312,
+   192,
+   24,
+   24
+  ]
+ },
+ "daging-puyuh": {
+  "nama": "Daging puyuh",
+  "kelompok": "Hasil ternak",
+  "rect": [
+   336,
+   192,
+   24,
+   24
+  ]
+ },
+ "telur-ayam-ras": {
+  "nama": "Telur ayam ras",
+  "kelompok": "Telur",
+  "rect": [
+   360,
+   192,
+   24,
+   24
+  ]
+ },
+ "telur-ayam-kampung": {
+  "nama": "Telur ayam kampung",
+  "kelompok": "Telur",
+  "rect": [
+   384,
+   192,
+   24,
+   24
+  ]
+ },
+ "telur-bebek": {
+  "nama": "Telur bebek",
+  "kelompok": "Telur",
+  "rect": [
+   408,
+   192,
+   24,
+   24
+  ]
+ },
+ "telur-puyuh": {
+  "nama": "Telur puyuh",
+  "kelompok": "Telur",
+  "rect": [
+   432,
+   192,
+   24,
+   24
+  ]
+ },
+ "susu-sapi": {
+  "nama": "Susu sapi",
+  "kelompok": "Susu",
+  "rect": [
+   456,
+   192,
+   24,
+   24
+  ]
+ },
+ "susu-kambing": {
+  "nama": "Susu kambing",
+  "kelompok": "Susu",
+  "rect": [
+   480,
+   192,
+   24,
+   24
+  ]
+ },
+ "garam-krosok": {
+  "nama": "Garam krosok",
+  "kelompok": "Bahan mineral",
+  "rect": [
+   504,
+   192,
+   24,
+   24
+  ]
+ },
+ "bawang-bombai": {
+  "nama": "Bawang bombai",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   528,
+   192,
+   24,
+   24
+  ]
+ },
+ "gandum": {
+  "nama": "Gandum",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   552,
+   192,
+   24,
+   24
+  ]
+ },
+ "kacang-almond": {
+  "nama": "Kacang almond",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   0,
+   216,
+   24,
+   24
+  ]
+ },
+ "pistachio": {
+  "nama": "Pistachio",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   24,
+   216,
+   24,
+   24
+  ]
+ },
+ "kurma": {
+  "nama": "Kurma",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   48,
+   216,
+   24,
+   24
+  ]
+ },
+ "pir": {
+  "nama": "Pir",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   72,
+   216,
+   24,
+   24
+  ]
+ },
+ "kiwi": {
+  "nama": "Kiwi",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   96,
+   216,
+   24,
+   24
+  ]
+ },
+ "anggur": {
+  "nama": "Anggur",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   120,
+   216,
+   24,
+   24
+  ]
+ },
+ "ketumbar-biji": {
+  "nama": "Ketumbar biji",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   144,
+   216,
+   24,
+   24
+  ]
+ },
+ "jintan": {
+  "nama": "Jintan",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   168,
+   216,
+   24,
+   24
+  ]
+ },
+ "bunga-lawang": {
+  "nama": "Bunga lawang",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   192,
+   216,
+   24,
+   24
+  ]
+ },
+ "kacang-polong-kering": {
+  "nama": "Kacang polong kering",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   216,
+   216,
+   24,
+   24
+  ]
+ },
+ "salmon": {
+  "nama": "Salmon",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "rect": [
+   240,
+   216,
+   24,
+   24
+  ]
+ },
+ "beras-putih": {
+  "nama": "Beras putih",
+  "kelompok": "Produk olahan",
+  "rect": [
+   264,
+   216,
+   24,
+   24
+  ]
+ },
+ "beras-ketan-putih": {
+  "nama": "Beras ketan putih",
+  "kelompok": "Produk olahan",
+  "rect": [
+   288,
+   216,
+   24,
+   24
+  ]
+ },
+ "beras-ketan-hitam": {
+  "nama": "Beras ketan hitam",
+  "kelompok": "Produk olahan",
+  "rect": [
+   312,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-beras": {
+  "nama": "Tepung beras",
+  "kelompok": "Produk olahan",
+  "rect": [
+   336,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-ketan": {
+  "nama": "Tepung ketan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   360,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-terigu": {
+  "nama": "Tepung terigu",
+  "kelompok": "Produk olahan",
+  "rect": [
+   384,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-tapioka": {
+  "nama": "Tepung tapioka",
+  "kelompok": "Produk olahan",
+  "rect": [
+   408,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-sagu": {
+  "nama": "Tepung sagu",
+  "kelompok": "Produk olahan",
+  "rect": [
+   432,
+   216,
+   24,
+   24
+  ]
+ },
+ "tepung-maizena": {
+  "nama": "Tepung maizena",
+  "kelompok": "Produk olahan",
+  "rect": [
+   456,
+   216,
+   24,
+   24
+  ]
+ },
+ "tempe": {
+  "nama": "Tempe",
+  "kelompok": "Produk olahan",
+  "rect": [
+   480,
+   216,
+   24,
+   24
+  ]
+ },
+ "tahu-putih": {
+  "nama": "Tahu putih",
+  "kelompok": "Produk olahan",
+  "rect": [
+   504,
+   216,
+   24,
+   24
+  ]
+ },
+ "kecap-manis": {
+  "nama": "Kecap manis",
+  "kelompok": "Produk olahan",
+  "rect": [
+   528,
+   216,
+   24,
+   24
+  ]
+ },
+ "susu-kedelai": {
+  "nama": "Susu kedelai",
+  "kelompok": "Produk olahan",
+  "rect": [
+   552,
+   216,
+   24,
+   24
+  ]
+ },
+ "gula-pasir": {
+  "nama": "Gula pasir",
+  "kelompok": "Produk olahan",
+  "rect": [
+   0,
+   240,
+   24,
+   24
+  ]
+ },
+ "gula-aren": {
+  "nama": "Gula aren",
+  "kelompok": "Produk olahan",
+  "rect": [
+   24,
+   240,
+   24,
+   24
+  ]
+ },
+ "santan": {
+  "nama": "Santan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   48,
+   240,
+   24,
+   24
+  ]
+ },
+ "minyak-kelapa": {
+  "nama": "Minyak kelapa",
+  "kelompok": "Produk olahan",
+  "rect": [
+   72,
+   240,
+   24,
+   24
+  ]
+ },
+ "minyak-goreng-sawit": {
+  "nama": "Minyak goreng sawit",
+  "kelompok": "Produk olahan",
+  "rect": [
+   96,
+   240,
+   24,
+   24
+  ]
+ },
+ "kopi-bubuk": {
+  "nama": "Kopi bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   120,
+   240,
+   24,
+   24
+  ]
+ },
+ "teh-kering": {
+  "nama": "Teh kering",
+  "kelompok": "Produk olahan",
+  "rect": [
+   144,
+   240,
+   24,
+   24
+  ]
+ },
+ "kakao-bubuk": {
+  "nama": "Kakao bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   168,
+   240,
+   24,
+   24
+  ]
+ },
+ "ikan-teri-kering": {
+  "nama": "Ikan teri kering",
+  "kelompok": "Produk olahan",
+  "rect": [
+   192,
+   240,
+   24,
+   24
+  ]
+ },
+ "ikan-asin-kembung": {
+  "nama": "Ikan asin kembung",
+  "kelompok": "Produk olahan",
+  "rect": [
+   216,
+   240,
+   24,
+   24
+  ]
+ },
+ "telur-asin": {
+  "nama": "Telur asin",
+  "kelompok": "Produk olahan",
+  "rect": [
+   240,
+   240,
+   24,
+   24
+  ]
+ },
+ "kerupuk-udang": {
+  "nama": "Kerupuk udang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   264,
+   240,
+   24,
+   24
+  ]
+ },
+ "emping": {
+  "nama": "Emping",
+  "kelompok": "Produk olahan",
+  "rect": [
+   288,
+   240,
+   24,
+   24
+  ]
+ },
+ "tape-singkong": {
+  "nama": "Tape singkong",
+  "kelompok": "Produk olahan",
+  "rect": [
+   312,
+   240,
+   24,
+   24
+  ]
+ },
+ "sale-pisang": {
+  "nama": "Sale pisang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   336,
+   240,
+   24,
+   24
+  ]
+ },
+ "keripik-pisang": {
+  "nama": "Keripik pisang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   360,
+   240,
+   24,
+   24
+  ]
+ },
+ "acar-timun": {
+  "nama": "Acar timun",
+  "kelompok": "Produk olahan",
+  "rect": [
+   384,
+   240,
+   24,
+   24
+  ]
+ },
+ "bawang-goreng": {
+  "nama": "Bawang goreng",
+  "kelompok": "Produk olahan",
+  "rect": [
+   408,
+   240,
+   24,
+   24
+  ]
+ },
+ "garam-konsumsi": {
+  "nama": "Garam konsumsi",
+  "kelompok": "Produk olahan",
+  "rect": [
+   432,
+   240,
+   24,
+   24
+  ]
+ },
+ "mentega": {
+  "nama": "Mentega",
+  "kelompok": "Produk olahan",
+  "rect": [
+   456,
+   240,
+   24,
+   24
+  ]
+ },
+ "keju": {
+  "nama": "Keju",
+  "kelompok": "Produk olahan",
+  "rect": [
+   480,
+   240,
+   24,
+   24
+  ]
+ },
+ "yoghurt": {
+  "nama": "Yoghurt",
+  "kelompok": "Produk olahan",
+  "rect": [
+   504,
+   240,
+   24,
+   24
+  ]
+ },
+ "bihun-beras": {
+  "nama": "Bihun beras",
+  "kelompok": "Produk olahan",
+  "rect": [
+   528,
+   240,
+   24,
+   24
+  ]
+ },
+ "mi-telur": {
+  "nama": "Mi telur",
+  "kelompok": "Produk olahan",
+  "rect": [
+   552,
+   240,
+   24,
+   24
+  ]
+ },
+ "pohpohan": {
+  "nama": "Pohpohan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   0,
+   264,
+   24,
+   24
+  ]
+ },
+ "tespong": {
+  "nama": "Tespong",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   24,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-kedondong": {
+  "nama": "Daun kedondong",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   48,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-mangkokan": {
+  "nama": "Daun mangkokan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   72,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-ketumbar": {
+  "nama": "Daun ketumbar",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   96,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-kucai": {
+  "nama": "Daun kucai",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   120,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-bawang-lokio": {
+  "nama": "Daun bawang lokio",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   144,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-pegagan": {
+  "nama": "Daun pegagan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   168,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-cincau-hijau": {
+  "nama": "Daun cincau hijau",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   192,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-suji": {
+  "nama": "Daun suji",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   216,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-kecombrang": {
+  "nama": "Daun kecombrang",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "rect": [
+   240,
+   264,
+   24,
+   24
+  ]
+ },
+ "bunga-kecombrang": {
+  "nama": "Bunga kecombrang",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "rect": [
+   264,
+   264,
+   24,
+   24
+  ]
+ },
+ "temu-hitam": {
+  "nama": "Temu hitam",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "rect": [
+   288,
+   264,
+   24,
+   24
+  ]
+ },
+ "temu-putih": {
+  "nama": "Temu putih",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "rect": [
+   312,
+   264,
+   24,
+   24
+  ]
+ },
+ "bangle": {
+  "nama": "Bangle",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "rect": [
+   336,
+   264,
+   24,
+   24
+  ]
+ },
+ "krai": {
+  "nama": "Krai",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   360,
+   264,
+   24,
+   24
+  ]
+ },
+ "tomat-ceri": {
+  "nama": "Tomat ceri",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   384,
+   264,
+   24,
+   24
+  ]
+ },
+ "terung-bulat": {
+  "nama": "Terung bulat",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   408,
+   264,
+   24,
+   24
+  ]
+ },
+ "terung-putih": {
+  "nama": "Terung putih",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   432,
+   264,
+   24,
+   24
+  ]
+ },
+ "cabai-gendot": {
+  "nama": "Cabai gendot",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   456,
+   264,
+   24,
+   24
+  ]
+ },
+ "kacang-panjang-ungu": {
+  "nama": "Kacang panjang ungu",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   480,
+   264,
+   24,
+   24
+  ]
+ },
+ "kacang-koro-pedang": {
+  "nama": "Kacang koro pedang",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   504,
+   264,
+   24,
+   24
+  ]
+ },
+ "daun-ubi-jalar": {
+  "nama": "Daun ubi jalar",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   528,
+   264,
+   24,
+   24
+  ]
+ },
+ "pucuk-labu-siam": {
+  "nama": "Pucuk labu siam",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   552,
+   264,
+   24,
+   24
+  ]
+ },
+ "buah-pepaya-muda": {
+  "nama": "Buah pepaya muda",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   0,
+   288,
+   24,
+   24
+  ]
+ },
+ "bunga-pepaya": {
+  "nama": "Bunga pepaya",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   24,
+   288,
+   24,
+   24
+  ]
+ },
+ "daun-pepaya": {
+  "nama": "Daun pepaya",
+  "kelompok": "Sayur buah dan daun",
+  "rect": [
+   48,
+   288,
+   24,
+   24
+  ]
+ },
+ "wortel-mini": {
+  "nama": "Wortel mini",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   72,
+   288,
+   24,
+   24
+  ]
+ },
+ "kentang-merah": {
+  "nama": "Kentang merah",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   96,
+   288,
+   24,
+   24
+  ]
+ },
+ "radis": {
+  "nama": "Radis",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   120,
+   288,
+   24,
+   24
+  ]
+ },
+ "selada-romaine": {
+  "nama": "Selada romaine",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   144,
+   288,
+   24,
+   24
+  ]
+ },
+ "selada-keriting": {
+  "nama": "Selada keriting",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   168,
+   288,
+   24,
+   24
+  ]
+ },
+ "selada-merah": {
+  "nama": "Selada merah",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   192,
+   288,
+   24,
+   24
+  ]
+ },
+ "kale": {
+  "nama": "Kale",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   216,
+   288,
+   24,
+   24
+  ]
+ },
+ "swiss-chard": {
+  "nama": "Swiss chard",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   240,
+   288,
+   24,
+   24
+  ]
+ },
+ "adas": {
+  "nama": "Adas",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   264,
+   288,
+   24,
+   24
+  ]
+ },
+ "daun-bawang-prei": {
+  "nama": "Daun bawang prei",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   288,
+   288,
+   24,
+   24
+  ]
+ },
+ "kohlrabi": {
+  "nama": "Kohlrabi",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   312,
+   288,
+   24,
+   24
+  ]
+ },
+ "kubis-brussel": {
+  "nama": "Kubis brussel",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   336,
+   288,
+   24,
+   24
+  ]
+ },
+ "parsnip": {
+  "nama": "Parsnip",
+  "kelompok": "Sayur lereng",
+  "rect": [
+   360,
+   288,
+   24,
+   24
+  ]
+ },
+ "terung-belanda": {
+  "nama": "Terung belanda",
+  "kelompok": "Buah lereng",
+  "rect": [
+   384,
+   288,
+   24,
+   24
+  ]
+ },
+ "murbei": {
+  "nama": "Murbei",
+  "kelompok": "Buah lereng",
+  "rect": [
+   408,
+   288,
+   24,
+   24
+  ]
+ },
+ "rasberi": {
+  "nama": "Rasberi",
+  "kelompok": "Buah lereng",
+  "rect": [
+   432,
+   288,
+   24,
+   24
+  ]
+ },
+ "ciplukan": {
+  "nama": "Ciplukan",
+  "kelompok": "Buah lereng",
+  "rect": [
+   456,
+   288,
+   24,
+   24
+  ]
+ },
+ "labu-kabocha": {
+  "nama": "Labu kabocha",
+  "kelompok": "Buah lereng",
+  "rect": [
+   480,
+   288,
+   24,
+   24
+  ]
+ },
+ "ubi-cilembu": {
+  "nama": "Ubi Cilembu",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   504,
+   288,
+   24,
+   24
+  ]
+ },
+ "ubi-putih": {
+  "nama": "Ubi putih",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   528,
+   288,
+   24,
+   24
+  ]
+ },
+ "gembili": {
+  "nama": "Gembili",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   552,
+   288,
+   24,
+   24
+  ]
+ },
+ "gadung": {
+  "nama": "Gadung",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   0,
+   312,
+   24,
+   24
+  ]
+ },
+ "suweg": {
+  "nama": "Suweg",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   24,
+   312,
+   24,
+   24
+  ]
+ },
+ "bengkuang": {
+  "nama": "Bengkuang",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   48,
+   312,
+   24,
+   24
+  ]
+ },
+ "hanjeli": {
+  "nama": "Hanjeli",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   72,
+   312,
+   24,
+   24
+  ]
+ },
+ "kacang-bogor": {
+  "nama": "Kacang bogor",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   96,
+   312,
+   24,
+   24
+  ]
+ },
+ "kacang-gude": {
+  "nama": "Kacang gude",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   120,
+   312,
+   24,
+   24
+  ]
+ },
+ "kacang-komak": {
+  "nama": "Kacang komak",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   144,
+   312,
+   24,
+   24
+  ]
+ },
+ "biji-bunga-matahari": {
+  "nama": "Biji bunga matahari",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   168,
+   312,
+   24,
+   24
+  ]
+ },
+ "jagung-pulut": {
+  "nama": "Jagung pulut",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   192,
+   312,
+   24,
+   24
+  ]
+ },
+ "jagung-muda": {
+  "nama": "Jagung muda",
+  "kelompok": "Umbi dan biji",
+  "rect": [
+   216,
+   312,
+   24,
+   24
+  ]
+ },
+ "gabah-beras-merah": {
+  "nama": "Gabah beras merah",
+  "kelompok": "Hasil sawah",
+  "rect": [
+   240,
+   312,
+   24,
+   24
+  ]
+ },
+ "gabah-beras-hitam-nonketan": {
+  "nama": "Gabah beras hitam nonketan",
+  "kelompok": "Hasil sawah",
+  "rect": [
+   264,
+   312,
+   24,
+   24
+  ]
+ },
+ "pisang-tanduk": {
+  "nama": "Pisang tanduk",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   288,
+   312,
+   24,
+   24
+  ]
+ },
+ "pisang-nangka": {
+  "nama": "Pisang nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   312,
+   312,
+   24,
+   24
+  ]
+ },
+ "pisang-susu": {
+  "nama": "Pisang susu",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   336,
+   312,
+   24,
+   24
+  ]
+ },
+ "pisang-mas": {
+  "nama": "Pisang mas",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   360,
+   312,
+   24,
+   24
+  ]
+ },
+ "mangga-gedong-gincu": {
+  "nama": "Mangga gedong gincu",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   384,
+   312,
+   24,
+   24
+  ]
+ },
+ "mangga-arumanis": {
+  "nama": "Mangga arumanis",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   408,
+   312,
+   24,
+   24
+  ]
+ },
+ "mangga-indramayu": {
+  "nama": "Mangga indramayu",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   432,
+   312,
+   24,
+   24
+  ]
+ },
+ "jambu-kristal": {
+  "nama": "Jambu kristal",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   456,
+   312,
+   24,
+   24
+  ]
+ },
+ "jambu-bol": {
+  "nama": "Jambu bol",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   480,
+   312,
+   24,
+   24
+  ]
+ },
+ "jambu-mawar": {
+  "nama": "Jambu mawar",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   504,
+   312,
+   24,
+   24
+  ]
+ },
+ "nangka-muda": {
+  "nama": "Nangka muda",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   528,
+   312,
+   24,
+   24
+  ]
+ },
+ "biji-nangka": {
+  "nama": "Biji nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   552,
+   312,
+   24,
+   24
+  ]
+ },
+ "kawista": {
+  "nama": "Kawista",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   0,
+   336,
+   24,
+   24
+  ]
+ },
+ "buah-mentega": {
+  "nama": "Buah mentega",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   24,
+   336,
+   24,
+   24
+  ]
+ },
+ "gandaria": {
+  "nama": "Gandaria",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   48,
+   336,
+   24,
+   24
+  ]
+ },
+ "bacang": {
+  "nama": "Bacang",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   72,
+   336,
+   24,
+   24
+  ]
+ },
+ "kweni": {
+  "nama": "Kweni",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   96,
+   336,
+   24,
+   24
+  ]
+ },
+ "rukam": {
+  "nama": "Rukam",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   120,
+   336,
+   24,
+   24
+  ]
+ },
+ "cermai": {
+  "nama": "Cermai",
+  "kelompok": "Buah dan hasil kebun",
+  "rect": [
+   144,
+   336,
+   24,
+   24
+  ]
+ },
+ "helikonia": {
+  "nama": "Helikonia",
+  "kelompok": "Florikultura",
+  "rect": [
+   168,
+   336,
+   24,
+   24
+  ]
+ },
+ "anthurium-potong": {
+  "nama": "Anthurium potong",
+  "kelompok": "Florikultura",
+  "rect": [
+   192,
+   336,
+   24,
+   24
+  ]
+ },
+ "anyelir": {
+  "nama": "Anyelir",
+  "kelompok": "Florikultura",
+  "rect": [
+   216,
+   336,
+   24,
+   24
+  ]
+ },
+ "bunga-matahari-potong": {
+  "nama": "Bunga matahari potong",
+  "kelompok": "Florikultura",
+  "rect": [
+   240,
+   336,
+   24,
+   24
+  ]
+ },
+ "lili-potong": {
+  "nama": "Lili potong",
+  "kelompok": "Florikultura",
+  "rect": [
+   264,
+   336,
+   24,
+   24
+  ]
+ },
+ "aster-potong": {
+  "nama": "Aster potong",
+  "kelompok": "Florikultura",
+  "rect": [
+   288,
+   336,
+   24,
+   24
+  ]
+ },
+ "bunga-telang": {
+  "nama": "Bunga telang",
+  "kelompok": "Florikultura",
+  "rect": [
+   312,
+   336,
+   24,
+   24
+  ]
+ },
+ "gabah-padi-rawa": {
+  "nama": "Gabah padi rawa",
+  "kelompok": "Hasil petak rawa",
+  "rect": [
+   336,
+   336,
+   24,
+   24
+  ]
+ },
+ "kangkung-air": {
+  "nama": "Kangkung air",
+  "kelompok": "Hasil petak rawa",
+  "rect": [
+   360,
+   336,
+   24,
+   24
+  ]
+ },
+ "jamur-tiram-merah-muda": {
+  "nama": "Jamur tiram merah muda",
+  "kelompok": "Jamur",
+  "rect": [
+   384,
+   336,
+   24,
+   24
+  ]
+ },
+ "jamur-tiram-kuning": {
+  "nama": "Jamur tiram kuning",
+  "kelompok": "Jamur",
+  "rect": [
+   408,
+   336,
+   24,
+   24
+  ]
+ },
+ "jamur-kuping-putih": {
+  "nama": "Jamur kuping putih",
+  "kelompok": "Jamur",
+  "rect": [
+   432,
+   336,
+   24,
+   24
+  ]
+ },
+ "jamur-tiram-raja": {
+  "nama": "Jamur tiram raja",
+  "kelompok": "Jamur",
+  "rect": [
+   456,
+   336,
+   24,
+   24
+  ]
+ },
+ "nilem": {
+  "nama": "Nilem",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   480,
+   336,
+   24,
+   24
+  ]
+ },
+ "tawes": {
+  "nama": "Tawes",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   504,
+   336,
+   24,
+   24
+  ]
+ },
+ "sepat-siam": {
+  "nama": "Sepat siam",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   528,
+   336,
+   24,
+   24
+  ]
+ },
+ "belut-sawah": {
+  "nama": "Belut sawah",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   552,
+   336,
+   24,
+   24
+  ]
+ },
+ "udang-galah": {
+  "nama": "Udang galah",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   0,
+   360,
+   24,
+   24
+  ]
+ },
+ "ikan-betok": {
+  "nama": "Ikan betok",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   24,
+   360,
+   24,
+   24
+  ]
+ },
+ "tambakan": {
+  "nama": "Tambakan",
+  "kelompok": "Ikan air tawar",
+  "rect": [
+   48,
+   360,
+   24,
+   24
+  ]
+ },
+ "layang": {
+  "nama": "Layang",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   72,
+   360,
+   24,
+   24
+  ]
+ },
+ "layur": {
+  "nama": "Layur",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   96,
+   360,
+   24,
+   24
+  ]
+ },
+ "belanak": {
+  "nama": "Belanak",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   120,
+   360,
+   24,
+   24
+  ]
+ },
+ "ikan-sebelah": {
+  "nama": "Ikan sebelah",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   144,
+   360,
+   24,
+   24
+  ]
+ },
+ "kuwe": {
+  "nama": "Kuwe",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   168,
+   360,
+   24,
+   24
+  ]
+ },
+ "barakuda": {
+  "nama": "Barakuda",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   192,
+   360,
+   24,
+   24
+  ]
+ },
+ "julung-julung": {
+  "nama": "Julung-julung",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   216,
+   360,
+   24,
+   24
+  ]
+ },
+ "ikan-ekor-kuning": {
+  "nama": "Ikan ekor kuning",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   240,
+   360,
+   24,
+   24
+  ]
+ },
+ "lemuru": {
+  "nama": "Lemuru",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   264,
+   360,
+   24,
+   24
+  ]
+ },
+ "ikan-baronang": {
+  "nama": "Ikan baronang",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   288,
+   360,
+   24,
+   24
+  ]
+ },
+ "kakap-putih": {
+  "nama": "Kakap putih",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   312,
+   360,
+   24,
+   24
+  ]
+ },
+ "gulamah": {
+  "nama": "Gulamah",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   336,
+   360,
+   24,
+   24
+  ]
+ },
+ "kuro": {
+  "nama": "Kuro",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   360,
+   360,
+   24,
+   24
+  ]
+ },
+ "manyung": {
+  "nama": "Manyung",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   384,
+   360,
+   24,
+   24
+  ]
+ },
+ "kerang-bambu": {
+  "nama": "Kerang bambu",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   408,
+   360,
+   24,
+   24
+  ]
+ },
+ "kerang-simping": {
+  "nama": "Kerang simping",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   432,
+   360,
+   24,
+   24
+  ]
+ },
+ "lobster-laut": {
+  "nama": "Lobster laut",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   456,
+   360,
+   24,
+   24
+  ]
+ },
+ "dada-ayam": {
+  "nama": "Dada ayam",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   480,
+   360,
+   24,
+   24
+  ]
+ },
+ "paha-ayam": {
+  "nama": "Paha ayam",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   504,
+   360,
+   24,
+   24
+  ]
+ },
+ "sayap-ayam": {
+  "nama": "Sayap ayam",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   528,
+   360,
+   24,
+   24
+  ]
+ },
+ "tulang-ayam": {
+  "nama": "Tulang ayam",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   552,
+   360,
+   24,
+   24
+  ]
+ },
+ "iga-sapi": {
+  "nama": "Iga sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   0,
+   384,
+   24,
+   24
+  ]
+ },
+ "buntut-sapi": {
+  "nama": "Buntut sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   24,
+   384,
+   24,
+   24
+  ]
+ },
+ "babat-sapi": {
+  "nama": "Babat sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   48,
+   384,
+   24,
+   24
+  ]
+ },
+ "kikil-sapi": {
+  "nama": "Kikil sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   72,
+   384,
+   24,
+   24
+  ]
+ },
+ "hati-sapi": {
+  "nama": "Hati sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   96,
+   384,
+   24,
+   24
+  ]
+ },
+ "lidah-sapi": {
+  "nama": "Lidah sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   120,
+   384,
+   24,
+   24
+  ]
+ },
+ "sumsum-sapi": {
+  "nama": "Sumsum sapi",
+  "kelompok": "Hasil peternakan",
+  "rect": [
+   144,
+   384,
+   24,
+   24
+  ]
+ },
+ "kacang-kenari": {
+  "nama": "Kacang kenari",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   168,
+   384,
+   24,
+   24
+  ]
+ },
+ "kacang-hazel": {
+  "nama": "Kacang hazel",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   192,
+   384,
+   24,
+   24
+  ]
+ },
+ "kacang-arab": {
+  "nama": "Kacang arab",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   216,
+   384,
+   24,
+   24
+  ]
+ },
+ "kacang-lentil-merah": {
+  "nama": "Kacang lentil merah",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   240,
+   384,
+   24,
+   24
+  ]
+ },
+ "kacang-walnut": {
+  "nama": "Kacang walnut",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   264,
+   384,
+   24,
+   24
+  ]
+ },
+ "kismis-hitam": {
+  "nama": "Kismis hitam",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   288,
+   384,
+   24,
+   24
+  ]
+ },
+ "biji-chia": {
+  "nama": "Biji chia",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   312,
+   384,
+   24,
+   24
+  ]
+ },
+ "oat": {
+  "nama": "Oat",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   336,
+   384,
+   24,
+   24
+  ]
+ },
+ "jelai": {
+  "nama": "Jelai",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   360,
+   384,
+   24,
+   24
+  ]
+ },
+ "biji-labu-kupas": {
+  "nama": "Biji labu kupas",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   384,
+   384,
+   24,
+   24
+  ]
+ },
+ "kapulaga-hijau-impor": {
+  "nama": "Kapulaga hijau impor",
+  "kelompok": "Pasokan pedagang",
+  "rect": [
+   408,
+   384,
+   24,
+   24
+  ]
+ },
+ "buah-aren": {
+  "nama": "Buah aren",
+  "kelompok": "Hasil kebun kiriman",
+  "rect": [
+   432,
+   384,
+   24,
+   24
+  ]
+ },
+ "udang-rebon": {
+  "nama": "Udang rebon",
+  "kelompok": "Hasil perikanan kiriman",
+  "rect": [
+   456,
+   384,
+   24,
+   24
+  ]
+ },
+ "beras-merah": {
+  "nama": "Beras merah",
+  "kelompok": "Produk olahan",
+  "rect": [
+   480,
+   384,
+   24,
+   24
+  ]
+ },
+ "beras-hitam-nonketan": {
+  "nama": "Beras hitam nonketan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   504,
+   384,
+   24,
+   24
+  ]
+ },
+ "beras-pecah-kulit": {
+  "nama": "Beras pecah kulit",
+  "kelompok": "Produk olahan",
+  "rect": [
+   528,
+   384,
+   24,
+   24
+  ]
+ },
+ "bekatul-beras": {
+  "nama": "Bekatul beras",
+  "kelompok": "Produk olahan",
+  "rect": [
+   552,
+   384,
+   24,
+   24
+  ]
+ },
+ "menir-beras": {
+  "nama": "Menir beras",
+  "kelompok": "Produk olahan",
+  "rect": [
+   0,
+   408,
+   24,
+   24
+  ]
+ },
+ "beras-jagung": {
+  "nama": "Beras jagung",
+  "kelompok": "Produk olahan",
+  "rect": [
+   24,
+   408,
+   24,
+   24
+  ]
+ },
+ "popcorn-tawar": {
+  "nama": "Popcorn tawar",
+  "kelompok": "Produk olahan",
+  "rect": [
+   48,
+   408,
+   24,
+   24
+  ]
+ },
+ "mocaf": {
+  "nama": "Mocaf",
+  "kelompok": "Produk olahan",
+  "rect": [
+   72,
+   408,
+   24,
+   24
+  ]
+ },
+ "gaplek": {
+  "nama": "Gaplek",
+  "kelompok": "Produk olahan",
+  "rect": [
+   96,
+   408,
+   24,
+   24
+  ]
+ },
+ "tiwul": {
+  "nama": "Tiwul",
+  "kelompok": "Produk olahan",
+  "rect": [
+   120,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-ubi-jalar": {
+  "nama": "Tepung ubi jalar",
+  "kelompok": "Produk olahan",
+  "rect": [
+   144,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-garut": {
+  "nama": "Tepung garut",
+  "kelompok": "Produk olahan",
+  "rect": [
+   168,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-sorgum": {
+  "nama": "Tepung sorgum",
+  "kelompok": "Produk olahan",
+  "rect": [
+   192,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-kacang-hijau": {
+  "nama": "Tepung kacang hijau",
+  "kelompok": "Produk olahan",
+  "rect": [
+   216,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-hunkwe": {
+  "nama": "Tepung hunkwe",
+  "kelompok": "Produk olahan",
+  "rect": [
+   240,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-kedelai": {
+  "nama": "Tepung kedelai",
+  "kelompok": "Produk olahan",
+  "rect": [
+   264,
+   408,
+   24,
+   24
+  ]
+ },
+ "tepung-pisang": {
+  "nama": "Tepung pisang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   288,
+   408,
+   24,
+   24
+  ]
+ },
+ "ampas-tahu": {
+  "nama": "Ampas tahu",
+  "kelompok": "Produk olahan",
+  "rect": [
+   312,
+   408,
+   24,
+   24
+  ]
+ },
+ "bungkil-kacang-tanah": {
+  "nama": "Bungkil kacang tanah",
+  "kelompok": "Produk olahan",
+  "rect": [
+   336,
+   408,
+   24,
+   24
+  ]
+ },
+ "oncom-merah": {
+  "nama": "Oncom merah",
+  "kelompok": "Produk olahan",
+  "rect": [
+   360,
+   408,
+   24,
+   24
+  ]
+ },
+ "oncom-hitam": {
+  "nama": "Oncom hitam",
+  "kelompok": "Produk olahan",
+  "rect": [
+   384,
+   408,
+   24,
+   24
+  ]
+ },
+ "tauge-kacang-hijau": {
+  "nama": "Tauge kacang hijau",
+  "kelompok": "Produk olahan",
+  "rect": [
+   408,
+   408,
+   24,
+   24
+  ]
+ },
+ "kecambah-kedelai": {
+  "nama": "Kecambah kedelai",
+  "kelompok": "Produk olahan",
+  "rect": [
+   432,
+   408,
+   24,
+   24
+  ]
+ },
+ "tahu-kuning": {
+  "nama": "Tahu kuning",
+  "kelompok": "Produk olahan",
+  "rect": [
+   456,
+   408,
+   24,
+   24
+  ]
+ },
+ "tempe-gembus": {
+  "nama": "Tempe gembus",
+  "kelompok": "Produk olahan",
+  "rect": [
+   480,
+   408,
+   24,
+   24
+  ]
+ },
+ "tauco": {
+  "nama": "Tauco",
+  "kelompok": "Produk olahan",
+  "rect": [
+   504,
+   408,
+   24,
+   24
+  ]
+ },
+ "kembang-tahu-kering": {
+  "nama": "Kembang tahu kering",
+  "kelompok": "Produk olahan",
+  "rect": [
+   528,
+   408,
+   24,
+   24
+  ]
+ },
+ "gula-semut-aren": {
+  "nama": "Gula semut aren",
+  "kelompok": "Produk olahan",
+  "rect": [
+   552,
+   408,
+   24,
+   24
+  ]
+ },
+ "kolang-kaling": {
+  "nama": "Kolang-kaling",
+  "kelompok": "Produk olahan",
+  "rect": [
+   0,
+   432,
+   24,
+   24
+  ]
+ },
+ "kelapa-parut": {
+  "nama": "Kelapa parut",
+  "kelompok": "Produk olahan",
+  "rect": [
+   24,
+   432,
+   24,
+   24
+  ]
+ },
+ "kopra": {
+  "nama": "Kopra",
+  "kelompok": "Produk olahan",
+  "rect": [
+   48,
+   432,
+   24,
+   24
+  ]
+ },
+ "kopi-beras": {
+  "nama": "Kopi beras",
+  "kelompok": "Produk olahan",
+  "rect": [
+   72,
+   432,
+   24,
+   24
+  ]
+ },
+ "kopi-sangrai": {
+  "nama": "Kopi sangrai",
+  "kelompok": "Produk olahan",
+  "rect": [
+   96,
+   432,
+   24,
+   24
+  ]
+ },
+ "kopi-jahe": {
+  "nama": "Kopi jahe",
+  "kelompok": "Produk olahan",
+  "rect": [
+   120,
+   432,
+   24,
+   24
+  ]
+ },
+ "teh-melati": {
+  "nama": "Teh melati",
+  "kelompok": "Produk olahan",
+  "rect": [
+   144,
+   432,
+   24,
+   24
+  ]
+ },
+ "teh-serai": {
+  "nama": "Teh serai",
+  "kelompok": "Produk olahan",
+  "rect": [
+   168,
+   432,
+   24,
+   24
+  ]
+ },
+ "lada-bubuk": {
+  "nama": "Lada bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   192,
+   432,
+   24,
+   24
+  ]
+ },
+ "cabai-bubuk": {
+  "nama": "Cabai bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   216,
+   432,
+   24,
+   24
+  ]
+ },
+ "cabai-kering": {
+  "nama": "Cabai kering",
+  "kelompok": "Produk olahan",
+  "rect": [
+   240,
+   432,
+   24,
+   24
+  ]
+ },
+ "jahe-bubuk": {
+  "nama": "Jahe bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   264,
+   432,
+   24,
+   24
+  ]
+ },
+ "kunyit-bubuk": {
+  "nama": "Kunyit bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   288,
+   432,
+   24,
+   24
+  ]
+ },
+ "ketumbar-bubuk": {
+  "nama": "Ketumbar bubuk",
+  "kelompok": "Produk olahan",
+  "rect": [
+   312,
+   432,
+   24,
+   24
+  ]
+ },
+ "pindang-tongkol": {
+  "nama": "Pindang tongkol",
+  "kelompok": "Produk olahan",
+  "rect": [
+   336,
+   432,
+   24,
+   24
+  ]
+ },
+ "bandeng-presto": {
+  "nama": "Bandeng presto",
+  "kelompok": "Produk olahan",
+  "rect": [
+   360,
+   432,
+   24,
+   24
+  ]
+ },
+ "bandeng-asap": {
+  "nama": "Bandeng asap",
+  "kelompok": "Produk olahan",
+  "rect": [
+   384,
+   432,
+   24,
+   24
+  ]
+ },
+ "abon-ikan": {
+  "nama": "Abon ikan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   408,
+   432,
+   24,
+   24
+  ]
+ },
+ "abon-sapi": {
+  "nama": "Abon sapi",
+  "kelompok": "Produk olahan",
+  "rect": [
+   432,
+   432,
+   24,
+   24
+  ]
+ },
+ "ebi": {
+  "nama": "Ebi",
+  "kelompok": "Produk olahan",
+  "rect": [
+   456,
+   432,
+   24,
+   24
+  ]
+ },
+ "terasi-udang": {
+  "nama": "Terasi udang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   480,
+   432,
+   24,
+   24
+  ]
+ },
+ "ikan-asin-gabus": {
+  "nama": "Ikan asin gabus",
+  "kelompok": "Produk olahan",
+  "rect": [
+   504,
+   432,
+   24,
+   24
+  ]
+ },
+ "keripik-tempe": {
+  "nama": "Keripik tempe",
+  "kelompok": "Produk olahan",
+  "rect": [
+   528,
+   432,
+   24,
+   24
+  ]
+ },
+ "keripik-singkong": {
+  "nama": "Keripik singkong",
+  "kelompok": "Produk olahan",
+  "rect": [
+   552,
+   432,
+   24,
+   24
+  ]
+ },
+ "keripik-sukun": {
+  "nama": "Keripik sukun",
+  "kelompok": "Produk olahan",
+  "rect": [
+   0,
+   456,
+   24,
+   24
+  ]
+ },
+ "keripik-talas": {
+  "nama": "Keripik talas",
+  "kelompok": "Produk olahan",
+  "rect": [
+   24,
+   456,
+   24,
+   24
+  ]
+ },
+ "dodol-ketan": {
+  "nama": "Dodol ketan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   48,
+   456,
+   24,
+   24
+  ]
+ },
+ "wajit-ketan": {
+  "nama": "Wajit ketan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   72,
+   456,
+   24,
+   24
+  ]
+ },
+ "rengginang": {
+  "nama": "Rengginang",
+  "kelompok": "Produk olahan",
+  "rect": [
+   96,
+   456,
+   24,
+   24
+  ]
+ },
+ "opak-ketan": {
+  "nama": "Opak ketan",
+  "kelompok": "Produk olahan",
+  "rect": [
+   120,
+   456,
+   24,
+   24
+  ]
+ },
+ "combro": {
+  "nama": "Combro",
+  "kelompok": "Produk olahan",
+  "rect": [
+   144,
+   456,
+   24,
+   24
+  ]
+ },
+ "misro": {
+  "nama": "Misro",
+  "kelompok": "Produk olahan",
+  "rect": [
+   168,
+   456,
+   24,
+   24
+  ]
+ },
+ "cireng": {
+  "nama": "Cireng",
+  "kelompok": "Produk olahan",
+  "rect": [
+   192,
+   456,
+   24,
+   24
+  ]
+ },
+ "colenak": {
+  "nama": "Colenak",
+  "kelompok": "Produk olahan",
+  "rect": [
+   216,
+   456,
+   24,
+   24
+  ]
+ },
+ "lotek": {
+  "nama": "Lotek",
+  "kelompok": "Produk olahan",
+  "rect": [
+   240,
+   456,
+   24,
+   24
+  ]
+ },
+ "karedok": {
+  "nama": "Karedok",
+  "kelompok": "Produk olahan",
+  "rect": [
+   264,
+   456,
+   24,
+   24
+  ]
+ },
+ "sambal-oncom": {
+  "nama": "Sambal oncom",
+  "kelompok": "Produk olahan",
+  "rect": [
+   288,
+   456,
+   24,
+   24
+  ]
+ },
+ "tutug-oncom": {
+  "nama": "Tutug oncom",
+  "kelompok": "Produk olahan",
+  "rect": [
+   312,
+   456,
+   24,
+   24
+  ]
+ },
+ "bandrek": {
+  "nama": "Bandrek",
+  "kelompok": "Produk olahan",
+  "rect": [
+   336,
+   456,
+   24,
+   24
+  ]
+ },
+ "bajigur": {
+  "nama": "Bajigur",
+  "kelompok": "Produk olahan",
+  "rect": [
+   360,
+   456,
+   24,
+   24
+  ]
+ },
+ "beras-kencur": {
+  "nama": "Beras kencur",
+  "kelompok": "Produk olahan",
+  "rect": [
+   384,
+   456,
+   24,
+   24
+  ]
+ },
+ "kunyit-asam": {
+  "nama": "Kunyit asam",
+  "kelompok": "Produk olahan",
+  "rect": [
+   408,
+   456,
+   24,
+   24
+  ]
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "Kentongan": [
+  0,
+  0,
+  32,
+  32
+ ],
+ "Kunci jari-jari": [
+  32,
+  0,
+  32,
+  32
+ ],
+ "Papan peras": [
+  64,
+  0,
+  32,
+  32
+ ],
+ "Kuas huruf": [
+  96,
+  0,
+  32,
+  32
+ ],
+ "Sendok kuah": [
+  128,
+  0,
+  32,
+  32
+ ],
+ "Tongkat pengarah": [
+  160,
+  0,
+  32,
+  32
+ ],
+ "Botol sampel": [
+  192,
+  0,
+  32,
+  32
+ ],
+ "Bak uji ban": [
+  224,
+  0,
+  32,
+  32
+ ],
+ "Kuas lembut": [
+  0,
+  32,
+  32,
+  32
+ ],
+ "Cetakan tahu": [
+  32,
+  32,
+  32,
+  32
+ ],
+ "Buku dengar": [
+  64,
+  32,
+  32,
+  32
+ ],
+ "Detektor suara satwa": [
+  96,
+  32,
+  32,
+  32
+ ],
+ "Kuas arsip": [
+  128,
+  32,
+  32,
+  32
+ ],
+ "Perekam stereo": [
+  160,
+  32,
+  32,
+  32
+ ],
+ "Tas kunjungan": [
+  192,
+  32,
+  32,
+  32
+ ],
+ "Pemukul kendang": [
+  224,
+  32,
+  32,
+  32
+ ],
+ "Bak celup": [
+  0,
+  64,
+  32,
+  32
+ ],
+ "Penala nada": [
+  32,
+  64,
+  32,
+  32
+ ],
+ "Kait rajut": [
+  64,
+  64,
+  32,
+  32
+ ],
+ "Acuan sepatu": [
+  96,
+  64,
+  32,
+  32
+ ],
+ "Tang bibir enamel": [
+  128,
+  64,
+  32,
+  32
+ ],
+ "Meja siar": [
+  160,
+  64,
+  32,
+  32
+ ],
+ "Pemindai identitas hewan": [
+  192,
+  64,
+  32,
+  32
+ ],
+ "Papan reglet": [
+  224,
+  64,
+  32,
+  32
+ ],
+ "Troli lipat": [
+  0,
+  96,
+  32,
+  32
+ ],
+ "Pencatat suhu": [
+  32,
+  96,
+  32,
+  32
+ ],
+ "Pita ukur": [
+  64,
+  96,
+  32,
+  32
+ ],
+ "Pelubang karcis": [
+  96,
+  96,
+  32,
+  32
+ ],
+ "Kunci pegas": [
+  128,
+  96,
+  32,
+  32
+ ],
+ "Penggulung film": [
+  160,
+  96,
+  32,
+  32
+ ],
+ "Kotak eram": [
+  192,
+  96,
+  32,
+  32
+ ],
+ "Sisir ternak": [
+  224,
+  96,
+  32,
+  32
+ ],
+ "Ember perah": [
+  0,
+  128,
+  32,
+  32
+ ],
+ "Baki telur": [
+  32,
+  128,
+  32,
+  32
+ ],
+ "Serok": [
+  64,
+  128,
+  32,
+  32
+ ],
+ "Tali tuntun": [
+  96,
+  128,
+  32,
+  32
+ ],
+ "Teropong": [
+  128,
+  128,
+  32,
+  32
+ ]
+}

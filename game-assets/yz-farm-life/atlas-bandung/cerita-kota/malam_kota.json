@@ -1,0 +1,167 @@
+[
+ {
+  "misi": "MALAM-01",
+  "hari": "Kamis",
+  "mulai": "20:00",
+  "akhir": "22:00",
+  "suasana": "ketuk",
+  "pembuka": "Seusai warung tutup, Euis menaruh pemukul di lantai. Dari seberang kanal terdengar dua ketukan pendek. Pos di sana sudah dibongkar.",
+  "petunjuk": "Duduk di bawah talang dan tunggu satu siklus ronda. Pukulannya datang sesaat sebelum tetes terakhir.",
+  "penyingkapan": "Periksa ujung bambu yang terantuk pintu air; bunyinya menjelaskan dua ketukan pertama. Dari seberang masih terdengar satu ketukan.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-02",
+  "hari": "Kamis",
+  "mulai": "18:30",
+  "akhir": "20:30",
+  "suasana": "angin",
+  "pembuka": "Di saung fiktif, Sasmita menggelar dua tikar dan membiarkan satu tetap terlipat. Siapa pun boleh berdoa menurut keyakinannya atau sekadar menemani.",
+  "petunjuk": "Matikan perekam. Pilih duduk hening, menyimak kisah, atau kembali sesudah pertemuan.",
+  "penyingkapan": "Sasmita baru menyebut nama sahabatnya ketika buku catatan ditutup. Ia mengizinkan pemain mengingat kisah itu tanpa menyimpan nama.",
+  "jenis": "Pertemuan spiritual"
+ },
+ {
+  "misi": "MALAM-03",
+  "hari": "Kamis",
+  "mulai": "21:00",
+  "akhir": "23:00",
+  "suasana": "ketuk",
+  "pembuka": "Dalam cerita sanggar, ketukan penutup kadang terdengar dari bilik setelah semua kendang disarungkan. Karta belum pernah berani menunggu sendiri.",
+  "petunjuk": "Dengarkan dari kursi penonton lalu pindah ke depan bilik. Ketukan terdengar lebih pelan ketika pintu dibuka.",
+  "penyingkapan": "Ada pemukul cadangan yang menyentuh dinding. Karta tetap menyisakan kursi kosong untuk kawannya pada latihan besok.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-04",
+  "hari": "Kamis",
+  "mulai": "20:30",
+  "akhir": "23:30",
+  "suasana": "proyektor",
+  "pembuka": "Di bioskop rekaan, satu siluet tetap duduk ketika gulungan latihan habis. Mira menghentikan motor, tetapi bayangannya menoleh.",
+  "petunjuk": "Bandingkan cahaya dari bilik dan pintu samping. Temui Mira dahulu agar pintu ruang putar bisa dibuka bersama.",
+  "penyingkapan": "Gantungan jas menjelaskan bahunya. Pada dinding tertinggal kilat kecil yang tak muncul saat percobaan diulang.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-05",
+  "hari": "Semua",
+  "mulai": "19:00",
+  "akhir": "21:00",
+  "suasana": "air",
+  "pembuka": "Darsa menghitung enam itik saat menutup kandang. Di air tampak tujuh gerakan, semua seirama kecuali satu yang melawan arus.",
+  "petunjuk": "Diam di titian sampai barisan lewat. Tandai gerakan ketujuh tanpa mengejar satwa.",
+  "penyingkapan": "Pelampung tua terseret tali di bawah titian. Darsa mengenali simpul buatan saudaranya.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-06",
+  "hari": "Semua",
+  "mulai": "18:00",
+  "akhir": "21:00",
+  "suasana": "serangga",
+  "pembuka": "Kain putih terangkat dua kali meski halaman tenang. Manda meminta penerangan diarahkan ke lantai.",
+  "petunjuk": "Bandingkan arah lintasan pada alat dengar dan bayang kain dari serambi.",
+  "penyingkapan": "Ada lintasan kelelawar lewat sela jemuran. Saat tali digeser, lintasannya bisa dilihat tanpa mengganggu satwa.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-07",
+  "hari": "Kamis",
+  "mulai": "22:00",
+  "akhir": "23:55",
+  "suasana": "radio",
+  "pembuka": "Saat mikrofon ditutup, monitor memutar suara Bima mengucapkan salam yang baru akan ia tulis besok.",
+  "petunjuk": "Baca label dua pita, periksa jam, lalu dengarkan dengan pengeras ruang dimatikan.",
+  "penyingkapan": "Salam itu berasal dari latihan lama. Satu kata yang berubah pada putaran kedua dibiarkan sebagai teka-teki.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-08",
+  "hari": "Semua",
+  "mulai": "19:30",
+  "akhir": "22:30",
+  "suasana": "gang",
+  "pembuka": "Di gang bengkel fiktif sepulang hujan, seseorang seperti berjalan hanya dengan kaki kiri. Oman mengenali motif sol yang ia berhenti buat puluhan tahun lalu.",
+  "petunjuk": "Cocokkan jarak jejak dan ambang pintu. Jejak selalu berhenti di tempat cahaya lampu putus.",
+  "penyingkapan": "Seorang warga memakai potongan sol untuk membungkus ujung tongkatnya dan memperlihatkannya jika disapa dengan tenang.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-09",
+  "hari": "Kamis",
+  "mulai": "19:00",
+  "akhir": "21:30",
+  "suasana": "angin",
+  "pembuka": "Di bengkel bambu rekaan, nada pendek muncul saat semua pemain menahan tangan. Yuda menggeser kursi agar pemain dapat mendengar dari lantai.",
+  "petunjuk": "Periksa celah angin dari dua posisi sebelum menyalakan lampu kerja.",
+  "penyingkapan": "Satu tabung bekas menempel pada ventilasi dan berbunyi ketika pintu belakang tertutup. Yuda mengenalinya sebagai potongan latihan pertamanya.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-10",
+  "hari": "Semua",
+  "mulai": "20:00",
+  "akhir": "22:15",
+  "suasana": "gang",
+  "pembuka": "Huruf pada papan toko kelihatan membentuk nama lain ketika semua lampu kios padam.",
+  "petunjuk": "Baca dari bawah teritis dan bandingkan dengan sketsa cat Gilang.",
+  "penyingkapan": "Goresan nama toko lama timbul di bawah cat baru. Saksi terakhir ingat siapa yang melukisnya.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-11",
+  "hari": "Kamis",
+  "mulai": "18:30",
+  "akhir": "20:00",
+  "suasana": "serambi",
+  "pembuka": "Keluarga fiktif Aci berkumpul untuk berdoa dan menyebut seorang kerabat. Aci meletakkan cangkir retak di meja sebagai kenangan pribadi.",
+  "petunjuk": "Pilih menemani di serambi, membantu menyiapkan air, atau kembali saat keluarga sudah selesai.",
+  "penyingkapan": "Selepas pertemuan Aci bercerita tentang orang yang pertama kali mengajarinya membetulkan bibir cangkir. Ia meminta agar bagian doa tetap milik keluarga.",
+  "jenis": "Pertemuan spiritual"
+ },
+ {
+  "misi": "MALAM-12",
+  "hari": "Kamis",
+  "mulai": "21:30",
+  "akhir": "23:30",
+  "suasana": "ketuk",
+  "pembuka": "Jam di toko fiktif sudah dibongkar. Namun bunyi lonceng terdengar ketika Empi menyimpan obeng terakhir.",
+  "petunjuk": "Bandingkan jeda bunyi dengan catatan jam pasar dan tunggu di sisi lain gang.",
+  "penyingkapan": "Dua lonceng pasar menjelaskan awal dan akhirnya. Nada di tengah tidak pernah tertangkap perekam.",
+  "jenis": "Lokasi misteri rekaan"
+ },
+ {
+  "misi": "MALAM-13",
+  "hari": "Kamis",
+  "mulai": "22:10",
+  "akhir": "23:40",
+  "suasana": "gang",
+  "pembuka": "Pada bangku paling belakang tergeletak karcis lembap. Di kaca tampak tangan menyerahkannya, sementara bangku di belakang Yanzen kosong. Ridho menghentikan angkutan rekaan di tempat terang.",
+  "petunjuk": "Periksa pantulan dari luar, lalu cocokkan nomor karcis dengan pita Iqbal. Jika memilih duduk sekali lagi, siluet turun tanpa menggerakkan pintu.",
+  "penyingkapan": "Siluet mengucapkan nama halte lama yang bahkan Ridho belum kenal. Nama itu kelak muncul di saku jaket Endah. Siapa penumpangnya tetap terbuka.",
+  "jenis": "Misteri gaib rekaan"
+ },
+ {
+  "misi": "MALAM-14",
+  "hari": "Kamis",
+  "mulai": "21:15",
+  "akhir": "23:15",
+  "suasana": "serambi",
+  "pembuka": "Di lorong gudang rekaan, langkah kaki bergerak mendekat dari dua arah. Lampu jaga menyala satu per satu di belakang pemain. Setiap kali menoleh, yang tampak hanya troli kosong.",
+  "petunjuk": "Bagja mengikat pita pada satu pagar. Pelan-pelan tempuh lorong saat gema berhenti. Bila ingin pulang, genggam gagang troli dan Bagja menemani keluar.",
+  "penyingkapan": "Ujung lorong membuka ke sisi pagar yang sama. Pita kini terikat dari dalam. Besok pagi Bagja menyimpan satu kursi di luar lorong agar penjaga tak perlu menunggu sendirian.",
+  "jenis": "Misteri gaib rekaan"
+ },
+ {
+  "misi": "MALAM-15",
+  "hari": "Kamis",
+  "mulai": "16:30",
+  "akhir": "17:50",
+  "suasana": "angin",
+  "pembuka": "Menjelang petang, keluarga rekaan Sasmita hendak membersihkan pusara kerabat di petak makam fiktif. Cucunya memegang bunga dan belum berani menanyakan nama pada batu.",
+  "petunjuk": "Pemain dapat membantu mengisi wadah air, mendengarkan dari gerbang, atau menunggu keluarga selesai berziarah. Sasmita sendiri yang mengajak cucunya mendekat.",
+  "penyingkapan": "Dalam perjalanan pulang, sang cucu mengingat cara kakeknya selalu menyisakan bagian pisang yang paling manis. Sasmita meminta kisah kecil itulah yang ditulis.",
+  "jenis": "Ziarah keluarga fiktif"
+ }
+]

@@ -1,0 +1,1458 @@
+[
+ {
+  "komoditas_id": "padi",
+  "lahan_id": "sawah",
+  "profil": "Padi sawah",
+  "peran": "Utama",
+  "acuan": "tanam-sawah"
+ },
+ {
+  "komoditas_id": "timun",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "kacang-panjang",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "kangkung-darat",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "bayam-cabut",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "terung",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "tomat",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "oyong",
+  "lahan_id": "bedengan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sayur"
+ },
+ {
+  "komoditas_id": "jagung",
+  "lahan_id": "tegal",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-tegal"
+ },
+ {
+  "komoditas_id": "kacang-tanah",
+  "lahan_id": "tegal",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-tegal"
+ },
+ {
+  "komoditas_id": "kedelai",
+  "lahan_id": "tegal",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-tegal"
+ },
+ {
+  "komoditas_id": "kacang-hijau",
+  "lahan_id": "tegal",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-tegal"
+ },
+ {
+  "komoditas_id": "jahe",
+  "lahan_id": "pekarangan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-rimpang"
+ },
+ {
+  "komoditas_id": "kunyit",
+  "lahan_id": "pekarangan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-rimpang"
+ },
+ {
+  "komoditas_id": "kencur",
+  "lahan_id": "pekarangan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-rimpang"
+ },
+ {
+  "komoditas_id": "temulawak",
+  "lahan_id": "pekarangan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-rimpang"
+ },
+ {
+  "komoditas_id": "pisang",
+  "lahan_id": "buah",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "pepaya",
+  "lahan_id": "buah",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "mangga",
+  "lahan_id": "buah",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "jambu-biji",
+  "lahan_id": "buah",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "kopi",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "kakao",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "kelapa",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "teh",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "cengkeh",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "pala",
+  "lahan_id": "perkebunan",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-perkebunan"
+ },
+ {
+  "komoditas_id": "sagu",
+  "lahan_id": "rawa",
+  "profil": "Profil awal untuk desain game",
+  "peran": "Utama",
+  "acuan": "tanam-sagu"
+ },
+ {
+  "komoditas_id": "wortel",
+  "lahan_id": "bedengan",
+  "profil": "Utamakan profil sejuk, cek varietas",
+  "peran": "Utama",
+  "acuan": "tanam-sejuk"
+ },
+ {
+  "komoditas_id": "kentang",
+  "lahan_id": "bedengan",
+  "profil": "Utamakan profil sejuk, cek varietas",
+  "peran": "Utama",
+  "acuan": "tanam-sejuk"
+ },
+ {
+  "komoditas_id": "kubis",
+  "lahan_id": "bedengan",
+  "profil": "Utamakan profil sejuk, cek varietas",
+  "peran": "Utama",
+  "acuan": "tanam-sejuk"
+ },
+ {
+  "komoditas_id": "buncis",
+  "lahan_id": "bedengan",
+  "profil": "Utamakan profil sejuk, cek varietas",
+  "peran": "Utama",
+  "acuan": "tanam-sejuk"
+ },
+ {
+  "komoditas_id": "cabai",
+  "lahan_id": "bedengan",
+  "profil": "Sesuaikan varietas dan suhu lokasi",
+  "peran": "Utama",
+  "acuan": "tanam-sejuk"
+ },
+ {
+  "komoditas_id": "jagung",
+  "lahan_id": "sawah",
+  "profil": "Rotasi sesudah padi, petak ditiriskan",
+  "peran": "Alternatif",
+  "acuan": "tanam-rotasi"
+ },
+ {
+  "komoditas_id": "kedelai",
+  "lahan_id": "sawah",
+  "profil": "Rotasi sesudah padi, petak ditiriskan",
+  "peran": "Alternatif",
+  "acuan": "tanam-rotasi"
+ },
+ {
+  "komoditas_id": "padi",
+  "lahan_id": "tegal",
+  "profil": "Padi gogo, gunakan varietas adaptif lahan kering",
+  "peran": "Alternatif",
+  "acuan": "tanam-tegal"
+ },
+ {
+  "komoditas_id": "padi",
+  "lahan_id": "rawa",
+  "profil": "Padi rawa dengan varietas dan tata air setempat",
+  "peran": "Alternatif",
+  "acuan": "tanam-padi-rawa"
+ },
+ {
+  "komoditas_id": "pisang",
+  "lahan_id": "pekarangan",
+  "profil": "Sesuaikan ruang tumbuh dan luas pekarangan",
+  "peran": "Alternatif",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "pepaya",
+  "lahan_id": "pekarangan",
+  "profil": "Sesuaikan ruang tumbuh dan luas pekarangan",
+  "peran": "Alternatif",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "mangga",
+  "lahan_id": "pekarangan",
+  "profil": "Sesuaikan ruang tumbuh dan luas pekarangan",
+  "peran": "Alternatif",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "jambu-biji",
+  "lahan_id": "pekarangan",
+  "profil": "Sesuaikan ruang tumbuh dan luas pekarangan",
+  "peran": "Alternatif",
+  "acuan": "tanam-buah"
+ },
+ {
+  "komoditas_id": "pare",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "labu-air",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "labu-kuning",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kecipir",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "okra",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "leunca",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gambas-ular",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "caisim",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pakcoy",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "katuk",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kelor",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kenikir",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kemangi",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "genjer",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kapri",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "brokoli",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kembang-kol",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lobak",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bit",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "paprika",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "zukini",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "labu-siam",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "selada",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sawi-putih",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "seledri",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bawang-daun",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kailan",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "peterseli",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "selada-air",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bawang-putih",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bawang-merah",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lengkuas",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "temu-kunci",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lempuyang",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "serai-dapur",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pandan-wangi",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "salam",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-purut",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "mint",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "salam-koja",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-limau",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "belimbing-wuluh",
+  "lahan_id": "pekarangan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "singkong",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "ubi-jalar",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "talas",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "garut",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "ganyong",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sorgum",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jewawut",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-merah",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-tunggak",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "wijen",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "porang",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "semangka",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "melon",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "blewah",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "timun-suri",
+  "lahan_id": "tegal",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "stroberi",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "markisa",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "avokad",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "apel",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kesemek",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jambu-air",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-siam",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-keprok",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-bali",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jeruk-nipis",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lemon",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "durian",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "rambutan",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "manggis",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "duku",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "langsat",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "salak",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "nanas",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "nangka",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "cempedak",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sukun",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sirsak",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "srikaya",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sawo",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "belimbing",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "buah-naga",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "delima",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kelengkeng",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kedondong",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "matoa",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kecapi",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jamblang",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "petai",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jengkol",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "melinjo",
+  "lahan_id": "buah",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lada",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kayu-manis",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "vanili",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kapulaga",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kemiri",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "asam-jawa",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kluwek",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pinang",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jambu-mete",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "aren",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "tebu",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kelapa-sawit",
+  "lahan_id": "perkebunan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "mawar",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "krisan",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "sedap-malam",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gladiol",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gerbera",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "melati",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "anggrek",
+  "lahan_id": "bedengan",
+  "profil": "Usulan zona game; sesuaikan varietas dan tapak",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pohpohan",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "tespong",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kedondong",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Alternatif",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "mangkokan",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "ketumbar",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kucai",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lokio",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pegagan",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "cincau-hijau",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "suji",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kecombrang",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "temu-hitam",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "temu-putih",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bangle",
+  "lahan_id": "pekarangan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "krai",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "cabai-gendot",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-koro-pedang",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "ubi-jalar",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Alternatif",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "pepaya",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Alternatif",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "radis",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kale",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "swiss-chard",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "adas",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bawang-prei",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kohlrabi",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kubis-brussel",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "parsnip",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "terung-belanda",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "murbei",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "rasberi",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "ciplukan",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gembili",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gadung",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "suweg",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bengkuang",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "hanjeli",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-bogor",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-gude",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kacang-komak",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bunga-matahari",
+  "lahan_id": "tegal",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jambu-bol",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "jambu-mawar",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kawista",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "buah-mentega",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "gandaria",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bacang",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kweni",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "rukam",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "cermai",
+  "lahan_id": "buah",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "helikonia",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "anthurium",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "anyelir",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "bunga-matahari",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Alternatif",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "lili",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "aster",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "telang",
+  "lahan_id": "bedengan",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ },
+ {
+  "komoditas_id": "kangkung-air",
+  "lahan_id": "rawa",
+  "profil": "Rancangan permainan Pasirluyu dan kelurahan mitra",
+  "peran": "Utama",
+  "acuan": "desain-pasar-v1"
+ }
+]

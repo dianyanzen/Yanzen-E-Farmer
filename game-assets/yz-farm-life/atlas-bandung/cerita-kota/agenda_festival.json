@@ -1,0 +1,30 @@
+[
+ {
+  "fase": "Hujan awal",
+  "hari": 7,
+  "nama": "Tukar benih",
+  "kegiatan": "Ayu membuka dua baki untuk bertukar benih dan cerita pemilik.",
+  "npc": "A04"
+ },
+ {
+  "fase": "Hujan penuh",
+  "hari": 21,
+  "nama": "Malam radio kanal",
+  "kegiatan": "Desna membacakan laporan air dari hulu dan hilir.",
+  "npc": "A14"
+ },
+ {
+  "fase": "Peralihan kering",
+  "hari": 14,
+  "nama": "Meja acar",
+  "kegiatan": "Bawa timun atau bantu mencicipi. Inggit mengajari takaran cangkir.",
+  "npc": "C08"
+ },
+ {
+  "fase": "Kemarau",
+  "hari": 21,
+  "nama": "Pasar hasil dan bunga",
+  "kegiatan": "Karisma membagi tangkai kepada keluarga peserta.",
+  "npc": "C16"
+ }
+]

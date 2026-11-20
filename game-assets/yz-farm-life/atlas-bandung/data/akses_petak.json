@@ -1,0 +1,72 @@
+[
+ {
+  "zona_id": "rumah",
+  "kelurahan_id": "kel-pasirluyu",
+  "bab_buka": 1,
+  "pemicu": "Mulai di kebun Yanzen",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "kebun",
+  "kelurahan_id": "kel-pasirluyu",
+  "bab_buka": 1,
+  "pemicu": "Mulai di kebun Yanzen",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "sawah",
+  "kelurahan_id": "kel-cimincrang",
+  "bab_buka": 2,
+  "pemicu": "Antarkan empat timun kepada Inggit lalu temui Heru di pasar awal",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "ladang",
+  "kelurahan_id": "kel-cimincrang",
+  "bab_buka": 2,
+  "pemicu": "Antarkan empat timun kepada Inggit lalu temui Heru di pasar awal",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "lereng",
+  "kelurahan_id": "kel-cisurupan",
+  "bab_buka": 3,
+  "pemicu": "Bantu Malik memetakan jalan angkut hasil sawah",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "buah",
+  "kelurahan_id": "kel-pasirjati",
+  "bab_buka": 4,
+  "pemicu": "Kirim sayuran lereng ke pasar bersama Anggi",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "bunga",
+  "kelurahan_id": "kel-cisurupan",
+  "bab_buka": 3,
+  "pemicu": "Bantu Malik memetakan jalan angkut hasil sawah",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "jahe-karasak",
+  "kelurahan_id": "kel-karasak",
+  "bab_buka": 5,
+  "pemicu": "Penuhi pesanan buah untuk pedagang Widi",
+  "rancangan_lahan": "Petak fiktif dalam rancangan bab"
+ },
+ {
+  "zona_id": "teras-kopi",
+  "kelurahan_id": "kel-cisurupan",
+  "bab_buka": 5,
+  "pemicu": "Sesudah kontrak Widi terbuka di Karasak, kembali ke Cisurupan bersama Malik untuk menandai jalur angkut.",
+  "rancangan_lahan": "Teras landai, penaung dan jalur panen; petak kebun tahunan fiktif."
+ },
+ {
+  "zona_id": "cekungan-air-tawar",
+  "kelurahan_id": "kel-cimincrang",
+  "bab_buka": 6,
+  "pemicu": "Sesudah bertemu Denden di Pasar Induk Caringin, kembali ke Cimincrang dan bantu Ryan menguji pintu air.",
+  "rancangan_lahan": "Cekungan air tawar buatan di dekat sawah, dengan saluran masuk, pintu air dan tepian lembap untuk uji sagu."
+ }
+]

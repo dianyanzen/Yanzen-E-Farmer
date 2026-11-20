@@ -1,0 +1,14 @@
+[
+ {
+  "barang_id": "buah-kopi",
+  "zona_id": "teras-kopi",
+  "bab_buka": 5,
+  "keterangan": "Panen kebun pemain selain kiriman mitra"
+ },
+ {
+  "barang_id": "batang-sagu",
+  "zona_id": "cekungan-air-tawar",
+  "bab_buka": 6,
+  "keterangan": "Opsi panen jangka panjang dari petak percobaan dalam cerita"
+ }
+]
