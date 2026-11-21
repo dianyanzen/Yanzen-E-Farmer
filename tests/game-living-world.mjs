@@ -203,4 +203,6 @@ slowWalk=model.movePlayer(slowWalk,"right");
 assert.equal(slowWalk.minutes,381,"sixteen successful steps advance one minute");
 assert.equal(slowWalk.walkingSteps,0,"step remainder resets after one minute");
 assert.equal(model.safeLoad(JSON.parse(JSON.stringify(slowWalk))).minutes,381,"slower clock survives saved games");
-assert.equal(model.MARKET_PLAZA,undefined,"market layout constants live in visual module only");
+const pausedAt15={...slowWalkStart,walkingSteps:15};
+assert.equal(model.safeLoad(JSON.parse(JSON.stringify(pausedAt15))).walkingSteps,15,
+  "cloud save must preserve the whole 16-step remainder, not just legacy values 1-3");

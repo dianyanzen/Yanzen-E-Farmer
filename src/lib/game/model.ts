@@ -831,7 +831,7 @@ export function safeLoad(value: unknown): GameState | null {
   if(!fishing)return null;
   return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
-    ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
+    ...(integer(value.walkingSteps,1,WALK_STEPS_PER_MINUTE-1)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
