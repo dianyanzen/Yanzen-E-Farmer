@@ -19,10 +19,12 @@ if ! git merge-base --is-ancestor "$GAME_SHA" "origin/develop/yz-farm-life"; the
   exit 1
 fi
 
-git switch -C release/yz-e-farmer-web --track origin/release/yz-e-farmer-web 2>/dev/null || {
+if git show-ref --verify --quiet refs/heads/release/yz-e-farmer-web; then
   git switch release/yz-e-farmer-web
   git merge --ff-only origin/release/yz-e-farmer-web
-}
+else
+  git switch -c release/yz-e-farmer-web --track origin/release/yz-e-farmer-web
+fi
 
 INTEGRATION_BRANCH="integrate/yz-game-${GAME_SHA:0:12}"
 git show-ref --verify --quiet "refs/heads/$INTEGRATION_BRANCH" && {
