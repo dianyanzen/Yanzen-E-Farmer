@@ -13,6 +13,8 @@ const previousJson=process.env.GAME_RESIDENT_ROSTER_JSON;
 const previousDigest=process.env.GAME_CANONICAL_ROSTER_SHA256;
 const previousLinks=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
 const previousBibles=process.env.GAME_RESIDENT_BIBLES;
+// Test fixtures must never inherit a real server roster secret from CI/Vercel.
+delete process.env.GAME_RESIDENT_ROSTER_JSON;
 try{
  const categories=["professions","neighborhood","specialists","civic","residents"];
  const idMatches=/^(?:work-[AC]\d{2}|K\d{2}|N\d{2}|P0[12]|R\d{3})\.png$/;
