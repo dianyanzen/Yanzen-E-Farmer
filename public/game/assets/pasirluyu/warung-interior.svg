@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320" shape-rendering="crispEdges">
+  <defs>
+    <pattern id="floor" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#c4a375"/>
+      <path d="M0 0H20M0 10H20M10 0V10M0 10V20" stroke="#a8865b"/>
+      <path d="M2 3H6M13 13H17" stroke="#d2b387"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="320" fill="#24282a"/>
+  <rect x="140" y="100" width="220" height="198" fill="#533b34"/>
+  <rect x="150" y="108" width="200" height="28" fill="#785343"/>
+  <rect x="160" y="120" width="180" height="160" fill="url(#floor)"/>
+  <path d="M160 120H340M160 120V280M340 120V280" stroke="#76513a" stroke-width="4"/>
+  <rect x="170" y="108" width="65" height="10" fill="#d8c798"/>
+  <path d="M175 112H230M181 115H224" stroke="#835c42"/>
+  <rect x="163" y="123" width="35" height="14" fill="#6c4935"/>
+  <path d="M167 127H194M167 133H194" stroke="#d5ae74" stroke-width="2"/>
+  <path d="M168 124H174V133H168ZM177 126H183V133H177ZM187 123H193V133H187Z" fill="#8f9b64"/>
+  <rect x="226" y="123" width="108" height="14" fill="#704d35"/>
+  <path d="M230 126H330M230 133H330" stroke="#b88654" stroke-width="2"/>
+  <path d="M236 125H241V132H236ZM249 121H255V132H249ZM263 124H268V132H263ZM275 121H284V132H275ZM294 124H301V132H294ZM314 123H322V132H314Z" fill="#ded0a0"/>
+  <rect x="240" y="143" width="100" height="17" fill="#694736"/>
+  <rect x="242" y="141" width="94" height="9" fill="#d1a477"/>
+  <rect x="250" y="142" width="26" height="6" fill="#708a55"/>
+  <path d="M254 144H260M266 145H272" stroke="#bfd291" stroke-width="2"/>
+  <rect x="299" y="142" width="25" height="7" fill="#97afa2"/>
+  <path d="M305 144H318" stroke="#dfdcc0" stroke-width="2"/>
+  <rect x="203" y="192" width="74" height="42" fill="#8c5b45"/>
+  <rect x="207" y="195" width="66" height="36" fill="#d8c398"/>
+  <path d="M213 201H267M213 209H267M213 217H267M213 225H267" stroke="#a8604e" stroke-width="2"/>
+  <path d="M150 270H240V283H150ZM280 270H350V283H280Z" fill="#694738"/>
+  <rect x="240" y="270" width="40" height="19" fill="#8c5938"/>
+  <rect x="244" y="273" width="32" height="6" fill="#e0be82"/>
+</svg>
