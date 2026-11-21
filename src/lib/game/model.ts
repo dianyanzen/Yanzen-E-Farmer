@@ -466,10 +466,16 @@ export function npcAmbient(s:GameState,id:NpcId):string{
       id==="C01"?"Saat hujan begini, melati perlu tempat yang tidak tergenang.":
       "Warung sepi saat hujan. Aku memasak sesuatu yang hangat untuk warga.";
   if(bond.points>=200 && bond.mood==="worried")
-    return "Ada hal yang belum selesai kupikirkan. Aku senang kamu tidak mendesakku bercerita.";
+    return id==="A03"?"Catatan saluran itu belum lengkap. Nanti kalau sudah kupastikan, kuceritakan.":
+      id==="C01"?"Ada bagian foto yang belum ingin kubuka. Terima kasih sudah menunggu.":
+        "Aku sedang memikirkan harga bahan besok. Kalau sudah jelas, baru kubicarakan.";
   if(bond.points>=100 && bond.lastTalkDay===s.day)
-    return "Terima kasih sudah mampir. Rasanya lebih mudah menghadapi hari setelah mengobrol.";
-  if(s.minutes>=1080)return "Hari sudah sore. Harapanku tetap sama: "+soul.desire.toLowerCase()+".";
+    return id==="A03"?"Catatan hari ini sudah kita cocokkan. Besok kita lihat lagi.":
+      id==="C01"?"Melatiku sudah kusiram. Kamu boleh mampir lagi besok.":
+        "Masih ada yang harus kusiapkan untuk warung. Nanti kita sambung, ya.";
+  if(s.minutes>=1080)return id==="A03"?"Sebentar lagi gelap. Aku mesti menyelesaikan catatan air sebelum pulang.":
+    id==="C01"?"Sore ini bunga melatiku sudah menutup. Besok pagi kita lihat lagi.":
+      "Warung hampir tutup. Aku mau merapikan panci dulu sebelum pulang.";
   const lines=[
     id==="A03"?"Kalau air hulu cukup, kebun hilir juga harus kebagian.":
       id==="C01"?"Melati tumbuh perlahan; kisah orang juga perlu waktu.":
@@ -481,7 +487,7 @@ export function npcAmbient(s:GameState,id:NpcId):string{
       id==="C01"?"Beberapa foto sebaiknya dibuka hanya saat pemiliknya siap.":
         "Saat warung ramai, aku suka mendengar cerita warga satu per satu."
   ];
-  return place.activity+". "+lines[(s.day-1)%lines.length];
+  return lines[(s.day-1)%lines.length];
 }
 
 export const DEFAULT_STORY: StoryFlags = {
@@ -958,7 +964,7 @@ export function getActionContext(s:GameState):ActionContext {
     if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
       text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
     if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
-      return {kind:"inspect",label:"Periksa lemari",text:"Lemari Yanzen. Fitur mengganti pakaian belum tersedia."};
+      return {kind:"inspect",label:"Periksa lemari",text:"Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang."};
     return {kind:"none",label:"Tidak ada objek"};
   }
   if (s.location === "field") {
@@ -974,7 +980,7 @@ export function getActionContext(s:GameState):ActionContext {
     if(visitAllowed(s,home.owner))return {kind:"door",label:"Bertamu ke rumah "+home.name};
     const reason=npcWhere(s,home.owner).indoors ? "Pemilik sudah beristirahat." : "Pemilik sedang di luar.";
     return {kind:"inspect",label:areaTitle(privateDoor),text:areaTitle(privateDoor)+" terkunci. "+reason+
-      " Waktu bertamu sampai 20.30. Teman baik (Lv. 4) mendapat kunci untuk datang kapan saja."};
+      " Biasanya rumah ini menerima tamu sampai pukul 20.30. Jika kalian sudah sangat akrab, mungkin ada kunci cadangan untukmu."};
   }
   if(privateDoor==="guest-exit")return {kind:"door",label:"Keluar ke gang"};
   if(privateDoor==="guest-keepsake" && isResidentHome(s.location)){
@@ -982,7 +988,7 @@ export function getActionContext(s:GameState):ActionContext {
     return {kind:"inspect",label:home.object,text:home.note};
   }
   if(privateDoor==="warung-pintu" || privateDoor==="lapak-pintu")
-    return {kind:"inspect",label:"Warung Inggit",text:"Warung Inggit / Terkunci."};
+    return {kind:"inspect",label:"Warung Inggit",text:"Pintu warung terkunci. Coba datang saat Inggit sudah membuka lapak."};
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if (!isOutdoorLocation(s.location)) return {kind:"none",label:"Tidak ada objek"};
@@ -1066,7 +1072,7 @@ export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { 
     lastTalkDay: s.day, talks: Math.min(99999999, bond.talks + 1), mood: reaction.emotion, lastChoice: choice } },
     stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + (fresh ? 8 : 0)), conversations: Math.min(99999999,s.stats.conversations + 1) } };
   return { state, npcId: npc, emotion: reaction.emotion, title: NPCS.find(n => n.id === npc)!.name + " · Jawabanmu",
-    lines: [reaction.line, fresh ? (delta >= 0 ? "Kedekatan +" + delta : "Kedekatan " + delta) + " · " + bondLabel(state.bonds[npc].points) : "Kalian sudah berbincang hari ini. Poin kedekatan berikutnya bisa diperoleh besok."] };
+    lines: [reaction.line] };
 }
 export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   const result = storyDialogue(s, npc);

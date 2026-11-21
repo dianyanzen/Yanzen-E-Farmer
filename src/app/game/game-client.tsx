@@ -149,7 +149,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       }).catch(error => {
         if (!active) return;
         console.error("Phaser bootstrap failed; Canvas 2D remains available.", error);
-        setPhaserError("Renderer Phaser tidak dapat dijalankan. Game tetap menggunakan Canvas.");
+        setPhaserError("Tampilan utama belum berhasil dibuka. Sementara kamu bisa bermain dengan tampilan ringan.");
         field.setRenderer(null);
         setPhaserReady(false);
       });
@@ -192,7 +192,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if (!active) return;
       if (authResponse.status === 401) { router.replace("/login"); return; }
       if (!authResponse.ok) {
-        setErrorText("Autentikasi lokal tidak dapat diakses. Periksa layanan PostgreSQL.");
+        setErrorText("Akunmu belum bisa dibuka. Coba periksa sambungan ke server permainan.");
         setSaveStatus("error"); saveLockedRef.current = true;
         return;
       }
@@ -207,7 +207,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const saveResponse = await fetch("/api/game/save", { cache: "no-store" });
       if (!active) return;
       if (!saveResponse.ok) {
-        setErrorText("Database game belum siap atau progres tidak dapat dimuat.");
+        setErrorText("Catatan permainanmu belum bisa dibuka. Coba lagi tanpa menghapus progres lama.");
         setSaveStatus("error"); saveLockedRef.current = true;
         return;
       }
@@ -218,7 +218,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if (saveData.data) {
         const loaded = safeLoad(saveData.data);
         if (!loaded) {
-          setErrorText("Data save tidak dikenali. Penyimpanan dinonaktifkan agar progres lama tidak tertimpa.");
+          setErrorText("Catatan permainan lama belum terbaca. Menyimpan sementara dimatikan supaya catatanmu tidak tertimpa.");
           setSaveStatus("error"); saveLockedRef.current = true;
           return;
         }
@@ -418,14 +418,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const equip=useCallback((next:ToolId)=>{
     if(controlsLocked||!game.carriedTools.includes(next))return;
     setGame(current=>equipFarmTool(current,next));
-    setToast("Alat aktif: "+toolName(next)+(TOOL_CATALOG[next].status==="planned"?" · Belum ada lokasi pemakaian untuk alat ini.":""));
+    setToast("Sekarang kamu memegang "+toolName(next)+(TOOL_CATALOG[next].status==="planned"?" · Alat ini belum bisa dipakai di sini.":""));
     setShowHelp(false);
   },[controlsLocked,game.carriedTools]);
   const swapTool=useCallback((direction:1|-1)=>{
     if(controlsLocked)return;
     const next=cycleFarmTool(game.equippedTool,direction,game.carriedTools);
     if(next)equip(next);
-    else setToast("Tas alat kosong. Ambil alat dari gudang.");
+    else setToast("Tasmu kosong. Coba ambil alat di gudang.");
   },[controlsLocked,game.equippedTool,game.carriedTools,equip]);
   const transfer=(id:ToolId,direction:"store"|"take")=>{
     if(saveStatus==="loading"||saveStatus==="error")return;
@@ -487,7 +487,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       }
       setToast(result.message);
     }else if(context.kind==="wait"){
-      setToast("Tanaman ini sudah disiram hari ini. Siram petak lain atau tidur di rumah agar besok tumbuh!");
+      setToast("Tanaman ini sudah cukup air hari ini. Besok kamu bisa menyiramnya lagi.");
     }else if(context.kind==="need-tool"){
       setToast(context.label+" · Ambil alat dari gudang dan pilih sebagai alat aktif.");
     }else{
@@ -504,7 +504,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
     tapRoute.current = route ? {...route,resident:resident?.id} : null;
     if (!route) {
-      setToast("Jalur belum tersedia. Ketuk jalan atau objek yang dapat dijangkau.");
+      setToast("Belum ada jalan ke sana. Ketuk tanah atau benda yang bisa kamu jangkau.");
       return;
     }
     setShowHelp(false);
@@ -552,7 +552,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       } else if (route.interact) {
         const target = getActionContext(game);
         if ((route.resident || target.kind==="npc") && (target.kind!=="npc" || target.npcId!==route.resident)) {
-          setToast("Warga sudah berpindah. Pilih lagi untuk berbicara.");
+          setToast("Orangnya sudah beranjak. Coba dekati lagi.");
           return;
         }
         action();
@@ -613,7 +613,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setWakingDay(next.day);
     setDialogue(null);
     setGame(next); void persist(next);
-    setToast("Hari baru di Pasirluyu · Cuaca "+weatherForDay(next.day)+". Tanaman yang disiram tumbuh!");
+    setToast("Pagi di Pasirluyu. Cuaca "+weatherForDay(next.day)+". Tanaman yang kemarin disiram mulai tumbuh.");
   };
   const respond = (choice: SocialChoice) => {
     if (saveStatus === "loading" || saveStatus === "error" || !dialogue?.npcId) return;
