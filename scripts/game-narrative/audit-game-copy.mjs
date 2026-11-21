@@ -27,10 +27,20 @@ const banned=[
  [/PostgreSQL lokal/i,"database implementation mentioned in game UI"],
  [/Kronik membaca progres dari permainanmu/i,"meta-narrator chronicle"],
  [/Warung bukan cuma tempat jual beli, tetapi/i,"formulaic dialogue"],
- [/\b(?:Ayu|Ryan|Nani|Inggit|Widi): [A-Z]/,"speaker prefix repeated inside portrait dialogue"],
  [/\btentunya\b.{0,80}\bmenarik\b/i,"generic AI enthusiasm"],
 ];
 const violations=[];
+const npcDialog=readFileSync("src/lib/game/model.ts","utf8");
+const storyStart=npcDialog.indexOf("function storyDialogue(");
+const storyEnd=npcDialog.indexOf("export function choosePhoto(",storyStart);
+const reactionStart=npcDialog.indexOf("const reactions:");
+const reactionEnd=npcDialog.indexOf("export function chooseSocial(",reactionStart);
+if(storyStart<0||storyEnd<0||reactionStart<0||reactionEnd)
+ throw new Error("NPC speech source moved: update copy-audit scopes");
+for(const source of [npcDialog.slice(storyStart,storyEnd),npcDialog.slice(reactionStart,reactionEnd)]){
+ if(/\b(?:Ayu|Ryan|Nani|Inggit|Widi): [A-Z]/.test(source))
+  violations.push("NPC dialogue includes repeated speaker names in speech bubble");
+}
 for(const file of sources){
  const content=readFileSync(file,"utf8");
  for(const [pattern,reason] of banned){
