@@ -23,7 +23,8 @@
     "assets:index:check": "node scripts/game-assets/build-asset-database.mjs --check",
     "assets:search": "node scripts/game-assets/query-asset-database.mjs",
     "assets:sqlite": "python3 scripts/game-assets/export-asset-sqlite.py",
-    "test:game:assets": "node tests/game-asset-database.mjs"
+    "test:game:assets": "node tests/game-asset-database.mjs",
+    "assets:quality": "node scripts/game-assets/report-asset-quality.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
