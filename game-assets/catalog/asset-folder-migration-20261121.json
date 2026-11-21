@@ -1,0 +1,1357 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "description": "Move Bandung concept portraits to six semantic folders; identical bytes and sha.",
+  "totalMoved": 268,
+  "byGroup": {
+    "neighborhood": 30,
+    "specialists": 6,
+    "civic": 2,
+    "residents": 179,
+    "professions": 32,
+    "phone": 19
+  },
+  "oldMainCommit": "0efbcf8874a441065af1e12f0941e2ee50f1a86b",
+  "renames": [
+    {
+      "from": "public/game/assets/portraits/bandung/K01.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K01.png",
+      "sha": "8a7fa97573ccb41968f941ed76e25746eae8e2dc"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K02.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K02.png",
+      "sha": "fdc843aaa178dfbd09fe71c6076e8dfffeeff9d3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K03.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K03.png",
+      "sha": "0424d622d483f35255696be2793e98f8594db6b7"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K04.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K04.png",
+      "sha": "e3e897ca677528246a765d50aa82993aefffa569"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K05.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K05.png",
+      "sha": "6d14732d587d7e9d193954940954aac052d78816"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K06.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K06.png",
+      "sha": "c20831771fb6cb4fa7938c52a23c6a14e36cda9a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K07.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K07.png",
+      "sha": "b6779b38d064764c16dd623de6d1dfb07a379d72"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K08.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K08.png",
+      "sha": "103fe698591b9e2ad2f690cd3fd4b747e6e51449"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K09.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K09.png",
+      "sha": "3a91b561dd9e282733db5fceb1bf5d57453ca816"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K10.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K10.png",
+      "sha": "a235c33e10b245491fdda47972296ed6459fc2d7"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K11.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K11.png",
+      "sha": "231f4c951deb428066cdee5bb2de915608396166"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K12.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K12.png",
+      "sha": "a603cd0d973bd4849fa365412162f22f26cddd33"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K13.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K13.png",
+      "sha": "2475c50be29d2cc4c74700eb1f730fa1446f3546"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K14.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K14.png",
+      "sha": "3efc3caf8cbbf3f3e55f686d365794b99d06fa0e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K15.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K15.png",
+      "sha": "e4e789bfec2f1f3fd305d721732af175ade9886e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K16.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K16.png",
+      "sha": "1adbee08a887e5d7697693c848bf761e4a67f32b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K17.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K17.png",
+      "sha": "40116e3a5436d24a5b0bf6dd168845abfbbd8d8f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K18.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K18.png",
+      "sha": "f79b8454a3ef282c288e89ee4de67578dcd515fb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K19.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K19.png",
+      "sha": "8950432f04af688b68064bd053afe1415c050158"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K20.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K20.png",
+      "sha": "e486297c7e8db986d60ae47db3f5703392c3cf77"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K21.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K21.png",
+      "sha": "fef26e3dd63fef9305c0261e6499e4bf52362f8f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K22.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K22.png",
+      "sha": "20b6456ecf9c335775fcddc0d115454b78078974"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K23.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K23.png",
+      "sha": "047995ce0a33b2547a23a42b534aed216325394c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K24.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K24.png",
+      "sha": "3123d5a58481c482a442bdbce1f86868d1a4aa79"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K25.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K25.png",
+      "sha": "788027f08c7375a2883a9053f8badbf4779502f3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K26.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K26.png",
+      "sha": "62189687d82c9a69c01b457ae9159a7a0d69b392"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K27.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K27.png",
+      "sha": "be0aa4baf337f6825bde612342dafd8ad0ddbc76"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K28.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K28.png",
+      "sha": "da7d3aea209a74ae3160c6c46cc1e07cf0c0b258"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K29.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K29.png",
+      "sha": "f754609fb56f75ef5a424a300a48d2f126e38c4b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/K30.png",
+      "to": "public/game/assets/portraits/bandung/neighborhood/K30.png",
+      "sha": "70b19f233fb3ad959e7afe1d06265904ff54e411"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N01.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N01.png",
+      "sha": "4cfac122260dfbeb20767c7a9677da0dd6d7b4c9"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N02.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N02.png",
+      "sha": "dee3b65634134f5350f78796b293faaac5556223"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N03.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N03.png",
+      "sha": "68af66686dc1aa686e1731327fda0069a672ff5b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N04.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N04.png",
+      "sha": "a7487ff6c60e09749d1b4c0bac35c94f2bb8907f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N05.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N05.png",
+      "sha": "dfded458bebbfd09217068dc39e2fc1e4ef5b6b1"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/N06.png",
+      "to": "public/game/assets/portraits/bandung/specialists/N06.png",
+      "sha": "65f96ba5816582e2195822a30c00af89808b1cbd"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/P01.png",
+      "to": "public/game/assets/portraits/bandung/civic/P01.png",
+      "sha": "66eb465a85f7646cd13150f9a718748dd7f052bc"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/P02.png",
+      "to": "public/game/assets/portraits/bandung/civic/P02.png",
+      "sha": "b349ef580ff67a65136fbfaeae6e54b56007cf69"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A01.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A01.png",
+      "sha": "8837ffa146bc221ad89551d70f4907fc499ebb61"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A02.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A02.png",
+      "sha": "7616244279c2d63b67ecdb3002b059548324ab77"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A03.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A03.png",
+      "sha": "52d87347cfb04ea2a1ba9f17aa97667206578a5f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A04.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A04.png",
+      "sha": "10f64aea84e06fc7893ec9e7c0a3e7112509069d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A05.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A05.png",
+      "sha": "9dfb734ff1fb5916a716558c2dec9ae40ef35330"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A06.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A06.png",
+      "sha": "f2a63a17ee0aaeca13dad6a9e97ef2a2828e9902"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A07.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A07.png",
+      "sha": "5299866da94f0afd6e16c71afc0efe80c64f15ea"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A08.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A08.png",
+      "sha": "add26e6bc0e0cea348114dae6d5e3f3d503693a3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A09.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A09.png",
+      "sha": "07aa17c40e3270ab0182183b682a3fa1ff2c8ddb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A10.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A10.png",
+      "sha": "aed107341294901d9bc85309f26e8b72f718a745"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A11.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A11.png",
+      "sha": "42a7be05b8facdecf4a9e61e6d4bb6f3b1d2fd12"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A12.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A12.png",
+      "sha": "409592468c21ad5e13f244dea5dd8b3a4dd1a854"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A13.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A13.png",
+      "sha": "8c1085275ca474de4ffe295eae157c890f2f3107"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A14.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A14.png",
+      "sha": "3f9c46242a206503bfa4312bea6c8053dd83b71d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A15.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A15.png",
+      "sha": "4df1d318d6f79132414ef9fe35d59266582330d4"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-A16.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-A16.png",
+      "sha": "de2f41911fc38e4f99752a3240f895ac3c0a21eb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-C01.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-C01.png",
+      "sha": "975d4b7c759e09d675480ba517947c52063be3ec"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-C05.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-C05.png",
+      "sha": "5abb2c954218af08720e640f558d0dcf989f17c6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/phone-C08.png",
+      "to": "public/game/assets/portraits/bandung/phone/phone-C08.png",
+      "sha": "2345b3e0c548067953c171f0da66f7cf42f77644"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R001.png",
+      "to": "public/game/assets/portraits/bandung/residents/R001.png",
+      "sha": "46eb80f52c6014ba0025ce4db8bb050cee2af191"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R002.png",
+      "to": "public/game/assets/portraits/bandung/residents/R002.png",
+      "sha": "2e89e8690e8c055529f53c4abc5ab514d4e04a94"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R003.png",
+      "to": "public/game/assets/portraits/bandung/residents/R003.png",
+      "sha": "fb8e6c57a364197857dfb00292812bef1fee682e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R004.png",
+      "to": "public/game/assets/portraits/bandung/residents/R004.png",
+      "sha": "d505ff469ffa2d7d641b8e1833c721550dc7e7cb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R005.png",
+      "to": "public/game/assets/portraits/bandung/residents/R005.png",
+      "sha": "b66e74f1bc1a0a3bdddd55632d4a37851055fcad"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R006.png",
+      "to": "public/game/assets/portraits/bandung/residents/R006.png",
+      "sha": "7ec7b188d87583d7c05a736c79ac9fef166581d2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R007.png",
+      "to": "public/game/assets/portraits/bandung/residents/R007.png",
+      "sha": "93b2017bdb250cbd8c71105d6dd8aa8cbe802280"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R008.png",
+      "to": "public/game/assets/portraits/bandung/residents/R008.png",
+      "sha": "6b554adf1b38fb6207dd6ba7ef202ea0044e52ea"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R009.png",
+      "to": "public/game/assets/portraits/bandung/residents/R009.png",
+      "sha": "049f05784ab4066b9320c6ad90f3e54b15841868"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R010.png",
+      "to": "public/game/assets/portraits/bandung/residents/R010.png",
+      "sha": "97062c0fa83db7662c7f9149b56bd8eecaac99aa"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R011.png",
+      "to": "public/game/assets/portraits/bandung/residents/R011.png",
+      "sha": "9090b1a759bddda50af5ce25478db2e4ad2acb3e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R012.png",
+      "to": "public/game/assets/portraits/bandung/residents/R012.png",
+      "sha": "537868b2a754ddb00d260d5f220fb7092b47985a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R013.png",
+      "to": "public/game/assets/portraits/bandung/residents/R013.png",
+      "sha": "dd0eb9dddbad1aac5475cc24aa2d45d4053eb71a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R014.png",
+      "to": "public/game/assets/portraits/bandung/residents/R014.png",
+      "sha": "e859a47146a1ede136e6449507e4f33452b65c39"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R015.png",
+      "to": "public/game/assets/portraits/bandung/residents/R015.png",
+      "sha": "6eb5daadc21741815810dee69282d7acbc14f71e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R016.png",
+      "to": "public/game/assets/portraits/bandung/residents/R016.png",
+      "sha": "1db5a45407648719007bfd6e647e9dbe7748098c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R017.png",
+      "to": "public/game/assets/portraits/bandung/residents/R017.png",
+      "sha": "8f1764fe3c51301766940d7a349868fa7e863cd3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R018.png",
+      "to": "public/game/assets/portraits/bandung/residents/R018.png",
+      "sha": "f65d62cc9b667f1e0e1a07e36386115ec52c9fc4"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R019.png",
+      "to": "public/game/assets/portraits/bandung/residents/R019.png",
+      "sha": "dc7a7a461d1b3deb7e648cb62e59da0d5edff775"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R020.png",
+      "to": "public/game/assets/portraits/bandung/residents/R020.png",
+      "sha": "f689e8192fbd48eec5e4698d5cbcb2c04568dfa5"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R021.png",
+      "to": "public/game/assets/portraits/bandung/residents/R021.png",
+      "sha": "33c5e5b11a87bf66ac3cdda8d6c8258313fff8cf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R022.png",
+      "to": "public/game/assets/portraits/bandung/residents/R022.png",
+      "sha": "88b886a0c94fd520825ea0633f13cdea0b2fda52"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R023.png",
+      "to": "public/game/assets/portraits/bandung/residents/R023.png",
+      "sha": "46ff4c01e6bf06ee6eb9863f49fe2bfe0c592672"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R024.png",
+      "to": "public/game/assets/portraits/bandung/residents/R024.png",
+      "sha": "59ce2bff0c6d286b885258e2d4b96cda5dc7a157"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R025.png",
+      "to": "public/game/assets/portraits/bandung/residents/R025.png",
+      "sha": "ec8e01886833eadc57cce2b0e977f04949117ddf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R026.png",
+      "to": "public/game/assets/portraits/bandung/residents/R026.png",
+      "sha": "1c117ee6950ddf2018fa424d42f1058ae8243d16"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R027.png",
+      "to": "public/game/assets/portraits/bandung/residents/R027.png",
+      "sha": "62f3b88564654f89717b8becb37112f8a3dbebbd"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R028.png",
+      "to": "public/game/assets/portraits/bandung/residents/R028.png",
+      "sha": "63671b400ab2e3fa19462420aa22daf24e39a088"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R029.png",
+      "to": "public/game/assets/portraits/bandung/residents/R029.png",
+      "sha": "165fcfb8dd946f2f6d9a60d95b196278050e1621"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R030.png",
+      "to": "public/game/assets/portraits/bandung/residents/R030.png",
+      "sha": "1a148568c7acc3d010709bcb9848d2a0d73de235"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R031.png",
+      "to": "public/game/assets/portraits/bandung/residents/R031.png",
+      "sha": "93800ea09b7d45f839bcc53b632fe18adfe35674"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R032.png",
+      "to": "public/game/assets/portraits/bandung/residents/R032.png",
+      "sha": "eb00f080769a32753cb88c36053cd52932184e73"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R033.png",
+      "to": "public/game/assets/portraits/bandung/residents/R033.png",
+      "sha": "e11506d67ad5ab9a74301c9a3e4f00e4ae25b949"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R034.png",
+      "to": "public/game/assets/portraits/bandung/residents/R034.png",
+      "sha": "0fe826c82890eb58c86df53e153e82868a3f1dba"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R035.png",
+      "to": "public/game/assets/portraits/bandung/residents/R035.png",
+      "sha": "1fe1ae62530ae584a6e4064fe1a43f2223351710"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R036.png",
+      "to": "public/game/assets/portraits/bandung/residents/R036.png",
+      "sha": "02ff90dc0a0c550412e946ec360f65a2a3b16816"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R037.png",
+      "to": "public/game/assets/portraits/bandung/residents/R037.png",
+      "sha": "2823d3f7f8fedb937d7455a06eda9f3eaf5b1e80"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R038.png",
+      "to": "public/game/assets/portraits/bandung/residents/R038.png",
+      "sha": "1e66c2bc79adffcec84746b199554284c41bf0ab"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R039.png",
+      "to": "public/game/assets/portraits/bandung/residents/R039.png",
+      "sha": "49e3764c77c012032f54715b08363e73ea701d5e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R040.png",
+      "to": "public/game/assets/portraits/bandung/residents/R040.png",
+      "sha": "61ecc911d1f6625e56009b133d819d48f99687bf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R041.png",
+      "to": "public/game/assets/portraits/bandung/residents/R041.png",
+      "sha": "d5650b4a804c730611cf69dec73859630c6d9500"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R042.png",
+      "to": "public/game/assets/portraits/bandung/residents/R042.png",
+      "sha": "71b95a4cb7c6eb20970d50df2d120c3e445ff857"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R043.png",
+      "to": "public/game/assets/portraits/bandung/residents/R043.png",
+      "sha": "34cf96d4214420509ba710676808080f231f8c94"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R044.png",
+      "to": "public/game/assets/portraits/bandung/residents/R044.png",
+      "sha": "394fbd9e3d556d9374a41c2b9fdcea1dfd7a83bd"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R045.png",
+      "to": "public/game/assets/portraits/bandung/residents/R045.png",
+      "sha": "e38c1e5298b9107a3bb60e4f05fde773217ab787"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R046.png",
+      "to": "public/game/assets/portraits/bandung/residents/R046.png",
+      "sha": "33cb824b6ab4b5261f8839beb02dc0d4c38ba6cd"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R047.png",
+      "to": "public/game/assets/portraits/bandung/residents/R047.png",
+      "sha": "d9cfe9e011794458c15691237dcbfe6132724889"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R048.png",
+      "to": "public/game/assets/portraits/bandung/residents/R048.png",
+      "sha": "17d9a244ae8c25d439702dec76d632ec1b7ee7d4"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R049.png",
+      "to": "public/game/assets/portraits/bandung/residents/R049.png",
+      "sha": "f27e49662d196f47c29a734d5061d4c08fba85f9"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R050.png",
+      "to": "public/game/assets/portraits/bandung/residents/R050.png",
+      "sha": "256ea63d5e2c35a31c2a6d144eef1a400281aab6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R051.png",
+      "to": "public/game/assets/portraits/bandung/residents/R051.png",
+      "sha": "48d5c1284ee3c25a86bb7d8f3199c834c2a0ed3c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R052.png",
+      "to": "public/game/assets/portraits/bandung/residents/R052.png",
+      "sha": "5391622fa1250dfebec35bbe911c9101a5379e03"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R053.png",
+      "to": "public/game/assets/portraits/bandung/residents/R053.png",
+      "sha": "bbd02a848b66f9c8fda234b4bfa639637de6876d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R054.png",
+      "to": "public/game/assets/portraits/bandung/residents/R054.png",
+      "sha": "91b42538bc626a9bb73320efbebd24ed6cbdcb60"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R055.png",
+      "to": "public/game/assets/portraits/bandung/residents/R055.png",
+      "sha": "5f4a536116cc996bee12703b61cf0fbdf78b7fe5"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R056.png",
+      "to": "public/game/assets/portraits/bandung/residents/R056.png",
+      "sha": "be5fa8753d6ded2f0be9e82f69c7b53654ae66b8"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R057.png",
+      "to": "public/game/assets/portraits/bandung/residents/R057.png",
+      "sha": "ddc8b4caff3f293ffc21d6cc2ee58474ddc59f43"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R058.png",
+      "to": "public/game/assets/portraits/bandung/residents/R058.png",
+      "sha": "edf0b9e887eae3c6fad753e5819c670fae7aef5a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R059.png",
+      "to": "public/game/assets/portraits/bandung/residents/R059.png",
+      "sha": "16a6dacffd8bf4e8876525a33492384926b88952"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R060.png",
+      "to": "public/game/assets/portraits/bandung/residents/R060.png",
+      "sha": "b79b99f1fc27701909fd402948ff88422475b2c8"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R061.png",
+      "to": "public/game/assets/portraits/bandung/residents/R061.png",
+      "sha": "69c98ecf9184e1e0ea126126ae147fb610bec800"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R062.png",
+      "to": "public/game/assets/portraits/bandung/residents/R062.png",
+      "sha": "5efbf7529bf8c78e6c3340183b32090c47eec0ed"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R063.png",
+      "to": "public/game/assets/portraits/bandung/residents/R063.png",
+      "sha": "c3db48d756734c74ff40b255296bc106f34efb90"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R064.png",
+      "to": "public/game/assets/portraits/bandung/residents/R064.png",
+      "sha": "ad9ec1079f0e4d5b23ed0b3b5f9d3bb1a9abffae"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R065.png",
+      "to": "public/game/assets/portraits/bandung/residents/R065.png",
+      "sha": "d6402dc3d68673212146285a3b6e3e380c776a59"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R066.png",
+      "to": "public/game/assets/portraits/bandung/residents/R066.png",
+      "sha": "707f2269d4e91db9d80c9d41787d81a333395199"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R067.png",
+      "to": "public/game/assets/portraits/bandung/residents/R067.png",
+      "sha": "7b6b5f708073f01b7c99b67f9c125dee1163101b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R068.png",
+      "to": "public/game/assets/portraits/bandung/residents/R068.png",
+      "sha": "a4b36d93d00795405cbe89556f461beb06a33e85"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R069.png",
+      "to": "public/game/assets/portraits/bandung/residents/R069.png",
+      "sha": "3f4e135a0075d6267e1662a126dab394d801e162"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R070.png",
+      "to": "public/game/assets/portraits/bandung/residents/R070.png",
+      "sha": "9958c36e61667556e7fa0202f5c19178a4cffb4d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R071.png",
+      "to": "public/game/assets/portraits/bandung/residents/R071.png",
+      "sha": "fe859660fd225d8af9f36b52c16d6915a7f9c0c7"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R072.png",
+      "to": "public/game/assets/portraits/bandung/residents/R072.png",
+      "sha": "7ac78a64ac02629d58791f2b1196cd07b9c64bcb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R073.png",
+      "to": "public/game/assets/portraits/bandung/residents/R073.png",
+      "sha": "b6d1cef4a85a2867ffc8c2a3411aa5f3f5a5f86f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R074.png",
+      "to": "public/game/assets/portraits/bandung/residents/R074.png",
+      "sha": "c86902693e99103f542656ffbb02b1cc2e8ff439"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R075.png",
+      "to": "public/game/assets/portraits/bandung/residents/R075.png",
+      "sha": "53dca41e0abd38be011af79f6e77b5b78fa0fe9c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R076.png",
+      "to": "public/game/assets/portraits/bandung/residents/R076.png",
+      "sha": "e380e634965f6121dc9b26df7738d2441cdc815c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R077.png",
+      "to": "public/game/assets/portraits/bandung/residents/R077.png",
+      "sha": "5a90714dc041209f9010aae1b1cdd93663ebe7ce"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R078.png",
+      "to": "public/game/assets/portraits/bandung/residents/R078.png",
+      "sha": "93825babae7d470d3126339de7e525172b6e82b8"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R079.png",
+      "to": "public/game/assets/portraits/bandung/residents/R079.png",
+      "sha": "ebdb3027bc3535ddccaef94ab8821a7a84b74a61"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R080.png",
+      "to": "public/game/assets/portraits/bandung/residents/R080.png",
+      "sha": "04af0506294b4a0ab34d144e2303a9870469e82e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R081.png",
+      "to": "public/game/assets/portraits/bandung/residents/R081.png",
+      "sha": "fb9247a710ff24357c8a44475a786df0d7147323"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R082.png",
+      "to": "public/game/assets/portraits/bandung/residents/R082.png",
+      "sha": "2d898a51726eaea243fcb788415b936859410d2f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R083.png",
+      "to": "public/game/assets/portraits/bandung/residents/R083.png",
+      "sha": "092f802cc9d51494f4775e3997e52678354ebd2b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R084.png",
+      "to": "public/game/assets/portraits/bandung/residents/R084.png",
+      "sha": "9e66937e253876d6b23885a9d3dcd719fe474cf5"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R085.png",
+      "to": "public/game/assets/portraits/bandung/residents/R085.png",
+      "sha": "4a82339ca5ebddb7dc1a52edcbc27dd537986552"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R086.png",
+      "to": "public/game/assets/portraits/bandung/residents/R086.png",
+      "sha": "4472877a054b3a7993b8a7db3bda6ca9a6560836"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R087.png",
+      "to": "public/game/assets/portraits/bandung/residents/R087.png",
+      "sha": "6731ffed0ac4c1b79120f4ccdd7eff61fb3830b2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R088.png",
+      "to": "public/game/assets/portraits/bandung/residents/R088.png",
+      "sha": "f1b144ccf7464391680ffbde80380d427d9ef3db"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R089.png",
+      "to": "public/game/assets/portraits/bandung/residents/R089.png",
+      "sha": "623f6592c9e28a41f1ae3c5699d0568b44b620d8"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R090.png",
+      "to": "public/game/assets/portraits/bandung/residents/R090.png",
+      "sha": "4a56a7035bd0abb07117f066c787cdeea6bdaacf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R091.png",
+      "to": "public/game/assets/portraits/bandung/residents/R091.png",
+      "sha": "b73f961bb7226cd5a56ed5eacd46b913323785b3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R092.png",
+      "to": "public/game/assets/portraits/bandung/residents/R092.png",
+      "sha": "ea51f35fc85bc2b301498127ccf51e1ebbed1b28"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R093.png",
+      "to": "public/game/assets/portraits/bandung/residents/R093.png",
+      "sha": "f9a7094c0f55a38f611ef08fd33894890ba40e18"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R094.png",
+      "to": "public/game/assets/portraits/bandung/residents/R094.png",
+      "sha": "85a2a569952fae1d42923481597f6d90946fc699"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R095.png",
+      "to": "public/game/assets/portraits/bandung/residents/R095.png",
+      "sha": "27650691faddb2af6dba4edf43b3d77de3e6119a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R096.png",
+      "to": "public/game/assets/portraits/bandung/residents/R096.png",
+      "sha": "4074cced479bc4b7e7b6c949a0b686014e196b30"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R097.png",
+      "to": "public/game/assets/portraits/bandung/residents/R097.png",
+      "sha": "2b6dbe863d3fa9995dad3c5222f572fb45981aa0"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R098.png",
+      "to": "public/game/assets/portraits/bandung/residents/R098.png",
+      "sha": "fd1164ef1fd3b5db29a628426bd71814b276b4aa"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R099.png",
+      "to": "public/game/assets/portraits/bandung/residents/R099.png",
+      "sha": "233271d698eb999101807a3a5dae1d01b642ed75"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R100.png",
+      "to": "public/game/assets/portraits/bandung/residents/R100.png",
+      "sha": "6b95d9174ec9e397338867ce6022797ef35f4ce3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R101.png",
+      "to": "public/game/assets/portraits/bandung/residents/R101.png",
+      "sha": "ca4feb4ccd17cc6b0de2787d11396cb329ccf242"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R102.png",
+      "to": "public/game/assets/portraits/bandung/residents/R102.png",
+      "sha": "d86b761295030aefaa883520c9487b7133c3f546"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R103.png",
+      "to": "public/game/assets/portraits/bandung/residents/R103.png",
+      "sha": "ed313c3845797fc6f0d4e0567e3853880c613a55"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R104.png",
+      "to": "public/game/assets/portraits/bandung/residents/R104.png",
+      "sha": "dc90ae5b064e542f446877e59949c5bc86202d58"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R105.png",
+      "to": "public/game/assets/portraits/bandung/residents/R105.png",
+      "sha": "0ec0f42cbbf38103e70cb6ea508cc1a1a0d8379e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R106.png",
+      "to": "public/game/assets/portraits/bandung/residents/R106.png",
+      "sha": "b5e473c16f99a419260f0825615a13a9b28b4561"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R107.png",
+      "to": "public/game/assets/portraits/bandung/residents/R107.png",
+      "sha": "5c4a85fab09c087ec7c2c95ec37561403c72017b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R108.png",
+      "to": "public/game/assets/portraits/bandung/residents/R108.png",
+      "sha": "da55eb78a6f516ecf87f0ce0051237ddb89e24a2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R109.png",
+      "to": "public/game/assets/portraits/bandung/residents/R109.png",
+      "sha": "d861a786f2d379240c3e9d71830672cbdef5be33"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R110.png",
+      "to": "public/game/assets/portraits/bandung/residents/R110.png",
+      "sha": "9103f9da2fec4d0734249c949bbf06450b0f3eaf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R111.png",
+      "to": "public/game/assets/portraits/bandung/residents/R111.png",
+      "sha": "5417ce355998c6fc72314f7bed97074df8b32861"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R112.png",
+      "to": "public/game/assets/portraits/bandung/residents/R112.png",
+      "sha": "d84229b9c3f4fad7a070bd1315fcb38f0d43432b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R113.png",
+      "to": "public/game/assets/portraits/bandung/residents/R113.png",
+      "sha": "ef28902c375011494a841bfd80614da0789c864a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R114.png",
+      "to": "public/game/assets/portraits/bandung/residents/R114.png",
+      "sha": "e10e81e2f881e626177e359dac84f43a84ed1a18"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R115.png",
+      "to": "public/game/assets/portraits/bandung/residents/R115.png",
+      "sha": "619fa01d6d1e5bf148b47d14a09662a98c6c8d96"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R116.png",
+      "to": "public/game/assets/portraits/bandung/residents/R116.png",
+      "sha": "09ba8d25f5a3c24081b7480660783e63f964ed86"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R117.png",
+      "to": "public/game/assets/portraits/bandung/residents/R117.png",
+      "sha": "31343a7ec89d5ab86e6834da815e44fb8beecb57"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R118.png",
+      "to": "public/game/assets/portraits/bandung/residents/R118.png",
+      "sha": "16b3086480fc27c862bab54d501d9ec2c5ecf79c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R119.png",
+      "to": "public/game/assets/portraits/bandung/residents/R119.png",
+      "sha": "7fa225996a9f01a923c52107b5299ffdb94f93f1"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R120.png",
+      "to": "public/game/assets/portraits/bandung/residents/R120.png",
+      "sha": "4639ff5b58fd043b6c3fcb1bbd24b445ad11608c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R121.png",
+      "to": "public/game/assets/portraits/bandung/residents/R121.png",
+      "sha": "efd5d274c3a1d0112b462c766b6e9614209dffcf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R122.png",
+      "to": "public/game/assets/portraits/bandung/residents/R122.png",
+      "sha": "44230577dd350807cd573a325f8ce8c86cae6aa8"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R123.png",
+      "to": "public/game/assets/portraits/bandung/residents/R123.png",
+      "sha": "b455d6cfe5b15985b4a7d15416b3ddab3167d420"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R124.png",
+      "to": "public/game/assets/portraits/bandung/residents/R124.png",
+      "sha": "792514d3ce8cc93b92053d778758f5086aa48ae1"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R125.png",
+      "to": "public/game/assets/portraits/bandung/residents/R125.png",
+      "sha": "decb87dedeea8ab5f866fce21ecd61cb9eae6ccc"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R126.png",
+      "to": "public/game/assets/portraits/bandung/residents/R126.png",
+      "sha": "c78a385f028d0f3dd14e243a001bbc9e7c0fc35a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R127.png",
+      "to": "public/game/assets/portraits/bandung/residents/R127.png",
+      "sha": "5322df7433bb08549f99ad6c71cb4859251cd9e5"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R128.png",
+      "to": "public/game/assets/portraits/bandung/residents/R128.png",
+      "sha": "64fc921bac6c0961c397cd2fd28a0f63e732c90f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R130.png",
+      "to": "public/game/assets/portraits/bandung/residents/R130.png",
+      "sha": "c80491c009bfabeb67030affc7fa667ff689d4d6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R132.png",
+      "to": "public/game/assets/portraits/bandung/residents/R132.png",
+      "sha": "3d35ec066e60c0cafb187059a12de80462bbebf2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R134.png",
+      "to": "public/game/assets/portraits/bandung/residents/R134.png",
+      "sha": "50ce7b49d31e473f628e61d914ac2623804a5e27"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R136.png",
+      "to": "public/game/assets/portraits/bandung/residents/R136.png",
+      "sha": "4a380ad779561545d6afde9917c816df721aa4db"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R137.png",
+      "to": "public/game/assets/portraits/bandung/residents/R137.png",
+      "sha": "03ff9e4d21d0f66e518a624f966f1766e4f9d7ab"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R139.png",
+      "to": "public/game/assets/portraits/bandung/residents/R139.png",
+      "sha": "9c12b12fbdccf695a29d8aa7bef410abe2dba8b7"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R141.png",
+      "to": "public/game/assets/portraits/bandung/residents/R141.png",
+      "sha": "d6c8c38613faf94968c58a8b3bfee460dfd69bbb"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R142.png",
+      "to": "public/game/assets/portraits/bandung/residents/R142.png",
+      "sha": "2f926a4a83926c94a201f7b28dc4311528917e39"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R144.png",
+      "to": "public/game/assets/portraits/bandung/residents/R144.png",
+      "sha": "7a30adddfeb5a551b346ebcf546a8116cd2bba85"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R152.png",
+      "to": "public/game/assets/portraits/bandung/residents/R152.png",
+      "sha": "53e963fcb6e01f7db4ee5ddde779a82c87b1ce3a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R153.png",
+      "to": "public/game/assets/portraits/bandung/residents/R153.png",
+      "sha": "2e24379ebf980c4b7ab52b65b75ec5cf5f576e89"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R154.png",
+      "to": "public/game/assets/portraits/bandung/residents/R154.png",
+      "sha": "17329a7abe93a456815602997b361126d6f95f71"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R155.png",
+      "to": "public/game/assets/portraits/bandung/residents/R155.png",
+      "sha": "dd4562407f018e355fc89add5f16317656553271"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R156.png",
+      "to": "public/game/assets/portraits/bandung/residents/R156.png",
+      "sha": "35fc00abce129de61313e7e2900618cfcdb3a393"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R157.png",
+      "to": "public/game/assets/portraits/bandung/residents/R157.png",
+      "sha": "32a41c92232fc765c7846ced4a468c5794b97b45"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R158.png",
+      "to": "public/game/assets/portraits/bandung/residents/R158.png",
+      "sha": "7c9d29bc1f5b3a156203c51f00854e088cc135dd"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R164.png",
+      "to": "public/game/assets/portraits/bandung/residents/R164.png",
+      "sha": "dafa4c78823bb78028ad3ba41c8185b746dd35f3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R165.png",
+      "to": "public/game/assets/portraits/bandung/residents/R165.png",
+      "sha": "80d3f241575ba093c562af576040d1d861661c11"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R166.png",
+      "to": "public/game/assets/portraits/bandung/residents/R166.png",
+      "sha": "22101c8df537ec4174d9346e516ec6493fc702bc"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R167.png",
+      "to": "public/game/assets/portraits/bandung/residents/R167.png",
+      "sha": "38be4cc14c087b8c697306e9fd587ebd8f6e628e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R168.png",
+      "to": "public/game/assets/portraits/bandung/residents/R168.png",
+      "sha": "b484331494e1a57ae8d8b928e856f2b3bd913517"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R169.png",
+      "to": "public/game/assets/portraits/bandung/residents/R169.png",
+      "sha": "174ac77f07eb2bf967d57e9d12ae853418b35e31"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R170.png",
+      "to": "public/game/assets/portraits/bandung/residents/R170.png",
+      "sha": "336fe5072a52fed5e6036a813cb5cbce59ab1c59"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R171.png",
+      "to": "public/game/assets/portraits/bandung/residents/R171.png",
+      "sha": "d0229581f95d8963009cffc3797113cb86c6027b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R172.png",
+      "to": "public/game/assets/portraits/bandung/residents/R172.png",
+      "sha": "c83973db9249e8875d6b59ee3c50bf207be4899a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R173.png",
+      "to": "public/game/assets/portraits/bandung/residents/R173.png",
+      "sha": "833572e32bf91d2c6dc9697a9017b4b9956165a7"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R174.png",
+      "to": "public/game/assets/portraits/bandung/residents/R174.png",
+      "sha": "66c1cd2b1c791fa93936d65a2b48c2a2e3f7d2c6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R175.png",
+      "to": "public/game/assets/portraits/bandung/residents/R175.png",
+      "sha": "c4df376637d120f994a334851c599c55f489b704"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R176.png",
+      "to": "public/game/assets/portraits/bandung/residents/R176.png",
+      "sha": "aafe828996bef2fa3c29dedc00d57175d821961f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R177.png",
+      "to": "public/game/assets/portraits/bandung/residents/R177.png",
+      "sha": "708e0d4dc47928289050114d356737fc8743fa92"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R178.png",
+      "to": "public/game/assets/portraits/bandung/residents/R178.png",
+      "sha": "183682d5cb3e860442932e86d7082dda5b2e146a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R179.png",
+      "to": "public/game/assets/portraits/bandung/residents/R179.png",
+      "sha": "d87a0f7e63cfcdccd716d49508cf9d621906df5c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R180.png",
+      "to": "public/game/assets/portraits/bandung/residents/R180.png",
+      "sha": "2a9c12b339600662746fbd91d321547560950560"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R181.png",
+      "to": "public/game/assets/portraits/bandung/residents/R181.png",
+      "sha": "e73763f0a0c20786ac7206c2fec4aea7fcf3b3c2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R182.png",
+      "to": "public/game/assets/portraits/bandung/residents/R182.png",
+      "sha": "f080d964afcfb55190ff625157af6404706d3f0c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R184.png",
+      "to": "public/game/assets/portraits/bandung/residents/R184.png",
+      "sha": "4fee9201905fbfd61c2727bc7759c50498a7352a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R185.png",
+      "to": "public/game/assets/portraits/bandung/residents/R185.png",
+      "sha": "b13984c2503e318d68554913e5ffc6cbf8c8d86c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R186.png",
+      "to": "public/game/assets/portraits/bandung/residents/R186.png",
+      "sha": "ebd38fb8f40c4235effe49858cb71cb4de3da8c5"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R187.png",
+      "to": "public/game/assets/portraits/bandung/residents/R187.png",
+      "sha": "882a85bc81aa945519acf956e8ae85bd3c17c697"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R188.png",
+      "to": "public/game/assets/portraits/bandung/residents/R188.png",
+      "sha": "d4560fa732cabd29ced6ea80ebf56983262d35da"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R189.png",
+      "to": "public/game/assets/portraits/bandung/residents/R189.png",
+      "sha": "1c69f685d0a68455394e05751714ce0d20dd18a3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R190.png",
+      "to": "public/game/assets/portraits/bandung/residents/R190.png",
+      "sha": "d5cdc11117c4f3b85f423ddd4b67af00c0543048"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R191.png",
+      "to": "public/game/assets/portraits/bandung/residents/R191.png",
+      "sha": "d3200dc751880017434b5a39811156b89ab83f6a"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R192.png",
+      "to": "public/game/assets/portraits/bandung/residents/R192.png",
+      "sha": "b2873cc8686993a44c1858e02f0a3ae223ebdd97"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R193.png",
+      "to": "public/game/assets/portraits/bandung/residents/R193.png",
+      "sha": "c3c89e394a58c4fb8a7e2d4adb14ad5b6fbcb2c3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R194.png",
+      "to": "public/game/assets/portraits/bandung/residents/R194.png",
+      "sha": "43cba0eaef32415cb31867187e584de55d2752c2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R195.png",
+      "to": "public/game/assets/portraits/bandung/residents/R195.png",
+      "sha": "4bc512af35b9d8fafbdc93ad7b51b3db8a7b5acf"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R196.png",
+      "to": "public/game/assets/portraits/bandung/residents/R196.png",
+      "sha": "0a2ae607d98279e59f89777192b61b43aa30708d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R197.png",
+      "to": "public/game/assets/portraits/bandung/residents/R197.png",
+      "sha": "c6db807d59fad9ea12a9c830c5dda28524211180"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R198.png",
+      "to": "public/game/assets/portraits/bandung/residents/R198.png",
+      "sha": "5499823068a93c52233e712e1a1af3c7614b580b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/R199.png",
+      "to": "public/game/assets/portraits/bandung/residents/R199.png",
+      "sha": "f5fd8e9a581306cd83a46ca21be4b742b6fc8738"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A01.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A01.png",
+      "sha": "1c59956aa615d07d1e9eb5aabd943e8c480f1c35"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A02.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A02.png",
+      "sha": "620d3a4df52b1c8c640f38c66a51a3e59157efe6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A03.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A03.png",
+      "sha": "6cf5a5c692d856de25e65f9a3307467afbe5fb8f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A04.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A04.png",
+      "sha": "60aca1f18e64d418cc9bc81339ec47a988fa71af"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A05.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A05.png",
+      "sha": "3c07553dce9801e9b8f3c0dab46727c129a1f540"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A06.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A06.png",
+      "sha": "5153e3220278e8de5f4c1771fb72f44b843d4695"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A07.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A07.png",
+      "sha": "0e44ae4ad268df322b75787c256878c07578b3d2"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A08.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A08.png",
+      "sha": "2f99776171c23c941579608e7f3ae3376d185535"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A09.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A09.png",
+      "sha": "2b5c30ecc1330c1ecd129a450b1b7bef98bf0f12"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A10.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A10.png",
+      "sha": "b09a89da8e572cf2c4cac5feb1ee002d73a5e435"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A11.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A11.png",
+      "sha": "ad8d11a9a53c0e7fb7be98831b826ab33673f234"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A12.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A12.png",
+      "sha": "7abf50dbab80a129e1cb6c0bef5cf5f38bd8a36b"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A13.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A13.png",
+      "sha": "903a756031fa84f8d9e797b1024d94c8eb34ad7c"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A14.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A14.png",
+      "sha": "990e3d28bcd62ad6549e0d7b7af37cbfd1747328"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A15.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A15.png",
+      "sha": "a19bf8e162ef005d5f71a062fe08f4f69186bd1e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-A16.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-A16.png",
+      "sha": "3053ecbc4d13b259994ae839e360045a904934f3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C01.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C01.png",
+      "sha": "f9d77260a1cd6b604cb3ccbe2555a007a7babda3"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C02.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C02.png",
+      "sha": "48e93adb40a31d222bdbf23954bbc05ee614cdb6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C03.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C03.png",
+      "sha": "c76cf5087e0a8b64539c4b7791f5a264604d476f"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C04.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C04.png",
+      "sha": "d8e655ec4ce74d1699560bf00a87a2fb9c029e78"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C05.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C05.png",
+      "sha": "3c35c73d3b52b41fc9e5ed5e6265dfb8e83aa26d"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C06.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C06.png",
+      "sha": "e43974271f61a6642d850a6571fabc1a03b29f15"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C07.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C07.png",
+      "sha": "e5523827c9ae815516883e6805cf582c42218232"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C08.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C08.png",
+      "sha": "1d14f403a8d6055986fac26649c25b639485c698"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C09.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C09.png",
+      "sha": "a48b8cc5125c3d4c12c8f8ee2d203ba85508550e"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C10.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C10.png",
+      "sha": "a575288edfb176373a6f5af31457d7ea68082bd9"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C11.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C11.png",
+      "sha": "a2c0a5399e207c1a0139805a478b79d59a43cc82"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C12.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C12.png",
+      "sha": "d4eabf07b748a3ba1659b093e5ef54cce89f5a21"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C13.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C13.png",
+      "sha": "20a99f7b49521a2763778dabd2e3a01772de18e6"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C14.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C14.png",
+      "sha": "047d6abd98704871a842a16c801e5649811c4bef"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C15.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C15.png",
+      "sha": "4efee3927f7a45d02353af997f0a8c8d241a6668"
+    },
+    {
+      "from": "public/game/assets/portraits/bandung/work-C16.png",
+      "to": "public/game/assets/portraits/bandung/professions/work-C16.png",
+      "sha": "91115577fc3133c563922eba28fcc24152b20036"
+    }
+  ]
+}

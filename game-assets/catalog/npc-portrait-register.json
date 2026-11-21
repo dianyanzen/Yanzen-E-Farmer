@@ -48,7 +48,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A01.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A01.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -78,7 +78,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A02.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A02.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -108,7 +108,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A03.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A03.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -138,7 +138,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A04.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A04.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -168,7 +168,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A05.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A05.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -198,7 +198,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A06.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A06.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -228,7 +228,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A07.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A07.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -258,7 +258,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A08.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A08.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -288,7 +288,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A09.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A09.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -318,7 +318,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A10.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A10.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -348,7 +348,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A11.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A11.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -378,7 +378,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A12.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A12.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -408,7 +408,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A13.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A13.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -438,7 +438,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A14.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A14.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -468,7 +468,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A15.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A15.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -498,7 +498,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-A16.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-A16.png",
         "characterSource": "game-assets/characters/gba-v2/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -528,7 +528,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C01.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C01.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -558,7 +558,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C02.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C02.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -588,7 +588,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C03.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C03.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -618,7 +618,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C04.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C04.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -648,7 +648,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C05.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C05.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -678,7 +678,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C06.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C06.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -708,7 +708,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C07.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C07.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -738,7 +738,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C08.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C08.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -768,7 +768,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C09.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C09.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -798,7 +798,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C10.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C10.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -828,7 +828,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C11.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C11.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -858,7 +858,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C12.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C12.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -888,7 +888,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C13.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C13.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -918,7 +918,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C14.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C14.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -948,7 +948,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C15.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C15.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",
@@ -978,7 +978,7 @@
         "laughing"
       ],
       "variant": {
-        "workConcept": "/game/assets/portraits/bandung/work-C16.png",
+        "workConcept": "/game/assets/portraits/bandung/professions/work-C16.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
       "styleReview": "needs-human-side-by-side",

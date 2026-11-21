@@ -5,6 +5,7 @@ import previews from "@/lib/game/data/bandung-character-previews.json";
 import { useState } from "react";
 import { PORTRAIT_CHARACTERS, PORTRAIT_EMOTIONS, EMOTION_LABELS } from "@/lib/game/portraits";
 import { NPCS, type Emotion } from "@/lib/game/model";
+import { bandungConceptPortraitPath } from "@/lib/game/bandung-concept-portrait";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import { Portrait, ResidentPortrait } from "./dialogue-panel";
 
@@ -35,7 +36,7 @@ function OriginalGallery() {
       <summary><b>Arsip ilustrasi konsep Bandung ({upcoming.length})</b> · gaya berbeda, belum menjadi potret dialog</summary>
       <p>Ilustrasi ini merupakan konsep visual untuk ekspansi. Asetnya tetap tersedia dalam perpustakaan, tetapi belum diselaraskan dengan pixel-art ekspresi utama dan belum menjadi karakter playable.</p>
       {showConceptArchive && upcoming.map(person => <article className="yzg-phone-card yzg-character-card" key={person.id} data-character-card={person.id}>
-        <Image className="yzg-character-preview" src={'/game/assets/portraits/bandung/' + person.id + '.png'}
+        <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
           alt={'Potret konsep ' + person.name} width={80} height={80} unoptimized />
         <div>
           <b>{person.name}</b><small>{person.occupation}</small>

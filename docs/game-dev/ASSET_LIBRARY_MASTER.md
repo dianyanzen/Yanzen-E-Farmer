@@ -158,3 +158,10 @@ Aset diusulkan → brief & provenance → gambar sumber
 Kedua manifest kanonik A/C mencatat **32 dari 32** lembar gerak dengan lebih dari 99% piksel nontransparan ber-alpha *parsial*, dan **16 lembar** dengan indikator sudut tidak sepenuhnya transparan. **Ini sinyal QA, bukan bukti otomatis bahwa gambar jelek**: alpha 254 dan 1 sama-sama dihitung parsial oleh manifest. Jangan menghancurkan sumber kanonik sebelum inspeksi histogram alpha, contact sheet, dan hasil render pada resolusi target. Setelah ditinjau, gunakan kategori REWORK/KEEP/DELETE secara individual.
 
 Rincian karakter dan keputusan sementara: [asset-visual-qa-20261121.json](../../game-assets/catalog/asset-visual-qa-20261121.json). Perintah `npm run assets:quality` kini juga melaporkan indikator ini tanpa gagal otomatis, karena keputusan visual wajib menggunakan pemeriksaan gambar.
+
+
+## 10. Struktur folder potret Bandung — kurasi kategori (21 Nov 2026)
+
+268 media `public/game/assets/portraits/bandung/` kini dikelompokkan dalam subfolder **neighborhood (30 K)**, **specialists (6 N)**, **civic (2 P)**, **residents (179 R)**, **professions (32 work)**, dan **phone (19)**. Seluruh isi dan SHA media dipertahankan: ini **pemindahan path**, bukan redraw atau penghapusan. Resolver URL terpusat `src/lib/game/bandung-concept-portrait.ts` dipakai oleh galeri, potret warga dan dialog; potret YZ Phone dan manifest karakter ikut diperbarui. Katalog media menyesuaikan 84 referensi duplikasi di paket arsip ke path kanonik baru. Karena path URL publik berubah, konsumsi URL lama di luar kode yang diaudit harus dimigrasikan jika ada.
+
+Kumpulan empat paket historis `game-assets/yz-farm-life/{aset,bandung-151,explore-bandung,atlas-bandung}` **tidak dipindah** karena metadata TMJ, SQLite dan paket ZIP memakai path relatif; tampilkan dalam katalog kategori tanpa memutus referensi. Inilah batas aman pemindahan tahap ini.
