@@ -1,6 +1,7 @@
 /** Original, deterministic pixel-art zones for Pasirluyu. All paths align with model.ts collisions. */
-import type {OutdoorLocation} from "./model";
-import {drawMasterGround,drawMasterRoadTile,drawRouteClosures} from "./pasirluyu-master-map";
+import { riverBanks, type OutdoorLocation } from "./model";
+import {drawMasterGround,drawMarketCourtyard,drawRouteClosures} from "./pasirluyu-master-map";
+import {drawSignposts} from "./signposts";
 type C=CanvasRenderingContext2D;
 const T=20,W=24,H=16;
 function r(c:C,x:number,y:number,w:number,h:number,color:string){
@@ -10,27 +11,47 @@ function txt(c:C,value:string,x:number,y:number){
   c.fillStyle="#263b31";c.fillRect(x-3,y-9,c.measureText(value).width+7,13);
   c.fillStyle="#fff1c7";c.fillText(value,x,y);
 }
-function plant(c:C,x:number,y:number,kind:number){
-  const px=x*T,py=y*T;
-  r(c,px+8,py+12,4,6,"#5b6d3c");
-  r(c,px+3,py+5,14,9,kind%2?"#416b49":"#477b4a");
-  r(c,px+5,py+2,10,8,kind%3?"#659757":"#779d55");
-  r(c,px+8,py+4,3,4,"#9fc271");
-}
 function flower(c:C,x:number,y:number,color:string){
   r(c,x,y,3,3,color);r(c,x+1,y+1,1,1,"#f5e8b1");
 }
-function roof(c:C,x:number,y:number,w:number){
-  r(c,x,y,w,13,"#6d4437");r(c,x+3,y+2,w-6,10,"#c77b4a");
-  for(let j=0;j<2;j++)for(let i=0;i<Math.floor((w-6)/10);i++)
-    r(c,x+4+i*10+(j%2)*5,y+3+j*5,7,1,"#925336");
-}
 function house(c:C,x:number,y:number,w:number,name:string){
-  r(c,x+3,y+12,w-6,43,"#dab991");r(c,x+4,y+37,w-8,18,"#b48b62");
-  roof(c,x,y,w);
-  r(c,x+12,y+24,22,20,"#61422f");r(c,x+15,y+27,16,13,"#95b5ad");
-  r(c,x+w-26,y+28,15,27,"#7e5038");r(c,x+w-24,y+29,11,23,"#aa7652");
-  r(c,x+w-16,y+42,2,3,"#efc57a");txt(c,name,x+4,y-3);
+  const nani = name === "RUMAH NANI";
+  const tile = nani ? "#70895e" : "#b55e47";
+  const ridge = nani ? "#8ea076" : "#ce7959";
+  const timber = "#674937";
+  r(c,x+2,y+44,w-2,14,"#98a269");
+  r(c,x+3,y+12,w-6,43,nani?"#e1c79f":"#d6b492");
+  r(c,x+4,y+38,w-8,17,nani?"#bf9a6d":"#ae8265");
+  r(c,x+3,y+15,4,40,timber);
+  r(c,x+w-7,y+15,4,40,timber);
+  // Stepped silhouette and short staggered rows of roof tiles.
+  r(c,x+9,y-3,w-18,5,timber);
+  r(c,x+5,y+2,w-10,6,tile);
+  r(c,x+2,y+8,w-4,6,tile);
+  r(c,x,y+14,w,4,timber);
+  r(c,x+12,y-2,w-24,3,ridge);
+  for (let n=10;n<w-8;n+=9) {
+    r(c,x+n,y+5,5,1,ridge);
+    r(c,x+n-3,y+11,5,1,ridge);
+  }
+  r(c,x+12,y+25,22,19,timber);
+  r(c,x+15,y+28,16,13,"#9dbdb0");
+  r(c,x+22,y+28,2,13,"#805e43");
+  r(c,x+15,y+34,16,1,"#805e43");
+  r(c,x+10,y+44,26,3,"#76523a");
+  r(c,x+w-28,y+28,18,27,timber);
+  r(c,x+w-25,y+30,12,23,"#9b6c4c");
+  r(c,x+w-17,y+41,2,3,"#e9c373");
+  r(c,x+w-30,y+54,22,3,"#978464");
+  r(c,x+w-31,y+57,24,2,"#cbb28a");
+  if (nani) {
+    r(c,x+6,y+49,37,6,"#785438");
+    for (let i=0;i<5;i++) flower(c,x+8+i*7,y+47,"#f2e8c4");
+  } else {
+    r(c,x+46,y+25,9,2,"#75523c");
+    r(c,x+48,y+27,5,6,"#e9b96f");
+  }
+  txt(c,name,x+4,y-9);
 }
 function stall(c:C,x:number,y:number,w:number,label:string,shade:string){
   r(c,x,y+10,w,42,"#7e593a");
@@ -49,18 +70,15 @@ function boundaryTree(c:C,x:number,y:number,seed:number){
   r(c,x*T+4,y*T+1,12,7,"#6b9859");
   r(c,x*T+12,y*T+3,4,2,"#92b875");
 }
-function road(c:C,x:number,y:number,cobble=false){
-  const px=x*T,py=y*T;
-  r(c,px,py,T,T,cobble?"#ab9b7c":"#b99a6e");
-  r(c,px+1,py+2,18,1,"#c7ad80");
-  if(cobble){r(c,px+3,py+9,8,1,"#8d846d");r(c,px+13,py+16,5,1,"#d2bf9c");}
-  else{r(c,px+11,py+14,4,1,"#927b5d");}
-}
-export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,ambient:number) {
+export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,_ambient:number) {
   drawMasterGround(ctx,where);
   if(where==="gang"){
-    for(let y=9;y<=11;y++)for(let x=0;x<W;x++)road(ctx,x,y);
-    for(let y=5;y<15;y++)for(let x=11;x<=12;x++)road(ctx,x,y);
+    for (let x=0;x<W;x++) {
+      if (x>=10 && x<=13) continue;
+      const y = 1 + (x*7)%3;
+      boundaryTree(ctx,x,y,x);
+      if (x%3===0 && y<3) boundaryTree(ctx,x,y+1,x+1);
+    }
     // Path ends are proper connected roads; other edges are hedges and fences.
     for(let x=0;x<W;x++){
       if(x!==11&&x!==12){boundaryTree(ctx,x,4,x);boundaryTree(ctx,x,15,x+4);}
@@ -77,31 +95,36 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     r(ctx,15*T,12*T,52,2,"#8c7258");r(ctx,15*T+2,12*T+1,2,20,"#766042");r(ctx,15*T+48,12*T+1,2,20,"#766042");
     r(ctx,16*T,12*T+3,10,9,"#ddc69e");r(ctx,16*T+15,12*T+3,13,9,"#b4c8bf");
     for(let i=0;i<5;i++)flower(ctx,4*T+i*10,13*T+7,i%2?"#efc7b0":"#f5e1a2");
-    txt(ctx,"PASAR  ↑    SUNGAI  ↓",9*T,9*T-4);
-    txt(ctx,"KEBUN  ←",T,10*T-4);
+    // Road directions are marked by the signpost entity at the north entrance.
   }else if(where==="pasar"){
-    for(let y=5;y<15;y++)for(let x=1;x<23;x++)road(ctx,x,y,true);
+    drawMarketCourtyard(ctx);
     for(let x=0;x<W;x++){if(x!==11&&x!==12)boundaryTree(ctx,x,4,x+2);
       if(x!==11&&x!==12)boundaryTree(ctx,x,15,x);}
     for(let y=5;y<15;y++){boundaryTree(ctx,0,y,y);boundaryTree(ctx,23,y,y+2);}
     stall(ctx,3*T,6*T,140,"KIOS SAYUR","#6c9654");
     stall(ctx,15*T,6*T,110,"WARUNG INGGIT","#bc7153");
+    r(ctx,390,147,18,23,"#604633");
+    r(ctx,392,149,14,19,"#99734c");
+    r(ctx,402,159,2,2,"#e8c783");
     r(ctx,5*T,11*T,48,23,"#9b784e");r(ctx,5*T+4,11*T+3,40,17,"#b99762");
     r(ctx,5*T+14,11*T-9,7,13,"#c7a352");r(ctx,5*T+24,11*T-5,8,11,"#628e4f");
     r(ctx,18*T,12*T+5,42,12,"#74583f");r(ctx,18*T+3,12*T+7,36,4,"#bfa16a");
-    txt(ctx,"← KIOS / WARUNG →",7*T,10*T-5);txt(ctx,"GANG  ↓",10*T,14*T-3);
+    // In-world market stalls keep their name plaques; route help lives in the signpost.
   }else{
     // Natural western edge: deep river and rocky bank; central entrance path.
-    for(let y=0;y<H;y++)for(let x=0;x<=6;x++){
-      r(ctx,x*T,y*T,20,20,(x+y)%2?"#478a93":"#3f8491");
-      if((x*5+y*7+Math.floor(ambient/2))%8===0)r(ctx,x*T+5,y*T+9,11,2,"#83c1be");
+    r(ctx,0,0,140,320,"#407f89");
+    for(let y=0;y<H;y++) {
+      const offset=(y*13)%9;
+      r(ctx,98+offset,y*T,42-offset,T,"#549a96");
+      r(ctx,130+offset/2,y*T,10-offset/2,T,"#77afa0");
+      r(ctx,14+(y*29)%87,y*T+5,15,2,"#4b8f95");
+      r(ctx,106+offset,y*T+14,13,1,"#82bbb0");
     }
     for(let y=4;y<15;y++){
       r(ctx,7*T,y*T,8,T,"#c9a978");
       r(ctx,7*T+8,y*T,10,T,"#8d795a");
       r(ctx,8*T,y*T,T,T,y%2?"#b0ac86":"#bdb895");
     }
-    for(let y=5;y<15;y++)for(let x=11;x<=12;x++)road(ctx,x,y);
     for(let x=8;x<=22;x++)if(x!==11&&x!==12)boundaryTree(ctx,x,4,x);
     for(let x=7;x<W;x++)if(x!==11&&x!==12)boundaryTree(ctx,x,15,x+3);
     for(let y=5;y<15;y++)boundaryTree(ctx,23,y,y+5);
@@ -111,15 +134,30 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,amb
     r(ctx,13*T,10*T,63,2,"#765f46");r(ctx,13*T,10*T+2,2,13,"#6f563f");
     r(ctx,13*T+60,10*T+2,2,13,"#6f563f");
     for(let i=0;i<7;i++)flower(ctx,14*T+i*9,12*T+5,i%2?"#d9dfab":"#f4c6d5");
-    txt(ctx,"BANTARAN SUNGAI",9*T,6*T);
-    txt(ctx,"GANG  ↑",10*T,5*T-5);
-  }
-  // Shared road corridor is painted last so it never misaligns at a chunk seam.
-  for(let y=0;y<16;y++)for(let x=0;x<24;x++){
-    if(where==="gang"&&((x===11||x===12)||(y===10||y===11)) ||
-       where==="pasar"&&(x===11||x===12||(x>=21&&(y===10||y===11))) ||
-       where==="sungai"&&(x===11||x===12))
-      drawMasterRoadTile(ctx,where,x,y);
+    // A small wooden sign replaces persistent location banners.
   }
   drawRouteClosures(ctx,where);
+  drawSignposts(ctx,where);
+}
+
+/** Sparse animated glints stay within the authored water silhouettes. */
+export function waterRipples(location: string, phase: number, sluiceOpen=false): [number, number, number][] {
+  if (location !== "field" && location !== "sungai") return [];
+  if(location==="field")return Array.from({length:14},(_,i)=>[2+(i*13)%25,186+(i*23+phase)%132,3+i%5]);
+  const glints:[number,number,number][]=[];
+  for(let i=0;i<46;i++){
+    const y=(i*17+phase*2)%320;
+    if(y>=129 && y<=163 || y>=246 && y<=292)continue;
+    const [left,right]=riverBanks(y);
+    const x=left+4+(i*41)%Math.max(1,right-left-15);
+    if(x<0 || x>62 && x<146 && y>195 && y<230)continue;
+    glints.push([x,y,3+i%5]);
+  }
+  if(sluiceOpen)for(let i=0;i<26;i++){
+    const y=161+(phase*3+i*3)%28;
+    const [left,right]=riverBanks(y);
+    const x=(i%2?58:108)+(i%7)*3;
+    if(x>left+2 && x+5<right)glints.push([x,y,3+i%4]);
+  }
+  return glints;
 }
