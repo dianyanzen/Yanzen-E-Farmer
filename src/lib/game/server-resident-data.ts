@@ -5,7 +5,7 @@ import cast from "../../../game-assets/catalog/cast.json";
 import previews from "./data/bandung-character-previews.json";
 import publishedResidents from "./data/published-residents.json";
 import publishedBibles from "./data/published-resident-bibles.json";
-import {makePublishedResidentBibles} from "../../../scripts/game-characters/build-resident-bibles.mjs";
+import {makeCompleteDockerBibles} from "../../../scripts/game-characters/complete-docker-bibles.mjs";
 import {bandungConceptPortraitPath} from "./bandung-concept-portrait";
 import type {ResidentProfile} from "./resident-profile";
 import type {CharacterBible} from "./phone-profiles";
@@ -60,7 +60,7 @@ export async function loadGameResidentData():Promise<{residents:ResidentProfile[
  const docker=await optionalJson(privatePath("YZ_GAME_RESIDENT_ROSTER_FILE","residents.json"));
  const residents=verifiedResidents(docker??publishedResidents);
  const known=new Map([...cast.characters,...previews].map(p=>[p.id,p]));
- const draft=makePublishedResidentBibles(residents,known);
+ const draft=makeCompleteDockerBibles(residents,known);
  const privateBibles=docker!==null?await optionalJson(privatePath("YZ_GAME_RESIDENT_BIBLES_FILE","resident-bibles.json")):null;
  const edited=privateBibles===null?{}:approvedBibles(privateBibles,residents);
  return {residents,bibles:{...(publishedBibles as Record<string,CharacterBible>),...draft,...edited}};

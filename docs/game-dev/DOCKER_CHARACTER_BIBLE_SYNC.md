@@ -1,24 +1,57 @@
-# Sinkronisasi Character Bible berbasis Docker
+# Docker adalah sumber identitas NPC YZ Farm Life
 
-Dokumen ini melengkapi NPC_SYNC_HANDOFF_20261121.md. Referensi identitas teratas untuk NPC fiktif yang diperbarui adalah roster runtime Docker pada checkout yang benar. Karakter pemain A01 bukan warga.
+Character Bible tidak boleh memperbaiki identitas melalui nama katalog lama.
+Sumber prioritas: **deploy/private/residents.json** yang dibaca Next.js server
+setelah pemeriksaan autentikasi. Empat field: `id`, `name`, `occupation`, `portrait`.
+File ini dan Bible hasil kompilasi **tidak boleh masuk GitHub**, termasuk melalui
+`git add -f`, ZIP aset, atau artefak CI.
 
-## Alur yang berlaku
+## Sinkronisasi roster ke Bible privat
 
-1. Pastikan file privat \`deploy/private/residents.json\` yang dipasang ke container memang roster otoritatif. Periksa nama, pekerjaan, hak penggunaan potret, dan status fiktif per ID. Jangan mengimpor pengguna, save, sesi, e-mail, lokasi rumah, data identitas atau data pribadi.
-2. Jalankan exporter yang sudah ada secara dry-run. Jika isinya disetujui untuk disimpan di repository publik, gunakan \`--write\` untuk memperbarui \`src/lib/game/data/published-residents.json\`.
-3. Jalankan \`npm run chars:residents\` untuk membangun \`src/lib/game/data/published-resident-bibles.json\`. Periksa 12 dimensi pada setiap entri draft dan lakukan penyuntingan editorial sebelum memutuskan canon.
-4. Jalankan \`npm run chars:residents:check\`, \`npm run test:game\`, \`npm run typecheck\`, \`npm run build\`. Audit semua perubahan nama yang muncul dalam dialog dan quest. Uji YZ Phone serta portrait pada Vercel Preview, lalu review PR sebelum rilis.
+Pada checkout Docker yang memiliki bind mount dan data resmi:
 
-## Prinsip rekonsiliasi
+```bash
+node scripts/game-characters/complete-docker-bibles.mjs --input deploy/private/residents.json
+node scripts/game-characters/complete-docker-bibles.mjs --input deploy/private/residents.json --write
+node scripts/game-characters/complete-docker-bibles.mjs --input deploy/private/residents.json --check
+npm run test:game:docker-bibles
+```
 
-- Bila ID, nama, dan pekerjaan masih persis sama dengan katalog, pertahankan Character Bible panjang yang sudah ditulis; jangan buang cerita dan relasi berkualitas.
-- Bila ID tetap tetapi nama/pekerjaan berubah, siapkan draft baru yang mengikuti roster Docker. **Jangan mewariskan usia, keluarga atau kisah pribadi karakter lama kepada nama baru.**
-- Bila Wxxx baru muncul, buat 12 dimensi dengan identitas dan pekerjaan sesuai roster. Pengembangan sifat, kebiasaan, konflik, hubungan, dan quest dalam draft adalah **usulan fiksi**, bukan fakta dari Docker. Usia dan keluarga tidak dikarang sebagai fakta.
-- Generasi pertama memakai tema pekerjaan untuk menghindari profil kosong; ini dasar kerja editorial, bukan pengganti penulisan unik per NPC. Lakukan humanizer, audit dialog dan peninjauan hubungan sebelum menetapkan kanon.
-- Cameo P01/P02 hanya boleh memakai kanon publik yang telah disetujui; perubahan identitas cameo menyebabkan generator gagal.
-- Potret konseptual W/R/K/N tetap bukan sprite emosi dialog. Jangan mengklaim jadwal, quest, kedekatan atau lokasi sudah aktif jika game belum mengimplementasikannya.
-- PostgreSQL tetap khusus data autentikasi, sesi dan game save. ID NPC wajib stabil agar relasi save tidak rusak.
+Hasil: `deploy/private/resident-bibles.json` (12 kategori/ID) dan
+`deploy/private/character-bible-audit.json`. Keduanya tidak dilacak Git.
+Bila folder bind mount server berbeda, atur `YZ_GAME_RESIDENT_ROSTER_FILE`
+dan `YZ_GAME_RESIDENT_BIBLES_FILE` menjadi path file di dalam **container Next.js**.
+Jangan menyalin database PostgreSQL, akun pengguna, save, atau SQLite ke repo.
 
-## Mengapa data tidak langsung terbit
+Ketika Bible privat belum dibuat, server menyusun draft dari roster Docker dan
+katalog cerita yang tersedia. Editor tetap harus memeriksa keunikan karakter.
 
-Vercel tidak membaca bind mount Docker. Berkas JSON yang menjadi data publik perlu ditinjau, di-commit, lalu di-build. Generator hanya membaca snapshot publik; menjalankannya pada repo tanpa roster terbit akan menghasilkan objek kosong, bukan menyalin isi privat secara diam-diam.
+## Aturan rekonsiliasi dan kontinuitas
+
+- **Unchanged**: ID, nama, dan profesi identik; pertahankan Bible fiktif lama,
+  tetapi portrait yang ditunjuk Docker tetap menang.
+- **Expanded**: nama Docker memperpanjang nama pendek yang sama dan profesinya
+  cocok; tambahan kisah, hobi, dan rutinitas dari paket Bandung 151 boleh menjadi
+  rancangan fiktif. Ini BUKAN biografi nyata.
+- **Recast**: nama dan/atau pekerjaan tidak cocok; hapus warisan lore lama dari
+  Bible baru, tandai save/quest/bond lama untuk rekonsiliasi, jangan mereset save.
+- **New Wxxx**: bangun 12 bagian berupa konsep; tidak mengarang umur asli,
+  keluarga, alamat pribadi, hubungan nyata, atau pernah bertemu pemain.
+- Cameo P01/P02 hanya memakai sumber publik dan skenario jelas fiksi.
+- Portrait Docker bersifat otoritatif, meski file art-nya menggunakan ID lain;
+  cocokkan hash dan lakukan visual QA. Expression sheet lama adalah fallback,
+  bukan pengganti portrait Docker.
+- Dua belas kategori hanya menandakan struktur lengkap; status `draft`
+  **belum** berarti 248 tokoh telah mendapat penulisan narasi unik yang disetujui.
+
+## Uji perilaku
+
+`npm run test:game:docker-bibles`, `npm run test:game`,
+`npm run typecheck`, dan `npm run build`.
+Uji Docker dalam keadaan login dan lihat daftar warga, detail 12 kategori,
+portrait, dialog, serta perubahan save. Pada Vercel tanpa file privat,
+hanya roster yang telah disetujui untuk publik yang tersedia.
+
+Lakukan review pribadi sebelum menerbitkan nama lengkap, cerita, gambar,
+atau data yang berasal dari individu nyata. Tidak ada otomatisasi yang
+mengunggah roster privat ke repository.
