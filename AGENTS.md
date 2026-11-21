@@ -12,6 +12,10 @@ Berlaku untuk Codex, ChatGPT yang mengakses GitHub, dan agen coding lainnya. Bah
 
 **Wajib per sesi:** verifikasi ulang `main`/PR #30/Docker HEAD terbaru dan rilis sebenarnya, cocokkan Issue ID G-xxx, lalu laporkan delta, penyebab, keyakinan (%), alternatif, rekomendasi, dampak dan prioritas. Jangan menyimpulkan screenshot pemain telah diuji tanpa browser/perangkat, jangan mengaku preview sudah production, dan jangan membuat audit tandingan di chat tanpa memperbarui dokumen master melalui PR. Pengguna memutuskan merge dan deploy.
 
+## Prioritas produk YZ Farm Life (keputusan pemilik 2026-11-21)
+
+**Wajib baca [Experience-First Roadmap](docs/game-dev/EXPERIENCE_FIRST_ROADMAP.md) setelah master audit.** Docker hanya untuk eksperimen; hentikan sementara pekerjaan migrasi cloud save, SSO, pembagian domain, dan penambahan masif area/NPC. Fokus EX-01 gerak/kamera/jam/tidur, EX-02 pasar/atmosfer, EX-03 lima NPC aktif, EX-04 daily loop. Jaga save lokal serta isolasi data Smart Farm. Jangan menafsirkan `P0 RELEASE_GATE` di backlog sebagai perintah mengalihkan sprint dari game experience menuju migrasi infrastruktur selama belum ada permintaan rilis publik.
+
 ## Baca sebelum bekerja
 
 1. Baca [protokol koordinasi](docs/ai/SYNC_PROTOCOL.md), [rencana pemisahan aplikasi](docs/ai/ARCHITECTURE_SPLIT.md), dan [snapshot status](docs/ai/CURRENT_STATE.md).

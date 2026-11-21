@@ -18,6 +18,16 @@
 
 ---
 
+## 2026-11-21 — Keputusan pemilik: experience-first, Tahap 1 deferred
+
+**Instruksi pengguna:** Docker hanya untuk uji coba; tahap migrasi/sinkronisasi backend lintas lingkungan tidak dikerjakan sekarang. Fokus pada Tahap 2 (game feel / visual / kontrol / jam / tidur / pasar) dan Tahap 3 (dunia Pasirluyu, NPC, dialog, rutinitas), sementara ekspansi Bandung harus perlahan agar kebutuhan revisi tidak membengkak. **Experience adalah KPI utama, bukan jumlah map/NPC/fitur.**
+
+**Konsekuensi backlog:** G-003/G-001/G-002/G-004 tetap tercatat sebagai risiko/release gate masa depan, namun tidak menjadi blocker iterasi Docker lokal. G-006/G-007/G-011/G-027/G-028/G-029/G-032 dan G-012/G-018/G-019/G-020 menjadi prioritas pengembangan langsung. Aktivitas rilis publik atau pemindahan database masih membutuhkan QA dan persetujuan terpisah.
+
+**Hasil tindakan:** dibuat [EXPERIENCE_FIRST_ROADMAP.md](EXPERIENCE_FIRST_ROADMAP.md), Master Audit/Playbook/AGENTS dan indeks diperbarui agar kedua AI melihat kebijakan ini. Tidak ada perubahan runtime, Docker, database, DNS, atau alias production. Semua kriteria pengalaman perlu diuji manual.
+
+---
+
 ## Template entri audit berikutnya
 
 ### YYYY-MM-DD — [Judul audit] · [owner]

@@ -130,17 +130,18 @@ Kolom **status = keadaan bukti saat snapshot**, bukan kepastian semua pemain ter
 - **Jangan mengklaim production berubah** ketika hanya PR preview READY.
 - **Jangan menganggap asset pack 32 karakter sama dengan 32 NPC hidup.**
 
-## E. Prioritas eksekusi yang direkomendasikan
+## E. Prioritas eksekusi aktif — PERINTAH PEMILIK 2026-11-21
 
-**Milestone 0 — Keselamatan progres dan bukti (P0, sebelum rilis):** audit G-001/G-003/G-004 dengan dua akun, backup dan tes save/load; cegah kehilangan progres dengan G-002. Pastikan PR #29 dan #30 direview dan tidak saling menimpa.
+**Keputusan:** YZ Farm Life sekarang **EXPERIENCE-FIRST**. [EXPERIENCE_FIRST_ROADMAP.md](EXPERIENCE_FIRST_ROADMAP.md) adalah kontrak kerja prioritas saat ini. Perubahan ini mengesampingkan urutan milestone awal di dokumen ini, **tetapi tidak menghapus temuan G-001…G-035**.
 
-**Milestone 1 — Gameplay yang benar-benar nyaman (P1):** G-006/G-007/G-011/G-027/G-028/G-029/G-032. Hasil konkret: 1 hari Pasirluyu dapat dimainkan penuh dari bangun, bertani, ke pasar, berbincang, tidur, reload di PC/HP; tidak clipping, tidak stuck, tidak error jaringan.
+- **Tahap 1 sebelumnya (migrasi/sinkronisasi Docker–Vercel, SSO, perombakan infrastruktur): `DEFERRED`.** Docker adalah lingkungan uji coba lokal; jangan menghabiskan sprint untuk memindah backend atau mengejar kesiapan production. Save lokal jangan dirusak dan seluruh tabel Smart Farm harus tetap terpisah. Bila nanti pemilik meminta rilis publik game, aktifkan kembali release gate G-001/G-002/G-003/G-004 dengan bukti.
+- **Tahap aktif 2 (EX-01 + EX-02): game feel.** Prioritas berurutan gerak/animasi/kamera/jam/tidur, lalu paving/collision/interaktivitas pasar, ambient dan UI mobile. ID G-006/G-007/G-011/G-014/G-015/G-027/G-028/G-029/G-031.
+- **Tahap aktif 3 (EX-03 + EX-04): living Pasirluyu.** Fokus 5 NPC yang sudah playable (Ryan, Nani, Inggit, Ayu, Widi), aktivitas pasar, ekspresi/dialog, quest/relasi, farming–trading–sleep loop. ID G-012/G-018/G-019/G-020/G-021/G-024/G-025.
+- **Ekspansi dunia:** `ON_HOLD` / hanya bertahap sesudah loop kecil nyaman dimainkan. ID G-013/G-016/G-017/G-026 dan seluruh 31 NPC/151 kelurahan/264 komoditas sekaligus **bukan target sprint sekarang**. Satu area kecil per PR jika ada alasan gameplay dan bukti QA.
+- **Tuning waktu 16 langkah/menit (PR #30)** masih harus diuji *feel*-nya; jangan menganggap pasti ideal. Nilai pemain berdasarkan perjalanan dan sesi nyata.
+- **Tidak ada izin merge/release otomatis:** PR #29 dan PR #30 tetap harus direview serta status lingkungan diperiksa lagi.
 
-**Milestone 2 — Dunia terasa hidup (P2):** G-012/G-018/G-019/G-020/G-031. Lima NPC yang sudah ada harus matang, lalu 3–5 NPC berikutnya dengan fungsi riil, crowd aman, event jadwal. Jangan menambah 31 sekaligus.
-
-**Milestone 3 — Kedalaman farming & ekonomi (P2):** G-021/G-022/G-023/G-024/G-025. Setiap sistem tambahan harus punya satu loop tuntas, bukan hanya asset/icon.
-
-**Milestone 4 — Ekspansi kota dan dunia panjang (P2/P3):** G-013/G-016/G-017/G-026. Selesaikan Pasirluyu dan Regol dulu, baru perluas ke wilayah Bandung.
+**Gerbang pengalaman:** pemain bisa menikmati perjalanan rumah → kebun → gang → pasar → sungai → rumah, berinteraksi natural dengan 5 NPC, tidur, dan melanjutkan permainan tanpa stutter/stuck/label menumpuk. Audit game harus mencatat hasil manual keyboard dan touch; tes hanya tersedia bila dijalankan.
 
 ## F. Syarat milestone "Prototype Polished" (bukan klaim capaian)
 

@@ -1,6 +1,8 @@
 # YZ FARM LIFE — AUDIT PLAYBOOK v1.0
 **Dokumen kerja wajib untuk ChatGPT, Codex, Copilot, QA, dan developer. Baca [GAME_AUDIT_MASTER.md](GAME_AUDIT_MASTER.md) sebelum menjalankan langkah di bawah.**
 
+> **Prioritas pemilik 2026-11-21:** [EXPERIENCE_FIRST_ROADMAP.md](EXPERIENCE_FIRST_ROADMAP.md). Docker dipakai uji coba, tahap migrasi infrastructure `DEFERRED`. Mulai QA dari movement/clock/sleep → market/map/collision/ambience → 5 NPC → daily loop. QA publik dua akun dan migrasi lintas backend hanya diaktifkan kembali bila production release diminta. Namun hindari save lokal korup, dan jangan pernah menyentuh data Smart Farm.
+
 ## 0. Tujuan dan etika evidence
 
 Audit yang baik memberi **reproduksi, akar penyebab yang didukung bukti, tindakan, tes, dan status commit**. Audit bukan daftar ide acak. Jangan membuat desain ulang seluruh game sebelum mengidentifikasi blocker konkret. Konfirmasi pengguna bukan pengganti test. Tidak boleh memasukkan screenshot akun pribadi, email, NIK, kredensial, atau data keuangan Smart Farm ke repo.
