@@ -40,8 +40,10 @@ for(const {from,to,sha} of moves.renames){
 }
 const code=readFileSync("src/lib/game/bandung-concept-portrait.ts","utf8");
 assert.ok(code.includes("bandungConceptPortraitPath"));
-for(const path of ["src/app/game/character-gallery.tsx","src/app/game/dialogue-panel.tsx"])
- assert.ok(readFileSync(path,"utf8").includes("bandungConceptPortraitPath"));
+assert.ok(readFileSync("src/app/game/dialogue-panel.tsx","utf8").includes("bandungConceptPortraitPath"),
+ "ResidentPortrait must map the canonical portrait key through category-aware paths");
+assert.ok(readFileSync("src/app/game/character-gallery.tsx","utf8").includes("<ResidentPortrait resident="),
+ "Character Gallery must render canonical portrait through the shared ResidentPortrait adapter");
 const registry=read("game-assets/catalog/npc-portrait-register.json");
 for(const person of registry.characters)assert.ok(existsSync("public"+person.variant.workConcept));
 if(existsSync(".git")){

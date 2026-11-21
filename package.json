@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs",
+    "test:game": "node tests/game-canonical-roster-assets.mjs && node tests/game-private-residents.mjs && node tests/game-npc-separation.mjs && node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
@@ -32,7 +32,9 @@
     "chars:index:check": "node scripts/game-characters/build-character-index.mjs --check",
     "test:game:characters": "node tests/game-character-bible.mjs",
     "test:game:phone": "node tests/game-phone-story.mjs",
-    "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs"
+    "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs",
+    "chars:roster:check": "node scripts/game-characters/check-private-roster.mjs",
+    "chars:bible:seed": "node scripts/game-characters/seed-private-bibles.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

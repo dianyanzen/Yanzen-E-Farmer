@@ -1,6 +1,6 @@
 # YZ Farm Life — C-series character expansion
 
-Short names and fictional `occupation`, `hobby`, and `personality` attributes are in the [character bible](../../catalog/CHARACTER_BIBLE.md) and [canonical cast data](../../catalog/cast.json). Each manifest character links to its profile by stable ID, and the gallery displays its short name.
+**Legacy art pack only.** Short names and fictional occupations, hobbies and traits here belong to [historical narrative proposals](../../catalog/CHARACTER_BIBLE.md) and [legacy cast](../../catalog/cast.json), **not the canonical 248-NPC roster**. Current displayed names, jobs and portrait mappings are sourced from private `GAME_RESIDENT_ROSTER_JSON` / `deploy/private/residents.json`. Do not put legacy short names back into YZ Phone or automatically link their lore to a current NPC based only on the same ID.
 
 16 additional fictional NPCs, C01–C16, matching the A01 style anchor from [the original pack](../gba-v2/README.md). The combined cast is **32 characters: A01 is the only main character; A02–A16 and C01–C16 are 31 NPCs**. Original A-series PNGs are unchanged.
 
@@ -10,7 +10,7 @@ Short names and fictional `occupation`, `hobby`, and `personality` attributes ar
 - `manifest.json`: actual sizes, SHA-256 hashes, frame rectangles, alpha statistics, mobility and source-reference fingerprints.
 - `PREVIEW.md`: gallery. `QA.md`: visual findings, checks and runtime limits.
 - `prompts.json`: exact built-in image generation prompts. `PROVENANCE.md`: origin and rights record.
-- [Combined cast](../../catalog/cast.json): all 32 character IDs and their pack manifests.
+- [Legacy cast](../../catalog/cast.json): 32 historical art-pack IDs and manifests, not canonical current identity.
 
 Rows are south/front, west/left, east/right, north/back. Columns are step-left, idle, step-right. **C15 remains seated in a manual wheelchair in every pose**, with push-left, idle, push-right columns. Do not animate C15 as walking.
 

@@ -64,7 +64,7 @@ for(const e of experience.events){
  assert.ok(e.timeWindow[0]<e.timeWindow[1]&&e.timeWindow[1]<=1320);
 }
 const ui=readFileSync("src/app/game/character-gallery.tsx","utf8");
-assert.ok(ui.includes("<details")&&ui.includes("Arsip ilustrasi konsep"),"Concept artwork must be separated in the UI");
+assert.ok(ui.includes("<details")&&ui.includes("const matches=roster.filter")&&!ui.includes("fromExpansion"),"Canonical citizen UI must not silently mix legacy concept artwork");
 if(existsSync(".git")){
  const git=execFileSync(process.execPath,["scripts/game-assets/build-asset-database.mjs","--check"],{encoding:"utf8"});
  assert.match(git,/PASS: asset database/);
