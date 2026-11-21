@@ -31,6 +31,12 @@ Branch `release/yz-e-farmer-web` adalah artefak alur integrasi sebelumnya, **buk
 4. Agen lain harus membaca daftar tugas aktif sebelum mengambil file yang beririsan. Jika overlap, **berhenti dan serahkan pekerjaan lewat PR/handoff**. Label/penamaan branch adalah kesepakatan koordinasi, bukan file lock teknis yang otomatis mencegah race.
 5. Perubahan lintas batas GAME/FARM/SHARED memerlukan PR terpisah atau satu PR integrasi yang secara eksplisit menjelaskan dampaknya dan mendapat review pemilik.
 
+## 3A. Kontrak audit untuk semua tugas YZ Farm Life
+
+Untuk setiap sesi/PR menyangkut game, wajib membuka [Master Audit](../game-dev/GAME_AUDIT_MASTER.md), [Audit Playbook](../game-dev/AUDIT_PLAYBOOK.md), dan [Audit History](../game-dev/AUDIT_HISTORY.md). Cocokkan ID G-xxx dan SHA sumber. Jika temuan baru, tambahkan ID berikutnya melalui PR. Ikuti 7 langkah observasi → penyebab → keyakinan (%) → kemungkinan lain → rekomendasi → dampak pada game → prioritas. Screenshot/tes berakun yang belum dijalankan harus dicatat NOT_RUN, bukan PASS.
+
+Status `FIXED_IN_PR` bukan `VERIFIED` dan tidak sama dengan `RELEASED`. Codex server harus menarik docs dari branch terbaru; ChatGPT harus memeriksa konektor GitHub pada sesi analisis baru. Kedua AI tidak berbagi memori chat otomatis.
+
 ## 4. Mulai setiap sesi (ChatGPT dan Codex)
 
 - Pastikan repository `dianyanzen/Yanzen-E-Farmer`, branch dan HEAD benar; jangan salah mengira branch game Docker adalah main.

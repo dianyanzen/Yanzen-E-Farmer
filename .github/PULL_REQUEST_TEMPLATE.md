@@ -14,6 +14,15 @@
 - [ ] Perubahan game dan data kebun nyata tetap terisolasi
 - [ ] Perubahan database/domain/production memerlukan keputusan pemilik tersendiri
 
+## Audit YZ Farm Life (wajib bila produk = GAME)
+- [ ] Sudah membaca [master audit](../docs/game-dev/GAME_AUDIT_MASTER.md) dan [playbook](../docs/game-dev/AUDIT_PLAYBOOK.md)
+- ID temuan terkait (G-xxx) / alasan temuan baru:
+- Bukti observasi, penyebab, confidence (%), alternatif, dampak, prioritas:
+- Skenario QA F-xx yang benar-benar lulus:
+- Status yang harus diperbarui pada master & audit history:
+- Gameplay test/preview build terverifikasi? YA/TIDAK + URL:
+- Rilis production tetap perlu approval pengguna terpisah.
+
 ## Verifikasi
 - [ ] `npm run test` — hasil:
 - [ ] `npm run typecheck` — hasil:
