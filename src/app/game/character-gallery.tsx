@@ -16,7 +16,6 @@ import {Portrait,ResidentPortrait} from "./dialogue-panel";
 type Citizen={id:string;name:string;occupation:string;kind:"core"|"expansion"|"resident";portrait?:string};
 const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"core"}));
 const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion"}));
-const allNames=new Map([...fromCore,...fromExpansion].map(c=>[c.id,c.name]));
 const PAGE_SIZE=12;
 function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotion}){
  if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
@@ -38,19 +37,19 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  const face=profile?.sections;
  const identity=face?.["01_core_identity"],look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
- const history=face?.["07_background_history"],ties=face?.["08_relationship_dynamics"],voice=face?.["09_dialogue_behavior"];
+ const voice=face?.["09_dialogue_behavior"];
  const soul=npc?NPC_SOULS[npc.id]:null;
  const quest=npc?game.personalQuests?.[npc.id]:null;
- const friends=[...(ties?.connections??ties?.scriptedConnection??[])].filter(other=>{
-  const nearby=NPCS.find(n=>n.id===other.characterId);
-  return Boolean(nearby&&game.bonds[nearby.id]?.talks);
- });
+ const rememberedPast=npc?.id==="C01"&&game.story.photoSeen?
+   "Nani menunjukkan foto pintu air lama dan bercerita sedikit tentang keluarganya.":
+   npc?.id==="A03"&&game.story.canalClue?
+   "Ryan pernah mencatat garis tinggi air di dekat pintu saluran.":
+   null;
  const knowsMore=met&&(self||level>=2),knowsPrivate=met&&(self||level>=3);
  const currentPlace=npc?npcWhere(game,npc.id):null;
  const outline=person.kind==="expansion"?"Belum ada pertemuan. Namanya sudah masuk daftar warga, tetapi kisahnya belum kamu dengar.":
   !met&&!self?"Kalian belum mengobrol. Ada hal-hal yang hanya bisa diketahui dengan bertemu langsung.":
   "Catatan tentang orang yang kamu kenal.";
- const connectionText=(id:string)=>allNames.get(id)??"Warga lain";
  return <article data-character-detail={person.id} aria-label={`Profil ${person.name}`}>
   <button type="button" className="yzg-citizen-return" onClick={onBack}>‹ Daftar warga</button>
   <div className="yzg-phone-card yzg-citizen-hero">
@@ -72,10 +71,10 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
   <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
-    <Section label="01 · Siapa dia" open>{<p>{person.name} · {person.occupation}. {met&&identity?.origin?`Asal cerita: ${identity.origin}.`:""}</p>}</Section>
+    <Section label="01 · Siapa dia" open>{<p>{person.name} · {person.occupation}. {met&&soul?.home?`Tempat tinggal: ${soul.home}.`:""}</p>}</Section>
     <Section label="02 · Penampilan" open>{<p>{look?.general??look?.visualDirection??look?.physicalTraits??"Potretnya tersimpan di daftar warga."}</p>}</Section>
     <Section label="03 · Gaya dan pakaian" open>{<p>{clothes?.signatureClothing??clothes?.clothing??"Lihat potret untuk mengenali gaya berpakaiannya."}</p>}</Section>
-    <Section label="04 · Kegiatan sehari-hari" open>{<><p>{person.occupation}.</p>{met&&social?.hobbies?.length&&<p>Di waktu luang: {social.hobbies.join(", ")}.</p>}</>}</Section>
+    <Section label="04 · Kegiatan sehari-hari" open>{<><p>{person.occupation}.</p>{met&&Boolean(social?.hobbies?.length)&&<p>Di waktu luang: {social!.hobbies!.join(", ")}.</p>}</>}</Section>
     <Section label="05 · Sifat dan kebiasaan" open={met&&(self||level>=1)}>
       <p>{personality?.traits?.join(", ")??"Kalian masih saling mengenal."}.</p>
       <p>{soul?.habit??personality?.habit??personality?.observableHabit}</p>
@@ -84,11 +83,11 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
       <p>{soul?.desire??mind?.primaryMotivation??mind?.motivation??"Masih belum diceritakan."}</p>
       {knowsPrivate&&<p>{soul?.fear??mind?.fear}</p>}
     </Section>
-    <Section label="07 · Cerita masa lalu" open={knowsPrivate}>
-      <p>{history?.formativeMemory??history?.narrativeBackground??"Belum ada kisah masa lalu yang dibagikan."}</p>
+    <Section label="07 · Cerita masa lalu" open={knowsPrivate&&Boolean(rememberedPast)}>
+      <p>{rememberedPast??"Belum ada kenangan yang dibagikan."}</p>
     </Section>
-    <Section label="08 · Orang terdekat" open={knowsMore}>
-      {friends.length?<ul>{friends.map(t=><li key={t.characterId}><b>{connectionText(t.characterId)}</b> · {t.relationship??t.description}</li>)}</ul>:<p>Belum ada hubungan warga lain yang kamu ketahui bersama.</p>}
+    <Section label="08 · Orang terdekat" open={knowsMore&&Boolean(soul?.connection)}>
+      <p>{soul?.connection??"Kamu belum mendengar cerita tentang hubungannya dengan warga lain."}</p>
     </Section>
     <Section label="09 · Cara berbicara" open={met}>
       <p>{voice?.speechSignature??voice?.speechPattern??voice?.scriptedSpeakingStyle??"Kamu baru mulai mengenali caranya berbicara."}</p>
