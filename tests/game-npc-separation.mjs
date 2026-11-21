@@ -26,7 +26,9 @@ try{
  assert.match(ui,/if\(selected\?\.legacyApproved\)/,"Private citizen does not load a legacy bible without approval");
  assert.ok(ui.includes("/api/game/resident-bible/"),"Current citizen loads private Bible only on demand");
  assert.match(ui,/if\(person\.portrait\)return <ResidentPortrait/,"Portrait key overrides old cast ID");
- assert.match(ui,/process\.env\.NODE_ENV==="production"\?\[\]/,"Production never silently displays old public cast in place of private roster");
+ assert.ok(!ui.includes("game-assets/catalog/cast.json"),"Citizen list must never fall back to legacy cast");
+ assert.ok(!ui.includes("fromExpansion"),"Citizen list must not mix old expansion identities");
+ assert.ok(ui.includes("const matches=roster.filter"),"All 248 citizens must be visible by default");
  for(const route of ["src/app/game/page.tsx","src/app/game/phaser/page.tsx","src/app/game/canvas/page.tsx"]){
   assert.ok(file(route).includes("readPrivateResidents()"),"Missing canonical server hydration: "+route);
  }
