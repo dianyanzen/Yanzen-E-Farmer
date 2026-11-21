@@ -116,7 +116,9 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  </article>;
 }
 
-export default function CharacterGallery({game,residents,residentBibles={},selectedId,onSelect}:{
+const EMPTY_BIBLES:Record<string,CharacterBible> = {};
+
+export default function CharacterGallery({game,residents,residentBibles=EMPTY_BIBLES,selectedId,onSelect}:{
  game:GameState;residents:readonly ResidentProfile[];residentBibles?:Record<string,CharacterBible>;selectedId:string|null;onSelect:(id:string|null)=>void;
 }){
  const [search,setSearch]=useState(""),[page,setPage]=useState(0),[archive,setArchive]=useState(false);

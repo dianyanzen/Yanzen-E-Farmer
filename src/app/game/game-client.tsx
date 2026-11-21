@@ -72,7 +72,9 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
     onClick={event => { if (event.detail === 0) step(direction); }}><span aria-hidden="true" className="yzg-arrow">{symbol}</span></button>;
 }
 
-export default function GameClient({ engine = "canvas", residents = [], residentBibles = {} }: {
+const EMPTY_BIBLES:Record<string,CharacterBible> = {};
+
+export default function GameClient({ engine = "canvas", residents = [], residentBibles = EMPTY_BIBLES }: {
   engine?: "canvas" | "phaser";
   residents?: readonly ResidentProfile[];
   residentBibles?: Record<string, CharacterBible>;
