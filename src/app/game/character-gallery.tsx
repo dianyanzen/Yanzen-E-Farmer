@@ -11,6 +11,7 @@ import { Portrait, ResidentPortrait } from "./dialogue-panel";
 function OriginalGallery() {
   const [search, setSearch] = useState("");
   const [emotion, setEmotion] = useState<Emotion>("neutral");
+  const [showConceptArchive,setShowConceptArchive] = useState(false);
   const query = search.toLocaleLowerCase("id").trim();
   const matches = (person: { name: string; occupation: string }) =>
     (person.name + " " + person.occupation).toLocaleLowerCase("id").includes(query);
@@ -30,10 +31,10 @@ function OriginalGallery() {
       <small>Hobi: {person.hobby.join(", ")}</small>
       <small>{person.role === "main-character" ? "Karakter utama" : NPCS.some(n => n.id === person.id) ? "Dapat ditemui di Pasirluyu" : "Wilayah berikutnya"}</small></div>
     </article>)}
-    {upcoming.length > 0 && <details className="yzg-phone-card yzg-concept-archive" aria-label="Arsip ilustrasi konsep Bandung">
+    {upcoming.length > 0 && <details className="yzg-phone-card yzg-concept-archive" aria-label="Arsip ilustrasi konsep Bandung" onToggle={event=>setShowConceptArchive(event.currentTarget.open)}>
       <summary><b>Arsip ilustrasi konsep Bandung ({upcoming.length})</b> · gaya berbeda, belum menjadi potret dialog</summary>
       <p>Ilustrasi ini merupakan konsep visual untuk ekspansi. Asetnya tetap tersedia dalam perpustakaan, tetapi belum diselaraskan dengan pixel-art ekspresi utama dan belum menjadi karakter playable.</p>
-      {upcoming.map(person => <article className="yzg-phone-card yzg-character-card" key={person.id} data-character-card={person.id}>
+      {showConceptArchive && upcoming.map(person => <article className="yzg-phone-card yzg-character-card" key={person.id} data-character-card={person.id}>
         <Image className="yzg-character-preview" src={'/game/assets/portraits/bandung/' + person.id + '.png'}
           alt={'Potret konsep ' + person.name} width={80} height={80} unoptimized />
         <div>
