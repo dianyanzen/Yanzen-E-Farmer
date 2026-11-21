@@ -816,7 +816,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 </div>
               </>}
               {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
-              {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
+              {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
                   <b>Mulai bermain</b>
