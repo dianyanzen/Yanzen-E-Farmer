@@ -150,14 +150,13 @@ export default function CharacterGallery({game,residents,residentBibles=EMPTY_BI
   const updatedBible=residentBibles[selectedId]??(publishedBibles as Record<string,CharacterBible>)[selectedId];
   const isRosterMember=residents.some(person=>person.id===selectedId);
   const controller=new AbortController();
-  const profilePromise=updatedBible?Promise.resolve(updatedBible):
-    isRosterMember?fetch("/api/game/character-bible/"+encodeURIComponent(selectedId),{
+  const profilePromise=isRosterMember?fetch("/api/game/character-bible/"+encodeURIComponent(selectedId),{
      cache:"no-store",signal:controller.signal
     }).then(async response=>{
      if(!response.ok)throw new Error("Profil tidak tersedia");
      const json=await response.json() as {profile:CharacterBible};
      return json.profile;
-    }):loadCharacterBible(selectedId);
+    }):updatedBible?Promise.resolve(updatedBible):loadCharacterBible(selectedId);
   profilePromise.then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
     .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
   return()=>{alive=false;controller.abort();};
