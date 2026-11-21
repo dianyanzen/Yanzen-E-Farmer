@@ -1,76 +1,32 @@
-# Yanzen E-Farmer
+# YZ Farm Life — standalone self-hosted game
 
-## YZ Farm Life — Pasirluyu Bab 1 (development)
+This checkout packages only YZ Farm Life, based on PR #28 commit `65574b4550c45080243b8e00a31acbb52e7eadf0`. The production build exposes the game, its login page, and game-only APIs; it does not build the Yanzen E-Farmer website routes.
 
-Alur empat timun Inggit → petunjuk Ryan → foto Nani → dua pilihan akhir kini
-tersedia pada cabang pengembangan game. Jurnal, penjualan panen, kompatibilitas save
-lama dan pengujian desktop/mobile dijelaskan dalam [catatan Bab 1](docs/game-dev/PASIRLUYU_CHAPTER1.md).
-Jalankan `npm run test:game` dan `npm run test:game:ui`. Belum dirilis ke production.
+- Phaser 4 is the primary renderer at `/game`; Canvas is also available for comparison at `/game/canvas` and remains the automatic fallback if Phaser cannot initialize. `/game/phaser` stays available as the PR preview alias.
+- 4 authentic outdoor zones (Kebun Yanzen, Gang Pasirluyu, Pasar Tradisional, and Bantaran Sungai) match the 2×2 master pixel-art atlas and are documented in [docs/game-dev/PASIRLUYU_EMPAT_LOKASI_VISUAL_ATLAS.md](docs/game-dev/PASIRLUYU_EMPAT_LOKASI_VISUAL_ATLAS.md).
+- Farming, NPCs, quests, YZ Phone, sleep, and version-1 game saves remain in the existing game state model.
+- Local email/password accounts and isolated game saves use a dedicated PostgreSQL database.
+- Runtime does not depend on Supabase or Vercel.
 
-Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran rencana, pengeluaran aktual, dan bon internal. Identitas visual: **Botanical Luxury** (forest green, ivory, sage, gold).
+## Run locally with Docker Compose
 
-## Aplikasi
-- Production: https://yanzen-e-farmer.vercel.app
-- GitHub: https://github.com/dianyanzen/Yanzen-E-Farmer
-- Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
-- Supabase Auth, PostgreSQL, Row Level Security (RLS)
-- Deployment otomatis ke proyek Vercel yang sama dari branch `main`.
+Requires Docker Engine and the Compose v2 plugin. Copy `.env.example` to `.env`, set a unique strong `POSTGRES_PASSWORD`, then run:
 
-## Modul lama yang dipertahankan
-1. **Beranda** — ringkasan proyek, anggaran, pengeluaran, shortcut buat bon.
-2. **Anggaran** — buat proyek, ubah rincian kebutuhan, pencarian, duplikasi proyek, total dan biaya/tumbak otomatis.
-3. **Unduh Excel** — export .xlsx dari anggaran tersimpan, tiga worksheet: Anggaran, Ringkasan, Petunjuk; rumus `SUM`, `SUMIF`, `COUNTIF`. Akses melalui detail proyek.
-4. **Keuangan** — catatan pengeluaran aktual terpisah dari rencana.
-5. **Bon / Struk Pengeluaran** — beberapa kebutuhan dalam satu bon, subtotal dan total otomatis, nomor bon, tanggal, pemasok, catatan, simpan ke Supabase, riwayat bon, cetak atau simpan PDF via browser. Ini **dokumen pencatatan internal**, bukan bukti resmi pembayaran dari penjual.
-6. **Pertanian** — daftar proyek dan tanaman yang tersimpan.
-7. **Wawasan** — ringkasan dan perbandingan anggaran vs pengeluaran.
-8. **Panen** — pencatatan panen tersedia melalui menu **+ Catat** pada Operations V2.
+```powershell
+docker compose up -d --build
+docker compose ps
+Invoke-RestMethod http://localhost:3002/api/health
+```
 
-## Data Timun Part 3
-Database terhubung berisi satu proyek **Timun Putra Mandiri**, luas **1.150 tumbak**, dengan **24 item anggaran** bernilai **Rp74.262.000**. Data dapat diubah oleh pemilik akun; angka ini adalah snapshot awal dan bukan nilai hardcoded pada dashboard.
+Open `http://localhost:3002` on the host. Only the dedicated proxy publishes this loopback port; the app and PostgreSQL stay on a private internal Docker network. Production cookies require HTTPS; use an approved HTTPS reverse proxy for remote access rather than exposing the app port directly.
 
-## Struktur database
-- `public.farm_projects` — proyek dan luas lahan
-- `public.budget_items` — rincian anggaran
-- `public.expenses` — pengeluaran aktual, item bon, kelompok bon dan nomor bon
+See [self-hosted operations](docs/game-dev/SELF_HOSTED_OPERATIONS.md) for update, backup, restore, and rollback instructions.
 
-Kolom `receipt_group` menghubungkan beberapa baris pengeluaran ke satu bon. Kolom `line_position` mempertahankan urutan item.
+## Validation
 
-Tabel di `public` mengaktifkan RLS berbasis `auth.uid()`. Kredensial Supabase **tidak boleh** disimpan di GitHub; `SUPABASE_SERVICE_ROLE_KEY` hanya aman di sisi server dan tidak diperlukan oleh frontend.
-
-Migrasi di `supabase/migrations/` merepresentasikan struktur database yang dipakai sekarang. Jangan menerapkannya lagi secara membabi buta jika database sudah dimigrasi.
-
-## Pengembangan lokal
-1. `npm install`
-2. Set `NEXT_PUBLIC_SUPABASE_URL` dan `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` di `.env.local`
-3. `npm run dev`
-4. `npm run build`
-
-## Catatan batasan
-- Excel dapat diedit secara mandiri tetapi tidak tersinkron kembali otomatis ke Supabase.
-- Export Excel dibatasi kurang dari 1.000 rincian per proyek per permintaan, untuk mencegah pemotongan data oleh batas paginasi.
-- Pengelola riwayat Keuangan saat ini memuat 200 baris pengeluaran terbaru lintas proyek.
-- Foto bukti privat dan panen tersedia pada Operations V2; POS resmi belum tersedia.
-- Belum ada pengujian end-to-end interaktif menggunakan akun pelanggan, meski build Vercel telah berhasil.
-
-## Farm Operations V2
-
-The operations workspace adds land allocation, production cycles, group labor and overtime, cash, advances, harvest/sales, inventory and reporting. See [implementation and rollout notes](docs/OPERATIONS-V2.md) for exact scope, tests, limitations and required migrations. Production migrations were applied and legacy totals verified on 2026-10-25 after owner approval. The approved PR merge triggers the application release through Vercel; check Vercel for the current deployment state.
-
-## Premium Visual Assets (25 October 2026)
-Six original agriculture-themed images are stored under `public/brand/` as optimized JPEGs: `farm-sunrise-photo.jpg`, `yanzen-logo-premium.jpg`, `bon-pengeluaran-photo.jpg`, `empty-project-photo.jpg`, `empty-expense-photo.jpg` and `empty-harvest-photo.jpg`. The original full-resolution PNG package remains available separately from ChatGPT. SVG assets are retained for crisp small-size logo marks, decorative graphics, and safe fallbacks.
-
-Visual assets are illustrative, not real expense records or a replacement for the user-specific receipts generated by the application. Only image references and empty-state presentation changed; database and financial procedures remain intact.
-
-## YZ Farm Life — Pustaka Pengembangan (Draft)
-
-Proyek game 2D pixel-art `/game` pada branch prototipe terpisah. Basis cerita: **Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung**, dengan daftar 30 kecamatan dan YZ Phone fiktif. **Belum dirilis ke production.**
-
-- [Game Development Library](docs/game-dev/README.md) — titik masuk semua acuan.
-- [Asset catalog & licenses](game-assets/catalog/sources.json) — 8 pack kandidat (5 CC0 + 3 gratis komersial, dengan aturan redistribusi).
-- [Inventaris 32 karakter dari Drive](game-assets/catalog/characters.json) — referensi visual pribadi, berkas mentah tetap privat.
-- [Asset audit](scripts/game-assets/verify-catalog.mjs) — jalankan `npm run assets:audit`.
-- [Panduan mendapatkan aset CC0](docs/game-dev/ASSET_PIPELINE.md) — koleksi yang aman, bukti lisensi dan optimasi.
-- [Desain cerita, portrait dan peta Bandung](docs/game-dev/GAME_DESIGN_DOCUMENT.md) — sasaran implementasi bertahap.
-
-**Status aset:** katalog dan dokumentasi sudah masuk GitHub; **dua pack tilesheet Kenney berlisensi CC0 telah diimpor sebagai sumber ke folder `game-assets/vendor`** beserta lisensinya. Belum ada aset pihak ketiga yang digunakan di runtime; tahap berikutnya adalah audit visual, atlas dan penggantian gambar game. Pengembangan aman melalui branch/PR tanpa mengubah data panen atau keuangan pertanian.
+```powershell
+npm ci
+npm run typecheck
+npm run lint
+npm run build
+```

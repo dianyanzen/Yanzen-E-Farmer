@@ -1,0 +1,1792 @@
+{
+  "tileSize": 20,
+  "directions": {
+    "utara": 1,
+    "timur": 2,
+    "selatan": 4,
+    "barat": 8
+  },
+  "atlases": {
+    "jalan": [
+      {
+        "id": 0,
+        "name": "jalan-tanah-00-1"
+      },
+      {
+        "id": 1,
+        "name": "jalan-tanah-01-1"
+      },
+      {
+        "id": 2,
+        "name": "jalan-tanah-02-1"
+      },
+      {
+        "id": 3,
+        "name": "jalan-tanah-03-1"
+      },
+      {
+        "id": 4,
+        "name": "jalan-tanah-04-1"
+      },
+      {
+        "id": 5,
+        "name": "jalan-tanah-05-1"
+      },
+      {
+        "id": 6,
+        "name": "jalan-tanah-06-1"
+      },
+      {
+        "id": 7,
+        "name": "jalan-tanah-07-1"
+      },
+      {
+        "id": 8,
+        "name": "jalan-tanah-08-1"
+      },
+      {
+        "id": 9,
+        "name": "jalan-tanah-09-1"
+      },
+      {
+        "id": 10,
+        "name": "jalan-tanah-10-1"
+      },
+      {
+        "id": 11,
+        "name": "jalan-tanah-11-1"
+      },
+      {
+        "id": 12,
+        "name": "jalan-tanah-12-1"
+      },
+      {
+        "id": 13,
+        "name": "jalan-tanah-13-1"
+      },
+      {
+        "id": 14,
+        "name": "jalan-tanah-14-1"
+      },
+      {
+        "id": 15,
+        "name": "jalan-tanah-15-1"
+      },
+      {
+        "id": 16,
+        "name": "jalan-tanah-00-2"
+      },
+      {
+        "id": 17,
+        "name": "jalan-tanah-01-2"
+      },
+      {
+        "id": 18,
+        "name": "jalan-tanah-02-2"
+      },
+      {
+        "id": 19,
+        "name": "jalan-tanah-03-2"
+      },
+      {
+        "id": 20,
+        "name": "jalan-tanah-04-2"
+      },
+      {
+        "id": 21,
+        "name": "jalan-tanah-05-2"
+      },
+      {
+        "id": 22,
+        "name": "jalan-tanah-06-2"
+      },
+      {
+        "id": 23,
+        "name": "jalan-tanah-07-2"
+      },
+      {
+        "id": 24,
+        "name": "jalan-tanah-08-2"
+      },
+      {
+        "id": 25,
+        "name": "jalan-tanah-09-2"
+      },
+      {
+        "id": 26,
+        "name": "jalan-tanah-10-2"
+      },
+      {
+        "id": 27,
+        "name": "jalan-tanah-11-2"
+      },
+      {
+        "id": 28,
+        "name": "jalan-tanah-12-2"
+      },
+      {
+        "id": 29,
+        "name": "jalan-tanah-13-2"
+      },
+      {
+        "id": 30,
+        "name": "jalan-tanah-14-2"
+      },
+      {
+        "id": 31,
+        "name": "jalan-tanah-15-2"
+      },
+      {
+        "id": 32,
+        "name": "setapak-00-1"
+      },
+      {
+        "id": 33,
+        "name": "setapak-01-1"
+      },
+      {
+        "id": 34,
+        "name": "setapak-02-1"
+      },
+      {
+        "id": 35,
+        "name": "setapak-03-1"
+      },
+      {
+        "id": 36,
+        "name": "setapak-04-1"
+      },
+      {
+        "id": 37,
+        "name": "setapak-05-1"
+      },
+      {
+        "id": 38,
+        "name": "setapak-06-1"
+      },
+      {
+        "id": 39,
+        "name": "setapak-07-1"
+      },
+      {
+        "id": 40,
+        "name": "setapak-08-1"
+      },
+      {
+        "id": 41,
+        "name": "setapak-09-1"
+      },
+      {
+        "id": 42,
+        "name": "setapak-10-1"
+      },
+      {
+        "id": 43,
+        "name": "setapak-11-1"
+      },
+      {
+        "id": 44,
+        "name": "setapak-12-1"
+      },
+      {
+        "id": 45,
+        "name": "setapak-13-1"
+      },
+      {
+        "id": 46,
+        "name": "setapak-14-1"
+      },
+      {
+        "id": 47,
+        "name": "setapak-15-1"
+      },
+      {
+        "id": 48,
+        "name": "setapak-00-2"
+      },
+      {
+        "id": 49,
+        "name": "setapak-01-2"
+      },
+      {
+        "id": 50,
+        "name": "setapak-02-2"
+      },
+      {
+        "id": 51,
+        "name": "setapak-03-2"
+      },
+      {
+        "id": 52,
+        "name": "setapak-04-2"
+      },
+      {
+        "id": 53,
+        "name": "setapak-05-2"
+      },
+      {
+        "id": 54,
+        "name": "setapak-06-2"
+      },
+      {
+        "id": 55,
+        "name": "setapak-07-2"
+      },
+      {
+        "id": 56,
+        "name": "setapak-08-2"
+      },
+      {
+        "id": 57,
+        "name": "setapak-09-2"
+      },
+      {
+        "id": 58,
+        "name": "setapak-10-2"
+      },
+      {
+        "id": 59,
+        "name": "setapak-11-2"
+      },
+      {
+        "id": 60,
+        "name": "setapak-12-2"
+      },
+      {
+        "id": 61,
+        "name": "setapak-13-2"
+      },
+      {
+        "id": 62,
+        "name": "setapak-14-2"
+      },
+      {
+        "id": 63,
+        "name": "setapak-15-2"
+      },
+      {
+        "id": 64,
+        "name": "paving-00-1"
+      },
+      {
+        "id": 65,
+        "name": "paving-01-1"
+      },
+      {
+        "id": 66,
+        "name": "paving-02-1"
+      },
+      {
+        "id": 67,
+        "name": "paving-03-1"
+      },
+      {
+        "id": 68,
+        "name": "paving-04-1"
+      },
+      {
+        "id": 69,
+        "name": "paving-05-1"
+      },
+      {
+        "id": 70,
+        "name": "paving-06-1"
+      },
+      {
+        "id": 71,
+        "name": "paving-07-1"
+      },
+      {
+        "id": 72,
+        "name": "paving-08-1"
+      },
+      {
+        "id": 73,
+        "name": "paving-09-1"
+      },
+      {
+        "id": 74,
+        "name": "paving-10-1"
+      },
+      {
+        "id": 75,
+        "name": "paving-11-1"
+      },
+      {
+        "id": 76,
+        "name": "paving-12-1"
+      },
+      {
+        "id": 77,
+        "name": "paving-13-1"
+      },
+      {
+        "id": 78,
+        "name": "paving-14-1"
+      },
+      {
+        "id": 79,
+        "name": "paving-15-1"
+      },
+      {
+        "id": 80,
+        "name": "paving-00-2"
+      },
+      {
+        "id": 81,
+        "name": "paving-01-2"
+      },
+      {
+        "id": 82,
+        "name": "paving-02-2"
+      },
+      {
+        "id": 83,
+        "name": "paving-03-2"
+      },
+      {
+        "id": 84,
+        "name": "paving-04-2"
+      },
+      {
+        "id": 85,
+        "name": "paving-05-2"
+      },
+      {
+        "id": 86,
+        "name": "paving-06-2"
+      },
+      {
+        "id": 87,
+        "name": "paving-07-2"
+      },
+      {
+        "id": 88,
+        "name": "paving-08-2"
+      },
+      {
+        "id": 89,
+        "name": "paving-09-2"
+      },
+      {
+        "id": 90,
+        "name": "paving-10-2"
+      },
+      {
+        "id": 91,
+        "name": "paving-11-2"
+      },
+      {
+        "id": 92,
+        "name": "paving-12-2"
+      },
+      {
+        "id": 93,
+        "name": "paving-13-2"
+      },
+      {
+        "id": 94,
+        "name": "paving-14-2"
+      },
+      {
+        "id": 95,
+        "name": "paving-15-2"
+      },
+      {
+        "id": 96,
+        "name": "jalur-40-horizontal-atas-1"
+      },
+      {
+        "id": 97,
+        "name": "jalur-40-horizontal-atas-2"
+      },
+      {
+        "id": 98,
+        "name": "jalur-40-horizontal-atas-3"
+      },
+      {
+        "id": 99,
+        "name": "jalur-40-horizontal-atas-4"
+      },
+      {
+        "id": 100,
+        "name": "jalur-40-horizontal-bawah-1"
+      },
+      {
+        "id": 101,
+        "name": "jalur-40-horizontal-bawah-2"
+      },
+      {
+        "id": 102,
+        "name": "jalur-40-horizontal-bawah-3"
+      },
+      {
+        "id": 103,
+        "name": "jalur-40-horizontal-bawah-4"
+      },
+      {
+        "id": 104,
+        "name": "jalur-40-vertikal-atas-1"
+      },
+      {
+        "id": 105,
+        "name": "jalur-40-vertikal-atas-2"
+      },
+      {
+        "id": 106,
+        "name": "jalur-40-vertikal-atas-3"
+      },
+      {
+        "id": 107,
+        "name": "jalur-40-vertikal-atas-4"
+      },
+      {
+        "id": 108,
+        "name": "jalur-40-vertikal-bawah-1"
+      },
+      {
+        "id": 109,
+        "name": "jalur-40-vertikal-bawah-2"
+      },
+      {
+        "id": 110,
+        "name": "jalur-40-vertikal-bawah-3"
+      },
+      {
+        "id": 111,
+        "name": "jalur-40-vertikal-bawah-4"
+      }
+    ],
+    "air": [
+      {
+        "id": 0,
+        "name": "kanal-00"
+      },
+      {
+        "id": 1,
+        "name": "kanal-01"
+      },
+      {
+        "id": 2,
+        "name": "kanal-02"
+      },
+      {
+        "id": 3,
+        "name": "kanal-03"
+      },
+      {
+        "id": 4,
+        "name": "kanal-04"
+      },
+      {
+        "id": 5,
+        "name": "kanal-05"
+      },
+      {
+        "id": 6,
+        "name": "kanal-06"
+      },
+      {
+        "id": 7,
+        "name": "kanal-07"
+      },
+      {
+        "id": 8,
+        "name": "kanal-08"
+      },
+      {
+        "id": 9,
+        "name": "kanal-09"
+      },
+      {
+        "id": 10,
+        "name": "kanal-10"
+      },
+      {
+        "id": 11,
+        "name": "kanal-11"
+      },
+      {
+        "id": 12,
+        "name": "kanal-12"
+      },
+      {
+        "id": 13,
+        "name": "kanal-13"
+      },
+      {
+        "id": 14,
+        "name": "kanal-14"
+      },
+      {
+        "id": 15,
+        "name": "kanal-15"
+      },
+      {
+        "id": 16,
+        "name": "air-dangkal"
+      },
+      {
+        "id": 17,
+        "name": "air-dalam"
+      },
+      {
+        "id": 18,
+        "name": "kanal-sudut-dalam-kiri-atas"
+      },
+      {
+        "id": 19,
+        "name": "kanal-sudut-dalam-kanan-atas"
+      },
+      {
+        "id": 20,
+        "name": "kanal-sudut-dalam-kiri-bawah"
+      },
+      {
+        "id": 21,
+        "name": "kanal-sudut-dalam-kanan-bawah"
+      },
+      {
+        "id": 22,
+        "name": "riak-1"
+      },
+      {
+        "id": 23,
+        "name": "riak-2"
+      },
+      {
+        "id": 24,
+        "name": "riak-3"
+      },
+      {
+        "id": 25,
+        "name": "riak-4"
+      },
+      {
+        "id": 26,
+        "name": "riak-5"
+      },
+      {
+        "id": 27,
+        "name": "riak-6"
+      }
+    ],
+    "pagar": [
+      {
+        "id": 0,
+        "name": "pagar-00"
+      },
+      {
+        "id": 1,
+        "name": "pagar-01"
+      },
+      {
+        "id": 2,
+        "name": "pagar-02"
+      },
+      {
+        "id": 3,
+        "name": "pagar-03"
+      },
+      {
+        "id": 4,
+        "name": "pagar-04"
+      },
+      {
+        "id": 5,
+        "name": "pagar-05"
+      },
+      {
+        "id": 6,
+        "name": "pagar-06"
+      },
+      {
+        "id": 7,
+        "name": "pagar-07"
+      },
+      {
+        "id": 8,
+        "name": "pagar-08"
+      },
+      {
+        "id": 9,
+        "name": "pagar-09"
+      },
+      {
+        "id": 10,
+        "name": "pagar-10"
+      },
+      {
+        "id": 11,
+        "name": "pagar-11"
+      },
+      {
+        "id": 12,
+        "name": "pagar-12"
+      },
+      {
+        "id": 13,
+        "name": "pagar-13"
+      },
+      {
+        "id": 14,
+        "name": "pagar-14"
+      },
+      {
+        "id": 15,
+        "name": "pagar-15"
+      },
+      {
+        "id": 16,
+        "name": "gerbang-tutup"
+      },
+      {
+        "id": 17,
+        "name": "gerbang-buka"
+      },
+      {
+        "id": 18,
+        "name": "gerbang-terkunci"
+      }
+    ],
+    "pintu": [
+      {
+        "id": 0,
+        "name": "pintu-tutup"
+      },
+      {
+        "id": 1,
+        "name": "pintu-buka"
+      },
+      {
+        "id": 2,
+        "name": "pintu-terkunci"
+      }
+    ],
+    "petak": [
+      {
+        "id": 0,
+        "name": "petak-kering-utuh-1"
+      },
+      {
+        "id": 1,
+        "name": "petak-kering-utuh-2"
+      },
+      {
+        "id": 2,
+        "name": "petak-kering-utuh-3"
+      },
+      {
+        "id": 3,
+        "name": "petak-kering-dicangkul-1"
+      },
+      {
+        "id": 4,
+        "name": "petak-kering-dicangkul-2"
+      },
+      {
+        "id": 5,
+        "name": "petak-kering-dicangkul-3"
+      },
+      {
+        "id": 6,
+        "name": "petak-kering-benih-1"
+      },
+      {
+        "id": 7,
+        "name": "petak-kering-benih-2"
+      },
+      {
+        "id": 8,
+        "name": "petak-kering-benih-3"
+      },
+      {
+        "id": 9,
+        "name": "petak-kering-bertunas-1"
+      },
+      {
+        "id": 10,
+        "name": "petak-kering-bertunas-2"
+      },
+      {
+        "id": 11,
+        "name": "petak-kering-bertunas-3"
+      },
+      {
+        "id": 12,
+        "name": "petak-lembap-utuh-1"
+      },
+      {
+        "id": 13,
+        "name": "petak-lembap-utuh-2"
+      },
+      {
+        "id": 14,
+        "name": "petak-lembap-utuh-3"
+      },
+      {
+        "id": 15,
+        "name": "petak-lembap-dicangkul-1"
+      },
+      {
+        "id": 16,
+        "name": "petak-lembap-dicangkul-2"
+      },
+      {
+        "id": 17,
+        "name": "petak-lembap-dicangkul-3"
+      },
+      {
+        "id": 18,
+        "name": "petak-lembap-benih-1"
+      },
+      {
+        "id": 19,
+        "name": "petak-lembap-benih-2"
+      },
+      {
+        "id": 20,
+        "name": "petak-lembap-benih-3"
+      },
+      {
+        "id": 21,
+        "name": "petak-lembap-bertunas-1"
+      },
+      {
+        "id": 22,
+        "name": "petak-lembap-bertunas-2"
+      },
+      {
+        "id": 23,
+        "name": "petak-lembap-bertunas-3"
+      }
+    ],
+    "efek": [
+      {
+        "id": 0,
+        "name": "debu-cangkul-1"
+      },
+      {
+        "id": 1,
+        "name": "debu-cangkul-2"
+      },
+      {
+        "id": 2,
+        "name": "debu-cangkul-3"
+      },
+      {
+        "id": 3,
+        "name": "debu-cangkul-4"
+      },
+      {
+        "id": 4,
+        "name": "percik-siram-1"
+      },
+      {
+        "id": 5,
+        "name": "percik-siram-2"
+      },
+      {
+        "id": 6,
+        "name": "percik-siram-3"
+      },
+      {
+        "id": 7,
+        "name": "percik-siram-4"
+      },
+      {
+        "id": 8,
+        "name": "benih-jatuh-1"
+      },
+      {
+        "id": 9,
+        "name": "benih-jatuh-2"
+      },
+      {
+        "id": 10,
+        "name": "benih-jatuh-3"
+      },
+      {
+        "id": 11,
+        "name": "benih-jatuh-4"
+      },
+      {
+        "id": 12,
+        "name": "kilau-panen-1"
+      },
+      {
+        "id": 13,
+        "name": "kilau-panen-2"
+      },
+      {
+        "id": 14,
+        "name": "kilau-panen-3"
+      },
+      {
+        "id": 15,
+        "name": "kilau-panen-4"
+      }
+    ],
+    "jalan-utama": [
+      {
+        "id": 0,
+        "name": "jalan-utama-00-1"
+      },
+      {
+        "id": 1,
+        "name": "jalan-utama-01-1"
+      },
+      {
+        "id": 2,
+        "name": "jalan-utama-02-1"
+      },
+      {
+        "id": 3,
+        "name": "jalan-utama-03-1"
+      },
+      {
+        "id": 4,
+        "name": "jalan-utama-04-1"
+      },
+      {
+        "id": 5,
+        "name": "jalan-utama-05-1"
+      },
+      {
+        "id": 6,
+        "name": "jalan-utama-06-1"
+      },
+      {
+        "id": 7,
+        "name": "jalan-utama-07-1"
+      },
+      {
+        "id": 8,
+        "name": "jalan-utama-08-1"
+      },
+      {
+        "id": 9,
+        "name": "jalan-utama-09-1"
+      },
+      {
+        "id": 10,
+        "name": "jalan-utama-10-1"
+      },
+      {
+        "id": 11,
+        "name": "jalan-utama-11-1"
+      },
+      {
+        "id": 12,
+        "name": "jalan-utama-12-1"
+      },
+      {
+        "id": 13,
+        "name": "jalan-utama-13-1"
+      },
+      {
+        "id": 14,
+        "name": "jalan-utama-14-1"
+      },
+      {
+        "id": 15,
+        "name": "jalan-utama-15-1"
+      },
+      {
+        "id": 16,
+        "name": "jalan-utama-00-2"
+      },
+      {
+        "id": 17,
+        "name": "jalan-utama-01-2"
+      },
+      {
+        "id": 18,
+        "name": "jalan-utama-02-2"
+      },
+      {
+        "id": 19,
+        "name": "jalan-utama-03-2"
+      },
+      {
+        "id": 20,
+        "name": "jalan-utama-04-2"
+      },
+      {
+        "id": 21,
+        "name": "jalan-utama-05-2"
+      },
+      {
+        "id": 22,
+        "name": "jalan-utama-06-2"
+      },
+      {
+        "id": 23,
+        "name": "jalan-utama-07-2"
+      },
+      {
+        "id": 24,
+        "name": "jalan-utama-08-2"
+      },
+      {
+        "id": 25,
+        "name": "jalan-utama-09-2"
+      },
+      {
+        "id": 26,
+        "name": "jalan-utama-10-2"
+      },
+      {
+        "id": 27,
+        "name": "jalan-utama-11-2"
+      },
+      {
+        "id": 28,
+        "name": "jalan-utama-12-2"
+      },
+      {
+        "id": 29,
+        "name": "jalan-utama-13-2"
+      },
+      {
+        "id": 30,
+        "name": "jalan-utama-14-2"
+      },
+      {
+        "id": 31,
+        "name": "jalan-utama-15-2"
+      }
+    ],
+    "transisi": [
+      {
+        "id": 0,
+        "name": "rumput-tanah-1-0"
+      },
+      {
+        "id": 1,
+        "name": "rumput-tanah-1-90"
+      },
+      {
+        "id": 2,
+        "name": "rumput-tanah-1-180"
+      },
+      {
+        "id": 3,
+        "name": "rumput-tanah-1-270"
+      },
+      {
+        "id": 4,
+        "name": "rumput-tanah-2-0"
+      },
+      {
+        "id": 5,
+        "name": "rumput-tanah-2-90"
+      },
+      {
+        "id": 6,
+        "name": "rumput-tanah-2-180"
+      },
+      {
+        "id": 7,
+        "name": "rumput-tanah-2-270"
+      },
+      {
+        "id": 8,
+        "name": "kering-lembap-1-0"
+      },
+      {
+        "id": 9,
+        "name": "kering-lembap-1-90"
+      },
+      {
+        "id": 10,
+        "name": "kering-lembap-1-180"
+      },
+      {
+        "id": 11,
+        "name": "kering-lembap-1-270"
+      },
+      {
+        "id": 12,
+        "name": "kering-lembap-2-0"
+      },
+      {
+        "id": 13,
+        "name": "kering-lembap-2-90"
+      },
+      {
+        "id": 14,
+        "name": "kering-lembap-2-180"
+      },
+      {
+        "id": 15,
+        "name": "kering-lembap-2-270"
+      },
+      {
+        "id": 16,
+        "name": "jalan-paving-1-0"
+      },
+      {
+        "id": 17,
+        "name": "jalan-paving-1-90"
+      },
+      {
+        "id": 18,
+        "name": "jalan-paving-1-180"
+      },
+      {
+        "id": 19,
+        "name": "jalan-paving-1-270"
+      },
+      {
+        "id": 20,
+        "name": "jalan-paving-2-0"
+      },
+      {
+        "id": 21,
+        "name": "jalan-paving-2-90"
+      },
+      {
+        "id": 22,
+        "name": "jalan-paving-2-180"
+      },
+      {
+        "id": 23,
+        "name": "jalan-paving-2-270"
+      }
+    ],
+    "permukaan-empat-lokasi": [
+      {
+        "id": 0,
+        "name": "paving-pasar-01"
+      },
+      {
+        "id": 1,
+        "name": "paving-pasar-02"
+      },
+      {
+        "id": 2,
+        "name": "paving-pasar-03"
+      },
+      {
+        "id": 3,
+        "name": "paving-pasar-04"
+      },
+      {
+        "id": 4,
+        "name": "paving-pasar-05"
+      },
+      {
+        "id": 5,
+        "name": "paving-pasar-06"
+      },
+      {
+        "id": 6,
+        "name": "paving-pasar-07"
+      },
+      {
+        "id": 7,
+        "name": "paving-pasar-08"
+      },
+      {
+        "id": 8,
+        "name": "paving-pasar-09"
+      },
+      {
+        "id": 9,
+        "name": "paving-pasar-10"
+      },
+      {
+        "id": 10,
+        "name": "paving-pasar-11"
+      },
+      {
+        "id": 11,
+        "name": "paving-pasar-12"
+      },
+      {
+        "id": 12,
+        "name": "paving-pasar-13"
+      },
+      {
+        "id": 13,
+        "name": "paving-pasar-14"
+      },
+      {
+        "id": 14,
+        "name": "paving-pasar-15"
+      },
+      {
+        "id": 15,
+        "name": "paving-pasar-16"
+      },
+      {
+        "id": 16,
+        "name": "dangkal-sungai-01"
+      },
+      {
+        "id": 17,
+        "name": "dangkal-sungai-02"
+      },
+      {
+        "id": 18,
+        "name": "dangkal-sungai-03"
+      },
+      {
+        "id": 19,
+        "name": "dangkal-sungai-04"
+      },
+      {
+        "id": 20,
+        "name": "dangkal-sungai-05"
+      },
+      {
+        "id": 21,
+        "name": "dangkal-sungai-06"
+      },
+      {
+        "id": 22,
+        "name": "dangkal-sungai-07"
+      },
+      {
+        "id": 23,
+        "name": "dangkal-sungai-08"
+      },
+      {
+        "id": 24,
+        "name": "dalam-sungai-01"
+      },
+      {
+        "id": 25,
+        "name": "dalam-sungai-02"
+      },
+      {
+        "id": 26,
+        "name": "dalam-sungai-03"
+      },
+      {
+        "id": 27,
+        "name": "dalam-sungai-04"
+      },
+      {
+        "id": 28,
+        "name": "dalam-sungai-05"
+      },
+      {
+        "id": 29,
+        "name": "dalam-sungai-06"
+      },
+      {
+        "id": 30,
+        "name": "dalam-sungai-07"
+      },
+      {
+        "id": 31,
+        "name": "dalam-sungai-08"
+      },
+      {
+        "id": 32,
+        "name": "rumput-liar-01"
+      },
+      {
+        "id": 33,
+        "name": "rumput-liar-02"
+      },
+      {
+        "id": 34,
+        "name": "rumput-liar-03"
+      },
+      {
+        "id": 35,
+        "name": "rumput-liar-04"
+      },
+      {
+        "id": 36,
+        "name": "rumput-liar-05"
+      },
+      {
+        "id": 37,
+        "name": "rumput-liar-06"
+      },
+      {
+        "id": 38,
+        "name": "rumput-liar-07"
+      },
+      {
+        "id": 39,
+        "name": "rumput-liar-08"
+      }
+    ]
+  },
+  "atlasTileSize": {
+    "jalan-utama": 40
+  },
+  "objects": [
+    {
+      "id": 0,
+      "name": "rumah-yanzen",
+      "file": "objek/rumah-yanzen.png",
+      "width": 112,
+      "height": 96,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 1,
+      "name": "gudang-kayu",
+      "file": "objek/gudang-kayu.png",
+      "width": 82,
+      "height": 74,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 2,
+      "name": "warung-inggit",
+      "file": "objek/warung-inggit.png",
+      "width": 105,
+      "height": 92,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 3,
+      "name": "kandang-ayam",
+      "file": "objek/kandang-ayam.png",
+      "width": 69,
+      "height": 74,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 4,
+      "name": "kanopi-pohon",
+      "file": "objek/kanopi-pohon.png",
+      "width": 69,
+      "height": 58,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 5,
+      "name": "batang-pohon",
+      "file": "objek/batang-pohon.png",
+      "width": 25,
+      "height": 44,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 6,
+      "name": "semak",
+      "file": "objek/semak.png",
+      "width": 38,
+      "height": 25,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 7,
+      "name": "bunga-melati",
+      "file": "objek/bunga-melati.png",
+      "width": 30,
+      "height": 21,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 8,
+      "name": "rumput-tinggi",
+      "file": "objek/rumput-tinggi.png",
+      "width": 20,
+      "height": 17,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 9,
+      "name": "pot-daun",
+      "file": "objek/pot-daun.png",
+      "width": 23,
+      "height": 25,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 10,
+      "name": "batu-kanal",
+      "file": "objek/batu-kanal.png",
+      "width": 21,
+      "height": 16,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 11,
+      "name": "papan-arah",
+      "file": "objek/papan-arah.png",
+      "width": 23,
+      "height": 24,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 12,
+      "name": "jemuran",
+      "file": "objek/jemuran.png",
+      "width": 48,
+      "height": 36,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 13,
+      "name": "peti-kayu",
+      "file": "objek/peti-kayu.png",
+      "width": 20,
+      "height": 20,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 14,
+      "name": "gembor",
+      "file": "objek/gembor.png",
+      "width": 21,
+      "height": 13,
+      "anchor": "bottom-center"
+    },
+    {
+      "id": 15,
+      "name": "cangkul",
+      "file": "objek/cangkul.png",
+      "width": 18,
+      "height": 22,
+      "anchor": "bottom-center"
+    }
+  ],
+  "landmarks": [
+    {
+      "id": 0,
+      "name": "rumah-nani",
+      "file": "landmark/rumah-nani.png",
+      "width": 126,
+      "height": 106,
+      "anchor": "bottom-center",
+      "location": "gang"
+    },
+    {
+      "id": 1,
+      "name": "rumah-warga",
+      "file": "landmark/rumah-warga.png",
+      "width": 116,
+      "height": 95,
+      "anchor": "bottom-center",
+      "location": "gang"
+    },
+    {
+      "id": 2,
+      "name": "kios-sayur-buka",
+      "file": "landmark/kios-sayur-buka.png",
+      "width": 83,
+      "height": 82,
+      "anchor": "bottom-center",
+      "location": "pasar"
+    },
+    {
+      "id": 3,
+      "name": "kios-sayur-tutup",
+      "file": "landmark/kios-sayur-tutup.png",
+      "width": 82,
+      "height": 82,
+      "anchor": "bottom-center",
+      "location": "pasar"
+    },
+    {
+      "id": 4,
+      "name": "peti-dagangan-sayur",
+      "file": "landmark/peti-dagangan-sayur.png",
+      "width": 50,
+      "height": 31,
+      "anchor": "bottom-center",
+      "location": "pasar"
+    },
+    {
+      "id": 5,
+      "name": "keranjang-buah",
+      "file": "landmark/keranjang-buah.png",
+      "width": 24,
+      "height": 21,
+      "anchor": "bottom-center",
+      "location": "pasar"
+    },
+    {
+      "id": 6,
+      "name": "bangku-kayu",
+      "file": "landmark/bangku-kayu.png",
+      "width": 42,
+      "height": 26,
+      "anchor": "bottom-center",
+      "location": "gang"
+    },
+    {
+      "id": 7,
+      "name": "papan-pasar",
+      "file": "landmark/papan-pasar.png",
+      "width": 30,
+      "height": 25,
+      "anchor": "bottom-center",
+      "location": "pasar"
+    },
+    {
+      "id": 8,
+      "name": "pintu-air-kayu",
+      "file": "landmark/pintu-air-kayu.png",
+      "width": 80,
+      "height": 68,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 9,
+      "name": "jembatan-kayu",
+      "file": "landmark/jembatan-kayu.png",
+      "width": 95,
+      "height": 53,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 10,
+      "name": "tangga-batu",
+      "file": "landmark/tangga-batu.png",
+      "width": 35,
+      "height": 30,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 11,
+      "name": "talud-batu",
+      "file": "landmark/talud-batu.png",
+      "width": 62,
+      "height": 31,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 12,
+      "name": "rumpun-tepian",
+      "file": "landmark/rumpun-tepian.png",
+      "width": 34,
+      "height": 28,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 13,
+      "name": "pohon-pisang",
+      "file": "landmark/pohon-pisang.png",
+      "width": 56,
+      "height": 54,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 14,
+      "name": "rumpun-bambu",
+      "file": "landmark/rumpun-bambu.png",
+      "width": 65,
+      "height": 70,
+      "anchor": "bottom-center",
+      "location": "sungai"
+    },
+    {
+      "id": 15,
+      "name": "rumpun-bunga-liar",
+      "file": "landmark/rumpun-bunga-liar.png",
+      "width": 37,
+      "height": 23,
+      "anchor": "bottom-center",
+      "location": "gang"
+    }
+  ],
+  "fieldDetails": [
+    {
+      "id": 0,
+      "name": "tebing-batu",
+      "file": "detail-kebun/tebing-batu.png",
+      "width": 28,
+      "height": 17,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 1,
+      "name": "batu-kembar",
+      "file": "detail-kebun/batu-kembar.png",
+      "width": 26,
+      "height": 15,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 2,
+      "name": "ilalang-kanal",
+      "file": "detail-kebun/ilalang-kanal.png",
+      "width": 20,
+      "height": 15,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 3,
+      "name": "riak-kanal",
+      "file": "detail-kebun/riak-kanal.png",
+      "width": 30,
+      "height": 16,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 4,
+      "name": "tajuk-kebun",
+      "file": "detail-kebun/tajuk-kebun.png",
+      "width": 88,
+      "height": 82,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 5,
+      "name": "semak-rimbun",
+      "file": "detail-kebun/semak-rimbun.png",
+      "width": 51,
+      "height": 26,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 6,
+      "name": "daun-tropis",
+      "file": "detail-kebun/daun-tropis.png",
+      "width": 36,
+      "height": 28,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 7,
+      "name": "bunga-pinggir",
+      "file": "detail-kebun/bunga-pinggir.png",
+      "width": 34,
+      "height": 18,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 8,
+      "name": "titian-kayu",
+      "file": "detail-kebun/titian-kayu.png",
+      "width": 53,
+      "height": 33,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 9,
+      "name": "pagar-kandang",
+      "file": "detail-kebun/pagar-kandang.png",
+      "width": 62,
+      "height": 29,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 10,
+      "name": "gerbang-kandang",
+      "file": "detail-kebun/gerbang-kandang.png",
+      "width": 37,
+      "height": 24,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 11,
+      "name": "tiang-kandang",
+      "file": "detail-kebun/tiang-kandang.png",
+      "width": 14,
+      "height": 24,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 12,
+      "name": "ayam-putih",
+      "file": "detail-kebun/ayam-putih.png",
+      "width": 19,
+      "height": 19,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 13,
+      "name": "anak-ayam",
+      "file": "detail-kebun/anak-ayam.png",
+      "width": 21,
+      "height": 9,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 14,
+      "name": "pot-berbunga",
+      "file": "detail-kebun/pot-berbunga.png",
+      "width": 22,
+      "height": 23,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 15,
+      "name": "palung",
+      "file": "detail-kebun/palung.png",
+      "width": 32,
+      "height": 18,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    }
+  ],
+  "expandedFieldObjects": [
+    {
+      "id": 0,
+      "name": "rumah-tiga-perempat",
+      "file": "kebun-luas/rumah-tiga-perempat.png",
+      "width": 128,
+      "height": 114,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 1,
+      "name": "gudang-tiga-perempat",
+      "file": "kebun-luas/gudang-tiga-perempat.png",
+      "width": 105,
+      "height": 89,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 2,
+      "name": "kandang-tiga-perempat",
+      "file": "kebun-luas/kandang-tiga-perempat.png",
+      "width": 90,
+      "height": 82,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 3,
+      "name": "teras-bertangga",
+      "file": "kebun-luas/teras-bertangga.png",
+      "width": 35,
+      "height": 36,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 4,
+      "name": "tepi-kanal-pakis",
+      "file": "kebun-luas/tepi-kanal-pakis.png",
+      "width": 40,
+      "height": 31,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 5,
+      "name": "tepi-kanal-berlumut",
+      "file": "kebun-luas/tepi-kanal-berlumut.png",
+      "width": 42,
+      "height": 24,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 6,
+      "name": "talud-sudut",
+      "file": "kebun-luas/talud-sudut.png",
+      "width": 38,
+      "height": 26,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 7,
+      "name": "titian-utara-selatan",
+      "file": "kebun-luas/titian-utara-selatan.png",
+      "width": 49,
+      "height": 58,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 8,
+      "name": "tajuk-terang",
+      "file": "kebun-luas/tajuk-terang.png",
+      "width": 85,
+      "height": 79,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 9,
+      "name": "tajuk-teduh",
+      "file": "kebun-luas/tajuk-teduh.png",
+      "width": 74,
+      "height": 74,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 10,
+      "name": "rimbun-pakis-daun",
+      "file": "kebun-luas/rimbun-pakis-daun.png",
+      "width": 51,
+      "height": 42,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 11,
+      "name": "rumpun-bunga-tepi-jalan",
+      "file": "kebun-luas/rumpun-bunga-tepi-jalan.png",
+      "width": 42,
+      "height": 33,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 12,
+      "name": "pagar-serong",
+      "file": "kebun-luas/pagar-serong.png",
+      "width": 50,
+      "height": 46,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 13,
+      "name": "gerbang-kayu",
+      "file": "kebun-luas/gerbang-kayu.png",
+      "width": 46,
+      "height": 39,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 14,
+      "name": "kelompok-pot",
+      "file": "kebun-luas/kelompok-pot.png",
+      "width": 36,
+      "height": 29,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    },
+    {
+      "id": 15,
+      "name": "tong-dan-papan",
+      "file": "kebun-luas/tong-dan-papan.png",
+      "width": 38,
+      "height": 30,
+      "anchor": "bottom-center",
+      "location": "kebun"
+    }
+  ]
+}

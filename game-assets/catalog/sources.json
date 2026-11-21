@@ -201,6 +201,37 @@
       "runtimePresent": false,
       "sha256": null,
       "plannedDirectory": "public/game/assets/tiles"
+    },
+    {
+      "id": "kenney-ui-pixel-adventure",
+      "name": "UI Pack - Pixel Adventure (selected starter sprites)",
+      "author": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/ui-pack-pixel-adventure",
+      "license": "CC0-1.0",
+      "redistribution": "CC0",
+      "tags": [
+        "pixel-ui",
+        "panels",
+        "dialogue",
+        "smartphone",
+        "vendor-reference"
+      ],
+      "status": "reviewed",
+      "notes": "16 selected 16x16 sprites, source from pinned GitHub mirror, license official CC0; held in private vendor art staging until style/pixel scaling QA.",
+      "checkedOn": "2026-11-19",
+      "licenseEvidenceUrl": "https://kenney.nl/assets/ui-pack-pixel-adventure",
+      "rawPresent": true,
+      "runtimePresent": false,
+      "sha256": null,
+      "plannedDirectory": "public/game/assets/ui",
+      "rawFiles": [
+        "game-assets/vendor/kenney-ui-pixel-adventure/tile_0000.png",
+        "game-assets/vendor/kenney-ui-pixel-adventure/tile_0015.png",
+        "game-assets/vendor/kenney-ui-pixel-adventure/LICENSE.txt",
+        "game-assets/vendor/kenney-ui-pixel-adventure/manifest.json"
+      ],
+      "sourceGitBlobSha": "4cb1238c3634350c1455cf51772250cfb10de56b",
+      "upstreamMirrorUrl": "https://github.com/shorepine/kenney/tree/3694c6879e487c108f55677be7dd2ca75b07cc3b/ui/UI%20Pack%20-%20Pixel%20Adventure"
     }
   ]
 }

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "policy": "Do not vendor complete third-party engines, install unused runtime packages, or ship unreviewed assets. Tools are GitHub-linked choices; only explicitly integrated artifacts have repo paths.",
+  "records": [
+    {
+      "id": "tiled",
+      "name": "Tiled Map Editor",
+      "repository": "https://github.com/mapeditor/tiled",
+      "license": "GPL-2.0-or-later",
+      "type": "external-editor",
+      "adoption": "integrated-format",
+      "purpose": "Edit master tilemaps, tile layers, collision and marker objects.",
+      "integrationPaths": [
+        "scripts/game-world/export-tiled.mjs",
+        "game-assets/tiled/pasirluyu-master.tmj",
+        "game-assets/tiled/pasirluyu.world"
+      ],
+      "note": "Tiled executable is not embedded or distributed; GPL on editor doesn't make YZ Farm Life GPL."
+    },
+    {
+      "id": "ldtk",
+      "name": "LDtk",
+      "repository": "https://github.com/deepnight/ldtk",
+      "license": "MIT",
+      "type": "external-editor",
+      "adoption": "evaluated-alternative",
+      "purpose": "Alternative entity-based 2D level editor; do not run two incompatible map source formats.",
+      "integrationPaths": [],
+      "note": "Tiled is chosen as the initial single source format."
+    },
+    {
+      "id": "tweenjs",
+      "name": "Tween.js",
+      "repository": "https://github.com/tweenjs/tween.js",
+      "license": "MIT",
+      "type": "js-library",
+      "adoption": "evaluated-not-installed",
+      "purpose": "Easing for camera, dialogue panels and UI transitions.",
+      "integrationPaths": [],
+      "note": "Existing WalkPath/Footwork and CSS transitions take priority; install only with explicit measured need."
+    },
+    {
+      "id": "howler",
+      "name": "Howler.js",
+      "repository": "https://github.com/goldfire/howler.js",
+      "license": "MIT",
+      "type": "js-library",
+      "adoption": "evaluated-not-installed",
+      "purpose": "Layered ambience, SFX and cross-browser volume control.",
+      "integrationPaths": [],
+      "note": "FieldAudio already handles real ambience and sound on iOS; do not duplicate AudioContexts."
+    },
+    {
+      "id": "easystar",
+      "name": "EasyStar.js",
+      "repository": "https://github.com/prettymuchbryce/easystarjs",
+      "license": "MIT",
+      "type": "js-library",
+      "adoption": "evaluated-not-installed",
+      "purpose": "Optional A* pathfinding for larger collision grids.",
+      "integrationPaths": [],
+      "note": "Current BFS handles 24x16 Pasirluyu areas; benchmark before switching."
+    },
+    {
+      "id": "libresprite",
+      "name": "LibreSprite",
+      "repository": "https://github.com/LibreSprite/LibreSprite",
+      "license": "GPL-2.0",
+      "type": "external-editor",
+      "adoption": "recommended-editor",
+      "purpose": "Author/edit sprite sheets and walk animations locally.",
+      "integrationPaths": [],
+      "note": "Editor is separate from shipped game; game must only embed appropriately licensed sprite artwork."
+    },
+    {
+      "id": "kenney-tiny-town",
+      "name": "Kenney Tiny Town",
+      "repository": "https://github.com/shorepine/kenney",
+      "officialSource": "https://kenney.nl/assets/tiny-town",
+      "license": "CC0-1.0",
+      "type": "asset-pack",
+      "adoption": "already-vendored",
+      "purpose": "Reference compact town buildings, fences and signs.",
+      "integrationPaths": [
+        "game-assets/vendor/kenney-tiny-town/"
+      ],
+      "note": "Present before this task; 16x16 grid needs art style review before use."
+    },
+    {
+      "id": "kenney-rpg-urban",
+      "name": "Kenney RPG Urban Pack",
+      "repository": "https://github.com/shorepine/kenney",
+      "officialSource": "https://kenney.nl/assets/rpg-urban-pack",
+      "license": "CC0-1.0",
+      "type": "asset-pack",
+      "adoption": "already-vendored",
+      "purpose": "Reference urban street and market props.",
+      "integrationPaths": [
+        "game-assets/vendor/kenney-rpg-urban-pack/"
+      ],
+      "note": "Already available in repository vendor."
+    },
+    {
+      "id": "kenney-ui-pixel-adventure",
+      "name": "Kenney UI Pack - Pixel Adventure",
+      "repository": "https://github.com/shorepine/kenney",
+      "officialSource": "https://kenney.nl/assets/ui-pack-pixel-adventure",
+      "license": "CC0-1.0",
+      "type": "asset-pack",
+      "adoption": "new-vendor-import",
+      "purpose": "16 starter pixels for story panels and YZ Phone skin.",
+      "integrationPaths": [
+        "game-assets/vendor/kenney-ui-pixel-adventure/"
+      ],
+      "note": "Selected 16 sprites copied from pinned mirror commit 3694c6879e487c108f55677be7dd2ca75b07cc3b. Not yet live in-game."
+    },
+    {
+      "id": "free-game-dev-assets",
+      "name": "Free Game Dev Assets",
+      "repository": "https://github.com/TMHSDigital/Free-Game-Dev-Assets",
+      "license": "mixed-per-asset",
+      "type": "discovery-catalog",
+      "adoption": "reference-only",
+      "purpose": "Find CC0 sounds and props. Verify each upstream item's license.",
+      "integrationPaths": [],
+      "note": "Do not bulk-import catalog contents; licenses vary by item."
+    }
+  ]
+}
