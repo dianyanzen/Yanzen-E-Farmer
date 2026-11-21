@@ -27,5 +27,5 @@ export async function readPrivateResidentBible(resident:ResidentProfile):Promise
  sections["01_core_identity"]={...sections["01_core_identity"],name:resident.name};
  sections["04_social_profile"]={...sections["04_social_profile"],occupation:resident.occupation};
  sections["11_visual_references"]={...sections["11_visual_references"],conceptPortrait:bandungConceptPortraitPath(resident.portrait)};
- return {id:resident.id,approval:"approved",characterClass:"canonical-private",sections} as CharacterBible;
+ return {id:resident.id,approval:"approved",characterClass:"canonical-private",sections} as unknown as CharacterBible;
 }
