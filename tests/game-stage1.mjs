@@ -175,6 +175,6 @@ for (const file of pasirluyuAssets) {
   const svg = readFileSync("public/game/assets/pasirluyu/"+file,"utf8");
   assert.ok(svg.includes('viewBox="0 0 480 320"'),file+" uses exact world grid");
   assert.ok(svg.startsWith('<svg') && svg.trim().endsWith("</svg>"),file+" is SVG");
-  assert.ok(svg.length>4000,file+" has more than placeholder art");
+  assert.ok((svg.match(/<(?:rect|path|circle|polygon|ellipse|line|pattern)\b/g) ?? []).length >= 40, file+" contains detailed rendered vector artwork");
 }
 console.log("Pasirluyu visual assets & scene dimensions: PASS");
