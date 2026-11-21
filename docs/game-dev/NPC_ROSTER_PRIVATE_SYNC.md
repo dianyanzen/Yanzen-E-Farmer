@@ -48,3 +48,15 @@ Validasi mengharuskan keenam nilai ID/nama/pekerjaan cocok *persis* dengan sumbe
 ## Cakupan perubahan ini
 
 Sinkronisasi tampilan daftar warga, detail, wajah, pemisahan karakter legacy, dan pengamanan private roster. Ini **bukan** migrasi otomatis atas 274 misi, 151 lokasi, dan 343 prasyarat yang datanya tetap berada di import/legacy untuk direview. Mengklaim migrasi tersebut selesai sebelum review berisiko memindahkan kisah pada orang yang salah.
+
+## Character Bible privat untuk seluruh 248 warga
+
+Jalankan `npm run chars:bible:seed` sekali di Docker setelah roster tervalidasi. Perintah membuat `deploy/private/character-bibles.json` dengan **248 entri dan 12 kategori** di masing-masing entri, secara lokal saja, tanpa mengarang usia, keluarga, motivasi, konflik, atau riwayat warga. Semua entri berstatus `draft`, dan perintah **menolak menimpa** berkas lama.
+
+Setelah penulis meninjau setiap profil secara individual, ubah `approval` entri tersebut menjadi `approved`. Ketika login, YZ Phone mengambil profil itu **saat warga diklik**, lewat `/api/game/resident-bible/[id]` yang memerlukan sesi login dan tidak di-cache. Biografi yang belum disetujui tidak akan ditampilkan.
+
+Atur `GAME_RESIDENT_BIBLES=/path/privat/character-bibles.json` bila berkasnya tidak berada di lokasi default. Identitas inti, pekerjaan, dan referensi potret akan selalu dinormalisasi dari roster yang saat itu aktif, bukan menyalin nama yang mungkin sudah usang di Character Bible.
+
+`npm run chars:roster:check` memvalidasi 248 baris, keunikan ID/nama/portrait, keberadaan file gambar dan izin asosiasi legacy. Perintah hanya mencetak jumlah, tidak mencetak identitas.
+
+**Catatan:** 248 rancangan dengan 12 judul tidak berarti seluruh 248 *cerita* sudah tertulis. Kualitas naratif, dialog alami, ekspresi, serta kondisi runtime setiap NPC tetap membutuhkan peninjauan penulis dan tes permainan.
