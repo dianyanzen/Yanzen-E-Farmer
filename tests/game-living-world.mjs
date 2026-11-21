@@ -32,7 +32,7 @@ assert.equal(shop.location,"warung");
 assert.equal(safeLoad(shop).location,"warung");
 assert.equal(npcHere(shop)[0].id,"C08");
 assert.equal(model.interactDoor({...shop,player:{x:12,y:12,dir:"down"}}).location,"pasar");
-assert.match(getActionContext({...marketDoor,minutes:1200}).text,/Terkunci/);
+assert.match(getActionContext({...marketDoor,minutes:1200}).text,/terkunci/i);
 assert.equal(areaTitle("sungai"),"Bantaran Sungai");
 assert.equal(mapExit("field",22,10,"up"),null);
 assert.equal(mapExit("field",31,10,"right").location,"gang");
