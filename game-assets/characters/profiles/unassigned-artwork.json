@@ -1,0 +1,1620 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "inventoryType": "artwork-without-approved-character-identity",
+  "count": 179,
+  "policy": "Asset Rxxx adalah ilustrasi konsep, bukan 179 tokoh bernama. Jangan mengarang nama, keluarga, kondisi psikologis atau ID cerita hanya demi menambah angka NPC. Buat profil 12 kategori baru terlebih dahulu sebelum memasangkan asset ke karakter playable.",
+  "assets": [
+    {
+      "assetId": "R001",
+      "path": "public/game/assets/portraits/bandung/residents/R001.png",
+      "contentSha": "46eb80f52c6014ba0025ce4db8bb050cee2af191",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R002",
+      "path": "public/game/assets/portraits/bandung/residents/R002.png",
+      "contentSha": "2e89e8690e8c055529f53c4abc5ab514d4e04a94",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R003",
+      "path": "public/game/assets/portraits/bandung/residents/R003.png",
+      "contentSha": "fb8e6c57a364197857dfb00292812bef1fee682e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R004",
+      "path": "public/game/assets/portraits/bandung/residents/R004.png",
+      "contentSha": "d505ff469ffa2d7d641b8e1833c721550dc7e7cb",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R005",
+      "path": "public/game/assets/portraits/bandung/residents/R005.png",
+      "contentSha": "b66e74f1bc1a0a3bdddd55632d4a37851055fcad",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R006",
+      "path": "public/game/assets/portraits/bandung/residents/R006.png",
+      "contentSha": "7ec7b188d87583d7c05a736c79ac9fef166581d2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R007",
+      "path": "public/game/assets/portraits/bandung/residents/R007.png",
+      "contentSha": "93b2017bdb250cbd8c71105d6dd8aa8cbe802280",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R008",
+      "path": "public/game/assets/portraits/bandung/residents/R008.png",
+      "contentSha": "6b554adf1b38fb6207dd6ba7ef202ea0044e52ea",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R009",
+      "path": "public/game/assets/portraits/bandung/residents/R009.png",
+      "contentSha": "049f05784ab4066b9320c6ad90f3e54b15841868",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R010",
+      "path": "public/game/assets/portraits/bandung/residents/R010.png",
+      "contentSha": "97062c0fa83db7662c7f9149b56bd8eecaac99aa",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R011",
+      "path": "public/game/assets/portraits/bandung/residents/R011.png",
+      "contentSha": "9090b1a759bddda50af5ce25478db2e4ad2acb3e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R012",
+      "path": "public/game/assets/portraits/bandung/residents/R012.png",
+      "contentSha": "537868b2a754ddb00d260d5f220fb7092b47985a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R013",
+      "path": "public/game/assets/portraits/bandung/residents/R013.png",
+      "contentSha": "dd0eb9dddbad1aac5475cc24aa2d45d4053eb71a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R014",
+      "path": "public/game/assets/portraits/bandung/residents/R014.png",
+      "contentSha": "e859a47146a1ede136e6449507e4f33452b65c39",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R015",
+      "path": "public/game/assets/portraits/bandung/residents/R015.png",
+      "contentSha": "6eb5daadc21741815810dee69282d7acbc14f71e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R016",
+      "path": "public/game/assets/portraits/bandung/residents/R016.png",
+      "contentSha": "1db5a45407648719007bfd6e647e9dbe7748098c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R017",
+      "path": "public/game/assets/portraits/bandung/residents/R017.png",
+      "contentSha": "8f1764fe3c51301766940d7a349868fa7e863cd3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R018",
+      "path": "public/game/assets/portraits/bandung/residents/R018.png",
+      "contentSha": "f65d62cc9b667f1e0e1a07e36386115ec52c9fc4",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R019",
+      "path": "public/game/assets/portraits/bandung/residents/R019.png",
+      "contentSha": "dc7a7a461d1b3deb7e648cb62e59da0d5edff775",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R020",
+      "path": "public/game/assets/portraits/bandung/residents/R020.png",
+      "contentSha": "f689e8192fbd48eec5e4698d5cbcb2c04568dfa5",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R021",
+      "path": "public/game/assets/portraits/bandung/residents/R021.png",
+      "contentSha": "33c5e5b11a87bf66ac3cdda8d6c8258313fff8cf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R022",
+      "path": "public/game/assets/portraits/bandung/residents/R022.png",
+      "contentSha": "88b886a0c94fd520825ea0633f13cdea0b2fda52",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R023",
+      "path": "public/game/assets/portraits/bandung/residents/R023.png",
+      "contentSha": "46ff4c01e6bf06ee6eb9863f49fe2bfe0c592672",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R024",
+      "path": "public/game/assets/portraits/bandung/residents/R024.png",
+      "contentSha": "59ce2bff0c6d286b885258e2d4b96cda5dc7a157",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R025",
+      "path": "public/game/assets/portraits/bandung/residents/R025.png",
+      "contentSha": "ec8e01886833eadc57cce2b0e977f04949117ddf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R026",
+      "path": "public/game/assets/portraits/bandung/residents/R026.png",
+      "contentSha": "1c117ee6950ddf2018fa424d42f1058ae8243d16",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R027",
+      "path": "public/game/assets/portraits/bandung/residents/R027.png",
+      "contentSha": "62f3b88564654f89717b8becb37112f8a3dbebbd",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R028",
+      "path": "public/game/assets/portraits/bandung/residents/R028.png",
+      "contentSha": "63671b400ab2e3fa19462420aa22daf24e39a088",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R029",
+      "path": "public/game/assets/portraits/bandung/residents/R029.png",
+      "contentSha": "165fcfb8dd946f2f6d9a60d95b196278050e1621",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R030",
+      "path": "public/game/assets/portraits/bandung/residents/R030.png",
+      "contentSha": "1a148568c7acc3d010709bcb9848d2a0d73de235",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R031",
+      "path": "public/game/assets/portraits/bandung/residents/R031.png",
+      "contentSha": "93800ea09b7d45f839bcc53b632fe18adfe35674",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R032",
+      "path": "public/game/assets/portraits/bandung/residents/R032.png",
+      "contentSha": "eb00f080769a32753cb88c36053cd52932184e73",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R033",
+      "path": "public/game/assets/portraits/bandung/residents/R033.png",
+      "contentSha": "e11506d67ad5ab9a74301c9a3e4f00e4ae25b949",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R034",
+      "path": "public/game/assets/portraits/bandung/residents/R034.png",
+      "contentSha": "0fe826c82890eb58c86df53e153e82868a3f1dba",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R035",
+      "path": "public/game/assets/portraits/bandung/residents/R035.png",
+      "contentSha": "1fe1ae62530ae584a6e4064fe1a43f2223351710",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R036",
+      "path": "public/game/assets/portraits/bandung/residents/R036.png",
+      "contentSha": "02ff90dc0a0c550412e946ec360f65a2a3b16816",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R037",
+      "path": "public/game/assets/portraits/bandung/residents/R037.png",
+      "contentSha": "2823d3f7f8fedb937d7455a06eda9f3eaf5b1e80",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R038",
+      "path": "public/game/assets/portraits/bandung/residents/R038.png",
+      "contentSha": "1e66c2bc79adffcec84746b199554284c41bf0ab",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R039",
+      "path": "public/game/assets/portraits/bandung/residents/R039.png",
+      "contentSha": "49e3764c77c012032f54715b08363e73ea701d5e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R040",
+      "path": "public/game/assets/portraits/bandung/residents/R040.png",
+      "contentSha": "61ecc911d1f6625e56009b133d819d48f99687bf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R041",
+      "path": "public/game/assets/portraits/bandung/residents/R041.png",
+      "contentSha": "d5650b4a804c730611cf69dec73859630c6d9500",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R042",
+      "path": "public/game/assets/portraits/bandung/residents/R042.png",
+      "contentSha": "71b95a4cb7c6eb20970d50df2d120c3e445ff857",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R043",
+      "path": "public/game/assets/portraits/bandung/residents/R043.png",
+      "contentSha": "34cf96d4214420509ba710676808080f231f8c94",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R044",
+      "path": "public/game/assets/portraits/bandung/residents/R044.png",
+      "contentSha": "394fbd9e3d556d9374a41c2b9fdcea1dfd7a83bd",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R045",
+      "path": "public/game/assets/portraits/bandung/residents/R045.png",
+      "contentSha": "e38c1e5298b9107a3bb60e4f05fde773217ab787",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R046",
+      "path": "public/game/assets/portraits/bandung/residents/R046.png",
+      "contentSha": "33cb824b6ab4b5261f8839beb02dc0d4c38ba6cd",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R047",
+      "path": "public/game/assets/portraits/bandung/residents/R047.png",
+      "contentSha": "d9cfe9e011794458c15691237dcbfe6132724889",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R048",
+      "path": "public/game/assets/portraits/bandung/residents/R048.png",
+      "contentSha": "17d9a244ae8c25d439702dec76d632ec1b7ee7d4",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R049",
+      "path": "public/game/assets/portraits/bandung/residents/R049.png",
+      "contentSha": "f27e49662d196f47c29a734d5061d4c08fba85f9",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R050",
+      "path": "public/game/assets/portraits/bandung/residents/R050.png",
+      "contentSha": "256ea63d5e2c35a31c2a6d144eef1a400281aab6",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R051",
+      "path": "public/game/assets/portraits/bandung/residents/R051.png",
+      "contentSha": "48d5c1284ee3c25a86bb7d8f3199c834c2a0ed3c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R052",
+      "path": "public/game/assets/portraits/bandung/residents/R052.png",
+      "contentSha": "5391622fa1250dfebec35bbe911c9101a5379e03",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R053",
+      "path": "public/game/assets/portraits/bandung/residents/R053.png",
+      "contentSha": "bbd02a848b66f9c8fda234b4bfa639637de6876d",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R054",
+      "path": "public/game/assets/portraits/bandung/residents/R054.png",
+      "contentSha": "91b42538bc626a9bb73320efbebd24ed6cbdcb60",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R055",
+      "path": "public/game/assets/portraits/bandung/residents/R055.png",
+      "contentSha": "5f4a536116cc996bee12703b61cf0fbdf78b7fe5",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R056",
+      "path": "public/game/assets/portraits/bandung/residents/R056.png",
+      "contentSha": "be5fa8753d6ded2f0be9e82f69c7b53654ae66b8",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R057",
+      "path": "public/game/assets/portraits/bandung/residents/R057.png",
+      "contentSha": "ddc8b4caff3f293ffc21d6cc2ee58474ddc59f43",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R058",
+      "path": "public/game/assets/portraits/bandung/residents/R058.png",
+      "contentSha": "edf0b9e887eae3c6fad753e5819c670fae7aef5a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R059",
+      "path": "public/game/assets/portraits/bandung/residents/R059.png",
+      "contentSha": "16a6dacffd8bf4e8876525a33492384926b88952",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R060",
+      "path": "public/game/assets/portraits/bandung/residents/R060.png",
+      "contentSha": "b79b99f1fc27701909fd402948ff88422475b2c8",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R061",
+      "path": "public/game/assets/portraits/bandung/residents/R061.png",
+      "contentSha": "69c98ecf9184e1e0ea126126ae147fb610bec800",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R062",
+      "path": "public/game/assets/portraits/bandung/residents/R062.png",
+      "contentSha": "5efbf7529bf8c78e6c3340183b32090c47eec0ed",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R063",
+      "path": "public/game/assets/portraits/bandung/residents/R063.png",
+      "contentSha": "c3db48d756734c74ff40b255296bc106f34efb90",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R064",
+      "path": "public/game/assets/portraits/bandung/residents/R064.png",
+      "contentSha": "ad9ec1079f0e4d5b23ed0b3b5f9d3bb1a9abffae",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R065",
+      "path": "public/game/assets/portraits/bandung/residents/R065.png",
+      "contentSha": "d6402dc3d68673212146285a3b6e3e380c776a59",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R066",
+      "path": "public/game/assets/portraits/bandung/residents/R066.png",
+      "contentSha": "707f2269d4e91db9d80c9d41787d81a333395199",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R067",
+      "path": "public/game/assets/portraits/bandung/residents/R067.png",
+      "contentSha": "7b6b5f708073f01b7c99b67f9c125dee1163101b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R068",
+      "path": "public/game/assets/portraits/bandung/residents/R068.png",
+      "contentSha": "a4b36d93d00795405cbe89556f461beb06a33e85",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R069",
+      "path": "public/game/assets/portraits/bandung/residents/R069.png",
+      "contentSha": "3f4e135a0075d6267e1662a126dab394d801e162",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R070",
+      "path": "public/game/assets/portraits/bandung/residents/R070.png",
+      "contentSha": "9958c36e61667556e7fa0202f5c19178a4cffb4d",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R071",
+      "path": "public/game/assets/portraits/bandung/residents/R071.png",
+      "contentSha": "fe859660fd225d8af9f36b52c16d6915a7f9c0c7",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R072",
+      "path": "public/game/assets/portraits/bandung/residents/R072.png",
+      "contentSha": "7ac78a64ac02629d58791f2b1196cd07b9c64bcb",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R073",
+      "path": "public/game/assets/portraits/bandung/residents/R073.png",
+      "contentSha": "b6d1cef4a85a2867ffc8c2a3411aa5f3f5a5f86f",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R074",
+      "path": "public/game/assets/portraits/bandung/residents/R074.png",
+      "contentSha": "c86902693e99103f542656ffbb02b1cc2e8ff439",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R075",
+      "path": "public/game/assets/portraits/bandung/residents/R075.png",
+      "contentSha": "53dca41e0abd38be011af79f6e77b5b78fa0fe9c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R076",
+      "path": "public/game/assets/portraits/bandung/residents/R076.png",
+      "contentSha": "e380e634965f6121dc9b26df7738d2441cdc815c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R077",
+      "path": "public/game/assets/portraits/bandung/residents/R077.png",
+      "contentSha": "5a90714dc041209f9010aae1b1cdd93663ebe7ce",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R078",
+      "path": "public/game/assets/portraits/bandung/residents/R078.png",
+      "contentSha": "93825babae7d470d3126339de7e525172b6e82b8",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R079",
+      "path": "public/game/assets/portraits/bandung/residents/R079.png",
+      "contentSha": "ebdb3027bc3535ddccaef94ab8821a7a84b74a61",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R080",
+      "path": "public/game/assets/portraits/bandung/residents/R080.png",
+      "contentSha": "04af0506294b4a0ab34d144e2303a9870469e82e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R081",
+      "path": "public/game/assets/portraits/bandung/residents/R081.png",
+      "contentSha": "fb9247a710ff24357c8a44475a786df0d7147323",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R082",
+      "path": "public/game/assets/portraits/bandung/residents/R082.png",
+      "contentSha": "2d898a51726eaea243fcb788415b936859410d2f",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R083",
+      "path": "public/game/assets/portraits/bandung/residents/R083.png",
+      "contentSha": "092f802cc9d51494f4775e3997e52678354ebd2b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R084",
+      "path": "public/game/assets/portraits/bandung/residents/R084.png",
+      "contentSha": "9e66937e253876d6b23885a9d3dcd719fe474cf5",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R085",
+      "path": "public/game/assets/portraits/bandung/residents/R085.png",
+      "contentSha": "4a82339ca5ebddb7dc1a52edcbc27dd537986552",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R086",
+      "path": "public/game/assets/portraits/bandung/residents/R086.png",
+      "contentSha": "4472877a054b3a7993b8a7db3bda6ca9a6560836",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R087",
+      "path": "public/game/assets/portraits/bandung/residents/R087.png",
+      "contentSha": "6731ffed0ac4c1b79120f4ccdd7eff61fb3830b2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R088",
+      "path": "public/game/assets/portraits/bandung/residents/R088.png",
+      "contentSha": "f1b144ccf7464391680ffbde80380d427d9ef3db",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R089",
+      "path": "public/game/assets/portraits/bandung/residents/R089.png",
+      "contentSha": "623f6592c9e28a41f1ae3c5699d0568b44b620d8",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R090",
+      "path": "public/game/assets/portraits/bandung/residents/R090.png",
+      "contentSha": "4a56a7035bd0abb07117f066c787cdeea6bdaacf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R091",
+      "path": "public/game/assets/portraits/bandung/residents/R091.png",
+      "contentSha": "b73f961bb7226cd5a56ed5eacd46b913323785b3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R092",
+      "path": "public/game/assets/portraits/bandung/residents/R092.png",
+      "contentSha": "ea51f35fc85bc2b301498127ccf51e1ebbed1b28",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R093",
+      "path": "public/game/assets/portraits/bandung/residents/R093.png",
+      "contentSha": "f9a7094c0f55a38f611ef08fd33894890ba40e18",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R094",
+      "path": "public/game/assets/portraits/bandung/residents/R094.png",
+      "contentSha": "85a2a569952fae1d42923481597f6d90946fc699",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R095",
+      "path": "public/game/assets/portraits/bandung/residents/R095.png",
+      "contentSha": "27650691faddb2af6dba4edf43b3d77de3e6119a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R096",
+      "path": "public/game/assets/portraits/bandung/residents/R096.png",
+      "contentSha": "4074cced479bc4b7e7b6c949a0b686014e196b30",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R097",
+      "path": "public/game/assets/portraits/bandung/residents/R097.png",
+      "contentSha": "2b6dbe863d3fa9995dad3c5222f572fb45981aa0",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R098",
+      "path": "public/game/assets/portraits/bandung/residents/R098.png",
+      "contentSha": "fd1164ef1fd3b5db29a628426bd71814b276b4aa",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R099",
+      "path": "public/game/assets/portraits/bandung/residents/R099.png",
+      "contentSha": "233271d698eb999101807a3a5dae1d01b642ed75",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R100",
+      "path": "public/game/assets/portraits/bandung/residents/R100.png",
+      "contentSha": "6b95d9174ec9e397338867ce6022797ef35f4ce3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R101",
+      "path": "public/game/assets/portraits/bandung/residents/R101.png",
+      "contentSha": "ca4feb4ccd17cc6b0de2787d11396cb329ccf242",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R102",
+      "path": "public/game/assets/portraits/bandung/residents/R102.png",
+      "contentSha": "d86b761295030aefaa883520c9487b7133c3f546",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R103",
+      "path": "public/game/assets/portraits/bandung/residents/R103.png",
+      "contentSha": "ed313c3845797fc6f0d4e0567e3853880c613a55",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R104",
+      "path": "public/game/assets/portraits/bandung/residents/R104.png",
+      "contentSha": "dc90ae5b064e542f446877e59949c5bc86202d58",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R105",
+      "path": "public/game/assets/portraits/bandung/residents/R105.png",
+      "contentSha": "0ec0f42cbbf38103e70cb6ea508cc1a1a0d8379e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R106",
+      "path": "public/game/assets/portraits/bandung/residents/R106.png",
+      "contentSha": "b5e473c16f99a419260f0825615a13a9b28b4561",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R107",
+      "path": "public/game/assets/portraits/bandung/residents/R107.png",
+      "contentSha": "5c4a85fab09c087ec7c2c95ec37561403c72017b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R108",
+      "path": "public/game/assets/portraits/bandung/residents/R108.png",
+      "contentSha": "da55eb78a6f516ecf87f0ce0051237ddb89e24a2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R109",
+      "path": "public/game/assets/portraits/bandung/residents/R109.png",
+      "contentSha": "d861a786f2d379240c3e9d71830672cbdef5be33",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R110",
+      "path": "public/game/assets/portraits/bandung/residents/R110.png",
+      "contentSha": "9103f9da2fec4d0734249c949bbf06450b0f3eaf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R111",
+      "path": "public/game/assets/portraits/bandung/residents/R111.png",
+      "contentSha": "5417ce355998c6fc72314f7bed97074df8b32861",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R112",
+      "path": "public/game/assets/portraits/bandung/residents/R112.png",
+      "contentSha": "d84229b9c3f4fad7a070bd1315fcb38f0d43432b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R113",
+      "path": "public/game/assets/portraits/bandung/residents/R113.png",
+      "contentSha": "ef28902c375011494a841bfd80614da0789c864a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R114",
+      "path": "public/game/assets/portraits/bandung/residents/R114.png",
+      "contentSha": "e10e81e2f881e626177e359dac84f43a84ed1a18",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R115",
+      "path": "public/game/assets/portraits/bandung/residents/R115.png",
+      "contentSha": "619fa01d6d1e5bf148b47d14a09662a98c6c8d96",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R116",
+      "path": "public/game/assets/portraits/bandung/residents/R116.png",
+      "contentSha": "09ba8d25f5a3c24081b7480660783e63f964ed86",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R117",
+      "path": "public/game/assets/portraits/bandung/residents/R117.png",
+      "contentSha": "31343a7ec89d5ab86e6834da815e44fb8beecb57",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R118",
+      "path": "public/game/assets/portraits/bandung/residents/R118.png",
+      "contentSha": "16b3086480fc27c862bab54d501d9ec2c5ecf79c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R119",
+      "path": "public/game/assets/portraits/bandung/residents/R119.png",
+      "contentSha": "7fa225996a9f01a923c52107b5299ffdb94f93f1",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R120",
+      "path": "public/game/assets/portraits/bandung/residents/R120.png",
+      "contentSha": "4639ff5b58fd043b6c3fcb1bbd24b445ad11608c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R121",
+      "path": "public/game/assets/portraits/bandung/residents/R121.png",
+      "contentSha": "efd5d274c3a1d0112b462c766b6e9614209dffcf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R122",
+      "path": "public/game/assets/portraits/bandung/residents/R122.png",
+      "contentSha": "44230577dd350807cd573a325f8ce8c86cae6aa8",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R123",
+      "path": "public/game/assets/portraits/bandung/residents/R123.png",
+      "contentSha": "b455d6cfe5b15985b4a7d15416b3ddab3167d420",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R124",
+      "path": "public/game/assets/portraits/bandung/residents/R124.png",
+      "contentSha": "792514d3ce8cc93b92053d778758f5086aa48ae1",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R125",
+      "path": "public/game/assets/portraits/bandung/residents/R125.png",
+      "contentSha": "decb87dedeea8ab5f866fce21ecd61cb9eae6ccc",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R126",
+      "path": "public/game/assets/portraits/bandung/residents/R126.png",
+      "contentSha": "c78a385f028d0f3dd14e243a001bbc9e7c0fc35a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R127",
+      "path": "public/game/assets/portraits/bandung/residents/R127.png",
+      "contentSha": "5322df7433bb08549f99ad6c71cb4859251cd9e5",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R128",
+      "path": "public/game/assets/portraits/bandung/residents/R128.png",
+      "contentSha": "64fc921bac6c0961c397cd2fd28a0f63e732c90f",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R130",
+      "path": "public/game/assets/portraits/bandung/residents/R130.png",
+      "contentSha": "c80491c009bfabeb67030affc7fa667ff689d4d6",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R132",
+      "path": "public/game/assets/portraits/bandung/residents/R132.png",
+      "contentSha": "3d35ec066e60c0cafb187059a12de80462bbebf2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R134",
+      "path": "public/game/assets/portraits/bandung/residents/R134.png",
+      "contentSha": "50ce7b49d31e473f628e61d914ac2623804a5e27",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R136",
+      "path": "public/game/assets/portraits/bandung/residents/R136.png",
+      "contentSha": "4a380ad779561545d6afde9917c816df721aa4db",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R137",
+      "path": "public/game/assets/portraits/bandung/residents/R137.png",
+      "contentSha": "03ff9e4d21d0f66e518a624f966f1766e4f9d7ab",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R139",
+      "path": "public/game/assets/portraits/bandung/residents/R139.png",
+      "contentSha": "9c12b12fbdccf695a29d8aa7bef410abe2dba8b7",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R141",
+      "path": "public/game/assets/portraits/bandung/residents/R141.png",
+      "contentSha": "d6c8c38613faf94968c58a8b3bfee460dfd69bbb",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R142",
+      "path": "public/game/assets/portraits/bandung/residents/R142.png",
+      "contentSha": "2f926a4a83926c94a201f7b28dc4311528917e39",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R144",
+      "path": "public/game/assets/portraits/bandung/residents/R144.png",
+      "contentSha": "7a30adddfeb5a551b346ebcf546a8116cd2bba85",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R152",
+      "path": "public/game/assets/portraits/bandung/residents/R152.png",
+      "contentSha": "53e963fcb6e01f7db4ee5ddde779a82c87b1ce3a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R153",
+      "path": "public/game/assets/portraits/bandung/residents/R153.png",
+      "contentSha": "2e24379ebf980c4b7ab52b65b75ec5cf5f576e89",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R154",
+      "path": "public/game/assets/portraits/bandung/residents/R154.png",
+      "contentSha": "17329a7abe93a456815602997b361126d6f95f71",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R155",
+      "path": "public/game/assets/portraits/bandung/residents/R155.png",
+      "contentSha": "dd4562407f018e355fc89add5f16317656553271",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R156",
+      "path": "public/game/assets/portraits/bandung/residents/R156.png",
+      "contentSha": "35fc00abce129de61313e7e2900618cfcdb3a393",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R157",
+      "path": "public/game/assets/portraits/bandung/residents/R157.png",
+      "contentSha": "32a41c92232fc765c7846ced4a468c5794b97b45",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R158",
+      "path": "public/game/assets/portraits/bandung/residents/R158.png",
+      "contentSha": "7c9d29bc1f5b3a156203c51f00854e088cc135dd",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R164",
+      "path": "public/game/assets/portraits/bandung/residents/R164.png",
+      "contentSha": "dafa4c78823bb78028ad3ba41c8185b746dd35f3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R165",
+      "path": "public/game/assets/portraits/bandung/residents/R165.png",
+      "contentSha": "80d3f241575ba093c562af576040d1d861661c11",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R166",
+      "path": "public/game/assets/portraits/bandung/residents/R166.png",
+      "contentSha": "22101c8df537ec4174d9346e516ec6493fc702bc",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R167",
+      "path": "public/game/assets/portraits/bandung/residents/R167.png",
+      "contentSha": "38be4cc14c087b8c697306e9fd587ebd8f6e628e",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R168",
+      "path": "public/game/assets/portraits/bandung/residents/R168.png",
+      "contentSha": "b484331494e1a57ae8d8b928e856f2b3bd913517",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R169",
+      "path": "public/game/assets/portraits/bandung/residents/R169.png",
+      "contentSha": "174ac77f07eb2bf967d57e9d12ae853418b35e31",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R170",
+      "path": "public/game/assets/portraits/bandung/residents/R170.png",
+      "contentSha": "336fe5072a52fed5e6036a813cb5cbce59ab1c59",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R171",
+      "path": "public/game/assets/portraits/bandung/residents/R171.png",
+      "contentSha": "d0229581f95d8963009cffc3797113cb86c6027b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R172",
+      "path": "public/game/assets/portraits/bandung/residents/R172.png",
+      "contentSha": "c83973db9249e8875d6b59ee3c50bf207be4899a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R173",
+      "path": "public/game/assets/portraits/bandung/residents/R173.png",
+      "contentSha": "833572e32bf91d2c6dc9697a9017b4b9956165a7",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R174",
+      "path": "public/game/assets/portraits/bandung/residents/R174.png",
+      "contentSha": "66c1cd2b1c791fa93936d65a2b48c2a2e3f7d2c6",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R175",
+      "path": "public/game/assets/portraits/bandung/residents/R175.png",
+      "contentSha": "c4df376637d120f994a334851c599c55f489b704",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R176",
+      "path": "public/game/assets/portraits/bandung/residents/R176.png",
+      "contentSha": "aafe828996bef2fa3c29dedc00d57175d821961f",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R177",
+      "path": "public/game/assets/portraits/bandung/residents/R177.png",
+      "contentSha": "708e0d4dc47928289050114d356737fc8743fa92",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R178",
+      "path": "public/game/assets/portraits/bandung/residents/R178.png",
+      "contentSha": "183682d5cb3e860442932e86d7082dda5b2e146a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R179",
+      "path": "public/game/assets/portraits/bandung/residents/R179.png",
+      "contentSha": "d87a0f7e63cfcdccd716d49508cf9d621906df5c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R180",
+      "path": "public/game/assets/portraits/bandung/residents/R180.png",
+      "contentSha": "2a9c12b339600662746fbd91d321547560950560",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R181",
+      "path": "public/game/assets/portraits/bandung/residents/R181.png",
+      "contentSha": "e73763f0a0c20786ac7206c2fec4aea7fcf3b3c2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R182",
+      "path": "public/game/assets/portraits/bandung/residents/R182.png",
+      "contentSha": "f080d964afcfb55190ff625157af6404706d3f0c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R184",
+      "path": "public/game/assets/portraits/bandung/residents/R184.png",
+      "contentSha": "4fee9201905fbfd61c2727bc7759c50498a7352a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R185",
+      "path": "public/game/assets/portraits/bandung/residents/R185.png",
+      "contentSha": "b13984c2503e318d68554913e5ffc6cbf8c8d86c",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R186",
+      "path": "public/game/assets/portraits/bandung/residents/R186.png",
+      "contentSha": "ebd38fb8f40c4235effe49858cb71cb4de3da8c5",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R187",
+      "path": "public/game/assets/portraits/bandung/residents/R187.png",
+      "contentSha": "882a85bc81aa945519acf956e8ae85bd3c17c697",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R188",
+      "path": "public/game/assets/portraits/bandung/residents/R188.png",
+      "contentSha": "d4560fa732cabd29ced6ea80ebf56983262d35da",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R189",
+      "path": "public/game/assets/portraits/bandung/residents/R189.png",
+      "contentSha": "1c69f685d0a68455394e05751714ce0d20dd18a3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R190",
+      "path": "public/game/assets/portraits/bandung/residents/R190.png",
+      "contentSha": "d5cdc11117c4f3b85f423ddd4b67af00c0543048",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R191",
+      "path": "public/game/assets/portraits/bandung/residents/R191.png",
+      "contentSha": "d3200dc751880017434b5a39811156b89ab83f6a",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R192",
+      "path": "public/game/assets/portraits/bandung/residents/R192.png",
+      "contentSha": "b2873cc8686993a44c1858e02f0a3ae223ebdd97",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R193",
+      "path": "public/game/assets/portraits/bandung/residents/R193.png",
+      "contentSha": "c3c89e394a58c4fb8a7e2d4adb14ad5b6fbcb2c3",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R194",
+      "path": "public/game/assets/portraits/bandung/residents/R194.png",
+      "contentSha": "43cba0eaef32415cb31867187e584de55d2752c2",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R195",
+      "path": "public/game/assets/portraits/bandung/residents/R195.png",
+      "contentSha": "4bc512af35b9d8fafbdc93ad7b51b3db8a7b5acf",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R196",
+      "path": "public/game/assets/portraits/bandung/residents/R196.png",
+      "contentSha": "0a2ae607d98279e59f89777192b61b43aa30708d",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R197",
+      "path": "public/game/assets/portraits/bandung/residents/R197.png",
+      "contentSha": "c6db807d59fad9ea12a9c830c5dda28524211180",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R198",
+      "path": "public/game/assets/portraits/bandung/residents/R198.png",
+      "contentSha": "5499823068a93c52233e712e1a1af3c7614b580b",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    },
+    {
+      "assetId": "R199",
+      "path": "public/game/assets/portraits/bandung/residents/R199.png",
+      "contentSha": "f5fd8e9a581306cd83a46ca21be4b742b6fc8738",
+      "characterId": null,
+      "personalityStatus": "unassigned",
+      "artApproval": "pending",
+      "nextAction": "character-design-review"
+    }
+  ]
+}
