@@ -17,7 +17,8 @@
     "179 ilustrasi tidak boleh dianggap 179 NPC canon.",
     "Jangan terbitkan nama lengkap sumber privat Docker sebelum review owner.",
     "Jangan membuat match nama dengan wajah berdasarkan urutan tanpa ID canonical.",
-    "12 kategori lengkap untuk 69 NPC bernama berada di profile_source dan bertanda fiksi/proposed."
+    "12 kategori lengkap untuk 69 NPC bernama berada di profile_source dan bertanda fiksi/proposed.",
+    "Nama lengkap dua cameo P01/P02 tersedia dalam profil sumber tetapi status Docker tetap belum diverifikasi."
   ],
   "namedNpc": [
     {
@@ -1029,10 +1030,10 @@
       "id": "P01",
       "name_short": "Dedi Mulyadi",
       "display_name": "Dedi Mulyadi",
-      "full_name_confirmed": false,
+      "full_name_confirmed": true,
       "occupation": "Gubernur Jawa Barat",
       "record_type": "character",
-      "status": "full-name-awaiting-docker-verification",
+      "status": "long-name-in-source-docker-not-verified",
       "portrait_path": "public/game/assets/portraits/bandung/civic/P01.png",
       "portrait_identity": "source-profile-id",
       "profile_source": "game-assets/characters/profiles/expansion/P01.json",
@@ -1044,10 +1045,10 @@
       "id": "P02",
       "name_short": "Muhammad Farhan",
       "display_name": "Muhammad Farhan",
-      "full_name_confirmed": false,
+      "full_name_confirmed": true,
       "occupation": "Wali Kota Bandung",
       "record_type": "character",
-      "status": "full-name-awaiting-docker-verification",
+      "status": "long-name-in-source-docker-not-verified",
       "portrait_path": "public/game/assets/portraits/bandung/civic/P02.png",
       "portrait_identity": "source-profile-id",
       "profile_source": "game-assets/characters/profiles/expansion/P02.json",
