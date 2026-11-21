@@ -13,11 +13,12 @@ import type {Emotion} from "@/lib/game/model";
 import type {ResidentProfile} from "@/lib/game/resident-profile";
 import {Portrait,ResidentPortrait} from "./dialogue-panel";
 
-type Citizen={id:string;name:string;occupation:string;kind:"core"|"expansion"|"resident";portrait?:string};
-const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"core"}));
-const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion"}));
+type Citizen={id:string;name:string;occupation:string;kind:"core"|"expansion"|"resident";portrait?:string;legacyId?:string;legacyApproved?:boolean};
+const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"core",legacyId:c.id,legacyApproved:true}));
+const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion",legacyId:c.id,legacyApproved:true}));
 const PAGE_SIZE=12;
 function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotion}){
+ if(person.portrait)return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait}}/>;
  if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
  if(person.kind==="resident")return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait??person.id}}/>;
  return <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
@@ -31,7 +32,8 @@ function Section({label,open,children}:{label:string;open:boolean;children:React
 }
 function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:GameState;profile:CharacterBible|null;onBack:()=>void;loading:boolean}){
  const [emotion,setEmotion]=useState<Emotion>("neutral");
- const npc=NPCS.find(n=>n.id===person.id),bond=npc?game.bonds[npc.id]:undefined;
+ const npc=person.legacyApproved?NPCS.find(n=>n.id===(person.legacyId??person.id)):undefined;
+ const bond=npc?game.bonds[npc.id]:undefined;
  const self=person.id==="A01";
  const met=Boolean(bond?.talks)||self,level=bond?bondLevel(bond.points):0;
  const face=profile?.sections;
@@ -57,7 +59,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
    <div><h3>{person.name}</h3><p>{person.occupation}</p>
     <small>{npc&&met?`Sudah ${bond?.talks??0} kali berbincang`:self?"Kisahmu sendiri":"Belum berkenalan"}</small></div>
   </div>
-  {person.kind==="core"&&<div className="yzg-phone-card">
+  {person.kind==="core"&&!person.portrait&&<div className="yzg-phone-card">
    <b>Ekspresi</b>
    <div className="yzg-expression-picker yzg-citizen-emotions">{PORTRAIT_EMOTIONS.map(e=>
      <button key={e} type="button" aria-pressed={emotion===e} onClick={()=>setEmotion(e)}>{EMOTION_LABELS[e]}</button>)}</div>
@@ -118,8 +120,9 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
  const [loaded,setLoaded]=useState<{id:string;profile:CharacterBible|null;error?:boolean}|null>(null);
  const roster=useMemo<Citizen[]>(()=>residents.length?residents.map(r=>{
   const core=fromCore.find(c=>c.id===r.id),exp=fromExpansion.find(c=>c.id===r.id);
-  return {id:r.id,name:r.name,occupation:r.occupation,kind:core?.kind??exp?.kind??"resident",portrait:r.portrait};
- }):[...fromCore,...fromExpansion],[residents]);
+  return {id:r.id,name:r.name,occupation:r.occupation,kind:core?.kind??exp?.kind??"resident",portrait:r.portrait,
+    legacyId:r.legacyId,legacyApproved:r.legacyApproved===true};
+ }):process.env.NODE_ENV==="production"?[]:[...fromCore,...fromExpansion],[residents]);
  const query=search.trim().toLocaleLowerCase("id");
  const available=roster.filter(c=>Boolean(query)||archive||c.kind==="core");
  const matches=available.filter(c=>(c.name+" "+c.occupation).toLocaleLowerCase("id").includes(query));
@@ -130,10 +133,15 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
   if(scroller)scroller.scrollTop=0;
   if(!selectedId){return;}
   let alive=true;
-  loadCharacterBible(selectedId).then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
+  // Old biographies and quest flags can be accessed only via an explicit reviewed link.
+  if(!selected?.legacyApproved){
+   setLoaded({id:selectedId,profile:null});
+   return()=>{alive=false;};
+  }
+  loadCharacterBible(selected.legacyId??selectedId).then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
     .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
   return()=>{alive=false;};
- },[selectedId]);
+ },[selectedId,selected?.legacyApproved,selected?.legacyId]);
  if(selected&&selectedId)return <WargaDetail key={selected.id} person={selected} game={game}
    profile={loaded?.id===selectedId?loaded.profile:null} loading={loaded?.id!==selectedId}
    onBack={()=>onSelect(null)}/>;
@@ -143,10 +151,11 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
    <label htmlFor="yzg-character-search">Cari nama atau pekerjaan</label>
    <input id="yzg-character-search" type="search" value={search} onChange={e=>{setSearch(e.target.value);setPage(0);}}
      placeholder="Nama atau pekerjaan"/>
-   {!residents.length&&<button type="button" className="yzg-citizen-archive" aria-expanded={archive} onClick={()=>{setArchive(v=>!v);setPage(0);}}>
+   {!residents.length&&roster.length>0&&<button type="button" className="yzg-citizen-archive" aria-expanded={archive} onClick={()=>{setArchive(v=>!v);setPage(0);}}>
     {archive?"Tampilkan warga inti":"Lihat warga dari kawasan lain"} ({fromExpansion.length})
    </button>}
    <small role="status">{matches.length} warga dalam daftar ini</small>
+   {!residents.length&&process.env.NODE_ENV==="production"&&<p role="status">Daftar warga belum tersambung ke server. Hubungi pengelola game; nama lama tidak ditampilkan sebagai data resmi.</p>}
   </div>
   <div className="yzg-citizen-list">
    {matches.slice(activePage*PAGE_SIZE,(activePage+1)*PAGE_SIZE).map(person=><button
@@ -154,7 +163,9 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
     data-character-card={person.id} aria-label={`Lihat profil ${person.name}`} key={person.id}
     onClick={()=>onSelect(person.id)}>
     <CitizenPhoto person={person}/><span><b>{person.name}</b><small>{person.occupation}</small>
-     <small>{NPCS.some(n=>n.id===person.id)?game.bonds[person.id as keyof typeof game.bonds]?.talks?"Sudah kenal":"Bisa ditemui di Pasirluyu":"Belum bertemu"}</small></span><span aria-hidden="true" className="yzg-citizen-chevron">›</span>
+     <small>{person.legacyApproved&&NPCS.some(n=>n.id===(person.legacyId??person.id))?
+      game.bonds[(person.legacyId??person.id) as keyof typeof game.bonds]?.talks?"Sudah kenal":"Bisa ditemui di Pasirluyu":
+      "Belum bertemu"}</small></span><span aria-hidden="true" className="yzg-citizen-chevron">›</span>
    </button>)}
   </div>
   {pages>1&&<nav className="yzg-citizen-pages" aria-label="Halaman warga">
