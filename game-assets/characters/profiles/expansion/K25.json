@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Singkat, instruktif tanpa merendahkan",
       "physicalCue": "Menepuk roda troli sebelum mengarahkannya",
-      "exampleLine": "Troli baru bunyinya sama semua. Kita perlu cara lain mengenali punya siapa.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Troli baru bunyinya sama semua. Kita perlu cara lain mengenali punya siapa."
     },
     "10_narrative_development": {
       "arcTitle": "Troli yang bunyinya berbeda",

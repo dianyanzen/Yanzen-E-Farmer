@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Berbahasa akrab dan tenang saat malam",
       "physicalCue": "Mendekatkan telinga ke speaker monitor",
-      "exampleLine": "Dua kartu datang bersamaan. Rupanya banyak orang ingin dengar suara air, bukan lagu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Dua kartu datang bersamaan. Rupanya banyak orang ingin dengar suara air, bukan lagu."
     },
     "10_narrative_development": {
       "arcTitle": "Permintaan lagu tanpa judul",

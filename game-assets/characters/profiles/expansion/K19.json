@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lugas, menanyakan maksud pembuat pola",
       "physicalCue": "Menelusuri tusuk yang kosong dengan jari",
-      "exampleLine": "Ternyata yang bolong itu memang ditinggalkan neneknya. Jangan kututup dulu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ternyata yang bolong itu memang ditinggalkan neneknya. Jangan kututup dulu."
     },
     "10_narrative_development": {
       "arcTitle": "Satu tusuk sengaja kosong",

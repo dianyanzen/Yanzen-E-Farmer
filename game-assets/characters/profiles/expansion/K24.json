@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Jelas, meminta umpan balik pengguna tanpa asumsi",
       "physicalCue": "Menyentuh tepi bingkai untuk mengukur jarak",
-      "exampleLine": "Titiknya benar, tapi bingkainya menutup. Kamu pilih letak yang lebih nyaman.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Titiknya benar, tapi bingkainya menutup. Kamu pilih letak yang lebih nyaman."
     },
     "10_narrative_development": {
       "arcTitle": "Titik yang terlalu dekat tepi",

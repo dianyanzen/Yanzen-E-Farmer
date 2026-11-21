@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Tenang, memberi alasan dari bekas pakai",
       "physicalCue": "Meraba tepi sol sebelum berbicara",
-      "exampleLine": "Ukurannya sama. Tapi lihat ausnya, dua kaki itu tak bekerja dengan cara sama.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ukurannya sama. Tapi lihat ausnya, dua kaki itu tak bekerja dengan cara sama."
     },
     "10_narrative_development": {
       "arcTitle": "Sol kiri lebih tipis",

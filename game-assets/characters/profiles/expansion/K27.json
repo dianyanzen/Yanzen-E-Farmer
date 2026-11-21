@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Ramah namun berhenti bertanya saat diminta",
       "physicalCue": "Mengurutkan ujung benang di sela jari",
-      "exampleLine": "Ada saku kedua di sini. Isinya kubungkus, biar pemilik yang membuka.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ada saku kedua di sini. Isinya kubungkus, biar pemilik yang membuka."
     },
     "10_narrative_development": {
       "arcTitle": "Saku di dalam saku",

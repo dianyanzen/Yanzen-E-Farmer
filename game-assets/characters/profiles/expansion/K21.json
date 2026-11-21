@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Rendah hati dan suka menanyakan asal bekas",
       "physicalCue": "Mengangkat cangkir ke arah cahaya",
-      "exampleLine": "Bekas ini ternyata garis takarnya. Aku perbaiki pegangannya saja, ya?",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Bekas ini ternyata garis takarnya. Aku perbaiki pegangannya saja, ya?"
     },
     "10_narrative_development": {
       "arcTitle": "Cangkir yang tetap retak",

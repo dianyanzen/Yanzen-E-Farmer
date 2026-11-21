@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Tenang, berbicara tentang urutan gambar",
       "physicalCue": "Menghitung hitam layar dengan ujung jari",
-      "exampleLine": "Satu detik gelap itu bukan rusak. Dulu penonton menunggu aba-aba di sana.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Satu detik gelap itu bukan rusak. Dulu penonton menunggu aba-aba di sana."
     },
     "10_narrative_development": {
       "arcTitle": "Kursi ketiga dari belakang",

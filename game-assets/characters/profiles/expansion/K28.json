@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lugas, menyebut lokasi dengan penanda benda yang nyata",
       "physicalCue": "Melihat kaca basah sebelum menunjuk arah",
-      "exampleLine": "Kalau hujan, papan itu tak kelihatan. Aku mau cari penanda yang lebih jelas.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kalau hujan, papan itu tak kelihatan. Aku mau cari penanda yang lebih jelas."
     },
     "10_narrative_development": {
       "arcTitle": "Karcis tanpa lubang pulang",

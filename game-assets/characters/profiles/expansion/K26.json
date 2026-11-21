@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Tegas, berbicara lewat kejadian nyata",
       "physicalCue": "Menunjuk rak kosong nomor empat",
-      "exampleLine": "Rak kosong itu untuk barang yang belum jelas asalnya. Jangan campur dulu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Rak kosong itu untuk barang yang belum jelas asalnya. Jangan campur dulu."
     },
     "10_narrative_development": {
       "arcTitle": "Petak kosong nomor empat",

@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lembut dan menanyakan rutinitas hewan",
       "physicalCue": "Menunduk agar kucing mendekat sendiri",
-      "exampleLine": "Dua orang bilang ini kucing mereka. Tapi dia selalu kembali ke kardus itu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Dua orang bilang ini kucing mereka. Tapi dia selalu kembali ke kardus itu."
     },
     "10_narrative_development": {
       "arcTitle": "Kucing di atas kardus",

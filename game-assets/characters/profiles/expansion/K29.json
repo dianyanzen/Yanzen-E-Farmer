@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lambat, penuh observasi tentang kebiasaan orang",
       "physicalCue": "Mengangkat jam ke cahaya",
-      "exampleLine": "Jamnya terlambat tujuh menit. Tapi siapa yang sengaja membiarkannya begitu?",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Jamnya terlambat tujuh menit. Tapi siapa yang sengaja membiarkannya begitu?"
     },
     "10_narrative_development": {
       "arcTitle": "Tujuh menit untuk menunggu",
