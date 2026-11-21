@@ -19,8 +19,8 @@ const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation
 const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion"}));
 const PAGE_SIZE=12;
 function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotion}){
- if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
  if(person.portrait)return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait}}/>;
+ if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
  if(person.kind==="resident")return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait??person.id}}/>;
  return <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
   alt={`Potret ${person.name}`} width={80} height={80} unoptimized/>;
@@ -33,18 +33,20 @@ function Section({label,open,children}:{label:string;open:boolean;children:React
 }
 function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:GameState;profile:CharacterBible|null;onBack:()=>void;loading:boolean}){
  const [emotion,setEmotion]=useState<Emotion>("neutral");
- const npc=NPCS.find(n=>n.id===person.id),bond=npc?game.bonds[npc.id]:undefined;
+ const npc=NPCS.find(n=>n.id===person.id);
+ const recast=profile?.characterClass==="docker-identity-revision";
+ const bond=npc&&!recast?game.bonds[npc.id]:undefined;
  const self=person.id==="A01";
  const met=Boolean(bond?.talks)||self,level=bond?bondLevel(bond.points):0;
  const face=profile?.sections;
  const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
  const voice=face?.["09_dialogue_behavior"],history=face?.["07_background_history"],ties=face?.["08_relationship_dynamics"];
- const soul=npc?NPC_SOULS[npc.id]:null;
- const quest=npc?game.personalQuests?.[npc.id]:null;
- const rememberedPast=npc?.id==="C01"&&game.story.photoSeen?
+ const soul=npc&&!recast?NPC_SOULS[npc.id]:null;
+ const quest=npc&&!recast?game.personalQuests?.[npc.id]:null;
+ const rememberedPast=!recast&&npc?.id==="C01"&&game.story.photoSeen?
    person.name+" menunjukkan foto pintu air lama dan bercerita sedikit tentang keluarganya.":
-   npc?.id==="A03"&&game.story.canalClue?
+   !recast&&npc?.id==="A03"&&game.story.canalClue?
    person.name+" pernah mencatat garis tinggi air di dekat pintu saluran.":
    null;
  const knowsMore=met&&(self||level>=2),knowsPrivate=met&&(self||level>=3);
@@ -60,18 +62,18 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
    <div><h3>{person.name}</h3><p>{person.occupation}</p>
     <small>{npc&&met?`Sudah ${bond?.talks??0} kali berbincang`:self?"Kisahmu sendiri":"Belum berkenalan"}</small></div>
   </div>
-  {person.kind==="core"&&<div className="yzg-phone-card">
+  {person.kind==="core"&&!person.portrait&&<div className="yzg-phone-card">
    <b>Ekspresi</b>
    <div className="yzg-expression-picker yzg-citizen-emotions">{PORTRAIT_EMOTIONS.map(e=>
      <button key={e} type="button" aria-pressed={emotion===e} onClick={()=>setEmotion(e)}>{EMOTION_LABELS[e]}</button>)}</div>
   </div>}
-  {npc&&<div className="yzg-phone-card">
+  {npc&&bond&&<div className="yzg-phone-card">
     <b>Kedekatan · Lv. {level}</b><p>{bondLabel(bond!.points)}</p>
     <meter min={0} max={1000} value={bond!.points} aria-label={`Kedekatan dengan ${person.name}`}/>
     {met&&currentPlace&&<small>Biasanya sekarang: {areaTitle(currentPlace.location)} · {currentPlace.activity}</small>}
     <small>{level<1?"Berbincanglah agar makin mengenal kebiasaannya.":level<2?"Semakin akrab, semakin banyak cerita yang ia bagikan.":level<3?"Ia mulai lebih terbuka tentang apa yang diharapkan.":"Kalian sudah saling percaya lebih jauh."}</small>
   </div>}
-  <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
+  <div className="yzg-phone-card">{recast&&<p>Catatan lama untuk ID ini perlu diselaraskan. Kisah dan kedekatan karakter sebelumnya tidak dianggap milik warga ini.</p>}<p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
     <Section label="01 · Siapa dia" open>{<p>{person.name} · {person.occupation}. {met&&soul?.home?`Tempat tinggal: ${soul.home}.`:""}</p>}</Section>
@@ -114,8 +116,8 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  </article>;
 }
 
-export default function CharacterGallery({game,residents,selectedId,onSelect}:{
- game:GameState;residents:readonly ResidentProfile[];selectedId:string|null;onSelect:(id:string|null)=>void;
+export default function CharacterGallery({game,residents,residentBibles={},selectedId,onSelect}:{
+ game:GameState;residents:readonly ResidentProfile[];residentBibles?:Record<string,CharacterBible>;selectedId:string|null;onSelect:(id:string|null)=>void;
 }){
  const [search,setSearch]=useState(""),[page,setPage]=useState(0),[archive,setArchive]=useState(false);
  const [loaded,setLoaded]=useState<{id:string;profile:CharacterBible|null;error?:boolean}|null>(null);
@@ -143,12 +145,12 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
   if(scroller)scroller.scrollTop=0;
   if(!selectedId){return;}
   let alive=true;
-  const updatedBible=(publishedBibles as Record<string,CharacterBible>)[selectedId];
+  const updatedBible=residentBibles[selectedId]??(publishedBibles as Record<string,CharacterBible>)[selectedId];
   const profilePromise=updatedBible?Promise.resolve(updatedBible):loadCharacterBible(selectedId);
   profilePromise.then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
     .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
   return()=>{alive=false;};
- },[selectedId]);
+ },[selectedId,residentBibles]);
  if(selected&&selectedId)return <WargaDetail key={selected.id} person={selected} game={game}
    profile={loaded?.id===selectedId?loaded.profile:null} loading={loaded?.id!==selectedId}
    onBack={()=>onSelect(null)}/>;

@@ -18,9 +18,10 @@ import CharacterGallery from "./character-gallery";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
+import type { CharacterBible } from "@/lib/game/phone-profiles";
 import { applyResidentNames } from "@/lib/game/resident-display-names";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
-import DialoguePanel, { Portrait } from "./dialogue-panel";
+import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
@@ -71,9 +72,10 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
     onClick={event => { if (event.detail === 0) step(direction); }}><span aria-hidden="true" className="yzg-arrow">{symbol}</span></button>;
 }
 
-export default function GameClient({ engine = "canvas", residents = [] }: {
+export default function GameClient({ engine = "canvas", residents = [], residentBibles = {} }: {
   engine?: "canvas" | "phaser";
   residents?: readonly ResidentProfile[];
+  residentBibles?: Record<string, CharacterBible>;
 }) {
   const router = useRouter();
   const screenRef = useRef<HTMLElement>(null);
@@ -801,7 +803,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <button type="button" onClick={() => void logout()} disabled={saveStatus === "loading" || saveStatus === "saving" || (saveStatus === "error" && !!userId)}>Keluar akun</button>
                 </div>
               </>}
-              {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
+              {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} residentBibles={residentBibles} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
               {phoneTab === "chronicle" && <PhoneChronicle game={game} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
@@ -827,7 +829,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
                   const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
                   return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
-                    <Portrait npcId={npc.id} emotion={bond.mood} name={residentById.get(npc.id)?.name}/>
+                    {residentById.get(npc.id)?<ResidentPortrait resident={residentById.get(npc.id)!}/>:<Portrait npcId={npc.id} emotion={bond.mood}/>}
                     <div><b>{display(npc.name)}</b><small>{residentById.get(npc.id)?.occupation ?? npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
                     <p className="yzg-npc-where">Lokasi: {areaTitle(place.location)} · {display(place.activity)}</p>
                     {level>=1&&<small>Kebiasaan: {soul.habit}</small>}

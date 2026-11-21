@@ -60,7 +60,7 @@ export default function DialoguePanel({ dialogue, game, resident, children }: { 
   return <>
     <div className="yzg-dialog-head"><b>{resident?.name ?? (npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
-      {npc && <Portrait npcId={npc.id} emotion={dialogue.emotion} name={resident?.name}/>}
+      {npc && (resident?<ResidentPortrait resident={resident}/>:<Portrait npcId={npc.id} emotion={dialogue.emotion}/>)}
       <div className="yzg-dialog-copy">
         {npc && <small>{resident?.occupation ?? npc.role} · Lv. {bondLevel(bond!.points)} · {bondLabel(bond!.points)}</small>}
         <DialogueLine key={page} line={dialogue.lines[page] || ""} last={last} onNext={() => setPage(p => p + 1)}/>
