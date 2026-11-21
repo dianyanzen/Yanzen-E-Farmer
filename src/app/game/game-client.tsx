@@ -730,7 +730,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               }}>{item==="bait"?"5 pelet · 15 G":item==="seeds"?"5 bibit · 40 G":item==="cucumber"?"Jual hasil timun":"Jual "+FISH_MARKET[item].name+" ("+game.fishing.fish[item]+")"}</button>)}
             {dialogue.npcId==="C07" && <NextImage src="/game/assets/tiles/fish-market.png" width={144} height={48} alt="Bandeng, kakap putih dan belanak"/>}
           </div>}
-          <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title), lines: dialogue.lines.map(display) }} game={game}
+          <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
 
