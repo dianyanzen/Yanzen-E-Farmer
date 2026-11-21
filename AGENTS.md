@@ -19,3 +19,9 @@ Repositori ini mencakup aplikasi E-Farmer dan game YZ Farm Life. **Aturan Humani
 - Untuk perubahan gameplay, bandingkan `12_continuity_current_state` dengan kondisi save dan sistem runtime yang aktual. Jangan memasukkan seluruh rahasia profil ke YZ Phone tanpa mekanisme unlock yang sesuai.
 - Tokoh cameo publik dibatasi pada adegan fiksi; tidak boleh membuat klaim pribadi nyata. Ilustrasi `Rxxx` belum menjadi tokoh bernama sampai profil baru lulus QA.
 - Pada penambahan/revisi karakter, jalankan `npm run chars:index:check && npm run test:game:characters` selain tes game yang sesuai.
+
+## Semua teks yang terlihat di dalam game wajib melalui Humanizer
+
+- Humanizer berlaku untuk **setiap player-facing copy** di game: dialog, quest, papan, toast, inventaris, HUD, menu Warga, Kronik, YZ Phone, tutorial, peta, dan pesan kesalahan. Baca `docs/game-dev/GAME_TEXT_STYLE_GUIDE.md` sebelum mengubah teks game; jangan mengaktifkan Humanizer saat runtime.
+- Jaga suara setiap karakter (12 dimensi) dan hanya tampilkan kejadian yang benar-benar tercatat di save; data `narrative-proposal` tidak boleh mengaku sebagai kisah yang sudah terjadi.
+- Jalankan `npm run test:game:copy && npm run test:game:phone`, lalu typecheck, tests game dan browser QA terkait. Linter hanyalah pagar frasa tertentu; reviewer tetap bertanggung jawab atas mutu dialog dan UX.

@@ -15,7 +15,7 @@ export default function WorldRegionDirectory(){
   return <section className="yzg-phone-card yzg-world-regions" aria-label="Master wilayah Kota Bandung">
     <b>Jelajah 30 Kecamatan · 151 Kelurahan</b>
     <p className="yzg-world-scope">Kota Bandung: {BANDUNG_WORLD.districtCount} kecamatan dan {BANDUNG_WORLD.villageCount} kelurahan.
-      Semua nama tercatat; hanya Pasirluyu yang mempunyai peta permainan aktif.</p>
+      Kamu baru bisa berjalan-jalan di Pasirluyu. Kawasan lain masih menunggu untuk dijelajahi.</p>
     <label htmlFor="yzg-kecamatan" className="yzg-map-label">Pilih kecamatan</label>
     <select className="yzg-map-select" id="yzg-kecamatan" value={districtName}
       onChange={e=>{setDistrictName(e.target.value);setQuery("");}}>
@@ -33,33 +33,32 @@ export default function WorldRegionDirectory(){
           onClick={()=>{setDistrictName(v.districtName);setQuery("");}}>
           <span><strong>{v.name}</strong><small>{v.districtName}</small></span>
           <span className={v.play_state==="playable"?"playable":"planned"}>
-            {v.play_state==="playable"?"Dapat dimainkan":"Belum tersedia"}
+            {v.play_state==="playable"?"Bisa dikunjungi":"Belum terbuka"}
           </span>
         </button>)}</div>
     </div>:<>
       <p><strong>{selected?.name??districtName}</strong> · {villages.length} kelurahan
-        {selected?.play_state==="partial"?" · Pasirluyu dapat dimainkan":" · Pengembangan berikutnya"}</p>
+        {selected?.play_state==="partial"?" · Pasirluyu bisa dikunjungi":" · Jalan belum terbuka"}</p>
       <div className="yzg-world-village-list" role="list" aria-label={"Daftar kelurahan "+districtName}>
         {villages.map(v=><div key={v.id} className="yzg-world-village" role="listitem">
           <span><strong>{v.name}</strong>
-            {v.name_variants.length>0&&<small>Ejaan dataset pembanding: {v.name_variants.join(", ")}</small>}
+            {v.name_variants.length>0&&<small>Nama lain: {v.name_variants.join(", ")}</small>}
           </span>
           <span className={v.play_state==="playable"?"playable":"planned"}>
-            {v.play_state==="playable"?"Aktif":"Direncanakan"}
+            {v.play_state==="playable"?"Bisa dikunjungi":"Belum terbuka"}
           </span>
         </div>)}
       </div>
     </>}
     <a href={`/game/atlas/index.html?kecamatan=${encodeURIComponent(districtName)}`}>
-      Lihat atlas visual kecamatan
+      Lihat peta kecamatan
     </a>
     <details>
       <summary>Kawasan yang dapat dimainkan sekarang ({PASIRLUYU_LOCATIONS.length})</summary>
       <ul>{PASIRLUYU_LOCATIONS.map(loc=><li key={loc.id}>
         {loc.name} — {loc.description}</li>)}</ul>
     </details>
-    <small className="yzg-world-disclaimer">Nama wilayah adalah acuan administratif. Bangunan dan kehidupan
-      warga dalam game merupakan karya fiksi. Data batas geografis dan jalan antar-kelurahan belum
-      dimasukkan ke master map.</small>
+    <small className="yzg-world-disclaimer">Nama wilayah mengikuti Bandung. Bangunan, warga, dan peristiwa merupakan bagian dari cerita.
+      Jalan ke kawasan lain akan terbuka sedikit demi sedikit.</small>
   </section>;
 }

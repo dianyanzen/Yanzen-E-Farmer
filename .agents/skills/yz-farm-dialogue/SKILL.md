@@ -42,3 +42,7 @@ Nani (C01): “Sejak pagi ada daun kecil nyangkut di pagar. Biasanya baru terbaw
 Inggit (C08): “Timunnya bagus. Ambil yang dua itu saja dulu, ya. Kalau besok masih ada yang segar, kubeli lagi supaya tak banyak terbuang.”
 
 Ayu (A04): “Kalau tanahnya masih lembap, jangan buru-buru menyiram. Aku juga pernah terlalu rajin; dua pot jadi layu gara-gara itu.”
+
+## Teks sistem dan YZ Phone
+
+Saat menulis pesan layar, status alat, papan arah, error, tutorial, daftar Warga atau kronologi, pakai Humanizer juga. Referensi `docs/game-dev/GAME_TEXT_STYLE_GUIDE.md` dan `docs/game-dev/YZ_PHONE_WARGA_KRONIK.md`. Jangan mengubah data `sourceFacts`, hadiah/flag, atau lore yang belum dikonfirmasi. Rangkuman harus membaca state permainan, bukan mengarang hari kejadian. Periksa penggunaan bahasa dalam konteks layar portrait, suara karakter, dan tindakan sesungguhnya.

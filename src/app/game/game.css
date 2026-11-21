@@ -372,3 +372,70 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-sleep-scene strong {font-size:24px}
 @keyframes yzg-rest {0%{opacity:0}20%,72%{opacity:1}100%{opacity:0;background:#554e48}}
 @media(prefers-reduced-motion:reduce){.yzg-sleep-scene{animation:none}}
+
+
+/* YZ Phone — citizen directory, progressive details and save-backed story chronicle. */
+.yzg-citizen-list{display:grid;gap:7px;margin-bottom:10px}
+.yzg-phone .yzg-citizen-choice{display:flex;width:100%;padding:9px;gap:9px;align-items:center;text-align:left;margin:0;
+ border-radius:11px;border:1px solid #dbe5d5;background:#fff;color:#294637;min-width:0;min-height:69px}
+.yzg-phone .yzg-citizen-choice:hover,.yzg-phone .yzg-citizen-choice:focus-visible{border-color:#6f9b75;background:#f2f8ec}
+.yzg-citizen-choice .yzg-portrait{width:46px;flex-basis:46px;min-width:46px}
+.yzg-citizen-choice .yzg-character-preview{width:46px;height:54px;flex:0 0 46px;object-fit:cover}
+.yzg-citizen-choice>span:nth-child(2){display:block;flex:1;min-width:0}
+.yzg-citizen-choice b{font-size:12px}
+.yzg-citizen-choice small{margin-top:2px;line-height:1.4}
+.yzg-citizen-chevron{font:22px/1 Georgia;color:#7f987a}
+.yzg-phone .yzg-citizen-archive{background:#e4efdc;color:#315941;border:1px solid #b6cdb6;font-weight:600;margin:10px 0 2px;width:100%}
+.yzg-citizen-pages{display:flex;align-items:center;justify-content:space-between;gap:7px;font-size:11px}
+.yzg-phone .yzg-citizen-pages button{min-width:0;padding:8px;border:1px solid #b7cdb6;border-radius:8px;background:#f8fbf6;color:#335b45}
+.yzg-phone .yzg-citizen-pages button:disabled{opacity:.45}
+.yzg-phone .yzg-citizen-return{margin:0 0 10px;border:0;background:#e3eddb;color:#2d5b40;padding:8px 10px}
+.yzg-citizen-hero{display:flex;align-items:center;gap:11px}
+.yzg-citizen-hero .yzg-portrait{width:78px;flex:0 0 78px}
+.yzg-citizen-hero .yzg-character-preview{width:78px;height:96px;flex:0 0 78px;object-fit:cover}
+.yzg-citizen-hero h3{font-size:15px;line-height:1.3;margin:0;color:#284735}
+.yzg-citizen-hero p{margin:3px 0 0;font-size:11px}
+.yzg-citizen-hero small{line-height:1.4}
+.yzg-citizen-lead{margin:0 0 12px!important;font-size:11px}
+.yzg-citizen-sections{display:grid;gap:6px}
+.yzg-citizen-section{border:1px solid #d6e4cf;border-radius:8px;overflow:hidden;background:#f7faf4}
+.yzg-citizen-section summary{display:flex;align-items:center;justify-content:space-between;gap:4px;
+ cursor:pointer;padding:9px;font-weight:700;font-size:10px;color:#2c5740;list-style-position:inside}
+.yzg-citizen-section summary small{margin:0;color:#7e8f7e;font-size:9px;white-space:nowrap;font-weight:400}
+.yzg-citizen-section[open] summary{background:#e8f0e2}
+.yzg-citizen-section>div{padding:0 10px 9px}
+.yzg-citizen-section p{margin:7px 0 0}
+.yzg-citizen-section ul{padding-left:16px;line-height:1.5;margin:8px 0 0}
+.yzg-citizen-emotions{gap:4px}
+.yzg-phone .yzg-citizen-emotions button{padding:5px 7px;font-size:9px;min-height:30px;margin:0}
+.yzg-phone-card progress,.yzg-phone-card meter{width:100%;accent-color:#4b8260}
+.yzg-chronicle-heading{background:linear-gradient(150deg,#eff8e9,#fdfaf0)}
+.yzg-chronicle-heading h3{font:bold 16px/1.3 Georgia,serif;color:#264935;margin:5px 0 6px}
+.yzg-chronicle-heading p{line-height:1.65}
+.yzg-chronicle-progress{display:flex;align-items:center;justify-content:space-between;gap:7px;color:#2c5b40;font-size:10px;margin:10px 0 6px}
+.yzg-chronicle-progress span{font-size:9px;color:#617963}
+.yzg-chronicle-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0 0 9px}
+.yzg-phone .yzg-chronicle-tabs button{padding:8px 2px;border-radius:8px;background:#e2ecdc;color:#3f674d;font-size:10px;font-weight:700}
+.yzg-phone .yzg-chronicle-tabs button[aria-pressed=true]{background:#39704d;color:#fff}
+.yzg-chronicle-timeline{list-style:none;padding:0;margin:10px 0 0}
+.yzg-chronicle-timeline li{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid #e6ece2}
+.yzg-chronicle-timeline li:last-child{border-bottom:0}
+.yzg-chronicle-timeline li>div{flex:1;min-width:0}
+.yzg-chronicle-marker{flex:0 0 21px;height:21px;border-radius:50%;background:#dce8d7;color:#326447;display:grid;place-items:center;font:700 11px Arial}
+.yzg-chronicle-now .yzg-chronicle-marker{background:#e8d6a9;color:#694d1d}
+.yzg-chronicle-later{opacity:.7}
+.yzg-chronicle-timeline p{margin:3px 0 0}
+.yzg-chronicle-quest b{display:block;font-size:12px}
+.yzg-chronicle-quest small{margin:0 0 3px}
+.yzg-chronicle-unstarted summary{cursor:pointer;color:#2d5740;font-weight:700}
+.yzg-chronicle-unstarted>div{padding:9px 0;border-top:1px solid #ebf0e7}
+.yzg-phone .yzg-chronicle-person{display:flex;gap:8px;justify-content:space-between;align-items:center;
+ background:#eef5e9;color:#2e5741;width:100%;text-align:left;font-size:10px;padding:9px;margin:5px 0}
+.yzg-chronicle-person small{margin:0;white-space:nowrap}
+.yzg-phone .yzg-chronicle-export{display:block;max-width:100%;width:100%;border:1px solid #becdbb;border-radius:6px;
+ background:#fffdf8;color:#284531;padding:8px;margin-top:9px;font:10px/1.5 ui-monospace,monospace;resize:vertical}
+.yzg-chronicle .yzg-story-photo{max-width:100%}
+.yzg-chronicle .yzg-story-photo img{max-width:100%;height:auto;display:block}
+.yzg-chronicle .yzg-story-photo figcaption{font-size:10px;line-height:1.4;margin-top:7px}
+@media(max-width:700px){.yzg-citizen-hero{gap:7px}.yzg-citizen-hero .yzg-portrait{width:64px;flex-basis:64px}
+ .yzg-phone .yzg-citizen-choice{min-height:64px}}
