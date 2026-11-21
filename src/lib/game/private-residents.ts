@@ -42,13 +42,17 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
   const residents=Array.isArray(parsed)?parsed:parsed.currentRoster;
   if(residents.length!==248)throw new Error("invalid-count");
   const ids=new Set<string>(),names=new Set<string>(),portraits=new Set<string>();
+  // Next/Vercel may serve public images from a CDN rather than mounting public/ inside a lambda.
+  const assetRoot=join(process.cwd(),"public/game/assets/portraits/bandung");
+  let assetDirectoryMounted=true;
+  try{await access(assetRoot);}catch{assetDirectoryMounted=false;}
   for(const r of residents) {
    if(ids.has(r.id))throw new Error("duplicate-id");
    if(names.has(r.name.toLocaleLowerCase("id")))throw new Error("duplicate-name");
    if(portraits.has(r.portrait))throw new Error("duplicate-portrait");
    ids.add(r.id);names.add(r.name.toLocaleLowerCase("id"));portraits.add(r.portrait);
    const relative=bandungConceptPortraitPath(r.portrait).replace(/^\//,"");
-   await access(join(process.cwd(),"public",relative));
+   if(assetDirectoryMounted)await access(join(process.cwd(),"public",relative));
   }
   const approved=new Map<string,string>();
   const linkPath=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
