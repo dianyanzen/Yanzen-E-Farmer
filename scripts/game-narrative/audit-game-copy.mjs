@@ -35,7 +35,7 @@ const storyStart=npcDialog.indexOf("function storyDialogue(");
 const storyEnd=npcDialog.indexOf("export function choosePhoto(",storyStart);
 const reactionStart=npcDialog.indexOf("const reactions:");
 const reactionEnd=npcDialog.indexOf("export function chooseSocial(",reactionStart);
-if(storyStart<0||storyEnd<0||reactionStart<0||reactionEnd)
+if(storyStart<0||storyEnd<0||reactionStart<0||reactionEnd<0)
  throw new Error("NPC speech source moved: update copy-audit scopes");
 for(const source of [npcDialog.slice(storyStart,storyEnd),npcDialog.slice(reactionStart,reactionEnd)]){
  if(/\b(?:Ayu|Ryan|Nani|Inggit|Widi): [A-Z]/.test(source))
