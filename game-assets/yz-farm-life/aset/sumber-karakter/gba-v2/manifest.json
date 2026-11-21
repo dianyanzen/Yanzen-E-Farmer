@@ -39,7 +39,7 @@
     {
       "id": "A01",
       "role": "main-character",
-      "sheet": "sheets/A01.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A01.png",
       "sha256": "ada5239626d8c20b32f914324e460faafcff82a3a468192f36ea013bf4915e93",
       "size": [
         1086,
@@ -307,7 +307,7 @@
     {
       "id": "A02",
       "role": "npc",
-      "sheet": "sheets/A02.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A02.png",
       "sha256": "9534d5cd82fc23398e7070dfb036f91025af5bd7b4a09135b9eda9713eedf2ff",
       "size": [
         1086,
@@ -575,7 +575,7 @@
     {
       "id": "A03",
       "role": "npc",
-      "sheet": "sheets/A03.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A03.png",
       "sha256": "8d63c537c1608ca4fd383604e3c8cb365055d3f56d47fa275b84c3c28020fe64",
       "size": [
         1086,
@@ -843,7 +843,7 @@
     {
       "id": "A04",
       "role": "npc",
-      "sheet": "sheets/A04.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A04.png",
       "sha256": "17779087d71a3c494ace5570f8de9df6cf6dcf0e4254ec804fd7d26f5669cdf2",
       "size": [
         1086,
@@ -1111,7 +1111,7 @@
     {
       "id": "A05",
       "role": "npc",
-      "sheet": "sheets/A05.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A05.png",
       "sha256": "aa7c229deb7209aa071f077cb2c9f2230f3bbbb196ab2cb5fcd0f9f47cc299bf",
       "size": [
         1086,
@@ -1379,7 +1379,7 @@
     {
       "id": "A06",
       "role": "npc",
-      "sheet": "sheets/A06.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A06.png",
       "sha256": "21ece4bd8ee0f22ab748bea602e7593b821f04ffa2a3c870899b596712865a30",
       "size": [
         1086,
@@ -1647,7 +1647,7 @@
     {
       "id": "A07",
       "role": "npc",
-      "sheet": "sheets/A07.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A07.png",
       "sha256": "7a7bb53bef36d84443712febbe32043bf62e04d0a994cd2a2fff4d142edff4a6",
       "size": [
         1086,
@@ -1915,7 +1915,7 @@
     {
       "id": "A08",
       "role": "npc",
-      "sheet": "sheets/A08.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A08.png",
       "sha256": "ae863cd87b6b482e4891d30ff0779da3641ed6cec8e0caf6c149b62de8907f78",
       "size": [
         1086,
@@ -2183,7 +2183,7 @@
     {
       "id": "A09",
       "role": "npc",
-      "sheet": "sheets/A09.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A09.png",
       "sha256": "1e4b418e514078f9ea6eee667b553fd3d1bc6a3b33e2a88694103c7a04a4f0f3",
       "size": [
         1086,
@@ -2451,7 +2451,7 @@
     {
       "id": "A10",
       "role": "npc",
-      "sheet": "sheets/A10.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A10.png",
       "sha256": "f20a441aec9d4cc230274297991d37598ed2b9f8f27e3ff79ee3af75b3567642",
       "size": [
         1086,
@@ -2719,7 +2719,7 @@
     {
       "id": "A11",
       "role": "npc",
-      "sheet": "sheets/A11.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A11.png",
       "sha256": "e69e5a40f3e90274dc7601bca841fdbd824aed591782f7ba5cf57c5aaf446f62",
       "size": [
         1086,
@@ -2987,7 +2987,7 @@
     {
       "id": "A12",
       "role": "npc",
-      "sheet": "sheets/A12.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A12.png",
       "sha256": "1071ee4813391b6aa1f4efe8443a5ebca3fe3e14f000e429d8640d4c1754d18a",
       "size": [
         1086,
@@ -3255,7 +3255,7 @@
     {
       "id": "A13",
       "role": "npc",
-      "sheet": "sheets/A13.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A13.png",
       "sha256": "2499c24044682004047ac8a6529b984a36ee75cad186d4899afd914cbb94c8c6",
       "size": [
         1086,
@@ -3523,7 +3523,7 @@
     {
       "id": "A14",
       "role": "npc",
-      "sheet": "sheets/A14.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A14.png",
       "sha256": "ad175b4945142a6aba5c9db6039d9b31af1eeed3b576dcefa8625dc08b95d1c9",
       "size": [
         1086,
@@ -3791,7 +3791,7 @@
     {
       "id": "A15",
       "role": "npc",
-      "sheet": "sheets/A15.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A15.png",
       "sha256": "5315865102c383feb5ce70806af59d4b91c548568e50b3d023a73a13ff8c6701",
       "size": [
         1086,
@@ -4059,7 +4059,7 @@
     {
       "id": "A16",
       "role": "npc",
-      "sheet": "sheets/A16.png",
+      "sheet": "../../../../characters/gba-v2/sheets/A16.png",
       "sha256": "fa7b40b0f1fd7e44759f14267ff76f8fb2ab8fe410d83140c3b8cc6484cf3d98",
       "size": [
         1086,

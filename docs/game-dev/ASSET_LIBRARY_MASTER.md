@@ -9,10 +9,10 @@ Rujukan wajib: [GAME_AUDIT_MASTER.md](GAME_AUDIT_MASTER.md), [AUDIT_PLAYBOOK.md]
 
 | Inventaris | Hasil |
 | --- | ---: |
-| Media di `game-assets/` dan `public/game/assets/` | **2.615 file** (2.535 PNG, 1 WebP, 6 SVG, 72 WAV, 1 MP3) |
+| Media di `game-assets/` dan `public/game/assets/` | **2.487 file** (2.407 PNG, 1 WebP, 6 SVG, 72 WAV, 1 MP3) |
 | Isi media unik menurut Git blob SHA-1 | **1.195** |
-| File ekstra dengan isi identik | **1.420** |
-| Ukuran total media di seluruh pohon kerja | ±**246,12 MB** |
+| File ekstra dengan isi identik | **1.292** |
+| Ukuran total media di seluruh pohon kerja | ±**128,75 MB** |
 | Aset media publik game | **426 media** (418 PNG, 6 SVG, 1 WebP, 1 MP3; metadata JSON dihitung terpisah) |
 | `aset/tanaman/` | **196 file**, hanya **25 isi PNG unik**; **171 file ekstra identik** |
 | Root strip potret `portraits/Axx,Cxx.png` | **32 strip 1.536×256**, **8 ekspresi** per karakter = 256 frame |
@@ -114,7 +114,7 @@ Aset diusulkan → brief & provenance → gambar sumber
 | 196 tanaman, 25 isi unik | Aset generik dipakai ulang; tidak selalu bug bila placeholder | 100% hash | tandai `shared-template-sprite`, produksi visual spesifik sesuai kebutuhan | visual unik saat komoditas baru dibuka | P1 curated / P3 expansion |
 | Potret ekspresi vs konsep beda gaya | Produksi dari batch/pipeline berbeda; framing dan medium berbeda | 95% observasi sampel | pisahkan penggunaan, review potret kolektif, redraw bertahap | wajah NPC terasa satu dunia | P1 |
 | Katalog lama tersebar pada 4 SQLite | Paket pekerjaan dari fase berbeda | 100% keberadaan, isi DB belum diaudit | git asset-index baru + exporter SQLite lokal; archive old | aset mudah ditemukan tanpa dibuat ulang | P1 |
-| 2.615 media di repo | Library ekspansi dan clone/duplikasi | 100% inventory | alias, quality flag, lazy-runtime policy | kaya aset dengan loading tetap ringan | P1 |
+| 2.487 media di repo | Library ekspansi dan clone/duplikasi | 100% inventory | alias, quality flag, lazy-runtime policy | kaya aset dengan loading tetap ringan | P1 |
 | Objek sepele tidak punya pengalaman | mekanik inspect/ambient belum terhubung ke scene | 100% kode blueprint baru | 28 hook ready, integrasi ketika relevant | dunia hidup dan mengundang eksplorasi | P2 |
 | 96 spesifikasi baru | visi long-term, belum digambar | 100% katalog rancangan | produce per batch + QA art, tidak jadi map langsung | mengurangi revisi ekspansi | P2 design, P3 integration |
 
@@ -143,4 +143,11 @@ Aset diusulkan → brief & provenance → gambar sumber
 
 **Urutan eksekusi:** (P0) sampah/artefak rusak terverifikasi → (P1) duplikasi nonreferensi → (P1) potret dan tanaman yang diganti → (P2) arsip konsep tak relevan setelah review → (P3) aset ekspansi unik hanya jika tidak memenuhi visi dunia Bandung. **Jangan menyamakan jumlah path yang berkurang dengan berkurangnya variasi gameplay.**
 
-**Status pada 21 Nov 2026:** baru kebijakan kurasi yang disetujui; inventaris 2.615 media dan 1.420 salinan eksak belum berarti file itu sudah dihapus. PR #31 masih draft dengan CI gagal; jangan merge/deploy sebelum verifikasi. Menghapus file di Git commit tidak otomatis menghapus byte dari riwayat Git lama.
+**Status pada 21 Nov 2026:** kurasi tahap pertama telah menghapus 128 salinan PNG byte-identik (bukan seluruh pemeriksaan visual). PR #31 masih draft dan memerlukan CI/manual QA. Penghapusan tidak menghilangkan objek dalam riwayat Git.
+
+
+## 8. Hasil kurasi tahap pertama (21 November 2026)
+
+**Pada branch PR #31, bukan production:** terhapus **128 PNG salinan identik** senilai **117.366.708 byte (117,37 MB)** dari empat paket ekstraksi legacy (`aset`, `atlas-bandung`, `bandung-151`, `explore-bandung`). Seluruh **32 sprite sumber kanonik** tetap berada pada `game-assets/characters/gba-v2*/sheets/`. Delapan manifest dan README diperbarui. Dua ZIP standalone serta empat SQLite legacy tidak diubah.
+
+**Katalog sekarang:** 2.487 media, 1.195 blob konten unik, 1.292 salinan tambahan, 128.751.045 byte media terdaftar. Ini tidak otomatis setara dengan penghematan Git pack atau ukuran download runtime. Daftar SHA/path untuk pemulihan ada di [asset-prune-20261121.json](../../game-assets/catalog/asset-prune-20261121.json); commit sebelum pembersihan `251f78a46b1e617e12a645c29d2c072bf62cf7ad`. Mutu visual potret, tanaman, dan konsep Bandung belum dituntaskan: file unik yang masih layak untuk ekspansi tidak dibuang hanya karena tidak aktif. CI, pemeriksaan browser dan asset index perlu lulus sebelum merge.

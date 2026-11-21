@@ -15,3 +15,7 @@ The requested anatomy is two arms/hands and two legs/feet in every pose. Side vi
 This is an asset-library delivery, not a runtime integration or production release. Consult `QA.md` for the visual findings and limits. Before gameplay use, normalize to a native pixel grid, align pivots, refine walk timing, and test against the map at actual scale. The generated three-pose layout is not a claim of a polished 4–6-frame walk cycle.
 
 `prompts.json` contains the generation prompts. `PROVENANCE.md` records origin and rights status. Original private reference sheets are deliberately excluded.
+
+## Deduplicated source sheets — 2026-11-21
+
+This unpacked legacy copy no longer stores 16 byte-identical copies under `sheets/`. Each character's `sheet` field in `manifest.json` now points to `../../../../characters/gba-v2/sheets/` relative to this manifest. Use the manifest's relative path and keep the source in `game-assets/characters/gba-v2/sheets/`. Standalone historical ZIP archives were not modified; runtime assets in `public/game/assets/` and all 32 character identities are unchanged.

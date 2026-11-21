@@ -1,15 +1,35 @@
 import assert from "node:assert/strict";
 import {readFileSync,existsSync} from "node:fs";
 import {execFileSync} from "node:child_process";
+import {resolve,dirname} from "node:path";
 const load=p=>JSON.parse(readFileSync(p,"utf8"));
 const db=load("game-assets/catalog/asset-database.json");
 const people=load("game-assets/catalog/npc-portrait-register.json");
 const experience=load("game-assets/catalog/asset-experiences.json");
 const cast=load("game-assets/catalog/cast.json");
+const cleanup=load("game-assets/catalog/asset-prune-20261121.json");
+assert.equal(cleanup.removedFiles,128);
+assert.equal(cleanup.deleted.length,128);
+for(const entry of cleanup.deleted){
+ assert.ok(!existsSync(entry.removedPath),"Unremoved duplicate "+entry.removedPath);
+ assert.ok(existsSync(entry.canonicalPath),"Lost canonical sprite "+entry.canonicalPath);
+}
+for(const pack of ["aset","atlas-bandung","bandung-151","explore-bandung"]){
+ for(const family of ["gba-v2","gba-v2-c"]){
+  const file=`game-assets/yz-farm-life/${pack}/sumber-karakter/${family}/manifest.json`;
+  const manifest=load(file);
+  assert.equal(manifest.characters.length,16);
+  for(const ch of manifest.characters){
+   assert.ok(ch.sheet.startsWith(`../../../../characters/${family}/sheets/`));
+   assert.ok(existsSync(resolve(dirname(file),ch.sheet)),`Broken sheet reference: ${file} => ${ch.sheet}`);
+  }
+ }
+}
+
 assert.equal(db.schemaVersion,1);
 assert.equal(db.columns.length,10);
 assert.equal(db.rows.length,db.stats.fileCount);
-assert.ok(db.rows.length>=2615);
+assert.ok(db.rows.length>=2487);
 assert.ok(db.stats.uniqueBlobs<db.rows.length);
 const paths=new Map(db.rows.map(r=>[r[0],r]));
 assert.equal(paths.size,db.rows.length,"all tracked assets have unique paths");
