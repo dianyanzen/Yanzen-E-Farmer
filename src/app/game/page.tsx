@@ -12,5 +12,5 @@ export default async function GamePage() {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) redirect("/login");
-  return <GameClient />;
+  return <GameClient engine="phaser" />;
 }
