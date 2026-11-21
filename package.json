@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs",
+    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
@@ -26,7 +26,8 @@
     "test:game:assets": "node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs",
     "assets:quality": "node scripts/game-assets/report-asset-quality.mjs",
     "assets:categories": "node scripts/game-assets/build-asset-categories.mjs",
-    "assets:categories:check": "node scripts/game-assets/build-asset-categories.mjs --check"
+    "assets:categories:check": "node scripts/game-assets/build-asset-categories.mjs --check",
+    "test:game:humanizer": "node tests/game-humanizer-skill.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

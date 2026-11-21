@@ -13,7 +13,8 @@ This folder is the working knowledge base for YZ Farm Life, an original GBA-styl
 6. [Tools & Plugins](TOOLS_AND_PLUGINS.md) — installed/connected app tools and external desktop editors.
 7. [Technical & Research References](REFERENCE_DOCUMENTS.md) — authoritative links and how they apply to the implementation.
 8. [Story/NPC specification](STORY_SYSTEM.md) — event dependency graph, NPC memory and narrative QA.
-9. [Bandung Atlas plan](../YZ_FARM_LIFE_BANDUNG_ATLAS.md) — district metadata and geography methodology.
+9. [Humanizer untuk dialog dan quest](HUMANIZER_DIALOGUE_PIPELINE.md) — skill Codex lokal, audit suara NPC dan pengamanan kontrak quest.
+10. [Bandung Atlas plan](../YZ_FARM_LIFE_BANDUNG_ATLAS.md) — district metadata and geography methodology.
 
 ## Asset import status
 - **Shortlisted**: 8 external packs, 5 CC0 and 3 free-commercial/restricted-redistribution.
