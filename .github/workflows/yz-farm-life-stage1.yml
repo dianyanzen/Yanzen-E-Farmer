@@ -6,6 +6,11 @@ on:
       - feat/yz-pasirluyu-chapter1
   pull_request:
     paths:
+      - ".agents/**"
+      - "AGENTS.md"
+      - "docs/game-dev/HUMANIZER_DIALOGUE_PIPELINE.md"
+      - "tests/game-humanizer-skill.mjs"
+      - "package.json"
       - "src/app/game/**"
       - "src/lib/game/**"
       - "tests/game-stage1.mjs"

@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 const read = path => readFileSync(path, "utf8");
 const gitBlobSha = content => {
  const bytes=Buffer.from(content,"utf8");
- return createHash("sha1").update(Buffer.from("blob "+bytes.length+"\\0","utf8")).update(bytes).digest("hex");
+ return createHash("sha1").update(Buffer.from("blob "+bytes.length+"\0","utf8")).update(bytes).digest("hex");
 };
 const skillPath=".agents/skills/humanizer/SKILL.md";
 const licensePath=".agents/skills/humanizer/LICENSE";
@@ -15,10 +15,10 @@ for(const path of [skillPath,licensePath,projectPath,".agents/skills/humanizer/U
 const upstream=read(skillPath),license=read(licensePath),adapter=read(projectPath);
 assert.equal(gitBlobSha(upstream),"bc51a89764e96c0178c707a2a7158d8dca4e6920","Upstream Humanizer skill must match pinned source");
 assert.equal(gitBlobSha(license),"625297fb778f32eb39d3a5b97e3e3b611b7304d6","MIT license must match pinned source");
-assert.ok(upstream.startsWith("---\\nname: humanizer\\n"));
+assert.ok(upstream.startsWith("---\nname: humanizer\n"));
 assert.ok(upstream.includes('version: "4.0.0"'));
 assert.ok(license.startsWith("MIT License"));
-assert.ok(adapter.startsWith("---\\nname: yz-farm-dialogue\\n"));
+assert.ok(adapter.startsWith("---\nname: yz-farm-dialogue\n"));
 assert.ok(adapter.includes("../humanizer/SKILL.md"));
 for(const path of ["game-assets/catalog/cast.json","docs/game-dev/STORY_SYSTEM.md","src/lib/game/personal-quests.ts","src/lib/game/model.ts"])
  assert.ok(adapter.includes(path),"Narrative adapter lacks reference: "+path);
