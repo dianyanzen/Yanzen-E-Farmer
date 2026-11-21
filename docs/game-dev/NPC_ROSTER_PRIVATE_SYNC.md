@@ -60,3 +60,9 @@ Atur `GAME_RESIDENT_BIBLES=/path/privat/character-bibles.json` bila berkasnya ti
 `npm run chars:roster:check` memvalidasi 248 baris, keunikan ID/nama/portrait, keberadaan file gambar dan izin asosiasi legacy. Perintah hanya mencetak jumlah, tidak mencetak identitas.
 
 **Catatan:** 248 rancangan dengan 12 judul tidak berarti seluruh 248 *cerita* sudah tertulis. Kualitas naratif, dialog alami, ekspresi, serta kondisi runtime setiap NPC tetap membutuhkan peninjauan penulis dan tes permainan.
+
+## Vercel tanpa file Docker
+
+Agar ketiga URL game di Vercel menampilkan katalog 248 yang sama tanpa mengirim JSON privat ke GitHub, administrator dapat mengatur **environment variable server-only** `GAME_RESIDENT_ROSTER_JSON` (isi JSON array atau wrapper `{schemaVersion,currentRoster}`) pada environment deployment Vercel. Jangan memakai prefix `NEXT_PUBLIC_`, jangan menyalin nilai ini ke source/client, dan jangan menaruhnya dalam log atau hasil CI. Variabel ini memiliki prioritas lebih tinggi daripada `GAME_RESIDENT_ROSTER` yang menunjuk file Docker. Jika nilainya tidak valid, pembacaan gagal tertutup, bukan diam-diam mengganti nama dengan identitas lama. Perbarui deployment setelah memasang variabel privat.
+
+Pada server Docker, default tetap berkas `deploy/private/residents.json`. Kedua bentuk diproses dan divalidasi oleh fungsi yang sama. Tidak ada perubahan data server yang dilakukan oleh PR ini.
