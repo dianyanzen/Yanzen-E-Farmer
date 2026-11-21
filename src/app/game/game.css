@@ -382,7 +382,8 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-citizen-choice .yzg-portrait{width:46px;flex-basis:46px;min-width:46px}
 .yzg-citizen-choice .yzg-character-preview{width:46px;height:54px;flex:0 0 46px;object-fit:cover}
 .yzg-citizen-choice>span:nth-child(2){display:block;flex:1;min-width:0}
-.yzg-citizen-choice b{font-size:12px}
+.yzg-citizen-choice b{font-size:12px;display:block;overflow-wrap:anywhere;white-space:normal}
+.yzg-citizen-hero h3,.yzg-dialog-head b{overflow-wrap:anywhere;min-width:0;white-space:normal;line-height:1.3}
 .yzg-citizen-choice small{margin-top:2px;line-height:1.4}
 .yzg-citizen-chevron{font:22px/1 Georgia;color:#7f987a}
 .yzg-phone .yzg-citizen-archive{background:#e4efdc;color:#315941;border:1px solid #b6cdb6;font-weight:600;margin:10px 0 2px;width:100%}
