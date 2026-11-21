@@ -45,6 +45,10 @@ try{
  for(const route of ["src/app/game/page.tsx","src/app/game/phaser/page.tsx","src/app/game/canvas/page.tsx"]){
   assert.ok(file(route).includes("readPrivateResidents()"),"Missing canonical server hydration: "+route);
  }
+ const health=file("src/app/api/game/roster-health/route.ts");
+ assert.ok(health.includes("readPrivateResidents()"),"Health endpoint must use canonical data source");
+ assert.ok(health.includes("residents.length===248"),"Health endpoint must reject missing roster");
+ assert.ok(!health.includes("name:")&&!health.includes("occupation:"),"Health endpoint must not expose private identities");
  const client=file("src/app/game/game-client.tsx");
  assert.ok(!client.includes("residentById.has(npc.id)"),"Unsafe automatic face replacement remains");
  assert.ok(client.includes("visualByLegacyId.get(dialogue.npcId)"),"Dialogue portrait must use conservative canonical image matching");
