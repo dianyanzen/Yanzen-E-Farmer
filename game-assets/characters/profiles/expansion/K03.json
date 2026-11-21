@@ -1,0 +1,114 @@
+{
+  "id": "K03",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Imas",
+      "ageYears": 44,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Postur rapi, mata mengamati tanda jahitan kain",
+      "bodyLanguage": "Melipat sapu tangan sebelum menunjuk cirinya",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian kerja penatu dan keranjang kain",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pengelola penatu bersama",
+      "education": "Pengelolaan layanan cuci dan perawatan kain",
+      "communityParticipation": "Penatu ekspansi",
+      "leisureInterest": "Berkaitan dengan sapu tangan tak bertuan; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Rapi",
+        "perhatian",
+        "ingin tahu"
+      ],
+      "observableHabit": "Menyortir barang tertinggal menurut tanggal",
+      "values": "Mengembalikan barang tanpa mengusik privasi warga",
+      "flaw": "Terlalu penasaran pada pemilik benda"
+    },
+    "06_psychological_profile": {
+      "motivation": "Mengembalikan barang tanpa mengusik privasi warga",
+      "unspokenNeed": "Menghadapi terlalu penasaran pada pemilik benda",
+      "fear": "Barang salah alamat menjadi gosip kampung",
+      "innerConflict": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyortir barang tertinggal menurut tanggal"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga melatihnya memberi tanda pakaian sejak kecil",
+      "formativeMemory": "Tumbuh di lingkungan usaha penatu bersama",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K27",
+          "description": "Endah mengenali teknik jahitan sapu tangan tanpa menyebut pemilik",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membongkar isi saku pakaian titipan",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bertanya sopan dan tidak memaksa",
+      "physicalCue": "Melipat sapu tangan sebelum menunjuk cirinya",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Jahitannya khas, tapi belum tentu orangnya ingin ditemukan."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Sapu tangan tak bertuan",
+      "establishedPremise": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu.",
+      "personalGoal": "Mengembalikan barang tanpa mengusik privasi warga",
+      "centralDifficulty": "Terlalu penasaran pada pemilik benda",
+      "threeActBeats": [
+        "Menemukan sapu tangan",
+        "Menahan diri dari menebak pemilik",
+        "Membuat prosedur barang tertinggal"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K03.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Menemukan sapu tangan",
+      "nextBeats": [
+        "Menahan diri dari menebak pemilik",
+        "Membuat prosedur barang tertinggal"
+      ],
+      "doNotContradict": "Tidak membongkar isi saku pakaian titipan"
+    }
+  }
+}

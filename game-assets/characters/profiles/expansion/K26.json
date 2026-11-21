@@ -1,0 +1,114 @@
+{
+  "id": "K26",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ningsih",
+      "ageYears": 38,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak disiplin mengukur suhu ruang",
+      "bodyLanguage": "Menunjuk rak kosong nomor empat",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket gudang dingin dan sepatu kerja",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pengelola gudang dingin",
+      "education": "Pelatihan penyimpanan hasil panen",
+      "communityParticipation": "Gudang dingin ekspansi",
+      "leisureInterest": "Berkaitan dengan petak kosong nomor empat; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Teliti",
+        "tegas",
+        "sabar"
+      ],
+      "observableHabit": "Menjaga satu petak kosong untuk retur",
+      "values": "Menjaga asal barang retur bisa ditelusuri",
+      "flaw": "Terlalu sulit menjelaskan manfaat ruang kosong"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga asal barang retur bisa ditelusuri",
+      "unspokenNeed": "Menghadapi terlalu sulit menjelaskan manfaat ruang kosong",
+      "fear": "Barang tanpa asal tercampur ke stok siap jual",
+      "innerConflict": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menjaga satu petak kosong untuk retur"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah kehilangan stok karena tidak memisah retur",
+      "formativeMemory": "Belajar penyimpanan dingin dari gudang kecil",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C07",
+          "description": "Widi ingin memakai seluruh rak saat stok pasar penuh",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak mengizinkan barang tidak terlacak masuk stok jual",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Tegas, berbicara lewat kejadian nyata",
+      "physicalCue": "Menunjuk rak kosong nomor empat",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Rak kosong itu untuk barang yang belum jelas asalnya. Jangan campur dulu."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Petak kosong nomor empat",
+      "establishedPremise": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya.",
+      "personalGoal": "Menjaga asal barang retur bisa ditelusuri",
+      "centralDifficulty": "Terlalu sulit menjelaskan manfaat ruang kosong",
+      "threeActBeats": [
+        "Ruang rak kosong diprotes",
+        "Kiriman retur datang tanpa catatan",
+        "Membuktikan pentingnya pemisahan barang"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K26.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Ruang rak kosong diprotes",
+      "nextBeats": [
+        "Kiriman retur datang tanpa catatan",
+        "Membuktikan pentingnya pemisahan barang"
+      ],
+      "doNotContradict": "Tidak mengizinkan barang tidak terlacak masuk stok jual"
+    }
+  }
+}

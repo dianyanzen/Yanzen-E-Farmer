@@ -1,0 +1,92 @@
+{
+  "id": "P02",
+  "characterClass": "public-figure-fictional-cameo",
+  "approval": "limited-scripted-cameo",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "event-only fictional script; not a profile of the real person"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Muhammad Farhan",
+      "ageYears": null,
+      "ageStatus": "Tidak diisi: usia pribadi bukan elemen cerita dan tidak diverifikasi",
+      "origin": "Tidak direka; lokasi cerita hanya Kota Bandung (fiktif)",
+      "language": "Bahasa Indonesia untuk dialog naskah, bukan klaim gaya tutur pribadi",
+      "identity": "Peran Wali Kota Bandung hanya sebagai karakter tamu yang mengikuti premis fiksi di katalog"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Ilustrasi konsep tersedia; kesesuaian dengan rupa orang nyata belum diverifikasi dan tidak diklaim",
+      "physicalTraits": "Tidak mengarang detail tubuh; acuannya hanya gambar yang sudah tersimpan"
+    },
+    "03_fashion_aesthetic": {
+      "clothing": "Busana acara publik yang netral sesuai adegan fiktif; bukan reproduksi pakaian pribadi",
+      "aestheticGuidelines": "Konsisten dengan dunia YZ Farm Life dan tidak mencantumkan simbol resmi palsu"
+    },
+    "04_social_profile": {
+      "storyRole": "Wali Kota Bandung",
+      "education": "Tidak direka: pendidikan figur nyata tidak dibutuhkan alur cameo",
+      "communityEngagement": "Kunjungan fiktif ke pasar dan gang"
+    },
+    "05_personality": {
+      "observableInScene": "Mendengarkan paparan konflik dalam kejadian fiksi; bukan klaim karakter orang sebenarnya",
+      "privateTraits": "Tidak direka atau didiagnosis",
+      "weakness": "Tidak direka untuk figur nyata"
+    },
+    "06_psychological_profile": {
+      "privateMotivation": "Tidak diatribusikan kepada figur nyata",
+      "internalConflict": "Tidak diatribusikan kepada figur nyata",
+      "sceneObjective": "Memfasilitasi pembahasan persoalan pada adegan naskah yang jelas fiktif"
+    },
+    "07_background_history": {
+      "personalFamily": "Tidak dibuat sebagai cerita privat orang nyata",
+      "historicalFacts": "Tidak ditambahkan; jika diperlukan harus diverifikasi dari sumber publik dan dipisahkan dari fiksi",
+      "narrativeBackground": "Dalam cerita fiksi, Wali Kota Muhammad Farhan berkunjung ke pasar. Malik mengusulkan agar rute kunjungan dimulai dari pintu yang biasanya terkunci."
+    },
+    "08_relationship_dynamics": {
+      "scriptedConnection": [
+        {
+          "characterId": "C15",
+          "description": "Mendengar masukan Malik tentang akses dan rute",
+          "status": "planned-fictional-event"
+        }
+      ],
+      "trustAndRomance": "Tidak ada sistem afinitas atau romance untuk cameo orang nyata",
+      "boundaries": "Tidak menyimpulkan hubungan pribadi dengan tokoh lain di dunia nyata"
+    },
+    "09_dialogue_behavior": {
+      "scriptedSpeakingStyle": "Formal dan singkat demi kebutuhan adegan; bukan tiruan suara personal",
+      "sampleLine": "Kalau pintu pasar yang dipakai warga sehari-hari justru terkunci, ayo kita mulai dari situ.",
+      "bodyLanguage": "Gerak umum menghadiri pertemuan, tidak meniru kebiasaan pribadi"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Meja yang menghadap gang",
+      "premise": "Dalam cerita fiksi, Wali Kota Muhammad Farhan berkunjung ke pasar. Malik mengusulkan agar rute kunjungan dimulai dari pintu yang biasanya terkunci.",
+      "threeActBeats": [
+        "Menerima usulan rute kunjungan pasar",
+        "Mendengar Malik tentang akses pintu yang terkunci",
+        "Memeriksa rute bersama warga tanpa klaim perilaku tokoh nyata"
+      ],
+      "playerChoice": "Mengikuti rute seremonial atau meninjau pintu yang sehari-hari dipakai pekerja",
+      "arcScope": "Tamu sekali/peristiwa publik fiktif; tanpa pengungkapan ranah privat",
+      "implementation": "not playable"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/civic/P02.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "portraitApproval": "pending-legal-and-art-review",
+      "spriteSet": "not-produced",
+      "brandingPolicy": "Jangan membuat logo pemerintah palsu atau menyatakan adegan sebagai kegiatan resmi"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Fictional cameo concept only",
+      "recordedPremise": "Dalam cerita fiksi, Wali Kota Muhammad Farhan berkunjung ke pasar. Malik mengusulkan agar rute kunjungan dimulai dari pintu yang biasanya terkunci.",
+      "liveStoryFlags": "none",
+      "playerDependentRelationships": "none",
+      "doNotContradict": "Jangan mengklaim dialog/keputusan game sebagai ucapan atau keputusan tokoh nyata"
+    }
+  }
+}

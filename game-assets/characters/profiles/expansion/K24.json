@@ -1,0 +1,114 @@
+{
+  "id": "K24",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Tiar",
+      "ageYears": 32,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak teliti meraba posisi titik pada label uji",
+      "bodyLanguage": "Menyentuh tepi bingkai untuk mengukur jarak",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju kerja pembuat label, alat ukur kecil",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Penyusun label Braille",
+      "education": "Belajar penyusunan label Braille dan pemasangan",
+      "communityParticipation": "Gudang label ekspansi",
+      "leisureInterest": "Berkaitan dengan titik yang terlalu dekat tepi; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Teliti",
+        "terbuka",
+        "praktis"
+      ],
+      "observableHabit": "Menguji label setelah dipasang pada rak",
+      "values": "Membuat label dapat dibaca dalam posisi pakai sebenarnya",
+      "flaw": "Terlalu percaya hasil uji label di atas meja"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat label dapat dibaca dalam posisi pakai sebenarnya",
+      "unspokenNeed": "Menghadapi terlalu percaya hasil uji label di atas meja",
+      "fear": "Desain akses gagal di lokasi nyata",
+      "innerConflict": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menguji label setelah dipasang pada rak"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mengenal sistem label dari usaha kecil",
+      "formativeMemory": "Belajar desain label dari kerja bersama pengguna",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C15",
+          "description": "Malik membantu memetakan tinggi dan posisi rak yang mudah dijangkau",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyatakan desain aksesibel tanpa uji pengguna",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Jelas, meminta umpan balik pengguna tanpa asumsi",
+      "physicalCue": "Menyentuh tepi bingkai untuk mengukur jarak",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Titiknya benar, tapi bingkainya menutup. Kamu pilih letak yang lebih nyaman."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Titik yang terlalu dekat tepi",
+      "establishedPremise": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru.",
+      "personalGoal": "Membuat label dapat dibaca dalam posisi pakai sebenarnya",
+      "centralDifficulty": "Terlalu percaya hasil uji label di atas meja",
+      "threeActBeats": [
+        "Label lolos uji meja",
+        "Bingkai rak menutup titik",
+        "Meminta pengguna menentukan posisi baru"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K24.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Label lolos uji meja",
+      "nextBeats": [
+        "Bingkai rak menutup titik",
+        "Meminta pengguna menentukan posisi baru"
+      ],
+      "doNotContradict": "Tidak menyatakan desain aksesibel tanpa uji pengguna"
+    }
+  }
+}

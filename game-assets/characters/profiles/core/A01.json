@@ -1,0 +1,124 @@
+{
+  "id": "A01",
+  "characterClass": "player-character",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Yanzen",
+      "ageYears": 29,
+      "origin": "Pasirluyu, Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Karakter utama fiktif, identitas personal pemain tidak diekspor"
+    },
+    "02_physical_appearance": {
+      "general": "Rambut hitam agak acak; gerak aktif pekerja kebun",
+      "bodyLanguageBaseline": "Menahan tangan sebelum menyentuh milik orang",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja krem, rompi navy, tas catatan",
+      "styleReason": "Rompi kerja dan pakaian lapangan menjadi arah desain petani utama yang aktif menjelajah.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Petani dan pengelola kebun",
+      "education": "Belajar pertanian dari kebun keluarga dan latihan lapangan",
+      "communityActivity": "Kebun Yanzen",
+      "hobbies": [
+        "Berkebun",
+        "Menjelajah desa"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Penasaran",
+        "Tekun",
+        "Suka membantu"
+      ],
+      "habit": "Memeriksa tanah sambil mencatat rute",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu cepat menawarkan bantuan"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjadikan kebun mandiri tanpa meminggirkan warga",
+      "unspokenNeed": "Belajar menghadapi terlalu cepat menawarkan bantuan",
+      "fear": "Menjadi satu-satunya orang yang menikmati keberhasilan lahan",
+      "innerConflict": "Menjadikan kebun mandiri tanpa meminggirkan warga tetapi terlalu cepat menawarkan bantuan",
+      "copingResponse": "Bekerja lebih lama saat bingung memilih"
+    },
+    "07_background_history": {
+      "familyContext": "Rumah dan kebun memuat kenangan keluarga yang belum seluruhnya terungkap",
+      "formativeMemory": "Pernah melihat petak terbengkalai karena air tak terkelola",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A03",
+          "relationship": "Belajar pengukuran dan berdebat soal pembagian air",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memakai foto dan rahasia warga tanpa izin",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Bertanya singkat dan mencari sebab yang bisa diuji",
+      "habitualGesture": "Menahan tangan sebelum menyentuh milik orang",
+      "stressReaction": "Bekerja lebih lama saat bingung memilih",
+      "sampleLine": "Kalau airnya kubuka sekarang, kebun Nani ikut kebagian? Aku mau tanya dia dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar menjadi warga, bukan penyelamat",
+      "initialDesire": "Menjadikan kebun mandiri tanpa meminggirkan warga",
+      "mainObstacle": "Terlalu cepat menawarkan bantuan",
+      "threeActBeats": [
+        "Merawat petak awal",
+        "Mendengar pendapat warga soal air",
+        "Menyerahkan keputusan bersama pada komunitas"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Bertani, pilihan cerita, relasi dan YZ Phone",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A01.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A01.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Yanzen",
+        "Petani dan pengelola kebun",
+        "Penasaran",
+        "Tekun",
+        "Suka membantu"
+      ],
+      "proposedArcStartingPoint": "Merawat petak awal",
+      "notYetOccurred": [
+        "Mendengar pendapat warga soal air",
+        "Menyerahkan keputusan bersama pada komunitas"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memakai foto dan rahasia warga tanpa izin"
+    }
+  }
+}

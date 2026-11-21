@@ -1,0 +1,124 @@
+{
+  "id": "A02",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Nabila",
+      "ageYears": 25,
+      "origin": "Bandung utara (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak halus saat memutar tangkai bunga; mata mengikuti kelopak",
+      "bodyLanguageBaseline": "Memutar tangkai bunga ketika menimbang jawaban",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Tunik sage, apron tipis dan gunting bunga",
+      "styleReason": "Tunik sage memberi arah palet untuk kebun bunga; sifat dan minat merupakan pilihan cerita.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perawat kebun bunga",
+      "education": "Magang di taman bunga kota dan belajar dari pembibit",
+      "communityActivity": "Kebun bunga ekspansi",
+      "hobbies": [
+        "Merangkai bunga",
+        "Membuat teh herbal"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ramah",
+        "Telaten",
+        "Optimistis"
+      ],
+      "habit": "Mengganti air vas; menyimpan bunga gagal mekar",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Sulit menolak pesanan mendadak"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Mengelola kebun bunga hemat air yang dapat hidup sepanjang musim",
+      "unspokenNeed": "Belajar menghadapi sulit menolak pesanan mendadak",
+      "fear": "Dinilai baik hanya jika selalu menuruti orang",
+      "innerConflict": "Mengelola kebun bunga hemat air yang dapat hidup sepanjang musim tetapi sulit menolak pesanan mendadak",
+      "copingResponse": "Senyum hilang, lalu ia mengulang batas secara pelan"
+    },
+    "07_background_history": {
+      "familyContext": "Terbiasa membantu keluarga menyiapkan rangkaian acara warga",
+      "formativeMemory": "Satu pesanan besar merusak bunga yang belum siap petik",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A04",
+          "relationship": "Saling berbagi benih, berbeda pandangan soal varietas baru",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Jangan mengambil hasil rangkaiannya tanpa izin",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Ramah, memberi contoh dari tanaman ketimbang petuah",
+      "habitualGesture": "Memutar tangkai bunga ketika menimbang jawaban",
+      "stressReaction": "Senyum hilang, lalu ia mengulang batas secara pelan",
+      "sampleLine": "Boleh dipetik besok. Kalau sekarang, yang tumbuh lagi cuma daunnya."
+    },
+    "10_narrative_development": {
+      "storyArc": "Berani menetapkan batas",
+      "initialDesire": "Mengelola kebun bunga hemat air yang dapat hidup sepanjang musim",
+      "mainObstacle": "Sulit menolak pesanan mendadak",
+      "threeActBeats": [
+        "Pesanan pesta menumpuk",
+        "Berdebat tentang jadwal petik",
+        "Membuat aturan petik yang disepakati"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Budidaya bunga, pesanan dan kepercayaan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A02.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A02.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Nabila",
+        "Perawat kebun bunga",
+        "Ramah",
+        "Telaten",
+        "Optimistis"
+      ],
+      "proposedArcStartingPoint": "Pesanan pesta menumpuk",
+      "notYetOccurred": [
+        "Berdebat tentang jadwal petik",
+        "Membuat aturan petik yang disepakati"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Jangan mengambil hasil rangkaiannya tanpa izin"
+    }
+  }
+}

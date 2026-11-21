@@ -1,0 +1,124 @@
+{
+  "id": "C07",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Widi",
+      "ageYears": 36,
+      "origin": "Bandung selatan (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak luwes membawa keranjang; mata menaksir kebutuhan pasar",
+      "bodyLanguageBaseline": "Menimbang keranjang di satu tangan sebelum bernegosiasi",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja charcoal, celana beige, tas penjualan",
+      "styleReason": "Kemeja charcoal dan celana beige memberi arah visual pedagang hasil bumi.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pedagang hasil bumi",
+      "education": "Berpengalaman menyuplai hasil bumi ke pedagang dan rumah makan",
+      "communityActivity": "Pasar Warga",
+      "hobbies": [
+        "Mencoba masakan lokal",
+        "Bermain bulu tangkis"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Luwes",
+        "Percaya diri",
+        "Pandai bernegosiasi"
+      ],
+      "habit": "Menanya kebutuhan lapak sebelum membeli stok tambahan",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Kadang menekan tawar-menawar terlalu keras"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima",
+      "unspokenNeed": "Belajar menghadapi kadang menekan tawar-menawar terlalu keras",
+      "fear": "Terjebak sisa barang yang tak laku",
+      "innerConflict": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima tetapi kadang menekan tawar-menawar terlalu keras",
+      "copingResponse": "Berunding makin kencang ketika khawatir rugi"
+    },
+    "07_background_history": {
+      "familyContext": "Tumbuh dekat pusat perdagangan bahan pangan",
+      "formativeMemory": "Pernah memesan banyak ikan saat cuaca menutup rute pasokan",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C08",
+          "relationship": "Bertukar jadwal dan harga; kebutuhan Inggit sering mengubah stoknya",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menyembunyikan asal atau kondisi bahan pangan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Percaya diri, cepat menghitung, tidak selalu menyetujui tawaran",
+      "habitualGesture": "Menimbang keranjang di satu tangan sebelum bernegosiasi",
+      "stressReaction": "Berunding makin kencang ketika khawatir rugi",
+      "sampleLine": "Aku bisa bawakan lebih banyak, tapi dua toplesmu cuma butuh yang segar hari ini."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar bahwa hubungan lebih awet dari satu untung besar",
+      "initialDesire": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima",
+      "mainObstacle": "Kadang menekan tawar-menawar terlalu keras",
+      "threeActBeats": [
+        "Menetapkan harga sepihak",
+        "Pasokan pasar berlebihan",
+        "Menyusun kesepakatan stok kecil dengan pedagang"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Perdagangan dan quest suplai bahan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C07.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C07.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Registered active prototype NPC (per portrait register)",
+      "knownCanon": [
+        "Widi",
+        "Pedagang hasil bumi",
+        "Luwes",
+        "Percaya diri",
+        "Pandai bernegosiasi"
+      ],
+      "proposedArcStartingPoint": "Menetapkan harga sepihak",
+      "notYetOccurred": [
+        "Pasokan pasar berlebihan",
+        "Menyusun kesepakatan stok kecil dengan pedagang"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menyembunyikan asal atau kondisi bahan pangan"
+    }
+  }
+}

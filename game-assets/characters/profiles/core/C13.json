@@ -1,0 +1,124 @@
+{
+  "id": "C13",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Heri",
+      "ageYears": 58,
+      "origin": "Pasirluyu (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Rambut beruban, mengenakan peci; gestur menenangkan saat rapat",
+      "bodyLanguageBaseline": "Menunggu pena lawan bicara diletakkan sebelum menanggapi",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju bermotif lokal, peci dan sandal jalan",
+      "styleReason": "Peci, rambut beruban, dan motif baju digunakan untuk rancangan tokoh senior kampung tanpa jabatan resmi.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penggerak kegiatan kampung",
+      "education": "Pengalaman memfasilitasi rapat warga dan kegiatan kampung",
+      "communityActivity": "Balai warga ekspansi",
+      "hobbies": [
+        "Bermain catur",
+        "Mengoleksi cerita rakyat"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ramah",
+        "Bijaksana",
+        "Suka bermusyawarah"
+      ],
+      "habit": "Mendengar orang terakhir sebelum menyimpulkan rapat",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Kadang terlalu lama mencari mufakat"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat tetangga berani berbeda pendapat tanpa bermusuhan",
+      "unspokenNeed": "Belajar menghadapi kadang terlalu lama mencari mufakat",
+      "fear": "Musyawarah berubah menjadi tekanan bagi orang pendiam",
+      "innerConflict": "Membuat tetangga berani berbeda pendapat tanpa bermusuhan tetapi kadang terlalu lama mencari mufakat",
+      "copingResponse": "Diam terlalu lama ketika keputusan sulit"
+    },
+    "07_background_history": {
+      "familyContext": "Besar dalam lingkungan dengan tradisi rapat tetangga",
+      "formativeMemory": "Pernah melihat keputusan mayoritas merugikan rumah paling ujung",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A10",
+          "relationship": "Mengajak Dadan mendengar saksi sebelum memutuskan tuduhan",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak membagikan cerita warga yang diminta disimpan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Hangat, peribahasa seperlunya; tidak menggurui",
+      "habitualGesture": "Menunggu pena lawan bicara diletakkan sebelum menanggapi",
+      "stressReaction": "Diam terlalu lama ketika keputusan sulit",
+      "sampleLine": "Kalau yang paling ujung belum datang, rapatnya belum lengkap, kan?"
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar menerima keputusan yang tidak selalu bulat",
+      "initialDesire": "Membuat tetangga berani berbeda pendapat tanpa bermusuhan",
+      "mainObstacle": "Kadang terlalu lama mencari mufakat",
+      "threeActBeats": [
+        "Menyusun rapat besar",
+        "Kelompok kecil tidak berani berbicara",
+        "Mengubah cara pengambilan masukan"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Forum komunitas dan keputusan kelompok",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C13.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C13.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Heri",
+        "Penggerak kegiatan kampung",
+        "Ramah",
+        "Bijaksana",
+        "Suka bermusyawarah"
+      ],
+      "proposedArcStartingPoint": "Menyusun rapat besar",
+      "notYetOccurred": [
+        "Kelompok kecil tidak berani berbicara",
+        "Mengubah cara pengambilan masukan"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak membagikan cerita warga yang diminta disimpan"
+    }
+  }
+}

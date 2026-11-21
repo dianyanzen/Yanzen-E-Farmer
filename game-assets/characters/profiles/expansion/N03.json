@@ -1,0 +1,114 @@
+{
+  "id": "N03",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ratih",
+      "ageYears": 29,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Mata mengikuti gelombang air; berdiri diam di tepi kolam",
+      "bodyLanguage": "Memutar pelampung retak",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket ringan, pelampung pancing tua",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pemancing dan pengamat ikan",
+      "education": "Belajar membaca musim air dari pemancing senior",
+      "communityParticipation": "Kolam ekspansi",
+      "leisureInterest": "Berkaitan dengan umpan peninggalan kakak; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Penyabar",
+        "melankolis",
+        "observatif"
+      ],
+      "observableHabit": "Menyimpan umpan lama walau sudah usang",
+      "values": "Merawat kolam dan kenangan kakaknya tanpa berhenti hidup",
+      "flaw": "Sulit berpisah dari benda peninggalan"
+    },
+    "06_psychological_profile": {
+      "motivation": "Merawat kolam dan kenangan kakaknya tanpa berhenti hidup",
+      "unspokenNeed": "Menghadapi sulit berpisah dari benda peninggalan",
+      "fear": "Kenangan keluarganya hanya tinggal barang rusak",
+      "innerConflict": "Ratih menyimpan pelampung pecah dari kakaknya. Ikan yang dahulu sering tertangkap kini terlihat di sisi kolam yang lebih teduh.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan umpan lama walau sudah usang"
+    },
+    "07_background_history": {
+      "familyContext": "Pelampung kakak menjadi kenangan keluarga yang dipilih disimpan",
+      "formativeMemory": "Sering memancing bersama kakak ketika kecil",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C07",
+          "description": "Meminta pedagang ikan membantu memetakan habitat baru",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak memaksa cerita duka demi hadiah quest",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bersuara pelan, memberi jeda panjang pada cerita keluarga",
+      "physicalCue": "Memutar pelampung retak",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Dulu ikan selalu muncul di sana. Sekarang airnya lebih teduh di sebelah sana."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Umpan peninggalan kakak",
+      "establishedPremise": "Ratih menyimpan pelampung pecah dari kakaknya. Ikan yang dahulu sering tertangkap kini terlihat di sisi kolam yang lebih teduh.",
+      "personalGoal": "Merawat kolam dan kenangan kakaknya tanpa berhenti hidup",
+      "centralDifficulty": "Sulit berpisah dari benda peninggalan",
+      "threeActBeats": [
+        "Kehilangan titik memancing lama",
+        "Memeriksa perubahan tempat teduh",
+        "Menerima perubahan tanpa membuang kenangan"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/specialists/N03.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Ratih menyimpan pelampung pecah dari kakaknya. Ikan yang dahulu sering tertangkap kini terlihat di sisi kolam yang lebih teduh.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Kehilangan titik memancing lama",
+      "nextBeats": [
+        "Memeriksa perubahan tempat teduh",
+        "Menerima perubahan tanpa membuang kenangan"
+      ],
+      "doNotContradict": "Tidak memaksa cerita duka demi hadiah quest"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "C16",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Karisma",
+      "ageYears": 28,
+      "origin": "Bandung barat (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Rambut panjang; ekspresi hidup ketika melihat kombinasi bunga",
+      "bodyLanguageBaseline": "Mengatur satu bunga ke samping lalu membandingkan dua versi",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket denim dan pakaian kerja perangkai",
+      "styleReason": "Rambut panjang dan jaket denim memberi identitas visual perangkai bunga dengan gaya kasual.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perangkai bunga",
+      "education": "Belajar komposisi bunga dari pasar dan eksperimen warna",
+      "communityActivity": "Lapak bunga ekspansi",
+      "hobbies": [
+        "Merangkai bunga liar",
+        "Melukis"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ekspresif",
+        "Ramah",
+        "Penuh ide"
+      ],
+      "habit": "Menyimpan satu kelopak liar untuk sketsa pola",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu banyak ide hingga pesanan melenceng dari kebutuhan"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat rangkaian yang mencerminkan cerita pembelinya",
+      "unspokenNeed": "Belajar menghadapi terlalu banyak ide hingga pesanan melenceng dari kebutuhan",
+      "fear": "Kreativitasnya dianggap tak serius oleh pengrajin senior",
+      "innerConflict": "Membuat rangkaian yang mencerminkan cerita pembelinya tetapi terlalu banyak ide hingga pesanan melenceng dari kebutuhan",
+      "copingResponse": "Mengubah pola berkali-kali saat cemas"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mengenalnya sebagai perancang acara kecil",
+      "formativeMemory": "Buket paling mencolok pernah ditolak karena terlalu besar untuk rumah sempit",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A02",
+          "relationship": "Belajar batas petik dari Nabila, kadang berbeda rasa desain",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memaksa orang membeli desain yang berbeda dari pesanan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Ekspresif, melompat antar gagasan tetapi mendengar kritik",
+      "habitualGesture": "Mengatur satu bunga ke samping lalu membandingkan dua versi",
+      "stressReaction": "Mengubah pola berkali-kali saat cemas",
+      "sampleLine": "Yang ini cantik, tapi mejanya kecil. Kita bikin rangkaian yang masih kasih ruang buat makan."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar menyesuaikan kreativitas dengan kehidupan",
+      "initialDesire": "Membuat rangkaian yang mencerminkan cerita pembelinya",
+      "mainObstacle": "Terlalu banyak ide hingga pesanan melenceng dari kebutuhan",
+      "threeActBeats": [
+        "Membuat desain terlalu besar",
+        "Mendengar alasan pemesan",
+        "Mencipta rangkaian yang memikirkan ruang pengguna"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Rangkaian bunga dan reputasi usaha",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C16.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C16.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Karisma",
+        "Perangkai bunga",
+        "Ekspresif",
+        "Ramah",
+        "Penuh ide"
+      ],
+      "proposedArcStartingPoint": "Membuat desain terlalu besar",
+      "notYetOccurred": [
+        "Mendengar alasan pemesan",
+        "Mencipta rangkaian yang memikirkan ruang pengguna"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memaksa orang membeli desain yang berbeda dari pesanan"
+    }
+  }
+}

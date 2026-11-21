@@ -1,0 +1,114 @@
+{
+  "id": "N01",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Sinta",
+      "ageYears": 27,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Postur cekatan saat mengejar unggas",
+      "bodyLanguage": "Mengetuk pagar kandang",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian peternak sederhana, boots kandang",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Peternak unggas",
+      "education": "Praktik peternakan keluarga",
+      "communityParticipation": "Peternakan ekspansi",
+      "leisureInterest": "Berkaitan dengan ayam yang tak pulang ke kandang; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Cermat",
+        "penyayang",
+        "pantang menyerah"
+      ],
+      "observableHabit": "Menyebut ayam satu per satu ketika memberi makan",
+      "values": "Menjaga unggas tetap aman tanpa membatasi perilaku alaminya",
+      "flaw": "Terlalu cepat menyimpulkan hewan hilang"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga unggas tetap aman tanpa membatasi perilaku alaminya",
+      "unspokenNeed": "Menghadapi terlalu cepat menyimpulkan hewan hilang",
+      "fear": "Kandang sepi berarti ia gagal merawat",
+      "innerConflict": "Sinta mengira ayam kesayangannya hilang. Setiap sore terdengar ciap dari tumpukan keranjang kosong.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyebut ayam satu per satu ketika memberi makan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga merawat unggas untuk konsumsi dan penghasilan kecil",
+      "formativeMemory": "Belajar mengasuh unggas dari tetangga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "N02",
+          "description": "Meminta pemeriksaan Surya sebelum menuduh orang mengambil ayam",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyalahkan tetangga tanpa bukti",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Nada akrab, pertanyaan pendek ketika cemas",
+      "physicalCue": "Mengetuk pagar kandang",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Tunggu. Kalau hilang, kenapa bekas pakan masih ada di sini?"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Ayam yang tak pulang ke kandang",
+      "establishedPremise": "Sinta mengira ayam kesayangannya hilang. Setiap sore terdengar ciap dari tumpukan keranjang kosong.",
+      "personalGoal": "Menjaga unggas tetap aman tanpa membatasi perilaku alaminya",
+      "centralDifficulty": "Terlalu cepat menyimpulkan hewan hilang",
+      "threeActBeats": [
+        "Mencari ayam di sudut kandang",
+        "Menemukan petunjuk dekat keranjang",
+        "Mengubah rutinitas penutupan kandang"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/specialists/N01.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Sinta mengira ayam kesayangannya hilang. Setiap sore terdengar ciap dari tumpukan keranjang kosong.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Mencari ayam di sudut kandang",
+      "nextBeats": [
+        "Menemukan petunjuk dekat keranjang",
+        "Mengubah rutinitas penutupan kandang"
+      ],
+      "doNotContradict": "Tidak menyalahkan tetangga tanpa bukti"
+    }
+  }
+}

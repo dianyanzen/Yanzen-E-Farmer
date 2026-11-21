@@ -1,0 +1,124 @@
+{
+  "id": "A09",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Fajar",
+      "ageYears": 28,
+      "origin": "Bandung kota (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Berkacamata, kepala sering menoleh mengikuti bunyi burung",
+      "bodyLanguageBaseline": "Menurunkan kamera ketika pembicaraan pribadi",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Atasan plum dan tas kamera tanpa merek",
+      "styleReason": "Kacamata dan palet plum membedakannya sebagai karakter dokumentasi alam dalam cerita.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Fotografer desa",
+      "education": "Belajar fotografi dari dokumentasi kegiatan warga",
+      "communityActivity": "Kampung dan taman ekspansi",
+      "hobbies": [
+        "Fotografi alam",
+        "Mengamati burung"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Observatif",
+        "Santai",
+        "Ingin tahu"
+      ],
+      "habit": "Memeriksa cahaya pada jam serupa",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu lama mengamati tanpa mengambil sikap"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membangun arsip gambar kampung yang dipakai warganya",
+      "unspokenNeed": "Belajar menghadapi terlalu lama mengamati tanpa mengambil sikap",
+      "fear": "Foto pribadinya disebarkan tanpa persetujuan",
+      "innerConflict": "Membangun arsip gambar kampung yang dipakai warganya tetapi terlalu lama mengamati tanpa mengambil sikap",
+      "copingResponse": "Menghapus foto duplikat saat ragu"
+    },
+    "07_background_history": {
+      "familyContext": "Album keluarga mengajarinya mengingat tempat lewat gambar",
+      "formativeMemory": "Pernah melihat dokumentasi bencana menyebar tanpa persetujuan narasumber",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C01",
+          "relationship": "Nani meminta batas ketat pada foto dan kenangan keluarganya",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menyimpan dan membagikan potret personal tanpa izin",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Rasa ingin tahu halus, bertanya sebelum memotret",
+      "habitualGesture": "Menurunkan kamera ketika pembicaraan pribadi",
+      "stressReaction": "Menghapus foto duplikat saat ragu",
+      "sampleLine": "Gambar salurannya bisa kuambil. Wajah orangnya, kita minta izin dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar bertanggung jawab sebagai saksi",
+      "initialDesire": "Membangun arsip gambar kampung yang dipakai warganya",
+      "mainObstacle": "Terlalu lama mengamati tanpa mengambil sikap",
+      "threeActBeats": [
+        "Mendokumentasikan perubahan gang",
+        "Menghadapi permintaan foto sensitif",
+        "Membuat pameran yang disetujui warga"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Arsip foto dan izin warga",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A09.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A09.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Fajar",
+        "Fotografer desa",
+        "Observatif",
+        "Santai",
+        "Ingin tahu"
+      ],
+      "proposedArcStartingPoint": "Mendokumentasikan perubahan gang",
+      "notYetOccurred": [
+        "Menghadapi permintaan foto sensitif",
+        "Membuat pameran yang disetujui warga"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menyimpan dan membagikan potret personal tanpa izin"
+    }
+  }
+}

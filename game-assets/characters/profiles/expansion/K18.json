@@ -1,0 +1,114 @@
+{
+  "id": "K18",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Yuda",
+      "ageYears": 37,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak hati-hati memukul bambu di sudut berbeda",
+      "bodyLanguage": "Mengetuk tabung lalu berhenti mendengar",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju latihan alat musik bambu",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Penyetem alat musik bambu",
+      "education": "Belajar alat musik bambu secara praktik",
+      "communityParticipation": "Panggung musik ekspansi",
+      "leisureInterest": "Berkaitan dengan nada yang enggan pulang; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Teliti",
+        "pemalu",
+        "setia"
+      ],
+      "observableHabit": "Mencoba nada di dua posisi panggung",
+      "values": "Membuat alat musik terdengar pas dalam ruang nyata",
+      "flaw": "Takut mengakui uji panggungnya belum lengkap"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat alat musik terdengar pas dalam ruang nyata",
+      "unspokenNeed": "Menghadapi takut mengakui uji panggungnya belum lengkap",
+      "fear": "Nada gagal saat pementasan warga",
+      "innerConflict": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan.",
+      "stressResponse": "Menarik diri sejenak atau mengulang mencoba nada di dua posisi panggung"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mendukung latihan seni kampung",
+      "formativeMemory": "Belajar menyetem dari kelompok seni lokal",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K16",
+          "description": "Karta memberi ruang uji coba di panggung yang sebenarnya",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak memaksa pemain memakai instrumen yang belum stabil",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Pelan, sering memberi contoh bunyi",
+      "physicalCue": "Mengetuk tabung lalu berhenti mendengar",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Di depan bunyinya pas. Dari belakang ada nada yang lari."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Nada yang enggan pulang",
+      "establishedPremise": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan.",
+      "personalGoal": "Membuat alat musik terdengar pas dalam ruang nyata",
+      "centralDifficulty": "Takut mengakui uji panggungnya belum lengkap",
+      "threeActBeats": [
+        "Nada terdengar sumbang di belakang",
+        "Menguji posisi panggung",
+        "Menyetel ulang bersama pemain"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K18.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Nada terdengar sumbang di belakang",
+      "nextBeats": [
+        "Menguji posisi panggung",
+        "Menyetel ulang bersama pemain"
+      ],
+      "doNotContradict": "Tidak memaksa pemain memakai instrumen yang belum stabil"
+    }
+  }
+}

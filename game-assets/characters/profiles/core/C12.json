@@ -1,0 +1,124 @@
+{
+  "id": "C12",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Fatihah",
+      "ageYears": 30,
+      "origin": "Bandung timur (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Postur rapi ketika menjaga etalase; gerak tenang menata barang",
+      "bodyLanguageBaseline": "Meratakan label harga yang miring",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Tunik plum dan celemek toko perlengkapan",
+      "styleReason": "Tunik plum menjadi identitas penjaga toko sipil; atribut jabatan pada referensi tidak diadopsi.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penjaga toko perlengkapan kebun",
+      "education": "Belajar perdagangan alat dan penataan stok",
+      "communityActivity": "Toko perlengkapan ekspansi",
+      "hobbies": [
+        "Merawat tanaman pot",
+        "Menyusun dekorasi etalase"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Teratur",
+        "Sopan",
+        "Teguh pendirian"
+      ],
+      "habit": "Memeriksa daftar ketersediaan sebelum membuka toko",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu kaku ketika pelanggan ingin pengecualian"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga toko jujur dengan stok yang bisa diandalkan",
+      "unspokenNeed": "Belajar menghadapi terlalu kaku ketika pelanggan ingin pengecualian",
+      "fear": "Memberi barang salah lalu merugikan satu musim tanam",
+      "innerConflict": "Menjaga toko jujur dengan stok yang bisa diandalkan tetapi terlalu kaku ketika pelanggan ingin pengecualian",
+      "copingResponse": "Menyusun ulang etalase ketika tertekan"
+    },
+    "07_background_history": {
+      "familyContext": "Usaha toko tumbuh dari kios kecil keluarga",
+      "formativeMemory": "Pesanan alat pernah tertukar karena label gudang usang",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A05",
+          "relationship": "Meminta Vicky menguji alat sebelum ditawarkan kembali",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menyerahkan barang yang belum aman atau belum dibayar",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Sopan dan tegas, berhenti pada ketentuan jelas",
+      "habitualGesture": "Meratakan label harga yang miring",
+      "stressReaction": "Menyusun ulang etalase ketika tertekan",
+      "sampleLine": "Kalau alatnya belum diuji, aku tak mau jual dulu. Mau cari pilihan lain?"
+    },
+    "10_narrative_development": {
+      "storyArc": "Menjadi tegas sekaligus fleksibel",
+      "initialDesire": "Menjaga toko jujur dengan stok yang bisa diandalkan",
+      "mainObstacle": "Terlalu kaku ketika pelanggan ingin pengecualian",
+      "threeActBeats": [
+        "Pelanggan meminta barang langka",
+        "Stok ternyata keliru",
+        "Memperbaiki layanan tanpa membuang prosedur"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Persediaan alat dan perdagangan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C12.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C12.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Fatihah",
+        "Penjaga toko perlengkapan kebun",
+        "Teratur",
+        "Sopan",
+        "Teguh pendirian"
+      ],
+      "proposedArcStartingPoint": "Pelanggan meminta barang langka",
+      "notYetOccurred": [
+        "Stok ternyata keliru",
+        "Memperbaiki layanan tanpa membuang prosedur"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menyerahkan barang yang belum aman atau belum dibayar"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "C09",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Bela",
+      "ageYears": 26,
+      "origin": "Bandung kota (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Berkacamata; berhenti lama melihat bidang cahaya dan warna",
+      "bodyLanguageBaseline": "Mengarsir sudut kertas sambil menunggu lawan bicara",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Overshirt olive dan buku gambar",
+      "styleReason": "Kacamata dan overshirt olive digunakan sebagai identitas karakter pekerja kreatif.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Ilustrator desa",
+      "education": "Belajar ilustrasi dengan mengamati perubahan kota",
+      "communityActivity": "Studio kecil ekspansi",
+      "hobbies": [
+        "Menggambar lanskap",
+        "Fotografi"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Imajinatif",
+        "Mandiri",
+        "Santai"
+      ],
+      "habit": "Menggambar bayangan bangunan sebelum tokoh utama",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Menunda mengirim karya karena takut dikritik"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menggambarkan kampung tanpa mereduksi warganya jadi dekorasi",
+      "unspokenNeed": "Belajar menghadapi menunda mengirim karya karena takut dikritik",
+      "fear": "Ilustrasinya menyinggung subjek yang tidak dimintai izin",
+      "innerConflict": "Menggambarkan kampung tanpa mereduksi warganya jadi dekorasi tetapi menunda mengirim karya karena takut dikritik",
+      "copingResponse": "Membuang sketsa berulang saat frustasi"
+    },
+    "07_background_history": {
+      "familyContext": "Tumbuh dekat toko perlengkapan seni dan panggung komunitas",
+      "formativeMemory": "Gambar pasar pertama ditolak karena tidak sesuai ingatan penjual",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A09",
+          "relationship": "Berkolaborasi dengan Fajar tetapi berdebat tentang sudut cerita",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak mengambil kisah pribadi menjadi karya publik tanpa izin",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Cair, berpikir lewat warna dan benda sekitar",
+      "habitualGesture": "Mengarsir sudut kertas sambil menunggu lawan bicara",
+      "stressReaction": "Membuang sketsa berulang saat frustasi",
+      "sampleLine": "Aku gambar gangnya dari sana. Tapi penjual di ujung bilang sudut itu tidak terasa seperti rumahnya."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar membuat karya kolaboratif",
+      "initialDesire": "Menggambarkan kampung tanpa mereduksi warganya jadi dekorasi",
+      "mainObstacle": "Menunda mengirim karya karena takut dikritik",
+      "threeActBeats": [
+        "Menggambar pasar dari ingatan",
+        "Mendengar keberatan warga",
+        "Membuat peta ilustrasi dengan masukan bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Ilustrasi, foto dan koleksi lokasi",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C09.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C09.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Bela",
+        "Ilustrator desa",
+        "Imajinatif",
+        "Mandiri",
+        "Santai"
+      ],
+      "proposedArcStartingPoint": "Menggambar pasar dari ingatan",
+      "notYetOccurred": [
+        "Mendengar keberatan warga",
+        "Membuat peta ilustrasi dengan masukan bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak mengambil kisah pribadi menjadi karya publik tanpa izin"
+    }
+  }
+}

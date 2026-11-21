@@ -1,0 +1,124 @@
+{
+  "id": "C02",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Risky",
+      "ageYears": 41,
+      "origin": "Pinggiran Bandung selatan (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Tangan terlatih memegang ranting cangkok; gerak hati-hati di pohon",
+      "bodyLanguageBaseline": "Memeriksa ujung ranting ketika hendak mengakui masalah",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja olive dan topi kebun sederhana",
+      "styleReason": "Kemeja olive dan ciri visual matang digunakan untuk rancangan petani kebun buah.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Petani kebun buah",
+      "education": "Belajar perbanyakan buah melalui keluarga dan sesama petani",
+      "communityActivity": "Kebun buah ekspansi",
+      "hobbies": [
+        "Mencangkok tanaman",
+        "Memancing"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Pekerja keras",
+        "Peduli",
+        "Bersahaja"
+      ],
+      "habit": "Memeriksa ikatan cangkok setiap pagi",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu kuat memikul beban sendiri"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga kebun buah tetap hidup setelah musim buruk",
+      "unspokenNeed": "Belajar menghadapi terlalu kuat memikul beban sendiri",
+      "fear": "Kebun warisan tidak punya penerus",
+      "innerConflict": "Menjaga kebun buah tetap hidup setelah musim buruk tetapi terlalu kuat memikul beban sendiri",
+      "copingResponse": "Bekerja sendirian semakin keras saat takut"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga menanam buah di petak kecil lintas generasi",
+      "formativeMemory": "Cabang terbaik patah setelah ia menunda meminta bantuan",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A07",
+          "relationship": "Meminta bibit baru dari persemaian tanpa ingin terlihat kesulitan",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak mengizinkan buah muda dipanen seenaknya",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Sederhana, menyisipkan analogi pertumbuhan dari pengalaman nyata",
+      "habitualGesture": "Memeriksa ujung ranting ketika hendak mengakui masalah",
+      "stressReaction": "Bekerja sendirian semakin keras saat takut",
+      "sampleLine": "Buahnya belum banyak, tapi cabangnya sehat. Aku butuh orang bantu pindahkan penyangga."
+    },
+    "10_narrative_development": {
+      "storyArc": "Berani menerima pertolongan",
+      "initialDesire": "Menjaga kebun buah tetap hidup setelah musim buruk",
+      "mainObstacle": "Terlalu kuat memikul beban sendiri",
+      "threeActBeats": [
+        "Memperbaiki cangkok rusak",
+        "Mengajak pemain menyusun penyangga",
+        "Membagikan bibit pada pemula"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Cangkok, siklus tanaman tahunan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C02.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C02.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Risky",
+        "Petani kebun buah",
+        "Pekerja keras",
+        "Peduli",
+        "Bersahaja"
+      ],
+      "proposedArcStartingPoint": "Memperbaiki cangkok rusak",
+      "notYetOccurred": [
+        "Mengajak pemain menyusun penyangga",
+        "Membagikan bibit pada pemula"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak mengizinkan buah muda dipanen seenaknya"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "K14",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Iqbal",
+      "ageYears": 28,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Telinga peka; gerak mengikuti sumber bunyi",
+      "bodyLanguage": "Menekan tombol jeda sebelum menjawab",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Tas perekam dan headphone lapangan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Perekam suara lapangan",
+      "education": "Belajar rekaman lapangan secara mandiri",
+      "communityParticipation": "Jalur audio ekspansi",
+      "leisureInterest": "Berkaitan dengan lima detik kosong; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Kreatif",
+        "cepat",
+        "terbuka"
+      ],
+      "observableHabit": "Memangkas jeda audio sebelum menyimpan",
+      "values": "Menangkap suara kecil yang berarti bagi warga",
+      "flaw": "Terlalu percaya rekaman pendek paling efektif"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menangkap suara kecil yang berarti bagi warga",
+      "unspokenNeed": "Menghadapi terlalu percaya rekaman pendek paling efektif",
+      "fear": "Cerita penting terhapus karena dianggap hening",
+      "innerConflict": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang memangkas jeda audio sebelum menyimpan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah menyimpan suara orang tua di kaset",
+      "formativeMemory": "Belajar merekam acara kampung dari alat sederhana",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K22",
+          "description": "Bima menunjukkan pendengar yang mengenali bunyi bel lama",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak merekam percakapan pribadi tanpa persetujuan",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bicara cepat namun lembut saat membahas rekaman",
+      "physicalCue": "Menekan tombol jeda sebelum menjawab",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ternyata lima detik kosong itu ada bunyi belnya. Aku hampir membuangnya."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Lima detik kosong",
+      "establishedPremise": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya.",
+      "personalGoal": "Menangkap suara kecil yang berarti bagi warga",
+      "centralDifficulty": "Terlalu percaya rekaman pendek paling efektif",
+      "threeActBeats": [
+        "Selalu memangkas jeda",
+        "Anak mengenali bel kakeknya",
+        "Membuat arsip suara tanpa pemotongan sewenang-wenang"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K14.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Selalu memangkas jeda",
+      "nextBeats": [
+        "Anak mengenali bel kakeknya",
+        "Membuat arsip suara tanpa pemotongan sewenang-wenang"
+      ],
+      "doNotContradict": "Tidak merekam percakapan pribadi tanpa persetujuan"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "N04",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Jalu",
+      "ageYears": 38,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Postur hati-hati di sekitar sarang lebah",
+      "bodyLanguage": "Mendengarkan dengung sebelum membuka penutup",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju pelindung budidaya madu dan sarung tangan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pembudidaya lebah",
+      "education": "Belajar ekologi penyerbuk dari percobaan lapangan",
+      "communityParticipation": "Area lebah ekspansi",
+      "leisureInterest": "Berkaitan dengan madu yang tidak dipanen; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Tenang",
+        "peduli",
+        "keras kepala"
+      ],
+      "observableHabit": "Menandai bunga yang sedang habis mekar",
+      "values": "Menjaga koloni saat bunga berkurang",
+      "flaw": "Kurang menjelaskan keputusan pada pelanggan"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga koloni saat bunga berkurang",
+      "unspokenNeed": "Menghadapi kurang menjelaskan keputusan pada pelanggan",
+      "fear": "Panen serakah membuat lebah tidak cukup makan",
+      "innerConflict": "Jalu dituduh lupa mengambil madu. Ia sengaja menyisakannya saat bunga di jalur terbang mulai habis.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menandai bunga yang sedang habis mekar"
+    },
+    "07_background_history": {
+      "familyContext": "Rumah keluarga memiliki kebun kecil yang dulu memberi makan koloni liar",
+      "formativeMemory": "Belajar beternak lebah dari komunitas penghobi",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A02",
+          "description": "Nabila menolong menyediakan tanaman berbunga untuk koloni",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membuka sarang sembarang demi tontonan",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Hemat kata, memberi sebab berdasarkan musim",
+      "physicalCue": "Mendengarkan dengung sebelum membuka penutup",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Madunya ada, tapi lebahnya juga perlu makan sampai bunga baru datang."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Madu yang tidak dipanen",
+      "establishedPremise": "Jalu dituduh lupa mengambil madu. Ia sengaja menyisakannya saat bunga di jalur terbang mulai habis.",
+      "personalGoal": "Menjaga koloni saat bunga berkurang",
+      "centralDifficulty": "Kurang menjelaskan keputusan pada pelanggan",
+      "threeActBeats": [
+        "Dituduh lalai panen",
+        "Menunjukkan persediaan pakan menipis",
+        "Mengajak warga menanam bunga penyangga"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/specialists/N04.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Jalu dituduh lupa mengambil madu. Ia sengaja menyisakannya saat bunga di jalur terbang mulai habis.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Dituduh lalai panen",
+      "nextBeats": [
+        "Menunjukkan persediaan pakan menipis",
+        "Mengajak warga menanam bunga penyangga"
+      ],
+      "doNotContradict": "Tidak membuka sarang sembarang demi tontonan"
+    }
+  }
+}

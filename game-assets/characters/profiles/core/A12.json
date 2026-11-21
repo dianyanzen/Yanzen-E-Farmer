@@ -1,0 +1,124 @@
+{
+  "id": "A12",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Denden",
+      "ageYears": 43,
+      "origin": "Bandung selatan (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak mantap, refleks memeriksa kondisi roda",
+      "bodyLanguageBaseline": "Mengetuk sisi bak setelah mengikat muatan",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja merah bata, sepatu kerja dan sarung tangan",
+      "styleReason": "Siluet matang dan kemeja merah bata memberi arah karakter transportasi panen.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pengemudi angkutan panen",
+      "education": "Pengalaman mengemudi panen serta merawat kendaraan",
+      "communityActivity": "Pangkalan angkut ekspansi",
+      "hobbies": [
+        "Merawat kendaraan",
+        "Berkemah"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Tangguh",
+        "Humoris",
+        "Praktis"
+      ],
+      "habit": "Memeriksa tali muatan sebelum berangkat",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Menutupi kecemasan dengan humor"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat angkutan aman dengan ongkos masuk akal",
+      "unspokenNeed": "Belajar menghadapi menutupi kecemasan dengan humor",
+      "fear": "Rem gagal saat membawa hasil panen warga",
+      "innerConflict": "Membuat angkutan aman dengan ongkos masuk akal tetapi menutupi kecemasan dengan humor",
+      "copingResponse": "Bergurau singkat sebelum mengakui masalah"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah berbagi kepemilikan kendaraan niaga",
+      "formativeMemory": "Pernah memilih berhenti ketika rem berubah dan menghindari musibah",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A06",
+          "relationship": "Menasehati kurir muda soal beban dan rute",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak membawa muatan melebihi kapasitas aman",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Humor kering, tiba-tiba serius saat bicara aman",
+      "habitualGesture": "Mengetuk sisi bak setelah mengikat muatan",
+      "stressReaction": "Bergurau singkat sebelum mengakui masalah",
+      "sampleLine": "Kalau dipaksa jalan sekarang, ban belakang yang menentukan nasib kita."
+    },
+    "10_narrative_development": {
+      "storyArc": "Berani menolak pekerjaan tidak aman",
+      "initialDesire": "Membuat angkutan aman dengan ongkos masuk akal",
+      "mainObstacle": "Menutupi kecemasan dengan humor",
+      "threeActBeats": [
+        "Pesanan angkut terlalu banyak",
+        "Memilih berhenti mengecek rem",
+        "Mengatur jadwal realistis dengan kurir"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Kualitas pengiriman dan batas muatan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A12.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A12.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Denden",
+        "Pengemudi angkutan panen",
+        "Tangguh",
+        "Humoris",
+        "Praktis"
+      ],
+      "proposedArcStartingPoint": "Pesanan angkut terlalu banyak",
+      "notYetOccurred": [
+        "Memilih berhenti mengecek rem",
+        "Mengatur jadwal realistis dengan kurir"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak membawa muatan melebihi kapasitas aman"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "K06",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Darsa",
+      "ageYears": 66,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Langkah lebih pelan, mata mengikuti itik paling belakang",
+      "bodyLanguage": "Menahan langkah menunggu kawanan",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Topi lapangan dan tongkat penggembala",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Penggembala itik",
+      "education": "Pengetahuan ternak dari pengalaman keluarga",
+      "communityParticipation": "Lintasan itik ekspansi",
+      "leisureInterest": "Berkaitan dengan itik paling belakang; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Telaten",
+        "penyayang",
+        "mudah cemas"
+      ],
+      "observableHabit": "Menghitung itik satu per satu dekat tikungan",
+      "values": "Menjaga itik sehat dengan perjalanan yang sesuai",
+      "flaw": "Menyalahkan diri atas setiap keterlambatan kawanan"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga itik sehat dengan perjalanan yang sesuai",
+      "unspokenNeed": "Menghadapi menyalahkan diri atas setiap keterlambatan kawanan",
+      "fear": "Usianya membuat hewan kurang aman",
+      "innerConflict": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menghitung itik satu per satu dekat tikungan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga biasa menjadikan jalan sore kesempatan mengecek seluruh itik",
+      "formativeMemory": "Sejak muda membantu keluarga menggembala unggas",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "N02",
+          "description": "Surya menunjukkan itik yang lambat mungkin perlu pengamatan",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menggiring itik melewati bahaya demi cepat",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bersuara hangat, mengingat tiap itik dari kebiasaan",
+      "physicalCue": "Menahan langkah menunggu kawanan",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Yang paling belakang selalu lambat di tikungan. Apa jalannya terlalu licin?"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Itik paling belakang",
+      "establishedPremise": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya.",
+      "personalGoal": "Menjaga itik sehat dengan perjalanan yang sesuai",
+      "centralDifficulty": "Menyalahkan diri atas setiap keterlambatan kawanan",
+      "threeActBeats": [
+        "Itik tertinggal berulang",
+        "Memeriksa kondisi jalan dan hewan",
+        "Mengubah rute agar semua aman"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K06.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Itik tertinggal berulang",
+      "nextBeats": [
+        "Memeriksa kondisi jalan dan hewan",
+        "Mengubah rute agar semua aman"
+      ],
+      "doNotContradict": "Tidak menggiring itik melewati bahaya demi cepat"
+    }
+  }
+}

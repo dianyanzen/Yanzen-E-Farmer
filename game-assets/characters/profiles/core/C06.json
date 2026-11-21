@@ -1,0 +1,124 @@
+{
+  "id": "C06",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Yani",
+      "ageYears": 21,
+      "origin": "Bandung kota (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Berkacamata, memegang buku sketsa dekat dada",
+      "bodyLanguageBaseline": "Menahan buku sketsa ketika ditanya mendadak",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Hoodie krem dan tas buku lapangan",
+      "styleReason": "Hoodie krem dan kacamata dipakai untuk rancangan peserta belajar pertanian.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Mahasiswi pertanian",
+      "education": "Mahasiswi pertanian yang mengumpulkan catatan lapangan",
+      "communityActivity": "Kebun dan ruang belajar ekspansi",
+      "hobbies": [
+        "Membaca buku tanaman",
+        "Menggambar jurnal lapangan"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ingin tahu",
+        "Rajin",
+        "Sedikit pemalu"
+      ],
+      "habit": "Menggambar daun sebelum menuliskan ukuran",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu khawatir hasil catatan tidak sempurna"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menguji ilmu kelas pada tanah dan cuaca yang sebenarnya",
+      "unspokenNeed": "Belajar menghadapi terlalu khawatir hasil catatan tidak sempurna",
+      "fear": "Salah membaca gejala tanaman di hadapan warga senior",
+      "innerConflict": "Menguji ilmu kelas pada tanah dan cuaca yang sebenarnya tetapi terlalu khawatir hasil catatan tidak sempurna",
+      "copingResponse": "Membaca ulang catatan saat gugup"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mendukung belajar di luar kelas namun khawatir ia pulang larut",
+      "formativeMemory": "Pernah mencatat ukuran tanaman tanpa mengukur petaknya",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A07",
+          "relationship": "Belajar kerja persemaian dari Dewi dan berani menguji dugaan",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menyerahkan data pengamatan tanpa catatan metode",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Bertutur hati-hati, memperbaiki kalimat sendiri",
+      "habitualGesture": "Menahan buku sketsa ketika ditanya mendadak",
+      "stressReaction": "Membaca ulang catatan saat gugup",
+      "sampleLine": "Aku kira daunnya kekurangan air. Tapi tanahnya masih basah, ya? Kita periksa lagi."
+    },
+    "10_narrative_development": {
+      "storyArc": "Berani mengakui ketidakpastian",
+      "initialDesire": "Menguji ilmu kelas pada tanah dan cuaca yang sebenarnya",
+      "mainObstacle": "Terlalu khawatir hasil catatan tidak sempurna",
+      "threeActBeats": [
+        "Mencatat pengamatan dari teori",
+        "Percobaan lapangan membantah dugaan",
+        "Mempublikasikan catatan terbuka dengan sumber"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Riset tanaman dan jurnal observasi",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C06.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C06.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Yani",
+        "Mahasiswi pertanian",
+        "Ingin tahu",
+        "Rajin",
+        "Sedikit pemalu"
+      ],
+      "proposedArcStartingPoint": "Mencatat pengamatan dari teori",
+      "notYetOccurred": [
+        "Percobaan lapangan membantah dugaan",
+        "Mempublikasikan catatan terbuka dengan sumber"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menyerahkan data pengamatan tanpa catatan metode"
+    }
+  }
+}

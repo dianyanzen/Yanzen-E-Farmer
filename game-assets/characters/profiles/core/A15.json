@@ -1,0 +1,124 @@
+{
+  "id": "A15",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Heru",
+      "ageYears": 39,
+      "origin": "Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Tegap dan percaya diri, telapak terbuka saat rapat",
+      "bodyLanguageBaseline": "Meletakkan pena saat ada anggota yang hendak bicara",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Overshirt olive dan map catatan iuran",
+      "styleReason": "Overshirt olive dipakai untuk rancangan karakter yang menghubungkan para petani.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pengurus koperasi tani",
+      "education": "Belajar mengelola pertemuan koperasi dan biaya bersama",
+      "communityActivity": "Koperasi tani ekspansi",
+      "hobbies": [
+        "Bermain bulu tangkis",
+        "Merencanakan kegiatan desa"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Percaya diri",
+        "Kooperatif",
+        "Bertanggung jawab"
+      ],
+      "habit": "Mencatat usul yang tidak disetujui rapat",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu sering mengambil keputusan untuk orang lain"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat koperasi berjalan tanpa bergantung pada dirinya",
+      "unspokenNeed": "Belajar menghadapi terlalu sering mengambil keputusan untuk orang lain",
+      "fear": "Dana bersama habis untuk proyek yang tak dipahami anggota",
+      "innerConflict": "Membuat koperasi berjalan tanpa bergantung pada dirinya tetapi terlalu sering mengambil keputusan untuk orang lain",
+      "copingResponse": "Menyusun agenda tambahan saat rapat memanas"
+    },
+    "07_background_history": {
+      "familyContext": "Tumbuh melihat kerja bakti dan musyawarah kampung",
+      "formativeMemory": "Proyek alat bersama pernah gagal akibat anggaran tak terbuka",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C10",
+          "relationship": "Yogi menguji setiap angka sebelum keputusan koperasi",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak meminta pemain menyembunyikan transaksi",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Meyakinkan tetapi berusaha memberi ruang interupsi",
+      "habitualGesture": "Meletakkan pena saat ada anggota yang hendak bicara",
+      "stressReaction": "Menyusun agenda tambahan saat rapat memanas",
+      "sampleLine": "Sebelum memilih, kita lihat biaya rawatnya juga. Kalau belum, hitungannya belum selesai."
+    },
+    "10_narrative_development": {
+      "storyArc": "Dari pemimpin dominan jadi fasilitator",
+      "initialDesire": "Membuat koperasi berjalan tanpa bergantung pada dirinya",
+      "mainObstacle": "Terlalu sering mengambil keputusan untuk orang lain",
+      "threeActBeats": [
+        "Mengusulkan gudang baru",
+        "Laporan Yogi mengubah perhitungan",
+        "Membuka ulang rapat anggota"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Koperasi, kredit alat, rapat warga",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A15.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A15.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Heru",
+        "Pengurus koperasi tani",
+        "Percaya diri",
+        "Kooperatif",
+        "Bertanggung jawab"
+      ],
+      "proposedArcStartingPoint": "Mengusulkan gudang baru",
+      "notYetOccurred": [
+        "Laporan Yogi mengubah perhitungan",
+        "Membuka ulang rapat anggota"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak meminta pemain menyembunyikan transaksi"
+    }
+  }
+}

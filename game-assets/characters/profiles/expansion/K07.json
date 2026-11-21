@@ -1,0 +1,114 @@
+{
+  "id": "K07",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Wening",
+      "ageYears": 33,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak sigap memeriksa label botol sampel",
+      "bodyLanguage": "Memutar botol melihat sisa tulisan",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket hujan lapangan dan tas sampel",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Teknisi pengamatan air",
+      "education": "Pelatihan pengambilan sampel lapangan",
+      "communityParticipation": "Titik sampling sungai ekspansi",
+      "leisureInterest": "Berkaitan dengan dua botol tertukar; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Logis",
+        "cermat",
+        "teguh"
+      ],
+      "observableHabit": "Menyimpan cadangan label tahan air",
+      "values": "Membuat catatan aliran air bisa ditelusuri",
+      "flaw": "Takut mengaku sampel tertukar"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat catatan aliran air bisa ditelusuri",
+      "unspokenNeed": "Menghadapi takut mengaku sampel tertukar",
+      "fear": "Keputusan salah akibat data yang tak pasti",
+      "innerConflict": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan cadangan label tahan air"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga terbiasa memperhatikan perubahan kondisi kanal saat musim hujan",
+      "formativeMemory": "Belajar pengamatan kualitas air dalam proyek warga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A03",
+          "description": "Ryan membutuhkan hasil ukur tanpa dugaan asal botol",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak mengubah catatan agar tampak lengkap",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bicara jelas memisahkan fakta dan dugaan",
+      "physicalCue": "Memutar botol melihat sisa tulisan",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kalau labelnya luntur, aku tak bisa menebak asal hanya dari warna."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Dua botol tertukar",
+      "establishedPremise": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya.",
+      "personalGoal": "Membuat catatan aliran air bisa ditelusuri",
+      "centralDifficulty": "Takut mengaku sampel tertukar",
+      "threeActBeats": [
+        "Menemukan dua label basah",
+        "Mengakui data belum dapat dipakai",
+        "Mendesain label tahan hujan"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K07.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Menemukan dua label basah",
+      "nextBeats": [
+        "Mengakui data belum dapat dipakai",
+        "Mendesain label tahan hujan"
+      ],
+      "doNotContradict": "Tidak mengubah catatan agar tampak lengkap"
+    }
+  }
+}

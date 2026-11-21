@@ -1,0 +1,124 @@
+{
+  "id": "A04",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ayu",
+      "ageYears": 27,
+      "origin": "Bandung timur (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Ekspresi cepat berubah ketika membandingkan dua jenis biji",
+      "bodyLanguageBaseline": "Melipat label benih saat berpikir",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Atasan biru lembut dan kantong sampel benih",
+      "styleReason": "Palet biru lembut dipakai untuk karakter toko benih yang mudah dikenali.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penjual benih",
+      "education": "Belajar dari lapak benih dan percobaan tanam kecil",
+      "communityActivity": "Lapak benih Pasirluyu",
+      "hobbies": [
+        "Mengoleksi benih",
+        "Menggambar tanaman"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ceria",
+        "Komunikatif",
+        "Antusias"
+      ],
+      "habit": "Menggambar bentuk daun di kertas kemasan",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu optimistis memprediksi hasil"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjual jenis benih yang benar-benar berguna bagi pembeli",
+      "unspokenNeed": "Belajar menghadapi terlalu optimistis memprediksi hasil",
+      "fear": "Petani menanam panen bagus tetapi tidak laku",
+      "innerConflict": "Menjual jenis benih yang benar-benar berguna bagi pembeli tetapi terlalu optimistis memprediksi hasil",
+      "copingResponse": "Menggambar dua pilihan di belakang bungkus"
+    },
+    "07_background_history": {
+      "familyContext": "Tumbuh di keluarga pedagang kecil yang mengurus bibit musiman",
+      "formativeMemory": "Pernah menyarankan varietas populer tanpa bertanya kebutuhan pasar",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C08",
+          "relationship": "Meminta umpan balik kebutuhan ukuran timun di dapur Inggit",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menjamin hasil tanpa tahu cuaca dan tanah",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Ceria, cepat bicara, mau berhenti ketika ada pengalaman baru",
+      "habitualGesture": "Melipat label benih saat berpikir",
+      "stressReaction": "Menggambar dua pilihan di belakang bungkus",
+      "sampleLine": "Kalau Inggit perlu timun padat, pilih bibit dari kebutuhannya dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Mendahulukan kebutuhan pemakai",
+      "initialDesire": "Menjual jenis benih yang benar-benar berguna bagi pembeli",
+      "mainObstacle": "Terlalu optimistis memprediksi hasil",
+      "threeActBeats": [
+        "Memamerkan jenis baru",
+        "Belajar dari kebutuhan warung",
+        "Membuat label benih berdasar panen warga"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Quest benih dan laporan panen aktif",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A04.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A04.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Registered active prototype NPC (per portrait register)",
+      "knownCanon": [
+        "Ayu",
+        "Penjual benih",
+        "Ceria",
+        "Komunikatif",
+        "Antusias"
+      ],
+      "proposedArcStartingPoint": "Memamerkan jenis baru",
+      "notYetOccurred": [
+        "Belajar dari kebutuhan warung",
+        "Membuat label benih berdasar panen warga"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menjamin hasil tanpa tahu cuaca dan tanah"
+    }
+  }
+}

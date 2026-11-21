@@ -1,0 +1,635 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "description": "Full 12-dimension character bible for named characters, not runtime NPC state. Proposed fields require narrative approval.",
+  "categories": [
+    {
+      "key": "01_core_identity",
+      "label": "Core Identity",
+      "scope": "Nama, usia, asal, bahasa, identitas"
+    },
+    {
+      "key": "02_physical_appearance",
+      "label": "Physical Appearance",
+      "scope": "Penampilan dan ciri fisik umum"
+    },
+    {
+      "key": "03_fashion_aesthetic",
+      "label": "Fashion & Aesthetic",
+      "scope": "Pakaian, aksesori, gaya personal"
+    },
+    {
+      "key": "04_social_profile",
+      "label": "Social Profile",
+      "scope": "Pekerjaan, pendidikan, kehidupan sosial"
+    },
+    {
+      "key": "05_personality",
+      "label": "Personality",
+      "scope": "Sifat, kebiasaan, nilai, kelemahan"
+    },
+    {
+      "key": "06_psychological_profile",
+      "label": "Psychological Profile",
+      "scope": "Motivasi, kebutuhan, konflik batin"
+    },
+    {
+      "key": "07_background_history",
+      "label": "Background & History",
+      "scope": "Keluarga, masa lalu, pengalaman"
+    },
+    {
+      "key": "08_relationship_dynamics",
+      "label": "Relationship Dynamics",
+      "scope": "Relasi, kepercayaan, batas pribadi"
+    },
+    {
+      "key": "09_dialogue_behavior",
+      "label": "Dialogue & Behavior",
+      "scope": "Cara berbicara, respons, bahasa tubuh"
+    },
+    {
+      "key": "10_narrative_development",
+      "label": "Narrative Development",
+      "scope": "Peran, konflik, perkembangan karakter"
+    },
+    {
+      "key": "11_visual_references",
+      "label": "Visual References",
+      "scope": "Referensi ilustrasi dan konsistensi visual"
+    },
+    {
+      "key": "12_continuity_current_state",
+      "label": "Continuity & Current State",
+      "scope": "Kondisi karakter sepanjang cerita"
+    }
+  ],
+  "coverage": {
+    "canonicalCore": 32,
+    "fictionalExpansion": 36,
+    "publicFigureCameos": 2,
+    "unassignedResidentArt": 179
+  },
+  "characters": [
+    {
+      "id": "A01",
+      "name": "Yanzen",
+      "role": "player-character",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A01.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A02",
+      "name": "Nabila",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A02.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A03",
+      "name": "Ryan",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A03.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A04",
+      "name": "Ayu",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A04.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A05",
+      "name": "Vicky",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A05.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A06",
+      "name": "Asep",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A06.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A07",
+      "name": "Dewi",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A07.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A08",
+      "name": "Astri",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A08.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A09",
+      "name": "Fajar",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A09.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A10",
+      "name": "Dadan",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A10.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A11",
+      "name": "Anggi",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A11.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A12",
+      "name": "Denden",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A12.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A13",
+      "name": "Nida",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A13.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A14",
+      "name": "Desna",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A14.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A15",
+      "name": "Heru",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A15.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "A16",
+      "name": "Khansa",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/A16.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C01",
+      "name": "Nani",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C01.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C02",
+      "name": "Risky",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C02.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C03",
+      "name": "Tatang",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C03.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C04",
+      "name": "Desi",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C04.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C05",
+      "name": "Eza",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C05.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C06",
+      "name": "Yani",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C06.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C07",
+      "name": "Widi",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C07.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C08",
+      "name": "Inggit",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C08.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C09",
+      "name": "Bela",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C09.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C10",
+      "name": "Yogi",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C10.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C11",
+      "name": "Ray",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C11.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C12",
+      "name": "Fatihah",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C12.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C13",
+      "name": "Heri",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C13.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C14",
+      "name": "Arya",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C14.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C15",
+      "name": "Malik",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C15.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "C16",
+      "name": "Karisma",
+      "role": "npc",
+      "tier": "canonical-core",
+      "file": "game-assets/characters/profiles/core/C16.json",
+      "review": "proposed-details-require-approval"
+    },
+    {
+      "id": "K01",
+      "name": "Euis",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K01.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K02",
+      "name": "Raka",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K02.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K03",
+      "name": "Imas",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K03.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K04",
+      "name": "Gilang",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K04.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K05",
+      "name": "Mimin",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K05.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K06",
+      "name": "Darsa",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K06.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K07",
+      "name": "Wening",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K07.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K08",
+      "name": "Teguh",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K08.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K09",
+      "name": "Lastri",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K09.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K10",
+      "name": "Aam",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K10.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K11",
+      "name": "Sasmita",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K11.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K12",
+      "name": "Manda",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K12.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K13",
+      "name": "Tuti",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K13.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K14",
+      "name": "Iqbal",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K14.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K15",
+      "name": "Rukmi",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K15.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K16",
+      "name": "Karta",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K16.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K17",
+      "name": "Ajeng",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K17.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K18",
+      "name": "Yuda",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K18.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K19",
+      "name": "Lilis",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K19.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K20",
+      "name": "Oman",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K20.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K21",
+      "name": "Aci",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K21.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K22",
+      "name": "Bima",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K22.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K23",
+      "name": "Nenden",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K23.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K24",
+      "name": "Tiar",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K24.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K25",
+      "name": "Bagja",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K25.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K26",
+      "name": "Ningsih",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K26.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K27",
+      "name": "Endah",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K27.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K28",
+      "name": "Ridho",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K28.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K29",
+      "name": "Empi",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K29.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "K30",
+      "name": "Mira",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/K30.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N01",
+      "name": "Sinta",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N01.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N02",
+      "name": "Surya",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N02.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N03",
+      "name": "Ratih",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N03.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N04",
+      "name": "Jalu",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N04.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N05",
+      "name": "Laras",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N05.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "N06",
+      "name": "Ujang",
+      "role": "expansion-concept",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/N06.json",
+      "review": "planned-not-spawned"
+    },
+    {
+      "id": "P01",
+      "name": "Dedi Mulyadi",
+      "role": "public-figure-fictional-cameo",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/P01.json",
+      "review": "limited-cameo-privacy-guard"
+    },
+    {
+      "id": "P02",
+      "name": "Muhammad Farhan",
+      "role": "public-figure-fictional-cameo",
+      "tier": "expansion",
+      "file": "game-assets/characters/profiles/expansion/P02.json",
+      "review": "limited-cameo-privacy-guard"
+    }
+  ]
+}

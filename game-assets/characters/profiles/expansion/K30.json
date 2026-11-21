@@ -1,0 +1,114 @@
+{
+  "id": "K30",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Mira",
+      "ageYears": 40,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak teratur di ruang proyektor gelap",
+      "bodyLanguage": "Menghitung hitam layar dengan ujung jari",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian operator proyektor dan sarung tangan arsip",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Operator proyektor",
+      "education": "Belajar operator film dan arsip media",
+      "communityParticipation": "Ruang proyektor ekspansi",
+      "leisureInterest": "Berkaitan dengan kursi ketiga dari belakang; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Rapi",
+        "observatif",
+        "terbuka"
+      ],
+      "observableHabit": "Menandai setiap sambungan gulungan film",
+      "values": "Menjaga akses pertunjukan bagi lebih banyak penonton",
+      "flaw": "Menganggap frame hitam selalu kesalahan teknis"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga akses pertunjukan bagi lebih banyak penonton",
+      "unspokenNeed": "Menghadapi menganggap frame hitam selalu kesalahan teknis",
+      "fear": "Aba-aba akses hilang setelah restorasi",
+      "innerConflict": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menandai setiap sambungan gulungan film"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah menonton pertunjukan dengan bantuan pembaca teks",
+      "formativeMemory": "Belajar proyeksi dari bioskop komunitas fiktif",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K14",
+          "description": "Iqbal membantu menelaah bunyi dan jeda yang dipakai penonton",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menghapus format akses lama tanpa konsultasi",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Tenang, berbicara tentang urutan gambar",
+      "physicalCue": "Menghitung hitam layar dengan ujung jari",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Satu detik gelap itu bukan rusak. Dulu penonton menunggu aba-aba di sana."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Kursi ketiga dari belakang",
+      "establishedPremise": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks.",
+      "personalGoal": "Menjaga akses pertunjukan bagi lebih banyak penonton",
+      "centralDifficulty": "Menganggap frame hitam selalu kesalahan teknis",
+      "threeActBeats": [
+        "Menemukan frame hitam",
+        "Mendengar fungsi aba-aba lama",
+        "Membuat format pertunjukan baru yang tetap inklusif"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K30.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Menemukan frame hitam",
+      "nextBeats": [
+        "Mendengar fungsi aba-aba lama",
+        "Membuat format pertunjukan baru yang tetap inklusif"
+      ],
+      "doNotContradict": "Tidak menghapus format akses lama tanpa konsultasi"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "K22",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Bima",
+      "ageYears": 36,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gestur mengikuti ritme suara pada monitor radio",
+      "bodyLanguage": "Mendekatkan telinga ke speaker monitor",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja siaran malam dan headset",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Penyiar radio malam",
+      "education": "Belajar teknik siaran radio",
+      "communityParticipation": "Studio radio ekspansi",
+      "leisureInterest": "Berkaitan dengan permintaan lagu tanpa judul; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Tenang",
+        "humoris",
+        "ingin tahu"
+      ],
+      "observableHabit": "Membaca kartu pos sebelum mengatur lagu",
+      "values": "Menyediakan ruang suara yang punya arti bagi pendengar",
+      "flaw": "Terlalu cepat menyangka pengirim permintaan orang yang sama"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menyediakan ruang suara yang punya arti bagi pendengar",
+      "unspokenNeed": "Menghadapi terlalu cepat menyangka pengirim permintaan orang yang sama",
+      "fear": "Programnya hanya terdengar seperti daftar lagu",
+      "innerConflict": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan.",
+      "stressResponse": "Menarik diri sejenak atau mengulang membaca kartu pos sebelum mengatur lagu"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga biasa mendengar pengumuman tetangga di radio",
+      "formativeMemory": "Belajar siaran dari komunitas radio",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K14",
+          "description": "Iqbal membantu merekam suara air untuk siaran yang meminta ambience",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membuka identitas pengirim kartu tanpa izin",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Berbahasa akrab dan tenang saat malam",
+      "physicalCue": "Mendekatkan telinga ke speaker monitor",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Dua kartu datang bersamaan. Rupanya banyak orang ingin dengar suara air, bukan lagu."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Permintaan lagu tanpa judul",
+      "establishedPremise": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan.",
+      "personalGoal": "Menyediakan ruang suara yang punya arti bagi pendengar",
+      "centralDifficulty": "Terlalu cepat menyangka pengirim permintaan orang yang sama",
+      "threeActBeats": [
+        "Menerima kartu tanpa judul lagu",
+        "Mendapati dua pengirim",
+        "Menciptakan segmen suara kampung"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K22.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Menerima kartu tanpa judul lagu",
+      "nextBeats": [
+        "Mendapati dua pengirim",
+        "Menciptakan segmen suara kampung"
+      ],
+      "doNotContradict": "Tidak membuka identitas pengirim kartu tanpa izin"
+    }
+  }
+}

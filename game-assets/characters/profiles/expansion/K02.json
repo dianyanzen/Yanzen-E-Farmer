@@ -1,0 +1,114 @@
+{
+  "id": "K02",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Raka",
+      "ageYears": 25,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Tangan berminyak, bahu condong mengecek roda",
+      "bodyLanguage": "Menyejajarkan setang dengan mata",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kaos kerja montir, apron sepeda",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Montir sepeda",
+      "education": "Belajar mekanik nonformal",
+      "communityParticipation": "Bengkel sepeda ekspansi",
+      "leisureInterest": "Berkaitan dengan sepeda yang selalu belok kiri; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Cekatan",
+        "jujur",
+        "keras kepala"
+      ],
+      "observableHabit": "Memutar roda dua kali sebelum mengembalikan sepeda",
+      "values": "Membuat sepeda keluarga aman membawa dagangan",
+      "flaw": "Menganggap masalah selalu berasal dari bagian mesin"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat sepeda keluarga aman membawa dagangan",
+      "unspokenNeed": "Menghadapi menganggap masalah selalu berasal dari bagian mesin",
+      "fear": "Pelanggannya kecelakaan setelah servis",
+      "innerConflict": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi.",
+      "stressResponse": "Menarik diri sejenak atau mengulang memutar roda dua kali sebelum mengembalikan sepeda"
+    },
+    "07_background_history": {
+      "familyContext": "Sepeda ayahnya menjadi alat latihan pertama",
+      "formativeMemory": "Belajar bongkar sepeda dari bengkel rumah",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C04",
+          "description": "Sepeda pengantar roti Desi sering menjadi uji muatan",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak melepas sepeda yang belum layak",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lugas dengan humor soal baut",
+      "physicalCue": "Menyejajarkan setang dengan mata",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kosong lurus, bawa roti belok kiri. Kita cek keranjangnya dulu."
+    },
+    "10_narrative_development": {
+      "arcTitle": "Sepeda yang selalu belok kiri",
+      "establishedPremise": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi.",
+      "personalGoal": "Membuat sepeda keluarga aman membawa dagangan",
+      "centralDifficulty": "Menganggap masalah selalu berasal dari bagian mesin",
+      "threeActBeats": [
+        "Memperbaiki roda berulang",
+        "Menguji muatan sebenarnya",
+        "Memperbarui penyangga keranjang"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K02.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Memperbaiki roda berulang",
+      "nextBeats": [
+        "Menguji muatan sebenarnya",
+        "Memperbarui penyangga keranjang"
+      ],
+      "doNotContradict": "Tidak melepas sepeda yang belum layak"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "A10",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Dadan",
+      "ageYears": 38,
+      "origin": "Regol (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Postur tegak, alis tegas, pandangan mengikuti pagar",
+      "bodyLanguageBaseline": "Menunjuk catatan inventaris alih-alih berteriak",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja hijau dan sepatu lapangan kokoh",
+      "styleReason": "Alis tegas dan kemeja hijau menjadi arah desain penjaga kebun; sifat merupakan rancangan fiktif.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penjaga kebun bersama",
+      "education": "Belajar mengelola keamanan alat dan pembagian jadwal",
+      "communityActivity": "Gudang kebun bersama ekspansi",
+      "hobbies": [
+        "Latihan kebugaran",
+        "Merawat bonsai"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Disiplin",
+        "Dapat diandalkan",
+        "Lugas"
+      ],
+      "habit": "Mencatat alat dipinjam lalu dikembalikan",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu cepat curiga pada pelanggaran kecil"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga kebun bersama tanpa mengusir pendatang baru",
+      "unspokenNeed": "Belajar menghadapi terlalu cepat curiga pada pelanggaran kecil",
+      "fear": "Satu kelalaian merugikan seluruh warga",
+      "innerConflict": "Menjaga kebun bersama tanpa mengusir pendatang baru tetapi terlalu cepat curiga pada pelanggaran kecil",
+      "copingResponse": "Merapikan daftar alat ketika malu"
+    },
+    "07_background_history": {
+      "familyContext": "Terbiasa memegang tanggung jawab keluarga sejak muda",
+      "formativeMemory": "Satu alat pernah hilang ketika peminjaman tidak tercatat",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C13",
+          "relationship": "Heri mengajak musyawarah sebelum menuduh warga",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Gudang tidak boleh dimasuki tanpa prosedur",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Lugas dan tegas, bisa menjelaskan alasan aturan",
+      "habitualGesture": "Menunjuk catatan inventaris alih-alih berteriak",
+      "stressReaction": "Merapikan daftar alat ketika malu",
+      "sampleLine": "Aku butuh tahu alat itu dipakai kapan, bukan menuduh siapa yang terakhir memegang."
+    },
+    "10_narrative_development": {
+      "storyArc": "Berubah dari penjaga kaku jadi pengelola kepercayaan",
+      "initialDesire": "Menjaga kebun bersama tanpa mengusir pendatang baru",
+      "mainObstacle": "Terlalu cepat curiga pada pelanggaran kecil",
+      "threeActBeats": [
+        "Memasang aturan terlalu ketat",
+        "Salah curiga ketika alat hilang",
+        "Membuka sistem pinjam bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Izin meminjam alat dan inventaris",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A10.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A10.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Dadan",
+        "Penjaga kebun bersama",
+        "Disiplin",
+        "Dapat diandalkan",
+        "Lugas"
+      ],
+      "proposedArcStartingPoint": "Memasang aturan terlalu ketat",
+      "notYetOccurred": [
+        "Salah curiga ketika alat hilang",
+        "Membuka sistem pinjam bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Gudang tidak boleh dimasuki tanpa prosedur"
+    }
+  }
+}

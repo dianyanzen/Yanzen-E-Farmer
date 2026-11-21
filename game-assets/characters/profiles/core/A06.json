@@ -1,0 +1,124 @@
+{
+  "id": "A06",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Asep",
+      "ageYears": 24,
+      "origin": "Koridor Regol–Batununggal (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Postur lincah, bahu sering menoleh mencari rute",
+      "bodyLanguageBaseline": "Mengencangkan tali tas saat berbicara",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja jingga, tas kurir kain dan sepatu jalan",
+      "styleReason": "Kemeja jingga dan siluet muda memberi arah karakter kurir yang dinamis.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Kurir hasil kebun",
+      "education": "Belajar pengiriman dari pengemudi angkut senior",
+      "communityActivity": "Jalur pengiriman ekspansi",
+      "hobbies": [
+        "Bersepeda",
+        "Bermain sepak bola"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Energik",
+        "Spontan",
+        "Setia kawan"
+      ],
+      "habit": "Mencatat gang tertutup dan waktu kirim",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu yakin pada jalan pintas"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat kiriman panen tepat mutu dan waktu",
+      "unspokenNeed": "Belajar menghadapi terlalu yakin pada jalan pintas",
+      "fear": "Satu keterlambatan merusak kepercayaan pedagang",
+      "innerConflict": "Membuat kiriman panen tepat mutu dan waktu tetapi terlalu yakin pada jalan pintas",
+      "copingResponse": "Mengalihkan panik jadi lelucon"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarganya biasa membantu tetangga mengantar kebutuhan",
+      "formativeMemory": "Pernah memecahkan muatan karena nekat melalui gang saat hujan",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C14",
+          "relationship": "Kurir lain yang membagi rute dan bersaing waktu",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak membawa paket yang isinya disembunyikan dari penerima",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Cepat, bercanda singkat ketika gugup",
+      "habitualGesture": "Mengencangkan tali tas saat berbicara",
+      "stressReaction": "Mengalihkan panik jadi lelucon",
+      "sampleLine": "Peta bilang dekat. Tapi kalau hujan, roda pasti tersangkut di situ."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar berterus terang soal keterlambatan",
+      "initialDesire": "Membuat kiriman panen tepat mutu dan waktu",
+      "mainObstacle": "Terlalu yakin pada jalan pintas",
+      "threeActBeats": [
+        "Menerima terlalu banyak kiriman",
+        "Mengakui masalah rute",
+        "Menyusun jadwal bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Logistik dan kondisi jalan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A06.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A06.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Asep",
+        "Kurir hasil kebun",
+        "Energik",
+        "Spontan",
+        "Setia kawan"
+      ],
+      "proposedArcStartingPoint": "Menerima terlalu banyak kiriman",
+      "notYetOccurred": [
+        "Mengakui masalah rute",
+        "Menyusun jadwal bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak membawa paket yang isinya disembunyikan dari penerima"
+    }
+  }
+}

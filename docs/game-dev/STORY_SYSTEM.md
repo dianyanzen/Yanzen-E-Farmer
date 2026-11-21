@@ -55,3 +55,9 @@ Example only. This is **not deployed** as a real content schema. The engine late
 ## Humanizer editorial workflow (Codex skill)
 
 Untuk revisi dialog, quest, jurnal, dan pesan YZ Phone, ikuti [alur editorial Humanizer](HUMANIZER_DIALOGUE_PIPELINE.md), `AGENTS.md`, serta skill `.agents/skills/yz-farm-dialogue/SKILL.md`. Humanizer upstream tersedia secara project-local dengan versi dan lisensi terkunci pada `.agents/skills/humanizer/`. **Ini proses authoring**, bukan penyunting dialog otomatis saat pemain menjalankan game. Validasi perubahan teks tidak boleh mengubah ID, kondisi, flag, hadiah, jadwal, atau state-save.
+
+## 12-dimension Character Bible (proposal 2026-11-21)
+
+Semua 32 tokoh canonical dari `cast.json` serta 38 karakter konsep bernama telah mendapat 12 kategori di [Character Bible](../../game-assets/characters/profiles/README.md). Sebanyak 179 potret penduduk seri R masih belum memiliki karakter bernama dan tetap dikelola sebagai artwork unassigned. Rujuk ID profil saat membuat dialog, potret, heart event, dan quest bercabang. **Riwayat, usia, tujuan privat, dan relasi baru adalah rancangan**, bukan status game atau biografi orang asli. Kedua cameo figur publik hanya boleh menjadi tokoh tamu pada naskah fiksi dan tidak mendapatkan biografi pribadi yang diada-adakan.
+
+Setelah mengedit profil, jalankan `npm run chars:index:check && npm run test:game:characters`. Pengujian ini menegakkan struktur, ID, dan referensi; bukan pengganti ulasan penulis maupun QA visual.
