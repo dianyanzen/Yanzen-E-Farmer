@@ -785,7 +785,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               {phoneTab === "ikd" && <>
                 <div className="yzg-phone-card yzg-id">
                   <small>IKD · IDENTITAS KARAKTER DIGITAL</small>
-                  <div className="yzg-id-portrait"><NextImage className="yzg-character-preview" src="/game/assets/portraits/bandung/work-A01.png" alt="Potret Yanzen" width={80} height={80} unoptimized/></div><strong>YANZEN</strong>
+                  <div className="yzg-id-portrait"><NextImage className="yzg-character-preview" src="/game/assets/portraits/bandung/professions/work-A01.png" alt="Potret Yanzen" width={80} height={80} unoptimized/></div><strong>YANZEN</strong>
                   <p>Warga Pasirluyu</p>
                   <dl><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd>
                     <dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd>

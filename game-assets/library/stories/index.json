@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "category": "stories",
+  "label": "Cerita dan misi",
+  "description": "Gambar jurnal dan adegan cerita",
+  "mediaCount": 9,
+  "bytes": 16356206,
+  "source": "game-assets/catalog/asset-database.json",
+  "sections": [
+    {
+      "id": "aset/cerita",
+      "files": [
+        "game-assets/yz-farm-life/aset/cerita/foto-saluran-jurnal.png",
+        "game-assets/yz-farm-life/aset/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "atlas-bandung/cerita",
+      "files": [
+        "game-assets/yz-farm-life/atlas-bandung/cerita/foto-saluran-jurnal.png",
+        "game-assets/yz-farm-life/atlas-bandung/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "bandung-151/cerita",
+      "files": [
+        "game-assets/yz-farm-life/bandung-151/cerita/foto-saluran-jurnal.png",
+        "game-assets/yz-farm-life/bandung-151/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "explore-bandung/cerita",
+      "files": [
+        "game-assets/yz-farm-life/explore-bandung/cerita/foto-saluran-jurnal.png",
+        "game-assets/yz-farm-life/explore-bandung/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "story",
+      "files": [
+        "public/game/assets/story/foto-saluran.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "category": "tools",
+  "label": "Alat dan tindakan",
+  "description": "Cangkul, penyiram, alat panen, ikon aksi",
+  "mediaCount": 16,
+  "bytes": 195596,
+  "source": "game-assets/catalog/asset-database.json",
+  "sections": [
+    {
+      "id": "aset/aksi",
+      "files": [
+        "game-assets/yz-farm-life/aset/aksi/harvest.png",
+        "game-assets/yz-farm-life/aset/aksi/hoe.png",
+        "game-assets/yz-farm-life/aset/aksi/seed.png",
+        "game-assets/yz-farm-life/aset/aksi/water.png"
+      ]
+    },
+    {
+      "id": "atlas-bandung/aksi",
+      "files": [
+        "game-assets/yz-farm-life/atlas-bandung/aksi/harvest.png",
+        "game-assets/yz-farm-life/atlas-bandung/aksi/hoe.png",
+        "game-assets/yz-farm-life/atlas-bandung/aksi/seed.png",
+        "game-assets/yz-farm-life/atlas-bandung/aksi/water.png"
+      ]
+    },
+    {
+      "id": "bandung-151/aksi",
+      "files": [
+        "game-assets/yz-farm-life/bandung-151/aksi/harvest.png",
+        "game-assets/yz-farm-life/bandung-151/aksi/hoe.png",
+        "game-assets/yz-farm-life/bandung-151/aksi/seed.png",
+        "game-assets/yz-farm-life/bandung-151/aksi/water.png"
+      ]
+    },
+    {
+      "id": "explore-bandung/aksi",
+      "files": [
+        "game-assets/yz-farm-life/explore-bandung/aksi/harvest.png",
+        "game-assets/yz-farm-life/explore-bandung/aksi/hoe.png",
+        "game-assets/yz-farm-life/explore-bandung/aksi/seed.png",
+        "game-assets/yz-farm-life/explore-bandung/aksi/water.png"
+      ]
+    }
+  ]
+}

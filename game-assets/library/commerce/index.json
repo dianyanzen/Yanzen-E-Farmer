@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "category": "commerce",
+  "label": "Pasar dan perdagangan",
+  "description": "Aset pasar, barang dan ikon toko",
+  "mediaCount": 4,
+  "bytes": 121344,
+  "source": "game-assets/catalog/asset-database.json",
+  "sections": [
+    {
+      "id": "aset/pasar",
+      "files": [
+        "game-assets/yz-farm-life/aset/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "atlas-bandung/pasar",
+      "files": [
+        "game-assets/yz-farm-life/atlas-bandung/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "bandung-151/pasar",
+      "files": [
+        "game-assets/yz-farm-life/bandung-151/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "explore-bandung/pasar",
+      "files": [
+        "game-assets/yz-farm-life/explore-bandung/pasar/atlas.png"
+      ]
+    }
+  ]
+}

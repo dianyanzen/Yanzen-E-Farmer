@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { bandungConceptPortraitPath } from "@/lib/game/bandung-concept-portrait";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import NextImage from "next/image";
 import { portraitCharacter, portraitColumn, EMOTION_LABELS, PORTRAIT_EMOTIONS } from "@/lib/game/portraits";
@@ -19,7 +20,7 @@ export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; 
 }
 
 export function ResidentPortrait({ resident }: { resident: ResidentProfile }) {
-  return <NextImage className="yzg-character-preview" src={`/game/assets/portraits/bandung/${resident.portrait}.png`}
+  return <NextImage className="yzg-character-preview" src={bandungConceptPortraitPath(resident.portrait)}
     alt={`Potret karakter ${resident.name}`} width={80} height={80} unoptimized />;
 }
 

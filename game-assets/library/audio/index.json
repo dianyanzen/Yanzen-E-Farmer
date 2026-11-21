@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "category": "audio",
+  "label": "Audio dan suasana",
+  "description": "Musik, suara lingkungan, SFX, atmosfer malam",
+  "mediaCount": 73,
+  "bytes": 11044029,
+  "source": "game-assets/catalog/asset-database.json",
+  "sections": [
+    {
+      "id": "aset/audio",
+      "files": [
+        "game-assets/yz-farm-life/aset/audio/gang.wav",
+        "game-assets/yz-farm-life/aset/audio/harvest.wav",
+        "game-assets/yz-farm-life/aset/audio/hoe.wav",
+        "game-assets/yz-farm-life/aset/audio/imbalan.wav",
+        "game-assets/yz-farm-life/aset/audio/kanal.wav",
+        "game-assets/yz-farm-life/aset/audio/kebun.wav",
+        "game-assets/yz-farm-life/aset/audio/langkah-batu.wav",
+        "game-assets/yz-farm-life/aset/audio/langkah-kayu.wav",
+        "game-assets/yz-farm-life/aset/audio/langkah-tanah.wav",
+        "game-assets/yz-farm-life/aset/audio/pagi-pasirluyu.wav",
+        "game-assets/yz-farm-life/aset/audio/pilih.wav",
+        "game-assets/yz-farm-life/aset/audio/seed.wav",
+        "game-assets/yz-farm-life/aset/audio/warung-sore.wav",
+        "game-assets/yz-farm-life/aset/audio/water.wav"
+      ]
+    },
+    {
+      "id": "atlas-bandung/audio",
+      "files": [
+        "game-assets/yz-farm-life/atlas-bandung/audio/gang.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/harvest.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/hoe.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/imbalan.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/kanal.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/kebun.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/langkah-batu.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/langkah-kayu.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/langkah-tanah.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/pagi-pasirluyu.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/pilih.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/seed.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/warung-sore.wav",
+        "game-assets/yz-farm-life/atlas-bandung/audio/water.wav"
+      ]
+    },
+    {
+      "id": "atlas-bandung/malam",
+      "files": [
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/air.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/angin.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/gang.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/ketuk.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/proyektor.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/radio.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/serambi.wav",
+        "game-assets/yz-farm-life/atlas-bandung/malam/audio/serangga.wav"
+      ]
+    },
+    {
+      "id": "audio",
+      "files": [
+        "public/game/assets/audio/pasirluyu.mp3"
+      ]
+    },
+    {
+      "id": "bandung-151/audio",
+      "files": [
+        "game-assets/yz-farm-life/bandung-151/audio/gang.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/harvest.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/hoe.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/imbalan.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/kanal.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/kebun.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/langkah-batu.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/langkah-kayu.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/langkah-tanah.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/pagi-pasirluyu.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/pilih.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/seed.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/warung-sore.wav",
+        "game-assets/yz-farm-life/bandung-151/audio/water.wav"
+      ]
+    },
+    {
+      "id": "explore-bandung/audio",
+      "files": [
+        "game-assets/yz-farm-life/explore-bandung/audio/gang.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/harvest.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/hoe.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/imbalan.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/kanal.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/kebun.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/langkah-batu.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/langkah-kayu.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/langkah-tanah.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/pagi-pasirluyu.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/pilih.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/seed.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/warung-sore.wav",
+        "game-assets/yz-farm-life/explore-bandung/audio/water.wav"
+      ]
+    },
+    {
+      "id": "explore-bandung/malam",
+      "files": [
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/air.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/angin.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/gang.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/ketuk.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/proyektor.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/radio.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/serambi.wav",
+        "game-assets/yz-farm-life/explore-bandung/malam/audio/serangga.wav"
+      ]
+    }
+  ]
+}
