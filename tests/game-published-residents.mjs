@@ -21,6 +21,11 @@ try{
  assert.equal(dry.status,0,dry.stderr);
  assert.match(dry.stdout,/VALIDASI LULUS/);
  assert.equal(readFileSync(rosterPath,"utf8"),original,"dry-run must not alter published data");
+ writeFileSync(input,JSON.stringify([{...sample[0],portrait:"R999"}]));
+ const missingPortrait=spawnSync(process.execPath,[script,"--input",input],{encoding:"utf8"});
+ assert.notEqual(missingPortrait.status,0,"unknown portraits must be rejected");
+ assert.match(missingPortrait.stderr,/portrait/);
+ assert.equal(readFileSync(rosterPath,"utf8"),original);
  writeFileSync(input,JSON.stringify([{...sample[0],email:"private@example.invalid"}]));
  const unsafe=spawnSync(process.execPath,[script,"--input",input],{encoding:"utf8"});
  assert.notEqual(unsafe.status,0,"additional sensitive fields must be rejected");
