@@ -100,7 +100,7 @@ Aset diusulkan → brief & provenance → gambar sumber
 ```
 
 **Prinsip anti-revisi besar:**
-- **Tidak hapus otomatis**, dedup dilakukan melalui canonical `duplicateOfPath` dan status; jangan menghilangkan data 196 tanaman hanya karena sprites generic.
+- **Hapus aset tidak layak atau tidak relevan yang telah lolos audit referensi.** Dedup dilakukan melalui canonical `duplicateOfPath`; jangan menghilangkan ID/data 196 tanaman hanya karena sprite-nya generik. Jangan menghapus media aktif, sumber unik, lisensi, atau dependensi arsip tanpa migrasi.
 - **Tidak semua file menjadi art produksi.** 25 sprite template bisa cukup untuk placeholder, tetapi sebelum spesies playable wajib punya morfologi dan variasi growth stage yang sesuai.
 - **Tidak semua potret konsep masuk dialog.** Gunakan strip ekspresi yang konsisten atau buat versi setara terlebih dahulu.
 - **Tidak memuat semua aset di awal game.** Asset vault sebanyak mungkin, runtime per lokasi sekecil mungkin. Evaluasi decoded texture memory, FPS, cold load.
@@ -119,3 +119,28 @@ Aset diusulkan → brief & provenance → gambar sumber
 | 96 spesifikasi baru | visi long-term, belum digambar | 100% katalog rancangan | produce per batch + QA art, tidak jadi map langsung | mengurangi revisi ekspansi | P2 design, P3 integration |
 
 **Catatan verifikasi:** script index/SQLite/test ditambahkan dalam PR fitur ini. Sampai CI+manual QA selesai, jangan klaim exporter dan UI telah sukses dijalankan pada semua lingkungan. Tidak ada perubahan Supabase, Docker DB, DNS atau production. Untuk seluruh game gunakan [Master Audit](GAME_AUDIT_MASTER.md) dan dokumentasikan temuan baru setelah PR ini direview.
+
+
+## 7. Kebijakan kurasi dan penghapusan — keputusan pemilik 21 November 2026
+
+**Arahan baru:** perpustakaan YZ Farm Life harus kaya tetapi tidak boleh dipenuhi aset kualitas rendah, duplikasi tidak diperlukan, dan gambar yang tidak akan dipakai. Aset bermutu untuk ekspansi Bandung tetap disimpan walau belum muncul dalam peta awal. Kebijakan ini menggantikan prinsip lama untuk selalu mempertahankan seluruh PNG.
+
+| Kelompok | Kriteria | Tindakan |
+| --- | --- | --- |
+| **KEEP · ACTIVE** | Dipakai scene/dialog, cocok art style, lolos QA | pertahankan path dan hash; jangan hapus |
+| **KEEP · FUTURE** | Unik, layak visual, punya rencana penggunaan eksplisit pada ekspansi | simpan vault, jangan preload |
+| **REWORK** | Penting secara fungsi/karakter tetapi kualitas/proporsi/palet buruk; masih ada referensi | gambar pengganti dulu, migrasi referensi, lalu hapus file lama |
+| **DELETE · SAFE** | Korup, sampah render, artefak gagal, atau salinan byte-identik yang tidak direferensikan dan mempunyai sumber kanonik terjaga | hapus dari branch setelah checks |
+| **REVIEW** | Kegunaan/kualitas/lisensi belum jelas | jangan promosikan ke runtime; tinjau sebelum keputusan hapus |
+
+### Syarat sebelum menghapus media
+
+1. **Audit penggunaan:** cari rujukan path/file pada TS/TSX/JS, JSON, TMJ/TSJ, CSS, HTML, SQLite, paket ZIP, dokumentasi build, manifest karakter, daftar komoditas, serta pengalaman/mekanisme yang disiapkan. *Tidak ada referensi di scene saat ini tidak sama dengan tidak dibutuhkan untuk ekspansi.*
+2. **Audit keunikan:** gunakan SHA untuk duplikasi eksak, lalu periksa kemiripan visual untuk versi resolusi berbeda. Pertahankan satu sumber berkualitas terbaik dan lisensi/provenance yang diperlukan. Angka 1.420 duplikasi adalah **kandidat audit**, bukan otomatis 1.420 file yang aman dihapus.
+3. **Audit mutu:** penilaian karakter/tanaman/bangunan meliputi proporsi, outline, palet, anatomi, alpha, framing, resolusi target, kompatibilitas sprite sheet, serta konsistensi 3/4 cozy pixel-art. Status “belum dipakai” bukan kegagalan mutu.
+4. **Migrasi:** sebelum menyingkirkan placeholder 196 spesies, ganti referensi gambar dengan aset kanonik/baru tanpa menghapus record komoditas, kebutuhan gameplay, atau progres save. Jangan memutus path dalam empat SQLite legacy, peta historis, atau arsip ZIP tanpa audit dan migrasi eksplisit.
+5. **Verifikasi:** commit penghapusan lewat PR, catat daftar path, reason, hash dan aset pengganti; jalankan `assets:index`, `assets:index:check`, `test:game:assets`, test game/typecheck/build, lalu inspeksi Pasirluyu/pasar/dialog di desktop dan mobile. Jika gagal, rollback dari Git.
+
+**Urutan eksekusi:** (P0) sampah/artefak rusak terverifikasi → (P1) duplikasi nonreferensi → (P1) potret dan tanaman yang diganti → (P2) arsip konsep tak relevan setelah review → (P3) aset ekspansi unik hanya jika tidak memenuhi visi dunia Bandung. **Jangan menyamakan jumlah path yang berkurang dengan berkurangnya variasi gameplay.**
+
+**Status pada 21 Nov 2026:** baru kebijakan kurasi yang disetujui; inventaris 2.615 media dan 1.420 salinan eksak belum berarti file itu sudah dihapus. PR #31 masih draft dengan CI gagal; jangan merge/deploy sebelum verifikasi. Menghapus file di Git commit tidak otomatis menghapus byte dari riwayat Git lama.
