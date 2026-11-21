@@ -13,7 +13,7 @@ Rujukan wajib: [GAME_AUDIT_MASTER.md](GAME_AUDIT_MASTER.md), [AUDIT_PLAYBOOK.md]
 | Isi media unik menurut Git blob SHA-1 | **1.195** |
 | File ekstra dengan isi identik | **1.420** |
 | Ukuran total media di seluruh pohon kerja | ±**246,12 MB** |
-| Aset media publik game | **428 file** (termasuk media non-SVG/JSON yang dicek snapshot sebelumnya) |
+| Aset media publik game | **426 media** (418 PNG, 6 SVG, 1 WebP, 1 MP3; metadata JSON dihitung terpisah) |
 | `aset/tanaman/` | **196 file**, hanya **25 isi PNG unik**; **171 file ekstra identik** |
 | Root strip potret `portraits/Axx,Cxx.png` | **32 strip 1.536×256**, **8 ekspresi** per karakter = 256 frame |
 | Ilustrasi konsep `portraits/bandung/` | **268 PNG** (keluarga K/R/work; komposisi lain, jangan dipakai sebagai ekspresi dialog) |
