@@ -56,7 +56,8 @@ export function makeCompleteDockerBibles(roster,known,legacy=loadLegacyFiction()
  const drafts=makePublishedResidentBibles(roster,known),out={};
  for(const row of roster){
   const original=known.get(row.id),status=continuity(row,original);
-  const authored=status==="unchanged"?authoredProfile(row.id):null;
+  // Expanded legal-style names may retain high-quality fictional arcs, not real-life demographics.
+  const authored=(status==="unchanged"||status==="expanded")?authoredProfile(row.id):null;
   const bible=structuredClone(authored&&authored.sections?authored:drafts[row.id]??draftResidentBible(row,status==="recast"));
   if(status==="expanded")bible.characterClass="docker-expanded-identity";
   if(status==="recast")bible.characterClass="docker-identity-revision";
@@ -66,6 +67,12 @@ export function makeCompleteDockerBibles(roster,known,legacy=loadLegacyFiction()
   bible.id=row.id;
   const sec=bible.sections;
   if(!sec||Object.keys(sec).length!==12)throw new Error("Bible lacks 12 sections: "+row.id);
+  if(status==="expanded"){
+   // Never silently turn a fictional short-name age or family into a factual dossier
+   // about a named individual when Docker only verifies four identity fields.
+   sec["01_core_identity"]={...sec["01_core_identity"],ageYears:null,ageStatus:"Belum ditetapkan dalam fiksi"};
+   sec["07_background_history"]={...sec["07_background_history"],familyContext:"Belum ditetapkan; riwayat keluarga lama perlu peninjauan sebagai fiksi",sourceStatus:"Usulan lore fiktif, bukan biografi individu"};
+  }
   sec["01_core_identity"]={...sec["01_core_identity"],name:row.name};
   sec["04_social_profile"]={...sec["04_social_profile"],occupation:row.occupation};
   sec["11_visual_references"]={...sec["11_visual_references"],
