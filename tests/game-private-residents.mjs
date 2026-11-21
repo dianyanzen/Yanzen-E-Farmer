@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {existsSync,mkdirSync,mkdtempSync,readdirSync,readFileSync,rmSync,writeFileSync} from "node:fs";
+import {mkdtempSync,readdirSync,readFileSync,rmSync,writeFileSync} from "node:fs";
 import {resolve,join} from "node:path";
 import {pathToFileURL} from "node:url";
 import {build} from "esbuild";
