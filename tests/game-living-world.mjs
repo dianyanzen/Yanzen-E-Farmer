@@ -129,12 +129,13 @@ console.log("Master Atlas QA: border continuity, 5 blockers, tap inspections, sa
 console.log("Living-world QA: 4 maps, 6 transitions, NPC schedules, choice memory, rain, taps: PASS");
 
 for(const location of ["field","gang","pasar","sungai"]){
-  const visit={...newGame(),location,player:{x:22,y:13,dir:"right"}};
-  const route=planTapRoute(visit,30,13);
+  const {startX,targetX}=location==="pasar"?{startX:20,targetX:28}:{startX:22,targetX:30};
+  const visit={...newGame(),location,player:{x:startX,y:13,dir:"right"}};
+  const route=planTapRoute(visit,targetX,13);
   assert.ok(route?.steps.length,location+" has a reachable eastern lane");
   const arrived=route.steps.reduce((state,dir)=>movePlayer(state,dir),visit);
-  assert.equal(arrived.player.x,30);
-  assert.equal(safeLoad(arrived)?.player.x,30);
+  assert.equal(arrived.player.x,targetX);
+  assert.equal(safeLoad(arrived)?.player.x,targetX);
   assert.ok(areaBlocked(location,32,13));
 }
 
@@ -154,7 +155,8 @@ assert.equal(safeLoad({...valveVisit,sluiceOpen:true}).sluiceOpen,true);
 assert.equal(mapExit("field",23,10,"right"),null,"the former edge is now inside the farm");
 for(const zone of ["field","gang","pasar","sungai"])
   assert.equal(areaBlocked(zone,23,10),false,"the former edge is walkable in "+zone);
-for(const [zone,x,y] of [["field",26,6],["gang",26,8],["pasar",27,7],["sungai",18,7]]){
+assert.equal(areaBlocked("gang",26,8),false,"Widi doorstep stays accessible");
+for(const [zone,x,y] of [["field",26,6],["gang",26,7],["pasar",27,7],["sungai",18,7]]){
   assert.equal(areaBlocked(zone,x,y),true,"solid scenery in "+zone);
   const standing=safeLoad({...newGame(),coins:345,location:zone,player:{x,y,dir:"up"}});
   assert.equal(standing.coins,345);

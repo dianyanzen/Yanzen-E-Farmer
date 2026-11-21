@@ -14,6 +14,10 @@ const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
 export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
+  ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
+  ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["fasad-"+owner,kit+"landmark/fasad-"+owner+".png"])),
+  "lapak-benih":kit+"landmark/lapak-benih.png",
+  "lapak-pancing":kit+"landmark/lapak-pancing.png",
   "lapak-anyaman":kit+"landmark/lapak-anyaman.png",
   "bendung-dua-pintu-buka":kit+"landmark/bendung-dua-pintu-buka.png",
   "bendung-dua-pintu-tutup":kit+"landmark/bendung-dua-pintu-tutup.png",
@@ -67,14 +71,14 @@ const paths: Record<OutdoorLocation,Route[]> = {
 };
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
-    {asset:"tajuk-kebun",x:24,y:65},{asset:"tajuk-kebun",x:139,y:44},
+    {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
     {asset:"rumah-yanzen",x:78,y:96,scale:.94},{asset:"gudang-kayu",x:191,y:95},
     {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
     {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
-    {asset:"daun-tropis",x:35,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
+    {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
     {asset:"bunga-pinggir",x:224,y:200,scale:.76},{asset:"semak-rimbun",x:299,y:185,scale:.79},
     {asset:"tajuk-kebun",x:473,y:173,scale:.85},{asset:"daun-tropis",x:448,y:187,scale:.76},
     {asset:"bunga-pinggir",x:398,y:188,scale:.9},{asset:"semak-rimbun",x:466,y:266,scale:.82},
@@ -83,22 +87,22 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"pot-berbunga",x:389,y:258,scale:.71},{asset:"bunga-pinggir",x:466,y:304},
     {asset:"pagar-kandang",x:382,y:313},{asset:"pagar-kandang",x:443,y:313},
     {asset:"gerbang-kandang",x:365,y:306},{asset:"tiang-kandang",x:459,y:301},
-    {asset:"daun-tropis",x:29,y:317,scale:.88},{asset:"pohon-pisang",x:90,y:324,scale:.66},
+    {asset:"daun-tropis",x:54,y:317,scale:.88},{asset:"pohon-pisang",x:90,y:324,scale:.66},
     {asset:"semak-rimbun",x:132,y:317,scale:.89},{asset:"bunga-pinggir",x:202,y:320},
     {asset:"tajuk-kebun",x:283,y:324,scale:.85},{asset:"daun-tropis",x:335,y:323},
   ],
   gang: [
-    {asset:"rumah-nani",x:160,y:155,scale:.96},{asset:"rumah-warga",x:403,y:155,scale:.9},
+    {asset:"fasad-nani",x:160,y:155,scale:.96},{asset:"fasad-ryan",x:403,y:155,scale:.9},
     {asset:"jemuran",x:55,y:152},{asset:"bangku-kayu",x:114,y:152,scale:.8},
     {asset:"rumpun-bunga-liar",x:110,y:155,scale:.72},{asset:"pohon-pisang",x:312,y:124,scale:.7},
     {asset:"talud-batu",x:322,y:78,scale:.8},{asset:"bunga-melati",x:191,y:154,scale:.75},
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
-    {asset:"kios-sayur-buka",closedAsset:"kios-sayur-tutup",x:128,y:174},
-    {asset:"peti-dagangan-sayur",x:91,y:179,scale:.86},{asset:"keranjang-buah",x:168,y:175,scale:.83},
+    {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
+    {asset:"peti-kayu",x:91,y:174,scale:.75},
     {asset:"warung-inggit",x:374,y:177,scale:1.04},{asset:"peti-kayu",x:321,y:178},
-    {asset:"papan-pasar",x:303,y:100},{asset:"pohon-pisang",x:440,y:145,scale:.7},
+    {asset:"papan-pasar",x:303,y:100},
     {asset:"rumpun-bunga-liar",x:68,y:278},{asset:"semak",x:425,y:285},
     {asset:"pohon-pisang",x:40,y:270,scale:.8},{asset:"rumpun-bunga-liar",x:129,y:305,scale:.82},
     {asset:"semak",x:183,y:311},{asset:"semak",x:294,y:312},{asset:"peti-kayu",x:440,y:238},
@@ -157,14 +161,13 @@ props.field.push(
 props.gang.push(
   {asset:"pohon-pisang",x:69,y:87,scale:.81},{asset:"kelompok-pot",x:137,y:157,scale:.64},
   {asset:"pot-berbunga",x:429,y:159,scale:.8},{asset:"jemuran",x:584,y:130,scale:1.05},
-  {asset:"bangku-kayu",x:500,y:136,scale:.8},{asset:"talud-batu",x:530,y:179,scale:1.03},
-  {asset:"bunga-pinggir",x:516,y:168,scale:.62},{asset:"bunga-melati",x:541,y:169,scale:.78}
+  {asset:"bangku-kayu",x:582,y:156,scale:.8},{asset:"talud-batu",x:604,y:157,scale:1.03},
+  {asset:"bunga-pinggir",x:483,y:158,scale:.62},{asset:"bunga-melati",x:566,y:157,scale:.78}
 );
 props.pasar.push(
   {asset:"keranjang-buah",x:70,y:176,scale:.74},{asset:"pot-berbunga",x:422,y:178,scale:.74},
-  {asset:"peti-kayu",x:531,y:160,scale:1.0},{asset:"peti-dagangan-sayur",x:552,y:159},
-  {asset:"keranjang-buah",x:571,y:159,scale:.9},{asset:"tong-dan-papan",x:589,y:145,scale:.7},
-  {asset:"pohon-pisang",x:35,y:106,scale:.96},{asset:"papan-pasar",x:496,y:160,scale:.8}
+  {asset:"lapak-pancing",x:550,y:159},
+  {asset:"pohon-pisang",x:35,y:106,scale:.96},{asset:"papan-pasar",x:597,y:159,scale:.8}
 );
 props.sungai.push(
   {asset:"rumpun-bambu",x:329,y:118,scale:.93},{asset:"talud-batu",x:371,y:160},
@@ -189,9 +192,29 @@ props.pasar.push(
 const newHomes = [[90,277,111],[310,277,118],[530,155,117]] as const;
 props.gang=props.gang.filter(p=>!newHomes.some(([x,y,width])=>Math.abs(x-p.x)<width/2 && p.y>y-66 && p.y<y+23));
 props.gang.push(
-  {asset:"rumah-yanzen",x:90,y:277,scale:.83},
-  {asset:"rumah-nani",x:310,y:277,scale:.83},
-  {asset:"rumah-warga",x:530,y:155,scale:.91}
+  {asset:"fasad-inggit",x:90,y:277,scale:.83},
+  {asset:"fasad-ayu",x:310,y:277,scale:.83},
+  {asset:"fasad-widi",x:530,y:155,scale:.91}
+);
+props.gang.push(
+  {asset:"atelier-nani",x:123,y:154},{asset:"atelier-ryan",x:439,y:156},
+  {asset:"atelier-inggit",x:58,y:278},{asset:"atelier-ayu",x:278,y:277},
+  {asset:"atelier-widi",x:565,y:155}
+);
+props.pasar.push(
+  {asset:"kios-sayur-buka",closedAsset:"kios-sayur-tutup",x:451,y:160,scale:.72},
+  {asset:"lapak-anyaman",x:502,y:159,scale:.67},
+  {asset:"peti-kayu",x:607,y:277,scale:.73},
+  {asset:"peti-dagangan-sayur",x:593,y:275,scale:.82},
+  {asset:"keranjang-buah",x:577,y:278,scale:.85},
+  {asset:"lapak-anyaman",x:470,y:283,scale:.84},
+  {asset:"peti-dagangan-sayur",x:448,y:284,scale:.76},
+  {asset:"tong-dan-papan",x:497,y:281,scale:.77},
+  {asset:"bangku-kayu",x:325,y:280,scale:.84},
+  {asset:"kelompok-pot",x:348,y:280,scale:.62},
+  {asset:"atelier-widi",x:579,y:160,scale:.8},
+  {asset:"peti-dagangan-sayur",x:426,y:161,scale:.62},
+  {asset:"keranjang-buah",x:473,y:161,scale:.58}
 );
 props.sungai.push(
   {asset:"kelompok-pot",x:22,y:183,scale:.49},{asset:"tong-dan-papan",x:20,y:235,scale:.55},
@@ -260,7 +283,7 @@ function flagstones(ctx:CanvasRenderingContext2D){
   const random=randomFrom(87341);
   const palette=["#b9a788","#c4b294","#b3a28b","#c5b59d","#b8aa96","#b4ad98"];
   for(let y=110;y<315;y+=6){
-    for(let x=44+Math.floor(random()*9);x<453;){
+    for(let x=30+Math.floor(random()*9);x<WORLD.width*WORLD.tile+14;){
       const w=8+Math.floor(random()*6), h=4+Math.floor(random()*2);
       ctx.fillStyle=palette[Math.floor(random()*palette.length)];
       ctx.fillRect(x+1,y,w-2,h+1);ctx.fillRect(x,y+1,w,h-1);
@@ -364,35 +387,12 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     ctx.lineWidth=width;ctx.stroke();
   }
   if(location==="pasar"){
-    // Expose the grass beneath missing pavers in a staggered verge.
+    const right=WORLD.width*WORLD.tile;
     ctx.save();
-    ctx.beginPath();
-    for(let row=0;row<45;row++){
-      const inset = Math.max(0,6-row, row-38)*2;
-      const left=59+inset+Math.round(6*Math.sin(row/6))+((row*7)%4)*2;
-      const right=442-inset-Math.round(8*Math.sin(row/5))-((row*5)%7)*2;
-      ctx.rect(left,120+row*4,right-left,4);
-    }
-    ctx.clip();
-    ctx.beginPath();
-    for(let col=0;col<95;col++){
-      const top=120+((col*7)%5)*2;
-      const bottom=300-((col*11)%7)*2;
-      ctx.rect(60+col*4,top,4,bottom-top);
-    }
-    ctx.clip();
-    ctx.fillStyle="#b3a18a";ctx.fillRect(60,120,380,180);
+    ctx.beginPath();ctx.rect(40,120,right-40,180);ctx.clip();
+    ctx.fillStyle="#aa9982";ctx.fillRect(40,120,right-40,180);
     flagstones(ctx);
     ctx.restore();
-    // Individual stones thin out at the market entrances and dissolve into the dirt road.
-    const grit=randomFrom(1501);
-    for(const [cx,cy,rx,ry] of [[239,301,14,14],[239,121,14,15],[438,220,19,12]]){
-      for(let i=0;i<27;i++){
-        const x=Math.round(cx+(grit()-.5)*rx*2),y=Math.round(cy+(grit()-.5)*ry*2);
-        ctx.fillStyle="#ac9879";ctx.fillRect(x,y,3,2);
-        ctx.fillStyle="#c9b697";ctx.fillRect(x,y-1,4,2);
-      }
-    }
   }
   if (location==="field") drawFieldCanal(ctx,art);
   if (location==="sungai"){
@@ -434,33 +434,65 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     if(width<30)continue;
     ctx.beginPath();ctx.ellipse(prop.x+2,prop.y-2,width*.36,Math.max(2,width*.055),0,0,Math.PI*2);ctx.fill();
   }
+  if(location==="field"){
+    // Low nursery bench between the farmhouse and the tool shed.
+    ctx.fillStyle="#6b4b33";ctx.fillRect(118,106,3,12);ctx.fillRect(139,106,3,12);
+    ctx.fillStyle="#976c43";ctx.fillRect(116,101,28,8);
+    ctx.fillStyle="#d6a66c";ctx.fillRect(116,101,28,2);
+    for(const x of [119,127,135]){
+      ctx.fillStyle="#aa6440";ctx.fillRect(x,98,6,5);
+      ctx.fillStyle="#5c793b";ctx.fillRect(x+2,94,2,5);
+      ctx.fillStyle="#a6be60";ctx.fillRect(x,94,3,2);ctx.fillRect(x+3,92,3,3);
+    }
+  }
   drawConnectedEdges(ctx,location);
   drawRouteClosures(ctx,location);
   drawSignposts(ctx,location);
 }
 
 function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
-  for(let y=0;y<320;y+=20) for(let x=0;x<40;x+=20) {
-    ctx.fillStyle=x===0?"#326f76":"#438681";ctx.fillRect(x,y,20,20);
-    tile(ctx,art.surfaces,(x===0?24:16)+(y/20)%8,x,y);
+  const shore=(y:number)=>Math.round(39-22*Math.exp(-((y-139)**2)/640)+1.3*Math.sin(y/11));
+  ctx.save();
+  ctx.beginPath();
+  for(let y=0;y<320;y++)ctx.rect(0,y,shore(y),1);
+  ctx.clip();
+  const current=randomFrom(818);
+  for(let y=0;y<320;y++){
+    const bank=shore(y);
+    for(let x=0;x<bank;x++){
+      const depth=Math.min(1,(bank-x)/27);
+      const light=2*Math.sin(y*.14+x*.24)+1.5*Math.sin(y*.27-x*.16);
+      ctx.fillStyle="rgb("+Math.round(76-37*depth+light)+","+Math.round(136-36*depth+light)+","+Math.round(125-14*depth+light)+")";
+      ctx.fillRect(x,y,1,1);
+    }
   }
-  for (let y=12;y<321;y+=14) {
-    if(y>=94 && y<180)continue;
-    const rock=art[y%4===0?"batu-kembar":"tebing-batu"];
-    const x=31+(y%5);
-    ctx.fillStyle="#688875";ctx.fillRect(x,y-6,7,15);
-    if (rock) ctx.drawImage(rock,x-5,y-6,15,12);
-    const reeds=art["ilalang-kanal"];
-    if(reeds && y%3!==0)ctx.drawImage(reeds,x+5,y-9,10,12);
+  for(let i=0;i<190;i++){
+    const y=Math.floor(current()*320),x=Math.floor(current()*shore(y));
+    ctx.fillStyle=i%4?"rgba(184,216,190,.19)":"rgba(34,81,84,.3)";
+    ctx.fillRect(x,y,2+Math.floor(current()*5),1);
+  }
+  for(const y of [36,82,102,174,217,259,298]){
+    const x=shore(y)-5;
+    for(const [dx,dy] of [[0,0],[-4,2],[1,4]]){
+      ctx.fillStyle="#567c52";ctx.fillRect(x+dx,y+dy,4,2);
+      ctx.fillStyle="#a0b468";ctx.fillRect(x+dx,y+dy,2,1);
+    }
+    if(art["ilalang-kanal"])ctx.drawImage(art["ilalang-kanal"],x,y-9,12,14);
   }
   const ripple=art["riak-kanal"];
-  if(ripple) for(const y of [29,67,205,243,284,314])ctx.drawImage(ripple,8,y,18,9);
-  for(let y=100;y<180;y+=20)for(let x=0;x<40;x+=20)tile(ctx,art.ground,2+(y/20)%4,x,y);
-  // The west boundary is water throughout. The playable x=1 bank tapers to the path.
-  for(let y=98;y<182;y++){
-    const shore=Math.round(13+19*Math.min(1,Math.abs(y-140)/42)**2);
-    ctx.fillStyle="#4b928c";ctx.fillRect(0,y,shore,1);
-    ctx.fillStyle="#759371";ctx.fillRect(shore,y,2,1);
+  if(ripple)for(const y of [29,67,115,161,205,243,284,314])ctx.drawImage(ripple,4,y,15,7);
+  ctx.restore();
+  for(let y=0;y<320;y++){
+    const x=shore(y);
+    ctx.fillStyle="#63897b";ctx.fillRect(x-1,y,2,1);
+    ctx.fillStyle="#8a915f";ctx.fillRect(x+1,y,2,1);
+  }
+  for(let y=12;y<320;y+=17){
+    const x=shore(y);
+    const rock=art[y%2?"batu-kembar":"tebing-batu"];
+    if(rock)ctx.drawImage(rock,x-5,y-4,10,7);
+    const reeds=art["ilalang-kanal"];
+    if(reeds && y%3===0)ctx.drawImage(reeds,x+1,y-8,8,10);
   }
 }
 

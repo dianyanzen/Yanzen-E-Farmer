@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
-import { acceptOrder, buySeeds, facing, GameState, FarmTool, meetNpc, movePlayer,
+import { castRod,reelFish,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET } from "@/lib/game/model";
+import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, sellCucumbers, sellableCucumbers, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { START_LOCATION } from "@/lib/game/bandung-locations";
@@ -47,6 +48,7 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
   return <button className={direction} aria-label={label}
     onPointerDown={event => {
       if (!event.isPrimary || event.button !== 0) return;
+      event.preventDefault();
       event.currentTarget.setPointerCapture(event.pointerId);
       press(id, direction);
     }}
@@ -63,7 +65,7 @@ function DirectionButton({ direction, label, symbol, press, release, step }: {
     }}
     onPointerUp={() => release(id)} onPointerCancel={() => release(id)}
     onLostPointerCapture={() => release(id)}
-    onClick={event => { if (event.detail === 0) step(direction); }}>{symbol}</button>;
+    onClick={event => { if (event.detail === 0) step(direction); }}><span aria-hidden="true" className="yzg-arrow">{symbol}</span></button>;
 }
 
 export default function GameClient({ engine = "canvas", residents = [] }: {
@@ -279,7 +281,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return () => window.clearTimeout(t);
   }, [toast]);
 
-  const controlsLocked = !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
+  const [wakingDay,setWakingDay]=useState<number|null>(null);
+  useEffect(()=>{
+    if(wakingDay===null)return;
+    const id=window.setTimeout(()=>setWakingDay(null),1800);
+    return ()=>window.clearTimeout(id);
+  },[wakingDay]);
+  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
     if (controlsLocked) return;
     tapRoute.current = null;
@@ -451,6 +459,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if(result.state!==game) void persist(result.state);
     }else if(context.kind==="storage"){
       setStorageOpen(true);
+    }else if(context.kind==="nursery"){
+      const wet=game.plots.filter(p=>p.watered && p.stage>=0).length;
+      setDialogue({title:"Meja semai",lines:[wet?"Tanah sampel terasa lembap. Ada "+wet+" petak tanaman tersiram.":"Tanah sampel masih kering. Tanam lalu siram satu petak hidup sebelum melapor kepada Nani.", "Catatan Nani: sentuh permukaannya sebelum menyiram lagi. Akar juga memerlukan udara."]});
+      if(wet && game.personalQuests?.C01?.phase===2){const next={...game,nurseryChecked:true};setGame(next);void persist(next);}
+    }else if(context.kind==="fish"){
+      const next=game.fishing.line?reelFish(game):castRod(game,Math.random());
+      setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
+      if(next!==game){setGame(next);void persist(next);}
     }else if(context.kind==="sluice"){
       const next={...game,sluiceOpen:!game.sluiceOpen};
       setGame(next); void persist(next);
@@ -542,9 +558,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [game, controlsLocked, action, queueCrossing]);
 
   const togglePhone = useCallback(() => {
-    if (dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
+    if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setShowHelp(false);
-  }, [dialogue, storageOpen, saveStatus]);
+  }, [dialogue, storageOpen, saveStatus,wakingDay]);
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
@@ -589,7 +605,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
 
   const rest = () => {
     if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
+    if(wakingDay!==null)return;
     const next = nextDay(game);
+    setWakingDay(next.day);
     setDialogue(null);
     setGame(next); void persist(next);
     setToast("Hari baru di Pasirluyu · Cuaca "+weatherForDay(next.day)+". Tanaman yang disiram tumbuh!");
@@ -606,12 +624,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setGame(next); void persist(next);
     setToast("Quest: Bawa empat timun kepada Inggit di pasar.");
   };
-  const purchase = () => {
-    if (saveStatus === "loading" || saveStatus === "error") return;
-    const next = buySeeds(game);
-    if (!next) { setToast("Koin belum cukup. Lima bibit berharga 40 G."); return; }
-    setGame(next); void persist(next); setToast("Berhasil membeli lima bibit.");
-  };
   const decidePhoto = (choice: PhotoChoice) => {
     if (saveStatus === "loading" || saveStatus === "error") return;
     const next = choosePhoto(game, choice);
@@ -622,16 +634,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         "Nani menyimpan foto asli dan menitipkan salinan di warung. Inggit menyiapkan tempat untuk nama-nama yang diingat warga.",
       "Pilihanmu tercatat di jurnal. Temui kembali Nani dan Inggit untuk melihat akibatnya. Bab Cimincrang belum tersedia; kebun dan warung tetap dapat dikunjungi."] });
   };
-  const sell = () => {
-    if (saveStatus === "loading" || saveStatus === "error") return;
-    const quantity = sellableCucumbers(game);
-    if (!quantity) return;
-    const next = sellCucumbers(game);
-    setGame(next); void persist(next);
-    setDialogue({ title: "Inggit · Hasil Panen Diterima", shop: true, lines: [
-      `Inggit: ${quantity} timun sudah kuterima. Ini ${quantity * 25} G. Empat timun untuk pesanan yang masih aktif tetap kamu simpan.`] });
-  };
-
   const planted = game.plots.filter(p => p.stage >= 0).length;
   const readyCrops = game.plots.filter(p => p.stage === 3).length;
   const unread = !game.story.orderAccepted && !game.phoneRead;
@@ -681,6 +683,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan menggunakan Phaser"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
+        {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
           <div className="yzg-loading-copy">
             <strong>YZ Farm Life</strong>
@@ -701,6 +704,16 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {dialogue && <GameDialog className="yzg-dialog yzg-chapter-dialog" aria-label={display(dialogue.title)}
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
+          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && <div className="yzg-shop">
+            {(dialogue.npcId==="A04"?["seeds","cucumber"] as const:["bait",...FISH_IDS] as const).map(item=>
+              <button key={item} disabled={unavailable} onClick={()=>{
+                if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
+                const r=marketTrade(game,dialogue.npcId,item);
+                if(r.state!==game){setGame(r.state);void persist(r.state);}
+                setDialogue({...dialogue,title:"Lapak pasar",lines:[r.message]});
+              }}>{item==="bait"?"5 pelet · 15 G":item==="seeds"?"5 bibit · 40 G":item==="cucumber"?"Jual hasil timun":"Jual "+FISH_MARKET[item].name+" ("+game.fishing.fish[item]+")"}</button>)}
+            {dialogue.npcId==="C07" && <NextImage src="/game/assets/tiles/fish-market.png" width={144} height={48} alt="Bandeng, kakap putih dan belanak"/>}
+          </div>}
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title), lines: dialogue.lines.map(display) }} game={game}
             resident={dialogue.npcId ? residentById.get(dialogue.npcId) : undefined}>
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
@@ -708,11 +721,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
             <button onClick={() => decidePhoto("nani")} disabled={unavailable}>{display("Percayakan foto asli kepada Nani")}<small>Kisah disimpan bersama keluarga.</small></button>
             <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
-          </div>}
-          {dialogue.shop && <div className="yzg-shop">
-            <button onClick={purchase} disabled={unavailable || game.coins < 40}>Beli 5 bibit · 40 G</button>
-            <button onClick={sell} disabled={unavailable || !sellableCucumbers(game)}>Jual {sellableCucumbers(game)} timun · {sellableCucumbers(game) * 25} G</button>
-            {game.story.orderAccepted && !game.story.orderDone && <small>{display("Empat timun dicadangkan untuk pesanan Inggit.")}</small>}
           </div>}
           {dialogue.npcId && dialogue.choices && questTalks(game,dialogue.npcId).map(id=>
             <button key={id} disabled={unavailable} onClick={()=>{
@@ -758,7 +766,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : display("Pesanan diterima. Temui Inggit setelah panen.")}</small>}
                 </div>
                 <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
-                <div className="yzg-phone-card"><b>Pasar Bibit</b><p>Lima bibit timun — 40 G</p><button onClick={purchase} disabled={unavailable || game.coins < 40}>Beli 5 bibit</button></div>
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
