@@ -1,5 +1,7 @@
 # Yanzen E-Farmer
 
+**Audit game terkini:** [YZ Farm Life Master Audit](docs/game-dev/GAME_AUDIT_MASTER.md) · [Prosedur QA untuk ChatGPT/Codex](docs/game-dev/AUDIT_PLAYBOOK.md). Setiap analisis YZ Farm Life harus memeriksa dua dokumen ini dan commit/PR terbaru terlebih dahulu. Catatan tahap lama di README ini bersifat historis.
+
 ## YZ Farm Life — Pasirluyu Bab 1 (development)
 
 Alur empat timun Inggit → petunjuk Ryan → foto Nani → dua pilihan akhir kini
