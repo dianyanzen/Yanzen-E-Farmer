@@ -1,0 +1,2742 @@
+[
+ {
+  "id": "A02-1",
+  "jenis": "Pribadi",
+  "npc": "A02",
+  "wilayah": "kel-neglasari",
+  "bab": 4,
+  "judul": "Tandai tiga tangkai sebelum dipetik",
+  "tujuan": "Tandai tiga tangkai sebelum dipetik",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Nabila."
+ },
+ {
+  "id": "A02-2",
+  "jenis": "Pribadi",
+  "npc": "A02",
+  "wilayah": "kel-neglasari",
+  "bab": 4,
+  "judul": "Pisahkan biji matang bersama Dewi",
+  "tujuan": "Pisahkan biji matang bersama Dewi",
+  "akibat": "Kesaksian dapat dibahas dengan Dewi."
+ },
+ {
+  "id": "A02-3",
+  "jenis": "Pribadi",
+  "npc": "A02",
+  "wilayah": "kel-neglasari",
+  "bab": 4,
+  "judul": "Bunga yang dibiarkan mekar",
+  "tujuan": "Buka petak benih bunga / Buka kelas merangkai bunga kering",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A03-1",
+  "jenis": "Pribadi",
+  "npc": "A03",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Ukur dua garis di pintu air",
+  "tujuan": "Ukur dua garis di pintu air",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Ryan."
+ },
+ {
+  "id": "A03-2",
+  "jenis": "Pribadi",
+  "npc": "A03",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Bandingkan jam pada foto Nani dengan buku pintu",
+  "tujuan": "Bandingkan jam pada foto Nani dengan buku pintu",
+  "akibat": "Kesaksian dapat dibahas dengan Nani."
+ },
+ {
+  "id": "A03-3",
+  "jenis": "Pribadi",
+  "npc": "A03",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Garis kedua pada batu",
+  "tujuan": "Pasang papan giliran terbuka / Buat penanda tinggi air di hilir",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A04-1",
+  "jenis": "Pribadi",
+  "npc": "A04",
+  "wilayah": "kel-jatisari",
+  "bab": 1,
+  "judul": "Buka lipatan tanpa merusak cap",
+  "tujuan": "Buka lipatan tanpa merusak cap",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Ayu."
+ },
+ {
+  "id": "A04-2",
+  "jenis": "Pribadi",
+  "npc": "A04",
+  "wilayah": "kel-jatisari",
+  "bab": 1,
+  "judul": "Temui Nida untuk melacak penyumbang",
+  "tujuan": "Temui Nida untuk melacak penyumbang",
+  "akibat": "Kesaksian dapat dibahas dengan Nida."
+ },
+ {
+  "id": "A04-3",
+  "jenis": "Pribadi",
+  "npc": "A04",
+  "wilayah": "kel-jatisari",
+  "bab": 1,
+  "judul": "Bungkus tanpa merek",
+  "tujuan": "Cetak label asal benih / Simpan contoh induk untuk dipinjam",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A05-1",
+  "jenis": "Pribadi",
+  "npc": "A05",
+  "wilayah": "kel-sukamiskin",
+  "bab": 2,
+  "judul": "Cari cap bengkel pada gagang",
+  "tujuan": "Cari cap bengkel pada gagang",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Vicky."
+ },
+ {
+  "id": "A05-2",
+  "jenis": "Pribadi",
+  "npc": "A05",
+  "wilayah": "kel-sukamiskin",
+  "bab": 2,
+  "judul": "Uji dua pasak di tanah lembap",
+  "tujuan": "Uji dua pasak di tanah lembap",
+  "akibat": "Kesaksian dapat dibahas dengan Tatang."
+ },
+ {
+  "id": "A05-3",
+  "jenis": "Pribadi",
+  "npc": "A05",
+  "wilayah": "kel-sukamiskin",
+  "bab": 2,
+  "judul": "Palu di bawah meja",
+  "tujuan": "Buka meja reparasi warga / Jadikan cangkul lama alat praktik",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A06-1",
+  "jenis": "Pribadi",
+  "npc": "A06",
+  "wilayah": "kel-arjuna",
+  "bab": 6,
+  "judul": "Ikuti peti stroberi dari kebun",
+  "tujuan": "Ikuti peti stroberi dari kebun",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Asep."
+ },
+ {
+  "id": "A06-2",
+  "jenis": "Pribadi",
+  "npc": "A06",
+  "wilayah": "kel-arjuna",
+  "bab": 6,
+  "judul": "Susun ulang lapisan peti bersama Astri",
+  "tujuan": "Susun ulang lapisan peti bersama Astri",
+  "akibat": "Kesaksian dapat dibahas dengan Astri."
+ },
+ {
+  "id": "A06-3",
+  "jenis": "Pribadi",
+  "npc": "A06",
+  "wilayah": "kel-arjuna",
+  "bab": 6,
+  "judul": "Kiriman tanpa tanda terima",
+  "tujuan": "Buka kiriman beralas anyaman / Buka pemeriksaan saat serah terima",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A07-1",
+  "jenis": "Pribadi",
+  "npc": "A07",
+  "wilayah": "kel-antapani-tengah",
+  "bab": 1,
+  "judul": "Tandai dua baki dengan perlakuan berbeda",
+  "tujuan": "Tandai dua baki dengan perlakuan berbeda",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Dewi."
+ },
+ {
+  "id": "A07-2",
+  "jenis": "Pribadi",
+  "npc": "A07",
+  "wilayah": "kel-antapani-tengah",
+  "bab": 1,
+  "judul": "Bandingkan daun setelah dua pagi",
+  "tujuan": "Bandingkan daun setelah dua pagi",
+  "akibat": "Kesaksian dapat dibahas dengan Yani."
+ },
+ {
+  "id": "A07-3",
+  "jenis": "Pribadi",
+  "npc": "A07",
+  "wilayah": "kel-antapani-tengah",
+  "bab": 1,
+  "judul": "Baki nomor nol",
+  "tujuan": "Buka naungan bibit / Buka meja percobaan warga",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A08-1",
+  "jenis": "Pribadi",
+  "npc": "A08",
+  "wilayah": "kel-binong",
+  "bab": 4,
+  "judul": "Cari sisi anyaman yang aus",
+  "tujuan": "Cari sisi anyaman yang aus",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Astri."
+ },
+ {
+  "id": "A08-2",
+  "jenis": "Pribadi",
+  "npc": "A08",
+  "wilayah": "kel-binong",
+  "bab": 4,
+  "judul": "Minta pemetik mencoba dua posisi gagang",
+  "tujuan": "Minta pemetik mencoba dua posisi gagang",
+  "akibat": "Kesaksian dapat dibahas dengan Asep."
+ },
+ {
+  "id": "A08-3",
+  "jenis": "Pribadi",
+  "npc": "A08",
+  "wilayah": "kel-binong",
+  "bab": 4,
+  "judul": "Anyaman untuk tangan kiri",
+  "tujuan": "Buka pola gagang silang / Buka pesanan keranjang ukuran khusus",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A09-1",
+  "jenis": "Pribadi",
+  "npc": "A09",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Temukan cetak kontak di gang",
+  "tujuan": "Temukan cetak kontak di gang",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Fajar."
+ },
+ {
+  "id": "A09-2",
+  "jenis": "Pribadi",
+  "npc": "A09",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Pasangkan keterangan lisan dengan bingkai asli",
+  "tujuan": "Pasangkan keterangan lisan dengan bingkai asli",
+  "akibat": "Kesaksian dapat dibahas dengan Nani."
+ },
+ {
+  "id": "A09-3",
+  "jenis": "Pribadi",
+  "npc": "A09",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Orang di luar bingkai",
+  "tujuan": "Pajang foto dengan suara warga / Pajang dua sudut pengambilan",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A10-1",
+  "jenis": "Pribadi",
+  "npc": "A10",
+  "wilayah": "kel-mengger",
+  "bab": 1,
+  "judul": "Catat jejak ember di pagar",
+  "tujuan": "Catat jejak ember di pagar",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Dadan."
+ },
+ {
+  "id": "A10-2",
+  "jenis": "Pribadi",
+  "npc": "A10",
+  "wilayah": "kel-mengger",
+  "bab": 1,
+  "judul": "Susun jadwal akses dengan pemilik petak",
+  "tujuan": "Susun jadwal akses dengan pemilik petak",
+  "akibat": "Kesaksian dapat dibahas dengan Heru."
+ },
+ {
+  "id": "A10-3",
+  "jenis": "Pribadi",
+  "npc": "A10",
+  "wilayah": "kel-mengger",
+  "bab": 1,
+  "judul": "Kunci pagar kedua",
+  "tujuan": "Titip kunci di warung / Buka giliran penjaga malam",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A11-1",
+  "jenis": "Pribadi",
+  "npc": "A11",
+  "wilayah": "kel-kebon-jeruk",
+  "bab": 6,
+  "judul": "Hitung pengunjung dari dua pintu",
+  "tujuan": "Hitung pengunjung dari dua pintu",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Anggi."
+ },
+ {
+  "id": "A11-2",
+  "jenis": "Pribadi",
+  "npc": "A11",
+  "wilayah": "kel-kebon-jeruk",
+  "bab": 6,
+  "judul": "Coba pindahkan tenda satu pagi",
+  "tujuan": "Coba pindahkan tenda satu pagi",
+  "akibat": "Kesaksian dapat dibahas dengan Widi."
+ },
+ {
+  "id": "A11-3",
+  "jenis": "Pribadi",
+  "npc": "A11",
+  "wilayah": "kel-kebon-jeruk",
+  "bab": 6,
+  "judul": "Lapak di ujung lorong",
+  "tujuan": "Buka giliran tempat teduh / Buka papan arah lapak kecil",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A12-1",
+  "jenis": "Pribadi",
+  "npc": "A12",
+  "wilayah": "kel-babakan-ciparay",
+  "bab": 6,
+  "judul": "Ukur ruang peti dan jalur naik",
+  "tujuan": "Ukur ruang peti dan jalur naik",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Denden."
+ },
+ {
+  "id": "A12-2",
+  "jenis": "Pribadi",
+  "npc": "A12",
+  "wilayah": "kel-babakan-ciparay",
+  "bab": 6,
+  "judul": "Coba muatan yang dapat diikat ulang",
+  "tujuan": "Coba muatan yang dapat diikat ulang",
+  "akibat": "Kesaksian dapat dibahas dengan Malik."
+ },
+ {
+  "id": "A12-3",
+  "jenis": "Pribadi",
+  "npc": "A12",
+  "wilayah": "kel-babakan-ciparay",
+  "bab": 6,
+  "judul": "Kursi kosong di bak depan",
+  "tujuan": "Tetapkan kursi pendamping / Buka jadwal angkut peti terpisah",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A13-1",
+  "jenis": "Pribadi",
+  "npc": "A13",
+  "wilayah": "kel-isola",
+  "bab": 3,
+  "judul": "Cocokkan dua tulisan tangan",
+  "tujuan": "Cocokkan dua tulisan tangan",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Nida."
+ },
+ {
+  "id": "A13-2",
+  "jenis": "Pribadi",
+  "npc": "A13",
+  "wilayah": "kel-isola",
+  "bab": 3,
+  "judul": "Tanam pembanding bersama Ayu",
+  "tujuan": "Tanam pembanding bersama Ayu",
+  "akibat": "Kesaksian dapat dibahas dengan Ayu."
+ },
+ {
+  "id": "A13-3",
+  "jenis": "Pribadi",
+  "npc": "A13",
+  "wilayah": "kel-isola",
+  "bab": 3,
+  "judul": "Nama di balik amplop",
+  "tujuan": "Buka katalog nama lokal / Buka arsip silsilah benih",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A14-1",
+  "jenis": "Pribadi",
+  "npc": "A14",
+  "wilayah": "kel-tamansari",
+  "bab": 5,
+  "judul": "Cari ujung pita yang putus",
+  "tujuan": "Cari ujung pita yang putus",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Desna."
+ },
+ {
+  "id": "A14-2",
+  "jenis": "Pribadi",
+  "npc": "A14",
+  "wilayah": "kel-tamansari",
+  "bab": 5,
+  "judul": "Rekam ulang pengumuman bersama Ryan",
+  "tujuan": "Rekam ulang pengumuman bersama Ryan",
+  "akibat": "Kesaksian dapat dibahas dengan Ryan."
+ },
+ {
+  "id": "A14-3",
+  "jenis": "Pribadi",
+  "npc": "A14",
+  "wilayah": "kel-tamansari",
+  "bab": 5,
+  "judul": "Radio pukul lima",
+  "tujuan": "Buka siaran cuaca pagi / Buka siaran cerita malam",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A15-1",
+  "jenis": "Pribadi",
+  "npc": "A15",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Cocokkan tiga cap karung",
+  "tujuan": "Cocokkan tiga cap karung",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Heru."
+ },
+ {
+  "id": "A15-2",
+  "jenis": "Pribadi",
+  "npc": "A15",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Dengarkan alasan Inggit menyimpan nota",
+  "tujuan": "Dengarkan alasan Inggit menyimpan nota",
+  "akibat": "Kesaksian dapat dibahas dengan Inggit."
+ },
+ {
+  "id": "A15-3",
+  "jenis": "Pribadi",
+  "npc": "A15",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Cap pada karung kosong",
+  "tujuan": "Buka lumbung pinjam / Buka dana tebus panen",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "A16-1",
+  "jenis": "Pribadi",
+  "npc": "A16",
+  "wilayah": "kel-karang-pamulang",
+  "bab": 3,
+  "judul": "Ukur jalur dengan tali",
+  "tujuan": "Ukur jalur dengan tali",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Khansa."
+ },
+ {
+  "id": "A16-2",
+  "jenis": "Pribadi",
+  "npc": "A16",
+  "wilayah": "kel-karang-pamulang",
+  "bab": 3,
+  "judul": "Geser satu baris bersama Malik",
+  "tujuan": "Geser satu baris bersama Malik",
+  "akibat": "Kesaksian dapat dibahas dengan Malik."
+ },
+ {
+  "id": "A16-3",
+  "jenis": "Pribadi",
+  "npc": "A16",
+  "wilayah": "kel-karang-pamulang",
+  "bab": 3,
+  "judul": "Garis yang tidak lurus",
+  "tujuan": "Buka kursi teduh / Buka lintasan gerobak lebar",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C01-1",
+  "jenis": "Pribadi",
+  "npc": "C01",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Periksa lipatan foto di gang",
+  "tujuan": "Periksa lipatan foto di gang",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Nani."
+ },
+ {
+  "id": "C01-2",
+  "jenis": "Pribadi",
+  "npc": "C01",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Bawa catatan Ryan kembali tanpa penonton",
+  "tujuan": "Bawa catatan Ryan kembali tanpa penonton",
+  "akibat": "Kesaksian dapat dibahas dengan Ryan."
+ },
+ {
+  "id": "C01-3",
+  "jenis": "Pribadi",
+  "npc": "C01",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Foto yang dilipat ke dalam",
+  "tujuan": "Simpan kesaksian dalam arsip keluarga / Titip salinan bersuara di pameran",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C02-1",
+  "jenis": "Pribadi",
+  "npc": "C02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Cicipi buah dari dua cabang",
+  "tujuan": "Cicipi buah dari dua cabang",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Risky."
+ },
+ {
+  "id": "C02-2",
+  "jenis": "Pribadi",
+  "npc": "C02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Cangkok cabang pilihan bersama Nani",
+  "tujuan": "Cangkok cabang pilihan bersama Nani",
+  "akibat": "Kesaksian dapat dibahas dengan Nani."
+ },
+ {
+  "id": "C02-3",
+  "jenis": "Pribadi",
+  "npc": "C02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Cabang terakhir",
+  "tujuan": "Buka kebun induk asam / Buka kebun sambung campuran",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C03-1",
+  "jenis": "Pribadi",
+  "npc": "C03",
+  "wilayah": "kel-mekarmulya",
+  "bab": 2,
+  "judul": "Cari pemilik takik pertama",
+  "tujuan": "Cari pemilik takik pertama",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Tatang."
+ },
+ {
+  "id": "C03-2",
+  "jenis": "Pribadi",
+  "npc": "C03",
+  "wilayah": "kel-mekarmulya",
+  "bab": 2,
+  "judul": "Pilih papan bersama Denden",
+  "tujuan": "Pilih papan bersama Denden",
+  "akibat": "Kesaksian dapat dibahas dengan Denden."
+ },
+ {
+  "id": "C03-3",
+  "jenis": "Pribadi",
+  "npc": "C03",
+  "wilayah": "kel-mekarmulya",
+  "bab": 2,
+  "judul": "Bangku dengan satu takik",
+  "tujuan": "Pasang bangku pertemuan / Pasang rak nama perajin",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C04-1",
+  "jenis": "Pribadi",
+  "npc": "C04",
+  "wilayah": "kel-lingkar-selatan",
+  "bab": 1,
+  "judul": "Amati pergantian giliran di pasar",
+  "tujuan": "Amati pergantian giliran di pasar",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Desi."
+ },
+ {
+  "id": "C04-2",
+  "jenis": "Pribadi",
+  "npc": "C04",
+  "wilayah": "kel-lingkar-selatan",
+  "bab": 1,
+  "judul": "Uji dua ukuran bersama kurir",
+  "tujuan": "Uji dua ukuran bersama kurir",
+  "akibat": "Kesaksian dapat dibahas dengan Asep."
+ },
+ {
+  "id": "C04-3",
+  "jenis": "Pribadi",
+  "npc": "C04",
+  "wilayah": "kel-lingkar-selatan",
+  "bab": 1,
+  "judul": "Roti yang pulang utuh",
+  "tujuan": "Buka resep roti saku / Buka meja sarapan",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C05-1",
+  "jenis": "Pribadi",
+  "npc": "C05",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Foto patok dan dua tanaman",
+  "tujuan": "Foto patok dan dua tanaman",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Eza."
+ },
+ {
+  "id": "C05-2",
+  "jenis": "Pribadi",
+  "npc": "C05",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Ulangi pengukuran dengan Yani",
+  "tujuan": "Ulangi pengukuran dengan Yani",
+  "akibat": "Kesaksian dapat dibahas dengan Yani."
+ },
+ {
+  "id": "C05-3",
+  "jenis": "Pribadi",
+  "npc": "C05",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Pita ukur terlalu pendek",
+  "tujuan": "Buka jurnal kesalahan klub / Buka kebun ukur berpasangan",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C06-1",
+  "jenis": "Pribadi",
+  "npc": "C06",
+  "wilayah": "kel-ciumbuleuit",
+  "bab": 3,
+  "judul": "Temukan halaman yang masih terbaca",
+  "tujuan": "Temukan halaman yang masih terbaca",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Yani."
+ },
+ {
+  "id": "C06-2",
+  "jenis": "Pribadi",
+  "npc": "C06",
+  "wilayah": "kel-ciumbuleuit",
+  "bab": 3,
+  "judul": "Bandingkan pengamatan Eza",
+  "tujuan": "Bandingkan pengamatan Eza",
+  "akibat": "Kesaksian dapat dibahas dengan Eza."
+ },
+ {
+  "id": "C06-3",
+  "jenis": "Pribadi",
+  "npc": "C06",
+  "wilayah": "kel-ciumbuleuit",
+  "bab": 3,
+  "judul": "Halaman yang basah",
+  "tujuan": "Buka percobaan ulang / Buka jurnal pengamatan warga",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C07-1",
+  "jenis": "Pribadi",
+  "npc": "C07",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Bandingkan dua nota waktu berbeda",
+  "tujuan": "Bandingkan dua nota waktu berbeda",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Widi."
+ },
+ {
+  "id": "C07-2",
+  "jenis": "Pribadi",
+  "npc": "C07",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Hitung buah yang kembali ke petani",
+  "tujuan": "Hitung buah yang kembali ke petani",
+  "akibat": "Kesaksian dapat dibahas dengan Anggi."
+ },
+ {
+  "id": "C07-3",
+  "jenis": "Pribadi",
+  "npc": "C07",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Harga menjelang tutup",
+  "tujuan": "Buka keranjang matang hari ini / Buka titip olah buah sisa",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C08-1",
+  "jenis": "Pribadi",
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Antar empat timun dari kebun Yanzen",
+  "tujuan": "Antar empat timun dari kebun Yanzen",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Inggit."
+ },
+ {
+  "id": "C08-2",
+  "jenis": "Pribadi",
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Temukan garis cuka pada cangkir bersama Nani",
+  "tujuan": "Temukan garis cuka pada cangkir bersama Nani",
+  "akibat": "Kesaksian dapat dibahas dengan Nani."
+ },
+ {
+  "id": "C08-3",
+  "jenis": "Pribadi",
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Empat timun untuk satu meja",
+  "tujuan": "Buka resep acar warung / Buka meja makan bersama",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C09-1",
+  "jenis": "Pribadi",
+  "npc": "C09",
+  "wilayah": "kel-babakan-penghulu",
+  "bab": 5,
+  "judul": "Coba baca kartu dalam cahaya redup",
+  "tujuan": "Coba baca kartu dalam cahaya redup",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Bela."
+ },
+ {
+  "id": "C09-2",
+  "jenis": "Pribadi",
+  "npc": "C09",
+  "wilayah": "kel-babakan-penghulu",
+  "bab": 5,
+  "judul": "Susun pola timbul dengan Malik",
+  "tujuan": "Susun pola timbul dengan Malik",
+  "akibat": "Kesaksian dapat dibahas dengan Malik."
+ },
+ {
+  "id": "C09-3",
+  "jenis": "Pribadi",
+  "npc": "C09",
+  "wilayah": "kel-babakan-penghulu",
+  "bab": 5,
+  "judul": "Warna yang terasa sama",
+  "tujuan": "Buka label bertekstur / Buka kartu bergambar bentuk",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C10-1",
+  "jenis": "Pribadi",
+  "npc": "C10",
+  "wilayah": "kel-jamika",
+  "bab": 6,
+  "judul": "Bentangkan nota yang terlipat",
+  "tujuan": "Bentangkan nota yang terlipat",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Yogi."
+ },
+ {
+  "id": "C10-2",
+  "jenis": "Pribadi",
+  "npc": "C10",
+  "wilayah": "kel-jamika",
+  "bab": 6,
+  "judul": "Rekonsiliasi berat dan tara bersama Heru",
+  "tujuan": "Rekonsiliasi berat dan tara bersama Heru",
+  "akibat": "Kesaksian dapat dibahas dengan Heru."
+ },
+ {
+  "id": "C10-3",
+  "jenis": "Pribadi",
+  "npc": "C10",
+  "wilayah": "kel-jamika",
+  "bab": 6,
+  "judul": "Satu angka di bawah lipatan",
+  "tujuan": "Buka buku timbang ganda / Buka kuitansi per kiriman",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C11-1",
+  "jenis": "Pribadi",
+  "npc": "C11",
+  "wilayah": "kel-derwati",
+  "bab": 2,
+  "judul": "Cocokkan gambar dengan petak nyata",
+  "tujuan": "Cocokkan gambar dengan petak nyata",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Ray."
+ },
+ {
+  "id": "C11-2",
+  "jenis": "Pribadi",
+  "npc": "C11",
+  "wilayah": "kel-derwati",
+  "bab": 2,
+  "judul": "Ulangi satu pengamatan tanpa contoh",
+  "tujuan": "Ulangi satu pengamatan tanpa contoh",
+  "akibat": "Kesaksian dapat dibahas dengan Yani."
+ },
+ {
+  "id": "C11-3",
+  "jenis": "Pribadi",
+  "npc": "C11",
+  "wilayah": "kel-derwati",
+  "bab": 2,
+  "judul": "Jurnal yang terlalu bersih",
+  "tujuan": "Buka jurnal lapangan pemula / Buka giliran pendamping magang",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C12-1",
+  "jenis": "Pribadi",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut",
+  "bab": 4,
+  "judul": "Tandai tiga pertanyaan pelanggan",
+  "tujuan": "Tandai tiga pertanyaan pelanggan",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Fatihah."
+ },
+ {
+  "id": "C12-2",
+  "jenis": "Pribadi",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut",
+  "bab": 4,
+  "judul": "Uji peminjaman bersama Vicky",
+  "tujuan": "Uji peminjaman bersama Vicky",
+  "akibat": "Kesaksian dapat dibahas dengan Vicky."
+ },
+ {
+  "id": "C12-3",
+  "jenis": "Pribadi",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut",
+  "bab": 4,
+  "judul": "Barang yang tak pernah dibeli",
+  "tujuan": "Buka rak sewa / Buka bengkel berbagi alat",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C13-1",
+  "jenis": "Pribadi",
+  "npc": "C13",
+  "wilayah": "kel-padasuka",
+  "bab": 4,
+  "judul": "Catat siapa yang melewatkan rapat",
+  "tujuan": "Catat siapa yang melewatkan rapat",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Heri."
+ },
+ {
+  "id": "C13-2",
+  "jenis": "Pribadi",
+  "npc": "C13",
+  "wilayah": "kel-padasuka",
+  "bab": 4,
+  "judul": "Dengarkan pedagang setelah pasar tutup",
+  "tujuan": "Dengarkan pedagang setelah pasar tutup",
+  "akibat": "Kesaksian dapat dibahas dengan Anggi."
+ },
+ {
+  "id": "C13-3",
+  "jenis": "Pribadi",
+  "npc": "C13",
+  "wilayah": "kel-padasuka",
+  "bab": 4,
+  "judul": "Kursi yang selalu kosong",
+  "tujuan": "Buka forum sore / Buka buku usul keliling",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C14-1",
+  "jenis": "Pribadi",
+  "npc": "C14",
+  "wilayah": "kel-babakan-sari",
+  "bab": 5,
+  "judul": "Rekonstruksi rute dari dua tanda tetap",
+  "tujuan": "Rekonstruksi rute dari dua tanda tetap",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Arya."
+ },
+ {
+  "id": "C14-2",
+  "jenis": "Pribadi",
+  "npc": "C14",
+  "wilayah": "kel-babakan-sari",
+  "bab": 5,
+  "judul": "Uji rute bersama Ray",
+  "tujuan": "Uji rute bersama Ray",
+  "akibat": "Kesaksian dapat dibahas dengan Ray."
+ },
+ {
+  "id": "C14-3",
+  "jenis": "Pribadi",
+  "npc": "C14",
+  "wilayah": "kel-babakan-sari",
+  "bab": 5,
+  "judul": "Alamat di belakang nota",
+  "tujuan": "Buka rute patok tetap / Buka kartu arah bergambar",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C15-1",
+  "jenis": "Pribadi",
+  "npc": "C15",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Bandingkan akses saat kering dan basah",
+  "tujuan": "Bandingkan akses saat kering dan basah",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Malik."
+ },
+ {
+  "id": "C15-2",
+  "jenis": "Pribadi",
+  "npc": "C15",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Ukur bibir lintasan bersama Khansa",
+  "tujuan": "Ukur bibir lintasan bersama Khansa",
+  "akibat": "Kesaksian dapat dibahas dengan Khansa."
+ },
+ {
+  "id": "C15-3",
+  "jenis": "Pribadi",
+  "npc": "C15",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Peta selepas gerimis",
+  "tujuan": "Pasang landai di jembatan / Buka jalur beratap lewat warung",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "C16-1",
+  "jenis": "Pribadi",
+  "npc": "C16",
+  "wilayah": "kel-sukagalih",
+  "bab": 5,
+  "judul": "Hitung bunga sisa sesudah latihan",
+  "tujuan": "Hitung bunga sisa sesudah latihan",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Karisma."
+ },
+ {
+  "id": "C16-2",
+  "jenis": "Pribadi",
+  "npc": "C16",
+  "wilayah": "kel-sukagalih",
+  "bab": 5,
+  "judul": "Uji simpul lepas bersama Astri",
+  "tujuan": "Uji simpul lepas bersama Astri",
+  "akibat": "Kesaksian dapat dibahas dengan Astri."
+ },
+ {
+  "id": "C16-3",
+  "jenis": "Pribadi",
+  "npc": "C16",
+  "wilayah": "kel-sukagalih",
+  "bab": 5,
+  "judul": "Karangan yang boleh dibongkar",
+  "tujuan": "Buka meja bunga berbagi / Buka karangan bibit hidup",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "P01-1",
+  "jenis": "Pribadi",
+  "npc": "P01",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Gabungkan catatan hulu dan hilir",
+  "tujuan": "Gabungkan catatan hulu dan hilir",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Dedi Mulyadi."
+ },
+ {
+  "id": "P01-2",
+  "jenis": "Pribadi",
+  "npc": "P01",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Dampingi wakil kedua kebun saat menunjukkan bekas air",
+  "tujuan": "Dampingi wakil kedua kebun saat menunjukkan bekas air",
+  "akibat": "Kesaksian dapat dibahas dengan Ryan."
+ },
+ {
+  "id": "P01-3",
+  "jenis": "Pribadi",
+  "npc": "P01",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Dua ujung saluran",
+  "tujuan": "Pasang papan ukur bersama / Buka arsip air lintas kebun",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "P02-1",
+  "jenis": "Pribadi",
+  "npc": "P02",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Susuri rute belakang bersama Malik",
+  "tujuan": "Susuri rute belakang bersama Malik",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Muhammad Farhan."
+ },
+ {
+  "id": "P02-2",
+  "jenis": "Pribadi",
+  "npc": "P02",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Cocokkan catatan akses dengan kebutuhan pedagang",
+  "tujuan": "Cocokkan catatan akses dengan kebutuhan pedagang",
+  "akibat": "Kesaksian dapat dibahas dengan Malik."
+ },
+ {
+  "id": "P02-3",
+  "jenis": "Pribadi",
+  "npc": "P02",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Meja yang menghadap gang",
+  "tujuan": "Buka pintu masuk pasar kedua / Buka jam kirim yang lebih tenang",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N01-1",
+  "jenis": "Pribadi",
+  "npc": "N01",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Ikuti tiga jejak cakar",
+  "tujuan": "Ikuti tiga jejak cakar",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Sinta."
+ },
+ {
+  "id": "N01-2",
+  "jenis": "Pribadi",
+  "npc": "N01",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Hitung anak ayam saat induk kembali",
+  "tujuan": "Hitung anak ayam saat induk kembali",
+  "akibat": "Kesaksian dapat dibahas dengan Surya."
+ },
+ {
+  "id": "N01-3",
+  "jenis": "Pribadi",
+  "npc": "N01",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Ayam yang tak pulang ke kandang",
+  "tujuan": "Buka kotak eram / Buka halaman umbar berpagar",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N02-1",
+  "jenis": "Pribadi",
+  "npc": "N02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Periksa buku kunjungan kosong",
+  "tujuan": "Periksa buku kunjungan kosong",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Surya."
+ },
+ {
+  "id": "N02-2",
+  "jenis": "Pribadi",
+  "npc": "N02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Rancang kartu observasi bersama Sinta",
+  "tujuan": "Rancang kartu observasi bersama Sinta",
+  "akibat": "Kesaksian dapat dibahas dengan Sinta."
+ },
+ {
+  "id": "N02-3",
+  "jenis": "Pribadi",
+  "npc": "N02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Bel di pagar kandang",
+  "tujuan": "Buka kunjungan kandang rutin / Buka kelas perawatan ternak",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N03-1",
+  "jenis": "Pribadi",
+  "npc": "N03",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Amati riak pagi dan sore",
+  "tujuan": "Amati riak pagi dan sore",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Ratih."
+ },
+ {
+  "id": "N03-2",
+  "jenis": "Pribadi",
+  "npc": "N03",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Uji kedalaman dua titik tanpa mengambil ikan",
+  "tujuan": "Uji kedalaman dua titik tanpa mengambil ikan",
+  "akibat": "Kesaksian dapat dibahas dengan Ryan."
+ },
+ {
+  "id": "N03-3",
+  "jenis": "Pribadi",
+  "npc": "N03",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Umpan peninggalan kakak",
+  "tujuan": "Buka jurnal ikan / Buka titik pancing teduh",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N04-1",
+  "jenis": "Pribadi",
+  "npc": "N04",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Ikuti arah lebah ke petak bunga",
+  "tujuan": "Ikuti arah lebah ke petak bunga",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Jalu."
+ },
+ {
+  "id": "N04-2",
+  "jenis": "Pribadi",
+  "npc": "N04",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Tandai jeda berbunga bersama Nabila",
+  "tujuan": "Tandai jeda berbunga bersama Nabila",
+  "akibat": "Kesaksian dapat dibahas dengan Nabila."
+ },
+ {
+  "id": "N04-3",
+  "jenis": "Pribadi",
+  "npc": "N04",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Madu yang tidak dipanen",
+  "tujuan": "Buka jalur bunga bergilir / Buka kalender panen madu",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N05-1",
+  "jenis": "Pribadi",
+  "npc": "N05",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Amati pergantian regu saat siang",
+  "tujuan": "Amati pergantian regu saat siang",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Laras."
+ },
+ {
+  "id": "N05-2",
+  "jenis": "Pribadi",
+  "npc": "N05",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Susun giliran istirahat bersama Heru",
+  "tujuan": "Susun giliran istirahat bersama Heru",
+  "akibat": "Kesaksian dapat dibahas dengan Heru."
+ },
+ {
+  "id": "N05-3",
+  "jenis": "Pribadi",
+  "npc": "N05",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Kursi di depan klinik",
+  "tujuan": "Buka ruang singgah / Buka bekal pemulih stamina dalam game",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "N06-1",
+  "jenis": "Pribadi",
+  "npc": "N06",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Bandingkan guratan tiga sampel",
+  "tujuan": "Bandingkan guratan tiga sampel",
+  "akibat": "Petunjuk pertama tersimpan pada jurnal Ujang."
+ },
+ {
+  "id": "N06-2",
+  "jenis": "Pribadi",
+  "npc": "N06",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Susun rak contoh bersama Vicky",
+  "tujuan": "Susun rak contoh bersama Vicky",
+  "akibat": "Kesaksian dapat dibahas dengan Vicky."
+ },
+ {
+  "id": "N06-3",
+  "jenis": "Pribadi",
+  "npc": "N06",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Batu yang bernyanyi",
+  "tujuan": "Buka meja identifikasi mineral / Buka kelas penguatan alat",
+  "akibat": "Pilih warisan yang akan terlihat ketika lokasi dikunjungi kembali."
+ },
+ {
+  "id": "BAB-1",
+  "jenis": "Utama",
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Empat timun dan satu nama",
+  "tujuan": "Antar pesanan, ikuti Ryan ke kanal, lalu beri Nani kesempatan melihat foto itu sendirian. Ia menyebut Cimincrang.",
+  "akibat": "Buka bab berikut."
+ },
+ {
+  "id": "BAB-2",
+  "jenis": "Utama",
+  "npc": "A03",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Selisih satu jam",
+  "tujuan": "Bandingkan catatan dua ujung saluran. Tanda kedua pada foto adalah waktu tiba, bukan tinggi banjir.",
+  "akibat": "Buka bab berikut."
+ },
+ {
+  "id": "BAB-3",
+  "jenis": "Utama",
+  "npc": "A13",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Benih yang punya dua nama",
+  "tujuan": "Uji kedua benih dalam petak sejajar. Keduanya hidup berbeda di bawah naungan.",
+  "akibat": "Buka bab berikut."
+ },
+ {
+  "id": "BAB-4",
+  "jenis": "Utama",
+  "npc": "N01",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Hari ketika kandang dibuka",
+  "tujuan": "Sinta menemukan induk yang hilang sedang mengerami telur. Surya meminta rombongan menunda perpindahan kandang.",
+  "akibat": "Buka bab berikut."
+ },
+ {
+  "id": "BAB-5",
+  "jenis": "Utama",
+  "npc": "C10",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Berat sebuah janji",
+  "tujuan": "Buka nota Yogi di meja timbang. Angka yang tertutup lipatan adalah berat wadah kosong.",
+  "akibat": "Buka bab berikut."
+ },
+ {
+  "id": "BAB-6",
+  "jenis": "Utama",
+  "npc": "C13",
+  "wilayah": "kel-babakan-ciparay",
+  "bab": 6,
+  "judul": "Meja untuk seluruh kota",
+  "tujuan": "Susun meja asal panen. Dedi hadir dalam forum air dan Farhan dalam kunjungan akses pasar fiktif. Warga menentukan apa yang diwariskan.",
+  "akibat": "Buka epilog tahun kedua."
+ },
+ {
+  "id": "JEL-pasirluyu",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-pasirluyu",
+  "bab": 1,
+  "judul": "Kebun awal dan warung · Pasirluyu",
+  "tujuan": "Tanam lalu antar empat timun ke Inggit",
+  "akibat": "Pesanan warung pertama"
+ },
+ {
+  "id": "JEL-ancol",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-ancol",
+  "bab": 1,
+  "judul": "Serambi penutur · Ancol",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-balonggede",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-balonggede",
+  "bab": 1,
+  "judul": "Lorong kiriman · Balonggede",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-ciateul",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-ciateul",
+  "bab": 1,
+  "judul": "Dapur uji · Ciateul",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-cigereleng",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-cigereleng",
+  "bab": 1,
+  "judul": "Rak pinjam · Cigereleng",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-ciseureuh",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-ciseureuh",
+  "bab": 1,
+  "judul": "Halte pasar · Ciseureuh",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-pungkur",
+  "jenis": "Jelajah",
+  "npc": "C08",
+  "wilayah": "kel-pungkur",
+  "bab": 1,
+  "judul": "Pendopo warga · Pungkur",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-antapani-tengah",
+  "jenis": "Jelajah",
+  "npc": "A07",
+  "wilayah": "kel-antapani-tengah",
+  "bab": 1,
+  "judul": "Persemaian warga · Antapani Tengah",
+  "tujuan": "Bandingkan dua baki semai dan pilih bibit untuk kebun",
+  "akibat": "Titip semai bibit"
+ },
+ {
+  "id": "JEL-antapani-kidul",
+  "jenis": "Jelajah",
+  "npc": "A07",
+  "wilayah": "kel-antapani-kidul",
+  "bab": 1,
+  "judul": "Lorong kiriman · Antapani Kidul",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-antapani-kulon",
+  "jenis": "Jelajah",
+  "npc": "A07",
+  "wilayah": "kel-antapani-kulon",
+  "bab": 1,
+  "judul": "Dapur uji · Antapani Kulon",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-antapani-wetan",
+  "jenis": "Jelajah",
+  "npc": "A07",
+  "wilayah": "kel-antapani-wetan",
+  "bab": 1,
+  "judul": "Rak pinjam · Antapani Wetan",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-mengger",
+  "jenis": "Jelajah",
+  "npc": "A10",
+  "wilayah": "kel-mengger",
+  "bab": 1,
+  "judul": "Pengumpulan bahan kompos · Mengger",
+  "tujuan": "Pisahkan sisa daun dari hasil layak jual",
+  "akibat": "Pasokan kompos kampung"
+ },
+ {
+  "id": "JEL-batununggal",
+  "jenis": "Jelajah",
+  "npc": "A10",
+  "wilayah": "kel-batununggal",
+  "bab": 1,
+  "judul": "Lorong kiriman · Batununggal",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-kujangsari",
+  "jenis": "Jelajah",
+  "npc": "A10",
+  "wilayah": "kel-kujangsari",
+  "bab": 1,
+  "judul": "Rak pinjam · Kujangsari",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-wates",
+  "jenis": "Jelajah",
+  "npc": "A10",
+  "wilayah": "kel-wates",
+  "bab": 1,
+  "judul": "Halte pasar · Wates",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-jatisari",
+  "jenis": "Jelajah",
+  "npc": "A04",
+  "wilayah": "kel-jatisari",
+  "bab": 1,
+  "judul": "Benih sayur dan polong · Jatisari",
+  "tujuan": "Rawat satu baris tanaman untuk menghasilkan benih",
+  "akibat": "Pemesanan benih polong"
+ },
+ {
+  "id": "JEL-cijawura",
+  "jenis": "Jelajah",
+  "npc": "A04",
+  "wilayah": "kel-cijawura",
+  "bab": 1,
+  "judul": "Dapur uji · Cijawura",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-margasari",
+  "jenis": "Jelajah",
+  "npc": "A04",
+  "wilayah": "kel-margasari",
+  "bab": 1,
+  "judul": "Rak pinjam · Margasari",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-sekejati",
+  "jenis": "Jelajah",
+  "npc": "A04",
+  "wilayah": "kel-sekejati",
+  "bab": 1,
+  "judul": "Halte pasar · Sekejati",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-lingkar-selatan",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-lingkar-selatan",
+  "bab": 1,
+  "judul": "Dapur pesanan lalapan · Lingkar Selatan",
+  "tujuan": "Rakit paket bahan karedok sesuai pesanan dapur",
+  "akibat": "Kontrak bahan segar"
+ },
+ {
+  "id": "JEL-burangrang",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-burangrang",
+  "bab": 1,
+  "judul": "Rak pinjam · Burangrang",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-cijagra",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-cijagra",
+  "bab": 1,
+  "judul": "Halte pasar · Cijagra",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-cikawao",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-cikawao",
+  "bab": 1,
+  "judul": "Bengkel gang · Cikawao",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-malabar",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-malabar",
+  "bab": 1,
+  "judul": "Pendopo warga · Malabar",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-paledang",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-paledang",
+  "bab": 1,
+  "judul": "Meja timbang · Paledang",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-turangga",
+  "jenis": "Jelajah",
+  "npc": "C04",
+  "wilayah": "kel-turangga",
+  "bab": 1,
+  "judul": "Serambi penutur · Turangga",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-cimincrang",
+  "jenis": "Jelajah",
+  "npc": "A03",
+  "wilayah": "kel-cimincrang",
+  "bab": 2,
+  "judul": "Sawah, tegalan dan tata air · Cimincrang",
+  "tujuan": "Buka petak bersama Heru dan atur pintu air bersama Ryan",
+  "akibat": "Petak sawah dan ladang, lalu akses rawa pada Bab 6"
+ },
+ {
+  "id": "JEL-cisaranten-kidul",
+  "jenis": "Jelajah",
+  "npc": "A03",
+  "wilayah": "kel-cisaranten-kidul",
+  "bab": 2,
+  "judul": "Halte pasar · Cisaranten Kidul",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-rancabolang",
+  "jenis": "Jelajah",
+  "npc": "A03",
+  "wilayah": "kel-rancabolang",
+  "bab": 2,
+  "judul": "Bengkel gang · Rancabolang",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-rancanumpang",
+  "jenis": "Jelajah",
+  "npc": "A03",
+  "wilayah": "kel-rancanumpang",
+  "bab": 2,
+  "judul": "Pendopo warga · Rancanumpang",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-derwati",
+  "jenis": "Jelajah",
+  "npc": "C11",
+  "wilayah": "kel-derwati",
+  "bab": 2,
+  "judul": "Pembesaran ikan air tawar · Derwati",
+  "tujuan": "Catat pertumbuhan satu kelompok ikan sampai ukuran pesanan",
+  "akibat": "Pasokan ikan kolam"
+ },
+ {
+  "id": "JEL-cipamokolan",
+  "jenis": "Jelajah",
+  "npc": "C11",
+  "wilayah": "kel-cipamokolan",
+  "bab": 2,
+  "judul": "Halte pasar · Cipamokolan",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-manjahlega",
+  "jenis": "Jelajah",
+  "npc": "C11",
+  "wilayah": "kel-manjahlega",
+  "bab": 2,
+  "judul": "Bengkel gang · Manjahlega",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-mekarjaya",
+  "jenis": "Jelajah",
+  "npc": "C11",
+  "wilayah": "kel-mekarjaya",
+  "bab": 2,
+  "judul": "Pendopo warga · Mekarjaya",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-sukamiskin",
+  "jenis": "Jelajah",
+  "npc": "A05",
+  "wilayah": "kel-sukamiskin",
+  "bab": 2,
+  "judul": "Bengkel perkakas dan pompa · Sukamiskin",
+  "tujuan": "Perbaiki pompa untuk giliran siram ladang jagung",
+  "akibat": "Layanan perawatan alat"
+ },
+ {
+  "id": "JEL-cisaranten-bina-harapan",
+  "jenis": "Jelajah",
+  "npc": "A05",
+  "wilayah": "kel-cisaranten-bina-harapan",
+  "bab": 2,
+  "judul": "Bengkel gang · Cisaranten Bina Harapan",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-cisaranten-endah",
+  "jenis": "Jelajah",
+  "npc": "A05",
+  "wilayah": "kel-cisaranten-endah",
+  "bab": 2,
+  "judul": "Pendopo warga · Cisaranten Endah",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-cisaranten-kulon",
+  "jenis": "Jelajah",
+  "npc": "A05",
+  "wilayah": "kel-cisaranten-kulon",
+  "bab": 2,
+  "judul": "Meja timbang · Cisaranten Kulon",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-mekarmulya",
+  "jenis": "Jelajah",
+  "npc": "C03",
+  "wilayah": "kel-mekarmulya",
+  "bab": 2,
+  "judul": "Pengeringan hasil sawah · Mekarmulya",
+  "tujuan": "Rakit rak pengering dan kelola dua kiriman gabah",
+  "akibat": "Jasa pengeringan gabah"
+ },
+ {
+  "id": "JEL-cipadung-kidul",
+  "jenis": "Jelajah",
+  "npc": "C03",
+  "wilayah": "kel-cipadung-kidul",
+  "bab": 2,
+  "judul": "Bengkel gang · Cipadung Kidul",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-cipadung-kulon",
+  "jenis": "Jelajah",
+  "npc": "C03",
+  "wilayah": "kel-cipadung-kulon",
+  "bab": 2,
+  "judul": "Pendopo warga · Cipadung Kulon",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-cipadung-wetan",
+  "jenis": "Jelajah",
+  "npc": "C03",
+  "wilayah": "kel-cipadung-wetan",
+  "bab": 2,
+  "judul": "Serambi penutur · Cipadung Wetan",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-cibuntu",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cibuntu",
+  "bab": 2,
+  "judul": "Pengolahan kedelai · Cibuntu",
+  "tujuan": "Kirim kedelai dan pilih pesanan tahu atau tempe",
+  "akibat": "Pesanan rutin perajin kedelai"
+ },
+ {
+  "id": "JEL-caringin",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-caringin",
+  "bab": 2,
+  "judul": "Pendopo warga · Caringin",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-cigondewah-kaler",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cigondewah-kaler",
+  "bab": 2,
+  "judul": "Meja timbang · Cigondewah Kaler",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-cigondewah-kidul",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cigondewah-kidul",
+  "bab": 2,
+  "judul": "Serambi penutur · Cigondewah Kidul",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-cigondewah-rahayu",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cigondewah-rahayu",
+  "bab": 2,
+  "judul": "Lorong kiriman · Cigondewah Rahayu",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-cijerah",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cijerah",
+  "bab": 2,
+  "judul": "Dapur uji · Cijerah",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-gempolsari",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-gempolsari",
+  "bab": 2,
+  "judul": "Halte pasar · Gempolsari",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-warung-muncang",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-warung-muncang",
+  "bab": 2,
+  "judul": "Bengkel gang · Warung Muncang",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-cisurupan",
+  "jenis": "Jelajah",
+  "npc": "C15",
+  "wilayah": "kel-cisurupan",
+  "bab": 3,
+  "judul": "Kebun lereng dan kumbung · Cisurupan",
+  "tujuan": "Petakan akses panen tanpa tangga bersama Malik",
+  "akibat": "Bedengan sejuk dan kumbung, lalu teras kopi pada Bab 5"
+ },
+ {
+  "id": "JEL-cipadung",
+  "jenis": "Jelajah",
+  "npc": "C15",
+  "wilayah": "kel-cipadung",
+  "bab": 3,
+  "judul": "Meja timbang · Cipadung",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-palasari",
+  "jenis": "Jelajah",
+  "npc": "C15",
+  "wilayah": "kel-palasari",
+  "bab": 3,
+  "judul": "Serambi penutur · Palasari",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-pasirbiru",
+  "jenis": "Jelajah",
+  "npc": "C15",
+  "wilayah": "kel-pasirbiru",
+  "bab": 3,
+  "judul": "Lorong kiriman · Pasirbiru",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-ciumbuleuit",
+  "jenis": "Jelajah",
+  "npc": "C06",
+  "wilayah": "kel-ciumbuleuit",
+  "bab": 3,
+  "judul": "Uji petak sayuran sejuk · Ciumbuleuit",
+  "tujuan": "Bandingkan hasil selada dari petak dengan naungan berbeda",
+  "akibat": "Catatan perlakuan tiap varietas"
+ },
+ {
+  "id": "JEL-hegarmanah",
+  "jenis": "Jelajah",
+  "npc": "C06",
+  "wilayah": "kel-hegarmanah",
+  "bab": 3,
+  "judul": "Serambi penutur · Hegarmanah",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-ledeng",
+  "jenis": "Jelajah",
+  "npc": "C06",
+  "wilayah": "kel-ledeng",
+  "bab": 3,
+  "judul": "Lorong kiriman · Ledeng",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-isola",
+  "jenis": "Jelajah",
+  "npc": "A13",
+  "wilayah": "kel-isola",
+  "bab": 3,
+  "judul": "Bank benih dan pertukaran varietas · Isola",
+  "tujuan": "Catat asal benih buncis lalu tukar dengan penanam lain",
+  "akibat": "Akses koleksi varietas"
+ },
+ {
+  "id": "JEL-gegerkalong",
+  "jenis": "Jelajah",
+  "npc": "A13",
+  "wilayah": "kel-gegerkalong",
+  "bab": 3,
+  "judul": "Serambi penutur · Gegerkalong",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-sarijadi",
+  "jenis": "Jelajah",
+  "npc": "A13",
+  "wilayah": "kel-sarijadi",
+  "bab": 3,
+  "judul": "Lorong kiriman · Sarijadi",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-sukarasa",
+  "jenis": "Jelajah",
+  "npc": "A13",
+  "wilayah": "kel-sukarasa",
+  "bab": 3,
+  "judul": "Dapur uji · Sukarasa",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-sadang-serang",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-sadang-serang",
+  "bab": 3,
+  "judul": "Sekolah kebun · Sadang Serang",
+  "tujuan": "Dampingi klub kebun menanam hingga panen pertama",
+  "akibat": "Kelas dan petak demonstrasi"
+ },
+ {
+  "id": "JEL-cipaganti",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-cipaganti",
+  "bab": 3,
+  "judul": "Lorong kiriman · Cipaganti",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-dago",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-dago",
+  "bab": 3,
+  "judul": "Dapur uji · Dago",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-lebakgede",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-lebakgede",
+  "bab": 3,
+  "judul": "Rak pinjam · Lebakgede",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-lebak-siliwangi",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-lebak-siliwangi",
+  "bab": 3,
+  "judul": "Halte pasar · Lebak Siliwangi",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-sekeloa",
+  "jenis": "Jelajah",
+  "npc": "C05",
+  "wilayah": "kel-sekeloa",
+  "bab": 3,
+  "judul": "Bengkel gang · Sekeloa",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-karang-pamulang",
+  "jenis": "Jelajah",
+  "npc": "A16",
+  "wilayah": "kel-karang-pamulang",
+  "bab": 3,
+  "judul": "Konservasi tanah kebun · Karang Pamulang",
+  "tujuan": "Susun jalur limpasan agar petak jahe tidak tergerus",
+  "akibat": "Rancangan petak berkontur"
+ },
+ {
+  "id": "JEL-jatihandap",
+  "jenis": "Jelajah",
+  "npc": "A16",
+  "wilayah": "kel-jatihandap",
+  "bab": 3,
+  "judul": "Lorong kiriman · Jatihandap",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-pasir-impun",
+  "jenis": "Jelajah",
+  "npc": "A16",
+  "wilayah": "kel-pasir-impun",
+  "bab": 3,
+  "judul": "Rak pinjam · Pasir Impun",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-sindang-jaya",
+  "jenis": "Jelajah",
+  "npc": "A16",
+  "wilayah": "kel-sindang-jaya",
+  "bab": 3,
+  "judul": "Halte pasar · Sindang Jaya",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-pasirjati",
+  "jenis": "Jelajah",
+  "npc": "C02",
+  "wilayah": "kel-pasirjati",
+  "bab": 4,
+  "judul": "Kebun buah dan mitra ternak · Pasirjati",
+  "tujuan": "Pilih tingkat kematangan jambu untuk kiriman Anggi",
+  "akibat": "Kebun buah dan kontrak peternak"
+ },
+ {
+  "id": "JEL-cigending",
+  "jenis": "Jelajah",
+  "npc": "C02",
+  "wilayah": "kel-cigending",
+  "bab": 4,
+  "judul": "Dapur uji · Cigending",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-pasanggrahan",
+  "jenis": "Jelajah",
+  "npc": "C02",
+  "wilayah": "kel-pasanggrahan",
+  "bab": 4,
+  "judul": "Rak pinjam · Pasanggrahan",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-pasir-endah",
+  "jenis": "Jelajah",
+  "npc": "C02",
+  "wilayah": "kel-pasir-endah",
+  "bab": 4,
+  "judul": "Halte pasar · Pasir Endah",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-pasir-wangi",
+  "jenis": "Jelajah",
+  "npc": "C02",
+  "wilayah": "kel-pasir-wangi",
+  "bab": 4,
+  "judul": "Bengkel gang · Pasir Wangi",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-neglasari",
+  "jenis": "Jelajah",
+  "npc": "A02",
+  "wilayah": "kel-neglasari",
+  "bab": 4,
+  "judul": "Pembibitan bunga potong · Neglasari",
+  "tujuan": "Atur giliran tanam agar bunga siap menjelang acara",
+  "akibat": "Pesanan bunga potong"
+ },
+ {
+  "id": "JEL-cigadung",
+  "jenis": "Jelajah",
+  "npc": "A02",
+  "wilayah": "kel-cigadung",
+  "bab": 4,
+  "judul": "Rak pinjam · Cigadung",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-cihargeulis",
+  "jenis": "Jelajah",
+  "npc": "A02",
+  "wilayah": "kel-cihargeulis",
+  "bab": 4,
+  "judul": "Halte pasar · Cihargeulis",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-sukaluyu",
+  "jenis": "Jelajah",
+  "npc": "A02",
+  "wilayah": "kel-sukaluyu",
+  "bab": 4,
+  "judul": "Bengkel gang · Sukaluyu",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-padasuka",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-padasuka",
+  "bab": 4,
+  "judul": "Pentas warga dan pesanan hajatan · Padasuka",
+  "tujuan": "Koordinasikan konsumsi bagi kelompok pertunjukan",
+  "akibat": "Pesanan acara kampung"
+ },
+ {
+  "id": "JEL-cicadas",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-cicadas",
+  "bab": 4,
+  "judul": "Rak pinjam · Cicadas",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-cikutra",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-cikutra",
+  "bab": 4,
+  "judul": "Halte pasar · Cikutra",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-pasirlayung",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-pasirlayung",
+  "bab": 4,
+  "judul": "Pendopo warga · Pasirlayung",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-sukamaju",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-sukamaju",
+  "bab": 4,
+  "judul": "Meja timbang · Sukamaju",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-sukapada",
+  "jenis": "Jelajah",
+  "npc": "C13",
+  "wilayah": "kel-sukapada",
+  "bab": 4,
+  "judul": "Serambi penutur · Sukapada",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-binong",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-binong",
+  "bab": 4,
+  "judul": "Rajut dan tas belanja guna ulang · Binong",
+  "tujuan": "Uji tas rajut agar pesanan buah tiba utuh",
+  "akibat": "Kemasan pakai ulang"
+ },
+ {
+  "id": "JEL-cibangkong",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-cibangkong",
+  "bab": 4,
+  "judul": "Halte pasar · Cibangkong",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-gumuruh",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-gumuruh",
+  "bab": 4,
+  "judul": "Bengkel gang · Gumuruh",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-kacapiring",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-kacapiring",
+  "bab": 4,
+  "judul": "Pendopo warga · Kacapiring",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-kebon-gedang",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-kebon-gedang",
+  "bab": 4,
+  "judul": "Serambi penutur · Kebon Gedang",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-kebonwaru",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-kebonwaru",
+  "bab": 4,
+  "judul": "Lorong kiriman · Kebonwaru",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-maleer",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-maleer",
+  "bab": 4,
+  "judul": "Dapur uji · Maleer",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-samoja",
+  "jenis": "Jelajah",
+  "npc": "A08",
+  "wilayah": "kel-samoja",
+  "bab": 4,
+  "judul": "Rak pinjam · Samoja",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-cibaduyut",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut",
+  "bab": 4,
+  "judul": "Alas kaki untuk kerja kebun · Cibaduyut",
+  "tujuan": "Uji alas kaki kerja saat membawa hasil dari petak berlumpur",
+  "akibat": "Perlengkapan kerja untuk rute basah"
+ },
+ {
+  "id": "JEL-cibaduyut-kidul",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut-kidul",
+  "bab": 4,
+  "judul": "Bengkel gang · Cibaduyut Kidul",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-cibaduyut-wetan",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-cibaduyut-wetan",
+  "bab": 4,
+  "judul": "Pendopo warga · Cibaduyut Wetan",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-kebon-lega",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-kebon-lega",
+  "bab": 4,
+  "judul": "Serambi penutur · Kebon Lega",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-mekarwangi",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-mekarwangi",
+  "bab": 4,
+  "judul": "Lorong kiriman · Mekarwangi",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-situsaeur",
+  "jenis": "Jelajah",
+  "npc": "C12",
+  "wilayah": "kel-situsaeur",
+  "bab": 4,
+  "judul": "Dapur uji · Situsaeur",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-karasak",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-karasak",
+  "bab": 5,
+  "judul": "Jahe dan perdagangan rempah · Karasak",
+  "tujuan": "Bawa contoh jahe ke Widi dan temui mitra kebun kopi",
+  "akibat": "Petak jahe dan kontrak rempah"
+ },
+ {
+  "id": "JEL-cibadak",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-cibadak",
+  "bab": 5,
+  "judul": "Pendopo warga · Cibadak",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-karanganyar",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-karanganyar",
+  "bab": 5,
+  "judul": "Meja timbang · Karanganyar",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-nyengseret",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-nyengseret",
+  "bab": 5,
+  "judul": "Serambi penutur · Nyengseret",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-panjunan",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-panjunan",
+  "bab": 5,
+  "judul": "Dapur uji · Panjunan",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-pelindung-hewan",
+  "jenis": "Jelajah",
+  "npc": "C07",
+  "wilayah": "kel-pelindung-hewan",
+  "bab": 5,
+  "judul": "Rak pinjam · Pelindung Hewan",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-tamansari",
+  "jenis": "Jelajah",
+  "npc": "A14",
+  "wilayah": "kel-tamansari",
+  "bab": 5,
+  "judul": "Radio informasi panen · Tamansari",
+  "tujuan": "Konfirmasi kabar panen sebelum mengumumkan pesanan lewat radio",
+  "akibat": "Siaran permintaan barang"
+ },
+ {
+  "id": "JEL-cihapit",
+  "jenis": "Jelajah",
+  "npc": "A14",
+  "wilayah": "kel-cihapit",
+  "bab": 5,
+  "judul": "Meja timbang · Cihapit",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-citarum",
+  "jenis": "Jelajah",
+  "npc": "A14",
+  "wilayah": "kel-citarum",
+  "bab": 5,
+  "judul": "Serambi penutur · Citarum",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-sukagalih",
+  "jenis": "Jelajah",
+  "npc": "C16",
+  "wilayah": "kel-sukagalih",
+  "bab": 5,
+  "judul": "Perangkai bunga pesanan · Sukagalih",
+  "tujuan": "Gabungkan bunga kiriman menjadi rangkaian pesanan warga",
+  "akibat": "Katalog rangkaian acara"
+ },
+ {
+  "id": "JEL-cipedes",
+  "jenis": "Jelajah",
+  "npc": "C16",
+  "wilayah": "kel-cipedes",
+  "bab": 5,
+  "judul": "Meja timbang · Cipedes",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-pasteur",
+  "jenis": "Jelajah",
+  "npc": "C16",
+  "wilayah": "kel-pasteur",
+  "bab": 5,
+  "judul": "Lorong kiriman · Pasteur",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-sukabungah",
+  "jenis": "Jelajah",
+  "npc": "C16",
+  "wilayah": "kel-sukabungah",
+  "bab": 5,
+  "judul": "Dapur uji · Sukabungah",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-sukawarna",
+  "jenis": "Jelajah",
+  "npc": "C16",
+  "wilayah": "kel-sukawarna",
+  "bab": 5,
+  "judul": "Rak pinjam · Sukawarna",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-babakan-penghulu",
+  "jenis": "Jelajah",
+  "npc": "C09",
+  "wilayah": "kel-babakan-penghulu",
+  "bab": 5,
+  "judul": "Rumah kemas hasil kebun · Babakan Penghulu",
+  "tujuan": "Buat label asal dan cocokkan dengan kelompok panen",
+  "akibat": "Kemasan berlabel asal kebun"
+ },
+ {
+  "id": "JEL-cisaranten-wetan",
+  "jenis": "Jelajah",
+  "npc": "C09",
+  "wilayah": "kel-cisaranten-wetan",
+  "bab": 5,
+  "judul": "Serambi penutur · Cisaranten Wetan",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-pakemitan",
+  "jenis": "Jelajah",
+  "npc": "C09",
+  "wilayah": "kel-pakemitan",
+  "bab": 5,
+  "judul": "Lorong kiriman · Pakemitan",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-sukamulya",
+  "jenis": "Jelajah",
+  "npc": "C09",
+  "wilayah": "kel-sukamulya",
+  "bab": 5,
+  "judul": "Dapur uji · Sukamulya",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-babakan-sari",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-babakan-sari",
+  "bab": 5,
+  "judul": "Bursa muatan antarkebun · Babakan Sari",
+  "tujuan": "Gabungkan dua kiriman kecil agar satu perjalanan cukup",
+  "akibat": "Pengiriman gabungan"
+ },
+ {
+  "id": "JEL-babakan-surabaya",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-babakan-surabaya",
+  "bab": 5,
+  "judul": "Lorong kiriman · Babakan Surabaya",
+  "tujuan": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "akibat": "Patok kiriman tahan hujan"
+ },
+ {
+  "id": "JEL-cicaheum",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-cicaheum",
+  "bab": 5,
+  "judul": "Dapur uji · Cicaheum",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-kebon-kangkung",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-kebon-kangkung",
+  "bab": 5,
+  "judul": "Rak pinjam · Kebon Kangkung",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-kebon-jayanti",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-kebon-jayanti",
+  "bab": 5,
+  "judul": "Halte pasar · Kebon Jayanti",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-sukapura",
+  "jenis": "Jelajah",
+  "npc": "C14",
+  "wilayah": "kel-sukapura",
+  "bab": 5,
+  "judul": "Bengkel gang · Sukapura",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-babakan-ciparay",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-babakan-ciparay",
+  "bab": 6,
+  "judul": "Pasar induk dan pesanan grosir · Babakan Ciparay",
+  "tujuan": "Temui Denden untuk mencocokkan pasokan ikan dengan pesanan",
+  "akibat": "Kontrak grosir dan penghubung ke kebun rawa"
+ },
+ {
+  "id": "JEL-babakan",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-babakan",
+  "bab": 6,
+  "judul": "Dapur uji · Babakan",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-cirangrang",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-cirangrang",
+  "bab": 6,
+  "judul": "Rak pinjam · Cirangrang",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-margahayu-utara",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-margahayu-utara",
+  "bab": 6,
+  "judul": "Halte pasar · Margahayu Utara",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-margasuka",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-margasuka",
+  "bab": 6,
+  "judul": "Bengkel gang · Margasuka",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-sukahaji",
+  "jenis": "Jelajah",
+  "npc": "A12",
+  "wilayah": "kel-sukahaji",
+  "bab": 6,
+  "judul": "Pendopo warga · Sukahaji",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-kebon-jeruk",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-kebon-jeruk",
+  "bab": 6,
+  "judul": "Perdagangan eceran dan titip jual · Kebon Jeruk",
+  "tujuan": "Titipkan satu kelompok barang dan bandingkan hasilnya dengan jual putus",
+  "akibat": "Lapak konsinyasi"
+ },
+ {
+  "id": "JEL-campaka",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-campaka",
+  "bab": 6,
+  "judul": "Dapur uji · Campaka",
+  "tujuan": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "akibat": "Resep dalam ukuran cangkir warung"
+ },
+ {
+  "id": "JEL-ciroyom",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-ciroyom",
+  "bab": 6,
+  "judul": "Halte pasar · Ciroyom",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-dunguscariang",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-dunguscariang",
+  "bab": 6,
+  "judul": "Bengkel gang · Dunguscariang",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-garuda",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-garuda",
+  "bab": 6,
+  "judul": "Pendopo warga · Garuda",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-maleber",
+  "jenis": "Jelajah",
+  "npc": "A11",
+  "wilayah": "kel-maleber",
+  "bab": 6,
+  "judul": "Meja timbang · Maleber",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-arjuna",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-arjuna",
+  "bab": 6,
+  "judul": "Pengiriman pesanan mendesak · Arjuna",
+  "tujuan": "Pilih rute yang menjaga stroberi tiba sebelum batas terima",
+  "akibat": "Layanan kurir cepat"
+ },
+ {
+  "id": "JEL-husein-sastranegara",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-husein-sastranegara",
+  "bab": 6,
+  "judul": "Rak pinjam · Husein Sastranegara",
+  "tujuan": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "akibat": "Kartu titipan yang sudah kembali"
+ },
+ {
+  "id": "JEL-pajajaran",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-pajajaran",
+  "bab": 6,
+  "judul": "Halte pasar · Pajajaran",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-pamoyanan",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-pamoyanan",
+  "bab": 6,
+  "judul": "Pendopo warga · Pamoyanan",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-pasirkaliki",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-pasirkaliki",
+  "bab": 6,
+  "judul": "Meja timbang · Pasirkaliki",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "akibat": "Cap tara pada peti"
+ },
+ {
+  "id": "JEL-sukaraja",
+  "jenis": "Jelajah",
+  "npc": "A06",
+  "wilayah": "kel-sukaraja",
+  "bab": 6,
+  "judul": "Serambi penutur · Sukaraja",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-jamika",
+  "jenis": "Jelajah",
+  "npc": "C10",
+  "wilayah": "kel-jamika",
+  "bab": 6,
+  "judul": "Pembukuan dan kliring koperasi · Jamika",
+  "tujuan": "Cocokkan jumlah kiriman, retur dan pembayaran pedagang",
+  "akibat": "Rekap margin pesanan"
+ },
+ {
+  "id": "JEL-babakan-asih",
+  "jenis": "Jelajah",
+  "npc": "C10",
+  "wilayah": "kel-babakan-asih",
+  "bab": 6,
+  "judul": "Halte pasar · Babakan Asih",
+  "tujuan": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "akibat": "Jadwal sambungan angkutan"
+ },
+ {
+  "id": "JEL-babakan-tarogong",
+  "jenis": "Jelajah",
+  "npc": "C10",
+  "wilayah": "kel-babakan-tarogong",
+  "bab": 6,
+  "judul": "Bengkel gang · Babakan Tarogong",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-kopo",
+  "jenis": "Jelajah",
+  "npc": "C10",
+  "wilayah": "kel-kopo",
+  "bab": 6,
+  "judul": "Pendopo warga · Kopo",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-suka-asih",
+  "jenis": "Jelajah",
+  "npc": "C10",
+  "wilayah": "kel-suka-asih",
+  "bab": 6,
+  "judul": "Serambi penutur · Suka Asih",
+  "tujuan": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "akibat": "Kartu kesaksian dengan dua versi"
+ },
+ {
+  "id": "JEL-braga",
+  "jenis": "Jelajah",
+  "npc": "A09",
+  "wilayah": "kel-braga",
+  "bab": 6,
+  "judul": "Arsip panen dan pameran kota · Braga",
+  "tujuan": "Kumpulkan foto dan cerita asal hasil kebun untuk pameran",
+  "akibat": "Pameran akhir musim pemain"
+ },
+ {
+  "id": "JEL-babakan-ciamis",
+  "jenis": "Jelajah",
+  "npc": "A09",
+  "wilayah": "kel-babakan-ciamis",
+  "bab": 6,
+  "judul": "Bengkel gang · Babakan Ciamis",
+  "tujuan": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "akibat": "Pola pengikat peti"
+ },
+ {
+  "id": "JEL-kebon-pisang",
+  "jenis": "Jelajah",
+  "npc": "A09",
+  "wilayah": "kel-kebon-pisang",
+  "bab": 6,
+  "judul": "Pendopo warga · Kebon Pisang",
+  "tujuan": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "akibat": "Papan giliran warga"
+ },
+ {
+  "id": "JEL-merdeka",
+  "jenis": "Jelajah",
+  "npc": "A09",
+  "wilayah": "kel-merdeka",
+  "bab": 6,
+  "judul": "Meja timbang · Merdeka",
+  "tujuan": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "akibat": "Cap tara pada peti"
+ }
+]
