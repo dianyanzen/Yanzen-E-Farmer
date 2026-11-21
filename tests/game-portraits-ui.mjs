@@ -80,34 +80,54 @@ try {
  assert.equal(requests.length,0,"portraits are not fetched before use");
  await page.getByRole("button",{name:/^▣ YZ Phone/}).click();
  await page.getByRole("button",{name:/Warga$/}).click();
- assert.equal(await page.locator("[data-character-card]").count(),32);
+ assert.equal(await page.locator("[data-character-card]").count(),12,"phone shows a compact list first");
  const search=page.getByRole("searchbox",{name:"Cari nama atau pekerjaan"});
  const people=JSON.parse(await readFile("game-assets/catalog/cast.json","utf8")).characters;
  for(const person of people){
   await search.fill(person.name);
   const card=page.locator('[data-character-card="'+person.id+'"]');
-  await card.scrollIntoViewIfNeeded();
-  await page.waitForFunction(id=>{const img=document.querySelector('[data-character-card="'+id+'"] img');return img?.complete&&img.naturalWidth===1536;},person.id);
-  assert.equal(await card.locator(".yzg-portrait").getAttribute("data-character"),person.id);
+  await card.click();
+  const detail=page.locator('[data-character-detail="'+person.id+'"]');
+  await detail.waitFor();
+  assert.equal(await detail.locator(".yzg-citizen-section").count(),12,"all twelve profile categories available");
+  await page.waitForFunction(id=>{
+   const img=document.querySelector('[data-character-detail="'+id+'"] .yzg-portrait img');
+   return img?.complete&&img.naturalWidth===1536;
+  },person.id);
+  assert.equal(await detail.locator(".yzg-portrait").getAttribute("data-character"),person.id);
+  await detail.getByRole("button",{name:/Daftar warga/}).click();
  }
- await search.fill("Nida");await page.getByRole("searchbox").scrollIntoViewIfNeeded();
+ await search.fill("Nida");
+ await page.locator('[data-character-card="A13"]').click();
  const labels=["Netral","Senang","Sedih","Khawatir","Terkejut","Kesal","Malu","Tertawa"];
  const values=["neutral","happy","sad","worried","surprised","annoyed","shy","laughing"];
  for(let i=0;i<8;i++){
   await page.getByRole("button",{name:labels[i],exact:true}).click();
-  assert.equal(await page.locator('[data-character-card="A13"] .yzg-portrait').getAttribute("data-emotion"),values[i]);
-  assert.equal(await page.locator('[data-character-card="A13"] img').evaluate(im=>im.style.left),(-i*100)+"%");
+  assert.equal(await page.locator('[data-character-detail="A13"] .yzg-portrait').getAttribute("data-emotion"),values[i]);
+  assert.equal(await page.locator('[data-character-detail="A13"] img').evaluate(im=>im.style.left),(-i*100)+"%");
  }
- await page.screenshot({path:path.join(output,"portrait-gallery-mobile.png"),fullPage:true});
- await search.fill("not-a-character");await page.getByRole("status").filter({hasText:"Karakter tidak ditemukan"}).waitFor();
+ await page.screenshot({path:path.join(output,"portrait-detail-mobile.png"),fullPage:true});
+ await page.getByRole("button",{name:/Daftar warga/}).click();
+ await search.fill("not-a-character");
+ await page.getByRole("status").filter({hasText:"Belum ada warga dengan nama atau pekerjaan itu"}).waitFor();
  assert.equal(new Set(requests.map(u=>u.split("/").pop())).size,32);
+ await page.getByRole("button",{name:"Kembali"}).click();
+ await page.getByRole("button",{name:"Kronik",exact:true}).click();
+ await page.getByRole("heading",{name:"Empat Timun dan Satu Nama"}).waitFor();
+ assert.equal(await page.getByRole("progressbar",{name:"Kemajuan cerita utama"}).getAttribute("value"),"0");
+ await page.getByRole("button",{name:"Misi",exact:true}).click();
+ await page.getByText("Urusan warga").waitFor();
+ await page.getByRole("button",{name:"Jejak hari",exact:true}).click();
+ await page.getByRole("button",{name:"Salin ringkasan cerita"}).waitFor();
  const broken=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:"reduce"});
  await broken.route("**/game/assets/portraits/C16.png",route=>route.abort());
- await start(broken);await broken.getByRole("button",{name:/^▣ YZ Phone/}).click();await broken.getByRole("button",{name:/Warga$/}).click();
+ await start(broken);
+ await broken.getByRole("button",{name:/^▣ YZ Phone/}).click();
+ await broken.getByRole("button",{name:/Warga$/}).click();
  await broken.getByRole("searchbox").fill("Karisma");
- await broken.locator('[data-character-card="C16"]').scrollIntoViewIfNeeded();
- await broken.locator('[data-character-card="C16"] .yzg-portrait-fallback').waitFor();
- assert.equal(await broken.locator('[data-character-card="C16"] .yzg-portrait-fallback').innerText(),"K");
+ await broken.locator('[data-character-card="C16"]').click();
+ await broken.locator('[data-character-detail="C16"] .yzg-portrait-fallback').waitFor();
+ assert.equal(await broken.locator('[data-character-detail="C16"] .yzg-portrait-fallback').innerText(),"K");
  assert.deepEqual(errors,[]);
  console.log("Portrait browser: all 32 assets, eight expressions, search, lazy loading, responsive gallery and failed-image fallback: PASS");
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
