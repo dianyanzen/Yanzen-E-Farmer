@@ -23,11 +23,15 @@ if (!sourceArg || args.some(arg=>!legal.has(arg))) {
 }
 const idPattern=/^(?:[ACNK]\d{2}|P0[12]|W\d{3})$/;
 const portraitPattern=/^(?:P0[12]|N0[1-6]|K(?:0[1-9]|[12]\d|30)|R\d{3}|phone-(?:A(?:0[1-9]|1[0-6])|C0[158])|work-[AC](?:0[1-9]|1[0-6]))$/;
-function portraitFile(id) {
+function portraitFiles(id) {
  const group=id.startsWith("R")?"residents":id.startsWith("K")?"neighborhood":
   id.startsWith("N")?"specialists":id.startsWith("P")?"civic":
   id.startsWith("phone-")?"phone":"professions";
- return resolve(root,"public/game/assets/portraits/bandung",group,id+".png");
+ const directory=resolve(root,"public/game/assets/portraits/bandung");
+ return [
+  resolve(directory,group,id+".png"),
+  resolve(directory,id+".png")
+ ];
 }
 function fail(message) {throw new Error("Roster tidak dapat dipublikasi: "+message);}
 function checkPublicRoster(input) {
@@ -45,7 +49,7 @@ function checkPublicRoster(input) {
     fail(label+" tidak valid pada "+id);
   }
   if(typeof portrait!=="string"||!portraitPattern.test(portrait))fail("portrait tidak dikenal pada "+id);
-  if(!existsSync(portraitFile(portrait)))fail("aset portrait untuk "+id+" belum tersedia di GitHub: "+portrait);
+  if(!portraitFiles(portrait).some(existsSync))fail("aset portrait untuk "+id+" belum tersedia pada checkout: "+portrait);
   if(seenIds.has(id)||seenNames.has(name.toLocaleLowerCase("id")))fail("ID/nama ganda: "+id);
   seenIds.add(id);seenNames.add(name.toLocaleLowerCase("id"));
   return {id,name,occupation,portrait};

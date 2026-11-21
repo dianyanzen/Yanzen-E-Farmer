@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 
-const read = path => readFileSync(path, "utf8");
+const read = path => readFileSync(path, "utf8").replace(/\r\n/g,"\n");
 const gitBlobSha = content => {
  const bytes=Buffer.from(content,"utf8");
  return createHash("sha1").update(Buffer.from("blob "+bytes.length+"\0","utf8")).update(bytes).digest("hex");

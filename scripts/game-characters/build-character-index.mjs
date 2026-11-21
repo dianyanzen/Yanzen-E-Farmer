@@ -15,6 +15,6 @@ const characters=[
 const index={schemaVersion:1,project:"YZ Farm Life",description:"Full 12-dimension character bible for named characters, not runtime NPC state. Proposed fields require narrative approval.",categories:categories.map(([key,label,scope])=>({key,label,scope})),coverage:{canonicalCore:cast.length,fictionalExpansion:expanded.filter(x=>!x.id.startsWith("P")).length,publicFigureCameos:expanded.filter(x=>x.id.startsWith("P")).length,unassignedResidentArt:179},characters};
 const path=resolve(root,"game-assets/characters/profiles/index.json"),content=JSON.stringify(index,null,2)+"\n";
 if(process.argv.includes("--check")){
- if(readFileSync(path,"utf8")!==content){console.error("FAIL: character bible index out of date");process.exitCode=1;}
+ if(readFileSync(path,"utf8").replace(/\r\n/g,"\n")!==content){console.error("FAIL: character bible index out of date");process.exitCode=1;}
  else console.log("PASS: "+characters.length+" indexed named character bibles");
 }else{writeFileSync(path,content);console.log("WROTE: "+characters.length+" named character bibles");}

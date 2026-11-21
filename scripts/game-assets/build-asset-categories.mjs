@@ -38,7 +38,7 @@ pending.push({path:resolve(root,"game-assets/library/index.json"),content:JSON.s
 const check=process.argv.includes("--check");
 for(const item of pending){
  if(check){
-  if(!existsSync(item.path)||readFileSync(item.path,"utf8")!==item.content){
+  if(!existsSync(item.path)||readFileSync(item.path,"utf8").replace(/\r\n/g,"\n")!==item.content){
    console.error("FAIL: stale category index "+item.path);process.exitCode=1;
   }
  }else{mkdirSync(dirname(item.path),{recursive:true});writeFileSync(item.path,item.content);}
