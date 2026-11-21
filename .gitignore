@@ -12,3 +12,8 @@ coverage/
 
 *.tsbuildinfo
 supabase/.temp/
+
+# The canonical NPC roster and manual legacy approvals are private, not versioned.
+deploy/private/
+**/residents.json
+**/approved-legacy.json
