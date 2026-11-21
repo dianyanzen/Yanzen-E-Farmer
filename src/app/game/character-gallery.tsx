@@ -4,6 +4,7 @@ import Image from "next/image";
 import {useEffect,useMemo,useState,type ReactNode} from "react";
 import cast from "../../../game-assets/catalog/cast.json";
 import previews from "@/lib/game/data/bandung-character-previews.json";
+import publishedBibles from "@/lib/game/data/published-resident-bibles.json";
 import {bandungConceptPortraitPath} from "@/lib/game/bandung-concept-portrait";
 import {loadCharacterBible,type CharacterBible} from "@/lib/game/phone-profiles";
 import {NPCS,NPC_SOULS,bondLabel,bondLevel,npcWhere,areaTitle,type GameState} from "@/lib/game/model";
@@ -38,17 +39,18 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  const face=profile?.sections;
  const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
- const voice=face?.["09_dialogue_behavior"];
+ const voice=face?.["09_dialogue_behavior"],history=face?.["07_background_history"],ties=face?.["08_relationship_dynamics"];
  const soul=npc?NPC_SOULS[npc.id]:null;
  const quest=npc?game.personalQuests?.[npc.id]:null;
  const rememberedPast=npc?.id==="C01"&&game.story.photoSeen?
-   "Nani menunjukkan foto pintu air lama dan bercerita sedikit tentang keluarganya.":
+   person.name+" menunjukkan foto pintu air lama dan bercerita sedikit tentang keluarganya.":
    npc?.id==="A03"&&game.story.canalClue?
-   "Ryan pernah mencatat garis tinggi air di dekat pintu saluran.":
+   person.name+" pernah mencatat garis tinggi air di dekat pintu saluran.":
    null;
  const knowsMore=met&&(self||level>=2),knowsPrivate=met&&(self||level>=3);
  const currentPlace=npc?npcWhere(game,npc.id):null;
- const outline=person.kind==="expansion"?"Belum ada pertemuan. Namanya sudah masuk daftar warga, tetapi kisahnya belum kamu dengar.":
+ const outline=person.kind==="resident"?"Namanya sudah tercatat sebagai warga. Kalian akan saling mengenal ketika jalur ke kawasannya terbuka.":
+  person.kind==="expansion"?"Belum ada pertemuan. Namanya sudah masuk daftar warga, tetapi kisahnya belum kamu dengar.":
   !met&&!self?"Kalian belum mengobrol. Ada hal-hal yang hanya bisa diketahui dengan bertemu langsung.":
   "Catatan tentang orang yang kamu kenal.";
  return <article data-character-detail={person.id} aria-label={`Profil ${person.name}`}>
@@ -84,11 +86,11 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
       <p>{soul?.desire??mind?.primaryMotivation??mind?.motivation??"Masih belum diceritakan."}</p>
       {knowsPrivate&&<p>{soul?.fear??mind?.fear}</p>}
     </Section>
-    <Section label="07 · Cerita masa lalu" open={knowsPrivate&&Boolean(rememberedPast)}>
-      <p>{rememberedPast??"Belum ada kenangan yang dibagikan."}</p>
+    <Section label="07 · Cerita masa lalu" open={knowsPrivate&&Boolean(rememberedPast??history?.formativeMemory)}>
+      <p>{rememberedPast??history?.formativeMemory??"Belum ada kenangan yang dibagikan."}</p>
     </Section>
-    <Section label="08 · Orang terdekat" open={knowsMore&&Boolean(soul?.connection)}>
-      <p>{soul?.connection??"Kamu belum mendengar cerita tentang hubungannya dengan warga lain."}</p>
+    <Section label="08 · Orang terdekat" open={knowsMore&&Boolean(soul?.connection??ties?.connections?.[0]?.description)}>
+      <p>{soul?.connection??ties?.connections?.[0]?.description??"Kamu belum mendengar cerita tentang hubungannya dengan warga lain."}</p>
     </Section>
     <Section label="09 · Cara berbicara" open={met}>
       <p>{voice?.speechSignature??voice?.speechPattern??voice?.scriptedSpeakingStyle??"Kamu baru mulai mengenali caranya berbicara."}</p>
@@ -96,12 +98,12 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
     <Section label="10 · Cerita kalian" open={met}>
       {npc?<><p>{quest?`${tales[npc.id].title} · ${quest.phase===4?"Sudah selesai":quest.phase===3?"Menunggu kabar":"Sedang berjalan"}`:"Belum ada permintaan pribadi yang kalian kerjakan."}</p>
         {quest&&<p>{questObjective(game,npc.id)}</p>}
-        {npc.id==="C08"&&game.story.orderAccepted&&<p>{game.story.orderDone?"Pesanan empat timun dari Inggit sudah diantar.":"Inggit menunggu empat timun untuk warungnya."}</p>}
+        {npc.id==="C08"&&game.story.orderAccepted&&<p>{game.story.orderDone?"Pesanan empat timun sudah diantar ke warung "+person.name+".":person.name+" menunggu empat timun untuk warungnya."}</p>}
         {npc.id==="A03"&&game.story.canalClue&&<p>Kalian sudah melihat tanda air di batu dekat saluran.</p>}
-        {npc.id==="C01"&&game.story.photoSeen&&<p>Nani sudah menunjukkan foto pintu air. Keputusan tentang fotonya ada di Kronik.</p>}
+        {npc.id==="C01"&&game.story.photoSeen&&<p>{person.name} sudah menunjukkan foto pintu air. Keputusan tentang fotonya ada di Kronik.</p>}
       </>:<p>Bagian cerita ini belum kalian jalani bersama.</p>}
     </Section>
-    <Section label="11 · Potret" open><p>Potret ini membantu kamu mengenal wajahnya. Ciri dan pakaiannya akan tetap sama saat kalian bertemu lagi.</p></Section>
+    <Section label="11 · Potret" open><p>Potret ini membantu kamu mengenali {person.name} saat menjelajah. Wajah dan pakaian di dunia akan mengikuti aset yang sudah diselaraskan.</p></Section>
     <Section label="12 · Catatan terakhir" open>
       {npc&&bond?.talks?<p>Terakhir berbincang pada hari {bond.lastTalkDay}. Kalian telah bertemu {bond.talks} kali.</p>:
        self?<p>Hari {game.day}. Kamu sedang berada di {areaTitle(game.location)}.</p>:
@@ -141,7 +143,9 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
   if(scroller)scroller.scrollTop=0;
   if(!selectedId){return;}
   let alive=true;
-  loadCharacterBible(selectedId).then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
+  const updatedBible=(publishedBibles as Record<string,CharacterBible>)[selectedId];
+  const profilePromise=updatedBible?Promise.resolve(updatedBible):loadCharacterBible(selectedId);
+  profilePromise.then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
     .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
   return()=>{alive=false;};
  },[selectedId]);

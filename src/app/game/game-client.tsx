@@ -18,6 +18,7 @@ import CharacterGallery from "./character-gallery";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
+import { applyResidentNames } from "@/lib/game/resident-display-names";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
@@ -645,9 +646,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const context = getActionContext(game);
   const farming = farmOverview(game);
   const residentById = new Map(residents.map(resident => [resident.id, resident]));
-  const activeNames = new Map(NPCS.map(npc => [npc.name, residentById.get(npc.id)?.name ?? npc.name]));
-  const display = (message: string) =>
-    message.replace(/\b(?:Ryan|Nani|Inggit)\b/g, name => activeNames.get(name) ?? name);
+  const display = (message: string) => applyResidentNames(message, NPCS, residents);
   const actionLabel = display(context.label);
   const actionVerb = context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?

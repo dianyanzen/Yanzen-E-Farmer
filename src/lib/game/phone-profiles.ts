@@ -94,8 +94,8 @@ export const CHARACTER_BIBLE_IDS=Object.keys(loaders);
 export async function loadCharacterBible(id:string):Promise<CharacterBible|null>{
  const load=loaders[id];
  if(!load)return null;
- const module=await load();
- const profile=module.default as CharacterBible;
+ const loadedModule=await load();
+ const profile=loadedModule.default as CharacterBible;
  if(profile?.id!==id)throw new Error("Character profile mismatch for "+id);
  return profile;
 }
