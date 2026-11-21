@@ -18,6 +18,7 @@ const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation
 const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion"}));
 const PAGE_SIZE=12;
 function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotion}){
+ if(person.portrait)return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait}}/>;
  if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
  if(person.kind==="resident")return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait??person.id}}/>;
  return <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
@@ -57,7 +58,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
    <div><h3>{person.name}</h3><p>{person.occupation}</p>
     <small>{npc&&met?`Sudah ${bond?.talks??0} kali berbincang`:self?"Kisahmu sendiri":"Belum berkenalan"}</small></div>
   </div>
-  {person.kind==="core"&&<div className="yzg-phone-card">
+  {person.kind==="core"&&!person.portrait&&<div className="yzg-phone-card">
    <b>Ekspresi</b>
    <div className="yzg-expression-picker yzg-citizen-emotions">{PORTRAIT_EMOTIONS.map(e=>
      <button key={e} type="button" aria-pressed={emotion===e} onClick={()=>setEmotion(e)}>{EMOTION_LABELS[e]}</button>)}</div>
@@ -116,10 +117,20 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
 }){
  const [search,setSearch]=useState(""),[page,setPage]=useState(0),[archive,setArchive]=useState(false);
  const [loaded,setLoaded]=useState<{id:string;profile:CharacterBible|null;error?:boolean}|null>(null);
- const roster=useMemo<Citizen[]>(()=>residents.length?residents.map(r=>{
-  const core=fromCore.find(c=>c.id===r.id),exp=fromExpansion.find(c=>c.id===r.id);
-  return {id:r.id,name:r.name,occupation:r.occupation,kind:core?.kind??exp?.kind??"resident",portrait:r.portrait};
- }):[...fromCore,...fromExpansion],[residents]);
+ const roster=useMemo<Citizen[]>(()=>{
+  // Docker roster entries override published names/art without hiding anyone from the canon.
+  const overrides=new Map(residents.map(person=>[person.id,person]));
+  const canon=[...fromCore,...fromExpansion];
+  return [
+   ...canon.map(person=>{
+    const overlay=overrides.get(person.id);
+    return overlay?{...person,name:overlay.name,occupation:overlay.occupation,portrait:overlay.portrait}:person;
+   }),
+   ...residents.filter(person=>!canon.some(entry=>entry.id===person.id))
+    .map(person=>({...person,kind:"resident" as const}))
+  ];
+ },[residents]);
+ const extras=roster.filter(person=>person.kind!=="core").length;
  const query=search.trim().toLocaleLowerCase("id");
  const available=roster.filter(c=>Boolean(query)||archive||c.kind==="core");
  const matches=available.filter(c=>(c.name+" "+c.occupation).toLocaleLowerCase("id").includes(query));
@@ -143,8 +154,8 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
    <label htmlFor="yzg-character-search">Cari nama atau pekerjaan</label>
    <input id="yzg-character-search" type="search" value={search} onChange={e=>{setSearch(e.target.value);setPage(0);}}
      placeholder="Nama atau pekerjaan"/>
-   {!residents.length&&<button type="button" className="yzg-citizen-archive" aria-expanded={archive} onClick={()=>{setArchive(v=>!v);setPage(0);}}>
-    {archive?"Tampilkan warga inti":"Lihat warga dari kawasan lain"} ({fromExpansion.length})
+   {extras>0&&<button type="button" className="yzg-citizen-archive" aria-expanded={archive} onClick={()=>{setArchive(v=>!v);setPage(0);}}>
+    {archive?"Tampilkan warga inti":"Lihat warga dari kawasan lain"} ({extras})
    </button>}
    <small role="status">{matches.length} warga dalam daftar ini</small>
   </div>
