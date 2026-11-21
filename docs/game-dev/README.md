@@ -1,5 +1,7 @@
 # YZ Farm Life — Game Development Library
 
+> **PUSAT AUDIT PERMANEN (dibaca lebih dahulu):** [GAME_AUDIT_MASTER.md](GAME_AUDIT_MASTER.md) · [AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md) · [AUDIT_HISTORY.md](AUDIT_HISTORY.md) · [AUDIT_CASE_TEMPLATE.md](AUDIT_CASE_TEMPLATE.md). Ini adalah rujukan status terkini yang harus dibandingkan dengan branch/PR terbaru. Bagian riset lama di bawah adalah **historical snapshot 2026-11-16**, bukan status Phaser atau release hari ini.
+
 **Version:** research & curation v0.1 · 2026-11-16 · **NOT** an imported sprite pack or game-release build.
 
 This folder is the working knowledge base for YZ Farm Life, an original GBA-style, story-rich 2D top-down life simulation based in **Pasirluyu, Regol, Kota Bandung**, with a district discovery system spanning Bandung's 30 kecamatan and an in-game **YZ Phone**.

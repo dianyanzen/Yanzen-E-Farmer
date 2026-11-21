@@ -2,6 +2,16 @@
 
 Berlaku untuk Codex, ChatGPT yang mengakses GitHub, dan agen coding lainnya. Bahasa komunikasi: Bahasa Indonesia. **Pengguna adalah pemilik produk dan satu-satunya pemberi persetujuan rilis.** AI tidak mempunyai otoritas otomatis untuk menggabungkan kode atau memindahkan domain.
 
+## Rujukan audit game yang WAJIB (single source of truth)
+
+**Untuk SEMUA tugas YZ Farm Life**, termasuk screenshot, keluhan pemain, arsitektur, gameplay, NPC, animasi, aset, audio, QA, PR, Docker, deploy, riset, atau implementasi, baca dahulu:
+1. [Master Audit / temuan dan prioritas](docs/game-dev/GAME_AUDIT_MASTER.md).
+2. [Audit Playbook / prosedur pemeriksaan](docs/game-dev/AUDIT_PLAYBOOK.md).
+3. [Audit History / riwayat bukti](docs/game-dev/AUDIT_HISTORY.md).
+4. [Template temuan baru](docs/game-dev/AUDIT_CASE_TEMPLATE.md).
+
+**Wajib per sesi:** verifikasi ulang `main`/PR #30/Docker HEAD terbaru dan rilis sebenarnya, cocokkan Issue ID G-xxx, lalu laporkan delta, penyebab, keyakinan (%), alternatif, rekomendasi, dampak dan prioritas. Jangan menyimpulkan screenshot pemain telah diuji tanpa browser/perangkat, jangan mengaku preview sudah production, dan jangan membuat audit tandingan di chat tanpa memperbarui dokumen master melalui PR. Pengguna memutuskan merge dan deploy.
+
 ## Baca sebelum bekerja
 
 1. Baca [protokol koordinasi](docs/ai/SYNC_PROTOCOL.md), [rencana pemisahan aplikasi](docs/ai/ARCHITECTURE_SPLIT.md), dan [snapshot status](docs/ai/CURRENT_STATE.md).
