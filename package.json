@@ -33,7 +33,8 @@
     "test:game:characters": "node tests/game-character-bible.mjs",
     "test:game:phone": "node tests/game-phone-story.mjs",
     "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs",
-    "chars:roster:check": "node scripts/game-characters/check-private-roster.mjs"
+    "chars:roster:check": "node scripts/game-characters/check-private-roster.mjs",
+    "chars:bible:seed": "node scripts/game-characters/seed-private-bibles.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
