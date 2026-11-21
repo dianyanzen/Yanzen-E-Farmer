@@ -1,0 +1,114 @@
+{
+  "id": "N05",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Laras",
+      "ageYears": 39,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Ekspresi tegas tetapi menjaga jarak nyaman pasien",
+      "bodyLanguage": "Menggeser kursi agar orang tidak harus berdiri",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jas klinik fiktif dan pakaian kerja sederhana",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Dokter klinik kampung",
+      "education": "Pendidikan kedokteran fiktif, tanpa menyebut institusi nyata",
+      "communityParticipation": "Klinik kampung ekspansi",
+      "leisureInterest": "Berkaitan dengan kursi di depan klinik; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Teliti",
+        "empatik",
+        "waspada"
+      ],
+      "observableHabit": "Menaruh kursi tambahan sebelum jam kerja",
+      "values": "Membuat pekerja mau beristirahat tanpa takut kehilangan giliran kerja",
+      "flaw": "Mengira aturan klinik sudah cukup membuat orang datang"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat pekerja mau beristirahat tanpa takut kehilangan giliran kerja",
+      "unspokenNeed": "Menghadapi mengira aturan klinik sudah cukup membuat orang datang",
+      "fear": "Warga bekerja sakit karena merasa tak punya pilihan",
+      "innerConflict": "Laras melihat pekerja mengaku sehat agar tidak kehilangan giliran panen. Kursi ruang tunggunya justru selalu kosong.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menaruh kursi tambahan sebelum jam kerja"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah mengurus pekerja yang takut cuti",
+      "formativeMemory": "Belajar melayani komunitas dari klinik keliling",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C05",
+          "description": "Eza mewakili sudut pandang keluarga pekerja yang cemas",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membocorkan data pasien",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Berbahasa tenang tanpa diagnosis dramatis",
+      "physicalCue": "Menggeser kursi agar orang tidak harus berdiri",
+      "exampleLine": "Kursinya kosong terus. Mungkin masalahnya bukan jarak ke klinik.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Kursi di depan klinik",
+      "establishedPremise": "Laras melihat pekerja mengaku sehat agar tidak kehilangan giliran panen. Kursi ruang tunggunya justru selalu kosong.",
+      "personalGoal": "Membuat pekerja mau beristirahat tanpa takut kehilangan giliran kerja",
+      "centralDifficulty": "Mengira aturan klinik sudah cukup membuat orang datang",
+      "threeActBeats": [
+        "Melihat kursi tunggu kosong",
+        "Mengetahui warga takut kehilangan jatah kerja",
+        "Membuat jam layanan lebih fleksibel"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/specialists/N05.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Laras melihat pekerja mengaku sehat agar tidak kehilangan giliran panen. Kursi ruang tunggunya justru selalu kosong.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Melihat kursi tunggu kosong",
+      "nextBeats": [
+        "Mengetahui warga takut kehilangan jatah kerja",
+        "Membuat jam layanan lebih fleksibel"
+      ],
+      "doNotContradict": "Tidak membocorkan data pasien"
+    }
+  }
+}

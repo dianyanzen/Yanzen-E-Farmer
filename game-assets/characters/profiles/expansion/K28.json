@@ -1,0 +1,114 @@
+{
+  "id": "K28",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ridho",
+      "ageYears": 34,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gestur menunjukkan halte dari pintu angkutan",
+      "bodyLanguage": "Melihat kaca basah sebelum menunjuk arah",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Seragam angkutan fiktif tanpa identitas perusahaan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Kondektur angkutan fiktif",
+      "education": "Belajar layanan transportasi dari kerja lapangan",
+      "communityParticipation": "Angkutan fiktif ekspansi",
+      "leisureInterest": "Berkaitan dengan karcis tanpa lubang pulang; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Praktis",
+        "perhatian",
+        "tegas"
+      ],
+      "observableHabit": "Menyimpan karcis yang belum disobek akhir rute",
+      "values": "Membuat penumpang tahu tempat turun dengan aman",
+      "flaw": "Mengira semua orang mengenali halte saat hujan"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat penumpang tahu tempat turun dengan aman",
+      "unspokenNeed": "Menghadapi mengira semua orang mengenali halte saat hujan",
+      "fear": "Seseorang melewati tujuan ketika penanda tak terlihat",
+      "innerConflict": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan karcis yang belum disobek akhir rute"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah menumpang rute yang sama ke pasar",
+      "formativeMemory": "Belajar kondektur dari rute transportasi fiktif",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C15",
+          "description": "Malik membantu membuat petunjuk halte yang lebih mudah dikenali",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyebut alamat penumpang di depan umum",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lugas, menyebut lokasi dengan penanda benda yang nyata",
+      "physicalCue": "Melihat kaca basah sebelum menunjuk arah",
+      "exampleLine": "Kalau hujan, papan itu tak kelihatan. Aku mau cari penanda yang lebih jelas.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Karcis tanpa lubang pulang",
+      "establishedPremise": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan.",
+      "personalGoal": "Membuat penumpang tahu tempat turun dengan aman",
+      "centralDifficulty": "Mengira semua orang mengenali halte saat hujan",
+      "threeActBeats": [
+        "Menyimpan karcis tujuan tak tercapai",
+        "Menemukan masalah penanda",
+        "Menyusun pengumuman halte yang jelas"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K28.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Menyimpan karcis tujuan tak tercapai",
+      "nextBeats": [
+        "Menemukan masalah penanda",
+        "Menyusun pengumuman halte yang jelas"
+      ],
+      "doNotContradict": "Tidak menyebut alamat penumpang di depan umum"
+    }
+  }
+}

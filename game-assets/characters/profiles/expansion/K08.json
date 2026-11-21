@@ -1,0 +1,114 @@
+{
+  "id": "K08",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Teguh",
+      "ageYears": 46,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak tenang dengan tangan terampil pada pompa",
+      "bodyLanguage": "Memutar gagang pompa perlahan",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju bengkel tambal ban dan sarung tangan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Penambal ban",
+      "education": "Magang tambal ban di pasar",
+      "communityParticipation": "Bengkel ban ekspansi",
+      "leisureInterest": "Berkaitan dengan pompa terakhir; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Praktis",
+        "dermawan",
+        "protektif"
+      ],
+      "observableHabit": "Mencatat tekanan ban setiap kendaraan titipan",
+      "values": "Menjaga perbaikan tetap dapat diakses semua pengguna jalan",
+      "flaw": "Terlalu cepat menganggap suara malam ancaman"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga perbaikan tetap dapat diakses semua pengguna jalan",
+      "unspokenNeed": "Menghadapi terlalu cepat menganggap suara malam ancaman",
+      "fear": "Alat dipakai tanpa pengawasan lalu merusak kendaraan",
+      "innerConflict": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi.",
+      "stressResponse": "Menarik diri sejenak atau mengulang mencatat tekanan ban setiap kendaraan titipan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga dulu menyediakan pompa sederhana untuk tetangga",
+      "formativeMemory": "Bengkel tumbuh dari lapak kecil pinggir pasar",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C15",
+          "description": "Malik menjelaskan kebutuhan tekanan ban roda kursi yang berbeda",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyentuh alat bantu orang lain tanpa izin",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Humor ringan, bertanya sebelum menuduh",
+      "physicalCue": "Memutar gagang pompa perlahan",
+      "exampleLine": "Pompa dipakai malam-malam? Kita cari dulu siapa yang perlu, jangan langsung marah.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Pompa terakhir",
+      "establishedPremise": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi.",
+      "personalGoal": "Menjaga perbaikan tetap dapat diakses semua pengguna jalan",
+      "centralDifficulty": "Terlalu cepat menganggap suara malam ancaman",
+      "threeActBeats": [
+        "Mendengar pompa setelah tutup",
+        "Menemukan kebutuhan akses warga",
+        "Membuat jam peminjaman yang aman"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K08.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Mendengar pompa setelah tutup",
+      "nextBeats": [
+        "Menemukan kebutuhan akses warga",
+        "Membuat jam peminjaman yang aman"
+      ],
+      "doNotContradict": "Tidak menyentuh alat bantu orang lain tanpa izin"
+    }
+  }
+}

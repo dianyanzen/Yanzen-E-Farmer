@@ -1,0 +1,114 @@
+{
+  "id": "K23",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Nenden",
+      "ageYears": 28,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak lembut ketika mengangkat kardus tempat kucing",
+      "bodyLanguage": "Menunduk agar kucing mendekat sendiri",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian perawat hewan dan tas pakan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pengasuh hewan titipan",
+      "education": "Belajar perawatan hewan nonklinis",
+      "communityParticipation": "Kios hewan ekspansi",
+      "leisureInterest": "Berkaitan dengan kucing di atas kardus; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Penyayang",
+        "tekun",
+        "cermat"
+      ],
+      "observableHabit": "Menyiapkan air minum di depan kios",
+      "values": "Menjaga kucing aman tanpa memicu sengketa warga",
+      "flaw": "Cepat merasa harus memilih satu pemilik"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga kucing aman tanpa memicu sengketa warga",
+      "unspokenNeed": "Menghadapi cepat merasa harus memilih satu pemilik",
+      "fear": "Satu pihak membawa hewan pulang tanpa persetujuan",
+      "innerConflict": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyiapkan air minum di depan kios"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga biasa menerima titipan hewan tetangga",
+      "formativeMemory": "Pernah membantu tetangga mengasuh hewan saat bepergian",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "N02",
+          "description": "Surya membantu mengecek kondisi kucing sebelum mengambil keputusan",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak memindahkan hewan ke rumah orang tanpa prosedur",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lembut dan menanyakan rutinitas hewan",
+      "physicalCue": "Menunduk agar kucing mendekat sendiri",
+      "exampleLine": "Dua orang bilang ini kucing mereka. Tapi dia selalu kembali ke kardus itu.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Kucing di atas kardus",
+      "establishedPremise": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka.",
+      "personalGoal": "Menjaga kucing aman tanpa memicu sengketa warga",
+      "centralDifficulty": "Cepat merasa harus memilih satu pemilik",
+      "threeActBeats": [
+        "Kucing datang saat kios tutup",
+        "Dua warga mengaku pemilik",
+        "Membuat kesepakatan perawatan dan identifikasi"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K23.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Kucing datang saat kios tutup",
+      "nextBeats": [
+        "Dua warga mengaku pemilik",
+        "Membuat kesepakatan perawatan dan identifikasi"
+      ],
+      "doNotContradict": "Tidak memindahkan hewan ke rumah orang tanpa prosedur"
+    }
+  }
+}

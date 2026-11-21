@@ -1,0 +1,114 @@
+{
+  "id": "K09",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Lastri",
+      "ageYears": 40,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gestur hati-hati saat mengangkat properti panggung",
+      "bodyLanguage": "Menepuk siku figur kayu pelan",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian kerja belakang panggung",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Perawat properti pertunjukan",
+      "education": "Belajar pemeliharaan properti pertunjukan",
+      "communityParticipation": "Gudang panggung ekspansi",
+      "leisureInterest": "Berkaitan dengan tokoh tanpa bayangan; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Peka",
+        "kreatif",
+        "setia"
+      ],
+      "observableHabit": "Memeriksa sambungan figur sebelum latihan",
+      "values": "Merawat bunyi dan cerita pertunjukan",
+      "flaw": "Terlalu lama menyimpan properti yang rusak"
+    },
+    "06_psychological_profile": {
+      "motivation": "Merawat bunyi dan cerita pertunjukan",
+      "unspokenNeed": "Menghadapi terlalu lama menyimpan properti yang rusak",
+      "fear": "Teknik lama dianggap gangguan suara",
+      "innerConflict": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang memeriksa sambungan figur sebelum latihan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga kerap membantu menyimpan kostum acara kampung",
+      "formativeMemory": "Belajar mengurus properti dari kelompok pentas lokal",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K16",
+          "description": "Karta mengenali nilai derit figur bagi pemain lama",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Jangan membuang properti bersejarah tanpa bertanya",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Puitis singkat tentang bunyi benda",
+      "physicalCue": "Menepuk siku figur kayu pelan",
+      "exampleLine": "Derit itu terdengar jelek di sini. Tapi ada orang yang menunggunya saat pentas.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Tokoh tanpa bayangan",
+      "establishedPremise": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya.",
+      "personalGoal": "Merawat bunyi dan cerita pertunjukan",
+      "centralDifficulty": "Terlalu lama menyimpan properti yang rusak",
+      "threeActBeats": [
+        "Figur lama disimpan",
+        "Pemain senior meminta bunyinya",
+        "Menyelamatkan sambungan tanpa menghilangkan ciri"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K09.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Figur lama disimpan",
+      "nextBeats": [
+        "Pemain senior meminta bunyinya",
+        "Menyelamatkan sambungan tanpa menghilangkan ciri"
+      ],
+      "doNotContradict": "Jangan membuang properti bersejarah tanpa bertanya"
+    }
+  }
+}

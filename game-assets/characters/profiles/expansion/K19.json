@@ -1,0 +1,114 @@
+{
+  "id": "K19",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Lilis",
+      "ageYears": 39,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak teratur mengikuti jarum mesin rajut",
+      "bodyLanguage": "Menelusuri tusuk yang kosong dengan jari",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja kerja bengkel rajut dan gulungan benang",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Teknisi mesin rajut",
+      "education": "Belajar operasi mesin dan pola kain",
+      "communityParticipation": "Bengkel rajut ekspansi",
+      "leisureInterest": "Berkaitan dengan satu tusuk sengaja kosong; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Cermat",
+        "tegas",
+        "perhatian"
+      ],
+      "observableHabit": "Menyimpan pola rusak untuk dibandingkan",
+      "values": "Merawat benda keluarga tanpa menghapus tanda pemiliknya",
+      "flaw": "Terlalu ingin semua pola rapi"
+    },
+    "06_psychological_profile": {
+      "motivation": "Merawat benda keluarga tanpa menghapus tanda pemiliknya",
+      "unspokenNeed": "Menghadapi terlalu ingin semua pola rapi",
+      "fear": "Satu detail kecil yang penting terhapus",
+      "innerConflict": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan pola rusak untuk dibandingkan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mewarisi beberapa pola rajut tidak sempurna",
+      "formativeMemory": "Belajar rajut dari usaha rumah keluarga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K17",
+          "description": "Ajeng membantu membedakan kesalahan dan ciri pewarna lama",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak merombak pola sentimental tanpa izin",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lugas, menanyakan maksud pembuat pola",
+      "physicalCue": "Menelusuri tusuk yang kosong dengan jari",
+      "exampleLine": "Ternyata yang bolong itu memang ditinggalkan neneknya. Jangan kututup dulu.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Satu tusuk sengaja kosong",
+      "establishedPremise": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya.",
+      "personalGoal": "Merawat benda keluarga tanpa menghapus tanda pemiliknya",
+      "centralDifficulty": "Terlalu ingin semua pola rapi",
+      "threeActBeats": [
+        "Merapikan tusuk kosong",
+        "Pemesan merasa kehilangan tanda tangan",
+        "Menyepakati cara menjaga ciri asli"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K19.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Merapikan tusuk kosong",
+      "nextBeats": [
+        "Pemesan merasa kehilangan tanda tangan",
+        "Menyepakati cara menjaga ciri asli"
+      ],
+      "doNotContradict": "Tidak merombak pola sentimental tanpa izin"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "K05",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Mimin",
+      "ageYears": 52,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak terampil mengangkat mangkuk dengan hati-hati",
+      "bodyLanguage": "Menggeser mangkuk biru ke sisi meja",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Apron soto dan kain lap",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Peracik soto",
+      "education": "Belajar memasak dari keluarga",
+      "communityParticipation": "Warung soto ekspansi",
+      "leisureInterest": "Berkaitan dengan mangkuk biru; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Hangat",
+        "pendiam",
+        "loyal"
+      ],
+      "observableHabit": "Menyisakan satu mangkuk biru saat buka warung",
+      "values": "Merawat kenangan melalui makanan tanpa menolak pelanggan baru",
+      "flaw": "Sulit menerima pelanggan lama sudah pergi"
+    },
+    "06_psychological_profile": {
+      "motivation": "Merawat kenangan melalui makanan tanpa menolak pelanggan baru",
+      "unspokenNeed": "Menghadapi sulit menerima pelanggan lama sudah pergi",
+      "fear": "Warung kehilangan arti jika kebiasaan lama hilang",
+      "innerConflict": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyisakan satu mangkuk biru saat buka warung"
+    },
+    "07_background_history": {
+      "familyContext": "Mangkuk biru milik pelanggan yang telah pindah menjadi kenangan",
+      "formativeMemory": "Resep soto berkembang bersama pelanggan tetap",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C08",
+          "description": "Inggit ingin membantu mengolah sisa bahan tanpa mengusik kisah mangkuk biru",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak memaksa warga menceritakan alasan pergi",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lembut, memakai detail rasa dan porsinya",
+      "physicalCue": "Menggeser mangkuk biru ke sisi meja",
+      "exampleLine": "Yang ini dulu selalu kupenuhi lebih dulu. Sekarang kubiarkan dia menunggu sebentar.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Mangkuk biru",
+      "establishedPremise": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak.",
+      "personalGoal": "Merawat kenangan melalui makanan tanpa menolak pelanggan baru",
+      "centralDifficulty": "Sulit menerima pelanggan lama sudah pergi",
+      "threeActBeats": [
+        "Mangkuk tetap disiapkan",
+        "Mangkuk kembali retak",
+        "Menemukan cara menyimpan kenangan tanpa menahan tempat"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K05.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Mangkuk tetap disiapkan",
+      "nextBeats": [
+        "Mangkuk kembali retak",
+        "Menemukan cara menyimpan kenangan tanpa menahan tempat"
+      ],
+      "doNotContradict": "Tidak memaksa warga menceritakan alasan pergi"
+    }
+  }
+}

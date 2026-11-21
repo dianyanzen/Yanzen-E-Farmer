@@ -1,0 +1,114 @@
+{
+  "id": "K01",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Euis",
+      "ageYears": 49,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Bahu tegak saat berkeliling pos ronda",
+      "bodyLanguage": "Menutup buku jaga perlahan",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket ronda dan senter kecil",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Koordinator ronda",
+      "education": "Belajar pengaturan giliran keamanan komunitas",
+      "communityParticipation": "Pos ronda ekspansi",
+      "leisureInterest": "Berkaitan dengan sela sesudah ketukan ketiga; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Setia",
+        "tegas",
+        "sentimental"
+      ],
+      "observableHabit": "Menghitung ketukan ronda setelah pukul sembilan",
+      "values": "Menjaga giliran ronda tetap adil",
+      "flaw": "Berat mencoret nama lama dari buku jaga"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga giliran ronda tetap adil",
+      "unspokenNeed": "Menghadapi berat mencoret nama lama dari buku jaga",
+      "fear": "Orang yang pindah akan terlupakan",
+      "innerConflict": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menghitung ketukan ronda setelah pukul sembilan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga biasa menjaga pos ketika ada kegiatan warga",
+      "formativeMemory": "Pernah bertugas bersama tetangga yang kini pergi",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C13",
+          "description": "Heri ingin buku ronde mencatat warga tanpa membebani yang sudah pindah",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membuka identitas dan jadwal rumah pribadi",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Singkat, memberi jeda setelah nama tertentu",
+      "physicalCue": "Menutup buku jaga perlahan",
+      "exampleLine": "Ketukan ketiga itu dulu selalu dijawab. Sekarang aku masih menunggu.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Sela sesudah ketukan ketiga",
+      "establishedPremise": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga.",
+      "personalGoal": "Menjaga giliran ronda tetap adil",
+      "centralDifficulty": "Berat mencoret nama lama dari buku jaga",
+      "threeActBeats": [
+        "Mendengar ronda tanpa balasan",
+        "Menemukan alasan pos kosong",
+        "Membuat cara mengenang tanpa mengikat orang yang pindah"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K01.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Mendengar ronda tanpa balasan",
+      "nextBeats": [
+        "Menemukan alasan pos kosong",
+        "Membuat cara mengenang tanpa mengikat orang yang pindah"
+      ],
+      "doNotContradict": "Tidak membuka identitas dan jadwal rumah pribadi"
+    }
+  }
+}

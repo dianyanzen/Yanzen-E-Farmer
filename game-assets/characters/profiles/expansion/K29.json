@@ -1,0 +1,114 @@
+{
+  "id": "K29",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Empi",
+      "ageYears": 63,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak hati-hati memegang roda jam kecil",
+      "bodyLanguage": "Mengangkat jam ke cahaya",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja mekanik jam dan kacamata kerja",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Teknisi jam mekanis",
+      "education": "Belajar mekanika jam dari keluarga",
+      "communityParticipation": "Bengkel jam ekspansi",
+      "leisureInterest": "Berkaitan dengan tujuh menit untuk menunggu; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Telaten",
+        "bijaksana",
+        "keras kepala"
+      ],
+      "observableHabit": "Mencatat selisih jam tiap pekan",
+      "values": "Menjaga jadwal pasar adil bagi semua pengirim",
+      "flaw": "Terlalu percaya jam harus selalu tepat"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga jadwal pasar adil bagi semua pengirim",
+      "unspokenNeed": "Menghadapi terlalu percaya jam harus selalu tepat",
+      "fear": "Perbaikan jam menghilangkan waktu toleransi sosial",
+      "innerConflict": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang.",
+      "stressResponse": "Menarik diri sejenak atau mengulang mencatat selisih jam tiap pekan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga menyimpan jam pasar dari masa usaha lama",
+      "formativeMemory": "Belajar memperbaiki jam dari bengkel keluarga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A06",
+          "description": "Asep mewakili kurir terakhir yang sering tiba telat timbang",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak mengubah jam publik tanpa mendengar pihak yang memakai",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Lambat, penuh observasi tentang kebiasaan orang",
+      "physicalCue": "Mengangkat jam ke cahaya",
+      "exampleLine": "Jamnya terlambat tujuh menit. Tapi siapa yang sengaja membiarkannya begitu?",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Tujuh menit untuk menunggu",
+      "establishedPremise": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang.",
+      "personalGoal": "Menjaga jadwal pasar adil bagi semua pengirim",
+      "centralDifficulty": "Terlalu percaya jam harus selalu tepat",
+      "threeActBeats": [
+        "Diminta membetulkan jam lambat",
+        "Menemukan alasan toleransi kurir",
+        "Menyepakati waktu yang jelas dan adil"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K29.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Diminta membetulkan jam lambat",
+      "nextBeats": [
+        "Menemukan alasan toleransi kurir",
+        "Menyepakati waktu yang jelas dan adil"
+      ],
+      "doNotContradict": "Tidak mengubah jam publik tanpa mendengar pihak yang memakai"
+    }
+  }
+}

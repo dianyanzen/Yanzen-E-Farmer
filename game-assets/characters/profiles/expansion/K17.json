@@ -1,0 +1,114 @@
+{
+  "id": "K17",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ajeng",
+      "ageYears": 33,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Tangan berbekas pewarna bahan kain",
+      "bodyLanguage": "Mengecek bagian dalam manset sampel",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Celemek pewarna kain dan lengan bisa digulung",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Perajin pewarna kain",
+      "education": "Belajar teknik pewarnaan kain",
+      "communityParticipation": "Bengkel pewarna ekspansi",
+      "leisureInterest": "Berkaitan dengan biru pada ujung lengan; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Artistik",
+        "tekun",
+        "penasaran"
+      ],
+      "observableHabit": "Menyimpan sampel warna dalam amplop bertanggal",
+      "values": "Menghasilkan warna yang punya riwayat bahan jelas",
+      "flaw": "Terburu menganggap warna pada ingatan dapat diulang persis"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menghasilkan warna yang punya riwayat bahan jelas",
+      "unspokenNeed": "Menghadapi terburu menganggap warna pada ingatan dapat diulang persis",
+      "fear": "Pesanan lama tidak bisa dipenuhi",
+      "innerConflict": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan sampel warna dalam amplop bertanggal"
+    },
+    "07_background_history": {
+      "familyContext": "Potongan kain keluarga dijadikan buku warna kerja",
+      "formativeMemory": "Belajar pewarnaan dari bengkel keluarga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K19",
+          "description": "Lilis membantu melihat perubahan warna pada hasil rajut",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyamakan warna tanpa melihat pencahayaan dan bahan",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bicara lewat perbandingan kain dan cahaya",
+      "physicalCue": "Mengecek bagian dalam manset sampel",
+      "exampleLine": "Biru yang kamu lihat itu sudah berubah. Sampelnya lama terlipat di sini.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Biru pada ujung lengan",
+      "establishedPremise": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset.",
+      "personalGoal": "Menghasilkan warna yang punya riwayat bahan jelas",
+      "centralDifficulty": "Terburu menganggap warna pada ingatan dapat diulang persis",
+      "threeActBeats": [
+        "Gagal meniru warna lama",
+        "Menemukan sampel tertutup manset",
+        "Menjelaskan perubahan warna secara terbuka"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K17.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Gagal meniru warna lama",
+      "nextBeats": [
+        "Menemukan sampel tertutup manset",
+        "Menjelaskan perubahan warna secara terbuka"
+      ],
+      "doNotContradict": "Tidak menyamakan warna tanpa melihat pencahayaan dan bahan"
+    }
+  }
+}

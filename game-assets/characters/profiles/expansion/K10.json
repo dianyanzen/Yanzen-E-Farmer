@@ -1,0 +1,114 @@
+{
+  "id": "K10",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Aam",
+      "ageYears": 48,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gerak tegas mengangkat cetakan tahu",
+      "bodyLanguage": "Meratakan sisi cetakan kayu",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian pembuat tahu tahan panas",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Perajin tahu",
+      "education": "Belajar produksi pangan keluarga",
+      "communityParticipation": "Dapur tahu ekspansi",
+      "leisureInterest": "Berkaitan dengan kotak dengan satu sudut miring; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Praktis",
+        "hangat",
+        "perasa"
+      ],
+      "observableHabit": "Menyimpan potongan sudut tahu untuk langganan",
+      "values": "Menjaga resep keluarga tetap punya ciri",
+      "flaw": "Menganggap alat lama pasti harus diganti"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga resep keluarga tetap punya ciri",
+      "unspokenNeed": "Menghadapi menganggap alat lama pasti harus diganti",
+      "fear": "Pelanggan kehilangan bentuk tahu kesukaannya",
+      "innerConflict": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menyimpan potongan sudut tahu untuk langganan"
+    },
+    "07_background_history": {
+      "familyContext": "Cetakan ibunya berumur lebih tua dari usaha sekarang",
+      "formativeMemory": "Mewarisi cetakan pertama dari ibunya",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C04",
+          "description": "Desi menawarkan cara memakai bentuk tahu yang miring dalam roti",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menjual produk sebelum matang dan bersih",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Bicara langsung tentang bahan dan alat",
+      "physicalCue": "Meratakan sisi cetakan kayu",
+      "exampleLine": "Kotaknya memang miring. Justru yang pojok paling cepat menyerap kuah.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Kotak dengan satu sudut miring",
+      "establishedPremise": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah.",
+      "personalGoal": "Menjaga resep keluarga tetap punya ciri",
+      "centralDifficulty": "Menganggap alat lama pasti harus diganti",
+      "threeActBeats": [
+        "Hendak membuang cetakan lama",
+        "Mendengar permintaan pelanggan",
+        "Memperbaiki tanpa menghilangkan ciri"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K10.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Hendak membuang cetakan lama",
+      "nextBeats": [
+        "Mendengar permintaan pelanggan",
+        "Memperbaiki tanpa menghilangkan ciri"
+      ],
+      "doNotContradict": "Tidak menjual produk sebelum matang dan bersih"
+    }
+  }
+}

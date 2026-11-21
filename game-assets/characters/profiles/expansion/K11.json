@@ -1,0 +1,114 @@
+{
+  "id": "K11",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Sasmita",
+      "ageYears": 55,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Ekspresi mendengar dengan tenang; jarang memotong",
+      "bodyLanguage": "Menutup buku catatan ketika diminta",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju pembawa cerita, tas kecil catatan",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Juru cerita warga",
+      "education": "Belajar menulis wawancara komunitas",
+      "communityParticipation": "Ruang cerita ekspansi",
+      "leisureInterest": "Berkaitan dengan nama yang boleh disimpan; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Bijaksana",
+        "sabar",
+        "kritis"
+      ],
+      "observableHabit": "Menunggu izin sebelum menulis nama penutur",
+      "values": "Menjaga cerita warga tetap milik penutur",
+      "flaw": "Terlalu takut kehilangan kisah hingga menunda merekam"
+    },
+    "06_psychological_profile": {
+      "motivation": "Menjaga cerita warga tetap milik penutur",
+      "unspokenNeed": "Menghadapi terlalu takut kehilangan kisah hingga menunda merekam",
+      "fear": "Nama seseorang tercatat tanpa izin",
+      "innerConflict": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam.",
+      "stressResponse": "Menarik diri sejenak atau mengulang menunggu izin sebelum menulis nama penutur"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga punya tradisi bertutur saat kumpul",
+      "formativeMemory": "Sejak muda mendengar berbagai versi kisah jembatan",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C01",
+          "description": "Nani mengingatkan batas penggunaan cerita pribadi",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak merekam suara, nama, atau rumah tanpa izin",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Berbicara perlahan, tidak mengklaim satu versi pasti",
+      "physicalCue": "Menutup buku catatan ketika diminta",
+      "exampleLine": "Kalau namanya tak boleh dicatat, kisahnya masih bisa kita simpan tanpa nama.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Nama yang boleh disimpan",
+      "establishedPremise": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam.",
+      "personalGoal": "Menjaga cerita warga tetap milik penutur",
+      "centralDifficulty": "Terlalu takut kehilangan kisah hingga menunda merekam",
+      "threeActBeats": [
+        "Mendengar dua versi cerita",
+        "Satu penutur meminta anonimitas",
+        "Menerbitkan versi yang disetujui bersama"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K11.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Mendengar dua versi cerita",
+      "nextBeats": [
+        "Satu penutur meminta anonimitas",
+        "Menerbitkan versi yang disetujui bersama"
+      ],
+      "doNotContradict": "Tidak merekam suara, nama, atau rumah tanpa izin"
+    }
+  }
+}

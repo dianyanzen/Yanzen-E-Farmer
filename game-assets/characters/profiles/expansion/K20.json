@@ -1,0 +1,114 @@
+{
+  "id": "K20",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Oman",
+      "ageYears": 47,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Perawakan stabil saat memeriksa sol",
+      "bodyLanguage": "Meraba tepi sol sebelum berbicara",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian perajin sepatu dan alat ukur kaki",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Perajin sepatu",
+      "education": "Belajar konstruksi sepatu dan perbaikan",
+      "communityParticipation": "Bengkel sepatu ekspansi",
+      "leisureInterest": "Berkaitan dengan sol kiri lebih tipis; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Praktis",
+        "telaten",
+        "rendah hati"
+      ],
+      "observableHabit": "Membandingkan bekas aus sepatu kiri dan kanan",
+      "values": "Membuat sepatu nyaman sesuai pemakaian nyata",
+      "flaw": "Terlalu percaya ukuran standar"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat sepatu nyaman sesuai pemakaian nyata",
+      "unspokenNeed": "Menghadapi terlalu percaya ukuran standar",
+      "fear": "Produknya menyakiti orang meski ukurannya cocok",
+      "innerConflict": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda.",
+      "stressResponse": "Menarik diri sejenak atau mengulang membandingkan bekas aus sepatu kiri dan kanan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga lama melayani pekerja pasar dengan ukuran berbeda",
+      "formativeMemory": "Belajar membuat sepatu dari usaha keluarga",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K08",
+          "description": "Teguh membantunya mengecek gerak dan beban roda serta sepatu",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak menyimpulkan kondisi tubuh dari sepatu saja",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Tenang, memberi alasan dari bekas pakai",
+      "physicalCue": "Meraba tepi sol sebelum berbicara",
+      "exampleLine": "Ukurannya sama. Tapi lihat ausnya, dua kaki itu tak bekerja dengan cara sama.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Sol kiri lebih tipis",
+      "establishedPremise": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda.",
+      "personalGoal": "Membuat sepatu nyaman sesuai pemakaian nyata",
+      "centralDifficulty": "Terlalu percaya ukuran standar",
+      "threeActBeats": [
+        "Memproduksi sepasang sol sama",
+        "Pemilik kembali dengan aus berbeda",
+        "Menguji sol sesuai kebutuhan pengguna"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K20.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Memproduksi sepasang sol sama",
+      "nextBeats": [
+        "Pemilik kembali dengan aus berbeda",
+        "Menguji sol sesuai kebutuhan pengguna"
+      ],
+      "doNotContradict": "Tidak menyimpulkan kondisi tubuh dari sepatu saja"
+    }
+  }
+}

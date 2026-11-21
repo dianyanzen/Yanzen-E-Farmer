@@ -1,0 +1,114 @@
+{
+  "id": "K12",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Manda",
+      "ageYears": 26,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Postur pengamat malam yang sering mendongak",
+      "bodyLanguage": "Menoleh ke arah angin sebelum menunjuk",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket gelap lapangan dan teropong kecil",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Pengamat satwa malam",
+      "education": "Belajar pengamatan satwa lewat kegiatan komunitas",
+      "communityParticipation": "Jalur satwa malam ekspansi",
+      "leisureInterest": "Berkaitan dengan langit di sela jemuran; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Teliti",
+        "suka menolong",
+        "penyendiri"
+      ],
+      "observableHabit": "Memeriksa orientasi alat perekam sebelum gelap",
+      "values": "Mencatat satwa malam tanpa mengusik habitatnya",
+      "flaw": "Mencurigai hilangnya suara sebagai lenyapnya hewan"
+    },
+    "06_psychological_profile": {
+      "motivation": "Mencatat satwa malam tanpa mengusik habitatnya",
+      "unspokenNeed": "Menghadapi mencurigai hilangnya suara sebagai lenyapnya hewan",
+      "fear": "Manusia merusak kebiasaan hewan tanpa sadar",
+      "innerConflict": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah.",
+      "stressResponse": "Menarik diri sejenak atau mengulang memeriksa orientasi alat perekam sebelum gelap"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mengizinkannya merawat pojok taman sebagai lokasi observasi",
+      "formativeMemory": "Mulai mengamati satwa dari halaman rumah",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A09",
+          "description": "Fajar membantu membandingkan rekaman dan foto saat malam",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak mengungkap sarang sensitif kepada pengunjung",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Pelan, selalu memberi waktu mendengar",
+      "physicalCue": "Menoleh ke arah angin sebelum menunjuk",
+      "exampleLine": "Rekamannya sepi. Tapi alatnya sekarang menghadap tembok itu.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Langit di sela jemuran",
+      "establishedPremise": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah.",
+      "personalGoal": "Mencatat satwa malam tanpa mengusik habitatnya",
+      "centralDifficulty": "Mencurigai hilangnya suara sebagai lenyapnya hewan",
+      "threeActBeats": [
+        "Rekaman mendadak kosong",
+        "Mengecek posisi alat",
+        "Membuat pengamatan dengan izin tetangga"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K12.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Rekaman mendadak kosong",
+      "nextBeats": [
+        "Mengecek posisi alat",
+        "Membuat pengamatan dengan izin tetangga"
+      ],
+      "doNotContradict": "Tidak mengungkap sarang sensitif kepada pengunjung"
+    }
+  }
+}

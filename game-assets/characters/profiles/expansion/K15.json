@@ -1,0 +1,114 @@
+{
+  "id": "K15",
+  "characterClass": "expansion-concept",
+  "approval": "planned-fictional",
+  "sourceFacts": [
+    "src/lib/game/data/bandung-character-previews.json: id/name/occupation/story/premise"
+  ],
+  "proposedFields": [
+    "age",
+    "family history",
+    "dialogue style",
+    "relationships",
+    "all story extensions"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Rukmi",
+      "ageYears": 50,
+      "ageStatus": "proposed",
+      "origin": "Kota Bandung atau sekitarnya (latar cerita fiksi; wilayah tepat belum ditetapkan)",
+      "language": "Bahasa Indonesia; nuansa Sunda ringan sesuai konteks",
+      "identity": "NPC fiktif ekspansi, belum hadir dalam peta playable"
+    },
+    "02_physical_appearance": {
+      "visualDirection": "Gestur tenang saat berjalan menyusuri gang",
+      "bodyLanguage": "Memeriksa kedua ujung gang sebelum berbelok",
+      "verification": "Belum ada audit kesesuaian dengan file ilustrasi; ini arahan artistik"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian layanan kesehatan lapangan dan tas sederhana",
+      "visualUse": "Penampilan disesuaikan kebutuhan pekerjaan; pertahankan siluet jika kelak jadi sprite 2D",
+      "productionStatus": "Concept-only"
+    },
+    "04_social_profile": {
+      "occupation": "Bidan kampung",
+      "education": "Pendidikan kebidanan fiktif tanpa identitas institusi",
+      "communityParticipation": "Gang ekspansi",
+      "leisureInterest": "Berkaitan dengan gang yang berganti pagar; hobi pribadi lebih spesifik dapat dipilih pada tahap dialog"
+    },
+    "05_personality": {
+      "traits": [
+        "Peduli",
+        "tegas",
+        "hati-hati"
+      ],
+      "observableHabit": "Mengingat rumah lewat tanaman pagar",
+      "values": "Membuat kunjungan warga aman saat hujan",
+      "flaw": "Terlalu yakin pada penanda lama"
+    },
+    "06_psychological_profile": {
+      "motivation": "Membuat kunjungan warga aman saat hujan",
+      "unspokenNeed": "Menghadapi terlalu yakin pada penanda lama",
+      "fear": "Terlambat menemukan rumah yang membutuhkan pertolongan",
+      "innerConflict": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya.",
+      "stressResponse": "Menarik diri sejenak atau mengulang mengingat rumah lewat tanaman pagar"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mengenal gang dari perubahan tanaman rumah",
+      "formativeMemory": "Bertahun-tahun membantu kegiatan kesehatan kampung",
+      "sourceStatus": "Fiksi yang diusulkan; tidak berasal dari orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "K07",
+          "description": "Wening membantu memetakan penanda yang hilang saat hujan",
+          "planned": true
+        }
+      ],
+      "trustBuildsThrough": "Pemain menghormati pekerjaan dan batas pribadinya",
+      "boundary": "Tidak membocorkan alamat atau keadaan pasien",
+      "romanceStatus": "Not authored; friendship is not a romance promise"
+    },
+    "09_dialogue_behavior": {
+      "speechPattern": "Jelas dan menenangkan, tidak membuka cerita pasien",
+      "physicalCue": "Memeriksa kedua ujung gang sebelum berbelok",
+      "exampleLine": "Pagar baru menutup pohon yang kukenal. Kita cari penanda lain yang lebih jelas.",
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+    },
+    "10_narrative_development": {
+      "arcTitle": "Gang yang berganti pagar",
+      "establishedPremise": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya.",
+      "personalGoal": "Membuat kunjungan warga aman saat hujan",
+      "centralDifficulty": "Terlalu yakin pada penanda lama",
+      "threeActBeats": [
+        "Bingung mencari rumah malam hujan",
+        "Memeriksa perubahan pagar",
+        "Menyusun petunjuk jalan yang menjaga privasi"
+      ],
+      "possiblePlayerChoice": "Mengejar solusi cepat atau mendengarkan kebutuhan tokoh dan warga terdampak",
+      "implementationStatus": "Concept only; no claim of playable quest"
+    },
+    "11_visual_references": {
+      "conceptPortrait": "/game/assets/portraits/bandung/neighborhood/K15.png",
+      "styleGroup": "bandung-concept-illustration-v1",
+      "animationAssets": "not-produced-for-this-id",
+      "consistencyChecklist": "Pertahankan pakaian dan bentuk tubuh yang disetujui saat ekspresi/sprite dibuat",
+      "visualApproval": "pending-human-review"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "availability": "Expansion concept; not spawned",
+      "knownPremise": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya.",
+      "eventFlags": "none-implemented",
+      "relationshipSaveState": "not implemented for this character",
+      "firstPlannedBeat": "Bingung mencari rumah malam hujan",
+      "nextBeats": [
+        "Memeriksa perubahan pagar",
+        "Menyusun petunjuk jalan yang menjaga privasi"
+      ],
+      "doNotContradict": "Tidak membocorkan alamat atau keadaan pasien"
+    }
+  }
+}
