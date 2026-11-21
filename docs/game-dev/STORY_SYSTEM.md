@@ -51,3 +51,7 @@ Example only. This is **not deployed** as a real content schema. The engine late
 - Two contradictory story branches never become active at the same time.
 - Every quest remains completable or closes with a believable alternate outcome.
 - Narrative save migrations preserve flags and NPC relations.
+
+## Humanizer editorial workflow (Codex skill)
+
+Untuk revisi dialog, quest, jurnal, dan pesan YZ Phone, ikuti [alur editorial Humanizer](HUMANIZER_DIALOGUE_PIPELINE.md), `AGENTS.md`, serta skill `.agents/skills/yz-farm-dialogue/SKILL.md`. Humanizer upstream tersedia secara project-local dengan versi dan lisensi terkunci pada `.agents/skills/humanizer/`. **Ini proses authoring**, bukan penyunting dialog otomatis saat pemain menjalankan game. Validasi perubahan teks tidak boleh mengubah ID, kondisi, flag, hadiah, jadwal, atau state-save.

@@ -34,3 +34,9 @@ These tools are **already available as connected integrations**, not new npm dep
 
 ## Selection rule
 **Don't install every tool.** For Stage 1.1, the lean stack is VS Code + Tiled + Pixelorama + GitHub + Vercel + Supabase. Figma is optional for YZ Phone.
+
+## Project-local Codex agent skills — Humanizer
+
+**Terpasang dalam GitHub (bukan plugin ChatGPT atau dependency npm):** `.agents/skills/humanizer/SKILL.md`, versi `4.0.0` dari [blader/humanizer](https://github.com/blader/humanizer), lisensi MIT, commit upstream terkunci `a32f24407364c74c812b43c15926d638bee1e072`. Companion `.agents/skills/yz-farm-dialogue/SKILL.md` menyesuaikan pedoman karakter, quest dan gaya Bahasa Indonesia. Lihat [Humanizer Narrative Pipeline](HUMANIZER_DIALOGUE_PIPELINE.md).
+
+Gunakan skill ini ketika *menulis/merevisi* dialog atau naskah. Jangan memakainya untuk meringkas karakter menjadi gaya seragam, memodifikasi kode sebagai efek samping, atau menjalankan proses AI di runtime. Codex di server perlu `git pull` dan sesi baru untuk menemukan skill project-local. Verifikasi statis dengan `npm run test:game:humanizer`.
