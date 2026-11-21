@@ -51,7 +51,7 @@ Roster tidak membawa field role, playable, spawned, atau relasi Character Bible.
 - Commit integrasi yang diuji: `71748b3885ece3b6d668801ad21b4d75e06042d7`. Commit exporter/layout fix PR #37: `425cdae0681073c103b1d1559f570c22f7d9fd2b`.
 - `npm run test:game`: **PASS**. `npm run typecheck`: **PASS**. `npm run build`: **PASS**. Dry-run exporter/schema/uniqueness/portrait-path checks: **PASS**, 248 valid, tidak menulis file. Pemeriksaan workflow aset (`assets:index:check`, `assets:categories:check`, `test:game:assets`, `assets:quality`): **PASS**. ESLint pada file yang diubah: **PASS**.
 - `npm run lint`: **FAIL** pada dua file baseline yang tidak berubah dari `origin/main`: `src/lib/game/phone-profiles.ts` dan `tests/game-bandung-world.mjs` (masing-masing rule `no-assign-module-variable`); ada 17 warning baseline lainnya.
-- GitHub Actions `quality` berstatus **failure** pada kedua head PR (`71748b3...` dan `425cdae...`). Job log endpoint mengembalikan HTTP 404, jadi langkah spesifik yang gagal di CI tidak dapat dipastikan dari log; jangan menyamakan kegagalan CI dengan lint baseline tanpa bukti lebih lanjut.
+- GitHub Actions `quality` berstatus **failure** pada kedua PR karena akun GitHub terkunci akibat billing: annotation menyatakan job tidak dimulai, dengan `runner_id: 0` dan tanpa steps. Jadi CI belum menjalankan tes kode. Pemilik akun perlu menyelesaikan isu billing lalu rerun workflow. Ini terpisah dari kegagalan lint lokal di atas.
 - Tidak ada merge ke `main` atau `release/yz-e-farmer-web`, preview Vercel belum dijalankan, dan tidak ada deployment production.
 
 ## Perbedaan web dan langkah integrasi aman
