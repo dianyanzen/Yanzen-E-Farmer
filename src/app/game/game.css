@@ -368,7 +368,19 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-page--phaser .yzg-dpad button{width:44px;height:44px;touch-action:none}
 }
 
-.yzg-sleep-scene {position:absolute;inset:0;z-index:30;display:grid;align-content:center;justify-items:center;gap:6px;background:#182836;color:#fff1ca;animation:yzg-rest 1.8s both}
-.yzg-sleep-scene strong {font-size:24px}
-@keyframes yzg-rest {0%{opacity:0}20%,72%{opacity:1}100%{opacity:0;background:#554e48}}
-@media(prefers-reduced-motion:reduce){.yzg-sleep-scene{animation:none}}
+.yzg-sleep-scene{position:absolute;inset:0;z-index:40;display:grid;align-content:center;justify-items:center;justify-content:center;gap:9px;background:#253043;color:#fff1ca;text-align:center;pointer-events:all;transition:background .55s ease,opacity .6s ease}
+.yzg-sleep-scene--night{background:#101b33}.yzg-sleep-scene--morning{background:#dcb98a;color:#3b302e}
+.yzg-sleep-scene strong{font-size:clamp(19px,3vw,27px);font-weight:800;text-shadow:0 2px 2px #1c243640}
+.yzg-sleep-scene small{font-size:13px;max-width:230px}
+.yzg-sleep-room{position:relative;width:182px;height:104px;background:linear-gradient(#7b8b8c 0 61%,#826f55 61%);border:5px solid #46505a;box-shadow:inset 0 -12px #6c5947,0 8px 24px #090d183b}
+.yzg-sleep-room:after{content:"";position:absolute;left:18px;bottom:9px;width:146px;height:12px;background:#6b503a;border:3px solid #44372e}
+.yzg-sleep-pillow{position:absolute;left:30px;bottom:40px;width:34px;height:22px;background:#f8e6c4;border:3px solid #ddd0ad;border-radius:7px;transform:rotate(-6deg)}
+.yzg-sleep-person{position:absolute;left:48px;bottom:44px;width:22px;height:22px;border-radius:8px 9px 4px 4px;background:#c58e68;border:6px solid #302b30}
+.yzg-sleep-blanket{position:absolute;left:67px;bottom:25px;width:87px;height:44px;background:#679285;border:5px solid #476e68;border-radius:7px 12px 5px 5px}
+.yzg-sleep-moon{position:absolute;right:16px;top:2px;color:#ffe8aa;font-size:28px;opacity:0;transition:opacity .5s}
+.yzg-sleep-zzz{position:absolute;left:63px;top:3px;letter-spacing:3px;font-weight:700;font-size:14px;opacity:.8}
+.yzg-sleep-scene--night .yzg-sleep-moon{opacity:1}
+.yzg-sleep-scene--night .yzg-sleep-room{filter:brightness(.45)}
+.yzg-sleep-scene--morning .yzg-sleep-room{filter:sepia(.25) brightness(1.13)}
+.yzg-sleep-scene--morning .yzg-sleep-zzz{opacity:0}
+@media(prefers-reduced-motion:reduce){.yzg-sleep-scene,.yzg-sleep-moon{transition:none}}

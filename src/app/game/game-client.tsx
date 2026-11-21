@@ -281,13 +281,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return () => window.clearTimeout(t);
   }, [toast]);
 
-  const [wakingDay,setWakingDay]=useState<number|null>(null);
-  useEffect(()=>{
-    if(wakingDay===null)return;
-    const id=window.setTimeout(()=>setWakingDay(null),1800);
-    return ()=>window.clearTimeout(id);
-  },[wakingDay]);
-  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
+  type SleepPhase = "settling" | "night" | "morning";
+  const [sleepScene,setSleepScene]=useState<{phase:SleepPhase;day:number}|null>(null);
+  const sleepTimers=useRef<number[]>([]);
+  useEffect(()=>()=>{sleepTimers.current.forEach(id=>window.clearTimeout(id));sleepTimers.current=[];},[]);
+  const controlsLocked = sleepScene!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
     if (controlsLocked) return;
     tapRoute.current = null;
@@ -558,9 +556,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [game, controlsLocked, action, queueCrossing]);
 
   const togglePhone = useCallback(() => {
-    if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
+    if (sleepScene!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setShowHelp(false);
-  }, [dialogue, storageOpen, saveStatus,wakingDay]);
+  }, [dialogue, storageOpen, saveStatus,sleepScene]);
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
@@ -604,13 +602,25 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools]);
 
   const rest = () => {
-    if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
-    if(wakingDay!==null)return;
+    if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game) || sleepScene!==null) return;
     const next = nextDay(game);
-    setWakingDay(next.day);
+    if (next === game) return;
+    sleepTimers.current.forEach(id=>window.clearTimeout(id));
+    sleepTimers.current=[];
+    queuedKeys.current.length=0;
+    field.held.clear();
+    field.clear();
+    tapRoute.current=null;
     setDialogue(null);
-    setGame(next); void persist(next);
-    setToast("Hari baru di Pasirluyu · Cuaca "+weatherForDay(next.day)+". Tanaman yang disiram tumbuh!");
+    // The saved day changes only after the room darkens; this avoids a visible day jump.
+    setSleepScene({phase:"settling",day:next.day});
+    sleepTimers.current.push(window.setTimeout(()=>setSleepScene({phase:"night",day:next.day}),650));
+    sleepTimers.current.push(window.setTimeout(()=>{
+      setGame(next); void persist(next);
+      setSleepScene({phase:"morning",day:next.day});
+      setToast("Hari baru di Pasirluyu · Cuaca "+weatherForDay(next.day)+". Tanaman yang disiram tumbuh!");
+    },1550));
+    sleepTimers.current.push(window.setTimeout(()=>{setSleepScene(null);sleepTimers.current=[];},3100));
   };
   const respond = (choice: SocialChoice) => {
     if (saveStatus === "loading" || saveStatus === "error" || !dialogue?.npcId) return;
@@ -683,7 +693,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan menggunakan Phaser"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
-        {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
+        {sleepScene && <div className={"yzg-sleep-scene yzg-sleep-scene--"+sleepScene.phase} role="status" aria-live="polite">
+          <div className="yzg-sleep-room" aria-hidden="true">
+            <div className="yzg-sleep-pillow"/><div className="yzg-sleep-person"/><div className="yzg-sleep-blanket"/>
+            <span className="yzg-sleep-moon">☾</span><span className="yzg-sleep-zzz">z z z</span>
+          </div>
+          <strong>{sleepScene.phase==="morning"?"Hari "+sleepScene.day:sleepScene.phase==="night"?"Malam di Pasirluyu":"Waktunya beristirahat"}</strong>
+          <small>{sleepScene.phase==="morning"?"Pagi yang baru di rumah Yanzen":sleepScene.phase==="night"?"Lampu padam, hari pun berganti":"Yanzen merebahkan diri di kasur"}</small>
+        </div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
           <div className="yzg-loading-copy">
             <strong>YZ Farm Life</strong>

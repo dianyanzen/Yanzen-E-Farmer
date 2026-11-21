@@ -187,7 +187,7 @@ export function castRod(s:GameState,roll:number):GameState{
   if(s.equippedTool!=="fishing_rod" || !s.carriedTools.includes("fishing_rod") || !fishingWaterAt(s,at.x,at.y) ||
      s.fishing.line || s.fishing.bait<=0 || !Number.isFinite(roll) || roll<0 || roll>=1)return s;
   const species:FishId=roll<.22?"kakap_putih":roll<.61?"bandeng":"belanak";
-  return {...addMinutes(s,2),fishing:{...s.fishing,bait:s.fishing.bait-1,line:species}};
+  return {...addMinutes(s,FARM_ACTION_MINUTES),fishing:{...s.fishing,bait:s.fishing.bait-1,line:species}};
 }
 export function reelFish(s:GameState):GameState{
   const at=facing(s.player),id=s.fishing.line;
@@ -580,20 +580,25 @@ export function facing(p: GameState["player"]) {
   return { x: p.x + (p.dir === "left" ? -1 : p.dir === "right" ? 1 : 0),
            y: p.y + (p.dir === "up" ? -1 : p.dir === "down" ? 1 : 0) };
 }
+/** Sixteen successful outdoor steps advance one in-game minute. No idle clock ticks. */
+export const WALK_STEPS_PER_MINUTE = 16;
+/** Manual farm work has a small, predictable time cost. */
+export const FARM_ACTION_MINUTES = 1;
+
 export function movePlayer(s: GameState, dir: Direction): GameState {
   const crossing=isOutdoorLocation(s.location)?mapExit(s.location,s.player.x,s.player.y,dir):null;
   const at=crossing??facing({...s.player,dir});
   const location=crossing?.location??s.location;
   const steps=(s.walkingSteps??0)+(isOutdoorLocation(s.location)?1:0);
-  const minutes=Math.min(1320,s.minutes+Math.floor(steps/4));
+  const minutes=Math.min(1320,s.minutes+Math.floor(steps/WALK_STEPS_PER_MINUTE));
   const occupied=(n:NpcPlacement)=>n.x===at.x && n.y===at.y;
   if(areaBlocked(location,at.x,at.y) || npcHere({...s,location}).some(occupied) ||
       (minutes!==s.minutes && npcHere({...s,location,minutes}).some(occupied))){
     return {...s,player:{...s.player,dir}};
   }
-  return {...s,location,minutes,walkingSteps:steps%4,player:{x:at.x,y:at.y,dir}};
+  return {...s,location,minutes,walkingSteps:steps%WALK_STEPS_PER_MINUTE,player:{x:at.x,y:at.y,dir}};
 }
-function addMinutes(s: GameState, amount = 3): GameState {
+function addMinutes(s: GameState, amount = FARM_ACTION_MINUTES): GameState {
   return { ...s, stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
 }
 export function nextDay(s: GameState): GameState {
