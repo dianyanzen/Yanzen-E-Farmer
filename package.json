@@ -10,14 +10,15 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs",
+    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
     "test:game:life:ui": "node tests/game-life-ui.mjs",
     "test:portraits": "node tests/game-portraits.mjs",
     "test:portraits:ui": "node tests/game-portraits-ui.mjs",
-    "test:world": "node tests/game-bandung-world.mjs"
+    "test:world": "node tests/game-bandung-world.mjs",
+    "test:game:phaser": "node tests/game-phaser-prototype.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
@@ -25,7 +26,8 @@
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "zod": "4.6.7"
+    "zod": "4.6.7",
+    "phaser": "4.2.1"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.11",
