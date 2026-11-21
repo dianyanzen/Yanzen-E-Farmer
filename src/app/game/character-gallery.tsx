@@ -105,6 +105,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
       {voice?.sampleLine&&<p>“{voice.sampleLine}”</p>}
     </Section>
     <Section label="10 · Cerita kalian" open={met}>
+      {arc?.storyArc&&<p>{arc.storyArc}</p>}
       {npc?<><p>{quest?`${tales[npc.id].title} · ${quest.phase===4?"Sudah selesai":quest.phase===3?"Menunggu kabar":"Sedang berjalan"}`:"Belum ada permintaan pribadi yang kalian kerjakan."}</p>
         {quest&&<p>{questObjective(game,npc.id)}</p>}
         {npc.id==="C08"&&game.story.orderAccepted&&<p>{game.story.orderDone?"Pesanan empat timun dari Inggit sudah diantar.":"Inggit menunggu empat timun untuk warungnya."}</p>}
@@ -112,8 +113,10 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
         {npc.id==="C01"&&game.story.photoSeen&&<p>Nani sudah menunjukkan foto pintu air. Keputusan tentang fotonya ada di Kronik.</p>}
       </>:<p>Bagian cerita ini belum kalian jalani bersama.</p>}
     </Section>
-    <Section label="11 · Potret" open><p>Potret ini membantu kamu mengenal wajahnya. Ciri dan pakaiannya akan tetap sama saat kalian bertemu lagi.</p></Section>
+    <Section label="11 · Potret" open><p>{visual?.visualContinuity??"Potret ini membantu kamu mengenal wajahnya. Ciri dan pakaiannya akan tetap sama saat kalian bertemu lagi."}</p></Section>
     <Section label="12 · Catatan terakhir" open>
+      {current?.availability&&<p>{current.availability}</p>}
+      {current?.playerDependentState&&<p>{current.playerDependentState}</p>}
       {npc&&bond?.talks?<p>Terakhir berbincang pada hari {bond.lastTalkDay}. Kalian telah bertemu {bond.talks} kali.</p>:
        self?<p>Hari {game.day}. Kamu sedang berada di {areaTitle(game.location)}.</p>:
        <p>Belum ada pertemuan yang tercatat.</p>}
