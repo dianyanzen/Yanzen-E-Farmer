@@ -349,3 +349,26 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-phone .yzg-neighbour-routes button small{display:inline;color:inherit;font-weight:400}
 .yzg-master-minimap>div:first-child{grid-column:2}
 .yzg-master-minimap>div:last-child{grid-column:2}
+@media(max-width:700px){
+.yzg-page--phaser:not(:fullscreen){height:100svh}
+.yzg-page--phaser .yzg-headsup{display:grid;grid-template-columns:minmax(0,1fr) auto auto;height:38px;box-sizing:border-box;align-content:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+.yzg-page--phaser .yzg-headsup>span{overflow:hidden;text-overflow:ellipsis}
+.yzg-page--phaser .yzg-action-context{height:42px;box-sizing:border-box;display:flex;align-items:center;min-width:0;flex:0 0 100%}
+.yzg-page--phaser .yzg-context-button{height:38px;max-width:100%;overflow:hidden}
+.yzg-page--phaser .yzg-toolbelt .yzg-tools,.yzg-page--phaser .yzg-buttons{max-width:100%;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}
+.yzg-page--phaser .yzg-tools button,.yzg-page--phaser .yzg-buttons button{flex-shrink:0}
+}
+.yzg-page button{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.yzg-dpad button{touch-action:none}.yzg-arrow{display:inline-block;font-size:0;width:15px;height:13px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.left .yzg-arrow{transform:rotate(-90deg)}.right .yzg-arrow{transform:rotate(90deg)}.down .yzg-arrow{transform:rotate(180deg)}
+@media(max-width:700px){
+.yzg-page--phaser .yzg-buttons .yzg-phone-trigger{order:-1;min-width:91px;position:sticky;left:0;z-index:1}
+.yzg-page--phaser .yzg-buttons button,.yzg-page--phaser .yzg-tool-switch button{min-height:44px;min-width:44px}
+.yzg-page--phaser .yzg-dpad{grid-template:repeat(3,44px)/repeat(3,44px);gap:2px}
+.yzg-page--phaser .yzg-dpad button{width:44px;height:44px;touch-action:none}
+}
+
+.yzg-sleep-scene {position:absolute;inset:0;z-index:30;display:grid;align-content:center;justify-items:center;gap:6px;background:#182836;color:#fff1ca;animation:yzg-rest 1.8s both}
+.yzg-sleep-scene strong {font-size:24px}
+@keyframes yzg-rest {0%{opacity:0}20%,72%{opacity:1}100%{opacity:0;background:#554e48}}
+@media(prefers-reduced-motion:reduce){.yzg-sleep-scene{animation:none}}

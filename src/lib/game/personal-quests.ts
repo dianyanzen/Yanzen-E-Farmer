@@ -21,7 +21,7 @@ export const tales:Record<NpcId,Tale> = {
       "Untuk pertama kalinya buku ini punya dua kolom: tinggi pintu di hulu dan kabar kebun di hilir. Namamu kutulis di sebelah pengamatan pertama."]
   },
   C01:{
-    title:"Halaman yang kembali tumbuh",contact:"A04",errand:"Minta saran Ayu tentang bibit untuk halaman.",work:"Rawat setidaknya satu petak tanaman hidup sampai tersiram, lalu temui Nani.",fee:75,
+    title:"Halaman yang kembali tumbuh",contact:"A04",errand:"Minta saran Ayu tentang bibit untuk halaman.",work:"Rawat setidaknya satu petak tanaman hidup sampai tersiram, periksa meja semai di samping rumah Yanzen, lalu temui Nani.",fee:75,
     offer:["Dulu kalau ada tetangga baru, kami membawa satu pot ke rumahnya. Lama-lama semua orang tahu siapa menanam apa hanya dari melihat teras.",
       "Potku tinggal dua. Aku ingin memulainya lagi dari bedeng kecil. Ayu pernah menyelamatkan semaian yang layu di pasar. Tanyakan bagaimana ia mengatur airnya."],
     reply:["Di lapak, aku menyentuh tanah sebelum menyiram. Kalau jari masih membawa tanah basah, kubiarkan akarnya bernapas.",
@@ -72,7 +72,7 @@ function tally(s:GameState,id:NpcId){
 }
 function ready(s:GameState,id:NpcId,q:QuestStep){
   if(id==="A03")return !!s.sluiceOpen;
-  if(id==="C01")return s.plots.some(p=>p.stage>=0 && p.watered);
+  if(id==="C01")return !!s.nurseryChecked;
   if(id==="C08")return sellableCucumbers(s)>=2;
   return tally(s,id)-q.baseline>=2;
 }

@@ -112,8 +112,9 @@ export type Dialogue = {
   title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
 };
 export type GameState = {
+  nurseryChecked?: boolean;
   personalQuests?: QuestBook;
-  fishing: FishingInventory; sluiceOpen?: boolean; version: 1; day: number; minutes: number;
+  fishing: FishingInventory; sluiceOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
   equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
@@ -186,7 +187,7 @@ export function castRod(s:GameState,roll:number):GameState{
   if(s.equippedTool!=="fishing_rod" || !s.carriedTools.includes("fishing_rod") || !fishingWaterAt(s,at.x,at.y) ||
      s.fishing.line || s.fishing.bait<=0 || !Number.isFinite(roll) || roll<0 || roll>=1)return s;
   const species:FishId=roll<.22?"kakap_putih":roll<.61?"bandeng":"belanak";
-  return {...addMinutes(s,8),fishing:{...s.fishing,bait:s.fishing.bait-1,line:species}};
+  return {...addMinutes(s,2),fishing:{...s.fishing,bait:s.fishing.bait-1,line:species}};
 }
 export function reelFish(s:GameState):GameState{
   const at=facing(s.player),id=s.fishing.line;
@@ -527,8 +528,8 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     [12,4,12,4],[19,13,21,14], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
-  gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,8]],
-  pasar:[[4,6,8,8],[16,6,20,8],[2,12,5,13],[26,7,28,7]],
+  gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
+  pasar:[[4,6,8,8],[16,6,20,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -570,6 +571,7 @@ export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
     return px>=left && px<left+w && py>=top && py<top+h;
   }))return true;
   if(location==="field" && x<=1 && (y<5||y>=9))return true;
+  if(location==="field" && x===6 && y===5)return true;
   return !!signpostAt(location,x,y) || outdoorFootprints[location].some(
     ([left,top,right,bottom])=>x>=left && x<=right && y>=top && y<=bottom
   );
@@ -582,20 +584,21 @@ export function movePlayer(s: GameState, dir: Direction): GameState {
   const crossing=isOutdoorLocation(s.location)?mapExit(s.location,s.player.x,s.player.y,dir):null;
   const at=crossing??facing({...s.player,dir});
   const location=crossing?.location??s.location;
-  const minutes=isOutdoorLocation(s.location)?Math.min(1320,s.minutes+2):s.minutes;
+  const steps=(s.walkingSteps??0)+(isOutdoorLocation(s.location)?1:0);
+  const minutes=Math.min(1320,s.minutes+Math.floor(steps/4));
   const occupied=(n:NpcPlacement)=>n.x===at.x && n.y===at.y;
   if(areaBlocked(location,at.x,at.y) || npcHere({...s,location}).some(occupied) ||
       (minutes!==s.minutes && npcHere({...s,location,minutes}).some(occupied))){
     return {...s,player:{...s.player,dir}};
   }
-  return {...s,location,minutes,player:{x:at.x,y:at.y,dir}};
+  return {...s,location,minutes,walkingSteps:steps%4,player:{x:at.x,y:at.y,dir}};
 }
-function addMinutes(s: GameState, amount = 15): GameState {
+function addMinutes(s: GameState, amount = 3): GameState {
   return { ...s, stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + 5), actions: Math.min(99999999,s.stats.actions + 1) }, minutes: Math.min(22 * 60, s.minutes + amount) };
 }
 export function nextDay(s: GameState): GameState {
   if (!canSleep(s)) return s;
-  return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, minutes: 6 * 60 + 20,
+  return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
       watered: p.stage>=0 && p.stage<3 && weatherForDay(s.day+1)==="hujan" })) };
@@ -821,8 +824,9 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
+    ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
@@ -936,12 +940,13 @@ export function interactDoor(s: GameState): GameState {
   }
 }
 export type ActionContext =
-  | {kind:"fish"|"sluice"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
+  | {kind:"nursery"|"fish"|"sluice"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string};
 /** One action key resolves the object in front before ever considering a farm tool. */
 export function getActionContext(s:GameState):ActionContext {
   const front=facing(s.player);
+  if(s.location==="field" && front.x===6 && front.y===5)return {kind:"nursery",label:"Periksa meja semai"};
   if(s.location==="shed"){
     if(interactDoor(s)!==s)return {kind:"door",label:"Keluar gudang"};
     if(canManageTools(s))return {kind:"storage",label:"Buka gudang peralatan"};
