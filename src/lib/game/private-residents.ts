@@ -1,5 +1,6 @@
 /** Server-only reader. Never commit deploy/private/residents.json or approved identity links. */
 import {readFile,access} from "node:fs/promises";
+import {createHash} from "node:crypto";
 import {resolve,join,isAbsolute} from "node:path";
 import {z} from "zod";
 import type {ResidentProfile} from "./resident-profile";
@@ -28,6 +29,13 @@ const canonPath=(value:string,defaultPath:string)=>{
  return isAbsolute(path)?path:resolve(process.cwd(),path);
 };
 const oldCast=[...cast.characters,...previews] as Array<{id:string;name:string;occupation:string}>;
+// A whole-roster fingerprint protects against stale/incomplete/misassigned names.
+// Derived from the 248 rows approved in the 2026-11-22 owner-supplied catalog,
+// without committing its names or occupations to this public repository.
+const OWNER_REVIEWED_ROSTER_SHA256="cd19795344bbb4fefc0022a3f17d25135d79624de4d5d9c6c618699cc1f871a0";
+const fingerprint=(rows:readonly {id:string;name:string;occupation:string;portrait:string}[])=>
+ createHash("sha256").update(rows.slice().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0)
+   .map(r=>[r.id,r.name,r.occupation,r.portrait].join("|")+"\n").join("")).digest("hex");
 
 export async function readPrivateResidents():Promise<ResidentProfile[]> {
  const path=canonPath(process.env.GAME_RESIDENT_ROSTER||"","deploy/private/residents.json");
@@ -58,6 +66,9 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
    const relative=bandungConceptPortraitPath(r.portrait).replace(/^\//,"");
    if(assetDirectoryMounted)await access(join(process.cwd(),"public",relative));
   }
+  const expected=process.env.GAME_CANONICAL_ROSTER_SHA256||OWNER_REVIEWED_ROSTER_SHA256;
+  if(!/^[0-9a-f]{64}$/.test(expected)||fingerprint(residents)!==expected)
+   throw new Error("canonical-owner-roster-fingerprint-mismatch");
   const approved=new Map<string,string>();
   const linkPath=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
   if(linkPath){
