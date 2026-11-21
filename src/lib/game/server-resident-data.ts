@@ -56,12 +56,18 @@ function approvedBibles(value:unknown,residents:readonly ResidentProfile[]):Reco
  }
  return result;
 }
-export async function loadGameResidentData():Promise<{residents:ResidentProfile[];bibles:Record<string,CharacterBible>}>{
+async function getRoster(){
  const docker=await optionalJson(privatePath("YZ_GAME_RESIDENT_ROSTER_FILE","residents.json"));
- const residents=verifiedResidents(docker??publishedResidents);
+ return {residents:verifiedResidents(docker??publishedResidents),fromDocker:docker!==null};
+}
+export async function loadGameResidents():Promise<ResidentProfile[]>{
+ return (await getRoster()).residents;
+}
+export async function loadGameResidentData():Promise<{residents:ResidentProfile[];bibles:Record<string,CharacterBible>}>{
+ const {residents,fromDocker}=await getRoster();
  const known=new Map([...cast.characters,...previews].map(p=>[p.id,p]));
  const draft=makeCompleteDockerBibles(residents,known);
- const privateBibles=docker!==null?await optionalJson(privatePath("YZ_GAME_RESIDENT_BIBLES_FILE","resident-bibles.json")):null;
+ const privateBibles=fromDocker?await optionalJson(privatePath("YZ_GAME_RESIDENT_BIBLES_FILE","resident-bibles.json")):null;
  const edited=privateBibles===null?{}:approvedBibles(privateBibles,residents);
  return {residents,bibles:{...(publishedBibles as Record<string,CharacterBible>),...draft,...edited}};
 }

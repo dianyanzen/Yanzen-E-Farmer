@@ -148,11 +148,20 @@ export default function CharacterGallery({game,residents,residentBibles=EMPTY_BI
   if(!selectedId){return;}
   let alive=true;
   const updatedBible=residentBibles[selectedId]??(publishedBibles as Record<string,CharacterBible>)[selectedId];
-  const profilePromise=updatedBible?Promise.resolve(updatedBible):loadCharacterBible(selectedId);
+  const isRosterMember=residents.some(person=>person.id===selectedId);
+  const controller=new AbortController();
+  const profilePromise=updatedBible?Promise.resolve(updatedBible):
+    isRosterMember?fetch("/api/game/character-bible/"+encodeURIComponent(selectedId),{
+     cache:"no-store",signal:controller.signal
+    }).then(async response=>{
+     if(!response.ok)throw new Error("Profil tidak tersedia");
+     const json=await response.json() as {profile:CharacterBible};
+     return json.profile;
+    }):loadCharacterBible(selectedId);
   profilePromise.then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
     .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
-  return()=>{alive=false;};
- },[selectedId,residentBibles]);
+  return()=>{alive=false;controller.abort();};
+ },[selectedId,residentBibles,residents]);
  if(selected&&selectedId)return <WargaDetail key={selected.id} person={selected} game={game}
    profile={loaded?.id===selectedId?loaded.profile:null} loading={loaded?.id!==selectedId}
    onBack={()=>onSelect(null)}/>;
