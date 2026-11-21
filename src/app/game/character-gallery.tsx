@@ -133,15 +133,28 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
   if(scroller)scroller.scrollTop=0;
   if(!selectedId){return;}
   let alive=true;
-  // Old biographies and quest flags can be accessed only via an explicit reviewed link.
-  if(!selected?.legacyApproved){
-   setLoaded({id:selectedId,profile:null});
-   return()=>{alive=false;};
-  }
-  loadCharacterBible(selected.legacyId??selectedId).then(profile=>{if(alive)setLoaded({id:selectedId,profile});})
-    .catch(()=>{if(alive)setLoaded({id:selectedId,profile:null,error:true});});
+  const load=async()=>{
+   // Private Canon profiles take precedence and are requested only when viewing a citizen.
+   if(residents.length){
+    try{
+     const response=await fetch("/api/game/resident-bible/"+encodeURIComponent(selectedId),{cache:"no-store"});
+     if(response.ok){
+      const data=await response.json() as {profile?:CharacterBible};
+      if(alive)setLoaded({id:selectedId,profile:data.profile?.id===selectedId?data.profile:null});
+      return;
+     }
+    }catch{ /* no private bio yet; do not infer legacy identity */ }
+   }
+   if(selected?.legacyApproved){
+    try{
+     const profile=await loadCharacterBible(selected.legacyId??selectedId);
+     if(alive)setLoaded({id:selectedId,profile});
+    }catch{if(alive)setLoaded({id:selectedId,profile:null,error:true});}
+   }else if(alive)setLoaded({id:selectedId,profile:null});
+  };
+  void load();
   return()=>{alive=false;};
- },[selectedId,selected?.legacyApproved,selected?.legacyId]);
+ },[selectedId,selected?.legacyApproved,selected?.legacyId,residents.length]);
  if(selected&&selectedId)return <WargaDetail key={selected.id} person={selected} game={game}
    profile={loaded?.id===selectedId?loaded.profile:null} loading={loaded?.id!==selectedId}
    onBack={()=>onSelect(null)}/>;
