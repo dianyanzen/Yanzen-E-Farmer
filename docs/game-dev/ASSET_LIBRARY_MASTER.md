@@ -151,3 +151,10 @@ Aset diusulkan → brief & provenance → gambar sumber
 **Pada branch PR #31, bukan production:** terhapus **128 PNG salinan identik** senilai **117.366.708 byte (117,37 MB)** dari empat paket ekstraksi legacy (`aset`, `atlas-bandung`, `bandung-151`, `explore-bandung`). Seluruh **32 sprite sumber kanonik** tetap berada pada `game-assets/characters/gba-v2*/sheets/`. Delapan manifest dan README diperbarui. Dua ZIP standalone serta empat SQLite legacy tidak diubah.
 
 **Katalog sekarang:** 2.487 media, 1.195 blob konten unik, 1.292 salinan tambahan, 128.751.045 byte media terdaftar. Ini tidak otomatis setara dengan penghematan Git pack atau ukuran download runtime. Daftar SHA/path untuk pemulihan ada di [asset-prune-20261121.json](../../game-assets/catalog/asset-prune-20261121.json); commit sebelum pembersihan `251f78a46b1e617e12a645c29d2c072bf62cf7ad`. Mutu visual potret, tanaman, dan konsep Bandung belum dituntaskan: file unik yang masih layak untuk ekspansi tidak dibuang hanya karena tidak aktif. CI, pemeriksaan browser dan asset index perlu lulus sebelum merge.
+
+
+## 9. Pemeriksaan teknis karakter — metadata alpha, bukan vonis visual
+
+Kedua manifest kanonik A/C mencatat **32 dari 32** lembar gerak dengan lebih dari 99% piksel nontransparan ber-alpha *parsial*, dan **16 lembar** dengan indikator sudut tidak sepenuhnya transparan. **Ini sinyal QA, bukan bukti otomatis bahwa gambar jelek**: alpha 254 dan 1 sama-sama dihitung parsial oleh manifest. Jangan menghancurkan sumber kanonik sebelum inspeksi histogram alpha, contact sheet, dan hasil render pada resolusi target. Setelah ditinjau, gunakan kategori REWORK/KEEP/DELETE secara individual.
+
+Rincian karakter dan keputusan sementara: [asset-visual-qa-20261121.json](../../game-assets/catalog/asset-visual-qa-20261121.json). Perintah `npm run assets:quality` kini juga melaporkan indikator ini tanpa gagal otomatis, karena keputusan visual wajib menggunakan pemeriksaan gambar.

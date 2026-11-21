@@ -28,5 +28,18 @@ const result={source:"asset-database.json",files:db.rows.length,png,uniqueConten
  colorModes,topDimensions:[...widths].sort((a,b)=>b[1]-a[1]).slice(0,18),
  portraitConcepts:concept,oversizedImages:wide,sourceNeedsReview:unreviewed.length,
  exampleLicenseReview:unreviewed.slice(0,12),styleFamilies:families,issues:bad};
+// Canonical generated motion sheets: metadata-only review flags (not a visual defect verdict).
+const motionFamilies=["gba-v2","gba-v2-c"];
+const motionCharacters=motionFamilies.flatMap(family=>{
+ const file=new URL("../../game-assets/characters/"+family+"/manifest.json",import.meta.url);
+ const manifest=JSON.parse(readFileSync(file,"utf8"));
+ return manifest.characters.map(c=>({id:c.id,family,alphaAudit:c.alphaAudit||{}}));
+});
+const highSemi=motionCharacters.filter(c=>{
+ const opaque=c.alphaAudit.opaquePixels||0,semi=c.alphaAudit.semiTransparentPixels||0;
+ return semi/(semi+opaque||1)>0.99;
+});
+const uncertainCorners=motionCharacters.filter(c=>c.alphaAudit.cornersTransparent===false);
+result.characterMotionAlphaReview={characters:motionCharacters.length,partialAlphaShareAbove99Percent:highSemi.length,nontransparentCornerSheets:uncertainCorners.map(c=>c.id),status:"review-required-not-confirmed-defect",triage:"game-assets/catalog/asset-visual-qa-20261121.json"};
 console.log(JSON.stringify(result,null,2));
 if(bad.length){console.error("FAIL: found "+bad.length+" invalid/mismatched image headers");process.exitCode=1}
