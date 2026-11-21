@@ -18,7 +18,7 @@ import CharacterGallery from "./character-gallery";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
-import {approvedLegacyId} from "@/lib/game/legacy-identity";
+import {approvedLegacyId,conservativeDisplayMatch} from "@/lib/game/legacy-identity";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
@@ -650,9 +650,19 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const oldId=approvedLegacyId(resident);
     return oldId?[[oldId,resident] as const]:[];
   }));
-  const activeNames = new Map(NPCS.map(npc => [npc.name, approvedByLegacyId.get(npc.id)?.name ?? npc.name]));
+  const visualByLegacyId=new Map(NPCS.flatMap(npc=>{
+    const match=conservativeDisplayMatch(npc,residents);
+    return match?[[npc.id,match] as const]:[];
+  }));
+  // Visible names/faces follow a verified two-field display match, while story
+  // and relationship transfer still require independent manual approval.
+  const activeNames=new Map(NPCS.map(npc=>[npc.name,
+    approvedByLegacyId.get(npc.id)?.name??visualByLegacyId.get(npc.id)?.name??npc.name]));
+  const namePattern=new RegExp("\\b("+[...activeNames.keys()].map(name=>name.replace(/[.*+?^${}()|[\]\\]/g,"\\  const activeNames = new Map(NPCS.map(npc => [npc.name, approvedByLegacyId.get(npc.id)?.name ?? npc.name]));
   const display = (message: string) =>
-    message.replace(/\b(?:Ryan|Nani|Inggit)\b/g, name => activeNames.get(name) ?? name);
+    message.replace(/\b(?:Ryan|Nani|Inggit)\b/g, name => activeNames.get(name) ?? name);"))
+    .sort((a,b)=>b.length-a.length).join("|")+")\\b","g");
+  const display=(message:string)=>message.replace(namePattern,name=>activeNames.get(name)??name);
   const actionLabel = display(context.label);
   const actionVerb = context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
@@ -723,7 +733,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
             {dialogue.npcId==="C07" && <NextImage src="/game/assets/tiles/fish-market.png" width={144} height={48} alt="Bandeng, kakap putih dan belanak"/>}
           </div>}
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title), lines: dialogue.lines.map(display) }} game={game}
-            resident={dialogue.npcId ? approvedByLegacyId.get(dialogue.npcId) : undefined}>
+            resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
 
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
@@ -834,7 +844,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
                   const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
                   return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
-                    {approvedByLegacyId.has(npc.id) ? <ResidentPortrait resident={approvedByLegacyId.get(npc.id)!}/> : <Portrait npcId={npc.id} emotion={bond.mood}/>}
+                    {visualByLegacyId.has(npc.id) ? <ResidentPortrait resident={visualByLegacyId.get(npc.id)!}/> : <Portrait npcId={npc.id} emotion={bond.mood}/>}
                     <div><b>{display(npc.name)}</b><small>{npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
                     <p className="yzg-npc-where">Lokasi: {areaTitle(place.location)} · {display(place.activity)}</p>
                     {level>=1&&<small>Kebiasaan: {soul.habit}</small>}
