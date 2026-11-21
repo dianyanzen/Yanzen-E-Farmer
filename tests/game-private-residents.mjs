@@ -8,6 +8,7 @@ import {build} from "esbuild";
 const root=process.cwd();
 const work=mkdtempSync(join(root,"node_modules/.npc-roster-fixture-"));
 const previousRoster=process.env.GAME_RESIDENT_ROSTER;
+const previousJson=process.env.GAME_RESIDENT_ROSTER_JSON;
 const previousLinks=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
 const previousBibles=process.env.GAME_RESIDENT_BIBLES;
 try{
@@ -37,6 +38,11 @@ try{
   return await readPrivateResidents();
  };
  assert.equal((await withRoster(roster)).length,248,"Valid private roster loads");
+ process.env.GAME_RESIDENT_ROSTER_JSON=JSON.stringify({schemaVersion:1,currentRoster:roster});
+ assert.equal((await readPrivateResidents()).length,248,"Vercel secret environment value loads 248 NPCs");
+ process.env.GAME_RESIDENT_ROSTER_JSON="{invalid-json";
+ assert.equal((await readPrivateResidents()).length,0,"Broken secret does not fall back to stale Docker file");
+ delete process.env.GAME_RESIDENT_ROSTER_JSON;
  assert.equal((await withRoster(roster.slice(0,247))).length,0,"No partial roster accepted");
  assert.equal((await withRoster([...roster.slice(0,247),roster[0]])).length,0,"Duplicate identity rejected");
  assert.equal((await withRoster([...roster.slice(0,247),{...roster[247],portrait:roster[0].portrait}])).length,0,"Duplicate portrait rejected");
@@ -87,6 +93,8 @@ try{
  assert.equal((await withRoster(roster)).length,0,"Stale approval is fail-closed");
  console.log("PASS: private roster 248, one-word names, unique portraits, missing assets, manual legacy links");
 }finally{
+ if(previousJson===undefined)delete process.env.GAME_RESIDENT_ROSTER_JSON;
+ else process.env.GAME_RESIDENT_ROSTER_JSON=previousJson;
  if(previousRoster===undefined)delete process.env.GAME_RESIDENT_ROSTER;
  else process.env.GAME_RESIDENT_ROSTER=previousRoster;
  if(previousLinks===undefined)delete process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
