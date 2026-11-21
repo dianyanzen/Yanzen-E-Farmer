@@ -23,6 +23,19 @@ export async function readPrivateResidentBible(resident:ResidentProfile):Promise
  if(!isRecord(raw)||raw.id!==resident.id||raw.approval!=="approved"||!isRecord(raw.sections))return null;
  if(!keys.every(key=>isRecord(raw.sections)&&isRecord(raw.sections[key])))return null;
  const sections={...raw.sections} as Record<string,Record<string,unknown>>;
+ // Approval must mean all 12 categories were individually authored and reviewed.
+ const notWritten=/(?:Belum ditulis|Belum ditetapkan|Tinjau referensi potret)/i;
+ const hasPlaceholder=(value:unknown):boolean=>
+  typeof value==="string"?notWritten.test(value):
+  Array.isArray(value)?value.some(hasPlaceholder):
+  isRecord(value)?Object.values(value).some(hasPlaceholder):false;
+ if(keys.some(key=>hasPlaceholder(sections[key])))return null;
+ const traitList=sections["05_personality"].traits;
+ const beats=sections["10_narrative_development"].threeActBeats;
+ const line=sections["09_dialogue_behavior"].sampleLine;
+ if(!Array.isArray(traitList)||traitList.length<2||
+   !Array.isArray(beats)||beats.length!==3||new Set(beats).size!==3||
+   typeof line!=="string"||line.trim().length<20)return null;
  // Canonical truth always comes from the roster, never from a copied old biography.
  sections["01_core_identity"]={...sections["01_core_identity"],name:resident.name};
  sections["04_social_profile"]={...sections["04_social_profile"],occupation:resident.occupation};
