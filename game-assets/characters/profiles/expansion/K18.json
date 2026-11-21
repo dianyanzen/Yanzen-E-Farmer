@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Pelan, sering memberi contoh bunyi",
       "physicalCue": "Mengetuk tabung lalu berhenti mendengar",
-      "exampleLine": "Di depan bunyinya pas. Dari belakang ada nada yang lari.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Di depan bunyinya pas. Dari belakang ada nada yang lari."
     },
     "10_narrative_development": {
       "arcTitle": "Nada yang enggan pulang",

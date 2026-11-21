@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Puitis singkat tentang bunyi benda",
       "physicalCue": "Menepuk siku figur kayu pelan",
-      "exampleLine": "Derit itu terdengar jelek di sini. Tapi ada orang yang menunggunya saat pentas.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Derit itu terdengar jelek di sini. Tapi ada orang yang menunggunya saat pentas."
     },
     "10_narrative_development": {
       "arcTitle": "Tokoh tanpa bayangan",

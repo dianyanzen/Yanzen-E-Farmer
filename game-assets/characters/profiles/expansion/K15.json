@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Jelas dan menenangkan, tidak membuka cerita pasien",
       "physicalCue": "Memeriksa kedua ujung gang sebelum berbelok",
-      "exampleLine": "Pagar baru menutup pohon yang kukenal. Kita cari penanda lain yang lebih jelas.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Pagar baru menutup pohon yang kukenal. Kita cari penanda lain yang lebih jelas."
     },
     "10_narrative_development": {
       "arcTitle": "Gang yang berganti pagar",

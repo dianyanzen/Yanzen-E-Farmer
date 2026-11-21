@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Humor ringan, bertanya sebelum menuduh",
       "physicalCue": "Memutar gagang pompa perlahan",
-      "exampleLine": "Pompa dipakai malam-malam? Kita cari dulu siapa yang perlu, jangan langsung marah.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Pompa dipakai malam-malam? Kita cari dulu siapa yang perlu, jangan langsung marah."
     },
     "10_narrative_development": {
       "arcTitle": "Pompa terakhir",

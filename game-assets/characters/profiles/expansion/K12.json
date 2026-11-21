@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Pelan, selalu memberi waktu mendengar",
       "physicalCue": "Menoleh ke arah angin sebelum menunjuk",
-      "exampleLine": "Rekamannya sepi. Tapi alatnya sekarang menghadap tembok itu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Rekamannya sepi. Tapi alatnya sekarang menghadap tembok itu."
     },
     "10_narrative_development": {
       "arcTitle": "Langit di sela jemuran",

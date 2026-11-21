@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Berbicara perlahan, tidak mengklaim satu versi pasti",
       "physicalCue": "Menutup buku catatan ketika diminta",
-      "exampleLine": "Kalau namanya tak boleh dicatat, kisahnya masih bisa kita simpan tanpa nama.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kalau namanya tak boleh dicatat, kisahnya masih bisa kita simpan tanpa nama."
     },
     "10_narrative_development": {
       "arcTitle": "Nama yang boleh disimpan",

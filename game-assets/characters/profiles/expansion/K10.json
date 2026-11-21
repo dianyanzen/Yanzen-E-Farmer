@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bicara langsung tentang bahan dan alat",
       "physicalCue": "Meratakan sisi cetakan kayu",
-      "exampleLine": "Kotaknya memang miring. Justru yang pojok paling cepat menyerap kuah.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kotaknya memang miring. Justru yang pojok paling cepat menyerap kuah."
     },
     "10_narrative_development": {
       "arcTitle": "Kotak dengan satu sudut miring",

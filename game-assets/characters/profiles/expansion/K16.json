@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Kalimat berirama namun tetap sederhana",
       "physicalCue": "Mengetuk bangku kosong perlahan",
-      "exampleLine": "Ketukan terakhir biasanya bagiannya. Sekarang biar dia pilih cara ikut latihan.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ketukan terakhir biasanya bagiannya. Sekarang biar dia pilih cara ikut latihan."
     },
     "10_narrative_development": {
       "arcTitle": "Satu bangku kosong di latihan",

@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Jelas dan hati-hati menyebut sumber",
       "physicalCue": "Menahan ujung poster dengan pemberat kecil",
-      "exampleLine": "Kalau sisi belakang ditutup, nama penjaganya hilang lagi.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kalau sisi belakang ditutup, nama penjaganya hilang lagi."
     },
     "10_narrative_development": {
       "arcTitle": "Daftar absen di balik poster",

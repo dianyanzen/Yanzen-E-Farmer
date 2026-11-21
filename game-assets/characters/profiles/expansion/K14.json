@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bicara cepat namun lembut saat membahas rekaman",
       "physicalCue": "Menekan tombol jeda sebelum menjawab",
-      "exampleLine": "Ternyata lima detik kosong itu ada bunyi belnya. Aku hampir membuangnya.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ternyata lima detik kosong itu ada bunyi belnya. Aku hampir membuangnya."
     },
     "10_narrative_development": {
       "arcTitle": "Lima detik kosong",

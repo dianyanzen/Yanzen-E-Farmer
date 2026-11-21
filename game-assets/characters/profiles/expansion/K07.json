@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bicara jelas memisahkan fakta dan dugaan",
       "physicalCue": "Memutar botol melihat sisa tulisan",
-      "exampleLine": "Kalau labelnya luntur, aku tak bisa menebak asal hanya dari warna.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kalau labelnya luntur, aku tak bisa menebak asal hanya dari warna."
     },
     "10_narrative_development": {
       "arcTitle": "Dua botol tertukar",

@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bicara lewat perbandingan kain dan cahaya",
       "physicalCue": "Mengecek bagian dalam manset sampel",
-      "exampleLine": "Biru yang kamu lihat itu sudah berubah. Sampelnya lama terlipat di sini.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Biru yang kamu lihat itu sudah berubah. Sampelnya lama terlipat di sini."
     },
     "10_narrative_development": {
       "arcTitle": "Biru pada ujung lengan",
