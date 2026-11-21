@@ -47,7 +47,9 @@ try{
  }
  const client=file("src/app/game/game-client.tsx");
  assert.ok(!client.includes("residentById.has(npc.id)"),"Unsafe automatic face replacement remains");
- assert.ok(client.includes("approvedByLegacyId.get(dialogue.npcId)"),"Dialogue must require reviewed association");
+ assert.ok(client.includes("visualByLegacyId.get(dialogue.npcId)"),"Dialogue portrait must use conservative canonical image matching");
+ assert.ok(client.includes("conservativeDisplayMatch(npc,residents)"),"Only name and occupation corroboration may update active nameplates");
+ assert.ok(client.includes("approvedByLegacyId"),"Explicit approval must stay separate from display-only mapping");
  const ignore=file(".gitignore");
  assert.ok(ignore.includes("deploy/private/"));
  console.log("PASS: 69 legacy ID collisions quarantined, 39 story candidates, 30 concepts, route/UI identity guard");
