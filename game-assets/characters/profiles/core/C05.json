@@ -1,0 +1,124 @@
+{
+  "id": "C05",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Eza",
+      "ageYears": 16,
+      "origin": "Pasirluyu, Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Perawakan remaja; gerak cepat dan masih sering ceroboh",
+      "bodyLanguageBaseline": "Berlutut terlalu dekat saat memeriksa tunas",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja lilac dan sepatu sekolah tanpa logo",
+      "styleReason": "Siluet remaja dan kemeja lilac cocok untuk rancangan pelajar; usia cerita tidak diambil dari data pegawai.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pelajar dan peserta klub kebun",
+      "education": "Masih sekolah; belajar percobaan kebun lewat klub",
+      "communityActivity": "Klub kebun ekspansi",
+      "hobbies": [
+        "Bermain sepak bola",
+        "Menanam sayur percobaan"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Antusias",
+        "Mudah penasaran",
+        "Kadang terburu-buru"
+      ],
+      "habit": "Menulis hasil percobaan sebelum mengingat tanggalnya",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Mudah terburu-buru ingin hasil"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menumbuhkan sayur percobaan yang berhasil dibuktikan sendiri",
+      "unspokenNeed": "Belajar menghadapi mudah terburu-buru ingin hasil",
+      "fear": "Dibilang hanya bermain ketika meminta ikut rapat kebun",
+      "innerConflict": "Menumbuhkan sayur percobaan yang berhasil dibuktikan sendiri tetapi mudah terburu-buru ingin hasil",
+      "copingResponse": "Mengulang percobaan tanpa catatan saat kecewa"
+    },
+    "07_background_history": {
+      "familyContext": "Tinggal dengan keluarga yang mendukung sekolah dan klub kebun",
+      "formativeMemory": "Percobaan pertama membusuk karena ia menyiram dua kali sehari",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C06",
+          "relationship": "Menganggap Yani mentor yang pintar namun terlalu teliti",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Batas usia dan keamanan: tidak mengikuti interaksi romantis dewasa",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Penuh pertanyaan, spontan, kadang memotong pembicaraan",
+      "habitualGesture": "Berlutut terlalu dekat saat memeriksa tunas",
+      "stressReaction": "Mengulang percobaan tanpa catatan saat kecewa",
+      "sampleLine": "Kalau kutanam dua sekarang, besok sudah beda, kan? Oh, jangan-jangan belum."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar sabar dan mencatat hasil",
+      "initialDesire": "Menumbuhkan sayur percobaan yang berhasil dibuktikan sendiri",
+      "mainObstacle": "Mudah terburu-buru ingin hasil",
+      "threeActBeats": [
+        "Mencoba benih buru-buru",
+        "Membandingkan dua tray dengan Yani",
+        "Menunjukkan hasil walau satu gagal"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Pendidikan kebun dan percobaan semai",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C05.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C05.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Eza",
+        "Pelajar dan peserta klub kebun",
+        "Antusias",
+        "Mudah penasaran",
+        "Kadang terburu-buru"
+      ],
+      "proposedArcStartingPoint": "Mencoba benih buru-buru",
+      "notYetOccurred": [
+        "Membandingkan dua tray dengan Yani",
+        "Menunjukkan hasil walau satu gagal"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Batas usia dan keamanan: tidak mengikuti interaksi romantis dewasa"
+    }
+  }
+}

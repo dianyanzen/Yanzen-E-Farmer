@@ -1,0 +1,124 @@
+{
+  "id": "C03",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Tatang",
+      "ageYears": 61,
+      "origin": "Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Rambut abu-abu, kumis dan topi datar; tangan teliti pada serat kayu",
+      "bodyLanguageBaseline": "Menepuk potongan kayu untuk mendengar bunyinya",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju kerja kayu, kacamata dan topi datar",
+      "styleReason": "Rambut abu-abu, kumis, kacamata, dan topi datar memberi identitas mentor kerajinan.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perajin kayu senior",
+      "education": "Belajar pertukangan dari bengkel keluarga",
+      "communityActivity": "Bengkel kayu ekspansi",
+      "hobbies": [
+        "Membuat mainan kayu",
+        "Bermain catur"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Bijaksana",
+        "Humoris",
+        "Telaten"
+      ],
+      "habit": "Menyimpan potongan kayu dengan asal diketahui",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu meremehkan desain baru"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga keterampilan kayu dapat dipelajari generasi berikutnya",
+      "unspokenNeed": "Belajar menghadapi terlalu meremehkan desain baru",
+      "fear": "Teknik lama dianggap tak berguna",
+      "innerConflict": "Menjaga keterampilan kayu dapat dipelajari generasi berikutnya tetapi terlalu meremehkan desain baru",
+      "copingResponse": "Menjadi semakin cerewet ketika hasil kerja diuji"
+    },
+    "07_background_history": {
+      "familyContext": "Bengkel kecil pernah menjadi tempat main anak-anak sekitar",
+      "formativeMemory": "Mainan kayu pertamanya dikembalikan karena tidak aman",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A08",
+          "relationship": "Mengajari Astri soal sambungan kuat, belajar estetika baru darinya",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memakai alat tajam tanpa pengawasan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Humor kering dengan contoh benda nyata",
+      "habitualGesture": "Menepuk potongan kayu untuk mendengar bunyinya",
+      "stressReaction": "Menjadi semakin cerewet ketika hasil kerja diuji",
+      "sampleLine": "Bagus pola bambumu. Sekarang coba angkat saat isinya penuh."
+    },
+    "10_narrative_development": {
+      "storyArc": "Menghargai pembaruan tanpa meninggalkan tradisi",
+      "initialDesire": "Menjaga keterampilan kayu dapat dipelajari generasi berikutnya",
+      "mainObstacle": "Terlalu meremehkan desain baru",
+      "threeActBeats": [
+        "Menolak sambungan desain baru",
+        "Menguji ketahanan bersama Astri",
+        "Membuka kelas kerajinan lintas usia"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Pembuatan mebel dan alat rumah",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C03.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C03.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Tatang",
+        "Perajin kayu senior",
+        "Bijaksana",
+        "Humoris",
+        "Telaten"
+      ],
+      "proposedArcStartingPoint": "Menolak sambungan desain baru",
+      "notYetOccurred": [
+        "Menguji ketahanan bersama Astri",
+        "Membuka kelas kerajinan lintas usia"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memakai alat tajam tanpa pengawasan"
+    }
+  }
+}

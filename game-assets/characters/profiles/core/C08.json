@@ -1,0 +1,124 @@
+{
+  "id": "C08",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Inggit",
+      "ageYears": 34,
+      "origin": "Pasirluyu, Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak cekatan mengatur dapur; wajah mudah tersenyum namun tegas soal stok",
+      "bodyLanguageBaseline": "Menyeka tangan pada apron sebelum memberi uang kembalian",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Apron kerja di atas pakaian pasar",
+      "styleReason": "Apron pada sprite menjadi petunjuk desain paling langsung untuk usaha makanan.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penjual makanan pasar",
+      "education": "Belajar mengolah makanan dari warung keluarga dan percobaan resep",
+      "communityActivity": "Warung dan Pasar Warga",
+      "hobbies": [
+        "Bereksperimen dengan resep",
+        "Berkebun cabai"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ceria",
+        "Cekatan",
+        "Kreatif"
+      ],
+      "habit": "Membalik toples acar ketika pasar sepi",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Sulit berhenti membuat menu baru meski bahan terbatas"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjual makanan segar tanpa membuang hasil panen",
+      "unspokenNeed": "Belajar menghadapi sulit berhenti membuat menu baru meski bahan terbatas",
+      "fear": "Menyiapkan porsi berlebih ketika pasar sepi",
+      "innerConflict": "Menjual makanan segar tanpa membuang hasil panen tetapi sulit berhenti membuat menu baru meski bahan terbatas",
+      "copingResponse": "Mengiris semakin cepat saat antrean menumpuk"
+    },
+    "07_background_history": {
+      "familyContext": "Dapur warung lama menjadi tempat keluarga berkumpul",
+      "formativeMemory": "Pernah membuang banyak potongan sayur dari resep yang salah ukur",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A04",
+          "relationship": "Memberi tahu Ayu jenis timun yang mudah diolah",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak meminta barang segar tanpa membayar atau menjelaskan kesepakatan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Ceria dan konkret; menakar porsi di tengah percakapan",
+      "habitualGesture": "Menyeka tangan pada apron sebelum memberi uang kembalian",
+      "stressReaction": "Mengiris semakin cepat saat antrean menumpuk",
+      "sampleLine": "Yang dua ini cukup buat toples. Besok lihat dulu mana yang laku, baru tambah."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar mengelola stok dan hubungan",
+      "initialDesire": "Menjual makanan segar tanpa membuang hasil panen",
+      "mainObstacle": "Sulit berhenti membuat menu baru meski bahan terbatas",
+      "threeActBeats": [
+        "Meminta pasokan timun segar",
+        "Menilai dua toples acar",
+        "Memutuskan menu berdasar kebutuhan pedagang"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Quest pasar, memasak, stok, persahabatan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C08.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C08.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Registered active prototype NPC (per portrait register)",
+      "knownCanon": [
+        "Inggit",
+        "Penjual makanan pasar",
+        "Ceria",
+        "Cekatan",
+        "Kreatif"
+      ],
+      "proposedArcStartingPoint": "Meminta pasokan timun segar",
+      "notYetOccurred": [
+        "Menilai dua toples acar",
+        "Memutuskan menu berdasar kebutuhan pedagang"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak meminta barang segar tanpa membayar atau menjelaskan kesepakatan"
+    }
+  }
+}

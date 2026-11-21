@@ -1,0 +1,124 @@
+{
+  "id": "C04",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Desi",
+      "ageYears": 32,
+      "origin": "Bandung tengah (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak cekatan di meja adonan; rambut rapi untuk bekerja",
+      "bodyLanguageBaseline": "Mengecek tepi nampan sembari bicara",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kardigan krem dan celemek pembuat roti",
+      "styleReason": "Kardigan krem dan sanggul dipakai sebagai arah visual karakter toko roti.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pembuat roti desa",
+      "education": "Belajar memanggang dari resep keluarga dan pesanan pasar",
+      "communityActivity": "Toko roti ekspansi",
+      "hobbies": [
+        "Mencoba resep roti",
+        "Merawat tanaman dapur"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Ramah",
+        "Cekatan",
+        "Perhatian"
+      ],
+      "habit": "Menyisihkan satu roti untuk pekerja lembur",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu sering mengutamakan pesanan orang lain"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuka dapur kecil yang tetap ramah untuk warga",
+      "unspokenNeed": "Belajar menghadapi terlalu sering mengutamakan pesanan orang lain",
+      "fear": "Resep keluarga hilang ketika usaha berkembang",
+      "innerConflict": "Membuka dapur kecil yang tetap ramah untuk warga tetapi terlalu sering mengutamakan pesanan orang lain",
+      "copingResponse": "Meremas lap dapur ketika tertekan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah berjualan roti rumahan pada hari pasar",
+      "formativeMemory": "Pernah lupa makan karena mengejar pesanan besar",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C08",
+          "relationship": "Saling bertukar bahan, berbeda pendapat soal harga dan ukuran porsi",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak membagikan resep keluarga sebagai hadiah otomatis",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Ramah, cepat; kata-katanya disertai hitungan bahan",
+      "habitualGesture": "Mengecek tepi nampan sembari bicara",
+      "stressReaction": "Meremas lap dapur ketika tertekan",
+      "sampleLine": "Roti kedua belum matang. Kalau terburu-buru, besok yang kecewa tetap kita."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar menerima bantuan dan menetapkan kapasitas",
+      "initialDesire": "Membuka dapur kecil yang tetap ramah untuk warga",
+      "mainObstacle": "Terlalu sering mengutamakan pesanan orang lain",
+      "threeActBeats": [
+        "Memenuhi pesanan terlalu banyak",
+        "Menimbang biaya dengan Inggit",
+        "Membuka giliran bantu dapur"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Roti, memasak, persediaan bahan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C04.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C04.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Desi",
+        "Pembuat roti desa",
+        "Ramah",
+        "Cekatan",
+        "Perhatian"
+      ],
+      "proposedArcStartingPoint": "Memenuhi pesanan terlalu banyak",
+      "notYetOccurred": [
+        "Menimbang biaya dengan Inggit",
+        "Membuka giliran bantu dapur"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak membagikan resep keluarga sebagai hadiah otomatis"
+    }
+  }
+}

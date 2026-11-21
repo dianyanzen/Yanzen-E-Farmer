@@ -1,0 +1,124 @@
+{
+  "id": "C11",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ray",
+      "ageYears": 23,
+      "origin": "Pendatang dari wilayah sekitar Bandung (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak lincah, mudah berhenti mengamati tanda jalan",
+      "bodyLanguageBaseline": "Menepuk kantong buku kecil saat menemui orang baru",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Hoodie dan celana cargo, jurnal perjalanan",
+      "styleReason": "Hoodie dan celana cargo memberi arah karakter pendatang yang belajar dari kebun ke kebun.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pemagang kebun keliling",
+      "education": "Magang lintas kebun dan belajar dari petani setempat",
+      "communityActivity": "Jalur perjalanan ekspansi",
+      "hobbies": [
+        "Menjelajah jalur desa",
+        "Membuat jurnal perjalanan"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Adaptif",
+        "Berani mencoba",
+        "Ramah"
+      ],
+      "habit": "Mencatat nama jalan dan orang yang membantu",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu cepat mencoba tanpa tahu kebiasaan tempat"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menemukan cara bertani yang cocok bagi tiap lahan",
+      "unspokenNeed": "Belajar menghadapi terlalu cepat mencoba tanpa tahu kebiasaan tempat",
+      "fear": "Tidak pernah dianggap bagian dari komunitas",
+      "innerConflict": "Menemukan cara bertani yang cocok bagi tiap lahan tetapi terlalu cepat mencoba tanpa tahu kebiasaan tempat",
+      "copingResponse": "Mencatat rute berulang saat merasa sendirian"
+    },
+    "07_background_history": {
+      "familyContext": "Biasa berpindah tempat mengikuti kesempatan belajar",
+      "formativeMemory": "Pernah menanam jenis sama di dua tempat dengan hasil berbeda jauh",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A01",
+          "relationship": "Melihat Yanzen sebagai contoh pendatang yang kembali, tetapi menolak meniru semuanya",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menganggap pengetahuan lokal sekadar konten perjalanan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Akrab dan suka bertanya, sering mengaku belum paham",
+      "habitualGesture": "Menepuk kantong buku kecil saat menemui orang baru",
+      "stressReaction": "Mencatat rute berulang saat merasa sendirian",
+      "sampleLine": "Di kebun kemarin caranya beda. Kalau di sini, siapa yang paling tahu tanah bagian bawah?"
+    },
+    "10_narrative_development": {
+      "storyArc": "Menemukan identitas di tempat yang berubah",
+      "initialDesire": "Menemukan cara bertani yang cocok bagi tiap lahan",
+      "mainObstacle": "Terlalu cepat mencoba tanpa tahu kebiasaan tempat",
+      "threeActBeats": [
+        "Mencoba semua metode baru",
+        "Gagal karena salah konteks",
+        "Belajar memilih saran yang tepat"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Eksplorasi dan pembelajaran komoditas",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C11.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C11.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Ray",
+        "Pemagang kebun keliling",
+        "Adaptif",
+        "Berani mencoba",
+        "Ramah"
+      ],
+      "proposedArcStartingPoint": "Mencoba semua metode baru",
+      "notYetOccurred": [
+        "Gagal karena salah konteks",
+        "Belajar memilih saran yang tepat"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menganggap pengetahuan lokal sekadar konten perjalanan"
+    }
+  }
+}

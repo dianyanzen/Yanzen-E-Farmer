@@ -1,0 +1,124 @@
+{
+  "id": "C14",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Arya",
+      "ageYears": 27,
+      "origin": "Bandung timur (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak gesit, helm dan jaket kerja tanpa merek",
+      "bodyLanguageBaseline": "Menepuk sisi helm sebelum berangkat",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Jaket kurir, helm polos dan tas pengiriman",
+      "styleReason": "Helm polos dan jaket kerja menjadi petunjuk desain profesi kurir tanpa merek.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Kurir kebutuhan desa",
+      "education": "Belajar rute kebutuhan harian dari lapangan",
+      "communityActivity": "Rute kurir ekspansi",
+      "hobbies": [
+        "Merawat sepeda motor",
+        "Mencari jalur baru"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Gesit",
+        "Suka membantu",
+        "Optimistis"
+      ],
+      "habit": "Mencari jalan alternatif yang aman untuk paket rapuh",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu yakin mampu menyelesaikan kiriman sendiri"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Mengantar kebutuhan warga yang sulit keluar rumah",
+      "unspokenNeed": "Belajar menghadapi terlalu yakin mampu menyelesaikan kiriman sendiri",
+      "fear": "Pesanan terlambat dan pelanggan merasa diabaikan",
+      "innerConflict": "Mengantar kebutuhan warga yang sulit keluar rumah tetapi terlalu yakin mampu menyelesaikan kiriman sendiri",
+      "copingResponse": "Menambah kecepatan bicara ketika kewalahan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga terbiasa mengurus kebutuhan orang tua di rumah",
+      "formativeMemory": "Pernah mengantar barang cepat tetapi salah alamat",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A06",
+          "relationship": "Berbagi rute dengan Asep sambil bersaing memenuhi janji",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak membocorkan alamat penerima ke pihak lain",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Lincah dan optimistis, lebih jelas ketika memberi kabar kiriman",
+      "habitualGesture": "Menepuk sisi helm sebelum berangkat",
+      "stressReaction": "Menambah kecepatan bicara ketika kewalahan",
+      "sampleLine": "Aku bisa lewat gang sana, tapi kotaknya rapuh. Kita pilih jalan yang agak rata."
+    },
+    "10_narrative_development": {
+      "storyArc": "Memilih ketelitian daripada kecepatan",
+      "initialDesire": "Mengantar kebutuhan warga yang sulit keluar rumah",
+      "mainObstacle": "Terlalu yakin mampu menyelesaikan kiriman sendiri",
+      "threeActBeats": [
+        "Mengambil rute baru",
+        "Paket rapuh hampir rusak",
+        "Membuat sistem konfirmasi alamat"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Pengiriman kebutuhan dan akses warga",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C14.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C14.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Arya",
+        "Kurir kebutuhan desa",
+        "Gesit",
+        "Suka membantu",
+        "Optimistis"
+      ],
+      "proposedArcStartingPoint": "Mengambil rute baru",
+      "notYetOccurred": [
+        "Paket rapuh hampir rusak",
+        "Membuat sistem konfirmasi alamat"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak membocorkan alamat penerima ke pihak lain"
+    }
+  }
+}

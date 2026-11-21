@@ -1,0 +1,124 @@
+{
+  "id": "C15",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Malik",
+      "ageYears": 32,
+      "origin": "Bandung kota (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Menggunakan kursi roda sesuai desain karakter; gerak mantap saat mengamati jalur",
+      "bodyLanguageBaseline": "Memutar kertas agar orang lain dapat melihat ukuran jalur",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian praktis yang nyaman untuk kerja peta; perlengkapan sketsa",
+      "styleReason": "Perancang peta dipilih untuk variasi pekerjaan dalam cerita, bukan disimpulkan dari kursi roda; mobilitas sprite tetap dipertahankan.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perancang peta desa",
+      "education": "Belajar pemetaan melalui survei lapangan dan penggambaran rute",
+      "communityActivity": "Studio pemetaan dan pasar ekspansi",
+      "hobbies": [
+        "Menggambar peta",
+        "Bermain permainan strategi"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Mandiri",
+        "Kreatif",
+        "Terbuka untuk kerja sama"
+      ],
+      "habit": "Mencatat jalan yang tertutup dan pilihan akses",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Tidak selalu mau meminta bantuan saat menemui hambatan"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat peta yang berguna untuk semua pengguna jalan",
+      "unspokenNeed": "Belajar menghadapi tidak selalu mau meminta bantuan saat menemui hambatan",
+      "fear": "Orang melihat kursi rodanya dan mengabaikan keahlian desainnya",
+      "innerConflict": "Membuat peta yang berguna untuk semua pengguna jalan tetapi tidak selalu mau meminta bantuan saat menemui hambatan",
+      "copingResponse": "Memeriksa jalur sendiri sebelum menerima asumsi orang"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga mengenalkannya pada peta lewat perjalanan kecil di kota",
+      "formativeMemory": "Peta lama tampak benar namun jalur sebenarnya sulit dilalui pengguna berbeda",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A16",
+          "relationship": "Menilai denah Khansa dengan pengalaman akses nyata di lapangan",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Jangan menjadikan disabilitas satu-satunya konflik atau alasan pekerjaannya",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Mandiri dan lugas, menolak simpati yang tidak diminta",
+      "habitualGesture": "Memutar kertas agar orang lain dapat melihat ukuran jalur",
+      "stressReaction": "Memeriksa jalur sendiri sebelum menerima asumsi orang",
+      "sampleLine": "Jalur pendek belum tentu bisa dilalui. Kita coba dari pintu pasar dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Memimpin pengujian peta akses warga",
+      "initialDesire": "Membuat peta yang berguna untuk semua pengguna jalan",
+      "mainObstacle": "Tidak selalu mau meminta bantuan saat menemui hambatan",
+      "threeActBeats": [
+        "Mendapati peta tak akurat",
+        "Menguji jalur bersama banyak pengguna",
+        "Menerbitkan peta berlapis pilihan rute"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Pemetaan dan rute akses inklusif",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C15.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C15.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Malik",
+        "Perancang peta desa",
+        "Mandiri",
+        "Kreatif",
+        "Terbuka untuk kerja sama"
+      ],
+      "proposedArcStartingPoint": "Mendapati peta tak akurat",
+      "notYetOccurred": [
+        "Menguji jalur bersama banyak pengguna",
+        "Menerbitkan peta berlapis pilihan rute"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Jangan menjadikan disabilitas satu-satunya konflik atau alasan pekerjaannya"
+    }
+  }
+}

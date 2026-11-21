@@ -1,0 +1,124 @@
+{
+  "id": "C01",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Nani",
+      "ageYears": 64,
+      "origin": "Pasirluyu, Regol (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Perawakan senior dengan gerak merawat bunga yang lambat dan pasti",
+      "bodyLanguageBaseline": "Mengusap tepi foto sebelum menjawab",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian bermotif bunga, kain kerja untuk melati",
+      "styleReason": "Ciri lansia dan motif bunga pada baju memberi arah mentor kebun bunga.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pekebun bunga senior",
+      "education": "Belajar berkebun dari rumah dan pengalaman musim panjang",
+      "communityActivity": "Gang Pasirluyu dan rumah Nani",
+      "hobbies": [
+        "Menanam melati",
+        "Membuat kue tradisional"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Hangat",
+        "Sabar",
+        "Gemar bercerita"
+      ],
+      "habit": "Menandai foto keluarga dengan bulan mekarnya melati",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Sulit melepas cerita yang disimpan terlalu lama"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga kenangan keluarga tanpa menjadikannya milik orang lain",
+      "unspokenNeed": "Belajar menghadapi sulit melepas cerita yang disimpan terlalu lama",
+      "fear": "Album keluarganya dipakai tanpa izin",
+      "innerConflict": "Menjaga kenangan keluarga tanpa menjadikannya milik orang lain tetapi sulit melepas cerita yang disimpan terlalu lama",
+      "copingResponse": "Membungkus kembali album bila pertanyaan terlalu mendesak"
+    },
+    "07_background_history": {
+      "familyContext": "Dibesarkan dekat kebun melati dan saluran air lama",
+      "formativeMemory": "Pernah kehilangan satu foto karena dipinjam lalu tidak kembali",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A03",
+          "relationship": "Punya catatan tanda air yang Ryan tidak bisa ukur sendiri",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memperlihatkan foto keluarga sebelum ada persetujuan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Hangat, bertutur lewat benda kecil dan kejadian sehari-hari",
+      "habitualGesture": "Mengusap tepi foto sebelum menjawab",
+      "stressReaction": "Membungkus kembali album bila pertanyaan terlalu mendesak",
+      "sampleLine": "Daun itu datang lebih dulu dari lumpur. Dulu ayahku juga memperhatikannya."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar berbagi ingatan secara sukarela",
+      "initialDesire": "Menjaga kenangan keluarga tanpa menjadikannya milik orang lain",
+      "mainObstacle": "Sulit melepas cerita yang disimpan terlalu lama",
+      "threeActBeats": [
+        "Menjaga album lama",
+        "Memilih foto mana yang boleh dilihat pemain",
+        "Menyusun cerita air bersama warga"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Quest air, bunga, persetujuan kenangan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C01.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C01.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Registered active prototype NPC (per portrait register)",
+      "knownCanon": [
+        "Nani",
+        "Pekebun bunga senior",
+        "Hangat",
+        "Sabar",
+        "Gemar bercerita"
+      ],
+      "proposedArcStartingPoint": "Menjaga album lama",
+      "notYetOccurred": [
+        "Memilih foto mana yang boleh dilihat pemain",
+        "Menyusun cerita air bersama warga"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memperlihatkan foto keluarga sebelum ada persetujuan"
+    }
+  }
+}

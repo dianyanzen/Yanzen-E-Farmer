@@ -1,0 +1,124 @@
+{
+  "id": "C10",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Yogi",
+      "ageYears": 35,
+      "origin": "Regol (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerak rapi, perhatian pada tanda dan kolom angka",
+      "bodyLanguageBaseline": "Menyusun kuitansi menurut tanggal ketika berpikir",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja biru polos dan buku catatan koperasi",
+      "styleReason": "Kemeja biru polos menjadi arah desain petugas pencatatan koperasi, bukan jabatan pegawai asli.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pencatat keuangan koperasi",
+      "education": "Belajar pembukuan usaha dan audit sederhana",
+      "communityActivity": "Kantor koperasi ekspansi",
+      "hobbies": [
+        "Mengerjakan teka-teki angka",
+        "Menyeduh kopi"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Rapi",
+        "Teliti",
+        "Dapat dipercaya"
+      ],
+      "habit": "Menguji jumlah dua kali sebelum rapat",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Sulit menerangkan hitungan pada orang yang tidak suka angka"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat laporan koperasi mudah dipahami semua anggota",
+      "unspokenNeed": "Belajar menghadapi sulit menerangkan hitungan pada orang yang tidak suka angka",
+      "fear": "Angka yang benar dipakai untuk keputusan yang tidak adil",
+      "innerConflict": "Membuat laporan koperasi mudah dipahami semua anggota tetapi sulit menerangkan hitungan pada orang yang tidak suka angka",
+      "copingResponse": "Menghitung berulang ketika merasa ditekan"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarganya mengurus kas kegiatan warga secara sederhana",
+      "formativeMemory": "Pernah menemukan selisih kecil yang ternyata biaya tersembunyi",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A15",
+          "relationship": "Mendukung koperasi namun menuntut biaya lengkap sebelum keputusan",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak mengubah catatan untuk menjaga reputasi pengurus",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Kalimat presisi dengan contoh satu per satu",
+      "habitualGesture": "Menyusun kuitansi menurut tanggal ketika berpikir",
+      "stressReaction": "Menghitung berulang ketika merasa ditekan",
+      "sampleLine": "Kalau hanya harga beli, gudangnya terlihat murah. Ini biaya perawatannya."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar menerjemahkan angka menjadi keputusan publik",
+      "initialDesire": "Membuat laporan koperasi mudah dipahami semua anggota",
+      "mainObstacle": "Sulit menerangkan hitungan pada orang yang tidak suka angka",
+      "threeActBeats": [
+        "Menemukan biaya tidak tercatat",
+        "Mengajak anggota membaca laporan",
+        "Membuat tabel sederhana bagi rapat"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Laporan biaya dan pilihan pendanaan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/C10.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-C10.png",
+      "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Yogi",
+        "Pencatat keuangan koperasi",
+        "Rapi",
+        "Teliti",
+        "Dapat dipercaya"
+      ],
+      "proposedArcStartingPoint": "Menemukan biaya tidak tercatat",
+      "notYetOccurred": [
+        "Mengajak anggota membaca laporan",
+        "Membuat tabel sederhana bagi rapat"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak mengubah catatan untuk menjaga reputasi pengurus"
+    }
+  }
+}
