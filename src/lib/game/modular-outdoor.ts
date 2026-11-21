@@ -12,6 +12,9 @@ const landmarks = ["rumah-nani","rumah-warga","kios-sayur-buka","kios-sayur-tutu
 const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","tajuk-kebun","semak-rimbun",
   "daun-tropis","bunga-pinggir","titian-kayu","pagar-kandang","gerbang-kandang","tiang-kandang",
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
+export const MARKET_DECOR_ASSETS=["gerobak-sayur","kanopi-buah","meja-ikan","rak-bibit",
+  "peti-pasar","karung-pakan","lampu-pasar","timbangan","keranjang-ikan","pot-pasar"] as const;
+export const MARKET_PLAZA={x:0,y:90,width:WORLD.width*WORLD.tile,height:WORLD.height*WORLD.tile-90} as const;
 export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
@@ -19,6 +22,7 @@ export const outdoorSources: Record<string,string> = {
   "lapak-benih":kit+"landmark/lapak-benih.png",
   "lapak-pancing":kit+"landmark/lapak-pancing.png",
   "lapak-anyaman":kit+"landmark/lapak-anyaman.png",
+  ...Object.fromEntries(MARKET_DECOR_ASSETS.map(name=>[name,kit+"market/"+name+".png"])),
   "bendung-dua-pintu-buka":kit+"landmark/bendung-dua-pintu-buka.png",
   "bendung-dua-pintu-tutup":kit+"landmark/bendung-dua-pintu-tutup.png",
   ...Object.fromEntries(["field","gang","pasar","sungai"].map(zone=>["night-"+zone,kit+"night/"+zone+".png"])),
@@ -216,6 +220,23 @@ props.pasar.push(
   {asset:"peti-dagangan-sayur",x:426,y:161,scale:.62},
   {asset:"keranjang-buah",x:473,y:161,scale:.58}
 );
+// Additional original market props sit along the stalls and outer shoulders.
+ // Leave the central east-west aisle and the south gate (x 11-12 tiles) open.
+props.pasar.push(
+  {asset:"kanopi-buah",x:224,y:155,scale:.92},
+  {asset:"rak-bibit",x:162,y:170,scale:.88},
+  {asset:"timbangan",x:188,y:183,scale:.85},
+  {asset:"gerobak-sayur",x:576,y:296,scale:.86},
+  {asset:"meja-ikan",x:562,y:208,scale:.86},
+  {asset:"keranjang-ikan",x:608,y:210,scale:.84},
+  {asset:"karung-pakan",x:514,y:294,scale:.78},
+  {asset:"peti-pasar",x:153,y:296,scale:.85},
+  {asset:"peti-pasar",x:400,y:295,scale:.76},
+  {asset:"pot-pasar",x:35,y:291,scale:.84},
+  {asset:"pot-pasar",x:619,y:290,scale:.82},
+  {asset:"lampu-pasar",x:18,y:190,scale:1},
+  {asset:"lampu-pasar",x:620,y:187,scale:1}
+);
 props.sungai.push(
   {asset:"kelompok-pot",x:22,y:183,scale:.49},{asset:"tong-dan-papan",x:20,y:235,scale:.55},
   {asset:"rumpun-tepian",x:39,y:284,scale:.64},{asset:"ilalang-kanal",x:35,y:300,scale:.55},
@@ -282,8 +303,8 @@ function meadow(ctx:CanvasRenderingContext2D,location:OutdoorLocation){
 function flagstones(ctx:CanvasRenderingContext2D){
   const random=randomFrom(87341);
   const palette=["#b9a788","#c4b294","#b3a28b","#c5b59d","#b8aa96","#b4ad98"];
-  for(let y=110;y<315;y+=6){
-    for(let x=30+Math.floor(random()*9);x<WORLD.width*WORLD.tile+14;){
+  for(let y=MARKET_PLAZA.y;y<MARKET_PLAZA.y+MARKET_PLAZA.height;y+=6){
+    for(let x=MARKET_PLAZA.x;x<MARKET_PLAZA.x+MARKET_PLAZA.width;){
       const w=8+Math.floor(random()*6), h=4+Math.floor(random()*2);
       ctx.fillStyle=palette[Math.floor(random()*palette.length)];
       ctx.fillRect(x+1,y,w-2,h+1);ctx.fillRect(x,y+1,w,h-1);
@@ -387,11 +408,13 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     ctx.lineWidth=width;ctx.stroke();
   }
   if(location==="pasar"){
-    const right=WORLD.width*WORLD.tile;
+    // One straight rectangular market plaza reaches BOTH horizontal map edges.
     ctx.save();
-    ctx.beginPath();ctx.rect(40,120,right-40,180);ctx.clip();
-    ctx.fillStyle="#aa9982";ctx.fillRect(40,120,right-40,180);
+    ctx.beginPath();ctx.rect(MARKET_PLAZA.x,MARKET_PLAZA.y,MARKET_PLAZA.width,MARKET_PLAZA.height);ctx.clip();
+    ctx.fillStyle="#aa9982";ctx.fillRect(MARKET_PLAZA.x,MARKET_PLAZA.y,MARKET_PLAZA.width,MARKET_PLAZA.height);
     flagstones(ctx);
+    ctx.fillStyle="#d4c9aa";ctx.fillRect(0,MARKET_PLAZA.y,MARKET_PLAZA.width,3);
+    ctx.fillStyle="#8b7a6d";ctx.fillRect(0,MARKET_PLAZA.y+3,MARKET_PLAZA.width,2);
     ctx.restore();
   }
   if (location==="field") drawFieldCanal(ctx,art);

@@ -99,3 +99,15 @@ for (const [state, id, points] of [
 }
 assert.equal(model.interactionHitboxAt("home", 228, 150), undefined, "the adjacent aisle is outside the bed");
 console.log("Phaser prototype movement and four interactive signposts: PASS");
+
+// QA: the market is a full-width rectangular paved plaza with original, loadable PNG props.
+const marketSource=readFileSync(new URL("../src/lib/game/modular-outdoor.ts",import.meta.url),"utf8");
+assert.match(marketSource,/export const MARKET_PLAZA=\{x:0,y:90,width:WORLD\.width\*WORLD\.tile/);
+assert.match(marketSource,/ctx\.rect\(MARKET_PLAZA\.x,MARKET_PLAZA\.y,MARKET_PLAZA\.width,MARKET_PLAZA\.height\)/);
+for(const name of ["gerobak-sayur","kanopi-buah","meja-ikan","rak-bibit","peti-pasar","karung-pakan","lampu-pasar","timbangan","keranjang-ikan","pot-pasar"]){
+  assert.ok(marketSource.includes('"' + name + '"'),"market source registers "+name);
+  const png=readFileSync(new URL("../public/game/assets/tiles/farm-kit/market/"+name+".png",import.meta.url));
+  assert.equal(png.subarray(0,8).toString("hex"),"89504e470d0a1a0a",name+" must be valid PNG");
+  assert.ok(png.readUInt32BE(16)>=20 && png.readUInt32BE(20)>=30,name+" must have practical tile dimensions");
+}
+console.log("Market paving full width and 10 original pixel-art props: PASS");

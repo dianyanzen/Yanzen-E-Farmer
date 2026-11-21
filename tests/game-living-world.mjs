@@ -189,3 +189,20 @@ for(let minutes=720;minutes<=1210;minutes++){
   prior=placements;
 }
 assert.ok(blockedCrossings>=6);
+
+
+
+// Slow-play regression: clock advances only through successful actions, never while idle/menu is open.
+assert.equal(model.WALK_STEPS_PER_MINUTE,16,"relaxed exploration uses sixteen steps per minute");
+assert.equal(model.FARM_ACTION_MINUTES,1,"one minute per farm action");
+const slowWalkStart={...model.newGame(),location:"pasar",minutes:380,player:{x:1,y:2,dir:"right"},walkingSteps:0};
+let slowWalk=slowWalkStart;
+for(let i=0;i<15;i++)slowWalk=model.movePlayer(slowWalk,"right");
+assert.equal(slowWalk.minutes,380,"fifteen market steps should not skip the morning");
+slowWalk=model.movePlayer(slowWalk,"right");
+assert.equal(slowWalk.minutes,381,"sixteen successful steps advance one minute");
+assert.equal(slowWalk.walkingSteps,0,"step remainder resets after one minute");
+assert.equal(model.safeLoad(JSON.parse(JSON.stringify(slowWalk))).minutes,381,"slower clock survives saved games");
+const pausedAt15={...slowWalkStart,walkingSteps:15};
+assert.equal(model.safeLoad(JSON.parse(JSON.stringify(pausedAt15))).walkingSteps,15,
+  "cloud save must preserve the whole 16-step remainder, not just legacy values 1-3");
