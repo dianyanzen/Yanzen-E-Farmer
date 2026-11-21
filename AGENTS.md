@@ -11,3 +11,11 @@ Repositori ini mencakup aplikasi E-Farmer dan game YZ Farm Life. **Aturan Humani
 5. Perubahan narasi dilakukan per adegan/quest dan diperiksa bersama efek gameplay, percabangan, bahasa, serta UI layar ponsel. Jangan menulis ulang semua dialog secara massal tanpa review karakter.
 6. Skill bersifat **alat penulisan pada saat pengembangan**, bukan dependency runtime, filter otomatis yang dijalankan setiap pemain, atau layanan AI yang menyunting save. Pastikan tidak ada pemanggilan jaringan/API dari game untuk Humanizer.
 7. Setelah mengubah dokumen skill atau menambahkan dialog, jalankan `npm run test:game:humanizer` dan `npm run test:game`; untuk perubahan runtime/dialog lakukan uji UI dan review manual sebelum merge.
+
+## Character Bible 12 dimensi (wajib untuk setiap karakter bernama)
+
+- Daftar ID dan lokasi file lengkap berada di `game-assets/characters/profiles/index.json`; setiap tokoh harus memiliki semua 12 bagian dari `game-assets/characters/profiles/README.md`.
+- **Baca profil dulu** sebelum menulis dialog, quest, menjadwalkan NPC, memberi relasi, membuat sprite/potret atau menambah tokoh. Pastikan `sourceFacts` dan `proposedFields` tidak tertukar: data proposal tidak otomatis menjadi fakta yang telah dimainkan.
+- Untuk perubahan gameplay, bandingkan `12_continuity_current_state` dengan kondisi save dan sistem runtime yang aktual. Jangan memasukkan seluruh rahasia profil ke YZ Phone tanpa mekanisme unlock yang sesuai.
+- Tokoh cameo publik dibatasi pada adegan fiksi; tidak boleh membuat klaim pribadi nyata. Ilustrasi `Rxxx` belum menjadi tokoh bernama sampai profil baru lulus QA.
+- Pada penambahan/revisi karakter, jalankan `npm run chars:index:check && npm run test:game:characters` selain tes game yang sesuai.

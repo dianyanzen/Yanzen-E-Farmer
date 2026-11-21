@@ -90,3 +90,10 @@ C15 / Malik tetap menggunakan kursi roda. Pekerjaan dan sifatnya tidak didasarka
 Pemeriksaan lokal lulus untuk 32 nama pendek unik tanpa gelar, A01 bernama Yanzen, satu main character dan 31 NPC, serta kelengkapan `occupation`, `hobby`, `personality`, dan alasan rancangan. Nama pada kedua manifest cocok dengan katalog profil. Pemeriksaan hash seluruh PNG dan koordinat 384 frame tetap lulus. Dokumen dan data profil yang diekspor tidak memuat nomor kepegawaian 16–18 digit; lampiran daftar sumber tidak disalin ke repository.
 
 Jalankan `node scripts/game-assets/verify-character-pack.mjs` dan `node scripts/game-assets/verify-catalog.mjs` dari akar repository untuk memeriksa konsistensi katalog. Pemeriksaan ini tidak mengesahkan atribut sebagai fakta tentang orang nyata.
+
+
+## Character Bible 12 kategori (70 karakter bernama)
+
+Profil terstruktur telah ditambahkan sebagai satu file JSON per karakter di [Character Bible](../characters/profiles/README.md), dengan [indeks karakter](../characters/profiles/index.json). Seluruh **32 A/C** mempunyai dua belas kategori beserta rancangan psikologis, riwayat, relasi, gaya bicara dan perkembangan. Sebanyak **36 N/K** juga memiliki profil ekspansi penuh dalam status konsep; **2 P** hanya cameo fiksi dengan batasan biografi figur publik. Ada **179 ilustrasi Rxxx yang belum menjadi tokoh bernama** dan dicatat pada [inventaris R](../characters/profiles/unassigned-artwork.json).
+
+Sumber canon ini (`cast.json`) tetap menjadi kontrak nama/pekerjaan/hobi/sifat yang sudah ada; usulan baru tidak mengubah data runtime. Validasi melalui `npm run test:game:characters`.

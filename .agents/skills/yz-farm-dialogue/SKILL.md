@@ -10,6 +10,7 @@ Aktifkan skill ini pada pekerjaan *naratif game*; untuk penyuntingan gaya baca j
 ## Referensi wajib
 
 - `game-assets/catalog/cast.json` — 32 ID, nama, peran, pekerjaan, sifat/hobi.
+- `game-assets/characters/profiles/index.json` — direktori semua 70 karakter bernama dan 12 dimensi masing-masing; baca profil karakter target sebelum membuat dialog; gunakan konteks psikologis, relasi dan kontinuitas tanpa mengubah proposal menjadi fakta runtime.
 - `docs/game-dev/STORY_SYSTEM.md` — suara, memori, konsekuensi, kecocokan kondisi cerita.
 - `docs/game-dev/PASIRLUYU_LIVING_WORLD.md` — jadwal dan motivasi Ryan (A03), Nani (C01), Inggit (C08).
 - `src/lib/game/personal-quests.ts` dan `src/lib/game/model.ts` — kebenaran runtime, urutan cerita, reward, flag dan state.
