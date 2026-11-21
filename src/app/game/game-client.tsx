@@ -15,6 +15,7 @@ import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
 import { FieldEngine, type ToolUse, type WorldPick } from "@/lib/game/field-engine";
 import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
 import CharacterGallery from "./character-gallery";
+import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
@@ -22,11 +23,12 @@ import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
+type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
+  { id: "chronicle", name: "Kronik", icon: "☷" },
   { id: "ikd", name: "IKD", icon: "▣" },
   { id: "map", name: "Jelajah", icon: "⌖" },
   { id: "friends", name: "Kedekatan", icon: "♡" },
@@ -178,6 +180,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [storageOpen, setStorageOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
+  const [selectedCitizen, setSelectedCitizen] = useState<string|null>(null);
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const [toast, setToast] = useState("");
   const [showHelp, setShowHelp] = useState(engine === "canvas");
@@ -559,7 +562,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
 
   const togglePhone = useCallback(() => {
     if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
-    setPhoneOpen(o => !o); setPhoneTab("apps"); setShowHelp(false);
+    setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setShowHelp(false);
   }, [dialogue, storageOpen, saveStatus,wakingDay]);
 
   useEffect(() => {
@@ -622,7 +625,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     if (saveStatus === "loading" || saveStatus === "error") return;
     const next = acceptOrder(game);
     setGame(next); void persist(next);
-    setToast("Quest: Bawa empat timun kepada Inggit di pasar.");
+    setToast("Inggit menunggu empat timun segar di warung.");
   };
   const decidePhoto = (choice: PhotoChoice) => {
     if (saveStatus === "loading" || saveStatus === "error") return;
@@ -632,7 +635,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setDialogue({ title: "Bab 1 selesai · Empat Timun dan Satu Nama", photo: true, lines: [
       choice === "nani" ? "Nani menyelipkan foto asli ke amplop. Ia akan menyiapkan kisah dengan suaranya sendiri; kamu tidak perlu membagikannya sebelum ia siap." :
         "Nani menyimpan foto asli dan menitipkan salinan di warung. Inggit menyiapkan tempat untuk nama-nama yang diingat warga.",
-      "Pilihanmu tercatat di jurnal. Temui kembali Nani dan Inggit untuk melihat akibatnya. Bab Cimincrang belum tersedia; kebun dan warung tetap dapat dikunjungi."] });
+      "Keputusanmu tersimpan di jurnal. Kalau bertemu Nani atau Inggit lagi, tanyakan kabar mereka. Jalan ke Cimincrang masih tertutup."] });
   };
   const planted = game.plots.filter(p => p.stage >= 0).length;
   const readyCrops = game.plots.filter(p => p.stage === 3).length;
@@ -738,34 +741,35 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </GameDialog>}
         {storageOpen && <ToolWarehouse game={game} disabled={unavailable}
           onClose={()=>setStorageOpen(false)} onTransfer={transfer} onUpgrade={upgrade}/>}
-        {phoneOpen && <GameDialog className="yzg-phone-backdrop" aria-label="YZ Phone" focusKey={phoneTab}
-          onBack={() => phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
+        {phoneOpen && <GameDialog className="yzg-phone-backdrop" aria-label="YZ Phone" focusKey={phoneTab + ":" + (selectedCitizen ?? "list")}
+          onBack={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
           onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
             <div className="yzg-phone-notch"/>
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
-              <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
+              <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content" data-dialog-scroll>
               {phoneTab === "apps" && <>
-                <div className="yzg-phone-greeting">{timeGreeting(game.minutes).toUpperCase()}, YANZEN <strong>Hidup terus berjalan di Pasirluyu.</strong><small>Hari {game.day} · Cuaca {weatherForDay(game.day)} · {areaTitle(game.location)}</small></div>
+                <div className="yzg-phone-greeting">{timeGreeting(game.minutes).toUpperCase()}, YANZEN <strong>Ada kabar dari kebun dan tetangga.</strong><small>Hari {game.day} · Cuaca {weatherForDay(game.day)} · {areaTitle(game.location)}</small></div>
                 <div className="yzg-app-grid">{APPS.map(app => <button key={app.id} data-dialog-start={app.id === "chat" ? "" : undefined} onClick={() => {
                   setRouteMessage("");
                   setPhoneTab(app.id);
+                  setSelectedCitizen(null);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
                 }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
-                <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Lihat lokasi dan kegiatan warga saat ini."}</p><button onClick={() => setPhoneTab("friends")}>Lihat lokasi warga</button></div>
-                <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p></div>
+                <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Kamu bisa mencari mereka lewat menu Warga."}</p><button onClick={() => setPhoneTab("friends")}>Lihat lokasi warga</button></div>
+                <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p><button type="button" onClick={()=>setPhoneTab("chronicle")}>Lihat perjalananmu</button></div>
               </>}
               {phoneTab === "chat" && <>
                 <div className="yzg-phone-card"><b>{display("✉ Inggit · Pedagang pasar")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : display("Pesanan diterima. Temui Inggit setelah panen.")}</small>}
                 </div>
-                <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau sempat, mampir ke dekat kebun. Ada saluran air lama yang menarik.&rdquo;</p></div>
+                <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau lewat dekat saluran nanti, panggil aku. Ada yang ingin kutunjukkan.&rdquo;</p></div>
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
@@ -773,7 +777,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <p>{farming.next}</p>
                 </div>
                 <div className="yzg-phone-card"><b>Misi warga</b>
-                  {NPCS.map(n=><details key={n.id}><summary>{display(n.name)} ? {tales[n.id].title}</summary>
+                  {NPCS.map(n=><details key={n.id}><summary>{display(n.name)} · {tales[n.id].title}</summary>
                     <p>{display(questObjective(game,n.id))}</p></details>)}
                 </div>
                 <div className="yzg-phone-card"><b>Jurnal · Bab 1</b><p>{display(journal.objective)}</p>
@@ -798,11 +802,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <button type="button" onClick={() => void logout()} disabled={saveStatus === "loading" || saveStatus === "saving" || (saveStatus === "error" && !!userId)}>Keluar akun</button>
                 </div>
               </>}
-              {phoneTab === "characters" && <CharacterGallery residents={residents}/>}
+              {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
+              {phoneTab === "chronicle" && <PhoneChronicle game={game} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
                   <b>Mulai bermain</b>
-                  <p>Jelajahi Pasirluyu, kenali tetangga, rawat kebun timun, dan jalani cerita. Jurnal tugas tersedia di aplikasi Kebunku.</p>
+                  <p>Jelajahi Pasirluyu, kenali tetangga, rawat kebun timun, dan jalani cerita. Kalau lupa kelanjutan ceritanya, buka Kronik.</p>
                 </div>
                 <div className="yzg-phone-card"><b>Gerak & interaksi</b>
                   <p>PC: WASD atau tombol panah untuk berjalan. E atau Spasi untuk berinteraksi, P untuk membuka YZ Phone, Alt+Enter untuk layar penuh.</p>
@@ -813,12 +818,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <p>Buka gudang dari pintu bangunan untuk mengambil dan menyimpan alat.</p>
                 </div>
                 <div className="yzg-phone-card"><b>Waktu & progres</b>
-                  <p>Untuk mengakhiri hari, masuk ke rumah, hadap ranjang, lalu pilih Tidur. Progres tersimpan di PostgreSQL lokal.</p>
-                  <p>Kenali warga lewat dialog interaktif, dan pantau kedekatan di aplikasi Kedekatan.</p>
+                  <p>Kalau sudah malam, pulang ke rumah, hadap ranjang, lalu pilih Tidur. Perjalananmu akan tersimpan.</p>
+                  <p>Kenali warga lewat percakapan. Lihat kabarnya di Warga, dan perjalanan kalian di Kronik.</p>
                 </div>
               </>}
               {phoneTab === "friends" && <>
-                <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kenali warga melalui jawabanmu. Poin kedekatan dihitung sekali per NPC setiap hari.</p></div>
+                <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kedekatan tumbuh dari percakapan. Kamu bisa mengenal seseorang sedikit demi sedikit.</p></div>
                 {NPCS.map(npc => {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
                   const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
@@ -868,7 +873,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                       <small>{AREAS[b.location].name} → {b.future}. {display(b.message)}</small></p>)}
                   </details>
                   {(["field","gang","pasar","sungai"] as const).map(id=><p key={id}><b>{id===game.location?"● ":"○ "}{AREAS[id].name}</b><small>{display(AREAS[id].description)}</small></p>)}
-                  <small>Game menggunakan nama wilayah asli. Jalan, kebun dan NPC direka untuk cerita.</small>
+                  <small>Nama wilayah mengikuti Bandung. Jalan, kebun, dan tokoh di sini adalah bagian dari cerita.</small>
                 </div>
                 <WorldRegionDirectory/>
               </>}
