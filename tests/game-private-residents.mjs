@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {createHash} from "node:crypto";
 import {execFileSync} from "node:child_process";
 import {mkdtempSync,readdirSync,readFileSync,rmSync,writeFileSync} from "node:fs";
 import {resolve,join} from "node:path";
@@ -9,6 +10,7 @@ const root=process.cwd();
 const work=mkdtempSync(join(root,"node_modules/.npc-roster-fixture-"));
 const previousRoster=process.env.GAME_RESIDENT_ROSTER;
 const previousJson=process.env.GAME_RESIDENT_ROSTER_JSON;
+const previousDigest=process.env.GAME_CANONICAL_ROSTER_SHA256;
 const previousLinks=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
 const previousBibles=process.env.GAME_RESIDENT_BIBLES;
 try{
@@ -34,6 +36,9 @@ try{
  process.env.GAME_RESIDENT_ROSTER=rosterPath;
  delete process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
  const withRoster=async records=>{
+  const body=records.slice().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0)
+   .map(r=>[r.id,r.name,r.occupation,r.portrait].join("|")+"\n").join("");
+  process.env.GAME_CANONICAL_ROSTER_SHA256=createHash("sha256").update(body).digest("hex");
   writeFileSync(rosterPath,JSON.stringify({schemaVersion:1,currentRoster:records}));
   return await readPrivateResidents();
  };
@@ -108,6 +113,8 @@ try{
  assert.equal((await withRoster(roster)).length,0,"Stale approval is fail-closed");
  console.log("PASS: private roster 248, one-word names, unique portraits, missing assets, manual legacy links");
 }finally{
+ if(previousDigest===undefined)delete process.env.GAME_CANONICAL_ROSTER_SHA256;
+ else process.env.GAME_CANONICAL_ROSTER_SHA256=previousDigest;
  if(previousJson===undefined)delete process.env.GAME_RESIDENT_ROSTER_JSON;
  else process.env.GAME_RESIDENT_ROSTER_JSON=previousJson;
  if(previousRoster===undefined)delete process.env.GAME_RESIDENT_ROSTER;
