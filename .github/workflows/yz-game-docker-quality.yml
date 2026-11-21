@@ -1,0 +1,47 @@
+name: YZ Farm Life — Docker quality gate
+
+on:
+  push:
+    branches:
+      - develop/yz-farm-life
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: yz-game-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-game:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check standalone release boundary
+        run: node scripts/game-release/verify-standalone.mjs
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Test game, renderer and persistence
+        run: npm run test:game
+      - name: Verify production build
+        run: npm run build
+      - name: Validate Docker Compose
+        env:
+          POSTGRES_DB: yz_farm_life_ci
+          POSTGRES_USER: yz_farm_ci
+          POSTGRES_PASSWORD: ci-only-do-not-use-in-production
+        run: docker compose config -q
+      - name: Validate Docker image build
+        run: docker build --tag yz-farm-life:ci .
