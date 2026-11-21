@@ -23,7 +23,8 @@ try{
  assert.equal(approvedLegacyId(approved),"A03");
  assert.equal(legacyNpcDisplayName("A03","Nama lama",[approved]),current.name);
  const ui=file("src/app/game/character-gallery.tsx");
- assert.match(ui,/if\(!selected\?\.legacyApproved\)/,"Private citizen does not load a legacy bible without approval");
+ assert.match(ui,/if\(selected\?\.legacyApproved\)/,"Private citizen does not load a legacy bible without approval");
+ assert.ok(ui.includes("/api/game/resident-bible/"),"Current citizen loads private Bible only on demand");
  assert.match(ui,/if\(person\.portrait\)return <ResidentPortrait/,"Portrait key overrides old cast ID");
  assert.match(ui,/process\.env\.NODE_ENV==="production"\?\[\]/,"Production never silently displays old public cast in place of private roster");
  for(const route of ["src/app/game/page.tsx","src/app/game/phaser/page.tsx","src/app/game/canvas/page.tsx"]){
