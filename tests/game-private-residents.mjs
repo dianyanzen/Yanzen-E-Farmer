@@ -73,6 +73,21 @@ try{
  seed.profiles[roster[0].id].sections["01_core_identity"].name="NAMA USANG";
  seed.profiles[roster[0].id].sections["04_social_profile"].occupation="PEKERJAAN USANG";
  writeFileSync(biblesPath,JSON.stringify(seed));
+ assert.equal(await readPrivateResidentBible(roster[0]),null,"Approval cannot publish placeholder biographical data");
+ const sections=seed.profiles[roster[0].id].sections;
+ for(const section of Object.values(sections)){
+  for(const [key,value] of Object.entries(section)){
+   if(typeof value==="string"&&/(Belum ditulis|Belum ditetapkan|Tinjau referensi potret)/i.test(value)){
+    section[key]="Rincian karakter fiktif yang telah disunting";
+   }
+  }
+ }
+ sections["05_personality"].traits=["Perhatian","Bersahabat"];
+ sections["09_dialogue_behavior"].sampleLine="Saya simpan catatan ini terlebih dahulu, nanti kita periksa bersama.";
+ sections["10_narrative_development"].threeActBeats=[
+  "Hari pertama menyusun rencana","Hari kedua menghadapi kendala","Hari ketiga mengambil keputusan"
+ ];
+ writeFileSync(biblesPath,JSON.stringify(seed));
  const approvedBible=await readPrivateResidentBible(roster[0]);
  assert.equal(approvedBible.sections["01_core_identity"].name,roster[0].name,"Use current canonical name");
  assert.equal(approvedBible.sections["04_social_profile"].occupation,roster[0].occupation,"Use current canonical occupation");
