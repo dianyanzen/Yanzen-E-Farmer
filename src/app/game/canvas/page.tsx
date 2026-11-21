@@ -1,3 +1,4 @@
+import RosterUnavailable from "../roster-unavailable";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import {readPrivateResidents} from "@/lib/game/private-residents";
@@ -12,5 +13,6 @@ export default async function CanvasPage() {
   const { data: { user }, error } = await db.auth.getUser();
   if (error || !user) redirect("/login");
   const residents=await readPrivateResidents();
+  if(residents.length!==248)return <RosterUnavailable/>;
   return <GameClient engine="canvas" residents={residents} />;
 }
