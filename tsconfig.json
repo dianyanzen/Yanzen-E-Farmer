@@ -30,13 +30,8 @@
   },
   "include": [
     "next-env.d.ts",
-    "src/app/layout.game.tsx",
-    "src/app/page.game.tsx",
-    "src/app/login/page.game.tsx",
-    "src/app/game/**/*.tsx",
-    "src/app/api/**/*.game.ts",
-    "src/lib/game/**/*.ts",
-    "src/lib/local-auth/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

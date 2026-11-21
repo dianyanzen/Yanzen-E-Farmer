@@ -12,4 +12,3 @@ coverage/
 
 *.tsbuildinfo
 supabase/.temp/
-/deploy/private/

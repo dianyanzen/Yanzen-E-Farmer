@@ -44,21 +44,6 @@ input,select,textarea { max-width: 100%; }
 @media (max-width: 640px) { input,select,textarea { font-size: 16px; } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
-.yzg-auth-page{min-height:100dvh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 0%,#e5efd4 0,#f1f3e9 70%)}
-.yzg-auth-card{width:min(100%,420px);padding:32px;border:1px solid #d5e0cc;border-radius:20px;background:#fff;box-shadow:0 16px 48px #26473320}
-.yzg-auth-card h1{margin:8px 0;font-size:2.4rem;font-weight:900;letter-spacing:-.06em;color:#193e32}
-.yzg-auth-card h1 span{color:#4b8653}
-.yzg-auth-card>p{color:#617b67}
-.yzg-auth-card form{display:grid;gap:10px;margin-top:24px}
-.yzg-auth-card label{margin-top:8px;font-size:.875rem;font-weight:700}
-.yzg-auth-card input{width:100%;min-height:46px;padding:10px;border:1px solid #cbd9c3;border-radius:9px}
-.yzg-auth-card form button{min-height:46px;margin-top:12px;border-radius:9px;background:#245b40;color:#fff;font-weight:800}
-.yzg-auth-card form button:disabled{opacity:.6}
-.yzg-auth-toggle{display:block;margin:18px auto 0;color:#245b40;font-weight:700;text-decoration:underline}
-.yzg-auth-message{padding:10px;border-radius:8px;background:#fff0e5;color:#823d34}
-.yzg-auth-card small{display:block;margin-top:24px;text-align:center;color:#718174}
-.yzg-back:disabled{opacity:.55}
-
 /* Reusable UI primitives; opt-in classes avoid altering existing workflows. */
 .farm-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
 .farm-card-soft { background: var(--surface-soft); border: 1px solid var(--border); border-radius: var(--radius-md); }
