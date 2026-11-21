@@ -3,7 +3,7 @@ import {readFileSync} from "node:fs";
 import {execFileSync} from "node:child_process";
 import {draftResidentBible,makePublishedResidentBibles} from "../scripts/game-characters/build-resident-bibles.mjs";
 
-const core={id:"A03",name:"Ryan",occupation:"Pengelola irigasi"};
+const core={id:"A03",name:"Ryan",occupation:"Pengelola irigasi",portrait:"work-A03"};
 const cameo={id:"P01",name:"Dedi Mulyadi",occupation:"Gubernur Jawa Barat"};
 const known=new Map([[core.id,core],[cameo.id,cameo]]);
 const row={id:"W001",name:"Raka Uji",occupation:"Penjual bibit",portrait:"R001"};
