@@ -56,9 +56,18 @@ function approvedBibles(value:unknown,residents:readonly ResidentProfile[]):Reco
  }
  return result;
 }
+function environmentRoster():unknown|null{
+ const source=process.env.YZ_GAME_RESIDENT_ROSTER_JSON;
+ if(!source)return null;
+ try{return JSON.parse(source) as unknown;}
+ catch{throw new Error("Variabel YZ_GAME_RESIDENT_ROSTER_JSON bukan JSON valid.");}
+}
 async function getRoster(){
+ // The local Docker bind mount always wins over a remote preview snapshot.
  const docker=await optionalJson(privatePath("YZ_GAME_RESIDENT_ROSTER_FILE","residents.json"));
- return {residents:verifiedResidents(docker??publishedResidents),fromDocker:docker!==null};
+ const env=docker===null?environmentRoster():null;
+ const residents=verifiedResidents(docker??env??publishedResidents);
+ return {residents,fromDocker:docker!==null,source:docker!==null?"docker":env!==null?"environment":"catalog"};
 }
 export async function loadGameResidents():Promise<ResidentProfile[]>{
  return (await getRoster()).residents;
