@@ -20,7 +20,7 @@ import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import { applyResidentNames } from "@/lib/game/resident-display-names";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
-import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
+import DialoguePanel, { Portrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
@@ -827,8 +827,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
                   const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
                   return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
-                    {residentById.has(npc.id) ? <ResidentPortrait resident={residentById.get(npc.id)!}/> : <Portrait npcId={npc.id} emotion={bond.mood}/>}
-                    <div><b>{display(npc.name)}</b><small>{npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
+                    <Portrait npcId={npc.id} emotion={bond.mood} name={residentById.get(npc.id)?.name}/>
+                    <div><b>{display(npc.name)}</b><small>{residentById.get(npc.id)?.occupation ?? npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
                     <p className="yzg-npc-where">Lokasi: {areaTitle(place.location)} · {display(place.activity)}</p>
                     {level>=1&&<small>Kebiasaan: {soul.habit}</small>}
                     {level>=2&&<small>Harapan: {soul.desire}</small>}

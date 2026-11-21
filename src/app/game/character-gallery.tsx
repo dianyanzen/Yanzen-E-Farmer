@@ -19,8 +19,8 @@ const fromCore:Citizen[]=cast.characters.map(c=>({id:c.id,name:c.name,occupation
 const fromExpansion:Citizen[]=previews.map(c=>({id:c.id,name:c.name,occupation:c.occupation,kind:"expansion"}));
 const PAGE_SIZE=12;
 function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotion}){
- if(person.portrait)return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait}}/>;
  if(person.kind==="core")return <Portrait npcId={person.id} name={person.name} emotion={emotion}/>;
+ if(person.portrait)return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait}}/>;
  if(person.kind==="resident")return <ResidentPortrait resident={{id:person.id,name:person.name,occupation:person.occupation,portrait:person.portrait??person.id}}/>;
  return <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
   alt={`Potret ${person.name}`} width={80} height={80} unoptimized/>;
@@ -60,7 +60,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
    <div><h3>{person.name}</h3><p>{person.occupation}</p>
     <small>{npc&&met?`Sudah ${bond?.talks??0} kali berbincang`:self?"Kisahmu sendiri":"Belum berkenalan"}</small></div>
   </div>
-  {person.kind==="core"&&!person.portrait&&<div className="yzg-phone-card">
+  {person.kind==="core"&&<div className="yzg-phone-card">
    <b>Ekspresi</b>
    <div className="yzg-expression-picker yzg-citizen-emotions">{PORTRAIT_EMOTIONS.map(e=>
      <button key={e} type="button" aria-pressed={emotion===e} onClick={()=>setEmotion(e)}>{EMOTION_LABELS[e]}</button>)}</div>
