@@ -1,3 +1,4 @@
+import RosterUnavailable from "./roster-unavailable";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import {readPrivateResidents} from "@/lib/game/private-residents";
@@ -15,5 +16,6 @@ export default async function GamePage() {
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) redirect("/login");
   const residents=await readPrivateResidents();
+  if(residents.length!==248)return <RosterUnavailable/>;
   return <GameClient engine="phaser" residents={residents} />;
 }
