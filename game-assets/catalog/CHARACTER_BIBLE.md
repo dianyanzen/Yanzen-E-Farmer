@@ -1,5 +1,9 @@
 # YZ Farm Life — Nama dan profil karakter
 
+> **ARSIP KARAKTER GENERASI AWAL — BUKAN SUMBER IDENTITAS RUNTIME.**
+> Nama pendek, usia, wajah dan detail pekerjaan di bawah adalah rancangan fiksi sebelum roster Docker diperbarui. Pada game aktif, identitas dan portrait resmi harus mengikuti ID dari `deploy/private/residents.json` (Docker), atau snapshot sensitif Vercel Preview `YZ_GAME_RESIDENT_ROSTER_JSON`. Character Bible terbaru dibentuk dengan `scripts/game-characters/complete-docker-bibles.mjs` dan dibaca melalui endpoint YZ Phone saat profil dibuka. Jangan gunakan tabel lama ini untuk menimpa nama, pekerjaan atau portrait Docker. Lihat `docs/game-dev/DOCKER_CHARACTER_BIBLE_SYNC.md`. Seluruh biografi lama adalah fiksi, bukan data individu nyata.
+
+
 **32 karakter: Yanzen (A01) satu-satunya main character, serta 31 NPC.** Nama NPC memakai nama pendek yang dipilih dan direvisi pengguna, tanpa gelar dan dibuat unik. Pemilihan ini bukan pencocokan identitas orang pada daftar dengan wajah karakter.
 
 Pekerjaan, hobi, dan kepribadian di bawah adalah **rancangan fiktif untuk game**, bukan profil pegawai asli atau kesimpulan faktual dari penampilan. Arah visual membantu variasi peran dan cerita; atribut yang tidak terlihat ditentukan secara kreatif. NIP, nama lengkap, gelar, dan jabatan kepegawaian tidak diimpor.
