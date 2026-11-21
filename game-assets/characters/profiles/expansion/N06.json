@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Berbicara lambat lewat perbandingan berat dan permukaan",
       "physicalCue": "Meletakkan dua batu di telapak murid",
-      "exampleLine": "Coba rasakan yang ini. Beratnya beda walau warnanya mirip.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Coba rasakan yang ini. Beratnya beda walau warnanya mirip."
     },
     "10_narrative_development": {
       "arcTitle": "Batu yang bernyanyi",

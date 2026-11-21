@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Hemat kata, memberi sebab berdasarkan musim",
       "physicalCue": "Mendengarkan dengung sebelum membuka penutup",
-      "exampleLine": "Madunya ada, tapi lebahnya juga perlu makan sampai bunga baru datang.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Madunya ada, tapi lebahnya juga perlu makan sampai bunga baru datang."
     },
     "10_narrative_development": {
       "arcTitle": "Madu yang tidak dipanen",

@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lembut, memakai detail rasa dan porsinya",
       "physicalCue": "Menggeser mangkuk biru ke sisi meja",
-      "exampleLine": "Yang ini dulu selalu kupenuhi lebih dulu. Sekarang kubiarkan dia menunggu sebentar.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Yang ini dulu selalu kupenuhi lebih dulu. Sekarang kubiarkan dia menunggu sebentar."
     },
     "10_narrative_development": {
       "arcTitle": "Mangkuk biru",

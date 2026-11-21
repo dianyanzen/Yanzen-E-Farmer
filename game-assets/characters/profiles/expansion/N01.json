@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Nada akrab, pertanyaan pendek ketika cemas",
       "physicalCue": "Mengetuk pagar kandang",
-      "exampleLine": "Tunggu. Kalau hilang, kenapa bekas pakan masih ada di sini?",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Tunggu. Kalau hilang, kenapa bekas pakan masih ada di sini?"
     },
     "10_narrative_development": {
       "arcTitle": "Ayam yang tak pulang ke kandang",

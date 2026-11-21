@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Singkat, memberi jeda setelah nama tertentu",
       "physicalCue": "Menutup buku jaga perlahan",
-      "exampleLine": "Ketukan ketiga itu dulu selalu dijawab. Sekarang aku masih menunggu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Ketukan ketiga itu dulu selalu dijawab. Sekarang aku masih menunggu."
     },
     "10_narrative_development": {
       "arcTitle": "Sela sesudah ketukan ketiga",

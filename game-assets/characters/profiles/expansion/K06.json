@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bersuara hangat, mengingat tiap itik dari kebiasaan",
       "physicalCue": "Menahan langkah menunggu kawanan",
-      "exampleLine": "Yang paling belakang selalu lambat di tikungan. Apa jalannya terlalu licin?",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Yang paling belakang selalu lambat di tikungan. Apa jalannya terlalu licin?"
     },
     "10_narrative_development": {
       "arcTitle": "Itik paling belakang",

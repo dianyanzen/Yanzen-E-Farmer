@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bercerita lewat bentuk huruf dan sudut pandang",
       "physicalCue": "Miringkan kepala untuk menyamakan garis",
-      "exampleLine": "Hurufnya ada. Tapi bayangan kisi yang menutupinya waktu sore.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Hurufnya ada. Tapi bayangan kisi yang menutupinya waktu sore."
     },
     "10_narrative_development": {
       "arcTitle": "Huruf yang hilang saat senja",

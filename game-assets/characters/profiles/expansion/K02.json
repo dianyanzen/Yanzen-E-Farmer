@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Lugas dengan humor soal baut",
       "physicalCue": "Menyejajarkan setang dengan mata",
-      "exampleLine": "Kosong lurus, bawa roti belok kiri. Kita cek keranjangnya dulu.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kosong lurus, bawa roti belok kiri. Kita cek keranjangnya dulu."
     },
     "10_narrative_development": {
       "arcTitle": "Sepeda yang selalu belok kiri",

@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bersuara pelan, memberi jeda panjang pada cerita keluarga",
       "physicalCue": "Memutar pelampung retak",
-      "exampleLine": "Dulu ikan selalu muncul di sana. Sekarang airnya lebih teduh di sebelah sana.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Dulu ikan selalu muncul di sana. Sekarang airnya lebih teduh di sebelah sana."
     },
     "10_narrative_development": {
       "arcTitle": "Umpan peninggalan kakak",

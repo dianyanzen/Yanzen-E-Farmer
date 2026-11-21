@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Bertanya sopan dan tidak memaksa",
       "physicalCue": "Melipat sapu tangan sebelum menunjuk cirinya",
-      "exampleLine": "Jahitannya khas, tapi belum tentu orangnya ingin ditemukan.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Jahitannya khas, tapi belum tentu orangnya ingin ditemukan."
     },
     "10_narrative_development": {
       "arcTitle": "Sapu tangan tak bertuan",

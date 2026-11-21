@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Berbahasa tenang tanpa diagnosis dramatis",
       "physicalCue": "Menggeser kursi agar orang tidak harus berdiri",
-      "exampleLine": "Kursinya kosong terus. Mungkin masalahnya bukan jarak ke klinik.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Kursinya kosong terus. Mungkin masalahnya bukan jarak ke klinik."
     },
     "10_narrative_development": {
       "arcTitle": "Kursi di depan klinik",

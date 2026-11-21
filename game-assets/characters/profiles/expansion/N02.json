@@ -74,8 +74,8 @@
     "09_dialogue_behavior": {
       "speechPattern": "Tidak menggurui, banyak kalimat tanya",
       "physicalCue": "Berjongkok setinggi kandang",
-      "exampleLine": "Bel ini bisa dibunyikan kapan saja. Tak ada pertanyaan yang memalukan.",
-      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan"
+      "stressVoice": "Respons lebih pendek dan fokus pada masalah pekerjaan",
+      "sampleLine": "Bel ini bisa dibunyikan kapan saja. Tak ada pertanyaan yang memalukan."
     },
     "10_narrative_development": {
       "arcTitle": "Bel di pagar kandang",
