@@ -92,7 +92,7 @@ export default function PhoneChronicle({game,onOpenWarga}:{game:GameState;onOpen
       <p>Belum ada percakapan yang tercatat. Mulailah dengan tetangga dekat kebun.</p>}
    </div>
    <div className="yzg-phone-card"><b>Catatan yang tersimpan</b>
-    <p>Kronik membaca progres dari permainanmu. Tanggal peristiwa lama yang tidak disimpan tidak akan dibuat-buat.</p>
+    <p>Catatan ini mengikuti perjalananmu. Beberapa kejadian lama belum punya tanggal yang pasti.</p>
     <button type="button" onClick={()=>void copy()}>Salin ringkasan cerita</button>
     {exportStatus&&<p role="status">{exportStatus}</p>}
     {showExport&&<textarea className="yzg-chronicle-export" aria-label="Catatan cerita untuk disalin"

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {useEffect,useMemo,useState} from "react";
+import {useEffect,useMemo,useState,type ReactNode} from "react";
 import cast from "../../../game-assets/catalog/cast.json";
 import previews from "@/lib/game/data/bandung-character-previews.json";
 import {bandungConceptPortraitPath} from "@/lib/game/bandung-concept-portrait";
@@ -24,7 +24,7 @@ function CitizenPhoto({person,emotion="neutral"}:{person:Citizen;emotion?:Emotio
  return <Image className="yzg-character-preview" src={bandungConceptPortraitPath(person.id)}
   alt={`Potret ${person.name}`} width={80} height={80} unoptimized/>;
 }
-function Section({label,open,children}:{label:string;open:boolean;children:React.ReactNode}){
+function Section({label,open,children}:{label:string;open:boolean;children:ReactNode}){
  return <details className="yzg-citizen-section">
   <summary><span>{label}</span>{!open&&<small>Belum terbuka</small>}</summary>
   <div>{open?children:<p>Kenali orangnya lebih dekat dulu. Catatan ini akan terisi lewat pertemuan kalian.</p>}</div>
@@ -122,11 +122,13 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
   return {id:r.id,name:r.name,occupation:r.occupation,kind:core?.kind??exp?.kind??"resident",portrait:r.portrait};
  }):[...fromCore,...fromExpansion],[residents]);
  const query=search.trim().toLocaleLowerCase("id");
- const available=roster.filter(c=>query||archive||c.kind==="core");
+ const available=roster.filter(c=>Boolean(query)||archive||c.kind==="core");
  const matches=available.filter(c=>(c.name+" "+c.occupation).toLocaleLowerCase("id").includes(query));
  const pages=Math.max(1,Math.ceil(matches.length/PAGE_SIZE)),activePage=Math.min(page,pages-1);
  const selected=roster.find(c=>c.id===selectedId);
  useEffect(()=>{
+  const scroller=document.querySelector<HTMLElement>(".yzg-phone-content");
+  if(scroller)scroller.scrollTop=0;
   if(!selectedId){return;}
   let alive=true;
   loadCharacterBible(selectedId).then(profile=>{if(alive)setLoaded({id:selectedId,profile});})

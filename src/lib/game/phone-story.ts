@@ -21,16 +21,6 @@ const marker:ReadonlyArray<{id:string;title:string;done:(s:GameState)=>boolean;d
    ? "Foto asli tetap bersama Nani. Ia sendiri yang memutuskan kapan kisah keluarganya dibagikan."
    : "Foto asli tetap bersama Nani. Salinannya dititipkan di warung agar warga dapat menambahkan nama."}
 ];
-const consequence:Record<string,string>={
- confide:"Kamu memilih mendengar ceritanya lebih jauh.",
- help:"Kamu menawarkan bantuan.",
- dismiss:"Kamu belum ingin ikut campur.",
- joke:"Kamu mencoba mencairkan suasana.",
- observe:"Kamu memilih mengamati dulu.",
- ask:"Kamu menanyakan lebih banyak.",
- encourage:"Kamu memberinya semangat.",
- reassure:"Kamu berusaha menenangkannya."
-};
 export function phoneChronicle(s:GameState){
  const journal=chapterJournal(s);
  const completed=marker.filter(m=>m.done(s)).length;

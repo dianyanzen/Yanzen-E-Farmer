@@ -42,7 +42,7 @@ export const TOOL_CATALOG = {
   paintbrush: {name:"Kuas Cat",category:"Konstruksi",function:"Mengubah warna atau dekorasi furnitur.",target:"Furnitur",status:"planned"},
   cooking_knife: {name:"Pisau Dapur",category:"Memasak",function:"Mengolah bahan makanan di meja dapur.",target:"Meja dapur",status:"planned"},
   cooking_pan: {name:"Wajan",category:"Memasak",function:"Memasak resep tumis atau goreng di kompor.",target:"Kompor",status:"planned"},
-  camera: {name:"Kamera",category:"Eksplorasi",function:"Memotret tempat menarik untuk album dan quest.",target:"Objek/landmark",status:"planned"},
+  camera: {name:"Kamera",category:"Eksplorasi",function:"Memotret tempat menarik untuk album dan cerita.",target:"Objek/landmark",status:"planned"},
   binoculars: {name:"Teropong",category:"Eksplorasi",function:"Mengamati burung, hewan, dan pemandangan dari jauh.",target:"Lingkungan",status:"planned"},
   bug_net: {name:"Jaring Serangga",category:"Eksplorasi",function:"Menangkap serangga untuk koleksi atau penelitian.",target:"Serangga",status:"planned"},
   climbing_rope: {name:"Tali Panjat",category:"Eksplorasi",function:"Mencapai lokasi curam melalui titik pendakian aman.",target:"Titik pendakian",status:"planned"}
@@ -645,54 +645,54 @@ export function acceptOrder(s: GameState): GameState {
   return { ...s, phoneRead: true, story: { ...s.story, orderAccepted: true } };
 }
 function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
-  if(npc==="A04")return {state:s,title:"Ayu ? Benih dalam lipatan kertas",lines:[
+  if(npc==="A04")return {state:s,title:"Ayu · Benih dalam lipatan kertas",lines:[
     "Ayu menghitung biji di atas kertas minyak. Ada tiga lipatan kecil bertanda arang di meja.",
-    "Ayu: Nani yang mengajariku tanda itu. Satu garis untuk tanggal simpan, dua untuk benih yang sudah kucoba semai. Aku tak mau orang baru menunggu seminggu untuk benih yang kosong.",
-    "Ayu: Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
-    "Ayu: Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
+    "Nani yang mengajariku tanda itu. Satu garis untuk tanggal simpan, dua untuk benih yang sudah kucoba semai. Aku tak mau orang baru menunggu seminggu untuk benih yang kosong.",
+    "Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
+    "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
   ]};
-  if(npc==="C07")return {state:s,title:"Widi ? Es di bawah keranjang",lines:[
+  if(npc==="C07")return {state:s,title:"Widi · Es di bawah keranjang",lines:[
     "Widi mengangkat kain lembap. Dari bawahnya terdengar es beradu ketika ia menggeser timbangan.",
-    "Widi: Yang dijaga Ryan itu saluran air tawar. Di samping jembatan ada keramba pesisir dengan bak air asin tersendiri. Aku yang mengurus kiriman ikan dari pantai.",
-    "Widi: Ambil joran dari rak gudang, lalu beli pelet di lapakku. Berdiri di jembatan, hadap ke air keramba dan lempar satu pelet. Tarik saat pelampung turun.",
-    "Widi: Bandeng, belanak, kakap putih, semua kutimbang di sini. Pelanggan warung biasanya titip pesanan sebelum aku pulang."
+    "Yang dijaga Ryan itu saluran air tawar. Di samping jembatan ada keramba pesisir dengan bak air asin tersendiri. Aku yang mengurus kiriman ikan dari pantai.",
+    "Ambil joran dari rak gudang, lalu beli pelet di lapakku. Berdiri di jembatan, hadap ke air keramba dan lempar satu pelet. Tarik saat pelampung turun.",
+    "Bandeng, belanak, kakap putih, semua kutimbang di sini. Pelanggan warung biasanya titip pesanan sebelum aku pulang."
   ]};
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
-      "Ryan: Inggit sedang menunggu empat timun untuk acar. Selesaikan dulu pesananmu; setelah itu kita cocokkan tanda di pintu air."] };
+      "Inggit sedang menunggu empat timun untuk acar. Selesaikan dulu pesananmu; setelah itu kita cocokkan tanda di pintu air."] };
     return { state: { ...s, story: { ...s.story, canalClue: true } }, title: "Ryan · Dua Garis di Pintu Air", lines:
-      s.story.photoChoice ? ["Ryan: Catatanmu sudah kusimpan. Nama Cimincrang di foto itu akan jadi petunjuk perjalanan berikutnya. Untuk sekarang kita rawat kebun ini dahulu."] : [
-        "Ryan: Di batu pintu air ada dua garis. Aku hanya pernah mencatat yang atas. Mengapa foto lama Nani menunjukkan keduanya?",
-        "Ryan: Temui Nani di gang sebelah timur kebun. Biar beliau sendiri yang membuka lipatan fotonya."] };
+      s.story.photoChoice ? ["Catatanmu sudah kusimpan. Nama Cimincrang di foto itu akan jadi petunjuk perjalanan berikutnya. Untuk sekarang kita rawat kebun ini dahulu."] : [
+        "Di batu pintu air ada dua garis. Aku hanya pernah mencatat yang atas. Mengapa foto lama Nani menunjukkan keduanya?",
+        "Temui Nani di gang sebelah timur kebun. Biar beliau sendiri yang membuka lipatan fotonya."] };
   }
   if (npc === "C01") {
     if (!s.story.orderDone || !s.story.canalClue) return { state: s, title: "Nani · Gang Kampung", lines: [
-      s.story.orderDone ? "Nani: Ryan ingin menunjukkan sesuatu di saluran. Dengarkan dulu catatannya, lalu mampir lagi kepadaku." :
-        "Nani: Inggit menyisihkan satu meja hari ini. Empat timun kecil dari kebunmu akan berarti banyak baginya."] };
+      s.story.orderDone ? "Ryan ingin menunjukkan sesuatu di saluran. Dengarkan dulu catatannya, lalu mampir lagi kepadaku." :
+        "Inggit menyisihkan satu meja hari ini. Empat timun kecil dari kebunmu akan berarti banyak baginya."] };
     if (s.story.photoChoice) return { state: s, title: "Nani · Foto yang Kini Punya Tempat", photo: true, lines: [
-      s.story.photoChoice === "nani" ? "Nani: Foto aslinya aman di amplopku. Aku mulai menulis nama orang-orang di dalamnya. Bila kelak siap, kisahnya akan kuceritakan dengan suaraku sendiri." :
-        "Nani: Salinannya sudah di warung. Ada yang mengenali lipatan bungkus benih pada gambar itu. Nama baru mulai muncul di belakangnya.",
-      "Nani: Cimincrang. Itu nama yang tertulis di balik foto. Perjalanan ke sana belum dibuka; kamu boleh kembali berkebun kapan saja."] };
+      s.story.photoChoice === "nani" ? "Foto aslinya aman di amplopku. Aku mulai menulis nama orang-orang di dalamnya. Bila kelak siap, kisahnya akan kuceritakan dengan suaraku sendiri." :
+        "Salinannya sudah di warung. Ada yang mengenali lipatan bungkus benih pada gambar itu. Nama baru mulai muncul di belakangnya.",
+      "Cimincrang. Itu nama yang tertulis di balik foto. Perjalanan ke sana belum dibuka; kamu boleh kembali berkebun kapan saja."] };
     return { state: { ...s, story: { ...s.story, sarisStory: true, photoSeen: true } },
       title: "Nani · Foto yang Dilipat ke Dalam", photo: true, choosePhoto: true, lines: [
         "Nani membuka foto pintu air. Ada dua garis pada batu, dan tulisan Cimincrang di belakangnya. Ia menahan lipatan itu dengan kedua tangan.",
-        "Nani: Ibu pernah mengalihkan air ke kebun tetangga. Aku belum tahu bagaimana warga hilir mengingatnya. Boleh kita tentukan bersama tempat untuk foto ini?",
+        "Ibu pernah mengalihkan air ke kebun tetangga. Aku belum tahu bagaimana warga hilir mengingatnya. Boleh kita tentukan bersama tempat untuk foto ini?",
         "Keduanya menjaga kisah yang sama: foto asli bersama Nani, atau salinan di warung agar warga dapat menambahkan nama. Kamu boleh memutuskan nanti."] };
   }
   if (s.story.orderAccepted && !s.story.orderDone && s.harvested >= 4) return {
     state: { ...s, harvested: s.harvested - 4, coins: s.coins + 160,
       story: { ...s.story, orderDone: true } }, title: "Inggit · Empat Timun untuk Satu Meja", shop: true,
-    lines: ["Inggit: Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini 160 G; terima kasih sudah mengantar.",
+    lines: ["Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini 160 G; terima kasih sudah mengantar.",
       "Inggit membalik piring kelima di meja. Di sampingnya ada cangkir retak dengan dua goresan.",
-      "Inggit: Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
+      "Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
   return { state: s, title: "Inggit · Warung Pasar", shop: true, lines: [
-    s.story.photoChoice === "warung" ? "Inggit: Salinan foto Nani sudah di meja warung. Warga boleh menambahkan nama di baliknya; foto asli tetap bersama Nani." :
-    s.story.photoChoice === "nani" ? "Inggit: Foto asli tetap bersama Nani. Kalau beliau siap bercerita, meja ini selalu punya tempat untuknya." :
-    s.story.orderDone ? "Inggit: Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
-    s.story.orderAccepted ? "Inggit: Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
-    "Inggit: Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
-    s.seeds <= 2 && s.coins >= 40 ? "Inggit: Bibit hampir habis? Cari Ayu di depan kios sayur Pasar Warga." :
-      "Inggit: Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
+    s.story.photoChoice === "warung" ? "Salinan foto Nani sudah di meja warung. Warga boleh menambahkan nama di baliknya; foto asli tetap bersama Nani." :
+    s.story.photoChoice === "nani" ? "Foto asli tetap bersama Nani. Kalau beliau siap bercerita, meja ini selalu punya tempat untuknya." :
+    s.story.orderDone ? "Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
+    s.story.orderAccepted ? "Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
+    "Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
+    s.seeds <= 2 && s.coins >= 40 ? "Bibit hampir habis? Cari Ayu di depan kios sayur Pasar Warga." :
+      "Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
 }
 export function choosePhoto(s: GameState, choice: PhotoChoice): GameState {
   if (!s.story.orderDone || !s.story.canalClue || !s.story.photoSeen || s.story.photoChoice ||
