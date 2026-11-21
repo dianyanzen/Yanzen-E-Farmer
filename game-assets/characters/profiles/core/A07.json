@@ -1,0 +1,124 @@
+{
+  "id": "A07",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Dewi",
+      "ageYears": 37,
+      "origin": "Regol (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gerakan hati-hati saat mengangkat tray semai",
+      "bodyLanguageBaseline": "Menyentuh tepi baki, menjauh dari batang rapuh",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju kerja taupe-olive, sarung tangan tipis",
+      "styleReason": "Kesan visual dewasa dan palet taupe-olive dipakai untuk rancangan pembimbing persemaian.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pengelola persemaian",
+      "education": "Belajar persemaian melalui pengalaman gagal tumbuh",
+      "communityActivity": "Persemaian komunitas ekspansi",
+      "hobbies": [
+        "Merawat anggrek",
+        "Memasak sayur"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Sabar",
+        "Penyayang",
+        "Teratur"
+      ],
+      "habit": "Mencatat tray gagal, tidak hanya yang sehat",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu sulit menyerahkan bibit pada orang lain"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menyediakan bibit sehat bagi pekebun pemula",
+      "unspokenNeed": "Belajar menghadapi terlalu sulit menyerahkan bibit pada orang lain",
+      "fear": "Bibit rusak ketika diasuh orang yang ia bimbing",
+      "innerConflict": "Menyediakan bibit sehat bagi pekebun pemula tetapi terlalu sulit menyerahkan bibit pada orang lain",
+      "copingResponse": "Memilah biji satu-satu saat gelisah"
+    },
+    "07_background_history": {
+      "familyContext": "Keluarga pernah mengurus persemaian kecil",
+      "formativeMemory": "Hujan deras pernah merendam seluruh tray miliknya",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C06",
+          "relationship": "Membimbing Yani mencatat percobaan semai",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tray tidak boleh dipindah tanpa catatan tanggal",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Lembut, sabar memberi waktu mencoba",
+      "habitualGesture": "Menyentuh tepi baki, menjauh dari batang rapuh",
+      "stressReaction": "Memilah biji satu-satu saat gelisah",
+      "sampleLine": "Dua yang tumbuh itu penting. Tiga yang kosong juga perlu dicatat."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar mempercayai murid",
+      "initialDesire": "Menyediakan bibit sehat bagi pekebun pemula",
+      "mainObstacle": "Terlalu sulit menyerahkan bibit pada orang lain",
+      "threeActBeats": [
+        "Merawat tray sendirian",
+        "Menguji bantuan pemain",
+        "Membuka piket bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Bibit, cuaca, pembelajaran gagal tanam",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A07.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A07.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Dewi",
+        "Pengelola persemaian",
+        "Sabar",
+        "Penyayang",
+        "Teratur"
+      ],
+      "proposedArcStartingPoint": "Merawat tray sendirian",
+      "notYetOccurred": [
+        "Menguji bantuan pemain",
+        "Membuka piket bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tray tidak boleh dipindah tanpa catatan tanggal"
+    }
+  }
+}

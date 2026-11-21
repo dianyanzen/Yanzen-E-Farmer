@@ -1,0 +1,124 @@
+{
+  "id": "A16",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Khansa",
+      "ageYears": 26,
+      "origin": "Bandung kota (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Sanggul tinggi, kacamata, gerak mengikuti garis sketsa",
+      "bodyLanguageBaseline": "Menelusuri garis denah sebelum mendengarkan kritik",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian berpalet rose dan tas gambar lipat",
+      "styleReason": "Sanggul tinggi, kacamata, dan palet rose menjadi identitas perancang; keahlian adalah pilihan cerita.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perancang sistem kebun",
+      "education": "Belajar merancang tata kebun dan jalur kerja kecil",
+      "communityActivity": "Kebun rancangan ekspansi",
+      "hobbies": [
+        "Membuat sketsa tata kebun",
+        "Mengerjakan teka-teki"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Fokus",
+        "Kreatif",
+        "Terstruktur"
+      ],
+      "habit": "Membuat dua denah untuk setiap persoalan",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Menyangka desain rapi pasti mudah dipakai"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menciptakan kebun efisien dan mudah diakses",
+      "unspokenNeed": "Belajar menghadapi menyangka desain rapi pasti mudah dipakai",
+      "fear": "Jalur sempit membahayakan pengguna atau menghambat barang",
+      "innerConflict": "Menciptakan kebun efisien dan mudah diakses tetapi menyangka desain rapi pasti mudah dipakai",
+      "copingResponse": "Menghapus garis berulang saat gugup"
+    },
+    "07_background_history": {
+      "familyContext": "Pernah membuat rute keluarga untuk membawa hasil pasar",
+      "formativeMemory": "Desain taman lama terlalu sempit untuk gerobak panen",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C15",
+          "relationship": "Malik menguji akses nyata yang luput dalam gambar",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak mendesain ulang pekarangan orang tanpa izin",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Terstruktur, sering mengawali dengan sketsa",
+      "habitualGesture": "Menelusuri garis denah sebelum mendengarkan kritik",
+      "stressReaction": "Menghapus garis berulang saat gugup",
+      "sampleLine": "Di gambar jalurnya cukup. Tapi gerobak Denden beloknya lebih lebar."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar merancang bersama pemakai",
+      "initialDesire": "Menciptakan kebun efisien dan mudah diakses",
+      "mainObstacle": "Menyangka desain rapi pasti mudah dipakai",
+      "threeActBeats": [
+        "Membuat denah rapi",
+        "Pengujian akses gagal",
+        "Merevisi jalur sesuai kebutuhan warga"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Layout kebun, akses dan rute",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A16.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A16.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Khansa",
+        "Perancang sistem kebun",
+        "Fokus",
+        "Kreatif",
+        "Terstruktur"
+      ],
+      "proposedArcStartingPoint": "Membuat denah rapi",
+      "notYetOccurred": [
+        "Pengujian akses gagal",
+        "Merevisi jalur sesuai kebutuhan warga"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak mendesain ulang pekarangan orang tanpa izin"
+    }
+  }
+}

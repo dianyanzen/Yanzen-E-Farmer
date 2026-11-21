@@ -1,0 +1,124 @@
+{
+  "id": "A03",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Ryan",
+      "ageYears": 42,
+      "origin": "Regol (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Raut matang, langkah terukur, mata mencari tanda tinggi air",
+      "bodyLanguageBaseline": "Mengetuk pensil pada batu sebelum menunjuk arah arus",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Baju kerja ochre, sepatu lumpur, buku ukur",
+      "styleReason": "Ciri visual lebih matang dan baju kerja ochre cocok untuk rancangan mentor pekerjaan lapangan.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pengelola irigasi",
+      "education": "Belajar mengelola saluran melalui praktik dan catatan lapangan",
+      "communityActivity": "Sungai dan kebun Pasirluyu",
+      "hobbies": [
+        "Memancing",
+        "Merakit saluran air mini"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Tenang",
+        "Praktis",
+        "Tegas"
+      ],
+      "habit": "Memeriksa garis pada batu sebelum membuka pintu",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Terlalu cepat terdengar menuduh"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat pembagian air adil dan dapat dibuktikan",
+      "unspokenNeed": "Belajar menghadapi terlalu cepat terdengar menuduh",
+      "fear": "Disalahkan atas kekeringan dari sebab yang tidak ia kuasai",
+      "innerConflict": "Membuat pembagian air adil dan dapat dibuktikan tetapi terlalu cepat terdengar menuduh",
+      "copingResponse": "Mengulang hitungan ketika orang tak percaya"
+    },
+    "07_background_history": {
+      "familyContext": "Besar di lingkungan yang hidup berdampingan dengan saluran",
+      "formativeMemory": "Pernah membuka pintu terlalu cepat hingga petak hilir dirugikan",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C01",
+          "relationship": "Membutuhkan pengamatan Nani yang tak tercatat pada skala ukur",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak menyalahkan petani tanpa pengukuran",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Lugas, singkat, menyebut tempat dan waktu",
+      "habitualGesture": "Mengetuk pensil pada batu sebelum menunjuk arah arus",
+      "stressReaction": "Mengulang hitungan ketika orang tak percaya",
+      "sampleLine": "Batu kedua belum naik. Jangan buka lebih lebar dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Belajar mendengar bukti tak tertulis",
+      "initialDesire": "Membuat pembagian air adil dan dapat dibuktikan",
+      "mainObstacle": "Terlalu cepat terdengar menuduh",
+      "threeActBeats": [
+        "Mengukur aliran hulu",
+        "Mendengar kesaksian hilir",
+        "Menyusun catatan bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Quest irigasi aktif dan kedekatan dengan pemain",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A03.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A03.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Registered active prototype NPC (per portrait register)",
+      "knownCanon": [
+        "Ryan",
+        "Pengelola irigasi",
+        "Tenang",
+        "Praktis",
+        "Tegas"
+      ],
+      "proposedArcStartingPoint": "Mengukur aliran hulu",
+      "notYetOccurred": [
+        "Mendengar kesaksian hilir",
+        "Menyusun catatan bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak menyalahkan petani tanpa pengukuran"
+    }
+  }
+}

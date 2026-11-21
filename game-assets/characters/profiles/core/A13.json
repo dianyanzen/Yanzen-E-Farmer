@@ -1,0 +1,124 @@
+{
+  "id": "A13",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Nida",
+      "ageYears": 30,
+      "origin": "Bandung kota (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gestur rapi; potret memakai palet lavender dan navy",
+      "bodyLanguageBaseline": "Meratakan sudut kartu katalog ketika bingung",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Pakaian lavender-navy, buku katalog benih",
+      "styleReason": "Palet lavender dan navy digunakan untuk rancangan penjaga arsip benih; masker hanya unsur penampilan.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Penjaga perpustakaan benih",
+      "education": "Belajar mengarsipkan varietas dan kartu pinjam benih",
+      "communityActivity": "Perpustakaan benih ekspansi",
+      "hobbies": [
+        "Membaca",
+        "Menyusun jurnal tanaman"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Tenang",
+        "Cermat",
+        "Penuh pertimbangan"
+      ],
+      "habit": "Mengembalikan setiap kartu ke laci asal",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Takut melepas benih langka ke pengguna baru"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuka arsip benih untuk pekebun lintas generasi",
+      "unspokenNeed": "Belajar menghadapi takut melepas benih langka ke pengguna baru",
+      "fear": "Satu label salah menghilangkan asal varietas",
+      "innerConflict": "Membuka arsip benih untuk pekebun lintas generasi tetapi takut melepas benih langka ke pengguna baru",
+      "copingResponse": "Mengurutkan laci ketika khawatir"
+    },
+    "07_background_history": {
+      "familyContext": "Koleksi catatan tanaman keluarga menjadi titik awal",
+      "formativeMemory": "Varietas yang disangka hilang ternyata tercatat di kartu lama",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C06",
+          "relationship": "Yani membantu menguji sistem pencatatan sederhana",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Jangan meminjam benih langka tanpa menulis asal dan jumlah",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Tenang, hati-hati membedakan dugaan dan bukti",
+      "habitualGesture": "Meratakan sudut kartu katalog ketika bingung",
+      "stressReaction": "Mengurutkan laci ketika khawatir",
+      "sampleLine": "Biji mirip belum tentu asalnya sama. Kita cari kartu pengambilannya dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Membuka perpustakaan benih",
+      "initialDesire": "Membuka arsip benih untuk pekebun lintas generasi",
+      "mainObstacle": "Takut melepas benih langka ke pengguna baru",
+      "threeActBeats": [
+        "Menemukan kartu hilang",
+        "Mencoba sistem pencatatan baru",
+        "Membuka pertukaran benih dengan aturan jelas"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Koleksi benih dan pengetahuan varietas",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A13.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A13.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Nida",
+        "Penjaga perpustakaan benih",
+        "Tenang",
+        "Cermat",
+        "Penuh pertimbangan"
+      ],
+      "proposedArcStartingPoint": "Menemukan kartu hilang",
+      "notYetOccurred": [
+        "Mencoba sistem pencatatan baru",
+        "Membuka pertukaran benih dengan aturan jelas"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Jangan meminjam benih langka tanpa menulis asal dan jumlah"
+    }
+  }
+}

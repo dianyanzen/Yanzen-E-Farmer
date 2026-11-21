@@ -1,0 +1,124 @@
+{
+  "id": "A05",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Vicky",
+      "ageYears": 31,
+      "origin": "Bandung selatan (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Berkacamata, pandangan tertuju pada gear dan baut",
+      "bodyLanguageBaseline": "Merapikan kacamata sebelum membuka kotak alat",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Kemeja teal, kain lap, sabuk perkakas",
+      "styleReason": "Kacamata dan kemeja teal menjadi ciri desain teknisi; kemampuan teknis ditetapkan untuk cerita.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Teknisi alat pertanian",
+      "education": "Belajar memperbaiki alat dari bengkel dan uji coba",
+      "communityActivity": "Bengkel alat ekspansi",
+      "hobbies": [
+        "Merakit perkakas",
+        "Bermain catur"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Analitis",
+        "Teliti",
+        "Pendiam"
+      ],
+      "habit": "Menaruh baut berurutan sesuai tempat asal",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Kurang sabar menjelaskan istilah teknis"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Membuat peralatan kebun bisa dirawat warga sendiri",
+      "unspokenNeed": "Belajar menghadapi kurang sabar menjelaskan istilah teknis",
+      "fear": "Alat yang ia perbaiki membahayakan orang",
+      "innerConflict": "Membuat peralatan kebun bisa dirawat warga sendiri tetapi kurang sabar menjelaskan istilah teknis",
+      "copingResponse": "Merapikan perkakas ketika cemas"
+    },
+    "07_background_history": {
+      "familyContext": "Pernah membantu bengkel kerabat saat kekurangan suku cadang",
+      "formativeMemory": "Gembor bersama rusak saat musim kering dan semua harus antre",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "A14",
+          "relationship": "Rekan eksperimen alat, berbeda pendapat soal komponen murah",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak melepas alat yang belum layak digunakan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Hemat kata, berorientasi gejala yang terlihat",
+      "habitualGesture": "Merapikan kacamata sebelum membuka kotak alat",
+      "stressReaction": "Merapikan perkakas ketika cemas",
+      "sampleLine": "Baut ini mundur lagi. Jangan dipakai dulu sampai kita tahu penyebabnya."
+    },
+    "10_narrative_development": {
+      "storyArc": "Dari ahli tunggal menjadi pengajar",
+      "initialDesire": "Membuat peralatan kebun bisa dirawat warga sendiri",
+      "mainObstacle": "Kurang sabar menjelaskan istilah teknis",
+      "threeActBeats": [
+        "Memperbaiki alat berulang",
+        "Melatih pemain memeriksa satu komponen",
+        "Membuat panduan perawatan"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Perawatan alat dan peningkatan keselamatan",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A05.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A05.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Vicky",
+        "Teknisi alat pertanian",
+        "Analitis",
+        "Teliti",
+        "Pendiam"
+      ],
+      "proposedArcStartingPoint": "Memperbaiki alat berulang",
+      "notYetOccurred": [
+        "Melatih pemain memeriksa satu komponen",
+        "Membuat panduan perawatan"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak melepas alat yang belum layak digunakan"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "A08",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Astri",
+      "ageYears": 34,
+      "origin": "Bandung barat (latar fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Rambut disanggul; mata menelusuri silang anyaman",
+      "bodyLanguageBaseline": "Mengusap tepi keranjang ketika menemukan cacat",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Atasan terracotta dan apron perajin bambu",
+      "styleReason": "Sanggul dan pakaian terracotta menjadi identitas visual perajin di pasar desa.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Perajin keranjang",
+      "education": "Belajar anyaman dari perajin lokal lalu bereksperimen bentuk",
+      "communityActivity": "Bengkel kerajinan ekspansi",
+      "hobbies": [
+        "Menganyam bambu",
+        "Membuat hiasan rumah"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Kreatif",
+        "Mandiri",
+        "Ramah"
+      ],
+      "habit": "Menyimpan serpihan bambu yang masih bisa dipakai",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Sulit melepas karya yang tidak sempurna"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjual kemasan panen kuat dengan upah layak",
+      "unspokenNeed": "Belajar menghadapi sulit melepas karya yang tidak sempurna",
+      "fear": "Kerajinan diganti wadah sekali pakai murah",
+      "innerConflict": "Menjual kemasan panen kuat dengan upah layak tetapi sulit melepas karya yang tidak sempurna",
+      "copingResponse": "Mengulang simpul terlalu lama saat tertekan"
+    },
+    "07_background_history": {
+      "familyContext": "Beberapa pola anyaman diwariskan dalam cerita rumahnya",
+      "formativeMemory": "Keranjang yang tampak miring justru paling awet ketika dipakai panen",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C03",
+          "relationship": "Belajar teknik kayu, kadang berdebat tentang tradisi",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memotret pola khusus untuk dijual ulang",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Hangat; menjelaskan pilihan lewat pola simpul",
+      "habitualGesture": "Mengusap tepi keranjang ketika menemukan cacat",
+      "stressReaction": "Mengulang simpul terlalu lama saat tertekan",
+      "sampleLine": "Coba isi dulu. Sudutnya memang miring, tapi pegangannya kuat."
+    },
+    "10_narrative_development": {
+      "storyArc": "Menemukan nilai benda terpakai",
+      "initialDesire": "Menjual kemasan panen kuat dengan upah layak",
+      "mainObstacle": "Sulit melepas karya yang tidak sempurna",
+      "threeActBeats": [
+        "Pesanan massal menekan harga",
+        "Keranjang diuji dalam kiriman",
+        "Perajin membuat standar bersama"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Keranjang dan kapasitas panen",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A08.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A08.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Astri",
+        "Perajin keranjang",
+        "Kreatif",
+        "Mandiri",
+        "Ramah"
+      ],
+      "proposedArcStartingPoint": "Pesanan massal menekan harga",
+      "notYetOccurred": [
+        "Keranjang diuji dalam kiriman",
+        "Perajin membuat standar bersama"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memotret pola khusus untuk dijual ulang"
+    }
+  }
+}

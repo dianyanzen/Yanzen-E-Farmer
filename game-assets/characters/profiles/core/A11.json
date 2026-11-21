@@ -1,0 +1,124 @@
+{
+  "id": "A11",
+  "characterClass": "npc",
+  "approval": "narrative-proposal",
+  "sourceFacts": [
+    "cast.json: name/occupation/hobby/personality/designRationale",
+    "npc-portrait-register.json: visual asset paths"
+  ],
+  "proposedFields": [
+    "age",
+    "origin",
+    "history",
+    "relationships",
+    "personality expression",
+    "narrative arc"
+  ],
+  "sections": {
+    "01_core_identity": {
+      "name": "Anggi",
+      "ageYears": 33,
+      "origin": "Regol, Bandung (fiksi)",
+      "language": "Bahasa Indonesia; ragam Sunda sesuai konteks dan hubungan",
+      "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
+    },
+    "02_physical_appearance": {
+      "general": "Gestur terbuka, sorot mata mengikuti semua sudut pasar",
+      "bodyLanguageBaseline": "Menggeser catatan supaya semua bisa membaca",
+      "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
+    },
+    "03_fashion_aesthetic": {
+      "signatureClothing": "Busana mauve-mustard dan buku stok",
+      "styleReason": "Palet mauve-mustard dipakai sebagai penanda visual penghubung para pedagang.",
+      "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
+    },
+    "04_social_profile": {
+      "occupation": "Pengelola pasar desa",
+      "education": "Belajar pembukuan dari kegiatan pasar sehari-hari",
+      "communityActivity": "Pasar Warga ekspansi",
+      "hobbies": [
+        "Memasak bersama",
+        "Mengoleksi resep"
+      ]
+    },
+    "05_personality": {
+      "traits": [
+        "Supel",
+        "Adil",
+        "Suka berinisiatif"
+      ],
+      "habit": "Menanyakan penjual terakhir sebelum rapat selesai",
+      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
+      "weakness": "Mengambil semua urusan mediasi sendiri"
+    },
+    "06_psychological_profile": {
+      "primaryMotivation": "Menjaga pedagang kecil punya ruang pasar",
+      "unspokenNeed": "Belajar menghadapi mengambil semua urusan mediasi sendiri",
+      "fear": "Keputusan sepihak memecah kepercayaan",
+      "innerConflict": "Menjaga pedagang kecil punya ruang pasar tetapi mengambil semua urusan mediasi sendiri",
+      "copingResponse": "Menghitung pembagian lapak lagi ketika cemas"
+    },
+    "07_background_history": {
+      "familyContext": "Besar dalam keluarga pekerja pasar musiman",
+      "formativeMemory": "Satu lapak kecil pernah hilang akibat pembagian cepat",
+      "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
+    },
+    "08_relationship_dynamics": {
+      "connections": [
+        {
+          "characterId": "C07",
+          "relationship": "Bernegosiasi biaya distribusi dan harga wajar",
+          "designState": "planned"
+        }
+      ],
+      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "personalBoundary": "Tidak memberi antrean istimewa karena pertemanan",
+      "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
+    },
+    "09_dialogue_behavior": {
+      "speechSignature": "Supel saat menyapa, tegas ketika membuat aturan",
+      "habitualGesture": "Menggeser catatan supaya semua bisa membaca",
+      "stressReaction": "Menghitung pembagian lapak lagi ketika cemas",
+      "sampleLine": "Lapak ini bisa pindah, tapi kita dengar penjual paling ujung dulu."
+    },
+    "10_narrative_development": {
+      "storyArc": "Mendelegasikan keputusan pasar",
+      "initialDesire": "Menjaga pedagang kecil punya ruang pasar",
+      "mainObstacle": "Mengambil semua urusan mediasi sendiri",
+      "threeActBeats": [
+        "Menengahi masalah tempat",
+        "Mendengar keberatan yang terlupa",
+        "Membentuk rapat pedagang bergilir"
+      ],
+      "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
+      "mechanics": "Reputasi dagang dan tempat lapak",
+      "implementation": "Proposed; tidak menyatakan arc sudah playable"
+    },
+    "11_visual_references": {
+      "portraitExpressionSheet": "/game/assets/portraits/A11.png",
+      "professionConcept": "/game/assets/portraits/bandung/professions/work-A11.png",
+      "movementManifest": "game-assets/characters/gba-v2/manifest.json",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "qaStatus": "needs-human-side-by-side",
+      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+    },
+    "12_continuity_current_state": {
+      "asOf": "2026-11-21",
+      "prototypePresence": "Planned/staged only; not guaranteed spawned",
+      "knownCanon": [
+        "Anggi",
+        "Pengelola pasar desa",
+        "Supel",
+        "Adil",
+        "Suka berinisiatif"
+      ],
+      "proposedArcStartingPoint": "Menengahi masalah tempat",
+      "notYetOccurred": [
+        "Mendengar keberatan yang terlupa",
+        "Membentuk rapat pedagang bergilir"
+      ],
+      "playerDependentState": "Gunakan save game, bukan Character Bible, sebagai sumber status hubungan/peristiwa",
+      "mustPreserve": "Tidak memberi antrean istimewa karena pertemanan"
+    }
+  }
+}
