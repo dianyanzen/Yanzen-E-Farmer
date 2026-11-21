@@ -55,3 +55,29 @@ hanya roster yang telah disetujui untuk publik yang tersedia.
 Lakukan review pribadi sebelum menerbitkan nama lengkap, cerita, gambar,
 atau data yang berasal dari individu nyata. Tidak ada otomatisasi yang
 mengunggah roster privat ke repository.
+
+## Sinkronisasi semua 248 identitas Docker ke Vercel Preview
+
+Untuk menghindari nama pendek lama, Vercel membaca roster terenkripsi
+dari `YZ_GAME_RESIDENT_ROSTER_JSON` khusus branch integrasi. Jika checkout
+Docker memiliki data lengkap 248 NPC dan potret sudah berada di lokasi
+kanonis GitHub, Codex di mesin Docker dapat menjalankan:
+
+```bash
+npm run chars:docker:vercel -- --input deploy/private/residents.json
+npm run chars:docker:vercel -- --input deploy/private/residents.json --apply
+```
+
+Perintah kedua memerlukan variabel lingkungan `VERCEL_TOKEN` di mesin lokal;
+jangan masukkan token ke chat, log atau repository. Script menolak roster
+yang bukan 248 entri, field tambahan privat, ID ganda, potret yang tidak
+ada dalam aset kanonis dan payload yang melampaui batas. Setelah berhasil,
+deploy ulang Preview branch `fix/game-npc-docker-vercel-roster-20261121`.
+Production tidak otomatis berubah.
+
+Rangkaian ini hanya mengirim empat field identitas yang dirender game.
+Character Bible 12 kategori yang lengkap dan telah disetujui tetap
+berada di Docker dan tidak dapat dikirim sebagai satu environment variable
+bila ukurannya melampaui batas Vercel. Untuk Vercel, saat ini Bible
+disusun berdasarkan roster terverifikasi serta naskah fiksi Bandung 151,
+dengan status draft hingga proses editorial selesai.
