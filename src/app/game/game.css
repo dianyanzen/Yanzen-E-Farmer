@@ -129,6 +129,7 @@
 .yzg-id-portrait .yzg-portrait{width:96px;flex-basis:96px}
 .yzg-character-card{display:flex;align-items:flex-start;gap:10px}
 .yzg-character-card .yzg-portrait{width:80px;flex-basis:80px}
+.yzg-character-preview{flex:0 0 80px;width:80px;height:80px;border-radius:8px;object-fit:cover;background:#fbf3df}
 .yzg-character-card>div{flex:1;min-width:0}
 .yzg-character-card p{font-size:12px;margin:6px 0}
 .yzg-expression-picker{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
@@ -273,3 +274,101 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
   .yzg-world-village{gap:6px;padding:7px 6px;font-size:11px}
   .yzg-world-village span.playable,.yzg-world-village span.planned{font-size:9px}
 }
+
+/* Phaser renders the scene in a second canvas without replacing the model. */
+.yzg-phaser-host{position:absolute;inset:0;z-index:1;overflow:hidden;transition:opacity .15s linear}
+.yzg-viewport .yzg-phaser-host canvas,.yzg-page:fullscreen .yzg-phaser-host canvas{max-height:none;image-rendering:auto;cursor:pointer}
+
+/* Phaser prototype: the field stays primary; detailed goals, status and controls live in YZ Phone. */
+.yzg-page--phaser .yzg-objective,
+.yzg-page--phaser .yzg-farm-guidance,
+.yzg-page--phaser .yzg-home-hint,
+.yzg-page--phaser .yzg-footer{display:none}
+.yzg-page--phaser .yzg-headsup{min-height:36px;padding:7px 12px;gap:10px;font-size:12px}
+.yzg-page--phaser .yzg-headsup>span:nth-child(3),
+.yzg-page--phaser .yzg-headsup>span:nth-child(4){display:none}
+.yzg-page--phaser .yzg-controls{gap:8px;padding:8px 12px}
+.yzg-page--phaser .yzg-action-context{flex:1 1 150px;border:0;background:transparent;padding:3px 0;font-size:12px}
+.yzg-page--phaser .yzg-action-context small{display:none}
+.yzg-page--phaser .yzg-tool-status small{display:none}
+.yzg-page--phaser .yzg-viewport{background:#263c2e}
+.yzg-page--phaser .yzg-phone-card{line-height:1.55}
+@media(max-width:600px){
+  .yzg-page--phaser .yzg-header{display:none}
+  .yzg-page--phaser .yzg-headsup{font-size:11px;padding:6px 8px}
+  .yzg-page--phaser .yzg-toolbelt{flex:1 1 100%}
+  .yzg-page--phaser .yzg-action-context{font-size:11px}
+  .yzg-page--phaser .yzg-controls{padding:6px 8px}
+}
+
+/* The Phaser game fills the browser tab by default; native fullscreen stays user-initiated. */
+.yzg-page--phaser:not(:fullscreen){height:100vh;height:100dvh;min-height:0;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.yzg-page--phaser:not(:fullscreen) .yzg-header,
+.yzg-page--phaser:not(:fullscreen) .yzg-disclaimer{display:none}
+.yzg-page--phaser:not(:fullscreen) .yzg-shell{width:100%;height:100%;min-height:0;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;display:flex;flex:1 1 auto;flex-direction:column}
+.yzg-page--phaser:not(:fullscreen) .yzg-headsup{flex:0 0 auto}
+.yzg-page--phaser:not(:fullscreen) .yzg-viewport{flex:1 1 auto;min-height:0}
+.yzg-page--phaser:not(:fullscreen) .yzg-viewport>canvas{max-height:100%}
+
+@media(min-width:850px){
+  .yzg-page--phaser .yzg-headsup>span:nth-child(3),
+  .yzg-page--phaser .yzg-headsup>span:nth-child(4){display:inline}
+  .yzg-page--phaser .yzg-footer{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:11px}
+  .yzg-page--phaser .yzg-buttons button:focus-visible,
+  .yzg-page--phaser .yzg-toolbelt button:focus-visible{outline:2px solid #23583d;outline-offset:2px}
+}
+
+.yzg-page dialog :is(summary,input,select,textarea):focus-visible{
+  outline:3px solid #b47421;
+  outline-offset:2px;
+}
+
+.yzg-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  color: #fff3d5;
+  background: linear-gradient(#13282033, #132820c9), #244538 url('/game/assets/pasirluyu/loading-poster.webp') center / cover no-repeat;
+  text-align: center;
+}
+.yzg-loading-copy {
+  display: grid;
+  gap: .55rem;
+  padding: 1rem 2rem;
+  text-shadow: 0 2px 4px #10241c;
+}
+.yzg-loading-copy strong { font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1; }
+
+.yzg-context-button{display:inline-flex;align-items:center;gap:8px;padding:5px 9px 5px 6px;min-height:34px;border:1px solid #b5c5a4;border-radius:7px;background:#fcfaed;color:#245239;text-align:left;font:700 12px/1.25 Arial,sans-serif}
+.yzg-context-button kbd{display:grid;place-items:center;width:21px;height:21px;border:1px solid #d4b475;border-bottom-width:2px;border-radius:4px;background:#f3e5bf;color:#554628}
+.yzg-place-name{color:#475e46;font-weight:700}
+.yzg-phone .yzg-neighbour-routes{display:grid;gap:6px;margin-block:12px}
+.yzg-phone .yzg-neighbour-routes button{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:0;min-height:36px;text-align:left}
+.yzg-phone .yzg-neighbour-routes button small{display:inline;color:inherit;font-weight:400}
+.yzg-master-minimap>div:first-child{grid-column:2}
+.yzg-master-minimap>div:last-child{grid-column:2}
+@media(max-width:700px){
+.yzg-page--phaser:not(:fullscreen){height:100svh}
+.yzg-page--phaser .yzg-headsup{display:grid;grid-template-columns:minmax(0,1fr) auto auto;height:38px;box-sizing:border-box;align-content:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+.yzg-page--phaser .yzg-headsup>span{overflow:hidden;text-overflow:ellipsis}
+.yzg-page--phaser .yzg-action-context{height:42px;box-sizing:border-box;display:flex;align-items:center;min-width:0;flex:0 0 100%}
+.yzg-page--phaser .yzg-context-button{height:38px;max-width:100%;overflow:hidden}
+.yzg-page--phaser .yzg-toolbelt .yzg-tools,.yzg-page--phaser .yzg-buttons{max-width:100%;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}
+.yzg-page--phaser .yzg-tools button,.yzg-page--phaser .yzg-buttons button{flex-shrink:0}
+}
+.yzg-page button{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.yzg-dpad button{touch-action:none}.yzg-arrow{display:inline-block;font-size:0;width:15px;height:13px;background:currentColor;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.left .yzg-arrow{transform:rotate(-90deg)}.right .yzg-arrow{transform:rotate(90deg)}.down .yzg-arrow{transform:rotate(180deg)}
+@media(max-width:700px){
+.yzg-page--phaser .yzg-buttons .yzg-phone-trigger{order:-1;min-width:91px;position:sticky;left:0;z-index:1}
+.yzg-page--phaser .yzg-buttons button,.yzg-page--phaser .yzg-tool-switch button{min-height:44px;min-width:44px}
+.yzg-page--phaser .yzg-dpad{grid-template:repeat(3,44px)/repeat(3,44px);gap:2px}
+.yzg-page--phaser .yzg-dpad button{width:44px;height:44px;touch-action:none}
+}
+
+.yzg-sleep-scene {position:absolute;inset:0;z-index:30;display:grid;align-content:center;justify-items:center;gap:6px;background:#182836;color:#fff1ca;animation:yzg-rest 1.8s both}
+.yzg-sleep-scene strong {font-size:24px}
+@keyframes yzg-rest {0%{opacity:0}20%,72%{opacity:1}100%{opacity:0;background:#554e48}}
+@media(prefers-reduced-motion:reduce){.yzg-sleep-scene{animation:none}}

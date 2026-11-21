@@ -1,23 +1,30 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import type { ResidentProfile } from "@/lib/game/resident-profile";
 import NextImage from "next/image";
 import { portraitCharacter, portraitColumn, EMOTION_LABELS, PORTRAIT_EMOTIONS } from "@/lib/game/portraits";
 import { NPCS, bondLabel, bondLevel, type Dialogue, type Emotion, type GameState } from "@/lib/game/model";
 
-export function Portrait({ npcId, emotion = "neutral" }: { npcId: string; emotion?: Emotion }) {
+export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; emotion?: Emotion; name?: string }) {
   const person = portraitCharacter(npcId);
   const [failedFor, setFailedFor] = useState<string | null>(null);
   const column = portraitColumn(emotion);
-  const label = (person?.name || "Karakter belum dikenal") + " · " + EMOTION_LABELS[PORTRAIT_EMOTIONS[column]];
+  const label = (name || person?.name || "Karakter belum dikenal") + " · " + EMOTION_LABELS[PORTRAIT_EMOTIONS[column]];
   return <span role="img" aria-label={label} className="yzg-portrait" data-character={npcId} data-emotion={PORTRAIT_EMOTIONS[column]}>
     {person && failedFor !== person.id ? <NextImage key={person.id} src={person.sheet} alt="" aria-hidden="true" width={1536} height={256} unoptimized
       loading="lazy" onError={() => setFailedFor(person.id)} style={{ left: (-column * 100) + "%" }}/>
-      : <span className="yzg-portrait-fallback" aria-hidden="true">{person?.name.slice(0,1) || "?"}</span>}
+      : <span className="yzg-portrait-fallback" aria-hidden="true">{(name || person?.name)?.slice(0, 1) || "?"}</span>}
   </span>;
 }
 
+export function ResidentPortrait({ resident }: { resident: ResidentProfile }) {
+  return <NextImage className="yzg-character-preview" src={`/game/assets/portraits/bandung/${resident.portrait}.png`}
+    alt={`Potret karakter ${resident.name}`} width={80} height={80} unoptimized />;
+}
+
 function DialogueLine({ line, onNext, last }: { line: string; onNext: () => void; last: boolean }) {
+  const lineRef = useRef<HTMLParagraphElement>(null);
   const [visible, setVisible] = useState(0);
   const [skip, setSkip] = useState(false);
   useEffect(() => {
@@ -27,22 +34,32 @@ function DialogueLine({ line, onNext, last }: { line: string; onNext: () => void
   }, [line]);
   const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const complete = skip || reduced || visible >= line.length;
+  useLayoutEffect(() => {
+    if (!last || !complete) return;
+    const dialog = lineRef.current?.closest("dialog");
+    if (!dialog?.open) return;
+    const active = document.activeElement;
+    if (active === dialog || !dialog.contains(active)) {
+      dialog.querySelector<HTMLElement>(".yzg-dialog-options button:enabled")?.focus();
+    }
+  }, [complete, last]);
+
   return <>
-    <p className="yzg-spoken"><span className="yzg-sr-only">{line}</span><span aria-hidden="true">{complete ? line : line.slice(0,visible)}{!complete && <i className="yzg-caret">▌</i>}</span></p>
+    <p ref={lineRef} className="yzg-spoken"><span className="yzg-sr-only">{line}</span><span aria-hidden="true">{complete ? line : line.slice(0,visible)}{!complete && <i className="yzg-caret">▌</i>}</span></p>
     {!last && <button autoFocus onClick={() => complete ? onNext() : setSkip(true)}>{complete ? "Lanjut ›" : "Tampilkan teks"}</button>}
     {last && !complete && <button autoFocus onClick={() => setSkip(true)}>Tampilkan teks</button>}
   </>;
 }
 
-export default function DialoguePanel({ dialogue, game, children }: { dialogue: Dialogue; game: GameState; children: ReactNode }) {
+export default function DialoguePanel({ dialogue, game, resident, children }: { dialogue: Dialogue; game: GameState; resident?: ResidentProfile; children: ReactNode }) {
   const [page, setPage] = useState(0);
   const npc = NPCS.find(n => n.id === dialogue.npcId);
   const bond = npc ? game.bonds[npc.id] : null;
   const last = page >= dialogue.lines.length - 1;
   return <>
-    <div className="yzg-dialog-head"><b>{npc?.name || dialogue.title}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
+    <div className="yzg-dialog-head"><b>{resident?.name ?? (npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
-      {npc && <Portrait npcId={npc.id} emotion={dialogue.emotion}/>}
+      {npc && <Portrait npcId={npc.id} emotion={dialogue.emotion} name={resident?.name}/>}
       <div className="yzg-dialog-copy">
         {npc && <small>{npc.role} · Lv. {bondLevel(bond!.points)} · {bondLabel(bond!.points)}</small>}
         <DialogueLine key={page} line={dialogue.lines[page] || ""} last={last} onNext={() => setPage(p => p + 1)}/>

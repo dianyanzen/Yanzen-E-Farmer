@@ -72,7 +72,9 @@ const originalAtlas=readFileSync(new URL("../public/game/atlas/index.html",impor
 const needle="const entries=";
 const start=originalAtlas.indexOf(needle);
 assert.ok(start>=0);
-const list=JSON.parse(originalAtlas.slice(start+needle.length,originalAtlas.indexOf(";\n",start)));
+const end=originalAtlas.indexOf(";",start+needle.length);
+assert.ok(end>start,"atlas entries declaration terminates with a semicolon");
+const list=JSON.parse(originalAtlas.slice(start+needle.length,end));
 const atlasNames=list.filter(row=>row[0]==="Kelurahan").map(row=>row[1]).sort();
 assert.equal(atlasNames.length,151);
 assert.deepEqual(WORLD_VILLAGES.map(v=>v.atlas_label).sort(),atlasNames,

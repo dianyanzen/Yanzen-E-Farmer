@@ -26,7 +26,7 @@ vm.runInNewContext(js,{exports:m.exports,module:m,require:(id)=>{
 const model=m.exports;
 const {PASIRLUYU_MASTER, PASIRLUYU_CHUNKS, ROUTE_PORTALS, ROUTE_BARRIERS,areaTitle}=model;
 const {width,height,chunkWidth,chunkHeight,tileSize:T}=PASIRLUYU_MASTER;
-if(width!==48||height!==48||chunkWidth!==24||chunkHeight!==16||T!==20)
+if(width!==chunkWidth*2||height!==chunkHeight*3||chunkWidth!==model.WORLD.width||chunkHeight!==model.WORLD.height||T!==model.WORLD.tile)
   throw Error("Master map contract changed; update the blueprint exporter and tests");
 const props=(values)=>Object.entries(values).map(([name,value])=>({
  name,type:typeof value==="boolean"?"bool":typeof value==="number"?"int":"string",value
@@ -93,7 +93,7 @@ const world={maps:[{fileName:"pasirluyu-master.tmj",x:0,y:0,width:width*T,height
 const outputs=[[mapPath,JSON.stringify(map,null,2)+"\n"],[worldPath,JSON.stringify(world,null,2)+"\n"]];
 if(process.argv.includes("--check")){
  for(const [path,content] of outputs){
-  if(!existsSync(path)||readFileSync(path,"utf8")!==content)
+  if(!existsSync(path)||readFileSync(path,"utf8").replace(/\r\n/g,"\n")!==content)
     throw Error("Tiled blueprint is out of date: "+path+" — run npm run tools:tiled:export");
  }
  console.log("Tiled blueprint consistency: PASS — "+sections.length+" chunks, "+portals.length+" directed portals, "+roadBlocks.length+" barriers");

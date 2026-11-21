@@ -1,0 +1,268 @@
+[
+  {
+    "id": "P01",
+    "name": "Dedi Mulyadi",
+    "occupation": "Gubernur Jawa Barat",
+    "story": "Dua ujung saluran",
+    "premise": "Dalam cerita fiksi, Gubernur Dedi Mulyadi menghadiri temu warga. Dua kelompok membawa peta air berbeda dan sama-sama bisa menunjukkan buktinya."
+  },
+  {
+    "id": "P02",
+    "name": "Muhammad Farhan",
+    "occupation": "Wali Kota Bandung",
+    "story": "Meja yang menghadap gang",
+    "premise": "Dalam cerita fiksi, Wali Kota Muhammad Farhan berkunjung ke pasar. Malik mengusulkan agar rute kunjungan dimulai dari pintu yang biasanya terkunci."
+  },
+  {
+    "id": "N01",
+    "name": "Sinta",
+    "occupation": "Peternak unggas",
+    "story": "Ayam yang tak pulang ke kandang",
+    "premise": "Sinta mengira ayam kesayangannya hilang. Setiap sore terdengar ciap dari tumpukan keranjang kosong."
+  },
+  {
+    "id": "N02",
+    "name": "Surya",
+    "occupation": "Dokter hewan keliling",
+    "story": "Bel di pagar kandang",
+    "premise": "Surya, dokter hewan keliling, menemukan bel panggilnya berkarat. Peternak baru ternyata malu meminta bantuan."
+  },
+  {
+    "id": "N03",
+    "name": "Ratih",
+    "occupation": "Pemancing dan pengamat ikan",
+    "story": "Umpan peninggalan kakak",
+    "premise": "Ratih menyimpan pelampung pecah dari kakaknya. Ikan yang dahulu sering tertangkap kini terlihat di sisi kolam yang lebih teduh."
+  },
+  {
+    "id": "N04",
+    "name": "Jalu",
+    "occupation": "Pembudidaya lebah",
+    "story": "Madu yang tidak dipanen",
+    "premise": "Jalu dituduh lupa mengambil madu. Ia sengaja menyisakannya saat bunga di jalur terbang mulai habis."
+  },
+  {
+    "id": "N05",
+    "name": "Laras",
+    "occupation": "Dokter klinik kampung",
+    "story": "Kursi di depan klinik",
+    "premise": "Laras melihat pekerja mengaku sehat agar tidak kehilangan giliran panen. Kursi ruang tunggunya justru selalu kosong."
+  },
+  {
+    "id": "N06",
+    "name": "Ujang",
+    "occupation": "Perajin batu dan pengenal mineral",
+    "story": "Batu yang bernyanyi",
+    "premise": "Ujang mengenali batu dari bunyinya. Saat dengarnya berkurang, ia mengajari murid membedakan bahan melalui guratan dan berat."
+  },
+  {
+    "id": "K01",
+    "name": "Euis",
+    "occupation": "Koordinator ronda",
+    "story": "Sela sesudah ketukan ketiga",
+    "premise": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga."
+  },
+  {
+    "id": "K02",
+    "name": "Raka",
+    "occupation": "Montir sepeda",
+    "story": "Sepeda yang selalu belok kiri",
+    "premise": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi."
+  },
+  {
+    "id": "K03",
+    "name": "Imas",
+    "occupation": "Pengelola penatu bersama",
+    "story": "Sapu tangan tak bertuan",
+    "premise": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu."
+  },
+  {
+    "id": "K04",
+    "name": "Gilang",
+    "occupation": "Pelukis papan toko",
+    "story": "Huruf yang hilang saat senja",
+    "premise": "Papan Gilang terlihat jelas pada siang hari. Menjelang petang, bayangan kisi menelan satu huruf nama toko."
+  },
+  {
+    "id": "K05",
+    "name": "Mimin",
+    "occupation": "Peracik soto",
+    "story": "Mangkuk biru",
+    "premise": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak."
+  },
+  {
+    "id": "K06",
+    "name": "Darsa",
+    "occupation": "Penggembala itik",
+    "story": "Itik paling belakang",
+    "premise": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya."
+  },
+  {
+    "id": "K07",
+    "name": "Wening",
+    "occupation": "Teknisi pengamatan air",
+    "story": "Dua botol tertukar",
+    "premise": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya."
+  },
+  {
+    "id": "K08",
+    "name": "Teguh",
+    "occupation": "Penambal ban",
+    "story": "Pompa terakhir",
+    "premise": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi."
+  },
+  {
+    "id": "K09",
+    "name": "Lastri",
+    "occupation": "Perawat properti pertunjukan",
+    "story": "Tokoh tanpa bayangan",
+    "premise": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya."
+  },
+  {
+    "id": "K10",
+    "name": "Aam",
+    "occupation": "Perajin tahu",
+    "story": "Kotak dengan satu sudut miring",
+    "premise": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah."
+  },
+  {
+    "id": "K11",
+    "name": "Sasmita",
+    "occupation": "Juru cerita warga",
+    "story": "Nama yang boleh disimpan",
+    "premise": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam."
+  },
+  {
+    "id": "K12",
+    "name": "Manda",
+    "occupation": "Pengamat satwa malam",
+    "story": "Langit di sela jemuran",
+    "premise": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah."
+  },
+  {
+    "id": "K13",
+    "name": "Tuti",
+    "occupation": "Konservator kertas",
+    "story": "Daftar absen di balik poster",
+    "premise": "Tuti menemukan nama penjaga gedung pada belakang poster pertunjukan. Memajang poster menutupi satu-satunya catatan tentang dirinya."
+  },
+  {
+    "id": "K14",
+    "name": "Iqbal",
+    "occupation": "Perekam suara lapangan",
+    "story": "Lima detik kosong",
+    "premise": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya."
+  },
+  {
+    "id": "K15",
+    "name": "Rukmi",
+    "occupation": "Bidan kampung",
+    "story": "Gang yang berganti pagar",
+    "premise": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya."
+  },
+  {
+    "id": "K16",
+    "name": "Karta",
+    "occupation": "Penabuh benjang",
+    "story": "Satu bangku kosong di latihan",
+    "premise": "Karta menghentikan latihan sebelum ketukan penutup. Ia biasa menyerahkannya pada rekan yang kini hanya sanggup datang sebagai penonton."
+  },
+  {
+    "id": "K17",
+    "name": "Ajeng",
+    "occupation": "Perajin pewarna kain",
+    "story": "Biru pada ujung lengan",
+    "premise": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset."
+  },
+  {
+    "id": "K18",
+    "name": "Yuda",
+    "occupation": "Penyetem alat musik bambu",
+    "story": "Nada yang enggan pulang",
+    "premise": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan."
+  },
+  {
+    "id": "K19",
+    "name": "Lilis",
+    "occupation": "Teknisi mesin rajut",
+    "story": "Satu tusuk sengaja kosong",
+    "premise": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya."
+  },
+  {
+    "id": "K20",
+    "name": "Oman",
+    "occupation": "Perajin sepatu",
+    "story": "Sol kiri lebih tipis",
+    "premise": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda."
+  },
+  {
+    "id": "K21",
+    "name": "Aci",
+    "occupation": "Perawat perabot enamel",
+    "story": "Cangkir yang tetap retak",
+    "premise": "Aci menemukan cangkir yang dulu ia lecetkan saat magang. Pemiliknya telah memakai bekas itu untuk garis takar."
+  },
+  {
+    "id": "K22",
+    "name": "Bima",
+    "occupation": "Penyiar radio malam",
+    "story": "Permintaan lagu tanpa judul",
+    "premise": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan."
+  },
+  {
+    "id": "K23",
+    "name": "Nenden",
+    "occupation": "Pengasuh hewan titipan",
+    "story": "Kucing di atas kardus",
+    "premise": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka."
+  },
+  {
+    "id": "K24",
+    "name": "Tiar",
+    "occupation": "Penyusun label Braille",
+    "story": "Titik yang terlalu dekat tepi",
+    "premise": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru."
+  },
+  {
+    "id": "K25",
+    "name": "Bagja",
+    "occupation": "Pengatur porter barang",
+    "story": "Troli yang bunyinya berbeda",
+    "premise": "Bagja menandai tiap troli lewat suara roda. Setelah semuanya diganti, seorang pekerja kehilangan cara mengenal troli bagiannya."
+  },
+  {
+    "id": "K26",
+    "name": "Ningsih",
+    "occupation": "Pengelola gudang dingin",
+    "story": "Petak kosong nomor empat",
+    "premise": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya."
+  },
+  {
+    "id": "K27",
+    "name": "Endah",
+    "occupation": "Penjahit pasar",
+    "story": "Saku di dalam saku",
+    "premise": "Endah menemukan saku kedua di jaket lama kurir. Ada denah singkat jalan pasar yang tak pernah masuk peta."
+  },
+  {
+    "id": "K28",
+    "name": "Ridho",
+    "occupation": "Kondektur angkutan fiktif",
+    "story": "Karcis tanpa lubang pulang",
+    "premise": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan."
+  },
+  {
+    "id": "K29",
+    "name": "Empi",
+    "occupation": "Teknisi jam mekanis",
+    "story": "Tujuh menit untuk menunggu",
+    "premise": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang."
+  },
+  {
+    "id": "K30",
+    "name": "Mira",
+    "occupation": "Operator proyektor",
+    "story": "Kursi ketiga dari belakang",
+    "premise": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks."
+  }
+]

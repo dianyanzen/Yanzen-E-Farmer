@@ -1,10 +1,10 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
-import { drawOutdoorArea } from "./pasirluyu-areas";
-import {drawFieldRoads,drawRouteClosures} from "./pasirluyu-master-map";
+import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
+import { waterRipples } from "./pasirluyu-areas";
+import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 
-const { width: W, height: H, tile: T } = WORLD;
+const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
   ctx.fillStyle = c; ctx.fillRect(Math.round(x), Math.round(y), w, h);
 }
@@ -23,11 +23,11 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; landscape?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
-  pasirluyuDay?: HTMLImageElement; pasirluyuEvening?: HTMLImageElement;
-  rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement;
+export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
+  outdoor?: Record<string,HTMLImageElement>;
+  rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
-const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3 } as const;
+const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
 
 export type FarmAnimation = { use: ToolUse; frame: number; effect: number };
@@ -37,11 +37,33 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
                           dust?: {x:number;y:number;dir:Direction;phase:number}) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
+  const W = isOutdoorLocation(state.location) ? WORLD.width : 24;
   const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (camera.x + .5)*T - canvas.width/2)));
   const cameraY = Math.round(Math.min(H*T - canvas.height, Math.max(0, (camera.y + .5)*T - canvas.height/2)));
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
+  if(isResidentHome(state.location)){
+    box(ctx,0,0,W*T,H*T,"#29272a");
+    const room=art[state.location];
+    if(room)ctx.drawImage(room,0,0,W*T,H*T);
+    const residents=npcHere(state);
+    for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
+    actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+    for(const npc of residents)if(npc.y>position.y)drawNpc(npc);
+    return;
+  }
+  if(state.location==="warung"){
+    box(ctx,0,0,W*T,H*T,"#24282a");
+    if (art.warungInterior) ctx.drawImage(art.warungInterior,0,0,W*T,H*T);
+    else box(ctx,160,120,180,160,"#b49970");
+    for (const npc of npcHere(state)) drawPerson(ctx,npc.x,npc.y,npc.color,"#e4b48b","#553a2c",false);
+    if(art.people){
+      ctx.drawImage(art.people,24,facingRows[position.dir]*32,24,32,
+        Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
+    }else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    return;
+  }
   if(state.location==="shed"){
     if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
@@ -98,71 +120,19 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   // Keep farm art and terrain separate from other real, connected neighborhoods.
   const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
-  if(state.location!=="field"){
-    drawOutdoorArea(ctx,state.location,ambient);
-  }else{
-  // Home entrance is an explicit interaction on the village building edge.
-  if (art.landscape) ctx.drawImage(art.landscape, 0, 0);
-  else {
-    box(ctx,0,0,W*T,H*T,"#a7c465");
-    box(ctx,3*T,8*T,8*T,6*T,"#b58c57");
-  }
-  // Decorative overlay is aligned with the original 480×320 Pasirluyu collision map.
-  // The town's right-hand Warung Inggit remains visible and interactive.
-  const villageArt = state.minutes>=18*60 && art.pasirluyuEvening ?
-    art.pasirluyuEvening : (art.pasirluyuDay ?? art.pasirluyuEvening);
-  if(villageArt) ctx.drawImage(villageArt,0,0,W*T,H*T);
-  else {
-    box(ctx,HOME.door.x*T,HOME.door.y*T,20,8,"#725039");
-    box(ctx,SHED.door.x*T,SHED.door.y*T,20,8,"#59412f");
-    label(ctx,"GUDANG",SHED.door.x*T-4,SHED.door.y*T-8);
-    label(ctx,"RUMAH",HOME.door.x*T-4,HOME.door.y*T-8);
-  }
-  // Both sides of the road use identical world-coordinate atlas texture.
-  drawFieldRoads(ctx);
-  label(ctx,"GANG →",19*T,10*T-6);
-  // Natural East and South edges now have visible trees/fence matching collisions.
-  for(let y=5;y<16;y++)if(y!==10&&y!==11){
-    box(ctx,23*T,y*T,20,20,"#406745");
-    box(ctx,23*T+4,y*T+2,14,11,"#629059");
-    box(ctx,23*T+8,y*T+12,5,7,"#6a5137");
-  }
-  for(let x=0;x<23;x++){
-    box(ctx,x*T,15*T,20,20,x%2?"#547d4b":"#466c44");
-    box(ctx,x*T+2,15*T+2,16,9,"#75a265");
-    box(ctx,x*T+3,15*T+15,15,2,"#6d583f");
-  }
-  // World-space ripples stay inside the original canal banks.
-  for (let i=0;i<16;i++) {
-    const x=2+(i*13+Math.floor(ambient/2))%25, y=186+(i*23+ambient)%130;
-    box(ctx,x,y,3+(i%4),1,i%2?"#98d1bd":"#79c1b7");
-  }
-  // IMPORTANT: pasirluyu.png shows decorative mature cucumber rows.
-  // Cover the whole farm with state-backed tiles so the visuals NEVER lie:
-  // empty = dry soil, -1 = furrows, 0..2 = growing, 3 = harvestable.
+  drawModularGround(ctx,state.location,art.outdoor ?? {});
+  if(state.location==="field"){
   for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
     const px=x*T, py=y*T;
     const plot=byTile.get(x+","+y);
-    const variant=(x*5+y*3)%4;
-    const base=["#a47d52","#ae855a","#aa8056","#b28b5e"][variant];
-    box(ctx,px,py,T,T,"#684f39");
-    box(ctx,px+1,py+1,T-2,T-2,base);
-    box(ctx,px+2,py+3,T-4,2,"#c29b67");
-    box(ctx,px+4,py+12,T-8,1,"#96704c");
-    box(ctx,px+9,py+7,2,1,"#d0ac73");
-    if(!plot){
-      box(ctx,px+14,py+16,2,1,"#8b6949");
-      continue;
-    }
-    box(ctx,px+1,py+2,T-2,T-4,plot.watered?"#58473a":"#76513c");
-    box(ctx,px+3,py+6,T-6,2,plot.watered?"#78634b":"#98704f");
-    box(ctx,px+3,py+13,T-6,2,plot.watered?"#6e5943":"#916446");
-    if(plot.stage===-1){
-      box(ctx,px+3,py+8,14,1,"#b88f60");
-      box(ctx,px+5,py+11,10,1,"#b88f60");
-    }else if(art.cucumber){
+    if(!plot)continue;
+    const soil = art.outdoor?.petak;
+    const tile = plotTextureFrame(x,y,plot.watered,plot.stage);
+    if (soil) ctx.drawImage(soil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
+    else box(ctx,px,py,T,T,plot.watered?"#927256":"#b48b61");
+    if(plot.stage>=0 && art.cucumber){
       ctx.drawImage(art.cucumber,plot.stage*16,0,16,16,px+2,py+2,16,16);
-    }else{
+    }else if(plot.stage>=0){
       const height=5+plot.stage*3;
       box(ctx,px+9,py+16-height,2,height,"#347346");
       box(ctx,px+4,py+12-plot.stage*2,7+plot.stage,3,"#4d994f");
@@ -179,7 +149,6 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       box(ctx,px+2,py+4,2,3,"#ffdb81");
     }
   }
-  drawRouteClosures(ctx,"field");
   }
   function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
     if (art.people) {
@@ -197,8 +166,24 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     actor(npc.id,npc.x,npc.y,dir,1,npc.color);
     if (near) label(ctx!,npc.name,npc.x*T-2,npc.y*T-15);
   }
-  const ordered=npcHere(state).sort((a,b)=>a.y-b.y);
-  for (const npc of ordered) if (npc.y<=position.y) drawNpc(npc);
+  for (const [x,y,width] of waterRipples(state.location,ambient,state.sluiceOpen)) {
+    box(ctx,x,y,width,1,"#83bdb1");
+  }
+  const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
+  for (const prop of outdoorObjects(state.location,state.minutes,state.sluiceOpen)) {
+    const image = art.outdoor?.[prop.asset];
+    if (!image) continue;
+    const scale = prop.scale ?? 1;
+    const width = Math.round(image.width*scale), height = Math.round(image.height*scale);
+    ordered.push({y:prop.y/T-1,draw:() => {
+      const footY=(position.y+1)*T;
+      const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
+      ctx.save();ctx.globalAlpha=covered?.65:1;
+      ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);ctx.restore();
+    }});
+  }
+  ordered.sort((a,b)=>a.y-b.y);
+  for (const item of ordered) if (item.y<=position.y) item.draw();
   // Player and their current tile target.
   const target=facing(state.player);
   if(state.location==="field" && isFarm(target.x,target.y)){
@@ -239,11 +224,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const {x,y}=action.use.target;
     ctx.drawImage(art.effects,action.effect*16,row*16,16,16,x*T+2,y*T+1,16,16);
   }
-  for (const npc of ordered) if (npc.y>position.y) drawNpc(npc);
-  const dusk=Math.max(0,Math.min(1,(state.minutes-960)/240));
+  for (const item of ordered) if (item.y>position.y) item.draw();
+  const dusk=Math.max(0,Math.min(1,(state.minutes-960)/120));
   if (dusk) {
-    ctx.fillStyle=`rgba(62,45,94,${dusk*.32})`;
-    ctx.fillRect(cameraX,cameraY,canvas.width,canvas.height);
+    const night=art.outdoor?.["night-"+state.location];
+    if(night){ctx.save();ctx.globalAlpha=dusk;ctx.drawImage(night,0,0);ctx.restore();}
   }
   if(weatherForDay(state.day)==="hujan"){
     // Deterministic, low-cost rain overlay; crop moisture is simulated in nextDay().

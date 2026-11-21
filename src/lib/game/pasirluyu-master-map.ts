@@ -1,6 +1,6 @@
 /** Original pixel-art atlas: a coherent master terrain is sliced into visible chunks.
  * This owns ONLY scenery; collision and unlock rules live in the same model registry. */
-import {PASIRLUYU_CHUNKS,isMasterRoad,ROUTE_BARRIERS,
+import {edgeTile,PASIRLUYU_CHUNKS,isMasterRoad,ROUTE_BARRIERS,
   type OutdoorLocation,type RouteBarrier} from "./model";
 type Canvas=CanvasRenderingContext2D;
 const T=20;
@@ -11,15 +11,28 @@ function terrainNoise(x:number,y:number,salt=0):number{
   let h=((x+231)*374761393)^((y+631)*668265263)^((salt+37)*2246822519);
   h=Math.imul(h^(h>>>13),1274126177);return ((h^(h>>>16))>>>0)%1000;
 }
+/** ROAD STYLE v2 — shared world-coordinate gravel palette.
+ * Legacy farm art already uses warm sand (#ddc38a); older darker slab
+ * (#b99c70) was visually incompatible with its winding earth track.
+ */
+export const ROAD_STYLE={
+  base:"#dbc28c",light:"#e6cc94",shadow:"#c8ae79",pebble:"#ac956d",
+  verge:"#91a96c",width:40
+} as const;
 export function drawMasterRoadTile(ctx:Canvas,where:OutdoorLocation,x:number,y:number){
   const p=PASIRLUYU_CHUNKS[where],px=x*T,py=y*T;
   const worldX=x+p.originX,worldY=y+p.originY,n=terrainNoise(worldX,worldY,3);
-  // Same palette and world-coordinate texture on either side of every seam.
-  fill(ctx,px,py,T,T,n%3===0?"#b99c70":n%3===1?"#b69a71":"#bca379");
-  fill(ctx,px+2,py+2,T-4,1,"#c5aa83");
-  if(n%3===0)fill(ctx,px+8,py+14,5,1,"#907959");
-  if(n%5===0)fill(ctx,px+3,py+8,4,1,"#d0b48a");
-  if(n%7===0)fill(ctx,px+15,py+5,2,2,"#8f836d");
+  // Consistent material and GLOBAL noise pattern even when adjacent scenes
+  // are authored differently. Avoid alternating entire tiles by color.
+  fill(ctx,px,py,T,T,ROAD_STYLE.base);
+  if(n%3===0)fill(ctx,px+2,py+4,5,1,ROAD_STYLE.light);
+  if(n%5===0)fill(ctx,px+13,py+16,4,1,ROAD_STYLE.shadow);
+  if(n%7===0)fill(ctx,px+15,py+5,2,2,ROAD_STYLE.pebble);
+  if(n%11===0)fill(ctx,px+8,py+12,3,1,"#efe0ac");
+  for (let i=0; i<4; i++) {
+    const grit=terrainNoise(worldX,worldY,i+11);
+    fill(ctx,px+grit%17,py+(grit>>3)%19,2+i%2,1,i%2 ? ROAD_STYLE.light : ROAD_STYLE.shadow);
+  }
 }
 /** Replaces per-scene random terrain noise with world-space ground and roads. */
 export function drawMasterGround(ctx:Canvas,where:OutdoorLocation){
@@ -27,16 +40,125 @@ export function drawMasterGround(ctx:Canvas,where:OutdoorLocation){
   for(let y=0;y<16;y++)for(let x=0;x<24;x++){
     const px=x*T,py=y*T,wx=origin.originX+x,wy=origin.originY+y;
     const n=terrainNoise(wx,wy);
-    fill(ctx,px,py,T,T,["#91a96c","#9ab273","#92ab70","#a1b879","#8aa66b"][n%5]);
+    fill(ctx,px,py,T,T,"#9ab36f");
+    for (let i = 0; i < 8; i++) {
+      const speck = terrainNoise(wx, wy, i + 7);
+      fill(ctx,px+speck%17,py+((speck>>3)+i*7)%18,2+(i%3),1,
+        ["#8fa664","#a9bd78","#94ae69"][i%3]);
+    }
     if(n%11===0)fill(ctx,px+4,py+12,3,1,"#607f53");
     if(n%17===0)fill(ctx,px+13,py+5,2,1,"#d9d5a2");
     if(isMasterRoad(where,x,y))drawMasterRoadTile(ctx,where,x,y);
   }
 }
-/** Let a legacy hand-drawn starter map keep its buildings while stitching its road edges to the atlas. */
+/** Geometric mask for the farm's EAST entrance.
+ * The baked landscape has a winding dirt path arriving near x=320,y=220.
+ * The road must widen gradually into the common 40px corridor at x=480,
+ * rather than laying a two-tile-high rectangular strip across the field.
+ */
+export const ROAD_SEAMS={
+  farmEast:{left:319,right:480,topAtSeam:200,bottomAtSeam:240},
+  farmSouth:{top:230,bottom:320,leftAtSeam:360,rightAtSeam:400},
+} as const;
+function traceFarmEast(ctx:Canvas){
+  ctx.beginPath();
+  ctx.moveTo(319,207);
+  ctx.bezierCurveTo(333,198,354,199,378,200);
+  ctx.bezierCurveTo(424,200,448,200,480,200);
+  ctx.lineTo(480,240);
+  ctx.bezierCurveTo(441,240,415,236,378,237);
+  ctx.bezierCurveTo(356,234,333,234,319,231);
+  ctx.closePath();
+}
+function traceFarmSouth(ctx:Canvas){
+  ctx.beginPath();
+  ctx.moveTo(368,229);
+  ctx.bezierCurveTo(367,256,367,281,360,320);
+  ctx.lineTo(400,320);
+  ctx.bezierCurveTo(401,289,400,257,402,229);
+  ctx.closePath();
+}
+function paintClippedRoad(ctx:Canvas,trace:(c:Canvas)=>void,where:OutdoorLocation,
+                          minX:number,maxX:number,minY:number,maxY:number){
+  ctx.save();
+  trace(ctx);ctx.clip();
+  for(let y=minY;y<=maxY;y++)for(let x=minX;x<=maxX;x++)
+    drawMasterRoadTile(ctx,where,x,y);
+  ctx.restore();
+}
 export function drawFieldRoads(ctx:Canvas){
-  for(let y=10;y<=11;y++)for(let x=17;x<24;x++)drawMasterRoadTile(ctx,"field",x,y);
-  for(let y=13;y<=15;y++)for(let x=18;x<=19;x++)drawMasterRoadTile(ctx,"field",x,y);
+  // Both trails merge into the ORIGINAL farm path. No full-width overlay band.
+  paintClippedRoad(ctx,traceFarmEast,"field",15,23,9,12);
+  paintClippedRoad(ctx,traceFarmSouth,"field",17,20,11,15);
+  // A small paved threshold picks out the storefront from the dirt road.
+  fill(ctx, 369, 94, 33, 5, "#a59b76");
+  fill(ctx, 365, 99, 42, 4, "#b4a885");
+  fill(ctx, 371, 103, 34, 3, "#c5b794");
+  for (let x = 372; x < 402; x += 7) fill(ctx, x, 100, 1, 2, "#96876a");
+  // A thin muted verge differentiates dirt from the lawn.
+  ctx.save();
+  traceFarmEast(ctx);
+  ctx.clip();
+  ctx.strokeStyle = "#b79f69";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.restore();
+  // Porch flagstones connect the house door and shed to the lane.
+  for (const entrance of [78, 190]) {
+    for (let row = 0; row < 3; row++) {
+      const y = 96 + row * 4;
+      fill(ctx, entrance - 10 + row * 2, y, 18, 3, "#a39475");
+      fill(ctx, entrance - 9 + row * 2, y, 16, 1, "#c4b397");
+    }
+  }
+}
+/** Vegetation and a low timber fence follow the existing map limits. */
+export function drawFieldBoundary(ctx: Canvas) {
+  for (let y = 5; y < 16; y++) {
+    if (y === 10 || y === 11) continue;
+    const top = y * T;
+    fill(ctx, 463, top + 5, 17, 15, "#5a7947");
+    fill(ctx, 470, top + 13, 4, 7, "#684a34");
+    fill(ctx, 463, top + 5, 17, 9, "#3a6143");
+    fill(ctx, 466, top + 2, 13, 11, "#4d7d49");
+    fill(ctx, 470, top, 8, 3, "#6f9b56");
+    fill(ctx, 467, top + 5, 6, 2, "#83aa5d");
+  }
+  for (let x = 0; x < 23; x++) {
+    if (x === 18 || x === 19) continue;
+    const left = x * T;
+    fill(ctx, left, 312, T, 8, "#819b55");
+    fill(ctx, left, 304, T, 2, "#986c48");
+    fill(ctx, left, 309, T, 2, "#896047");
+    fill(ctx, left + 2, 301, 4, 14, "#79513a");
+    fill(ctx, left + 2, 301, 3, 2, "#c19259");
+    if (x % 3 === 0) {
+      fill(ctx, left + 10, 314, 7, 3, "#63884a");
+      fill(ctx, left + 12, 313, 2, 2, "#e5c780");
+    }
+  }
+}
+/** A market is a cobbled COURTYARD, not a beige rectangle spanning an entire
+ * 24×16 map. Its warm transition apron uses the very same base material as
+ * the streets, preserving physical continuity at the north/south seam.
+ */
+export function drawMarketCourtyard(ctx:Canvas){
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(115,131);
+  ctx.bezierCurveTo(142,117,339,118,355,134);
+  ctx.bezierCurveTo(389,161,387,232,359,249);
+  ctx.bezierCurveTo(333,263,155,265,116,249);
+  ctx.bezierCurveTo(99,227,97,154,115,131);
+  ctx.closePath();ctx.clip();
+  for(let y=5;y<=13;y++)for(let x=4;x<=20;x++)
+    drawMasterRoadTile(ctx,"pasar",x,y);
+  ctx.restore();
+  // Warm local pavers, not a change of road width or a disconnected seam.
+  for(let i=0;i<35;i++){
+    const x=133+(i*37)%200,y=153+(i*19)%77;
+    fill(ctx,x,y,5,1,i%3===0?"#b9a080":"#e8d5a8");
+  }
 }
 function woodenRail(c:Canvas,x:number,y:number,length:number){
   fill(c,x,y+13,length,3,"#77583d");
@@ -69,9 +191,8 @@ function iconSign(c:Canvas,x:number,y:number,tag:string){
   c.fillStyle="#5d4933";c.font="bold 6px monospace";c.fillText(tag,x+4,y+8);
 }
 function drawBlockade(ctx:Canvas,b:RouteBarrier){
-  const edgeHorizontal=b.side==="up"||b.side==="down";
-  const bx=(edgeHorizontal?b.start:(b.side==="left"?0:23))*T;
-  const by=(edgeHorizontal?(b.side==="up"?0:15):b.start)*T;
+  const tile=edgeTile(b.side,b.start);
+  const bx=tile.x*T, by=tile.y*T;
   // Each closure spans at least two tiles, is solid, visible, and has inspectable text.
   if(b.artwork==="jasmine_gate"){
     woodenRail(ctx,bx-7,by+2,52);leaf(ctx,bx-9,by-3,0);leaf(ctx,bx+32,by-6,1);
