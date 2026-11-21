@@ -658,9 +658,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   // and relationship transfer still require independent manual approval.
   const activeNames=new Map(NPCS.map(npc=>[npc.name,
     approvedByLegacyId.get(npc.id)?.name??visualByLegacyId.get(npc.id)?.name??npc.name]));
-  const namePattern=new RegExp("\\b("+[...activeNames.keys()].map(name=>name.replace(/[.*+?^${}()|[\]\\]/g,"\\  const activeNames = new Map(NPCS.map(npc => [npc.name, approvedByLegacyId.get(npc.id)?.name ?? npc.name]));
-  const display = (message: string) =>
-    message.replace(/\b(?:Ryan|Nani|Inggit)\b/g, name => activeNames.get(name) ?? name);"))
+  const namePattern=new RegExp("\\b("+[...activeNames.keys()]
     .sort((a,b)=>b.length-a.length).join("|")+")\\b","g");
   const display=(message:string)=>message.replace(namePattern,name=>activeNames.get(name)??name);
   const actionLabel = display(context.label);
