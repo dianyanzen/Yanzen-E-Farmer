@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "date": "2026-11-21",
+  "baselineCommit": "251f78a46b1e617e12a645c29d2c072bf62cf7ad",
+  "action": "DELETE exact binary copies; redirect manifests to canonical sheets",
+  "removedFiles": 128,
+  "removedBytes": 117366708,
+  "remainingMedia": 2487,
+  "uniqueBlobsKept": 1195,
+  "standaloneZipBundlesChanged": false,
+  "sqliteArchivesChanged": false,
+  "deleted": [
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C01.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C01.png",
+      "sha": "ed39bd02ada4116c221f33652327e513a26bfb41",
+      "bytes": 970111
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C02.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C02.png",
+      "sha": "ab4642d538d8b7f4a6fa05d7edd6e2ab9e5f84ea",
+      "bytes": 897048
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C03.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C03.png",
+      "sha": "ff1c954e01398a17033a7450536d63260afc673b",
+      "bytes": 930477
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C04.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C04.png",
+      "sha": "c79dc9bdc3a27214aff3e7bc5397c378fd7334d8",
+      "bytes": 878109
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C05.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C05.png",
+      "sha": "88058c46212fdef0a3a2bbf6c23d8e6421e51017",
+      "bytes": 910569
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C06.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C06.png",
+      "sha": "6d2dd71cf1a7da17087e8b200af29c9637c922ba",
+      "bytes": 957733
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C07.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C07.png",
+      "sha": "495adc854b04abe9404030725511651d3d1d2a36",
+      "bytes": 970205
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C08.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C08.png",
+      "sha": "cf60b5f06be05f8351347b5922bf20c9fc8c5ca6",
+      "bytes": 860684
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C09.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C09.png",
+      "sha": "08b3df34b69ad1fabbdc7067a417f7562202a70b",
+      "bytes": 910573
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C10.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C10.png",
+      "sha": "e170b950e6c9c7550333fc37bb349395bf94f68f",
+      "bytes": 882227
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C11.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C11.png",
+      "sha": "31980f8a7501411adeb544392f54efb8767fa75f",
+      "bytes": 918260
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C12.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C12.png",
+      "sha": "ff5857b3d8f205eadd6c3c0be1177fa6ca81cb52",
+      "bytes": 966434
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C13.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C13.png",
+      "sha": "ac7e5f334a34366a40bc7c51b27ade86596f8b58",
+      "bytes": 827074
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C14.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C14.png",
+      "sha": "8f761c71992ef8442fdc89bf115f1c6c0e67a366",
+      "bytes": 837080
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C15.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C15.png",
+      "sha": "2f16a0a84c5991f6a606c18f51f425800427b0f0",
+      "bytes": 1184219
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2-c/sheets/C16.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C16.png",
+      "sha": "3f00aa0c85464571bf3b236ae236b00ebc81102a",
+      "bytes": 856397
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A01.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A01.png",
+      "sha": "9debba47da47549a8564726335c023875319efb1",
+      "bytes": 888268
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A02.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A02.png",
+      "sha": "ca3811cd4b58cde0ac739027a1b368bd004c8f67",
+      "bytes": 769844
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A03.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A03.png",
+      "sha": "998e72e2dfed8af49944be6bd50dd02d6063ec51",
+      "bytes": 917272
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A04.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A04.png",
+      "sha": "b94457a1a110c00892bcbff65d3e39686a319048",
+      "bytes": 918096
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A05.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A05.png",
+      "sha": "92186b0c5f88a8dfe905bf5239b884ed8d74d35a",
+      "bytes": 844068
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A06.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A06.png",
+      "sha": "9c6089f7d5af961354d55b1200efda144dcf1b76",
+      "bytes": 858938
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A07.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A07.png",
+      "sha": "ecda9e1300d01739bae670976031de11f8bfc8eb",
+      "bytes": 1002008
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A08.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A08.png",
+      "sha": "efe9788d5823e5dbe1c6da2aa12352191425dab5",
+      "bytes": 945180
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A09.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A09.png",
+      "sha": "02638ffac913eccb23cc76d2059b7ffa44a4f2a8",
+      "bytes": 902314
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A10.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A10.png",
+      "sha": "53c39ed102f7e6ac165dd39c92baf33b4d129eda",
+      "bytes": 1109281
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A11.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A11.png",
+      "sha": "00c05caec02c0ea17ef2ba5ef3ebef712a23f47b",
+      "bytes": 825660
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A12.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A12.png",
+      "sha": "0a243796bdbd1273b5528af7375df4f288139ffb",
+      "bytes": 1005482
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A13.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A13.png",
+      "sha": "e96ee523b73d04b255002838f628fb128cac7155",
+      "bytes": 906636
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A14.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A14.png",
+      "sha": "ea16f2b5bb12a2330cd7ad7a29c2cf944a21626e",
+      "bytes": 921644
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A15.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A15.png",
+      "sha": "2951b12870b928f0dee140cac3f98bd4b3fde19a",
+      "bytes": 853436
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/aset/sumber-karakter/gba-v2/sheets/A16.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A16.png",
+      "sha": "a95854d9e79f3f6778ee782d9b6c563eb1180a41",
+      "bytes": 916350
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C01.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C01.png",
+      "sha": "ed39bd02ada4116c221f33652327e513a26bfb41",
+      "bytes": 970111
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C02.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C02.png",
+      "sha": "ab4642d538d8b7f4a6fa05d7edd6e2ab9e5f84ea",
+      "bytes": 897048
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C03.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C03.png",
+      "sha": "ff1c954e01398a17033a7450536d63260afc673b",
+      "bytes": 930477
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C04.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C04.png",
+      "sha": "c79dc9bdc3a27214aff3e7bc5397c378fd7334d8",
+      "bytes": 878109
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C05.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C05.png",
+      "sha": "88058c46212fdef0a3a2bbf6c23d8e6421e51017",
+      "bytes": 910569
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C06.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C06.png",
+      "sha": "6d2dd71cf1a7da17087e8b200af29c9637c922ba",
+      "bytes": 957733
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C07.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C07.png",
+      "sha": "495adc854b04abe9404030725511651d3d1d2a36",
+      "bytes": 970205
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C08.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C08.png",
+      "sha": "cf60b5f06be05f8351347b5922bf20c9fc8c5ca6",
+      "bytes": 860684
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C09.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C09.png",
+      "sha": "08b3df34b69ad1fabbdc7067a417f7562202a70b",
+      "bytes": 910573
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C10.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C10.png",
+      "sha": "e170b950e6c9c7550333fc37bb349395bf94f68f",
+      "bytes": 882227
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C11.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C11.png",
+      "sha": "31980f8a7501411adeb544392f54efb8767fa75f",
+      "bytes": 918260
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C12.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C12.png",
+      "sha": "ff5857b3d8f205eadd6c3c0be1177fa6ca81cb52",
+      "bytes": 966434
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C13.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C13.png",
+      "sha": "ac7e5f334a34366a40bc7c51b27ade86596f8b58",
+      "bytes": 827074
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C14.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C14.png",
+      "sha": "8f761c71992ef8442fdc89bf115f1c6c0e67a366",
+      "bytes": 837080
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C15.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C15.png",
+      "sha": "2f16a0a84c5991f6a606c18f51f425800427b0f0",
+      "bytes": 1184219
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2-c/sheets/C16.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C16.png",
+      "sha": "3f00aa0c85464571bf3b236ae236b00ebc81102a",
+      "bytes": 856397
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A01.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A01.png",
+      "sha": "9debba47da47549a8564726335c023875319efb1",
+      "bytes": 888268
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A02.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A02.png",
+      "sha": "ca3811cd4b58cde0ac739027a1b368bd004c8f67",
+      "bytes": 769844
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A03.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A03.png",
+      "sha": "998e72e2dfed8af49944be6bd50dd02d6063ec51",
+      "bytes": 917272
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A04.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A04.png",
+      "sha": "b94457a1a110c00892bcbff65d3e39686a319048",
+      "bytes": 918096
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A05.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A05.png",
+      "sha": "92186b0c5f88a8dfe905bf5239b884ed8d74d35a",
+      "bytes": 844068
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A06.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A06.png",
+      "sha": "9c6089f7d5af961354d55b1200efda144dcf1b76",
+      "bytes": 858938
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A07.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A07.png",
+      "sha": "ecda9e1300d01739bae670976031de11f8bfc8eb",
+      "bytes": 1002008
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A08.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A08.png",
+      "sha": "efe9788d5823e5dbe1c6da2aa12352191425dab5",
+      "bytes": 945180
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A09.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A09.png",
+      "sha": "02638ffac913eccb23cc76d2059b7ffa44a4f2a8",
+      "bytes": 902314
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A10.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A10.png",
+      "sha": "53c39ed102f7e6ac165dd39c92baf33b4d129eda",
+      "bytes": 1109281
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A11.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A11.png",
+      "sha": "00c05caec02c0ea17ef2ba5ef3ebef712a23f47b",
+      "bytes": 825660
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A12.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A12.png",
+      "sha": "0a243796bdbd1273b5528af7375df4f288139ffb",
+      "bytes": 1005482
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A13.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A13.png",
+      "sha": "e96ee523b73d04b255002838f628fb128cac7155",
+      "bytes": 906636
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A14.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A14.png",
+      "sha": "ea16f2b5bb12a2330cd7ad7a29c2cf944a21626e",
+      "bytes": 921644
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A15.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A15.png",
+      "sha": "2951b12870b928f0dee140cac3f98bd4b3fde19a",
+      "bytes": 853436
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/atlas-bandung/sumber-karakter/gba-v2/sheets/A16.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A16.png",
+      "sha": "a95854d9e79f3f6778ee782d9b6c563eb1180a41",
+      "bytes": 916350
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C01.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C01.png",
+      "sha": "ed39bd02ada4116c221f33652327e513a26bfb41",
+      "bytes": 970111
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C02.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C02.png",
+      "sha": "ab4642d538d8b7f4a6fa05d7edd6e2ab9e5f84ea",
+      "bytes": 897048
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C03.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C03.png",
+      "sha": "ff1c954e01398a17033a7450536d63260afc673b",
+      "bytes": 930477
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C04.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C04.png",
+      "sha": "c79dc9bdc3a27214aff3e7bc5397c378fd7334d8",
+      "bytes": 878109
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C05.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C05.png",
+      "sha": "88058c46212fdef0a3a2bbf6c23d8e6421e51017",
+      "bytes": 910569
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C06.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C06.png",
+      "sha": "6d2dd71cf1a7da17087e8b200af29c9637c922ba",
+      "bytes": 957733
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C07.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C07.png",
+      "sha": "495adc854b04abe9404030725511651d3d1d2a36",
+      "bytes": 970205
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C08.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C08.png",
+      "sha": "cf60b5f06be05f8351347b5922bf20c9fc8c5ca6",
+      "bytes": 860684
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C09.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C09.png",
+      "sha": "08b3df34b69ad1fabbdc7067a417f7562202a70b",
+      "bytes": 910573
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C10.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C10.png",
+      "sha": "e170b950e6c9c7550333fc37bb349395bf94f68f",
+      "bytes": 882227
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C11.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C11.png",
+      "sha": "31980f8a7501411adeb544392f54efb8767fa75f",
+      "bytes": 918260
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C12.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C12.png",
+      "sha": "ff5857b3d8f205eadd6c3c0be1177fa6ca81cb52",
+      "bytes": 966434
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C13.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C13.png",
+      "sha": "ac7e5f334a34366a40bc7c51b27ade86596f8b58",
+      "bytes": 827074
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C14.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C14.png",
+      "sha": "8f761c71992ef8442fdc89bf115f1c6c0e67a366",
+      "bytes": 837080
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C15.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C15.png",
+      "sha": "2f16a0a84c5991f6a606c18f51f425800427b0f0",
+      "bytes": 1184219
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2-c/sheets/C16.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C16.png",
+      "sha": "3f00aa0c85464571bf3b236ae236b00ebc81102a",
+      "bytes": 856397
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A01.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A01.png",
+      "sha": "9debba47da47549a8564726335c023875319efb1",
+      "bytes": 888268
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A02.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A02.png",
+      "sha": "ca3811cd4b58cde0ac739027a1b368bd004c8f67",
+      "bytes": 769844
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A03.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A03.png",
+      "sha": "998e72e2dfed8af49944be6bd50dd02d6063ec51",
+      "bytes": 917272
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A04.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A04.png",
+      "sha": "b94457a1a110c00892bcbff65d3e39686a319048",
+      "bytes": 918096
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A05.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A05.png",
+      "sha": "92186b0c5f88a8dfe905bf5239b884ed8d74d35a",
+      "bytes": 844068
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A06.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A06.png",
+      "sha": "9c6089f7d5af961354d55b1200efda144dcf1b76",
+      "bytes": 858938
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A07.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A07.png",
+      "sha": "ecda9e1300d01739bae670976031de11f8bfc8eb",
+      "bytes": 1002008
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A08.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A08.png",
+      "sha": "efe9788d5823e5dbe1c6da2aa12352191425dab5",
+      "bytes": 945180
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A09.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A09.png",
+      "sha": "02638ffac913eccb23cc76d2059b7ffa44a4f2a8",
+      "bytes": 902314
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A10.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A10.png",
+      "sha": "53c39ed102f7e6ac165dd39c92baf33b4d129eda",
+      "bytes": 1109281
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A11.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A11.png",
+      "sha": "00c05caec02c0ea17ef2ba5ef3ebef712a23f47b",
+      "bytes": 825660
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A12.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A12.png",
+      "sha": "0a243796bdbd1273b5528af7375df4f288139ffb",
+      "bytes": 1005482
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A13.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A13.png",
+      "sha": "e96ee523b73d04b255002838f628fb128cac7155",
+      "bytes": 906636
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A14.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A14.png",
+      "sha": "ea16f2b5bb12a2330cd7ad7a29c2cf944a21626e",
+      "bytes": 921644
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A15.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A15.png",
+      "sha": "2951b12870b928f0dee140cac3f98bd4b3fde19a",
+      "bytes": 853436
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/bandung-151/sumber-karakter/gba-v2/sheets/A16.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A16.png",
+      "sha": "a95854d9e79f3f6778ee782d9b6c563eb1180a41",
+      "bytes": 916350
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C01.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C01.png",
+      "sha": "ed39bd02ada4116c221f33652327e513a26bfb41",
+      "bytes": 970111
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C02.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C02.png",
+      "sha": "ab4642d538d8b7f4a6fa05d7edd6e2ab9e5f84ea",
+      "bytes": 897048
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C03.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C03.png",
+      "sha": "ff1c954e01398a17033a7450536d63260afc673b",
+      "bytes": 930477
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C04.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C04.png",
+      "sha": "c79dc9bdc3a27214aff3e7bc5397c378fd7334d8",
+      "bytes": 878109
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C05.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C05.png",
+      "sha": "88058c46212fdef0a3a2bbf6c23d8e6421e51017",
+      "bytes": 910569
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C06.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C06.png",
+      "sha": "6d2dd71cf1a7da17087e8b200af29c9637c922ba",
+      "bytes": 957733
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C07.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C07.png",
+      "sha": "495adc854b04abe9404030725511651d3d1d2a36",
+      "bytes": 970205
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C08.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C08.png",
+      "sha": "cf60b5f06be05f8351347b5922bf20c9fc8c5ca6",
+      "bytes": 860684
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C09.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C09.png",
+      "sha": "08b3df34b69ad1fabbdc7067a417f7562202a70b",
+      "bytes": 910573
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C10.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C10.png",
+      "sha": "e170b950e6c9c7550333fc37bb349395bf94f68f",
+      "bytes": 882227
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C11.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C11.png",
+      "sha": "31980f8a7501411adeb544392f54efb8767fa75f",
+      "bytes": 918260
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C12.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C12.png",
+      "sha": "ff5857b3d8f205eadd6c3c0be1177fa6ca81cb52",
+      "bytes": 966434
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C13.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C13.png",
+      "sha": "ac7e5f334a34366a40bc7c51b27ade86596f8b58",
+      "bytes": 827074
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C14.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C14.png",
+      "sha": "8f761c71992ef8442fdc89bf115f1c6c0e67a366",
+      "bytes": 837080
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C15.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C15.png",
+      "sha": "2f16a0a84c5991f6a606c18f51f425800427b0f0",
+      "bytes": 1184219
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2-c/sheets/C16.png",
+      "canonicalPath": "game-assets/characters/gba-v2-c/sheets/C16.png",
+      "sha": "3f00aa0c85464571bf3b236ae236b00ebc81102a",
+      "bytes": 856397
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A01.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A01.png",
+      "sha": "9debba47da47549a8564726335c023875319efb1",
+      "bytes": 888268
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A02.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A02.png",
+      "sha": "ca3811cd4b58cde0ac739027a1b368bd004c8f67",
+      "bytes": 769844
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A03.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A03.png",
+      "sha": "998e72e2dfed8af49944be6bd50dd02d6063ec51",
+      "bytes": 917272
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A04.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A04.png",
+      "sha": "b94457a1a110c00892bcbff65d3e39686a319048",
+      "bytes": 918096
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A05.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A05.png",
+      "sha": "92186b0c5f88a8dfe905bf5239b884ed8d74d35a",
+      "bytes": 844068
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A06.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A06.png",
+      "sha": "9c6089f7d5af961354d55b1200efda144dcf1b76",
+      "bytes": 858938
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A07.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A07.png",
+      "sha": "ecda9e1300d01739bae670976031de11f8bfc8eb",
+      "bytes": 1002008
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A08.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A08.png",
+      "sha": "efe9788d5823e5dbe1c6da2aa12352191425dab5",
+      "bytes": 945180
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A09.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A09.png",
+      "sha": "02638ffac913eccb23cc76d2059b7ffa44a4f2a8",
+      "bytes": 902314
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A10.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A10.png",
+      "sha": "53c39ed102f7e6ac165dd39c92baf33b4d129eda",
+      "bytes": 1109281
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A11.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A11.png",
+      "sha": "00c05caec02c0ea17ef2ba5ef3ebef712a23f47b",
+      "bytes": 825660
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A12.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A12.png",
+      "sha": "0a243796bdbd1273b5528af7375df4f288139ffb",
+      "bytes": 1005482
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A13.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A13.png",
+      "sha": "e96ee523b73d04b255002838f628fb128cac7155",
+      "bytes": 906636
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A14.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A14.png",
+      "sha": "ea16f2b5bb12a2330cd7ad7a29c2cf944a21626e",
+      "bytes": 921644
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A15.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A15.png",
+      "sha": "2951b12870b928f0dee140cac3f98bd4b3fde19a",
+      "bytes": 853436
+    },
+    {
+      "removedPath": "game-assets/yz-farm-life/explore-bandung/sumber-karakter/gba-v2/sheets/A16.png",
+      "canonicalPath": "game-assets/characters/gba-v2/sheets/A16.png",
+      "sha": "a95854d9e79f3f6778ee782d9b6c563eb1180a41",
+      "bytes": 916350
+    }
+  ]
+}

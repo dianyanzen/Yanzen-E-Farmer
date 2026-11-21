@@ -11,6 +11,7 @@ import { Portrait, ResidentPortrait } from "./dialogue-panel";
 function OriginalGallery() {
   const [search, setSearch] = useState("");
   const [emotion, setEmotion] = useState<Emotion>("neutral");
+  const [showConceptArchive,setShowConceptArchive] = useState(false);
   const query = search.toLocaleLowerCase("id").trim();
   const matches = (person: { name: string; occupation: string }) =>
     (person.name + " " + person.occupation).toLocaleLowerCase("id").includes(query);
@@ -18,7 +19,7 @@ function OriginalGallery() {
   const upcoming = previews.filter(matches);
   return <section aria-label="Galeri karakter">
     <div className="yzg-phone-card"><b>Warga & karakter</b>
-      <p>Tiga warga dapat ditemui di Pasirluyu. Galeri juga memuat potret dan kisah karakter yang disiapkan untuk perluasan Bandung.</p>
+      <p>Lima warga saat ini dapat ditemui dan diajak berinteraksi di Pasirluyu. Strip ekspresi adalah gaya potret dialog; karya konsep ekspansi disimpan di arsip terpisah.</p>
       <label htmlFor="yzg-character-search">Cari nama atau pekerjaan</label>
       <input id="yzg-character-search" type="search" value={search} onChange={e => setSearch(e.target.value)} placeholder="Contoh: Nabila"/>
       <div className="yzg-expression-picker" aria-label="Ekspresi potret">{PORTRAIT_EMOTIONS.map(e => <button key={e} aria-pressed={emotion === e} onClick={() => setEmotion(e)}>{EMOTION_LABELS[e]}</button>)}</div>
@@ -30,18 +31,19 @@ function OriginalGallery() {
       <small>Hobi: {person.hobby.join(", ")}</small>
       <small>{person.role === "main-character" ? "Karakter utama" : NPCS.some(n => n.id === person.id) ? "Dapat ditemui di Pasirluyu" : "Wilayah berikutnya"}</small></div>
     </article>)}
-    {upcoming.length > 0 && <section aria-label="Karakter perluasan Bandung">
-      <h3>Karakter perluasan Bandung</h3>
-      {upcoming.map(person => <article className="yzg-phone-card yzg-character-card" key={person.id} data-character-card={person.id}>
+    {upcoming.length > 0 && <details className="yzg-phone-card yzg-concept-archive" aria-label="Arsip ilustrasi konsep Bandung" onToggle={event=>setShowConceptArchive(event.currentTarget.open)}>
+      <summary><b>Arsip ilustrasi konsep Bandung ({upcoming.length})</b> · gaya berbeda, belum menjadi potret dialog</summary>
+      <p>Ilustrasi ini merupakan konsep visual untuk ekspansi. Asetnya tetap tersedia dalam perpustakaan, tetapi belum diselaraskan dengan pixel-art ekspresi utama dan belum menjadi karakter playable.</p>
+      {showConceptArchive && upcoming.map(person => <article className="yzg-phone-card yzg-character-card" key={person.id} data-character-card={person.id}>
         <Image className="yzg-character-preview" src={'/game/assets/portraits/bandung/' + person.id + '.png'}
           alt={'Potret konsep ' + person.name} width={80} height={80} unoptimized />
         <div>
           <b>{person.name}</b><small>{person.occupation}</small>
           <p><strong>{person.story}</strong></p><p>{person.premise}</p>
-          <small>Potret konsep | Pertemuan direncanakan</small>
+          <small>Ilustrasi konsep (gaya terpisah) · bukan sprite dialog</small>
         </div>
       </article>)}
-    </section>}
+    </details>}
     {!people.length && !upcoming.length && <p role="status">Karakter tidak ditemukan.</p>}
   </section>;
 }
@@ -78,9 +80,9 @@ function ResidentGallery({ residents }: { residents: readonly ResidentProfile[] 
     </div>
     {matches.slice(activePage * pageSize, (activePage + 1) * pageSize).map(resident =>
       <article className="yzg-phone-card yzg-character-card" key={resident.id} data-character-card={resident.id}>
-        <ResidentPortrait resident={resident}/>
+        {NPCS.some(npc=>npc.id===resident.id) ? <Portrait npcId={resident.id} /> : <ResidentPortrait resident={resident}/>} 
         <div><b>{resident.name}</b><small>{resident.occupation}</small>
-          <small>{NPCS.some(npc => npc.id === resident.id) ? "Dapat ditemui di game" : "Terdaftar di katalog warga"}</small>
+          <small>{NPCS.some(npc => npc.id === resident.id) ? "Potret ekspresi pixel-art · dapat ditemui" : "Ilustrasi konsep · karakter di katalog"}</small>
         </div>
       </article>)}
     {!matches.length && <p>Warga tidak ditemukan.</p>}

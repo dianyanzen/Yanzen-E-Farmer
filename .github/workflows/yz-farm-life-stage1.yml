@@ -12,7 +12,10 @@ on:
       - "tests/game-save.mjs"
       - "tests/game-chapter1-ui.mjs"
       - "public/game/assets/story/**"
-      - "game-assets/catalog/pasirluyu-story.json"
+      - "game-assets/**"
+      - "scripts/game-assets/**"
+      - "tests/game-asset-database.mjs"
+      - "public/game/assets/**"
       - "supabase/migrations/*yz_game*"
 permissions:
   contents: read
@@ -32,6 +35,10 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Check TypeScript
         run: npm run typecheck
+      - name: Check asset database freshness and references
+        run: npm run assets:index:check && npm run test:game:assets
+      - name: Validate PNG headers and portrait geometry
+        run: npm run assets:quality
       - name: Test game model
         run: npm run test:game
       - name: Lint

@@ -23,3 +23,7 @@ The requested anatomy is two arms/hands and two legs/feet; far limbs can be occl
 Generated asset staging, matching the previous pack's delivery level. Native pixel-grid/alpha cleanup, authored pivot and walk/roll animation timing, map-scale readability and gameplay checks remain before runtime approval. No production deployment is part of this work.
 
 Run `node scripts/game-assets/verify-character-pack.mjs` and `node scripts/game-assets/verify-catalog.mjs` from the repository root. Original private reference sheets are not included in this repository.
+
+## Deduplicated source sheets — 2026-11-21
+
+This unpacked legacy copy no longer stores 16 byte-identical copies under `sheets/`. Each character's `sheet` field in `manifest.json` now points to `../../../../characters/gba-v2-c/sheets/` relative to this manifest. Use the manifest's relative path and keep the source in `game-assets/characters/gba-v2-c/sheets/`. Standalone historical ZIP archives were not modified; runtime assets in `public/game/assets/` and all 32 character identities are unchanged.

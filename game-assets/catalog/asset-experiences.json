@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "policy": "Blueprint only, not yet map-placed. No item rewards, saves, collisions or gameplay claims. Activates only when explicitly wired through scene interactions.",
+  "events": [
+    {
+      "id": "xp-melati-sore",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/bunga-melati.png",
+      "zone": "gang",
+      "verb": "inspect",
+      "timeWindow": [
+        960,
+        1140
+      ],
+      "effectHint": "soft-sway",
+      "lines": [
+        "Nani merawat melati ini setiap sore.",
+        "Harum melati pelan-pelan mengisi gang."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-jemuran-bertiup",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/jemuran.png",
+      "zone": "gang",
+      "verb": "ambient",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "cloth-sway",
+      "lines": [
+        "Kain di jemuran bergerak tertiup angin.",
+        "Aroma sabun dari halaman tetangga masih terasa."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-peti-misteri",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/peti-kayu.png",
+      "zone": "field",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "dust-puff",
+      "lines": [
+        "Peti kayu ini penuh bekas angkut hasil kebun.",
+        "Ada goresan kecil, seperti penanda perjalanan lama."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-pot-yang-dirawat",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/pot-daun.png",
+      "zone": "home",
+      "verb": "inspect",
+      "timeWindow": [
+        360,
+        660
+      ],
+      "effectHint": "leaf-wiggle",
+      "lines": [
+        "Daun-daun kecilnya menghadap cahaya pagi.",
+        "Air masih menempel pada tepi pot."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-batu-catatan-air",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/batu-kanal.png",
+      "zone": "sungai",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "water-ripple",
+      "lines": [
+        "Garis-garis pada batu menunjukkan tinggi air.",
+        "Ryan pernah menandai batu ini selepas hujan."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-ayam-pagi",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/kandang-ayam.png",
+      "zone": "field",
+      "verb": "ambient",
+      "timeWindow": [
+        360,
+        660
+      ],
+      "effectHint": "idle-peck",
+      "lines": [
+        "Ayam berkotek pelan dari kandang.",
+        "Ada jerami baru di sudut kandang."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-plang-arah",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/papan-arah.png",
+      "zone": "gang",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "none",
+      "lines": [
+        "Papan ini menunjuk jalan pulang dan arah pasar.",
+        "Catnya mulai pudar, tetapi arah yang ditunjuk masih jelas."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-warung-aroma",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/warung-inggit.png",
+      "zone": "pasar",
+      "verb": "ambient",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "steam",
+      "lines": [
+        "Aroma masakan Inggit sampai ke jalan pasar.",
+        "Bunyi sendok dan piring terdengar dari dalam."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-gudang-berdebu",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/gudang-kayu.png",
+      "zone": "field",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "dust-puff",
+      "lines": [
+        "Di balik pintu gudang ada alat yang menunggu diperbaiki.",
+        "Bau kayu kering dan tanah menempel pada rak."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-teduh-di-pohon",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/kanopi-pohon.png",
+      "zone": "gang",
+      "verb": "ambient",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "leaf-sway",
+      "lines": [
+        "Bayangan ranting bergeser perlahan di jalan.",
+        "Ada tempat teduh untuk berhenti sebentar."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-rumput-serangga",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/rumput-tinggi.png",
+      "zone": "field",
+      "verb": "listen",
+      "timeWindow": [
+        960,
+        1140
+      ],
+      "effectHint": "grass-rustle",
+      "lines": [
+        "Suara serangga kecil muncul dari rumpun rumput.",
+        "Rumpun itu bergetar sebelum kembali diam."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-gembor-lama",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/gembor.png",
+      "zone": "field",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "none",
+      "lines": [
+        "Gembor ini penuh bekas pakai di sisi pegangannya.",
+        "Bentuk penyiramnya dibuat untuk aliran yang lembut."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-cangkul-tumpul",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/cangkul.png",
+      "zone": "field",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "none",
+      "lines": [
+        "Gagang cangkul terasa halus karena sering dipakai.",
+        "Tanah kering masih menempel pada ujungnya."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-rumah-lampu",
+      "assetPath": "public/game/assets/tiles/farm-kit/objek/rumah-yanzen.png",
+      "zone": "field",
+      "verb": "ambient",
+      "timeWindow": [
+        1140,
+        1320
+      ],
+      "effectHint": "lamp-glow",
+      "lines": [
+        "Cahaya rumah hangat dari tepi kebun.",
+        "Dari luar terdengar suara malam yang lebih sunyi."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-bangku-cerita",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/bangku-kayu.png",
+      "zone": "gang",
+      "verb": "sit",
+      "timeWindow": [
+        960,
+        1140
+      ],
+      "effectHint": "rest-breathe",
+      "lines": [
+        "Bangku ini menghadap jalan menuju pasar.",
+        "Duduk sebentar membuat suara kampung terasa lebih dekat."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-jembatan-gemericik",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/jembatan-kayu.png",
+      "zone": "sungai",
+      "verb": "listen",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "water-ripple",
+      "lines": [
+        "Air mengalir pelan di bawah papan jembatan.",
+        "Ada bunyi kayu halus ketika seseorang melintas."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-keranjang-buah",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/keranjang-buah.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "fruit-bounce",
+      "lines": [
+        "Jeruk dan pisang disusun agar mudah dilihat pembeli.",
+        "Sebuah buah kecil hampir terguling dari tumpukan."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-papan-pasar",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/papan-pasar.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "none",
+      "lines": [
+        "Pengumuman warga berganti setiap pekan.",
+        "Ada ruang kosong untuk kabar baru."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-lapak-benih",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/lapak-benih.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "paper-flutter",
+      "lines": [
+        "Ayu mengelompokkan benih dengan tanda kertas kecil.",
+        "Sebagian bungkus menuliskan tanggal semai."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-lapak-pancing",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/lapak-pancing.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "water-drip",
+      "lines": [
+        "Widi menjaga keranjang ikan tetap lembap.",
+        "Es yang mencair mengalir menuju saluran kecil."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-pintu-air",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/bendung-dua-pintu-tutup.png",
+      "zone": "sungai",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "water-ripple",
+      "lines": [
+        "Pintu air yang tertutup membuat arus berubah.",
+        "Ada bekas catatan pemeriksaan di sisinya."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-pohon-pisang",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/pohon-pisang.png",
+      "zone": "gang",
+      "verb": "ambient",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "leaf-sway",
+      "lines": [
+        "Daun pisang berdesir di dekat tembok kampung.",
+        "Salah satu daun tua mulai menguning."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-sayur-sisa-pasar",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/peti-dagangan-sayur.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        960,
+        1140
+      ],
+      "effectHint": "leaf-wiggle",
+      "lines": [
+        "Pedagang memilah sayuran yang masih segar.",
+        "Keranjang kosong tersusun di belakang peti."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-lapak-anyaman",
+      "assetPath": "public/game/assets/tiles/farm-kit/landmark/lapak-anyaman.png",
+      "zone": "pasar",
+      "verb": "inspect",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "paper-flutter",
+      "lines": [
+        "Anyaman bambu ini dibuat dengan pola yang berbeda.",
+        "Di sudutnya ada simpul kecil untuk menandai pembuatnya."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-angkot-kenangan",
+      "assetPath": "game-assets/yz-farm-life/aset/properti/angkot.png",
+      "zone": "future",
+      "verb": "inspect",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "engine-idle",
+      "lines": [
+        "Angkot melintas membawa cerita dari arah kota.",
+        "Beberapa penumpang berbincang tentang pasar."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-halte-hujan",
+      "assetPath": "game-assets/yz-farm-life/aset/properti/halte.png",
+      "zone": "future",
+      "verb": "listen",
+      "timeWindow": [
+        0,
+        1320
+      ],
+      "effectHint": "rain-drip",
+      "lines": [
+        "Atap halte menampung suara hujan yang teratur.",
+        "Ada bangku pendek untuk menunggu."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-festival-kampung",
+      "assetPath": "game-assets/yz-farm-life/aset/properti/meja-festival.png",
+      "zone": "future",
+      "verb": "inspect",
+      "timeWindow": [
+        1140,
+        1320
+      ],
+      "effectHint": "lantern-glow",
+      "lines": [
+        "Meja panjang sudah disiapkan untuk acara warga.",
+        "Gelas-gelas kecil tersusun di atas alas kain."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "check-solid-vs-walkable",
+      "cooldown": "once-per-visit",
+      "version": 1
+    },
+    {
+      "id": "xp-umbul-umbul",
+      "assetPath": "game-assets/yz-farm-life/aset/properti/umbul-umbul.png",
+      "zone": "future",
+      "verb": "ambient",
+      "timeWindow": [
+        660,
+        960
+      ],
+      "effectHint": "cloth-sway",
+      "lines": [
+        "Umbul-umbul bergerak mengikuti arah angin.",
+        "Warnanya membuat jalan terlihat meriah."
+      ],
+      "mood": "cozy",
+      "placement": "prepared-not-placed",
+      "collisionHint": "decorative-no-collision",
+      "cooldown": "once-per-visit",
+      "version": 1
+    }
+  ]
+}
