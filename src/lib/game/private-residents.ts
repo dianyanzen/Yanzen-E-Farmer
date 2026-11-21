@@ -12,7 +12,7 @@ const residentSchema=z.object({
  name:z.string().trim().min(1).max(120),
  occupation:z.string().trim().min(1).max(120),
  portrait:z.string().regex(/^(?:P0[12]|N0[1-6]|K(?:0[1-9]|[12]\d|30)|R\d{3}|phone-(?:A(?:0[1-9]|1[0-6])|C0[158])|work-[AC](?:0[1-9]|1[0-6]))$/)
-}).strict();
+}); // Zod strips private extra columns rather than exposing them to the browser.
 const rosterSchema=z.union([
  z.array(residentSchema),
  z.object({schemaVersion:z.number(),currentRoster:z.array(residentSchema)}).passthrough()
@@ -54,10 +54,10 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
   const linkPath=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
   if(linkPath){
    const links=approvedLinkSchema.parse(JSON.parse(await readFile(canonPath(linkPath,linkPath),"utf8")));
-   const seen=new Set<string>();
+   const seen=new Set<string>(),seenLegacy=new Set<string>();
    for(const link of links){
-    if(seen.has(link.rosterId))throw new Error("duplicate-approval");
-    seen.add(link.rosterId);
+    if(seen.has(link.rosterId)||seenLegacy.has(link.legacyId))throw new Error("duplicate-approval");
+    seen.add(link.rosterId);seenLegacy.add(link.legacyId);
     const current=residents.find(r=>r.id===link.rosterId);
     const old=oldCast.find(p=>p.id===link.legacyId);
     if(!current||!old||current.name!==link.rosterName||current.occupation!==link.rosterOccupation||
