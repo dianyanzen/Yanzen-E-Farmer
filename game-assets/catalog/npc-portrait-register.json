@@ -1,0 +1,988 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "visualStandard": "dialogue-expression-pixel-v1",
+  "principle": "Aset ilustrasi konsep tidak menggantikan strip ekspresi dalam dialog. Jangan otomatis mengubah gambar atau mengklaim retouch sudah terjadi.",
+  "definition": {
+    "canonicalPortraitSize": [
+      1536,
+      256
+    ],
+    "columns": 8,
+    "frame": [
+      192,
+      256
+    ],
+    "pixelEdgePolicy": "clean outlined pixels",
+    "palettePolicy": "earthy warm muted colors; allow distinct clothing while keeping consistent outlines and shading",
+    "conceptFamily": "bandung-concept-illustration-v1",
+    "portraitApproval": "human review before release"
+  },
+  "counts": {
+    "canonicalCharacters": 32,
+    "activePlayableNPCs": 5,
+    "expressionCells": 256
+  },
+  "characters": [
+    {
+      "id": "A01",
+      "name": "Yanzen",
+      "role": "main-character",
+      "occupation": "Petani dan pengelola kebun",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A01.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A01.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A02",
+      "name": "Nabila",
+      "role": "npc",
+      "occupation": "Perawat kebun bunga",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A02.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A02.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A03",
+      "name": "Ryan",
+      "role": "npc",
+      "occupation": "Pengelola irigasi",
+      "active": true,
+      "expressionSheet": "/game/assets/portraits/A03.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A03.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": true
+    },
+    {
+      "id": "A04",
+      "name": "Ayu",
+      "role": "npc",
+      "occupation": "Penjual benih",
+      "active": true,
+      "expressionSheet": "/game/assets/portraits/A04.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A04.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": true
+    },
+    {
+      "id": "A05",
+      "name": "Vicky",
+      "role": "npc",
+      "occupation": "Teknisi alat pertanian",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A05.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A05.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A06",
+      "name": "Asep",
+      "role": "npc",
+      "occupation": "Kurir hasil kebun",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A06.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A06.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A07",
+      "name": "Dewi",
+      "role": "npc",
+      "occupation": "Pengelola persemaian",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A07.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A07.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A08",
+      "name": "Astri",
+      "role": "npc",
+      "occupation": "Perajin keranjang",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A08.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A08.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A09",
+      "name": "Fajar",
+      "role": "npc",
+      "occupation": "Fotografer desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A09.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A09.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A10",
+      "name": "Dadan",
+      "role": "npc",
+      "occupation": "Penjaga kebun bersama",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A10.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A10.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A11",
+      "name": "Anggi",
+      "role": "npc",
+      "occupation": "Pengelola pasar desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A11.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A11.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A12",
+      "name": "Denden",
+      "role": "npc",
+      "occupation": "Pengemudi angkutan panen",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A12.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A12.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A13",
+      "name": "Nida",
+      "role": "npc",
+      "occupation": "Penjaga perpustakaan benih",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A13.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A13.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A14",
+      "name": "Desna",
+      "role": "npc",
+      "occupation": "Teknisi radio desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A14.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A14.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A15",
+      "name": "Heru",
+      "role": "npc",
+      "occupation": "Pengurus koperasi tani",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A15.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A15.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "A16",
+      "name": "Khansa",
+      "role": "npc",
+      "occupation": "Perancang sistem kebun",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/A16.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-A16.png",
+        "characterSource": "game-assets/characters/gba-v2/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C01",
+      "name": "Nani",
+      "role": "npc",
+      "occupation": "Pekebun bunga senior",
+      "active": true,
+      "expressionSheet": "/game/assets/portraits/C01.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C01.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": true
+    },
+    {
+      "id": "C02",
+      "name": "Risky",
+      "role": "npc",
+      "occupation": "Petani kebun buah",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C02.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C02.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C03",
+      "name": "Tatang",
+      "role": "npc",
+      "occupation": "Perajin kayu senior",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C03.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C03.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C04",
+      "name": "Desi",
+      "role": "npc",
+      "occupation": "Pembuat roti desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C04.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C04.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C05",
+      "name": "Eza",
+      "role": "npc",
+      "occupation": "Pelajar dan peserta klub kebun",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C05.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C05.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C06",
+      "name": "Yani",
+      "role": "npc",
+      "occupation": "Mahasiswi pertanian",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C06.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C06.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C07",
+      "name": "Widi",
+      "role": "npc",
+      "occupation": "Pedagang hasil bumi",
+      "active": true,
+      "expressionSheet": "/game/assets/portraits/C07.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C07.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": true
+    },
+    {
+      "id": "C08",
+      "name": "Inggit",
+      "role": "npc",
+      "occupation": "Penjual makanan pasar",
+      "active": true,
+      "expressionSheet": "/game/assets/portraits/C08.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C08.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": true
+    },
+    {
+      "id": "C09",
+      "name": "Bela",
+      "role": "npc",
+      "occupation": "Ilustrator desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C09.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C09.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C10",
+      "name": "Yogi",
+      "role": "npc",
+      "occupation": "Pencatat keuangan koperasi",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C10.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C10.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C11",
+      "name": "Ray",
+      "role": "npc",
+      "occupation": "Pemagang kebun keliling",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C11.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C11.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C12",
+      "name": "Fatihah",
+      "role": "npc",
+      "occupation": "Penjaga toko perlengkapan kebun",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C12.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C12.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C13",
+      "name": "Heri",
+      "role": "npc",
+      "occupation": "Penggerak kegiatan kampung",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C13.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C13.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C14",
+      "name": "Arya",
+      "role": "npc",
+      "occupation": "Kurir kebutuhan desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C14.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C14.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C15",
+      "name": "Malik",
+      "role": "npc",
+      "occupation": "Perancang peta desa",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C15.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C15.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    },
+    {
+      "id": "C16",
+      "name": "Karisma",
+      "role": "npc",
+      "occupation": "Perangkai bunga",
+      "active": false,
+      "expressionSheet": "/game/assets/portraits/C16.png",
+      "styleFamily": "dialogue-expression-pixel-v1",
+      "frames": 8,
+      "frameSize": [
+        192,
+        256
+      ],
+      "emotionOrder": [
+        "neutral",
+        "happy",
+        "sad",
+        "worried",
+        "surprised",
+        "annoyed",
+        "shy",
+        "laughing"
+      ],
+      "variant": {
+        "workConcept": "/game/assets/portraits/bandung/work-C16.png",
+        "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
+      },
+      "styleReview": "needs-human-side-by-side",
+      "usedInDialogue": false
+    }
+  ]
+}

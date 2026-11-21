@@ -1,0 +1,1545 @@
+{
+  "schemaVersion": 1,
+  "project": "YZ Farm Life",
+  "count": 96,
+  "principle": "Asset reserve is intentionally large; these are planned unique sprites, NOT existing images, do not include them as playable or approved until actual files, hashes and QA are recorded.",
+  "styleContract": "original-pixel-3/4 with consistent silhouette, shadows, palette, and object-specific identity",
+  "plans": [
+    {
+      "id": "plan-market-gerobak-sayur-besar",
+      "name": "gerobak sayur besar",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/gerobak-sayur-besar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: gerobak sayur besar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-market-gerobak-buah-beratap",
+      "name": "gerobak buah beratap",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/gerobak-buah-beratap.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: gerobak buah beratap, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-market-lapak-bumbu-rempah",
+      "name": "lapak bumbu rempah",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/lapak-bumbu-rempah.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: lapak bumbu rempah, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-market-rak-tanaman-pot",
+      "name": "rak tanaman pot",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/rak-tanaman-pot.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: rak tanaman pot, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-market-gerobak-susu-kedelai",
+      "name": "gerobak susu kedelai",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/gerobak-susu-kedelai.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: gerobak susu kedelai, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-market-penjual-jajanan-kukus",
+      "name": "penjual jajanan kukus",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/penjual-jajanan-kukus.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: penjual jajanan kukus, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-market-penjual-kue-tradisional",
+      "name": "penjual kue tradisional",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/penjual-kue-tradisional.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: penjual kue tradisional, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-market-meja-bumbu-kacang",
+      "name": "meja bumbu kacang",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/meja-bumbu-kacang.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: meja bumbu kacang, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-market-tumpukan-keranjang-bambu",
+      "name": "tumpukan keranjang bambu",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/tumpukan-keranjang-bambu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: tumpukan keranjang bambu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-market-karung-beras-terbuka",
+      "name": "karung beras terbuka",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/karung-beras-terbuka.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: karung beras terbuka, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-market-kios-bunga-segar",
+      "name": "kios bunga segar",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/kios-bunga-segar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: kios bunga segar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-market-gerobak-roti-pagi",
+      "name": "gerobak roti pagi",
+      "category": "market",
+      "assetPathPlanned": "game-assets/asset-vault/pending/market/gerobak-roti-pagi.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas market: gerobak roti pagi, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "trade",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-alley-pagar-bambu-berlumut",
+      "name": "pagar bambu berlumut",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/pagar-bambu-berlumut.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: pagar bambu berlumut, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-alley-kucing-tidur-di-ambang",
+      "name": "kucing tidur di ambang",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/kucing-tidur-di-ambang.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: kucing tidur di ambang, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-alley-jemuran-kain-motif",
+      "name": "jemuran kain motif",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/jemuran-kain-motif.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: jemuran kain motif, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-alley-pot-pupuk-kompos",
+      "name": "pot pupuk kompos",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/pot-pupuk-kompos.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: pot pupuk kompos, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-alley-bak-air-keramik",
+      "name": "bak air keramik",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/bak-air-keramik.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: bak air keramik, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-alley-kotak-surat-kayu",
+      "name": "kotak surat kayu",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/kotak-surat-kayu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: kotak surat kayu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-alley-pintu-biru-lama",
+      "name": "pintu biru lama",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/pintu-biru-lama.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: pintu biru lama, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-alley-jendela-kayu-terbuka",
+      "name": "jendela kayu terbuka",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/jendela-kayu-terbuka.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: jendela kayu terbuka, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-alley-becak-bersandar",
+      "name": "becak bersandar",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/becak-bersandar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: becak bersandar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-alley-bangku-teduh-gang",
+      "name": "bangku teduh gang",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/bangku-teduh-gang.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: bangku teduh gang, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-alley-sumur-pompa-tangan",
+      "name": "sumur pompa tangan",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/sumur-pompa-tangan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: sumur pompa tangan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-alley-lampu-teras-kampung",
+      "name": "lampu teras kampung",
+      "category": "alley",
+      "assetPathPlanned": "game-assets/asset-vault/pending/alley/lampu-teras-kampung.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas alley: lampu teras kampung, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "inspect",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-home-meja-makan-sederhana",
+      "name": "meja makan sederhana",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/meja-makan-sederhana.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: meja makan sederhana, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-home-kompor-minyak-kecil",
+      "name": "kompor minyak kecil",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/kompor-minyak-kecil.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: kompor minyak kecil, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-home-teko-kopi-tembaga",
+      "name": "teko kopi tembaga",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/teko-kopi-tembaga.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: teko kopi tembaga, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-home-bantal-bermotif-sunda",
+      "name": "bantal bermotif sunda",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/bantal-bermotif-sunda.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: bantal bermotif sunda, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-home-lemari-baju-kayu",
+      "name": "lemari baju kayu",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/lemari-baju-kayu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: lemari baju kayu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-home-rak-buku-catatan",
+      "name": "rak buku catatan",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/rak-buku-catatan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: rak buku catatan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-home-jam-dinding-kuno",
+      "name": "jam dinding kuno",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/jam-dinding-kuno.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: jam dinding kuno, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-home-karpet-anyaman",
+      "name": "karpet anyaman",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/karpet-anyaman.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: karpet anyaman, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-home-kotak-kenangan",
+      "name": "kotak kenangan",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/kotak-kenangan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: kotak kenangan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-home-toples-bumbu-dapur",
+      "name": "toples bumbu dapur",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/toples-bumbu-dapur.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: toples bumbu dapur, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-home-kursi-rotan",
+      "name": "kursi rotan",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/kursi-rotan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: kursi rotan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-home-cermin-gantung",
+      "name": "cermin gantung",
+      "category": "home",
+      "assetPathPlanned": "game-assets/asset-vault/pending/home/cermin-gantung.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas home: cermin gantung, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "interact",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-farm-ajir-timun-berdaun",
+      "name": "ajir timun berdaun",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/ajir-timun-berdaun.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: ajir timun berdaun, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-farm-pohon-mangga-muda",
+      "name": "pohon mangga muda",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/pohon-mangga-muda.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: pohon mangga muda, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-farm-bak-kompos-aktif",
+      "name": "bak kompos aktif",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/bak-kompos-aktif.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: bak kompos aktif, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-farm-keranjang-panen-penuh",
+      "name": "keranjang panen penuh",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/keranjang-panen-penuh.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: keranjang panen penuh, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-farm-pot-cabai-berbuah",
+      "name": "pot cabai berbuah",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/pot-cabai-berbuah.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: pot cabai berbuah, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-farm-alat-pengukur-hujan",
+      "name": "alat pengukur hujan",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/alat-pengukur-hujan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: alat pengukur hujan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-farm-cacing-di-tanah",
+      "name": "cacing di tanah",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/cacing-di-tanah.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: cacing di tanah, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-farm-kupu-kupu-kebun",
+      "name": "kupu kupu kebun",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/kupu-kupu-kebun.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: kupu kupu kebun, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-farm-air-di-gembor",
+      "name": "air di gembor",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/air-di-gembor.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: air di gembor, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-farm-palung-ternak-kayu",
+      "name": "palung ternak kayu",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/palung-ternak-kayu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: palung ternak kayu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-farm-sekop-berlumpur",
+      "name": "sekop berlumpur",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/sekop-berlumpur.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: sekop berlumpur, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-farm-rumput-liar-berbunga",
+      "name": "rumput liar berbunga",
+      "category": "farm",
+      "assetPathPlanned": "game-assets/asset-vault/pending/farm/rumput-liar-berbunga.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas farm: rumput liar berbunga, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "weather-reactive",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-river-batu-pintu-air-bertanda",
+      "name": "batu pintu air bertanda",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/batu-pintu-air-bertanda.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: batu pintu air bertanda, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-river-gelas-ukur-irigasi",
+      "name": "gelas ukur irigasi",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/gelas-ukur-irigasi.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: gelas ukur irigasi, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-river-rumpun-eceng-gondok",
+      "name": "rumpun eceng gondok",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/rumpun-eceng-gondok.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: rumpun eceng gondok, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-river-jala-ikan-tergantung",
+      "name": "jala ikan tergantung",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/jala-ikan-tergantung.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: jala ikan tergantung, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-river-ember-ikan-biru",
+      "name": "ember ikan biru",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/ember-ikan-biru.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: ember ikan biru, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-river-papan-jembatan-basah",
+      "name": "papan jembatan basah",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/papan-jembatan-basah.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: papan jembatan basah, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-river-perahu-dayung-kecil",
+      "name": "perahu dayung kecil",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/perahu-dayung-kecil.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: perahu dayung kecil, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-river-tumpukan-kerikil",
+      "name": "tumpukan kerikil",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/tumpukan-kerikil.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: tumpukan kerikil, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-river-lampu-kuno-jembatan",
+      "name": "lampu kuno jembatan",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/lampu-kuno-jembatan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: lampu kuno jembatan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-river-capung-merah",
+      "name": "capung merah",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/capung-merah.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: capung merah, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-river-katak-di-tepian",
+      "name": "katak di tepian",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/katak-di-tepian.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: katak di tepian, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-river-riak-air-berlingkar",
+      "name": "riak air berlingkar",
+      "category": "river",
+      "assetPathPlanned": "game-assets/asset-vault/pending/river/riak-air-berlingkar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas river: riak air berlingkar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-npc-buku-catatan-ryan",
+      "name": "buku catatan ryan",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/buku-catatan-ryan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: buku catatan ryan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-npc-gunting-bunga-nani",
+      "name": "gunting bunga nani",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/gunting-bunga-nani.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: gunting bunga nani, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-npc-buku-resep-inggit",
+      "name": "buku resep inggit",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/buku-resep-inggit.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: buku resep inggit, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-npc-kantong-benih-ayu",
+      "name": "kantong benih ayu",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/kantong-benih-ayu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: kantong benih ayu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-npc-timbangan-ikan-widi",
+      "name": "timbangan ikan widi",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/timbangan-ikan-widi.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: timbangan ikan widi, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-npc-papan-rute-kurir",
+      "name": "papan rute kurir",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/papan-rute-kurir.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: papan rute kurir, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-npc-kamera-fajar",
+      "name": "kamera fajar",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/kamera-fajar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: kamera fajar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-npc-keranjang-anyaman-astri",
+      "name": "keranjang anyaman astri",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/keranjang-anyaman-astri.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: keranjang anyaman astri, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-npc-toples-herbal-nabila",
+      "name": "toples herbal nabila",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/toples-herbal-nabila.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: toples herbal nabila, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-npc-tas-perkakas-vicky",
+      "name": "tas perkakas vicky",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/tas-perkakas-vicky.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: tas perkakas vicky, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-npc-poster-koperasi-heru",
+      "name": "poster koperasi heru",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/poster-koperasi-heru.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: poster koperasi heru, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-npc-jurnal-sketsa-khansa",
+      "name": "jurnal sketsa khansa",
+      "category": "npc",
+      "assetPathPlanned": "game-assets/asset-vault/pending/npc/jurnal-sketsa-khansa.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas npc: jurnal sketsa khansa, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "story-prop",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-festival-umbul-umbul-mini",
+      "name": "umbul umbul mini",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/umbul-umbul-mini.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: umbul umbul mini, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-festival-lampion-hujan",
+      "name": "lampion hujan",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/lampion-hujan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: lampion hujan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-festival-meja-tumpeng",
+      "name": "meja tumpeng",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/meja-tumpeng.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: meja tumpeng, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-festival-kentongan-bambu",
+      "name": "kentongan bambu",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/kentongan-bambu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: kentongan bambu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-festival-panggung-kayu-portabel",
+      "name": "panggung kayu portabel",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/panggung-kayu-portabel.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: panggung kayu portabel, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-festival-hiasan-bunga-gantung",
+      "name": "hiasan bunga gantung",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/hiasan-bunga-gantung.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: hiasan bunga gantung, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-festival-tikar-piknik",
+      "name": "tikar piknik",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/tikar-piknik.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: tikar piknik, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-festival-papan-jadwal-hajatan",
+      "name": "papan jadwal hajatan",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/papan-jadwal-hajatan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: papan jadwal hajatan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-festival-gerobak-minuman-hangat",
+      "name": "gerobak minuman hangat",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/gerobak-minuman-hangat.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: gerobak minuman hangat, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-festival-lampu-tenda-kuning",
+      "name": "lampu tenda kuning",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/lampu-tenda-kuning.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: lampu tenda kuning, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-festival-sangkar-burung-kosong",
+      "name": "sangkar burung kosong",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/sangkar-burung-kosong.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: sangkar burung kosong, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-festival-payung-warga-berwarna",
+      "name": "payung warga berwarna",
+      "category": "festival",
+      "assetPathPlanned": "game-assets/asset-vault/pending/festival/payung-warga-berwarna.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas festival: payung warga berwarna, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "ambient",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-secrets-jejak-kaki-di-lumpur",
+      "name": "jejak kaki di lumpur",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/jejak-kaki-di-lumpur.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: jejak kaki di lumpur, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-secrets-batu-berukir-samar",
+      "name": "batu berukir samar",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/batu-berukir-samar.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: batu berukir samar, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-secrets-kunci-kecil-berkarat",
+      "name": "kunci kecil berkarat",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/kunci-kecil-berkarat.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: kunci kecil berkarat, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-secrets-surat-di-balik-papan",
+      "name": "surat di balik papan",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/surat-di-balik-papan.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: surat di balik papan, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "experience-first"
+    },
+    {
+      "id": "plan-secrets-bayangan-kucing-malam",
+      "name": "bayangan kucing malam",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/bayangan-kucing-malam.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: bayangan kucing malam, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-secrets-radio-berdesis",
+      "name": "radio berdesis",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/radio-berdesis.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: radio berdesis, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-secrets-daun-kering-aneh",
+      "name": "daun kering aneh",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/daun-kering-aneh.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: daun kering aneh, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-secrets-peti-lama-terkunci",
+      "name": "peti lama terkunci",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/peti-lama-terkunci.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: peti lama terkunci, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "library-vault"
+    },
+    {
+      "id": "plan-secrets-tanda-ancak-bambu",
+      "name": "tanda ancak bambu",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/tanda-ancak-bambu.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: tanda ancak bambu, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-secrets-cahaya-kunang-kunang",
+      "name": "cahaya kunang kunang",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/cahaya-kunang-kunang.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: cahaya kunang kunang, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-secrets-botol-pesan-air",
+      "name": "botol pesan air",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/botol-pesan-air.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: botol pesan air, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    },
+    {
+      "id": "plan-secrets-kertas-lagu-lama",
+      "name": "kertas lagu lama",
+      "category": "secrets",
+      "assetPathPlanned": "game-assets/asset-vault/pending/secrets/kertas-lagu-lama.png",
+      "styleFamily": "yz-original-cozy-pixel-3-4-v1",
+      "visualBrief": "Aset khas secrets: kertas lagu lama, bentuk/siluet jelas pada pixel-art 3/4, warna hangat dan outline gelap, transparan. Hindari mengulang sprite untuk objek yang berbeda spesies.",
+      "experienceHook": "discovery",
+      "variants": [
+        "normal",
+        "rain-or-night"
+      ],
+      "stage": "design-only-not-yet-drawn",
+      "releaseGate": "visual-approval-and-gameplay-fit",
+      "priority": "future-expansion"
+    }
+  ]
+}
