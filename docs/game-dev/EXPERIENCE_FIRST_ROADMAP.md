@@ -11,6 +11,8 @@
 4. **Nilai keberhasilan utama = pengalaman pemain:** pemain nyaman bergerak dan bereksplorasi, merasa dunia hidup, tahu harus melakukan apa tanpa HUD berlebihan, tidak mudah stuck, dialog menyenangkan, interaksi terasa bermakna, waktu tidak memburu.
 5. **Pengecualian keselamatan minimal:** jangan hilangkan/korup save lokal dalam eksperimen, jangan menyentuh data Smart Farm nyata, jangan menonaktifkan akses/RLS web, dan jangan mengklaim preview sebagai production. Ini guardrail, **bukan proyek migrasi tahap 1**. Audit produksi/save multi-device luas menjadi release gate saat rilis publik diminta.
 
+**Kebijakan aset (penegasan pemilik):** jumlah aset *vault* boleh sangat banyak dan berkembang jauh sebelum peta baru dibuat. Jangan batasi perpustakaan menjadi hanya apa yang tampil di Pasirluyu. Namun setiap aset harus memiliki ID, provenance/lisensi, klasifikasi gaya, status review dan potensi pengalaman, sedangkan runtime per-zona tetap hemat. Duplikasi sprite generik harus ditandai, **tidak dihapus** sehingga 196 nama komoditas tetap ada. Perbaikan potret pixel-art aktif diprioritaskan; ilustrasi konsep Bandung disimpan sebagai varian sampai redrawing lulus QA. Lihat [ASSET_LIBRARY_MASTER.md](https://github.com/dianyanzen/Yanzen-E-Farmer/blob/feat/game/asset-library-database-experience-20261121/docs/game-dev/ASSET_LIBRARY_MASTER.md) pada PR #31.
+
 ## 1. Empat sprint experience-first (urutannya dapat disesuaikan hasil QA)
 
 | Sprint | Scope | Masalah audit & area kode | Exit criteria (bukti aktual, bukan klaim) |

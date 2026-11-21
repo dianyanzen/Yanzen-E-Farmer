@@ -28,6 +28,16 @@
 
 ---
 
+## 2026-11-21 — Audit perpustakaan aset dan penyelarasan potret
+
+**Pemeriksaan GitHub:** `main 3330580b...` dan PR #31 `b897276e...` (feature branch). Terdapat 2.615 file media, 1.195 blob unik, 1.420 path ekstra identik. Pada 196 sprite tanaman dasar hanya 25 gambar unik. 32 strip ekspresi pixel-art dan 268 ilustrasi konsep Bandung tidak otomatis setara gaya. Empat file SQLite lama ditemukan namun isi tabelnya belum digabung/audit langsung.
+
+**Masuk Master Audit:** G-036…G-041 dengan keyakinan, risiko, solusi, dan prioritas. **Perbaikan dalam PR #31:** indeks Git, query, generator, SQLite export lokal, register potret, pemisahan galeri konsep, 28 blueprint pengalaman, 96 rencana aset unik. Ini **bukan** redraw 268 konsep atau pembuatan 96 PNG, dan 28 hooks **belum ditempatkan ke peta**.
+
+**Verifikasi belum selesai:** workflow PR #31 gagal dalam ~2 detik tanpa runner/steps sehingga tes game, typecheck dan visual belum terbukti lulus. Lanjutkan di Docker lokal atau runner sehat. Tidak ada merge atau perubahan production dari audit ini.
+
+---
+
 ## Template entri audit berikutnya
 
 ### YYYY-MM-DD — [Judul audit] · [owner]

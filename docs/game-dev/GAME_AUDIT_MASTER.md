@@ -123,6 +123,19 @@ Kolom **status = keadaan bukti saat snapshot**, bukan kepastian semua pemain ter
 | G-034 | **P2** | npm install mencatat 7 moderate vulnerabilities; detail transitive belum ditelaah sebagai security assessment. | CONFIRMED_RUNTIME 100% (log), NEEDS_TRIAGE | Rekam `npm audit --json`, klasifikasi prod/dev, upgrade terarah dengan tes rollback; jangan `npm audit fix --force` tanpa evaluasi |
 | G-035 | **P1** | PR terbuka bertumpuk dari tahap lama (#18–#28) dan branch Docker/web berbeda; mengambil PR lama bisa menimpa baseline yang baru atau salah target. | CONFIRMED_CODE 99% | Label superseded vs aktif, compare base/head; tidak merge massal, gunakan `AGENTS.md` dan handoff PR |
 
+### D5B. Kekayaan aset, duplikasi, dan keutuhan seni (audit baru 21-11-2026)
+
+| ID | Prioritas | Observasi + analisis penyebab | Status/keyakinan | Aksi & syarat selesai |
+| --- | --- | --- | --- | --- |
+| G-036 | **P1 art quality** | Folder 196 `aset/tanaman/*.png` hanya memiliki 25 isi gambar unik; contoh aren=asam-jawa dan padi=jagung adalah template visual bersama. | CONFIRMED_CODE 100% (Git blob); beda nama tidak membuktikan spesies berbeda | Pertahankan semua ID/paths, tandai shared-template, buat sprite spesies terpilih secara bertahap, uji morfologi dan growth stage sebelum game aktif |
+| G-037 | **P1 art quality** | 32 strip delapan ekspresi pixel-art berbeda keluarga visual dengan 268 PNG concept Bandung (K/R/work), yang komposisinya lebih ilustratif; perbedaan tampak pada contoh A03/C01/C08 vs K01/R101/work-C01. | CONFIRMED_VISUAL_SAMPLE 95%; seluruh 300 gambar belum diaudit per-frame | Pisahkan kanon `dialogue-expression-pixel-v1` dari konsep, tampilan galeri disekat di PR #31; **redraw/retouch karakter belum dilakukan**, butuh review human & reference |
+| G-038 | **P1 asset operations** | 2.615 berkas media, hanya 1.195 blob unik, 1.420 path duplikat byte. Sudah ada 4 file SQLite katalog lama berbeda ukuran, namun belum ada basis tunggal yang otomatis mendata semua media. | CONFIRMED_CODE 100% untuk tree + keberadaan SQLite; isi empat DB belum diperiksa | PR #31 menambah `asset-database.json`, generator SHA/dedupe, pencarian, ekspor SQLite lokal; jangan hapus 4 DB lama sebelum pemeriksaan schema dan referensi |
+| G-039 | **P2 experience** | Aset dekorasi banyak tapi belum memiliki mekanisme standar yang dapat ditautkan ke inspeksi, reaksi cuaca/jam, lore dan micro-event. | DESIGN_GAP 95% | PR #31 menambah **28 blueprint experience** + helper murni; belum terhubung ke scene, tidak boleh menandai `VERIFIED` sampai pemain dapat memicunya di QA |
+| G-040 | **P2 asset pipeline** | Perpustakaan boleh bertambah, tetapi mencampur vault dengan runtime awal berisiko stutter/loading dan style drift. | CONFIRMED_CODE 99% untuk struktur, dampak FPS belum diukur | Vault kaya + lazy per-zone + quality gate; PR #31 tambah 96 *spesifikasi* aset belum digambar; hindari memuat seluruh media/DB ke Phaser |
+| G-041 | **P1 release QA** | PR #31 GitHub Actions berakhir dalam ~2 detik tanpa runner maupun steps; **belum ada bukti uji kode lulus**, dan ini tidak cukup untuk menyatakan bug kode. | CONFIRMED_RUNTIME 99% (job metadata), sebab provisioning masih perlu dicek | Jalankan tes pada Docker lokal atau runner yang sehat: `npm run test:game:assets`, `npm run typecheck`, `npm run test:portraits:ui`, `npm run assets:quality`, `npm run assets:sqlite`; catat hasil/sha |
+
+**Sumber analisis dan implementasi:** [ASSET_LIBRARY_MASTER.md — PR #31](https://github.com/dianyanzen/Yanzen-E-Farmer/blob/feat/game/asset-library-database-experience-20261121/docs/game-dev/ASSET_LIBRARY_MASTER.md). Ini adalah keputusan menjaga vault besar sambil tetap experience-first, bukan alasan membuka 151 map sekarang.
+
 ### D6. Audit negatif yang juga perlu diingat (yang *sudah ada*)
 
 - **Sudah ada:** Phaser render dengan Canvas fallback; pergerakan interpolasi, tap navigation, jalur 4 zona, tanda arah yang bisa diperiksa, NPC jadwal dan interaksi, YZ Phone, persahabatan, dialog ekspresi, cerita Bab 1, quest personal 5 NPC, tanam–siram–panen–tidur, pasar jual/beli dasar, memancing dasar, save dengan validasi JSONB serta pembatasan RLS server, 5 interior rumah, audio dasar, fullscreen PC.
@@ -171,7 +184,7 @@ Tambahkan: `Issue ID`, `status`, `owner`, `target branch`, `base SHA`, `commit h
 
 ## H. Cara menganalisis dengan benar di sesi AI berikutnya
 
-**Wajib:** baca [AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md), cek GitHub refs terbaru, lalu laporkan *apa yang berubah sejak snapshot* — bukan menyalin dokumen ini tanpa inspeksi. Temuan baru ditambahkan dengan ID G-036, G-037, dst. Hindari menciptakan isu duplikat. Simpan hasil audit dan bukti melalui PR. Jika hanya bisa membaca kode tanpa browser autentik, nyatakan `NEEDS_MANUAL_QA` dan jangan mengarang FPS, delay, atau screenshot.
+**Wajib:** baca [AUDIT_PLAYBOOK.md](AUDIT_PLAYBOOK.md), cek GitHub refs terbaru, lalu laporkan *apa yang berubah sejak snapshot* — bukan menyalin dokumen ini tanpa inspeksi. Temuan baru ditambahkan setelah G-041 (berikutnya G-042), lalu dilacak dengan status dan bukti. Hindari menciptakan isu duplikat. Simpan hasil audit dan bukti melalui PR. Jika hanya bisa membaca kode tanpa browser autentik, nyatakan `NEEDS_MANUAL_QA` dan jangan mengarang FPS, delay, atau screenshot.
 
 ## Referensi rujukan dalam repo
 
