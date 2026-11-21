@@ -8,3 +8,17 @@ export function legacyNpcDisplayName(oldId:string,oldName:string,residents:reado
  const linked=residents.find(r=>approvedLegacyId(r)===oldId);
  return linked?.name??oldName;
 }
+
+/** Nameplate/image only, NOT approval to migrate bonds, family ties or quest history.
+ * Safe for the small live prototype cast when BOTH name stem and job match the
+ * owner-supplied current roster. Any mismatch must remain quarantined.
+ */
+export function conservativeDisplayMatch(
+ oldNpc:{id:string;name:string;role:string},
+ residents:readonly ResidentProfile[]
+):ResidentProfile|null{
+ const citizen=residents.find(r=>r.id===oldNpc.id);
+ if(!citizen||citizen.occupation!==oldNpc.role)return null;
+ const first=citizen.name.trim().split(/\s+/)[0].toLocaleLowerCase("id");
+ return oldNpc.name.trim().toLocaleLowerCase("id")===first?citizen:null;
+}
