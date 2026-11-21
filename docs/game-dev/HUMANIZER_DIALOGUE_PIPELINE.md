@@ -63,3 +63,7 @@ npm run test:game
 ```
 
 Buka **sesi Codex baru dari root repository** supaya ia mengenali instruksi dan skill project-local. Jika belum terlihat, panggil path skill eksplisit dan cek dukungan skill discovery di versi Codex terpasang. Tidak perlu `npm install`, API key baru, maupun daemon untuk Humanizer ini.
+
+## Perluasan cakupan — setiap teks game yang terlihat pemain
+
+Standar yang sama sekarang berlaku untuk teks HUD, peta, interior, papan petunjuk, tutorial, status error, menu Warga dan Kronik; lihat [Game Text Style Guide](GAME_TEXT_STYLE_GUIDE.md) dan [YZ Phone](YZ_PHONE_WARGA_KRONIK.md). Rangkuman sejarah harus diturunkan dari save dan peristiwa yang sudah ditonton, bukan dari rancangan Character Bible yang belum diaktifkan. Jalankan `npm run test:game:copy` setelah setiap edit copy; inspeksi manual tetap wajib.

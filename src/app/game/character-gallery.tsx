@@ -35,7 +35,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  const self=person.id==="A01";
  const met=Boolean(bond?.talks)||self,level=bond?bondLevel(bond.points):0;
  const face=profile?.sections;
- const identity=face?.["01_core_identity"],look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
+ const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
  const voice=face?.["09_dialogue_behavior"];
  const soul=npc?NPC_SOULS[npc.id]:null;
