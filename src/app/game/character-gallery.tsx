@@ -40,6 +40,11 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
  const voice=face?.["09_dialogue_behavior"];
+ const coreBio=face?.["01_core_identity"],history=face?.["07_background_history"];
+ const relationships=face?.["08_relationship_dynamics"],arc=face?.["10_narrative_development"];
+ const visual=face?.["11_visual_references"],current=face?.["12_continuity_current_state"];
+ const backgroundText=history?.familyContext??history?.narrativeBackground??history?.formativeMemory??history?.personalFamily;
+ const connectionText=relationships?.connections?.map(c=>c.description??c.relationship).filter(Boolean).join("; ");
  const soul=npc?NPC_SOULS[npc.id]:null;
  const quest=npc?game.personalQuests?.[npc.id]:null;
  const rememberedPast=npc?.id==="C01"&&game.story.photoSeen?
@@ -73,26 +78,31 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
   <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
-    <Section label="01 · Siapa dia" open>{<p>{person.name} · {person.occupation}. {met&&soul?.home?`Tempat tinggal: ${soul.home}.`:""}</p>}</Section>
+    <Section label="01 · Siapa dia" open><p>{person.name} · {person.occupation}. {met&&soul?.home?`Tempat tinggal: ${soul.home}.`:""}</p>
+      {coreBio?.origin&&met&&<p>Asal: {coreBio.origin}.</p>}
+      {coreBio?.language&&met&&<p>Bahasa: {coreBio.language}.</p>}
+      {coreBio?.ageYears!=null&&met&&<p>Usia karakter: {coreBio.ageYears} tahun.</p>}
+    </Section>
     <Section label="02 · Penampilan" open>{<p>{look?.general??look?.visualDirection??look?.physicalTraits??"Potretnya tersimpan di daftar warga."}</p>}</Section>
     <Section label="03 · Gaya dan pakaian" open>{<p>{clothes?.signatureClothing??clothes?.clothing??"Lihat potret untuk mengenali gaya berpakaiannya."}</p>}</Section>
     <Section label="04 · Kegiatan sehari-hari" open>{<><p>{person.occupation}.</p>{met&&Boolean(social?.hobbies?.length)&&<p>Di waktu luang: {social!.hobbies!.join(", ")}.</p>}</>}</Section>
     <Section label="05 · Sifat dan kebiasaan" open={met&&(self||level>=1)}>
       <p>{personality?.traits?.join(", ")??"Kalian masih saling mengenal."}.</p>
-      <p>{soul?.habit??personality?.habit??personality?.observableHabit}</p>
+      <p>{personality?.observableHabit??personality?.habit??soul?.habit}</p>
     </Section>
     <Section label="06 · Yang sedang dipikirkan" open={knowsMore}>
-      <p>{soul?.desire??mind?.primaryMotivation??mind?.motivation??"Masih belum diceritakan."}</p>
-      {knowsPrivate&&<p>{soul?.fear??mind?.fear}</p>}
+      <p>{mind?.primaryMotivation??mind?.motivation??soul?.desire??"Masih belum diceritakan."}</p>
+      {knowsPrivate&&<p>{mind?.fear??soul?.fear}</p>}
     </Section>
-    <Section label="07 · Cerita masa lalu" open={knowsPrivate&&Boolean(rememberedPast)}>
-      <p>{rememberedPast??"Belum ada kenangan yang dibagikan."}</p>
+    <Section label="07 · Cerita masa lalu" open={knowsPrivate&&Boolean(rememberedPast||backgroundText)}>
+      <p>{backgroundText??rememberedPast??"Belum ada kenangan yang dibagikan."}</p>
     </Section>
-    <Section label="08 · Orang terdekat" open={knowsMore&&Boolean(soul?.connection)}>
-      <p>{soul?.connection??"Kamu belum mendengar cerita tentang hubungannya dengan warga lain."}</p>
+    <Section label="08 · Orang terdekat" open={knowsMore&&Boolean(connectionText||soul?.connection)}>
+      <p>{connectionText||soul?.connection||"Kamu belum mendengar cerita tentang hubungannya dengan warga lain."}</p>
     </Section>
     <Section label="09 · Cara berbicara" open={met}>
       <p>{voice?.speechSignature??voice?.speechPattern??voice?.scriptedSpeakingStyle??"Kamu baru mulai mengenali caranya berbicara."}</p>
+      {voice?.sampleLine&&<p>“{voice.sampleLine}”</p>}
     </Section>
     <Section label="10 · Cerita kalian" open={met}>
       {npc?<><p>{quest?`${tales[npc.id].title} · ${quest.phase===4?"Sudah selesai":quest.phase===3?"Menunggu kabar":"Sedang berjalan"}`:"Belum ada permintaan pribadi yang kalian kerjakan."}</p>
