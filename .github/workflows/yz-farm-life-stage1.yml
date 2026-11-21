@@ -36,7 +36,7 @@ jobs:
       - name: Check TypeScript
         run: npm run typecheck
       - name: Check asset database freshness and references
-        run: npm run assets:index:check && npm run test:game:assets
+        run: npm run assets:index:check && npm run assets:categories:check && npm run test:game:assets
       - name: Validate PNG headers and portrait geometry
         run: npm run assets:quality
       - name: Test game model

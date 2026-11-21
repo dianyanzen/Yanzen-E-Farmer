@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "source": "game-assets/catalog/asset-database.json",
+  "totalMedia": 2487,
+  "uniqueContents": 1195,
+  "totalBytes": 128751045,
+  "categories": [
+    {
+      "id": "characters",
+      "label": "Karakter dan sprite gerak",
+      "description": "Aktor, avatar, karakter dan konsep profesi",
+      "mediaCount": 294,
+      "bytes": 33771357,
+      "sections": [
+        {
+          "id": "aset/avatar",
+          "count": 32
+        },
+        {
+          "id": "aset/karakter",
+          "count": 32
+        },
+        {
+          "id": "atlas-bandung/avatar",
+          "count": 32
+        },
+        {
+          "id": "atlas-bandung/karakter",
+          "count": 32
+        },
+        {
+          "id": "atlas-bandung/profesi",
+          "count": 1
+        },
+        {
+          "id": "bandung-151/avatar",
+          "count": 32
+        },
+        {
+          "id": "bandung-151/karakter",
+          "count": 32
+        },
+        {
+          "id": "characters",
+          "count": 4
+        },
+        {
+          "id": "explore-bandung/avatar",
+          "count": 32
+        },
+        {
+          "id": "explore-bandung/karakter",
+          "count": 32
+        },
+        {
+          "id": "explore-bandung/profesi",
+          "count": 1
+        },
+        {
+          "id": "gba-v2-c/sheets",
+          "count": 16
+        },
+        {
+          "id": "gba-v2/sheets",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "portraits",
+      "label": "Potret dan ekspresi",
+      "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
+      "mediaCount": 384,
+      "bytes": 41590103,
+      "sections": [
+        {
+          "id": "atlas-bandung/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "atlas-bandung/potret-profesi",
+          "count": 30
+        },
+        {
+          "id": "bandung-151/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "explore-bandung/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "explore-bandung/potret-profesi",
+          "count": 30
+        },
+        {
+          "id": "portraits",
+          "count": 32
+        },
+        {
+          "id": "portraits/bandung/civic",
+          "count": 2
+        },
+        {
+          "id": "portraits/bandung/neighborhood",
+          "count": 30
+        },
+        {
+          "id": "portraits/bandung/phone",
+          "count": 19
+        },
+        {
+          "id": "portraits/bandung/professions",
+          "count": 32
+        },
+        {
+          "id": "portraits/bandung/residents",
+          "count": 179
+        },
+        {
+          "id": "portraits/bandung/specialists",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": "plants",
+      "label": "Tanaman dan komoditas",
+      "description": "Sprite tahap tumbuh tanaman, tanaman prototipe",
+      "mediaCount": 784,
+      "bytes": 718130,
+      "sections": [
+        {
+          "id": "aset/tanaman",
+          "count": 196
+        },
+        {
+          "id": "atlas-bandung/tanaman",
+          "count": 196
+        },
+        {
+          "id": "bandung-151/tanaman",
+          "count": 196
+        },
+        {
+          "id": "explore-bandung/tanaman",
+          "count": 196
+        }
+      ]
+    },
+    {
+      "id": "animals",
+      "label": "Hewan dan ternak",
+      "description": "Hewan domestik dan aset terkait",
+      "mediaCount": 32,
+      "bytes": 1131474,
+      "sections": [
+        {
+          "id": "atlas-bandung/hewan",
+          "count": 16
+        },
+        {
+          "id": "explore-bandung/hewan",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "label": "Peta, tile dan wilayah",
+      "description": "Peta Pasirluyu, Kota Bandung, kelurahan, lingkungan",
+      "mediaCount": 700,
+      "bytes": 10965437,
+      "sections": [
+        {
+          "id": "aset/peta",
+          "count": 31
+        },
+        {
+          "id": "aset/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "atlas-bandung/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "atlas-bandung/peta",
+          "count": 31
+        },
+        {
+          "id": "atlas-bandung/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "bandung-151/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "bandung-151/peta",
+          "count": 31
+        },
+        {
+          "id": "bandung-151/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "explore-bandung/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "explore-bandung/peta",
+          "count": 31
+        },
+        {
+          "id": "explore-bandung/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "pasirluyu",
+          "count": 7
+        },
+        {
+          "id": "pasirluyu/worlds",
+          "count": 9
+        },
+        {
+          "id": "tiles",
+          "count": 5
+        },
+        {
+          "id": "tiles/farm-kit",
+          "count": 9
+        },
+        {
+          "id": "tiles/farm-kit/detail-kebun",
+          "count": 16
+        },
+        {
+          "id": "tiles/farm-kit/kebun-luas",
+          "count": 16
+        },
+        {
+          "id": "tiles/farm-kit/landmark",
+          "count": 32
+        },
+        {
+          "id": "tiles/farm-kit/night",
+          "count": 4
+        },
+        {
+          "id": "tiles/farm-kit/objek",
+          "count": 16
+        },
+        {
+          "id": "tiles/ground",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "buildings",
+      "label": "Bangunan dan interior",
+      "description": "Bangunan, rumah dan desain interior",
+      "mediaCount": 5,
+      "bytes": 622113,
+      "sections": [
+        {
+          "id": "residences",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "id": "props",
+      "label": "Properti lingkungan",
+      "description": "Perabot, objek kecil dan dekorasi",
+      "mediaCount": 60,
+      "bytes": 16028,
+      "sections": [
+        {
+          "id": "aset/properti",
+          "count": 15
+        },
+        {
+          "id": "atlas-bandung/properti",
+          "count": 15
+        },
+        {
+          "id": "bandung-151/properti",
+          "count": 15
+        },
+        {
+          "id": "explore-bandung/properti",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": "Alat dan tindakan",
+      "description": "Cangkul, penyiram, alat panen, ikon aksi",
+      "mediaCount": 16,
+      "bytes": 195596,
+      "sections": [
+        {
+          "id": "aset/aksi",
+          "count": 4
+        },
+        {
+          "id": "atlas-bandung/aksi",
+          "count": 4
+        },
+        {
+          "id": "bandung-151/aksi",
+          "count": 4
+        },
+        {
+          "id": "explore-bandung/aksi",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "interface",
+      "label": "Antarmuka dan HUD",
+      "description": "Tombol, ikon, sampul dan menu",
+      "mediaCount": 64,
+      "bytes": 11757512,
+      "sections": [
+        {
+          "id": "aset/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "aset/sampul",
+          "count": 1
+        },
+        {
+          "id": "atlas-bandung/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "atlas-bandung/sampul",
+          "count": 1
+        },
+        {
+          "id": "bandung-151/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "bandung-151/sampul",
+          "count": 1
+        },
+        {
+          "id": "explore-bandung/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "explore-bandung/sampul",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "audio",
+      "label": "Audio dan suasana",
+      "description": "Musik, suara lingkungan, SFX, atmosfer malam",
+      "mediaCount": 73,
+      "bytes": 11044029,
+      "sections": [
+        {
+          "id": "aset/audio",
+          "count": 14
+        },
+        {
+          "id": "atlas-bandung/audio",
+          "count": 14
+        },
+        {
+          "id": "atlas-bandung/malam",
+          "count": 8
+        },
+        {
+          "id": "audio",
+          "count": 1
+        },
+        {
+          "id": "bandung-151/audio",
+          "count": 14
+        },
+        {
+          "id": "explore-bandung/audio",
+          "count": 14
+        },
+        {
+          "id": "explore-bandung/malam",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "label": "Cuaca dan efek",
+      "description": "Cuaca, partikel dan efek visual",
+      "mediaCount": 32,
+      "bytes": 8156,
+      "sections": [
+        {
+          "id": "aset/cuaca",
+          "count": 4
+        },
+        {
+          "id": "aset/efek",
+          "count": 4
+        },
+        {
+          "id": "atlas-bandung/cuaca",
+          "count": 4
+        },
+        {
+          "id": "atlas-bandung/efek",
+          "count": 4
+        },
+        {
+          "id": "bandung-151/cuaca",
+          "count": 4
+        },
+        {
+          "id": "bandung-151/efek",
+          "count": 4
+        },
+        {
+          "id": "explore-bandung/cuaca",
+          "count": 4
+        },
+        {
+          "id": "explore-bandung/efek",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "stories",
+      "label": "Cerita dan misi",
+      "description": "Gambar jurnal dan adegan cerita",
+      "mediaCount": 9,
+      "bytes": 16356206,
+      "sections": [
+        {
+          "id": "aset/cerita",
+          "count": 2
+        },
+        {
+          "id": "atlas-bandung/cerita",
+          "count": 2
+        },
+        {
+          "id": "bandung-151/cerita",
+          "count": 2
+        },
+        {
+          "id": "explore-bandung/cerita",
+          "count": 2
+        },
+        {
+          "id": "story",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "label": "Pasar dan perdagangan",
+      "description": "Aset pasar, barang dan ikon toko",
+      "mediaCount": 4,
+      "bytes": 121344,
+      "sections": [
+        {
+          "id": "aset/pasar",
+          "count": 1
+        },
+        {
+          "id": "atlas-bandung/pasar",
+          "count": 1
+        },
+        {
+          "id": "bandung-151/pasar",
+          "count": 1
+        },
+        {
+          "id": "explore-bandung/pasar",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "vendors",
+      "label": "Sumber eksternal",
+      "description": "Aset dari vendor dengan catatan lisensi",
+      "mediaCount": 30,
+      "bytes": 453560,
+      "sections": [
+        {
+          "id": "aset/vendor",
+          "count": 6
+        },
+        {
+          "id": "atlas-bandung/vendor",
+          "count": 6
+        },
+        {
+          "id": "bandung-151/vendor",
+          "count": 6
+        },
+        {
+          "id": "explore-bandung/vendor",
+          "count": 6
+        },
+        {
+          "id": "kenney-rpg-urban-pack/sample.png",
+          "count": 1
+        },
+        {
+          "id": "kenney-rpg-urban-pack/tilemap_packed.png",
+          "count": 1
+        },
+        {
+          "id": "kenney-rpg-urban-pack/tilemap.png",
+          "count": 1
+        },
+        {
+          "id": "kenney-tiny-town/preview.png",
+          "count": 1
+        },
+        {
+          "id": "kenney-tiny-town/tilemap_packed.png",
+          "count": 1
+        },
+        {
+          "id": "kenney-tiny-town/tilemap.png",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

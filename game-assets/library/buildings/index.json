@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "category": "buildings",
+  "label": "Bangunan dan interior",
+  "description": "Bangunan, rumah dan desain interior",
+  "mediaCount": 5,
+  "bytes": 622113,
+  "source": "game-assets/catalog/asset-database.json",
+  "sections": [
+    {
+      "id": "residences",
+      "files": [
+        "public/game/assets/residences/rumah-ayu.png",
+        "public/game/assets/residences/rumah-inggit.png",
+        "public/game/assets/residences/rumah-nani.png",
+        "public/game/assets/residences/rumah-ryan.png",
+        "public/game/assets/residences/rumah-widi.png"
+      ]
+    }
+  ]
+}
