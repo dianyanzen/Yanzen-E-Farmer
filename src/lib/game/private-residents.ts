@@ -32,7 +32,11 @@ const oldCast=[...cast.characters,...previews] as Array<{id:string;name:string;o
 export async function readPrivateResidents():Promise<ResidentProfile[]> {
  const path=canonPath(process.env.GAME_RESIDENT_ROSTER||"","deploy/private/residents.json");
  let source:unknown;
- try {source=JSON.parse(await readFile(path,"utf8"));}
+ try {
+  // Optional secret environment value for Vercel. Never use NEXT_PUBLIC_ for this data.
+  const injected=process.env.GAME_RESIDENT_ROSTER_JSON;
+  source=JSON.parse(injected!==undefined?injected:await readFile(path,"utf8"));
+ }
  catch(error){
    if((error as NodeJS.ErrnoException).code!=="ENOENT") console.error("[residents] private roster unreadable");
    return [];
