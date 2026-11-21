@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {execFileSync} from "node:child_process";
 import {mkdtempSync,readdirSync,readFileSync,rmSync,writeFileSync} from "node:fs";
 import {resolve,join} from "node:path";
 import {pathToFileURL} from "node:url";
@@ -8,6 +9,7 @@ const root=process.cwd();
 const work=mkdtempSync(join(root,"node_modules/.npc-roster-fixture-"));
 const previousRoster=process.env.GAME_RESIDENT_ROSTER;
 const previousLinks=process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
+const previousBibles=process.env.GAME_RESIDENT_BIBLES;
 try{
  const categories=["professions","neighborhood","specialists","civic","residents"];
  const idMatches=/^(?:work-[AC]\d{2}|K\d{2}|N\d{2}|P0[12]|R\d{3})\.png$/;
@@ -43,6 +45,31 @@ try{
  assert.equal((await withRoster([first,...roster.slice(1)])).length,248,"One-word real names may be legitimate");
  // No overlapping IDs are automatically assigned old stories, even with exact occupations.
  assert.equal((await withRoster(roster))[0].legacyApproved,false);
+ // Generate 248 private 12-section scaffolds without publishing personal records or fabricating biography.
+ const biblesPath=join(work,"bibles.json");
+ process.env.GAME_RESIDENT_BIBLES=biblesPath;
+ execFileSync(process.execPath,["scripts/game-characters/seed-private-bibles.mjs"],{
+  cwd:root,env:{...process.env,GAME_RESIDENT_ROSTER:rosterPath,GAME_RESIDENT_BIBLES:biblesPath}
+ });
+ const seed=JSON.parse(readFileSync(biblesPath,"utf8"));
+ assert.equal(seed.count,248);
+ assert.equal(Object.keys(seed.profiles).length,248);
+ assert.ok(Object.values(seed.profiles).every(p=>Object.keys(p.sections).length===12&&p.approval==="draft"));
+ assert.throws(()=>execFileSync(process.execPath,["scripts/game-characters/seed-private-bibles.mjs"],{
+  cwd:root,stdio:"ignore",env:{...process.env,GAME_RESIDENT_ROSTER:rosterPath,GAME_RESIDENT_BIBLES:biblesPath}
+ }),"Seed must never overwrite an edited private Bible");
+ const privateLoader=join(work,"bible-reader.mjs");
+ await build({entryPoints:["src/lib/game/private-resident-bibles.ts"],bundle:true,
+  platform:"node",format:"esm",packages:"external",outfile:privateLoader,logLevel:"silent"});
+ const {readPrivateResidentBible}=await import(pathToFileURL(privateLoader).href);
+ assert.equal(await readPrivateResidentBible(roster[0]),null,"Unapproved Bible must not be exposed");
+ seed.profiles[roster[0].id].approval="approved";
+ seed.profiles[roster[0].id].sections["01_core_identity"].name="NAMA USANG";
+ seed.profiles[roster[0].id].sections["04_social_profile"].occupation="PEKERJAAN USANG";
+ writeFileSync(biblesPath,JSON.stringify(seed));
+ const approvedBible=await readPrivateResidentBible(roster[0]);
+ assert.equal(approvedBible.sections["01_core_identity"].name,roster[0].name,"Use current canonical name");
+ assert.equal(approvedBible.sections["04_social_profile"].occupation,roster[0].occupation,"Use current canonical occupation");
  const cast=JSON.parse(readFileSync("game-assets/catalog/cast.json","utf8")).characters;
  const old=cast.find(x=>x.id==="A03");
  assert.ok(old);
@@ -64,5 +91,7 @@ try{
  else process.env.GAME_RESIDENT_ROSTER=previousRoster;
  if(previousLinks===undefined)delete process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS;
  else process.env.GAME_APPROVED_LEGACY_ASSOCIATIONS=previousLinks;
+ if(previousBibles===undefined)delete process.env.GAME_RESIDENT_BIBLES;
+ else process.env.GAME_RESIDENT_BIBLES=previousBibles;
  rmSync(work,{recursive:true,force:true});
 }
