@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-ACTORS = ("A01", "A03", "C01", "C08")
+ACTORS = ("A01", "A03", "C01", "C08", "A04", "C07")
 CELL = (24, 32)
 atlas = Image.new("RGBA", (CELL[0] * 3, CELL[1] * 4 * len(ACTORS)))
 for index, actor in enumerate(ACTORS):

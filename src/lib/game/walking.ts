@@ -36,12 +36,19 @@ export class WalkPath {
 
   get moving() { return this.route.length > 0; }
 
-  advance(elapsed: number, reduced: boolean, stepMs = STEP_MS) {
+  advance(elapsed: number, reduced: boolean, stepMs = STEP_MS, nextStep?: () => Player | undefined) {
     // Bound a late frame. Quick discrete taps may briefly queue several tiles.
     // Movement speed must not depend on how many queued waypoints remain.
     // Bound long background-tab stalls without turning a long click route into a sprint.
     let budget = reduced ? Infinity : Math.min(80, Math.max(0, elapsed)) / stepMs;
-    while (this.route.length && budget > 0) {
+    // A continuous route can spend the rest of this frame on its next tile.
+    while (budget > 0) {
+      if (!this.route.length) {
+        const next = nextStep?.();
+        if (!next) break;
+        this.aim(next);
+        if (!this.route.length) break;
+      }
       const next = this.route[0];
       const dx = next.x-this.x, dy = next.y-this.y;
       const remaining = Math.abs(dx) + Math.abs(dy);

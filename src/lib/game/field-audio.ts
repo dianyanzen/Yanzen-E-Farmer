@@ -1,3 +1,4 @@
+import { isOutdoorLocation, type GameState } from "./model";
 import clips from "./audio-clips.json";
 
 type Clip = keyof typeof clips;
@@ -40,11 +41,15 @@ export class FieldAudio {
     if (this.ctx?.state === "running") void this.ctx.suspend().catch(() => {});
   }
 
-  mix(x: number, y: number, minutes: number) {
+  mix(x: number, y: number, state: GameState) {
     if (!this.ctx || !this.enabled) return;
-    const canal = Math.max(0, 1-Math.hypot(x-1,Math.max(0,9-y))/9);
-    const stall = minutes >= 15*60 ? Math.max(0,1-Math.hypot(x-19,y-7)/6) : 0;
-    const levels = [.15*(1-.65*canal)*(1-stall), .3*canal, .22*stall];
+    const {location, minutes}=state;
+    const outdoors=isOutdoorLocation(location);
+    const bank=location==="field"?1:6;
+    const canal=location==="sungai" || location==="field" ? Math.max(0,1-Math.max(0,x-bank)/9) : 0;
+    const stall=location==="warung" ? .8 : location==="pasar" && minutes>=720 && minutes<1140 ?
+      Math.max(0,1-Math.hypot(x-16,y-9)/12) : 0;
+    const levels = [(outdoors ? .15 : .02)*(1-.65*canal)*(1-stall), .3*canal, .22*stall];
     this.loops.forEach((gain,i) => gain.gain.setTargetAtTime(levels[i], this.ctx!.currentTime, .25));
   }
 

@@ -1,16 +1,13 @@
 "use client";
-import { useEffect, useRef } from "react";
+import GameDialog from "./game-dialog";
 import { BAG_UNLOCK_LEVELS,BAG_UPGRADE_COSTS,TOOL_CATALOG,TOOL_IDS,
   bagCapacity,playerLevel,toolName, type GameState, type ToolId } from "@/lib/game/model";
 export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrade}:{
   game:GameState;disabled:boolean;onClose:()=>void;
   onTransfer:(id:ToolId,action:"store"|"take")=>void;onUpgrade:()=>void;
 }){
-  const dialog=useRef<HTMLDialogElement>(null);
-  useEffect(()=>{const node=dialog.current;if(node&&!node.open)node.showModal();return ()=>{if(node?.open)node.close();};},[]);
   const next=game.bagTier===4?null:game.bagTier+1;
-  return <dialog ref={dialog} className="yzg-storage-dialog" aria-label="Gudang peralatan"
-    onCancel={onClose} onClose={onClose}>
+  return <GameDialog className="yzg-storage-dialog" aria-label="Gudang peralatan" onBack={onClose}>
     <div className="yzg-storage-head"><div><b>Gudang Peralatan</b><small>Alat hanya dapat dipindahkan saat menghadap rak.</small></div>
       <button onClick={onClose}>Tutup</button></div>
     <div className="yzg-storage-meta"><span>Tas Lv. {game.bagTier}</span>
@@ -41,5 +38,5 @@ export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrad
         <small>{TOOL_CATALOG[id].function} Target: {TOOL_CATALOG[id].target}.
           {TOOL_CATALOG[id].status==="active"?" Sudah berfungsi.":" Direncanakan, belum bisa digunakan."}</small></div>)}</div>
     </details>
-  </dialog>;
+  </GameDialog>;
 }

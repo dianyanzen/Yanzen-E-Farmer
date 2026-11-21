@@ -58,4 +58,44 @@ const p3=new WalkPath(origin);
 p3.aim({x:2,y:1,dir:"right"});
 p3.advance(0,true,STEP_MS);
 assert.equal(p3.x,2,"reduced-motion should finish the tile without interpolation");
+const continuous = new WalkPath(origin);
+const route = [
+  { x: 2, y: 1, dir: "right" },
+  { x: 3, y: 1, dir: "right" },
+  { x: 3, y: 2, dir: "down" },
+];
+for (let frame = 1; frame <= 22; frame++) {
+  continuous.advance(20, false, STEP_MS, () => route.shift());
+  assert.ok(Math.abs(continuous.distance - frame * 20 / STEP_MS) < 1e-6,
+    "a long route should use the whole frame budget, even when crossing a tile or corner");
+}
+continuous.advance(20, false, STEP_MS, () => route.shift());
+assert.deepEqual([continuous.x, continuous.y, continuous.dir, continuous.moving], [3, 2, "down", false]);
+const outdoor = { ...model.newGame(), player: { x: 4, y: 5, dir: "up" } };
+assert.equal(model.interactDoor(outdoor).location, "home", "the right side of the entrance must open");
+const home = model.interactDoor(outdoor);
+for (const x of [8, 9, 10, 11]) {
+  assert.equal(model.canSleep({ ...home, player: { x, y: 8, dir: "up" } }), true);
+}
+assert.equal(model.canSleep({ ...home, player: { x: 11, y: 7, dir: "left" } }), true);
+assert.equal(model.canSleep({ ...home, player: { x: 9, y: 9, dir: "up" } }), false);
+assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" } }).location, "field");
+for (const [state, id, points] of [
+  [outdoor, "home-door", [[65, 69], [91, 99]]],
+  [outdoor, "shed-door", [[181, 70], [200, 99]]],
+  [home, "bed", [[175, 120], [226, 162]]],
+  [home, "home-exit", [[240, 270], [279, 288]]],
+  [{ ...home, location: "shed" }, "shed-exit", [[236, 270], [285, 288]]],
+]) {
+  for (const [x, y] of points) {
+    assert.equal(model.interactionHitboxAt(state.location, x, y)?.id, id);
+    const tap = navigation.planTapRoute(state, Math.floor(x / 20), Math.floor(y / 20), { x, y });
+    assert.ok(tap?.interact, "all visible corners must route to the object");
+    let target = state;
+    for (const direction of tap.steps) target = model.movePlayer(target, direction);
+    target = { ...target, player: { ...target.player, dir: tap.face } };
+    assert.equal(model.getActionContext(target).kind, id === "bed" ? "sleep" : "door");
+  }
+}
+assert.equal(model.interactionHitboxAt("home", 228, 150), undefined, "the adjacent aisle is outside the bed");
 console.log("Phaser prototype movement and four interactive signposts: PASS");

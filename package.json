@@ -1,14 +1,15 @@
 {
-  "name": "yanzen-e-farmer",
+  "name": "yz-farm-life",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run test:game && next build",
+    "build": "npm run test:database:game && npm run test:game && next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint src/app/api src/app/game src/app/login src/app/layout.game.tsx src/app/page.game.tsx src/lib/game src/lib/local-auth tests/game-postgres.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
+    "test:database:game": "node tests/game-postgres.mjs",
     "test:ui": "node tests/ui.mjs",
     "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node scripts/game-world/verify-toolkit.mjs && npm run test:game:phaser",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
@@ -24,13 +25,12 @@
     "test:game:phaser": "node tests/game-phaser-prototype.mjs"
   },
   "dependencies": {
-    "@supabase/ssr": "0.7.0",
-    "@supabase/supabase-js": "2.118.0",
-    "next": "16.4.3",
+    "next": "16.4.6",
+    "pg": "^8.16.3",
+    "phaser": "4.2.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "zod": "4.6.7",
-    "phaser": "4.2.1"
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.11",
@@ -38,6 +38,7 @@
     "@sparticuz/chromium": "153.0.0",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "22.20.5",
+    "@types/pg": "^8.23.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "esbuild": "0.28.2",

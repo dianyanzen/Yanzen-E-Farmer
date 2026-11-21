@@ -1,9 +1,11 @@
 import { drawWorld, type WorldArt } from "./draw-world";
-import { WORLD } from "./model";
+import { WORLD, isOutdoorLocation } from "./model";
 import { Footwork } from "./footwork";
 import { FieldAudio } from "./field-audio";
 import { type Direction, type FarmTool, type GameState } from "./model";
 import { WalkPath, STEP_MS, RUN_STEP_MS } from "./walking";
+
+export type WorldPick = { x: number; y: number; world: { x: number; y: number } };
 
 export type FieldFrame = {
   state: GameState;
@@ -12,7 +14,9 @@ export type FieldFrame = {
   running: boolean;
   action: { use: ToolUse; frame: number; effect: number } | undefined;
   camera: { x: number; y: number };
+  reducedMotion: boolean;
   ambient: number;
+  route?: readonly Direction[];
   plots: GameState["plots"];
   weight: import("./footwork").WeightPose | undefined;
   dust: { x: number; y: number; dir: Direction; phase: number } | undefined;
@@ -23,7 +27,7 @@ export type ToolUse = {
   tool: FarmTool; started: number; before: GameState["plots"];
   origin: GameState["player"]; target: { x: number; y: number };
 };
-type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: boolean; step: (dir: Direction) => void };
+type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: boolean };
 const timings = {
   hoe: [135, 275, 420], seed: [90, 170, 290],
   water: [130, 350, 500], harvest: [115, 225, 365],
@@ -35,7 +39,6 @@ export class FieldEngine {
   readonly audio = new FieldAudio();
   readonly held = new Map<string, Direction>();
   shift = false;
-  nextStep = 0;
   private walk?: WalkPath;
   private feet?: Footwork;
   private scuff?: { x: number; y: number; at: number; dir: Direction };
@@ -55,46 +58,54 @@ export class FieldEngine {
   }
 
   /** Convert phone/desktop canvas taps into the currently visible world tile. */
-  pickTile(canvas:HTMLCanvasElement,clientX:number,clientY:number){
+  pickTile(canvas:HTMLCanvasElement,clientX:number,clientY:number,location:GameState["location"]="field"): WorldPick | null {
     const bounds=canvas.getBoundingClientRect();
     if(!bounds.width||!bounds.height)return null;
-    const u=(clientX-bounds.left)/bounds.width,v=(clientY-bounds.top)/bounds.height;
-    if(u<0||u>1||v<0||v>1)return null;
+    const scale = Math.min(bounds.width / canvas.width, bounds.height / canvas.height);
+    const paintedWidth = scale * canvas.width;
+    const paintedHeight = scale * canvas.height;
+    const u = (clientX - bounds.left - (bounds.width - paintedWidth) / 2) / paintedWidth;
+    const v = (clientY - bounds.top - (bounds.height - paintedHeight) / 2) / paintedHeight;
+    if (u < 0 || u >= 1 || v < 0 || v >= 1) return null;
     /* WORLD is the same immutable grid used by the renderer. */
     const camera=this.camera??{x:this.walk?.x??12,y:this.walk?.y??10};
-    const dx=Math.round(Math.min(WORLD.width*WORLD.tile-canvas.width,
+    const dx=Math.round(Math.min((isOutdoorLocation(location)?WORLD.width:24)*WORLD.tile-canvas.width,
       Math.max(0,(camera.x+.5)*WORLD.tile-canvas.width/2)));
     const dy=Math.round(Math.min(WORLD.height*WORLD.tile-canvas.height,
       Math.max(0,(camera.y+.5)*WORLD.tile-canvas.height/2)));
-    return {x:Math.floor((dx+u*canvas.width)/WORLD.tile),
-      y:Math.floor((dy+v*canvas.height)/WORLD.tile)};
+    const world = { x: dx + u * canvas.width, y: dy + v * canvas.height };
+    return { x: Math.floor(world.x / WORLD.tile), y: Math.floor(world.y / WORLD.tile), world };
   }
   setShift(value: boolean) { this.shift = value; }
-  delayStep(time: number) { this.nextStep = time; }
   reset(player: GameState["player"]) { this.walk = new WalkPath(player); this.camera=undefined; this.feet=new Footwork(player.dir); this.scuff=undefined; }
   aim(player: GameState["player"]) { this.feet ??= new Footwork(player.dir); this.walk ??= new WalkPath(player); this.walk.aim(player); }
   clear() { this.held.clear(); this.shift=false; this.lastTime=0; }
 
-  paint(canvas: HTMLCanvasElement, scene: Scene, now: number, reduced: boolean) {
+  get moving() { return this.walk?.moving ?? false; }
+
+  paint(canvas: HTMLCanvasElement, scene: Scene, now: number, reduced: boolean,
+        nextMovement?: (game: GameState) => GameState | undefined, route?: readonly Direction[]) {
     const walk=this.walk;
     if (!walk) return;
     const running=scene.runMode || this.shift, stepMs=running?RUN_STEP_MS:STEP_MS;
-    if (this.held.size && now>=this.nextStep) {
-      const dirs=Array.from(this.held.values());
-      scene.step(dirs[dirs.length-1]);
-      this.nextStep=(now-this.nextStep>=stepMs?now:this.nextStep)+stepMs;
-    }
     const dt=this.lastTime?Math.max(0,Math.min(60,now-this.lastTime)):0;
     this.lastTime=now;
     const wasMoving=walk.moving, stride=running?1.8:1.35;
+    let game = scene.game;
     const previousBeat=Math.floor(walk.distance*2/stride);
     const before = walk.distance;
-    walk.advance(dt,reduced,stepMs);
+    walk.advance(dt, false, stepMs, nextMovement && (() => {
+      const next = nextMovement(game);
+      if (!next) return undefined;
+      game = next;
+      return next.player;
+    }));
     const travelled = walk.distance-before;
-    const weight = this.feet?.update(now, walk.dir, travelled, running, this.held.size>0 && wasMoving, reduced);
+    const weight = this.feet?.update(now, walk.dir, travelled, running, (this.held.size>0 || !!nextMovement) && (wasMoving || walk.moving), reduced);
     if (wasMoving && previousBeat!==Math.floor(walk.distance*2/stride)) {
-      this.audio.hit(walk.y>=5 && walk.y<7?"langkah-batu":"langkah-tanah",running?.35:.23);
-      if (running && walk.y>=7 && !reduced) this.scuff={ x:walk.x, y:walk.y, at:now, dir:walk.dir };
+      const stone=game.location==="pasar" && walk.x>=3 && walk.x<=21 && walk.y>=6 && walk.y<=14;
+      this.audio.hit(stone?"langkah-batu":"langkah-tanah",running?.35:.23);
+      if (running && isOutdoorLocation(game.location) && !stone && !(game.location==="sungai" && walk.x<8) && !reduced) this.scuff={ x:walk.x, y:walk.y, at:now, dir:walk.dir };
     }
     const dust = this.scuff && now-this.scuff.at < 140 && !reduced
       ? { ...this.scuff, phase:(now-this.scuff.at)/140 } : undefined;
@@ -117,18 +128,19 @@ export class FieldEngine {
     camera.x=follow(camera.x,walk.x,.30);camera.y=follow(camera.y,walk.y,.28);
     const pan=Math.abs(camera.x-previousX)+Math.abs(camera.y-previousY)>.001;
     const ambient=reduced?0:Math.floor(now/170);
-    const active=wasMoving || !!action || !!weight || !!dust || pan;
+    const active=wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan;
+    const position = { x: walk.x, y: walk.y, dir: walk.dir };
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {
-      const plots = swing && age<impact && !reduced ? swing.before : scene.game.plots;
+      const plots = swing && age<impact && !reduced ? swing.before : game.plots;
       if (this.renderer) {
         this.renderer.draw({
-          state: scene.game, position: { x: walk.x, y: walk.y, dir: walk.dir },
-          pose, running, action, camera: { ...camera }, ambient, plots, weight, dust
+          state: game, position,
+          pose, running, action, camera: { ...camera }, reducedMotion: reduced, ambient, route, plots, weight, dust
         });
       } else {
-        drawWorld(canvas,scene.game,scene.art,walk,pose,running,action,camera,ambient,plots,weight,dust);
+        drawWorld(canvas,game,scene.art,position,pose,running,action,camera,ambient,plots,weight,dust);
       }
-      if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,scene.game.minutes);
+      if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,game);
     }
     this.lastScene=scene;this.lastAmbient=ambient;this.active=active;
   }
