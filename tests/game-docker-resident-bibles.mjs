@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {draftResidentBible} from "../src/lib/game/draft-resident-bible.mjs";
+const sample={id:"W001",name:"Warga Contoh",occupation:"Penjual bibit",portrait:"R001"};
+const bible=draftResidentBible(sample);
+assert.equal(Object.keys(bible.sections).length,12);
+assert.equal(bible.sections["01_core_identity"].name,sample.name);
+assert.equal(bible.sections["04_social_profile"].occupation,sample.occupation);
+assert.equal(bible.sections["10_narrative_development"].threeActBeats.length,3);
+assert.equal(bible.sections["01_core_identity"].ageYears,null);
+assert.match(bible.approval,/draft/);
+const source=readFileSync("src/app/game/character-gallery.tsx","utf8");
+assert.match(source,/data-character-detail/);
+assert.match(source,/draftResidentBible/);
+assert.match(source,/setSelectedId/);
+console.log("PASS: 12-category runtime NPC Bible and clickable YZ Phone resident details");

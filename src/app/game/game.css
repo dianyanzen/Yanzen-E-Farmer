@@ -349,3 +349,17 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-phone .yzg-neighbour-routes button small{display:inline;color:inherit;font-weight:400}
 .yzg-master-minimap>div:first-child{grid-column:2}
 .yzg-master-minimap>div:last-child{grid-column:2}
+
+
+/* YZ Phone: resident directory and 12-part on-demand Character Bible. */
+.yzg-phone button.yzg-citizen-return{display:inline-flex;align-items:center;width:auto;min-height:36px;margin:0 0 10px;padding:7px 12px;border:1px solid #c3d8c9;border-radius:9px;background:#eef5ed;color:#244632;font-weight:700}
+.yzg-phone button.yzg-character-card{display:flex;width:100%;min-height:84px;align-items:center;gap:12px;text-align:left;cursor:pointer;background:#fff;color:#1f3930}
+.yzg-phone button.yzg-character-card:hover{background:#f4f8f1;border-color:#89b498}
+.yzg-phone button.yzg-character-card:focus-visible,.yzg-phone button.yzg-citizen-return:focus-visible{outline:3px solid #409d73;outline-offset:2px}
+.yzg-phone .yzg-citizen-hero{display:flex;align-items:center;gap:12px}
+.yzg-phone .yzg-citizen-hero h3{margin:0 0 4px;font-size:16px}
+.yzg-phone .yzg-citizen-hero p{margin:0;font-size:12px}
+.yzg-phone .yzg-citizen-sections{display:grid;gap:8px;padding-bottom:12px}
+.yzg-phone .yzg-citizen-sections details{margin:0}
+.yzg-phone .yzg-citizen-sections summary{cursor:pointer;list-style-position:inside;color:#2c523a}
+.yzg-phone .yzg-citizen-sections details>p{margin:10px 0 2px;line-height:1.6}

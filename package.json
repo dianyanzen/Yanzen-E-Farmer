@@ -11,7 +11,7 @@
     "test": "node tests/database.mjs",
     "test:database:game": "node tests/game-postgres.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node scripts/game-world/verify-toolkit.mjs && npm run test:game:phaser",
+    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node scripts/game-world/verify-toolkit.mjs && node tests/game-published-residents.mjs && node tests/game-docker-resident-bibles.mjs && npm run test:game:phaser",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
