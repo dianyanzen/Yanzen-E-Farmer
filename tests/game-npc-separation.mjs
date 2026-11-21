@@ -15,13 +15,26 @@ try{
  const entry=join(temp,"legacy-identity.mjs");
  await build({entryPoints:["src/lib/game/legacy-identity.ts"],outfile:entry,bundle:true,
   platform:"node",format:"esm",packages:"external",logLevel:"silent"});
- const {approvedLegacyId,legacyNpcDisplayName}=await import(pathToFileURL(entry).href);
+ const {approvedLegacyId,legacyNpcDisplayName,conservativeDisplayMatch}=await import(pathToFileURL(entry).href);
  const current={id:"A03",name:"TOKOH BARU UJI",occupation:"Uji",portrait:"work-A03",legacyApproved:false};
  assert.equal(approvedLegacyId({...current,legacyId:"A03"}),null,"Colliding IDs do not establish identity");
  assert.equal(legacyNpcDisplayName("A03","Nama lama",[current]),"Nama lama");
  const approved={...current,legacyApproved:true,legacyId:"A03"};
  assert.equal(approvedLegacyId(approved),"A03");
  assert.equal(legacyNpcDisplayName("A03","Nama lama",[approved]),current.name);
+ assert.equal(conservativeDisplayMatch(
+  {id:"A03",name:"TOKOH",role:"Uji"},[current])?.name,current.name,
+  "Display-only match is allowed for same nickname and occupation");
+ assert.equal(conservativeDisplayMatch(
+  {id:"A03",name:"RYAN",role:"Uji"},[current]),null,
+  "Do not assume identity when name does not match");
+ assert.equal(conservativeDisplayMatch(
+  {id:"A03",name:"TOKOH",role:"Profesi berbeda"},[current]),null,
+  "Do not assume identity when profession does not match");
+ assert.equal(conservativeDisplayMatch(
+  {id:"A03",name:"TOKOH",role:"Uji"},[{...current,id:"A06"}]),null,
+  "Do not assume identity when ID does not match");
+
  const ui=file("src/app/game/character-gallery.tsx");
  assert.match(ui,/if\(selected\?\.legacyApproved\)/,"Private citizen does not load a legacy bible without approval");
  assert.ok(ui.includes("/api/game/resident-bible/"),"Current citizen loads private Bible only on demand");
