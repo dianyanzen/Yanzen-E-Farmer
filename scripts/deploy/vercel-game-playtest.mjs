@@ -18,15 +18,15 @@ const ROOT=resolve(process.cwd());
 const APP=resolve(ROOT,"src/app");
 const ENABLED=process.env.NEXT_PUBLIC_YZ_GAME_PLAYTEST==="1";
 const EXPECTED_PROJECT="prj_NShhHPImzY1zNXHRksrYAOHGYkJ5";
+// /game already selects Phaser; the explicit Phaser and Canvas debug routes are
+// retained in source but deliberately excluded from the public Hobby playtest.
+// The canonical roster-health route replaces a separate generic health Lambda.
 const ROUTES=new Set([
  "src/app/page.tsx",
  "src/app/login/page.tsx",
  "src/app/game/page.tsx",
- "src/app/game/phaser/page.tsx",
- "src/app/game/canvas/page.tsx",
  "src/app/api/auth/session/route.ts",
  "src/app/api/auth/logout/route.ts",
- "src/app/api/game/health/route.ts",
  "src/app/api/game/roster-health/route.ts",
  "src/app/api/game/resident-bible/[id]/route.ts",
  "src/app/api/game/save/route.ts"
@@ -49,7 +49,7 @@ const missing=[...ROUTES].filter(p=>!candidates.includes(p));
 if(missing.length)throw new Error("Required playable route missing: "+missing.join(", "));
 const discarded=candidates.filter(p=>!ROUTES.has(p));
 if(discarded.length<12)throw new Error("Playtest route count unexpectedly low; inspect routes first");
-if(ROUTES.size>11)throw new Error("Playtest route set is too large for Hobby quota");
+if(ROUTES.size>8)throw new Error("Playtest route set is too large for Hobby quota");
 if(mode==="--check"){
  console.log("PASS: game-only Vercel route selection: keep "+ROUTES.size+", skip "+discarded.length+" unrelated route entrypoints.");
  process.exit(0);
