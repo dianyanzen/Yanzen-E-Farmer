@@ -3,7 +3,7 @@
   "source": "game-assets/catalog/asset-database.json",
   "totalMedia": 2487,
   "uniqueContents": 1195,
-  "totalBytes": 128810638,
+  "totalBytes": 128763326,
   "categories": [
     {
       "id": "characters",
@@ -71,7 +71,7 @@
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
       "mediaCount": 384,
-      "bytes": 41649696,
+      "bytes": 41602384,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
