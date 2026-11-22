@@ -1,3 +1,5 @@
+> **PEMBARUAN PUBLIK (22 NOVEMBER 2026):** Seluruh 248 karakter canonical kini memiliki katalog fiksi publik dan 12 kategori Character Bible draf. YZ Phone mengambil `/game/data/npc/{ID}.json` sebagai fallback jika biografi privat yang approved tidak tersedia; `/game/encyclopedia` menyediakan wiki publik. Rincian di bawah mendokumentasikan fitur awal dan sebagian status sebelumnya; hanya flag dari save yang boleh dianggap kejadian yang benar-benar dialami pemain.
+
 # YZ Phone — Warga dan Kronik
 
 **Implementasi UI:** `src/app/game/character-gallery.tsx`, `src/app/game/phone-chronicle.tsx`, `src/lib/game/phone-profiles.ts`, `src/lib/game/phone-story.ts`.
