@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2492,
+  "totalMedia": 2494,
   "uniqueContents": 1200,
-  "totalBytes": 128667462,
+  "totalBytes": 128739467,
   "categories": [
     {
       "id": "characters",
@@ -152,8 +152,8 @@
       "id": "animals",
       "label": "Hewan dan ternak",
       "description": "Hewan domestik dan aset terkait",
-      "mediaCount": 32,
-      "bytes": 1131474,
+      "mediaCount": 34,
+      "bytes": 1203479,
       "sections": [
         {
           "id": "atlas-bandung/hewan",
@@ -162,6 +162,10 @@
         {
           "id": "explore-bandung/hewan",
           "count": 16
+        },
+        {
+          "id": "fish",
+          "count": 2
         }
       ]
     },
@@ -461,7 +465,11 @@
         },
         {
           "id": "cutscenes",
-          "count": 3
+          "count": 1
+        },
+        {
+          "id": "cutscenes/frames",
+          "count": 2
         },
         {
           "id": "explore-bandung/cerita",
