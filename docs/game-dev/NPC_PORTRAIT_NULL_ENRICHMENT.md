@@ -82,3 +82,15 @@ Hasil ini adalah **draf ensiklopedia publik**, bukan persetujuan final atau lapo
 ## Kontrol perubahan potret berdasarkan SHA Git
 
 Seluruh 248 potret yang diamati memiliki `gitBlobSha` dan `sizeBytes` terverifikasi di `docs/game-dev/characters/PORTRAIT_ASSET_AUDIT.json`. SHA diperiksa ulang oleh `npm run chars:portrait:check` terhadap byte file lokal saat test. Jika aset potret diubah, pemeriksaan akan gagal agar ciri fisik pada Character Bible tidak dibiarkan usang tanpa peninjauan ulang. Ledger merekam **248 SHA unik** dan total sekitar **21,64 MB** aset potret yang dipasangkan ke 248 ID canonical.
+
+
+## Pengayaan lanjutan asal dan konteks keluarga — 22 November 2026
+
+- Snapshot tahap awal: **794 null** di 248 NPC. Pengayaan menambahkan **492 nilai** untuk 246 tokoh fiksi non-kameo: 246 `01_core_identity.origin` dan 246 `07_background_history.familyContext`.
+- Sisa yang disengaja: **302 null**, yaitu 246 `09_dialogue_behavior.publicCameoGuardrail` milik non-kameo yang **tidak berlaku**, serta 56 null milik P01/P02 (masing-masing 28, termasuk asal dan keluarga). Nol null bukan target yang tepat bila bidangnya tidak berlaku.
+- Asal adalah konteks lingkungan tokoh **dalam dunia fiksi** dan bukan klaim tempat lahir, tempat tinggal orang nyata, bukti dari wajah/nama, ataupun lokasi spawn dalam game. Nama kawasan dipilih sebagai usulan worldbuilding dan belum mengaktifkan peta/quest.
+- Konteks keluarga adalah cerita fiksi proposal **tanpa nama anggota keluarga**, tanpa hubungan canonical baru, tanpa koneksi antar-ID, dan tanpa perubahan status save. Di UI YZ Phone Warga tetap berstatus `draft`.
+- `fieldProvenance`: sumber `fictional-worldbuilding-editorial-draft`, confidence 48% untuk asal dan 40% untuk keluarga, `requiresReview: true` untuk keduanya.
+- P01/P02 tidak menerima latar pribadi yang dikarang; seluruh pembatasan usia/psikologi/keluarga tetap berlaku. Empat atribut canonical (ID/nama/profesi/potret), fingerprint, izin legacy, progres, dan gameplay tidak diubah.
+- 246 wiki Markdown digenerasi ulang dengan struktur yang sama seperti generator resmi. Validator diubah agar mengizinkan **usulan asal dan keluarga berlabel fiksi** pada NPC biasa, dan tetap mewajibkan `null` bagi kedua kameo.
+- Seluruh konten masih memerlukan review editorial: keragaman gaya, kewajaran hubungan keluarga, kesesuaian lokasi, dan konflik/quest sebelum approval atau merge.

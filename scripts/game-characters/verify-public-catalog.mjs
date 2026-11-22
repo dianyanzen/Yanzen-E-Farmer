@@ -43,8 +43,15 @@ for(const r of rows){
  const history=doc.sections['07_background_history'];
  const physical=doc.sections['02_physical_appearance'];
  const visual=doc.sections['11_visual_references'];
- assert.equal(core.origin,null,'unknown birth origin must not be invented');
- assert.equal(history.familyContext,null,'unreviewed family relationships must stay unassigned');
+ if(isCameo){
+  assert.equal(core.origin,null,'cameo origin must not be invented');
+  assert.equal(history.familyContext,null,'cameo family must not be invented');
+ }else{
+  assert.ok(typeof core.origin==='string'&&core.origin.includes('(latar fiksi; draf)'),'fictional origin missing');
+  assert.ok(typeof history.familyContext==='string'&&history.familyContext.includes('(latar fiksi; draf)'),'fictional family context missing');
+  assert.equal(doc.fieldProvenance['01_core_identity.origin']?.claimType,'fictional-worldbuilding-proposal');
+  assert.equal(doc.fieldProvenance['07_background_history.familyContext']?.claimType,'fictional-worldbuilding-proposal');
+ }
  assert.ok(typeof physical.physicalTraits==='string'&&physical.physicalTraits.length>45,'portrait observations missing');
  assert.equal(doc.visualEvidence.assetKey,r.portrait);
  assert.equal(doc.visualEvidence.path,'public'+doc.portraitUrl);

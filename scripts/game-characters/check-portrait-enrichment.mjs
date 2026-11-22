@@ -25,8 +25,15 @@ for(const entry of index.characters){
  assert.equal(doc.visualEvidence.assetKey,entry.portrait);
  assert.equal(doc.visualEvidence.humanVisualQARequired,true);
  assert.ok(doc.fieldProvenance['02_physical_appearance.physicalTraits']);
- assert.equal(doc.sections['01_core_identity'].origin,null);
- assert.equal(doc.sections['07_background_history'].familyContext,null);
+ if(['P01','P02'].includes(entry.id)){
+  assert.equal(doc.sections['01_core_identity'].origin,null);
+  assert.equal(doc.sections['07_background_history'].familyContext,null);
+ }else{
+  assert.ok(doc.sections['01_core_identity'].origin?.includes('(latar fiksi; draf)'));
+  assert.ok(doc.sections['07_background_history'].familyContext?.includes('(latar fiksi; draf)'));
+  assert.equal(doc.fieldProvenance['01_core_identity.origin']?.claimType,'fictional-worldbuilding-proposal');
+  assert.equal(doc.fieldProvenance['07_background_history.familyContext']?.claimType,'fictional-worldbuilding-proposal');
+ }
  const s=doc.sections['12_continuity_current_state'];
  assert.equal(s.playableRuntimeConfirmed,false);
  assert.equal(s.questIntegrationConfirmed,false);
