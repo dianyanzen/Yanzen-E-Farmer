@@ -556,3 +556,10 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-cutscene-gate{transform:translateY(-47px)}
  .yzg-cutscene-waterfall{opacity:1}
 }
+
+/* Generated, license-owned pixel atlases: each trade action receives its own sprite. */
+.yzg-market-sprite{display:block;flex:0 0 56px;width:56px;height:56px;image-rendering:pixelated;
+ background-repeat:no-repeat;background-color:#f3ecd5;border-radius:6px}
+.yzg-market-sprite--ayu{background-image:url("/game/assets/tiles/ayu-shop-atlas.png");background-size:200% 200%}
+.yzg-market-sprite--widi{background-image:url("/game/assets/tiles/widi-shop-atlas.png");background-size:300% 200%}
+.yzg-market-item .yzg-market-item-text{flex:1}
