@@ -23,14 +23,18 @@
       "visualAgeBandDraft": "dewasa dalam rancangan karakter"
     },
     "02_physical_appearance": {
-      "general": "Rambut gelap agak acak dan kemeja kerja gelap menjadi cirinya; untuk potret berikutnya, ia membawa joran dan kotak perlengkapan pancing.",
-      "physicalTraits": "Rambut cokelat gelap acak, kemeja abu gelap; memegang keranjang berisi sayuran warna-warni.",
+      "general": "Potret Widi menonjolkan wajah ramah, rambut agak acak dan peralatan memancing di tepi sungai.",
+      "physicalTraits": "Rambut cokelat gelap agak acak, kemeja abu arang; memegang joran pancing dan kotak peralatan berisi pelampung, kail, senar, serta umpan.",
       "bodyLanguageDirection": "Menatap pelampung sebelum menoleh kepada lawan bicara; tangan terbiasa mengatur senar dan mengganti umpan.",
       "proposedPose": "Satu tangan menggenggam joran, tangan lain menahan kotak umpan terbuka. Bentuk rambut dan wajah mengikuti potret canonical setelah QA."
     },
     "03_fashion_aesthetic": {
       "signatureClothing": "Rambut cokelat gelap acak, kemeja abu gelap",
-      "accessories": [],
+      "accessories": [
+        "Joran pancing",
+        "Kotak perlengkapan pancing",
+        "Pelampung dan gulungan senar"
+      ],
       "aesthetic": "Ilustrasi karakter 2D yang hangat dan senada dengan tokoh pasar Pasirluyu",
       "palette": "cokelat, abu",
       "costumeConcept": "Kemeja gelap tetap dipertahankan; joran, kotak umpan, gulungan senar dan pelampung menunjukkan pekerjaannya tanpa perlu papan tulisan."
@@ -136,7 +140,7 @@
     "11_visual_references": {
       "portraitKey": "work-C07",
       "conceptPortrait": "/game/assets/portraits/bandung/professions/work-C07.png",
-      "visualContinuity": "Pertahankan ciri wajah, rambut gelap acak, dan kemeja abu gelap pada key work-C07. Ganti atribut keranjang sayuran dengan joran, pelampung, dan kotak peralatan saat potret baru sudah lolos QA.",
+      "visualContinuity": "Potret baru work-C07 mempertahankan rambut gelap acak dan kemeja abu arang; joran serta kotak pancing kini mengganti keranjang sayuran. Samakan wajah dengan sprite jalan dan ekspresi sebelum melepas status QA.",
       "suggestedPalette": "abu arang, cokelat rambut, hijau zaitun kotak umpan, kilau air biru",
       "animationRequired": [
         "idle",
@@ -151,7 +155,7 @@
     "12_continuity_current_state": {
       "availability": "Katalog; jadwal dan spawn mengikuti ekspansi bertahap",
       "playerDependentState": "Tidak boleh tertukar dengan ID cerita lama",
-      "canonStatus": "Nama, pekerjaan spesialis memancing, dan portrait key telah ditetapkan pemilik; peristiwa, hubungan, serta potret visual baru mengikuti proses QA.",
+      "canonStatus": "Nama, pekerjaan dan portrait key tetap; potret kerja baru memegang joran telah diunggah dan menunggu tinjauan silang dengan sprite serta ekspresi.",
       "playableRuntimeConfirmed": false,
       "questIntegrationConfirmed": false,
       "legacyAssociationApproved": false,
@@ -159,18 +163,19 @@
     }
   },
   "visualEvidence": {
-    "source": "original-canonical-GitHub-portrait",
+    "source": "owner-authorized-generated-fishing-portrait",
     "path": "public/game/assets/portraits/bandung/professions/work-C07.png",
     "assetKey": "work-C07",
     "inspectionDate": "2026-11-22",
-    "observedDescription": "Rambut cokelat gelap acak, kemeja abu gelap; memegang keranjang berisi sayuran warna-warni.",
-    "visualObservationConfidence": 0.9,
-    "humanVisualQARequired": true
+    "observedDescription": "Rambut cokelat gelap agak acak, kemeja abu arang; memegang joran pancing dan kotak peralatan berisi pelampung, kail, senar, serta umpan.",
+    "visualObservationConfidence": 0.95,
+    "humanVisualQARequired": true,
+    "productionAssetStatus": "branch-staging-needs-style-review"
   },
   "fieldProvenance": {
     "02_physical_appearance.physicalTraits": {
-      "source": "direct-portrait-observation",
-      "confidence": 0.9,
+      "source": "generated-portrait-visual-inspection-2026-11-22",
+      "confidence": 0.95,
       "claimType": "depicted-only"
     },
     "01_core_identity.preferredName": {
@@ -219,6 +224,11 @@
       "source": "owner-instruction-2026-11-22",
       "confidence": 1,
       "claimType": "owner-approved-fictional-profession-change"
+    },
+    "03_fashion_aesthetic.accessories": {
+      "source": "generated-portrait-visual-inspection-2026-11-22",
+      "confidence": 0.95,
+      "claimType": "depicted-only"
     }
   }
 }
