@@ -299,13 +299,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if(fishingRef.current?.id!==id)return;
       if(phase==="casting")setFishingPhase(id,"waiting");
       else if(phase==="waiting"){
-        if(fishingRef.current.willBite)setFishingPhase(id,"bite");
+        if(fishingRef.current.willBite){field.audio.hit("water",.35);setFishingPhase(id,"bite");}
         else finishFishing(id,"no_bite");
       }else if(phase==="bite")finishFishing(id,"late");
-      else finishFishing(id,fishingCatchSucceeds(Math.random())?"caught":"escaped",fishingRef.current.species);
+      else {const landed=fishingCatchSucceeds(Math.random());if(landed)field.audio.hit("harvest",.3);finishFishing(id,landed?"caught":"escaped",fishingRef.current.species);}
     },delay);
     return ()=>window.clearTimeout(timeout);
-  },[fishingSession,finishFishing,setFishingPhase]);
+  },[fishingSession,finishFishing,setFishingPhase,field]);
   useEffect(()=>{
     if(!fishingNotice)return;
     const t=window.setTimeout(()=>setFishingNotice(null),2900);
@@ -550,6 +550,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         queuedKeys.current.length=0;
         field.held.clear();
         tapRoute.current=null;
+        field.audio.hit("water",.16);
         gameRef.current=next;
         setGame(next);
         void persist(next);
@@ -792,7 +793,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
-        {fishingSession&&<FishingScene phase={fishingSession.phase}/>}
+        {fishingSession&&<FishingScene phase={fishingSession.phase} onCancel={()=>finishFishing(fishingSession.id,"cancelled")}/>}
         {!fishingSession&&fishingNotice&&<FishingResult outcome={fishingNotice.outcome} species={fishingNotice.species}/>}
         {cutscene!==null && <SluiceCutscene onDone={()=>{const newMemory=cutscene==="sluice-open";setCutscene(null);if(newMemory)setToast("Kenangan tersimpan di YZ Phone.");}}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
