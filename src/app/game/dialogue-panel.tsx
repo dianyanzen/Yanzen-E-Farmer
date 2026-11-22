@@ -15,7 +15,7 @@ export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; 
   const label = (name || person?.name || "Karakter belum dikenal") + " · " + EMOTION_LABELS[PORTRAIT_EMOTIONS[column]];
   return <span role="img" aria-label={label} className="yzg-portrait" data-character={npcId} data-emotion={PORTRAIT_EMOTIONS[column]}>
     {person && failedFor !== person.id ? <NextImage key={person.id} src={person.sheet} alt="" aria-hidden="true" width={1536} height={256} unoptimized
-      loading="lazy" onError={() => setFailedFor(person.id)} style={{ left: (-column * 100) + "%" }}/>
+      loading="lazy" onError={() => setFailedFor(person.id)} style={{ left: "calc(" + (-column * 100) + "% + var(--portrait-center-shift, 0px))" }}/>
       : <span className="yzg-portrait-fallback" aria-hidden="true">{(name || person?.name)?.slice(0, 1) || "?"}</span>}
   </span>;
 }
