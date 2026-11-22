@@ -448,7 +448,13 @@ export function npcAmbient(s:GameState,id:NpcId):string{
   if(isMarketMerchant(id)){
     if(place.indoors)return "Hari ini lapaknya sudah tutup. Besok pagi kita bertemu lagi di pasar.";
     if(place.activity==="Berjalan pulang")return "Mari berjalan bersama sampai gang. Gerobaknya sudah kutitipkan pada penjaga pasar.";
-    return id==="A04"?"Ambil satu timun, belah, lihat bijinya. Yang sudah tua keras di ujung kuku. Yang masih lunak enak dibuat acar.":"Punggung bandeng berkilat seperti sendok. Kalau masih sulit mengenalinya, lihat ekor yang bercabang itu.";
+    if(id==="C07"){
+      if(FISH_IDS.some(fish=>s.fishing.fish[fish]>0))
+        return "Ada ikan di tasmu? Sini, kita timbang satu per satu. Ukurannya jangan sampai tertukar.";
+      if(s.fishing.bait===0)return "Peletmu habis, ya? Di kotak sebelah timbangan masih ada beberapa bungkus.";
+      return "Kalau mencari tempat mancing baru, tanya Ryan soal arus. Dia lebih hafal bagian sungai itu.";
+    }
+    return "Ambil satu timun, belah, lihat bijinya. Yang sudah tua keras di ujung kuku. Yang masih lunak enak dibuat acar.";
   }
   const yesterday=bond.lastTalkDay>0 && bond.lastTalkDay<s.day;
   if(bond.points>=300 && bond.lastChoice==="confide")
@@ -652,16 +658,11 @@ export function acceptOrder(s: GameState): GameState {
 }
 function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   if(npc==="A04")return {state:s,title:"Ayu · Benih dalam lipatan kertas",lines:[
-    "Ayu menghitung biji di atas kertas minyak. Ada tiga lipatan kecil bertanda arang di meja.",
-    "Nani yang mengajariku tanda itu. Satu garis untuk tanggal simpan, dua untuk benih yang sudah kucoba semai. Aku tak mau orang baru menunggu seminggu untuk benih yang kosong.",
-    "Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
-    "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
+    "Mau bibit timun? Sebungkus isi lima. Aku periksa dulu bijinya, biar yang kamu tanam betul-betul siap.",
+    "Kalau panenmu lebih, bawa ke sini. Tapi yang sudah kamu janjikan ke Inggit, sisihkan dulu, ya."
   ]};
-  if(npc==="C07")return {state:s,title:"Widi · Es di bawah keranjang",lines:[
-    "Widi sedang memeriksa ujung senar. Kotak umpan terbuka di samping timbangan ikan.",
-    "Ryan yang lebih hafal aliran sungai. Aku biasanya melihat pelampung dan arah arus sebelum memilih tempat untuk melempar.",
-    "Ambil joran di gudang, lalu mampir untuk membeli umpan. Berdirilah dekat air dan lempar. Tunggu pelampung benar-benar turun sebelum menarik.",
-    "Ada bandeng, belanak, dan kakap putih di lapak kiriman. Kalau nanti dapat ikan dari sungai, kita catat jenisnya juga."
+  if(npc==="C07")return {state:s,title:"Widi · Lapak pancing",lines:[
+    "Sebentar, kusimpan joran ini dulu. Mau cari pelet atau jual ikan? Biar kutimbang kalau sudah ada hasil."
   ]};
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
