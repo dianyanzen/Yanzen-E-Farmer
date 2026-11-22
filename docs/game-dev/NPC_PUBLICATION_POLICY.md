@@ -1,3 +1,5 @@
+> **Pembaruan audit potret:** 248 profil kini memiliki catatan ciri fisik berdasarkan ilustrasi canonical. Nama panggilan, bahasa dialog, usia, pendidikan dan memori yang baru ditambahkan merupakan **rancangan fiksi** dengan tingkat keyakinan berbeda, bukan biografi atau informasi nyata. Asal lahir dan hubungan keluarga sengaja tetap belum ditetapkan. Lihat `NPC_PORTRAIT_NULL_ENRICHMENT.md` dan periksa `fieldProvenance` sebelum menulis adegan baru.
+
 > **Integrasi YZ Phone terbaru:** Menu tunggal **`Warga`** menggabungkan katalog Wargapedia 248 karakter, 12 kategori lore publik tanpa syarat level, dan data kedekatan yang benar-benar berasal dari save (hanya untuk asosiasi identitas yang approved). Ikon Wargapedia terpisah sudah dihapus. `Kedekatan` dan `Kronik` tetap menggunakan state aktual, bukan isi draf lore. Lihat `YZ_PHONE_WARGA_KRONIK.md`.
 
 # Kebijakan ensiklopedia NPC publik — YZ Farm Life
