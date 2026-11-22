@@ -845,7 +845,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 </div>
               </>}
               {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
-              {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
+              {phoneTab === "chronicle" && <>
+                <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>
+                {game.sluiceCutsceneSeen && <div className="yzg-phone-card">
+                  <b>Kenangan dari bantaran</b>
+                  <p>Hari ketika roda pintu air akhirnya bergerak dan air kembali mengalir.</p>
+                  <button type="button" onClick={()=>{setPhoneOpen(false);setCutscene("sluice-open");}}>Lihat lagi adegannya</button>
+                </div>}
+              </>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
                   <b>Mulai bermain</b>
