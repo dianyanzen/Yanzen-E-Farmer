@@ -42,8 +42,11 @@ const code=readFileSync("src/lib/game/bandung-concept-portrait.ts","utf8");
 assert.ok(code.includes("bandungConceptPortraitPath"));
 assert.ok(readFileSync("src/app/game/dialogue-panel.tsx","utf8").includes("bandungConceptPortraitPath"),
  "ResidentPortrait must map the canonical portrait key through category-aware paths");
-assert.ok(readFileSync("src/app/game/character-gallery.tsx","utf8").includes("<ResidentPortrait resident="),
- "Character Gallery must render canonical portrait through the shared ResidentPortrait adapter");
+const gallery=readFileSync("src/app/game/character-gallery.tsx","utf8");
+const warga=readFileSync("src/app/game/phone-wargapedia.tsx","utf8");
+assert.ok(gallery.includes("<PhoneWargapedia")&&warga.includes("src={known.portraitUrl}")&&
+ warga.includes("/game/data/npc/index.json")&&warga.includes("approvedLegacyId(currentResident)"),
+ "Warga must use canonical indexed portrait URL; legacy ResidentPortrait is reserved for approved dialogue");
 const registry=read("game-assets/catalog/npc-portrait-register.json");
 for(const person of registry.characters)assert.ok(existsSync("public"+person.variant.workConcept));
 if(existsSync(".git")){
