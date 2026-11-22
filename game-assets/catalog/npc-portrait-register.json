@@ -711,9 +711,10 @@
         "workConcept": "/game/assets/portraits/bandung/professions/work-C07.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
-      "styleReview": "blocked-cross-style-mismatch-20261122",
+      "styleReview": "owner-selected-art-20261122-pending-in-game-visual-qa",
       "usedInDialogue": true,
-      "visualReviewNote": "Potret profesi baru 512x512, semi-realistis dan berkumis; berbeda dari strip ekspresi pixel-art C07 yang tanpa kumis. Konsep memancing perlu digambar ulang dengan wajah, palet, outline, dan framing konsisten sebelum merge."
+      "visualReviewNote": "Pemilik memilih revisi potret profesi Widi (256×256): wajah muda tanpa kumis/janggut, rambut gelap acak, baju charcoal, joran dan kotak pancing. Gaya serta latar krem mengikuti empat potret profesi aktif lain. Identitas wajah dan delapan ekspresi tidak diubah. Review di viewport mobile dan sprite dunia masih diperlukan.",
+      "ownerSelectedOn": "2026-11-22"
     },
     {
       "id": "C08",
