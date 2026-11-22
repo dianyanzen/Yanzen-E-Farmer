@@ -10,7 +10,7 @@
 4. **Cerita runtime lama**: `game-assets/catalog/cast.json` dan `game-assets/characters/profiles/` adalah sumber untuk sistem/quest legacy yang masih hidup. **Jangan** menyamakan karakter lama dengan roster baru berdasarkan ID, nama pendek, atau gambar. Relasi hanya melalui `approvedLegacyId` dengan izin manual.
 5. **Rencana jangka panjang**: dokumen desain/atlas/ekspansi adalah proposal sampai didukung kode dan tes. 30 kecamatan/151 kelurahan belum berarti seluruh peta dimainkan.
 
-**Potret NPC aktif:** sebelum membuat/mengganti wajah, strip ekspresi atau potret profesi Ryan/Ayu/Nani/Widi/Inggit, wajib baca `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md` dan verifikasi `tests/game-active-portrait-standard.mjs`. Potret profesi statis tidak boleh menggantikan ekspresi pada dialog. Portret Widi baru pada PR #43 masih diblokir QA visual sampai harmonis; unggahan aset tidak berarti sudah lolos tinjauan.
+**Potret NPC aktif:** sebelum membuat/mengganti wajah, strip ekspresi atau potret profesi Ryan/Ayu/Nani/Widi/Inggit, wajib baca `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md` dan verifikasi `tests/game-active-portrait-standard.mjs`. Potret profesi statis tidak boleh menggantikan ekspresi pada dialog. Potret Widi yang dipilih pemilik pada PR #43 sudah menggantikan kandidat 512px yang tidak serasi; tetap wajib uji pada UI mobile dan sprite dunia sebelum menandai QA runtime selesai.
 
 ## Untuk setiap perubahan yang tampil ke pemain
 
