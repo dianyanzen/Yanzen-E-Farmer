@@ -44,7 +44,8 @@
     "chars:portrait:check": "node scripts/game-characters/check-portrait-enrichment.mjs",
     "chars:inspect": "node scripts/game-characters/inspect-warga.mjs",
     "cutscene:verify": "node tests/game-cutscene-production.mjs",
-    "cutscene:import": "node scripts/game-cinematics/import-owner-video.mjs"
+    "cutscene:import": "node scripts/game-cinematics/import-owner-video.mjs",
+    "test:game:cutscene:ui": "node tests/game-cutscene-viewport-ui.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
