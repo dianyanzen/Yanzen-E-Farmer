@@ -38,6 +38,18 @@ Contoh:
 | "Quest belum terintegrasi di runtime" | Jangan tampilkan quest sebagai aktif |
 | "Profil terbuka pada Lv. 0" | Profil langsung tersedia tanpa penjelasan |
 
+## Inspeksi yang tidak mencemari game
+
+Untuk melihat persis apa yang dilihat pemain dan apa yang dimiliki developer, gunakan CLI di root repo:
+
+```bash
+npm run chars:inspect -- A03 --view=player
+npm run chars:inspect -- A03 --view=developer
+npm run chars:inspect -- A03 --view=developer --full
+```
+
+Mode pemain memakai presenter `wargaPlayerView`; mode developer menampilkan 12 seksi, jumlah null, dan provenance dengan opsi `--full`. Keduanya hanya membaca JSON yang sudah dipublikasikan dan tidak membuka file privat/server. Jangan memindahkan output developer ke UI game.
+
 ## Review dan perbaikan berikutnya
 
 - Audit penulisan 248 dossier per kelompok profesi dan kelompok ilustrasi. Generator sebelumnya masih menyisakan frasa yang terlalu mirip; hanya pakai bagian yang lolos review untuk layar pemain.

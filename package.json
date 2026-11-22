@@ -41,7 +41,8 @@
     "chars:bible:install": "node scripts/game-characters/install-private-bibles.mjs",
     "chars:public:check": "node scripts/game-characters/verify-public-catalog.mjs && node scripts/game-characters/build-public-wiki.mjs --check",
     "chars:public:wiki": "node scripts/game-characters/build-public-wiki.mjs",
-    "chars:portrait:check": "node scripts/game-characters/check-portrait-enrichment.mjs"
+    "chars:portrait:check": "node scripts/game-characters/check-portrait-enrichment.mjs",
+    "chars:inspect": "node scripts/game-characters/inspect-warga.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
