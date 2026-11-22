@@ -1,4 +1,7 @@
-# Potret seluruh karakter YZ Farm Life
+# Potret karakter YZ Farm Life — katalog aset dan arsip standar 32 tokoh
+
+> **Standar operasional terkini untuk NPC yang aktif:** [ACTIVE_NPC_PORTRAIT_STANDARD.md](./ACTIVE_NPC_PORTRAIT_STANDARD.md). Saat ini **5 NPC playable** (Ryan, Ayu, Nani, Widi, Inggit), sedangkan **248 profil Warga** tidak berarti 248 strip ekspresi playable. Catatan katalog 32 karakter di bawah merupakan inventaris ekspresi legacy, bukan daftar 248 NPC canonical.
+
 
 32 karakter mengikuti `game-assets/catalog/cast.json`: Yanzen (A01) + 31 NPC. Setiap karakter memiliki delapan ekspresi original, total **256 potret**.
 
@@ -25,9 +28,9 @@ Potret dibuat dalam delapan kelompok berisi empat karakter. Aset memakai OpenAI 
 - `public/game/assets/portraits/manifest.json`: pemetaan 32 karakter dan delapan ekspresi.
 - Potret memakai lazy-loaded image. Mengganti ekspresi menggeser strip yang sama, bukan mengunduh gambar lain.
 - ID tidak dikenal atau gambar gagal dimuat menampilkan placeholder; tidak meminjam wajah karakter lain.
-- Dialog dan kedekatan tiga NPC Pasirluyu memakai potret baru. Profil IKD karakter utama memakai potret Yanzen.
-- YZ Phone → **Warga**: cari nama/pekerjaan, baca profil/hobi, dan pilih salah satu delapan ekspresi. Katalog menampilkan seluruh karakter; NPC yang belum mempunyai area permainan ditandai **Wilayah berikutnya**.
-- Menambah potret tidak menempatkan 28 NPC lain ke peta atau menambahkan cerita/quest mereka.
+- Dialog lima NPC aktif Pasirluyu memakai strip delapan ekspresi masing-masing. Katalog Warga memakai potret profesi statis; progres kedekatan tetap bergantung pada save dan persetujuan tautan identitas. Profil IKD karakter utama memakai potret Yanzen.
+- YZ Phone → **Warga**: cari nama/pekerjaan dan baca profil relevan dalam katalog canonical 248 karakter. Potret Warga berbentuk persegi; **delapan ekspresi adalah milik dialog permainan, bukan pemilih ekspresi di Warga**.
+- Menambah potret tidak membuat karakter lain otomatis muncul pada peta atau membuka cerita/misi. Per November 2026, hanya lima NPC yang memiliki jadwal dan interaksi aktif.
 
 Atlas lama `characters/portraits.png` dipertahankan untuk kompatibilitas URL; komponen runtime baru memakai strip per karakter.
 
