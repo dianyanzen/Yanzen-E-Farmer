@@ -358,7 +358,7 @@ export const NPC_SOULS:Record<NpcId,{
 }> = {
   A04:{home:"Permukiman Nani",work:"Menjaga lapak benih",desire:"Setiap keluarga bisa menanam kembali benih sendiri",
     fear:"Benih lama tertukar dengan biji untuk masak",habit:"Menguji daya kecambah dengan kain basah sebelum membuka kios",connection:"Menitipkan contoh benih kepada Nani"},
-  C07:{home:"Permukiman Nani",work:"Membeli ikan dan meracik pelet",desire:"Menjaga keramba pesisir dan harga ikan yang adil",
+  C07:{home:"Permukiman Nani",work:"Membeli ikan dan meracik pelet",desire:"Menjaga kualitas ikan dan membantu warga memancing dengan sabar",
     fear:"Pedagang membawa pulang keranjang kosong",habit:"Membasahi alas keranjang saat matahari mulai tinggi",connection:"Menukar catatan tinggi air dengan Ryan"},
   A03:{home:"Gang Pasirluyu",work:"Penjaga saluran air",desire:"Air kebun hulu dan hilir terbagi adil",
     fear:"Dituduh merugikan tetangga ketika pintu air rusak",habit:"Mengecek catatan tinggi air setiap siang",
@@ -658,10 +658,10 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
     "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
   ]};
   if(npc==="C07")return {state:s,title:"Widi · Es di bawah keranjang",lines:[
-    "Widi mengangkat kain lembap. Dari bawahnya terdengar es beradu ketika ia menggeser timbangan.",
-    "Yang dijaga Ryan itu saluran air tawar. Di samping jembatan ada keramba pesisir dengan bak air asin tersendiri. Aku yang mengurus kiriman ikan dari pantai.",
-    "Ambil joran dari rak gudang, lalu beli pelet di lapakku. Berdiri di jembatan, hadap ke air keramba dan lempar satu pelet. Tarik saat pelampung turun.",
-    "Bandeng, belanak, kakap putih, semua kutimbang di sini. Pelanggan warung biasanya titip pesanan sebelum aku pulang."
+    "Widi sedang memeriksa ujung senar. Kotak umpan terbuka di samping timbangan ikan.",
+    "Ryan yang lebih hafal aliran sungai. Aku biasanya melihat pelampung dan arah arus sebelum memilih tempat untuk melempar.",
+    "Ambil joran di gudang, lalu mampir untuk membeli umpan. Berdirilah dekat air dan lempar. Tunggu pelampung benar-benar turun sebelum menarik.",
+    "Ada bandeng, belanak, dan kakap putih di lapak kiriman. Kalau nanti dapat ikan dari sungai, kita catat jenisnya juga."
   ]};
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
