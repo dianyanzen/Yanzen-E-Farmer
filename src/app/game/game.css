@@ -595,3 +595,4 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-cutscene-stage{border-radius:9px}
 .yzg-cutscene-actions button:focus-visible,.yzg-cutscene-unavailable button:focus-visible{
  outline:3px solid #ffdc86;outline-offset:2px}
+.yzg-cutscene-skip{font-weight:800!important;background:#ffe4b5!important;color:#234331!important;border-color:#c39b58!important}
