@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
-import { castRod,reelFish,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory } from "@/lib/game/model";
+import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
@@ -22,11 +22,15 @@ import {approvedLegacyId,conservativeDisplayMatch} from "@/lib/game/legacy-ident
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import SluiceCutscene from "./sluice-cutscene";
+import {FishingScene,FishingResult} from "./fishing-scene";
+import {planFishingSession,fishingCatchSucceeds,FISHING_CAST_MS,FISHING_BITE_WINDOW_MS,FISHING_REEL_MS,type FishingPhase,type FishingPlan} from "@/lib/game/fishing-session";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "memories" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
+type ActiveFishing=FishingPlan & {id:number;phase:FishingPhase};
+type FishingNotice={outcome:FishingOutcome;species?:RiverFishId};
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
@@ -258,6 +262,63 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return next;
   }, [userId]);
 
+  // Fishing timers exist only while a cast is active. A reload never restores
+  // a hooked fish; the cost of the bait and total attempts remain in the save.
+  const gameRef=useRef(game);
+  gameRef.current=game;
+  const fishingRef=useRef<ActiveFishing|null>(null);
+  const fishingId=useRef(0);
+  const [fishingSession,setFishingSession]=useState<ActiveFishing|null>(null);
+  const [fishingNotice,setFishingNotice]=useState<FishingNotice|null>(null);
+  const finishFishing=useCallback((id:number,outcome:FishingOutcome,species?:RiverFishId)=>{
+    if(fishingRef.current?.id!==id)return; // timer, skip and duplicate inputs are idempotent
+    fishingRef.current=null;
+    setFishingSession(null);
+    const next=finishFishingAttempt(gameRef.current,outcome,species);
+    if(next!==gameRef.current){gameRef.current=next;setGame(next);void persist(next);}
+    setFishingNotice({outcome,species:outcome==="caught"?species:undefined});
+    setToast(outcome==="caught"&&species?"Dapat "+FISH_MARKET[species].name+"!":
+      outcome==="escaped"?"Ikannya lepas!":
+      outcome==="early"?"Belum ada sambaran. Coba tunggu pelampung bergerak.":
+      outcome==="late"?"Terlambat! Ikannya sudah pergi.":
+      outcome==="no_bite"?"Belum ada ikan yang mendekat. Coba lempar lagi.":"Pancing diangkat kembali.");
+  },[persist]);
+  const setFishingPhase=useCallback((id:number,phase:FishingPhase)=>{
+    const active=fishingRef.current;
+    if(!active||active.id!==id)return;
+    const next={...active,phase};
+    fishingRef.current=next;
+    setFishingSession(next);
+  },[]);
+  useEffect(()=>{
+    if(!fishingSession)return;
+    const {id,phase}=fishingSession;
+    const delay=phase==="casting"?FISHING_CAST_MS:phase==="waiting"?fishingSession.waitMs:
+      phase==="bite"?FISHING_BITE_WINDOW_MS:FISHING_REEL_MS;
+    const timeout=window.setTimeout(()=>{
+      if(fishingRef.current?.id!==id)return;
+      if(phase==="casting")setFishingPhase(id,"waiting");
+      else if(phase==="waiting"){
+        if(fishingRef.current.willBite){field.audio.hit("water",.35);setFishingPhase(id,"bite");}
+        else finishFishing(id,"no_bite");
+      }else if(phase==="bite")finishFishing(id,"late");
+      else {const landed=fishingCatchSucceeds(Math.random());if(landed)field.audio.hit("harvest",.3);finishFishing(id,landed?"caught":"escaped",fishingRef.current.species);}
+    },delay);
+    return ()=>window.clearTimeout(timeout);
+  },[fishingSession,finishFishing,setFishingPhase,field]);
+  useEffect(()=>{
+    if(!fishingNotice)return;
+    const t=window.setTimeout(()=>setFishingNotice(null),2900);
+    return ()=>window.clearTimeout(t);
+  },[fishingNotice]);
+  useEffect(()=>{
+    const cancelHidden=()=>{
+      if(document.hidden&&fishingRef.current)finishFishing(fishingRef.current.id,"cancelled");
+    };
+    document.addEventListener("visibilitychange",cancelHidden);
+    return ()=>document.removeEventListener("visibilitychange",cancelHidden);
+  },[finishFishing]);
+
   const logout = useCallback(async () => {
     try {
       if (userId) {
@@ -295,12 +356,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return ()=>window.clearTimeout(id);
   },[wakingDay]);
   const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || !!cutscene || saveStatus === "loading" || saveStatus === "error";
+  const movementLocked=controlsLocked || !!fishingSession;
   const step = useCallback((direction: Direction) => {
-    if (controlsLocked) return;
+    if (movementLocked) return;
     tapRoute.current = null;
     queuedKeys.current.push(direction);
     setShowHelp(false);
-  }, [controlsLocked]);
+  }, [movementLocked]);
 
   const crossing = useRef<{next: GameState; message: string} | null>(null);
   const queueCrossing = useCallback((current: GameState, next: GameState, dir: Direction, message: string) => {
@@ -312,12 +374,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     field.aim({...facing({...current.player,dir}),dir});
   }, [field]);
   const press = useCallback<WalkInput>((id, dir) => {
-    if (controlsLocked || crossing.current || field.held.get(id) === dir) return;
+    if (movementLocked || crossing.current || field.held.get(id) === dir) return;
     tapRoute.current = null;
     if (!field.held.size) queuedKeys.current.push(dir);
     field.held.set(id, dir);
     setShowHelp(false);
-  }, [controlsLocked, field]);
+  }, [movementLocked, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
   const scene = useRef({ game, art, swing, runMode });
   const lastArea = useRef(game.location);
@@ -334,7 +396,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       lastArea.current=game.location;
     }
     if (!crossing.current) field.aim(game.player);
-    if (controlsLocked) {
+    if (movementLocked) {
       field.held.clear();
       field.setShift(false);
       queuedKeys.current.length = 0;
@@ -420,17 +482,17 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [queueCrossing, release, field]);
 
   const equip=useCallback((next:ToolId)=>{
-    if(controlsLocked||!game.carriedTools.includes(next))return;
+    if(movementLocked||!game.carriedTools.includes(next))return;
     setGame(current=>equipFarmTool(current,next));
     setToast("Sekarang kamu memegang "+toolName(next)+(TOOL_CATALOG[next].status==="planned"?" · Alat ini belum bisa dipakai di sini.":""));
     setShowHelp(false);
-  },[controlsLocked,game.carriedTools]);
+  },[movementLocked,game.carriedTools]);
   const swapTool=useCallback((direction:1|-1)=>{
-    if(controlsLocked)return;
+    if(movementLocked)return;
     const next=cycleFarmTool(game.equippedTool,direction,game.carriedTools);
     if(next)equip(next);
     else setToast("Tasmu kosong. Coba ambil alat di gudang.");
-  },[controlsLocked,game.equippedTool,game.carriedTools,equip]);
+  },[movementLocked,game.equippedTool,game.carriedTools,equip]);
   const transfer=(id:ToolId,direction:"store"|"take")=>{
     if(saveStatus==="loading"||saveStatus==="error")return;
     const result=transferTool(game,id,direction);
@@ -447,6 +509,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const action=useCallback(()=>{
     if(controlsLocked || crossing.current || field.moving) return;
     tapRoute.current = null;
+    if(fishingRef.current){
+      const session=fishingRef.current;
+      if(session.phase==="waiting")finishFishing(session.id,"early");
+      else if(session.phase==="bite")setFishingPhase(session.id,"reeling");
+      return;
+    }
     const context=getActionContext(game);
     if(context.kind==="door"){
       const next=interactDoor(game);
@@ -471,9 +539,23 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       setDialogue({title:"Meja semai",lines:[wet?"Tanah sampel terasa lembap. Ada "+wet+" petak tanaman tersiram.":"Tanah sampel masih kering. Tanam lalu siram satu petak hidup sebelum melapor kepada Nani.", "Catatan Nani: sentuh permukaannya sebelum menyiram lagi. Akar juga memerlukan udara."]});
       if(wet && game.personalQuests?.C01?.phase===2){const next={...game,nurseryChecked:true};setGame(next);void persist(next);}
     }else if(context.kind==="fish"){
-      const next=game.fishing.line?reelFish(game):castRod(game,Math.random());
-      setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
-      if(next!==game){setGame(next);void persist(next);}
+      const next=castRod(game);
+      if(next===game)setToast("Umpan habis atau joran belum siap. Beli pelet dari Widi.");
+      else{
+        const plan=planFishingSession(Math.random(),Math.random(),Math.random());
+        const session:ActiveFishing={...plan,id:++fishingId.current,phase:"casting"};
+        fishingRef.current=session;
+        setFishingSession(session);
+        setFishingNotice(null);
+        queuedKeys.current.length=0;
+        field.held.clear();
+        tapRoute.current=null;
+        field.audio.hit("water",.16);
+        gameRef.current=next;
+        setGame(next);
+        void persist(next);
+        setToast("");
+      }
     }else if(context.kind==="sluice"){
       const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !hasSluiceMemory(game);
       const next:GameState={...game,sluiceOpen:!game.sluiceOpen,...(firstOpen?{sluiceCutsceneSeen:true}:{})};
@@ -502,10 +584,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         : "Hadapkan karakter ke objek yang bisa digunakan.");
     }
     setShowHelp(false);
-  },[game,controlsLocked,persist,field,queueCrossing]);
+  },[game,controlsLocked,persist,field,queueCrossing,finishFishing,setFishingPhase]);
 
   const selectWorldTile = useCallback((tile: WorldPick | null) => {
-    if (controlsLocked || crossing.current || !tile) return;
+    if (movementLocked || crossing.current || !tile) return;
     const route = planTapRoute(game, tile.x, tile.y, tile.world);
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
     tapRoute.current = route ? {...route,resident:resident?.id} : null;
@@ -514,7 +596,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       return;
     }
     setShowHelp(false);
-  }, [controlsLocked, game]);
+  }, [movementLocked, game]);
   const [routeMessage, setRouteMessage] = useState("");
   const walkToNeighbour = (portal: typeof ROUTE_PORTALS[number]) => {
     if (crossing.current || portal.from !== game.location) return;
@@ -544,7 +626,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   useLayoutEffect(() => {
     finishTap.current = () => {
       const route = tapRoute.current;
-      if (controlsLocked || !route || route.steps.length || scene.current.game !== game) return;
+      if (movementLocked || !route || route.steps.length || scene.current.game !== game) return;
       if (route.face && game.player.dir !== route.face) {
         setGame({ ...game, player: { ...game.player, dir: route.face } });
         return;
@@ -564,10 +646,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         action();
       }
     };
-  }, [game, controlsLocked, action, queueCrossing]);
+  }, [game, movementLocked, action, queueCrossing]);
 
   const togglePhone = useCallback(() => {
-    if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
+    if (wakingDay!==null || dialogue || storageOpen || fishingRef.current || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setShowHelp(false);
   }, [dialogue, storageOpen, saveStatus,wakingDay]);
 
@@ -584,6 +666,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         return;
       }
       if (dialogue || phoneOpen || storageOpen) return;
+      if (key==="escape" && fishingRef.current){
+        e.preventDefault();finishFishing(fishingRef.current.id,"cancelled");return;
+      }
       if (key === "escape" && tapRoute.current) {
         e.preventDefault();
         tapRoute.current = null;
@@ -610,7 +695,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     };
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
-  }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools]);
+  }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools, finishFishing]);
 
   const rest = () => {
     if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
@@ -666,8 +751,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const namePattern=new RegExp("\\b("+[...activeNames.keys()]
     .sort((a,b)=>b.length-a.length).join("|")+")\\b","g");
   const display=(message:string)=>message.replace(namePattern,name=>activeNames.get(name)??name);
-  const actionLabel = display(context.label);
-  const actionVerb = context.kind==="plant"?"TANAM":
+  const actionLabel = fishingSession?
+    fishingSession.phase==="bite"?"Tarik sekarang!":
+    fishingSession.phase==="waiting"?"Tunggu sambaran":
+    fishingSession.phase==="reeling"?"Sedang menarik ikan":"Melempar kail":
+    display(context.label);
+  const actionVerb = fishingSession ? (fishingSession.phase==="bite"?"TARIK":fishingSession.phase==="waiting"?"TUNGGU":fishingSession.phase==="reeling"?"MENARIK":"LEMPAR") : context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="sleep"?"TIDUR":
@@ -704,6 +793,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
+        {fishingSession&&<FishingScene phase={fishingSession.phase} onCancel={()=>finishFishing(fishingSession.id,"cancelled")}/>}
+        {!fishingSession&&fishingNotice&&<FishingResult outcome={fishingNotice.outcome} species={fishingNotice.species}/>}
         {cutscene!==null && <SluiceCutscene onDone={()=>{const newMemory=cutscene==="sluice-open";setCutscene(null);if(newMemory)setToast("Kenangan tersimpan di YZ Phone.");}}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
@@ -737,7 +828,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               <div className="yzg-market-grid">
                 {(dialogue.npcId==="A04" ? ["seeds","cucumber"] as const :
                   ["bait",...FISH_IDS.filter(id=>game.fishing.fish[id]>0)] as const).map(item=>{
-                  const fish=(item==="bandeng"||item==="kakap_putih"||item==="belanak")?FISH_MARKET[item]:null;
+                  const fish=FISH_IDS.includes(item as keyof typeof FISH_MARKET)?FISH_MARKET[item as keyof typeof FISH_MARKET]:null;
                   const quantity=fish?game.fishing.fish[item as keyof typeof FISH_MARKET]:0;
                   const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
                     item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
@@ -750,7 +841,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                     if(result.state!==game){setGame(result.state);void persist(result.state);}
                     setDialogue({...dialogue,title:"Lapak pasar",lines:[result.message],choices:undefined,emotions:undefined});
                   }}>
-                    {fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
+                    {fish && (item==="lele"||item==="nila") ?
+                      <img className="yzg-market-freshwater" src={"/game/assets/fish/"+item+".png"} alt="" aria-hidden="true"/> :
+                     fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
                       style={{backgroundPosition:fish.frame===0?"100% 0%":fish.frame===1?"0% 100%":"50% 100%"}}/> :
                       <span className={dialogue.npcId==="C07"?"yzg-market-sprite yzg-market-sprite--widi":"yzg-market-sprite yzg-market-sprite--ayu"}
                         style={{backgroundPosition:item==="bait"?"50% 0%":item==="seeds"?"0% 0%":"0% 100%"}} aria-hidden="true"/>}
@@ -876,6 +969,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <p>PC: Q/R mengganti alat, 1–9 memilih alat. Gunakan cangkul untuk mengolah tanah, tanam bibit, siram dengan gembor, dan panen saat matang.</p>
                   <p>Buka gudang dari pintu bangunan untuk mengambil dan menyimpan alat.</p>
                 </div>
+                <div className="yzg-phone-card"><b>Memancing di sungai</b>
+                  <p>Ambil joran dari gudang dan beli pelet di lapak Widi. Berdirilah di tepi sungai menghadap air, lalu tekan A atau E untuk melempar kail.</p>
+                  <p>Tunggu pelampung tenggelam sebelum menarik. Kalau terlalu cepat atau terlambat, ikan bisa lolos. Bahkan ketika tarikannya tepat, belum tentu berhasil setiap kali.</p>
+                  <p>Tekan Esc di PC atau Angkat joran pada layar HP untuk berhenti. Catatan hasil pancingmu ada di Statistik.</p>
+                </div>
                 <div className="yzg-phone-card"><b>Waktu & progres</b>
                   <p>Kalau sudah malam, pulang ke rumah, hadap ranjang, lalu pilih Tidur. Perjalananmu akan tersimpan.</p>
                   <p>Kenali warga lewat percakapan. Lihat kabarnya di Warga, dan perjalanan kalian di Kronik.</p>
@@ -907,6 +1005,25 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                     <span>Pengalaman<strong>{game.stats.xp} XP</strong></span><span>Aksi bertani<strong>{game.stats.actions}</strong></span>
                     <span>Total panen<strong>{game.stats.harvests}</strong></span><span>Percakapan<strong>{game.stats.conversations}</strong></span>
                     <span>Malam beristirahat<strong>{game.stats.nights}</strong></span><span>Saldo<strong>{game.coins} G</strong></span>
+                  </div>
+                </div>
+                <div className="yzg-phone-card">
+                  <b>Catatan memancing</b>
+                  <div className="yzg-phone-stats">
+                    <span>Lemparan<strong>{game.fishing.stats.casts}</strong></span>
+                    <span>Sambaran<strong>{game.fishing.stats.bites}</strong></span>
+                    <span>Berhasil<strong>{game.fishing.caught}</strong></span>
+                    <span>Meleset<strong>{game.fishing.stats.missed}</strong></span>
+                    <span>Ikan lepas<strong>{game.fishing.stats.escaped}</strong></span>
+                    <span>Tanpa sambaran<strong>{game.fishing.stats.noBite}</strong></span>
+                  </div>
+                  <p>Hasil dari sungai:</p>
+                  <div className="yzg-fishing-species-grid">
+                    {(["lele","nila"] as const).map(id=><div key={id}>
+                      <img src={"/game/assets/fish/"+id+".png"} alt={FISH_MARKET[id].name}/>
+                      <strong>{FISH_MARKET[id].name}</strong>
+                      <small>Tertangkap {game.fishing.stats.caughtBySpecies[id]} kali · di tas {game.fishing.fish[id]}</small>
+                    </div>)}
                   </div>
                 </div>
               </>}
@@ -969,7 +1086,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <div className="yzg-tools" role="toolbar" aria-label="Pilih alat yang dibawa">
             {game.carriedTools.length===0?<small>Tas kosong. Kunjungi gudang.</small>:game.carriedTools.map((id,index)=>
               <button key={id} type="button" className={game.equippedTool===id?"active":""} aria-label={"Pilih "+toolName(id)}
-                aria-pressed={game.equippedTool===id} disabled={controlsLocked} onClick={()=>equip(id)}>
+                aria-pressed={game.equippedTool===id} disabled={movementLocked} onClick={()=>equip(id)}>
                 <span>{index+1}</span>{toolName(id)}
               </button>)}
           </div>
@@ -978,7 +1095,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <button onClick={() => void toggleFullscreen()} aria-pressed={fullscreen}>{fullscreen ? "Keluar layar penuh" : "Layar penuh"} · Alt+Enter</button>
           {screenError && <span role="alert">{screenError}</span>}
           <button aria-pressed={sound} onClick={() => { field.audio.toggle(!sound); setSound(!sound); }}>Suara {sound ? "aktif" : "mati"}</button>
-          <button className="yzg-phone-trigger" onClick={togglePhone}>▣ YZ Phone {unread ? "•" : ""}</button>
+          <button className="yzg-phone-trigger" disabled={!!fishingSession} onClick={togglePhone}>▣ YZ Phone {unread ? "•" : ""}</button>
           <span className="yzg-home-hint">☾ Tidur: masuk rumah → ranjang → Aksi</span>
           <button onClick={() => void persist(game)} disabled={saveStatus === "loading" || saveStatus === "error"}>☁ Simpan</button>
         </div>
@@ -990,7 +1107,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} press={press} release={release} />
           <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
         </div>
-        <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
+        <button className="yzg-run" aria-pressed={runMode} disabled={movementLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
         <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>{actionVerb}</small></button>
       </div>
       <div className="yzg-footer"><span>WASD/panah: jalan | E/Enter: aksi | Q/R atau 1-9: alat | P: YZ Phone</span><span>Menu: panah/Tab untuk memilih, Enter untuk buka, Esc untuk kembali</span></div>

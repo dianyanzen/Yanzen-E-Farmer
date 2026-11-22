@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-canonical-roster-assets.mjs && node tests/game-active-portrait-standard.mjs && node tests/game-dialogue-market-presentation.mjs && node tests/game-private-residents.mjs && node tests/game-npc-separation.mjs && node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-quest-memories.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs && node tests/game-public-catalog.mjs && node scripts/game-characters/check-portrait-enrichment.mjs && node scripts/deploy/vercel-game-playtest.mjs --check && node tests/game-cutscene-production.mjs",
+    "test:game": "node tests/game-canonical-roster-assets.mjs && node tests/game-active-portrait-standard.mjs && node tests/game-dialogue-market-presentation.mjs && node tests/game-private-residents.mjs && node tests/game-npc-separation.mjs && node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-quest-memories.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs && node tests/game-public-catalog.mjs && node scripts/game-characters/check-portrait-enrichment.mjs && node scripts/deploy/vercel-game-playtest.mjs --check && node tests/game-cutscene-production.mjs && node tests/game-fishing-v2.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
@@ -45,7 +45,9 @@
     "chars:inspect": "node scripts/game-characters/inspect-warga.mjs",
     "cutscene:verify": "node tests/game-cutscene-production.mjs",
     "cutscene:import": "node scripts/game-cinematics/import-owner-video.mjs",
-    "test:game:cutscene:ui": "node tests/game-cutscene-viewport-ui.mjs"
+    "test:game:cutscene:ui": "node tests/game-cutscene-viewport-ui.mjs",
+    "test:game:fishing": "node tests/game-fishing-v2.mjs",
+    "test:game:fishing:ui": "node tests/game-fishing-ui.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

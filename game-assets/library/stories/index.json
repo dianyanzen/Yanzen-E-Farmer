@@ -31,9 +31,14 @@
     {
       "id": "cutscenes",
       "files": [
-        "public/game/assets/cutscenes/frames/sluice-end.jpg",
-        "public/game/assets/cutscenes/frames/sluice-start.jpg",
         "public/game/assets/cutscenes/sluice-poster.jpg"
+      ]
+    },
+    {
+      "id": "cutscenes/frames",
+      "files": [
+        "public/game/assets/cutscenes/frames/sluice-end.jpg",
+        "public/game/assets/cutscenes/frames/sluice-start.jpg"
       ]
     },
     {
