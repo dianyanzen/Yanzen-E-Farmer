@@ -46,7 +46,7 @@ for(const id of activeIds){
  const dims=pngSize(conceptPath).slice(0,2);
  if(id==="C07"){
   assert.deepEqual(dims,[256,256],"Owner-selected Widi profile must match portrait standard");
-  assert.match(entry.styleReview,/owner-selected-art-20261122-pending-in-game-visual-qa/,"Widi owner approval must retain viewport QA status");
+  assert.match(entry.styleReview,/owner-requested-remaster-8-emotions-20261122-awaiting-safari-qa/,"Widi owner approval must retain viewport QA status");
   ownerSelectedCount++;
  }else{
   assert.deepEqual(dims,[256,256],id+" profession portrait target size changed");
