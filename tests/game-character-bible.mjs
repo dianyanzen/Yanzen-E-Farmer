@@ -77,9 +77,9 @@ for(const r of artwork.assets){
  assert.ok(existsSync(r.path));
 }
 const guide=readFileSync("AGENTS.md","utf8");
-assert.ok(guide.includes("profiles/index.json"));
+assert.ok(guide.includes("npc-public-roster.json")&&guide.includes("game-assets/characters/profiles/"),"Canonical 248 and legacy profile roles must be explicit");
 const skill=readFileSync(".agents/skills/yz-farm-dialogue/SKILL.md","utf8");
-assert.ok(skill.includes("profiles/index.json"));
+assert.ok(skill.includes("npc-public-roster.json")&&skill.includes("game-assets/characters/profiles/index.json"),"Narrative skill must separate canonical and legacy");
 const generator=execFileSync(process.execPath,["scripts/game-characters/build-character-index.mjs","--check"],{encoding:"utf8"});
 assert.match(generator,/PASS/);
 console.log("PASS: 70 named profiles, 12 sections each, 32 canonical cast matches, 38 expansion concepts, 179 unassigned artworks, relationships and visuals");
