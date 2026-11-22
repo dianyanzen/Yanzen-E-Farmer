@@ -1,3 +1,5 @@
+> **Pembaruan:** Portrait canonical sekarang terdaftar untuk 248 NPC fiksi dalam `game-assets/catalog/npc-public-roster.json`. Paket 32 karakter di bawah mendokumentasikan tahap lama. 248 PNG konsep yang terhubung tidak berarti tersedia 248 playable sprites/expression sheets. Cocokkan hanya berdasarkan portrait key, bukan indeks atau ID legacy.
+
 # Perolehan, Audit Lisensi, dan Integrasi Aset Game
 
 ## Character Pack v2 — 16 November 2026
