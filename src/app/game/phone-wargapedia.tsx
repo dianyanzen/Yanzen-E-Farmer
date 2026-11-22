@@ -3,6 +3,10 @@
 import Image from "next/image";
 import {useEffect,useMemo,useState,type ReactNode} from "react";
 import {WARGAPEDIA_CATEGORIES,WARGAPEDIA_FIELD_LABELS,WARGAPEDIA_HIDDEN_FIELDS} from "@/lib/game/public-wargapedia";
+import {NPCS,bondLabel,bondLevel,npcWhere,areaTitle,type GameState} from "@/lib/game/model";
+import {questObjective,tales} from "@/lib/game/personal-quests";
+import {approvedLegacyId} from "@/lib/game/legacy-identity";
+import type {ResidentProfile} from "@/lib/game/resident-profile";
 
 type Entry={
  id:string;name:string;occupation:string;portraitUrl:string;status:string;
@@ -29,8 +33,10 @@ function Value({data}:{data:unknown}):ReactNode{
  return <span>{String(data)}</span>;
 }
 
-export default function PhoneWargapedia({selectedId,onSelect}:{
+/** One YZ Phone app: all fictional lore is open; actual friendship/quests remain save-driven. */
+export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
  selectedId:string|null;onSelect:(id:string|null)=>void;
+ game:GameState;residents:readonly ResidentProfile[];
 }){
  const [catalog,setCatalog]=useState<Catalog|null>(null);
  const [query,setQuery]=useState("");
@@ -83,20 +89,39 @@ export default function PhoneWargapedia({selectedId,onSelect}:{
  const pages=Math.max(1,Math.ceil(results.length/PAGE_SIZE));
  const currentPage=Math.min(page,pages-1);
  const backToList=()=>{setError("");onSelect(null);};
+ // Never transplant old save data merely because an old and new NPC share an ID.
+ const currentResident=residents.find(person=>person.id===selectedId);
+ const approvedOldId=currentResident?approvedLegacyId(currentResident):null;
+ const activeNpc=approvedOldId?NPCS.find(npc=>npc.id===approvedOldId):undefined;
+ const bond=activeNpc?game.bonds[activeNpc.id]:undefined;
+ const quest=activeNpc?game.personalQuests?.[activeNpc.id]:undefined;
+ const level=bond?bondLevel(bond.points):0;
+ const place=activeNpc&&bond?.talks?npcWhere(game,activeNpc.id):null;
  if(selectedId){
   const known=catalog?.characters.find(person=>person.id===selectedId);
-  return <section className="yzg-wargapedia" aria-label="Wargapedia · detail karakter">
-   <button type="button" className="yzg-wargapedia-back" onClick={backToList}>‹ Kembali ke Wargapedia</button>
+  return <section className="yzg-wargapedia" aria-label="Warga · detail karakter" data-character-detail={selectedId}>
+   <button type="button" className="yzg-wargapedia-back" onClick={backToList}>‹ Daftar warga</button>
    {!catalog&&!error&&<p role="status">Membuka katalog karakter…</p>}
    {catalog&&!known&&<p role="alert">Karakter ini tidak tercantum dalam katalog resmi.</p>}
    {known&&<div className="yzg-phone-card yzg-wargapedia-profile">
     <Image src={known.portraitUrl} alt={`Potret konsep ${known.name}`} width={82} height={82} sizes="82px" unoptimized/>
     <div><small>{known.id} · Tokoh fiksi</small><h3>{known.name}</h3><p>{known.occupation}</p></div>
    </div>}
+   <div className="yzg-phone-card yzg-warga-relationship" aria-label="Kedekatan dan perjalanan bersama">
+    <b>Hubungan kalian</b>
+    {activeNpc&&bond?<>
+      <p>{bond.talks?(`Sudah ${bond.talks} kali berbincang`):"Belum pernah berbincang"} · Kedekatan Lv. {level}</p>
+      <p>{bondLabel(bond.points)}</p>
+      <meter min={0} max={1000} value={bond.points} aria-label={`Kedekatan dengan ${known?.name??"warga"}`}/>
+      {place&&<small>Sedang berada di {areaTitle(place.location)} · {place.activity}</small>}
+      {quest&&<p><b>{tales[activeNpc.id].title}</b> · {quest.phase===4?"Selesai":quest.phase===3?"Menunggu kabar":"Sedang berjalan"}<small>{questObjective(game,activeNpc.id)}</small></p>}
+    </>:<p>Belum ada hubungan permainan yang terhubung dengan tokoh ini. Kamu tetap bisa membaca seluruh profil fiksinya.</p>}
+    <small>Data pertemuan dan misi mengikuti save-mu, bukan isi rancangan ensiklopedia.</small>
+   </div>
    {error&&<p role="alert">{error}</p>}
    {loading&&<p role="status">Membuka catatan karakter…</p>}
    {profile?.id===selectedId&&<div>
-    <p className="yzg-wargapedia-notice">Profil ini bisa dibaca kapan saja tanpa level kedekatan. Cerita dan misi yang belum dimainkan tetap berstatus rancangan.</p>
+    <p className="yzg-wargapedia-notice">Semua informasi karakter terbuka sejak awal, tanpa syarat kedekatan. Rancangan cerita dan misi di bawah belum tentu sudah terjadi di permainanmu.</p>
     <p className="yzg-wargapedia-caption">12 bagian · Ketuk judul untuk membaca</p>
     <div className="yzg-wargapedia-chapters">
      {WARGAPEDIA_CATEGORIES.map(([key,title],index)=><details key={profile.id+key} open={index===0}>
@@ -112,10 +137,10 @@ export default function PhoneWargapedia({selectedId,onSelect}:{
    </div>}
   </section>;
  }
- return <section className="yzg-wargapedia" aria-label="Wargapedia · katalog publik">
+ return <section className="yzg-wargapedia" aria-label="Warga · ensiklopedia dan hubungan">
   <div className="yzg-phone-card">
-   <b>Wargapedia</b>
-   <p>Kenali 248 karakter dalam dunia YZ Farm Life. Tidak perlu berkenalan atau naik level untuk membaca kisah mereka.</p>
+   <b>Warga <small>248 karakter · Ensiklopedia</small></b>
+   <p>Cari warga, baca Character Bible lengkap, dan lihat kedekatan dalam satu tempat. Tidak perlu berkenalan atau naik level untuk membaca kisah mereka.</p>
    <label htmlFor="yzg-wargapedia-search">Cari karakter</label>
    <input id="yzg-wargapedia-search" type="search" value={query}
     onChange={event=>{setQuery(event.target.value);setPage(0);}}
@@ -125,7 +150,7 @@ export default function PhoneWargapedia({selectedId,onSelect}:{
   {error&&<p role="alert">{error}</p>}
   <div className="yzg-wargapedia-list">
    {results.slice(currentPage*PAGE_SIZE,(currentPage+1)*PAGE_SIZE).map(person=><button
-    key={person.id} type="button" onClick={()=>onSelect(person.id)} aria-label={`Baca Wargapedia ${person.name}`}>
+    key={person.id} type="button" data-character-card={person.id} onClick={()=>onSelect(person.id)} aria-label={`Baca profil ${person.name}`}>
     <Image src={person.portraitUrl} width={49} height={49} alt="" sizes="49px" unoptimized/>
     <span><strong>{person.name}</strong><small>{person.occupation}</small></span>
     <span aria-hidden="true">›</span>
