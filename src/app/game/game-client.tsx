@@ -21,6 +21,7 @@ import type { ResidentProfile } from "@/lib/game/resident-profile";
 import {approvedLegacyId,conservativeDisplayMatch} from "@/lib/game/legacy-identity";
 import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
+import SluiceCutscene from "./sluice-cutscene";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
@@ -183,6 +184,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
   const [selectedCitizen, setSelectedCitizen] = useState<string|null>(null);
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
+  const [cutscene, setCutscene] = useState<"sluice-open"|null>(null);
   const [toast, setToast] = useState("");
   const [showHelp, setShowHelp] = useState(engine === "canvas");
 
@@ -291,7 +293,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const id=window.setTimeout(()=>setWakingDay(null),1800);
     return ()=>window.clearTimeout(id);
   },[wakingDay]);
-  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
+  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || !!cutscene || saveStatus === "loading" || saveStatus === "error";
   const step = useCallback((direction: Direction) => {
     if (controlsLocked) return;
     tapRoute.current = null;
@@ -474,7 +476,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     }else if(context.kind==="sluice"){
       const next={...game,sluiceOpen:!game.sluiceOpen};
       setGame(next); void persist(next);
-      setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
+      if(next.sluiceOpen && !game.sluiceOpen && game.personalQuests?.A03?.phase===2){
+        setToast("");setCutscene("sluice-open");
+      }else setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
     }else if(context.kind==="inspect"){
       setToast(context.text);
     }else if(context.kind==="farm"||context.kind==="plant"||context.kind==="harvest"){
@@ -699,6 +703,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
+        {cutscene==="sluice-open" && <SluiceCutscene onDone={()=>setCutscene(null)}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
           <div className="yzg-loading-copy">
