@@ -1,34 +1,22 @@
 > **PEMBARUAN PUBLIK (22 NOVEMBER 2026):** Seluruh 248 karakter canonical kini memiliki katalog fiksi publik dan 12 kategori Character Bible draf. YZ Phone mengambil `/game/data/npc/{ID}.json` sebagai fallback jika biografi privat yang approved tidak tersedia; `/game/encyclopedia` menyediakan wiki publik. Rincian di bawah mendokumentasikan fitur awal dan sebagian status sebelumnya; hanya flag dari save yang boleh dianggap kejadian yang benar-benar dialami pemain.
 
-# YZ Phone — Warga, Wargapedia, dan Kronik
+# YZ Phone — Warga, Kedekatan, dan Kronik
 
-## Wargapedia — ensiklopedia publik di YZ Phone (implementasi terbaru)
+## Warga — ensiklopedia dan hubungan jadi satu (implementasi terbaru)
 
-- **YZ Phone → Wargapedia** adalah aplikasi tersendiri di layar ponsel, tidak memindahkan pemain ke tab browser lain.
-- Seluruh 248 NPC canonical fiksi tampil sejak awal permainan, termasuk karakter yang belum hadir di peta Pasirluyu. Daftar bisa dicari melalui nama, profesi, dan ID; dipaginasi 10 per halaman; potret konsep tampil bersamaan dengan nama dan pekerjaan.
-- Ketuk tokoh untuk membaca **semua 12 kategori Character Bible publik**. JSON diunduh ketika profil dibuka dari `/game/data/npc/{ID}.json`; indeksnya dari `/game/data/npc/index.json`.
-- **Tidak ada prasyarat kedekatan, percakapan, quest, login editor, atau unlock hubungan** untuk membaca lore publik. Tanpa mengubah `GameState`/save.
-- Menu **Warga** tetap menjadi kontak personal dan catatan hubungan berdasarkan save, dengan tombol internal **Buka Wargapedia** untuk membuka profil tokoh yang sama. **Kedekatan** tetap punya reward dan dialog yang terbuka sesuai level.
-- Catatan `approval:draft` menunjukkan cerita **fiksi yang sedang dikembangkan**, bukan bukti misi sudah aktif atau peristiwa pernah terjadi; kejadian pemain tetap hanya berasal dari menu **Kronik** dan flags save.
-- Tombol kembali/ESC ketika membuka profil mengembalikan ke daftar Wargapedia; tombol berikutnya ke beranda aplikasi, lalu menutup ponsel. Wargapedia tidak boleh mencocokkan ID `cast.json` lama berdasarkan nama atau urutan.
+**Satu ikon `Warga` di beranda YZ Phone.** Tidak ada lagi aplikasi Wargapedia yang terpisah. Ketika memilih warga, semua informasi tampil dalam satu halaman detail yang sama:
 
-**Pengujian:** `npm run chars:public:check`, `npm run test:game`, `npm run typecheck`, uji browser perangkat kecil untuk daftar 248 NPC, profil panjang, keyboard/ESC, serta skenario pemain Lv.0.
+1. **Daftar publik 248 NPC** (canonical): foto, nama lengkap, pekerjaan, pencarian nama/profesi/ID, 10 entri per halaman. Termasuk tokoh ekspansi yang belum muncul di peta.
+2. **Halaman detail tunggal**: potret konsep → catatan hubungan yang benar-benar tersimpan dalam save → **12 kategori Character Bible publik**. Seluruh bab boleh dibaca sejak Lv. 0 tanpa harus berkenalan atau membuka quest.
+3. **Hubungan dan misi**: ringkasan progres hanya muncul saat ada asosiasi canonical↔legacy yang **disetujui eksplisit**, melalui `approvedLegacyId`. Tanpa asosiasi, tampil penjelasan bahwa belum ada hubungan yang terhubung; tidak menebak berdasarkan nama/ID yang bertabrakan.
+4. **Kronik → Warga** membuka halaman detail karakter yang sama, bukan aplikasi lain. ESC/tombol kembali membawa pengguna ke daftar warga, kemudian beranda aplikasi.
+5. **Editor internal** tetap dapat meninjau catatan nonpublik lewat `npcDraftPreview=1` bila akun diizinkan server melalui `GAME_BIBLE_EDITOR_USER_IDS`. Tidak ada data editor pada JSON publik.
+
+Sumber publik: `/game/data/npc/index.json` dan `/game/data/npc/{ID}.json`; pembaca `src/app/game/phone-wargapedia.tsx`, gerbang UI `src/app/game/character-gallery.tsx`. File arsip/proposal `cast.json` bukan roster canonical. Lore yang masih `approval:draft` bukan bukti peristiwa sudah terjadi, NPC aktif, atau quest siap dimainkan.
+
+**QA:** `npm run chars:public:check`, `npm run test:game`, `npm run test:portraits:ui`, `npm run typecheck` dan uji nyata iOS/desktop (Lv. 0, pencarian 248 karakter, 12 bab, jaringan gagal, ESC, riwayat save).
 
 ---
-
-
-
-**Implementasi UI:** `src/app/game/character-gallery.tsx`, `src/app/game/phone-chronicle.tsx`, `src/lib/game/phone-profiles.ts`, `src/lib/game/phone-story.ts`.
-
-## Warga: dua tahap seperti buku kontak
-
-1. Buka **YZ Phone → Warga**. Daftar 32 karakter inti tampil dahulu dalam halaman 12 warga; nama/pekerjaan dapat dicari. Tombol **Lihat warga dari kawasan lain** membuka 38 konsep bernama yang belum playable.
-2. Ketuk satu warga untuk membuka detail dalam ponsel. **Kembali** kembali ke daftar (juga tombol kembali pada header ponsel dan Esc).
-3. Detail memuat 12 bagian sesuai Character Bible: identitas, penampilan, pakaian, kegiatan, sifat/kebiasaan, yang dipikirkan, sejarah, hubungan, dialog, cerita bersama, potret, dan kontinuitas.
-4. Detail beberapa bagian hanya terbuka setelah benar-benar bertemu: saat `bonds[npcId].talks > 0`; kebiasaan pada **Lv.1**, harapan/hubungan pada **Lv.2**, ketakutan pada **Lv.3**. Cerita masa lalu memerlukan **peristiwa cerita nyata** selain kedekatan, sehingga profil proposal tidak bocor. `C01` membuka kenangan foto setelah `story.photoSeen`; `A03` membuka catatan air setelah `story.canalClue`.
-5. NPC yang belum aktif hanya punya informasi umum; tidak ada klaim mereka bisa ditemui. Cameo figur publik tidak memperoleh psikologi pribadi yang dikarang.
-
-**Sumber:** 70 Character Bible dimuat **on demand** dari file JSON per ID. Daftar tidak mengirim prompt, menghubungi layanan AI, atau menulis ulang save.
 
 ## Kronik: ringkasan cerita berdasarkan save
 
