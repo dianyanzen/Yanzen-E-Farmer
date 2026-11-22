@@ -62,7 +62,7 @@ export default function DialoguePanel({ dialogue, resident, children }: { dialog
   const npc = NPCS.find(n => n.id === dialogue.npcId);
   const last = page >= dialogue.lines.length - 1;
   return <>
-    <div className="yzg-dialog-head"><b>{resident?.name?wargaDisplayName(resident.name):(npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
+    <div className="yzg-dialog-head"><b>{resident?.name?wargaDisplayName(resident.name):(npc?.name || dialogue.title)}</b><span className="yzg-sr-only">Bagian {page + 1} dari {dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
       {npc && <Portrait npcId={npc.id} emotion={dialogue.emotions?.[page] ?? dialogue.emotion}
         name={resident?.name ? wargaDisplayName(resident.name) : npc.name}/>}
