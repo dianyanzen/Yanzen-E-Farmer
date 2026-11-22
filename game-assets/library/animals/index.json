@@ -3,8 +3,8 @@
   "category": "animals",
   "label": "Hewan dan ternak",
   "description": "Hewan domestik dan aset terkait",
-  "mediaCount": 32,
-  "bytes": 1131474,
+  "mediaCount": 34,
+  "bytes": 1203479,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -47,6 +47,13 @@
         "game-assets/yz-farm-life/explore-bandung/hewan/lele.png",
         "game-assets/yz-farm-life/explore-bandung/hewan/nila.png",
         "game-assets/yz-farm-life/explore-bandung/hewan/sapi-perah.png"
+      ]
+    },
+    {
+      "id": "fish",
+      "files": [
+        "public/game/assets/fish/lele.png",
+        "public/game/assets/fish/nila.png"
       ]
     }
   ]
