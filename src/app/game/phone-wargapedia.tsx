@@ -32,7 +32,7 @@ function EditorialDraftNotes({draft}:{draft:EditorDraft}){
    const values=section.editorialAdditions?.values;
    if(!values)return null;
    return <details className="yzg-citizen-section" key={key}>
-    <summary>{key.replace(/^\\d+_/,"").replaceAll("_"," ")}</summary>
+    <summary>{key.replace(/^\d+_/,"").replaceAll("_"," ")}</summary>
     <dl>{Object.entries(values).map(([field,value])=><div key={field}>
      <dt>{WARGAPEDIA_FIELD_LABELS[field]??field.replaceAll(/([A-Z])/g," $1")}</dt>
      <dd><Value data={value}/></dd>
