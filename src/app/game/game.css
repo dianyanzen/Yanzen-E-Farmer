@@ -613,6 +613,11 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 /* Fishing V2: animated rod, moving line and reactive bobber inside the world.
    This visual layer never intercepts the existing mobile A / movement controls. */
 .yzg-fishing-scene{position:absolute;inset:0;z-index:4;pointer-events:none;color:#fff4d7}
+.yzg-fishing-cancel{position:absolute;top:8px;right:8px;z-index:5;
+ pointer-events:auto;min-height:34px;padding:5px 11px;background:#f7f0d9ed;
+ border:1px solid #bd9f68;border-radius:7px;color:#2c573e;
+ font:700 12px system-ui,sans-serif;cursor:pointer}
+.yzg-fishing-cancel:focus-visible{outline:3px solid #f0ba58;outline-offset:2px}
 .yzg-fishing-effect{position:absolute;left:50%;top:44%;width:194px;height:120px;
  transform:translate(-50%,-50%);filter:drop-shadow(1px 3px 3px #091c1e7a)}
 .yzg-fishing-rod{position:absolute;left:18px;bottom:9px;height:94px;width:6px;
