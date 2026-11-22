@@ -60,6 +60,19 @@ try{
  const nani={...branch,story:{...branch.story,photoChoice:"nani"}};
  assert.match(phoneChronicle(nani).choice.text,/Foto asli tetap bersama Nani/);
  assert.equal(phoneChronicle(branch).completed,5);
+ // Reset clears every narrative gate, side mission, NPC bond and collected story choice.
+ const firstDay=safeLoad(newGame());
+ const cleared=phoneChronicle(firstDay);
+ assert.equal(cleared.completed,0,"story restarts at the opening");
+ assert.equal(cleared.finishedMissions,0,"completed side quests are forgotten");
+ assert.equal(cleared.activeMissions,0,"accepted side quests are forgotten");
+ assert.equal(cleared.contacts,0,"NPC conversations are forgotten");
+ assert.equal(firstDay.personalQuests?.A03,undefined,"NPC quests are not kept after reset");
+ assert.ok(Object.values(firstDay.bonds).every(b=>b.points===0&&b.talks===0&&b.lastChoice===null),
+   "all NPC relationships return to their original state");
+ assert.equal(firstDay.story.orderAccepted,false);
+ assert.equal(firstDay.story.photoChoice,null);
+
  const profile=readFileSync("src/lib/game/phone-profiles.ts","utf8");
  const source=JSON.parse(readFileSync("game-assets/characters/profiles/index.json","utf8"));
  for(const resident of source.characters){
@@ -76,7 +89,15 @@ try{
  assert.match(client,/Batal, simpan progres/,"reset must offer a safe cancellation");
  assert.match(client,/await queueRef.current;/,"reset must wait for earlier saves");
  assert.match(client,/resetInFlightRef.current/,"autosave must be blocked during reset");
- assert.match(client,/body: JSON.stringify\(\{ data: newGame\(\) \}\)/,"reset must use canonical initial game state");
+ assert.match(client,/fetch\("\/api\/game\/reset", \{ method: "POST" \}\)/,"reset must use dedicated server endpoint");
+ assert.match(client,/expectedUpdatedAt: saveRevisionRef.current/,"save must carry a revision for stale-tab protection");
+ assert.match(client,/new BroadcastChannel\("yz-farm-progress"\)/,"reset should notify other open tabs");
+ const resetApi=readFileSync("src/app/api/game/reset/route.ts","utf8");
+ const saveApi=readFileSync("src/app/api/game/save/route.ts","utf8");
+ assert.match(resetApi,/const initial = newGame\(\);/,"server must generate the actual beginning state");
+ assert.match(resetApi,/\.eq\("user_id", user.id\)/,"server must scope reset to authenticated player");
+ assert.match(saveApi,/\.eq\("updated_at", expectedUpdatedAt\)/,"stale saves must not overwrite reset");
+ assert.match(saveApi,/status: 409/,"a stale save must be rejected");
  assert.match(styles,/\.yzg-account-actions\{display:grid/,"account buttons must be spaced, not inline with title");
  assert.match(styles,/\.yzg-reset-overlay\{position:absolute/,"confirmation must remain inside YZ Phone");
  console.log("PASS: real save-compatible chronicle, 5 milestones, choices, side quests, privacy, 70 lazy profiles and no game-state mutation");
