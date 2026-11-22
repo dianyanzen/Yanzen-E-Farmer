@@ -42,4 +42,22 @@ assert.ok(client.includes('SluiceCutscene') && client.includes('game.personalQue
  "Sluice cutscene should happen only as a quest beat");
 assert.ok(css.includes("yzg-sluice-gate") && css.includes("yzg-cutscene-skip"),
  "Cutscene animation and skip must exist");
+
+const motion=read("cutscenes/remotion/src/sluice-gate.tsx");
+const composition=read("cutscenes/remotion/src/root.tsx");
+const cinematic=read("src/app/game/sluice-cutscene.tsx");
+const remotionPkg=JSON.parse(read("cutscenes/remotion/package.json"));
+assert.ok(motion.includes("useCurrentFrame")&&motion.includes("interpolate(")&&motion.includes("Character frame={frame}")&&motion.includes("Html5Audio"),
+  "Cinematic must be a real Remotion frame-driven composition with actor and sound");
+assert.ok(composition.includes('id="SluiceGate"')&&composition.includes("durationInFrames={SLUICE_FRAMES}"),
+  "Sluice must have deterministic Remotion composition dimensions and duration");
+assert.ok(remotionPkg.dependencies.remotion&&remotionPkg.devDependencies["@remotion/cli"],
+  "Remotion rendering toolchain should be independently installable");
+assert.ok(cinematic.includes('src="/game/assets/cutscenes/sluice-gate.mp4"')&&cinematic.includes("videoUnavailable")&&cinematic.includes("onEnded={finish}"),
+  "Runtime must use the Remotion MP4, skip cleanly and fall back if missing");
+assert.ok(client.includes('{ id: "memories", name: "Kenangan"')&&client.includes('phoneTab === "memories"')&&client.includes("Putar ulang adegan"),
+  "Kenangan must be a visible YZ Phone app, not hidden in Kronik");
+const sprite=readFileSync("public/game/assets/portraits/C07.png");
+assert.deepEqual([sprite.readUInt32BE(16),sprite.readUInt32BE(20)],[1536,256],"Remastered Widi must stay 8×192x256");
+assert.ok(sprite.byteLength<40000,"Keep remastered Widi pixel art fast on mobile");
 console.log("PASS: merchant conversation flow, owned-fish artwork, mobile dialogue layout and portrait calibration");
