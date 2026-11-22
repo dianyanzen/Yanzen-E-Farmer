@@ -76,13 +76,17 @@ export async function PUT(request: Request) {
         .eq("user_id", user.id).eq("updated_at", expectedUpdatedAt)
         .select("updated_at").maybeSingle();
   const { data, error } = await operation;
-  if (error?.code === "23505" || !error && !data) {
+  if (error?.code === "23505") {
     return NextResponse.json({ error: "Progres permainan sudah berubah di perangkat lain. Muat ulang untuk melihat catatan terbaru." },
       { status: 409, headers: noStore });
   }
   if (error) {
     console.error("YZ game save error:", error.code);
     return NextResponse.json({ error: "Progres belum tersimpan. Coba lagi." }, { status: 503, headers: noStore });
+  }
+  if (!data) {
+    return NextResponse.json({ error: "Progres permainan sudah berubah di perangkat lain. Muat ulang untuk melihat catatan terbaru." },
+      { status: 409, headers: noStore });
   }
   return NextResponse.json({ updatedAt: data.updated_at }, { headers: noStore });
 }
