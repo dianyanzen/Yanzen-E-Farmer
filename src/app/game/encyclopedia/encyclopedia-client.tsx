@@ -1,41 +1,11 @@
 'use client';
 import Image from 'next/image';
 import {useEffect,useMemo,useState} from 'react';
+import {WARGAPEDIA_CATEGORIES,WARGAPEDIA_FIELD_LABELS,WARGAPEDIA_HIDDEN_FIELDS} from '@/lib/game/public-wargapedia';
 
 type CatalogEntry={id:string;name:string;occupation:string;portrait:string;portraitUrl:string;detailPath:string;teaser:string;status:string};
 type Catalog={characterCount:number;characters:CatalogEntry[]};
 type Profile={id:string;name:string;occupation:string;portraitUrl:string;approval:string;fictionNotice:string;publicationStatus:string;sections:Record<string,Record<string,unknown>>};
-const categories:ReadonlyArray<[string,string]>=[
- ['01_core_identity','Identitas'],['02_physical_appearance','Penampilan'],
- ['03_fashion_aesthetic','Busana'],['04_social_profile','Pekerjaan dan kegiatan'],
- ['05_personality','Kepribadian fiksi'],['06_psychological_profile','Motivasi dan konflik fiksi'],
- ['07_background_history','Latar cerita'],['08_relationship_dynamics','Hubungan dan batas pribadi'],
- ['09_dialogue_behavior','Cara bicara dan ekspresi'],['10_narrative_development','Perkembangan cerita'],
- ['11_visual_references','Referensi visual'],['12_continuity_current_state','Kontinuitas dan status']
-];
-const fields:Record<string,string>={
- name:'Nama',fullName:'Nama lengkap',preferredName:'Nama panggilan',ageYears:'Usia',origin:'Asal',language:'Bahasa',identity:'Identitas',
- general:'Gambaran',physicalTraits:'Ciri fisik',bodyLanguageDirection:'Bahasa tubuh',proposedPose:'Konsep pose',
- signatureClothing:'Pakaian khas',palette:'Palet warna',aesthetic:'Nuansa visual',costumeConcept:'Konsep kostum',
- occupation:'Pekerjaan',communityActivity:'Kegiatan warga',hobbies:'Kegemaran',functionInWorld:'Fungsi di dunia',
- workRoutineConcept:'Rancangan rutinitas',workplaceConcept:'Rancangan lingkungan kerja',
- traits:'Sifat fiksi',observableHabit:'Kebiasaan',values:'Nilai yang dijaga',weakness:'Kelemahan',
- strengthConcept:'Potensi kelebihan',flawConcept:'Konsep kekurangan',microHabitConcept:'Gerak kecil',
- primaryMotivation:'Motivasi tokoh',need:'Kebutuhan',innerConflict:'Konflik batin',fear:'Ketakutan dalam cerita',
- motivationConcept:'Rancangan motivasi',conflictConcept:'Rancangan konflik',agencyConcept:'Pilihan mandiri NPC',
- narrativeBackground:'Premis kisah',sceneConcept:'Latar adegan',narrativeStatus:'Status naskah',
- relationshipHook:'Jalinan relasi',trustBehavior:'Cara membangun kepercayaan',personalBoundary:'Batas pribadi',
- boundaryConcept:'Rancangan batas interaksi',connections:'Relasi terkonfirmasi',
- speechSignature:'Gaya bicara',sampleLine:'Contoh percakapan',habitualGesture:'Gestur',reactions:'Reaksi',
- dialogueDrafts:'Alternatif dialog',speakingCadence:'Ritme bicara',publicCameoGuardrail:'Batasan kameo',
- storyArc:'Alur cerita',questHook:'Ide misi',threeActBeats:'Tiga tahap cerita',playerChoices:'Pilihan pemain',
- implementation:'Status implementasi',sideQuestConcept:'Rancangan misi sampingan',choiceConsequencesConcept:'Kemungkinan akibat',
- visualContinuity:'Konsistensi visual',suggestedPalette:'Palet ilustrasi',animationRequired:'Rencana animasi',
- availability:'Ketersediaan',playerDependentState:'Status dengan pemain',canonStatus:'Identitas canonical',
- playableRuntimeConfirmed:'Aktif di dunia permainan',questIntegrationConfirmed:'Misi aktif',
- legacyAssociationApproved:'Kaitan cerita lama disetujui',status:'Status sekarang'
-};
-const ignore=new Set(['canonicalId','portraitKey','conceptPortrait','fullName','name','occupation','fictionNotice','continuityLock','canonStatus','legacyCollisionPolicy','playerDependentState']);
 function readable(value:unknown):string{
  if(value===null||value===undefined)return 'Belum ditetapkan';
  if(typeof value==='string')return value;
@@ -45,7 +15,7 @@ function readable(value:unknown):string{
 }
 function DetailValue({value}:{value:unknown}){
  if(Array.isArray(value))return value.length?<ul>{value.map((x,i)=><li key={i}><DetailValue value={x}/></li>)}</ul>:<span>Belum ada catatan</span>;
- if(value!==null&&typeof value==='object')return <dl>{Object.entries(value as Record<string,unknown>).map(([k,v])=><div key={k}><dt>{fields[k]??k.replaceAll('_',' ')}</dt><dd><DetailValue value={v}/></dd></div>)}</dl>;
+ if(value!==null&&typeof value==='object')return <dl>{Object.entries(value as Record<string,unknown>).map(([k,v])=><div key={k}><dt>{WARGAPEDIA_FIELD_LABELS[k]??k.replaceAll('_',' ')}</dt><dd><DetailValue value={v}/></dd></div>)}</dl>;
  return <span>{readable(value)}</span>;
 }
 export default function EncyclopediaClient(){
@@ -95,9 +65,9 @@ export default function EncyclopediaClient(){
       <div className="yz-encyclopedia-person"><Image src={profile.portraitUrl} alt={'Potret konsep '+profile.name} width={152} height={152} sizes="152px"/>
        <div><small>{profile.id} · Draf fiksi publik</small><h2>{profile.name}</h2><p>{profile.occupation}</p></div></div>
       <p className="yz-encyclopedia-notice">{profile.fictionNotice}</p>
-      <div className="yz-encyclopedia-chapters">{categories.map(([key,title],i)=><details key={key} open={i<4}>
+      <div className="yz-encyclopedia-chapters">{WARGAPEDIA_CATEGORIES.map(([key,title],i)=><details key={key} open={i<4}>
         <summary><span>{String(i+1).padStart(2,'0')} · {title}</span></summary>
-        <dl>{Object.entries(profile.sections[key]??{}).filter(([field])=>!ignore.has(field)).map(([field,value])=><div key={field}><dt>{fields[field]??field.replaceAll(/([A-Z])/g,' $1')}</dt><dd><DetailValue value={value}/></dd></div>)}</dl>
+        <dl>{Object.entries(profile.sections[key]??{}).filter(([field])=>!WARGAPEDIA_HIDDEN_FIELDS.has(field)).map(([field,value])=><div key={field}><dt>{WARGAPEDIA_FIELD_LABELS[field]??field.replaceAll(/([A-Z])/g,' $1')}</dt><dd><DetailValue value={value}/></dd></div>)}</dl>
        </details>)}</div>
       <p className="yz-encyclopedia-footer">Cerita bisa berkembang, tetapi perubahan identitas canonical tetap melewati validasi. Hubungan dan progres pemain disimpan terpisah.</p>
     </article>}
