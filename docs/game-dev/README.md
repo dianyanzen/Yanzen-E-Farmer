@@ -14,7 +14,9 @@
 8. [Standar Potret NPC Aktif](ACTIVE_NPC_PORTRAIT_STANDARD.md) — lima tokoh gameplay, sprite, konsep, delapan ekspresi, dan quality gate (termasuk blocker Widi).
 9. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
 
-Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
+10. [Cutscene Production Standard](CUTSCENE_PRODUCTION_STANDARD.md) — aturan dua frame awal/akhir, video produksi pemilik, impor GitHub, kualitas playback dan Kenangan.
+
+Skill proyek: `.agents/skills/yz-farm-cutscene/SKILL.md`, `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
 
 ## Kebenaran implementasi
 
