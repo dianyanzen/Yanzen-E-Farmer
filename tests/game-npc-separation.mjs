@@ -64,6 +64,7 @@ try{
  const draftRoute=file("src/app/api/game/resident-bible/[id]/route.ts");
  assert.ok(draftRoute.includes("GAME_BIBLE_EDITOR_USER_IDS"),"Draft route requires editor allowlist");
  assert.ok(draftRoute.includes("status:403"),"Draft route must reject unauthorized users");
- assert.ok(ui.includes("?draft=1"),"Editor preview route is explicitly opt-in");
+ assert.ok(draftRoute.includes('searchParams.get("draft")==="1"'),"Editor preview remains an explicit server-only mode");
+  assert.ok(!ui.includes("?draft=1"),"Player Warga must never expose an editor preview switch");
  console.log("PASS: 69 legacy ID collisions quarantined, 39 story candidates, 30 concepts, route/UI identity guard");
 }finally{rmSync(temp,{recursive:true,force:true});}
