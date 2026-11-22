@@ -1,3 +1,5 @@
+> **Pembaruan sumber:** Character Bible canonical kini berisi **248 tokoh fiksi publik** di `public/game/data/npc/{ID}.json`, dengan halaman wiki di `docs/game-dev/characters/`. Contoh 32 tokoh di bawah berlaku untuk **runtime quest lama**, bukan bukti identitas legacy yang sama dengan roster baru. Review setiap NPC berdasarkan canonical ID + portrait, jangan pindahkan quest/relasi dari cast lama secara otomatis.
+
 # Humanizer untuk narasi YZ Farm Life
 
 **Status:** skill agent dipasang dalam repository, siap dipakai pada sesi Codex setelah checkout/pull dan pembacaan ulang skill. Ini bukan fitur otomatis runtime dan bukan bukti seluruh dialog telah ditulis ulang.
