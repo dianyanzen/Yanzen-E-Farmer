@@ -1,23 +1,31 @@
 "use client";
 
-import {useEffect} from "react";
+import {useEffect,useState,useCallback,useRef} from "react";
 
 /**
  * Player-facing micro-cutscene. The save transition happens in the game model,
  * never in this visual component, so skipping cannot duplicate quest rewards.
  */
 export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
+  const [videoUnavailable,setVideoUnavailable]=useState(false);
+  const [muted,setMuted]=useState(true);
+  const videoRef=useRef<HTMLVideoElement>(null);
+  const finished=useRef(false);
+  const finish=useCallback(()=>{if(finished.current)return;finished.current=true;onDone();},[onDone]);
   useEffect(()=>{
-    const timeout=window.setTimeout(onDone,4800);
+    const timer=window.setTimeout(()=>videoUnavailable?finish():setVideoUnavailable(true),videoUnavailable?4800:15000);
     const onKey=(event:KeyboardEvent)=>{
-      if(event.key==="Escape" || event.key==="Enter" || event.key===" "){event.preventDefault();onDone();}
+      if(event.key==="Escape" || event.key==="Enter" || event.key===" "){event.preventDefault();finish();}
     };
     document.addEventListener("keydown",onKey);
-    return ()=>{window.clearTimeout(timeout);document.removeEventListener("keydown",onKey);};
-  },[onDone]);
+    return ()=>{window.clearTimeout(timer);document.removeEventListener("keydown",onKey);};
+  },[finish,videoUnavailable]);
   return <div className="yzg-cutscene" role="dialog" aria-modal="true" aria-label="Yanzen membuka pintu air">
     <div className="yzg-cutscene-stage">
-      <svg viewBox="0 0 320 180" role="img" aria-label="Yanzen memutar roda pintu air hingga air mengalir kembali" preserveAspectRatio="xMidYMid meet">
+      {!videoUnavailable && <video ref={videoRef} className="yzg-cutscene-video" autoPlay muted={muted} playsInline preload="auto"
+        src="/game/assets/cutscenes/sluice-gate.mp4" onEnded={finish} onError={()=>setVideoUnavailable(true)}
+        aria-label="Adegan sinematik Yanzen membuka pintu air di Pasirluyu"/>}
+      {videoUnavailable && <svg viewBox="0 0 320 180" role="img" aria-label="Yanzen memutar roda pintu air hingga air mengalir kembali" preserveAspectRatio="xMidYMid meet">
         <defs><linearGradient id="sluice-sky" x2="0" y2="1"><stop stopColor="#a3c7a2"/><stop offset="1" stopColor="#d9d6a0"/></linearGradient>
           <pattern id="sluice-stone" width="22" height="14" patternUnits="userSpaceOnUse"><rect width="22" height="14" fill="#9c9b7a"/><path d="M0 0H22M0 7H11M11 7V14" stroke="#7b826a" strokeWidth="2"/></pattern>
         </defs>
@@ -50,10 +58,14 @@ export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
           <path d="M140 73V103M125 88H155M130 78L150 98M150 78L130 98" stroke="#b78d55" strokeWidth="3"/>
           <circle cx="140" cy="88" r="5" fill="#4b3b2e"/>
         </g>
-      </svg>
-      <div className="yzg-cutscene-caption"><strong>Pintu air di Pasirluyu</strong>
-        <p>Yanzen memutar roda tua itu. Kayunya berderit, lalu air kembali mengalir ke hilir.</p></div>
+      </svg>}
+      {videoUnavailable && <div className="yzg-cutscene-caption"><strong>Pintu air di Pasirluyu</strong>
+        <p>Yanzen memutar roda tua itu. Kayunya berderit, lalu air kembali mengalir ke hilir.</p></div>}
     </div>
-    <button type="button" className="yzg-cutscene-skip" onClick={onDone}>Lewati adegan</button>
+    <div className="yzg-cutscene-actions">
+      {!videoUnavailable && <button type="button" onClick={()=>{setMuted(x=>!x);if(videoRef.current?.paused)void videoRef.current.play().catch(()=>{});}}>
+        {muted?"Aktifkan suara":"Matikan suara"}</button>}
+      <button type="button" className="yzg-cutscene-skip" onClick={finish}>Lewati adegan</button>
+    </div>
   </div>;
 }
