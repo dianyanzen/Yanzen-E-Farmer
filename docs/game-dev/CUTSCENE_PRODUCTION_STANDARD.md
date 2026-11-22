@@ -75,6 +75,16 @@ Storyboard nyata: Yanzen di sisi kanan memutar roda, pintu terangkat, air deras 
 
 **Kritik visual yang tetap harus dicatat:** keterhubungan roda kanan dengan dua pintu sebaiknya tidak dipahami sebagai mekanisme aktual proyek irigasi; ini karya sinematik fiksi yang disetujui pemilik. Jangan mengubah video tanpa permintaan. Pengujian teknis tidak berarti semua fisika adegan sempurna.
 
+## Frame video dalam layout permainan
+
+Dalam gameplay Phaser mobile/desktop, pemutar wajib diposisikan **di dalam `.yzg-viewport`**. Subtitle dan pilihan suara/lewati muncul setelah gambar, tetapi tidak boleh keluar dari viewport menuju panel peralatan atau D-pad.
+
+Pakai dimensi nyata video (`910×512` untuk Pasirluyu), `object-fit:contain`, dan pengukuran ruang dari parent game. Jangan gunakan `position:fixed; inset:0; width:100vw; height:100dvh`. Tidak ada pemanggilan fullscreen native pada elemen video yang merusak batas area permainan.
+
+Untuk iPhone dalam orientasi tegak, pertahankan kontrol di luar layar video. Dalam lanskap pendek, panel input boleh disembunyikan sementara, hanya untuk memberi ruang film, dan wajib pulih setelah pemutaran.
+
+Tes ukuran 393×852, 390×844, 844×390, 1280×800, 1440×900; periksa bounding rectangle, subtitle terpisah, urutan z-index, dan file video tetap byte-identik. Gunakan `npm run test:game:cutscene:ui` setelah browser dependencies tersedia.
+
 ## Standar tes
 
 ```bash
