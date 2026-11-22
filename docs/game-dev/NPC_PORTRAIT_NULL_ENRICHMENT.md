@@ -78,3 +78,7 @@ Sebagian besar null tersisa **sengaja**: `origin` (tempat lahir/asal yang tidak 
 3. **P2:** evaluasi perbedaan art style, perbarui sprite & animation sheet untuk kemunculan di dunia game.
 
 Hasil ini adalah **draf ensiklopedia publik**, bukan persetujuan final atau laporan bug visual pixel-by-pixel. CI/Next build perlu diuji tersendiri.
+
+## Kontrol perubahan potret berdasarkan SHA Git
+
+Seluruh 248 potret yang diamati memiliki `gitBlobSha` dan `sizeBytes` terverifikasi di `docs/game-dev/characters/PORTRAIT_ASSET_AUDIT.json`. SHA diperiksa ulang oleh `npm run chars:portrait:check` terhadap byte file lokal saat test. Jika aset potret diubah, pemeriksaan akan gagal agar ciri fisik pada Character Bible tidak dibiarkan usang tanpa peninjauan ulang. Ledger merekam **248 SHA unik** dan total sekitar **21,64 MB** aset potret yang dipasangkan ke 248 ID canonical.
