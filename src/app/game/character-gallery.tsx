@@ -42,7 +42,7 @@ function EditorialDraftNotes({profile}:{profile:CharacterBible}){
  </section>;
 }
 
-function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:GameState;profile:CharacterBible|null;onBack:()=>void;loading:boolean}){
+function WargaDetail({person,game,profile,onBack,loading,onOpenWargapedia}:{person:Citizen;game:GameState;profile:CharacterBible|null;onBack:()=>void;loading:boolean;onOpenWargapedia:()=>void}){
  const npc=person.legacyApproved?NPCS.find(n=>n.id===(person.legacyId??person.id)):undefined;
  const bond=npc?game.bonds[npc.id]:undefined;
  const self=false; // A01 is the player, not a member of the canonical 248-NPC roster.
@@ -67,7 +67,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
    null;
  const knowsMore=met&&(self||level>=2),knowsPrivate=met&&(self||level>=3);
  const currentPlace=npc?npcWhere(game,npc.id):null;
- const outline=!met?"Kalian belum mengobrol. Ada hal-hal yang hanya bisa diketahui dengan bertemu langsung.":"Catatan tentang orang yang kamu kenal.";
+ const outline=!met?"Catatan pertemuan kalian masih kosong. Profil umum dan cerita fiksi warga ini tetap dapat dibaca di Wargapedia.":"Ini catatan pertemuan kalian. Baca cerita fiksi lengkapnya di Wargapedia.";
  return <article data-character-detail={person.id} aria-label={`Profil ${person.name}`}>
   <button type="button" className="yzg-citizen-return" onClick={onBack}>‹ Daftar warga</button>
   <div className="yzg-phone-card yzg-citizen-hero">
@@ -82,7 +82,8 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
     <small>{level<1?"Berbincanglah agar makin mengenal kebiasaannya.":level<2?"Semakin akrab, semakin banyak cerita yang ia bagikan.":level<3?"Ia mulai lebih terbuka tentang apa yang diharapkan.":"Kalian sudah saling percaya lebih jauh."}</small>
   </div>}
   {editorialDraft&&<p role="status">Pratinjau khusus editor. Catatan ini belum disahkan atau diterapkan sebagai gameplay.</p>}
-  {publicDraft&&<p role="status">Catatan ini bagian dari dunia fiksi YZ Farm Life. Cerita dan sifat tokoh masih rancangan, belum tentu sudah terjadi di permainan. <a href={"/game/encyclopedia?npc="+encodeURIComponent(person.id)}>Baca ensiklopedia karakter</a></p>}
+  {publicDraft&&<p role="status">Catatan fiksi tokoh ini tersedia terbuka di Wargapedia, tanpa syarat level kedekatan. Cerita yang belum dimainkan tetap berupa rancangan.</p>}
+  <div className="yzg-phone-card"><button type="button" onClick={onOpenWargapedia}>Baca 12 kategori di Wargapedia</button><small>Tidak perlu berbincang dulu. Peristiwa dalam Kronik tetap mengikuti permainanmu.</small></div>
   <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
@@ -135,8 +136,9 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  </article>;
 }
 
-export default function CharacterGallery({game,residents,selectedId,onSelect}:{
+export default function CharacterGallery({game,residents,selectedId,onSelect,onOpenWargapedia}:{
  game:GameState;residents:readonly ResidentProfile[];selectedId:string|null;onSelect:(id:string|null)=>void;
+ onOpenWargapedia:(id?:string)=>void;
 }){
  const [search,setSearch]=useState(""),[page,setPage]=useState(0);
  const [loaded,setLoaded]=useState<{id:string;profile:CharacterBible|null;error?:boolean}|null>(null);
@@ -189,11 +191,12 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
  },[selectedId,selected?.legacyApproved,selected?.legacyId,residents.length]);
  if(selected&&selectedId)return <WargaDetail key={selected.id} person={selected} game={game}
    profile={loaded?.id===selectedId?loaded.profile:null} loading={loaded?.id!==selectedId}
-   onBack={()=>onSelect(null)}/>;
+   onBack={()=>onSelect(null)} onOpenWargapedia={()=>onOpenWargapedia(selected.id)}/>;
  return <section aria-label="Daftar warga">
   <div className="yzg-phone-card">
-   <b>Warga</b><p>Cari orang yang ingin kamu kenal. Cerita pribadi mereka akan terbuka lewat pertemuan.</p>
-   <p><a href="/game/encyclopedia">Buka Ensiklopedia Warga · 248 karakter</a></p>
+   <b>Warga</b><p>Temukan orang yang ingin kamu temui. Bagian ini mencatat hubungan dan percakapanmu selama bermain.</p>
+   <button type="button" onClick={()=>onOpenWargapedia()}>Buka Wargapedia · 248 karakter</button>
+   <small>Ensiklopedia lengkap terbuka untuk semua pemain sejak awal, tanpa level kedekatan.</small>
    <label htmlFor="yzg-character-search">Cari nama atau pekerjaan</label>
    <input id="yzg-character-search" type="search" value={search} onChange={e=>{setSearch(e.target.value);setPage(0);}}
      placeholder="Nama atau pekerjaan"/>
