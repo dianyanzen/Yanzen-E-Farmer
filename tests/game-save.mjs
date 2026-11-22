@@ -51,7 +51,7 @@ try {
   assert.equal(restarted.harvested,0,"reset clears harvested count");
   assert.equal(restarted.plots.length,0,"reset clears planted plots");
   assert.equal(restarted.stats.harvests,0,"reset clears production statistics");
-  assert.equal(restarted.story.photoChoice,undefined,"reset clears story choices");
+  assert.equal(restarted.story.photoChoice,null,"reset clears story choices");
     await db.exec(`set request.jwt.claim.sub='${second}';`);
   assert.equal((await db.query('select * from yz_game_saves')).rows.length, 0, 'other account cannot read save');
   assert.equal((await db.query('update yz_game_saves set data=\'{}\'::jsonb where user_id=$1 returning user_id', [first])).rows.length, 0);
