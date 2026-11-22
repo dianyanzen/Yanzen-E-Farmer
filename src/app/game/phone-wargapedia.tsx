@@ -19,6 +19,29 @@ type Dossier={
 };
 const PAGE_SIZE=10;
 
+type EditorDraft={
+ id:string;approval:string;characterClass:string;
+ sections:Record<string,{editorialAdditions?:{values?:Record<string,unknown>}}>;
+};
+/** Optional server-authorized editorial review. Never used to gate public Warga. */
+function EditorialDraftNotes({draft}:{draft:EditorDraft}){
+ return <details className="yzg-phone-card" aria-label="Catatan editorial privat">
+  <summary>Pratinjau editor · 12 kategori</summary>
+  <p>Ini catatan internal yang belum disahkan. Hanya terlihat untuk akun editor yang diizinkan server.</p>
+  {Object.entries(draft.sections).map(([key,section])=>{
+   const values=section.editorialAdditions?.values;
+   if(!values)return null;
+   return <details className="yzg-citizen-section" key={key}>
+    <summary>{key.replace(/^\\d+_/,"").replaceAll("_"," ")}</summary>
+    <dl>{Object.entries(values).map(([field,value])=><div key={field}>
+     <dt>{WARGAPEDIA_FIELD_LABELS[field]??field.replaceAll(/([A-Z])/g," $1")}</dt>
+     <dd><Value data={value}/></dd>
+    </div>)}</dl>
+   </details>;
+  })}
+ </details>;
+}
+
 function Value({data}:{data:unknown}):ReactNode{
  if(data===null||data===undefined)return <span>Belum ditetapkan</span>;
  if(Array.isArray(data))return data.length?
@@ -44,6 +67,7 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
  const [profile,setProfile]=useState<Dossier|null>(null);
  const [error,setError]=useState("");
  const [loading,setLoading]=useState(false);
+ const [editorDraft,setEditorDraft]=useState<EditorDraft|null>(null);
 
  useEffect(()=>{
   const controller=new AbortController();
@@ -76,6 +100,23 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
    }});
   return()=>controller.abort();
  },[selectedId,safeSelected]);
+ useEffect(()=>{
+  setEditorDraft(null);
+  if(!selectedId||new URLSearchParams(window.location.search).get("npcDraftPreview")!=="1")return;
+  const controller=new AbortController();
+  // Sensitive draft notes remain server-allowlisted; the public fiction stays open without login.
+  fetch("/api/game/resident-bible/"+encodeURIComponent(selectedId)+"?draft=1",{
+   signal:controller.signal,cache:"no-store"
+  }).then(response=>response.ok?response.json():null)
+   .then((result:{profile?:EditorDraft}|null)=>{
+    const draft=result?.profile;
+    if(!controller.signal.aborted&&draft?.id===selectedId&&draft.characterClass==="canonical-private"&&draft.approval==="draft")
+     setEditorDraft(draft);
+   })
+   .catch(()=>{/* Viewer has no private editorial privileges, keep notes hidden. */});
+  return()=>controller.abort();
+ },[selectedId]);
+
  useEffect(()=>{
   const scroller=document.querySelector<HTMLElement>(".yzg-phone-content");
   if(scroller)scroller.scrollTop=0;
@@ -134,6 +175,7 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
      </details>)}
     </div>
     <p className="yzg-wargapedia-caption">Ini ensiklopedia dunia YZ Farm Life, bukan daftar peristiwa yang sudah terjadi pada save-mu. Untuk cerita yang telah dimainkan, buka Kronik.</p>
+    {editorDraft?.id===selectedId&&<EditorialDraftNotes draft={editorDraft}/>}
    </div>}
   </section>;
  }
