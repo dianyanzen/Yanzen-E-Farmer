@@ -163,6 +163,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [engine, field]);
   const queueRef = useRef<Promise<void>>(Promise.resolve());
   const saveLockedRef = useRef(false);
+  const resetInFlightRef = useRef(false);
   const [game, setGame] = useState<GameState>(() => newGame());
   const [userId, setUserId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("loading");
@@ -181,6 +182,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [storageOpen, setStorageOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
+  const [resetOpen, setResetOpen] = useState(false);
+  const [resetBusy, setResetBusy] = useState(false);
+  const [resetError, setResetError] = useState("");
   const [selectedCitizen, setSelectedCitizen] = useState<string|null>(null);
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const [toast, setToast] = useState("");
@@ -234,9 +238,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [router, field]);
 
   const persist = useCallback((snapshot: GameState) => {
-    if (!userId || saveLockedRef.current) return;
+    if (!userId || saveLockedRef.current || resetInFlightRef.current) return;
     const next = queueRef.current.then(async () => {
-      if (saveLockedRef.current) return;
+      if (saveLockedRef.current || resetInFlightRef.current) return;
       setSaveStatus("saving");
       const response = await fetch("/api/game/save", {
         method: "PUT",
@@ -273,8 +277,34 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     }
   }, [game, persist, router, userId]);
 
+  const resetGame = useCallback(async () => {
+    if (!userId || resetInFlightRef.current || saveLockedRef.current ||
+        saveStatus === "loading" || saveStatus === "saving" || saveStatus === "error") return;
+    resetInFlightRef.current = true;
+    setResetBusy(true);
+    setResetError("");
+    try {
+      // Wait for any already-running save so it cannot restore old progress after reset.
+      await queueRef.current;
+      if (saveLockedRef.current) throw new Error("Penyimpanan lama belum selesai.");
+      const response = await fetch("/api/game/save", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: newGame() }),
+      });
+      if (!response.ok) throw new Error("Permintaan reset ditolak.");
+      // Reload all runtime state (world, NPCs, inventory and phone), not just React game state.
+      window.location.reload();
+    } catch (error) {
+      console.error("[game] Reset failed:", error);
+      setResetError("Permainan belum berhasil diulang. Progres lama tetap tersimpan. Periksa koneksi lalu coba lagi.");
+      setResetBusy(false);
+      resetInFlightRef.current = false;
+    }
+  }, [userId, saveStatus]);
+
   useEffect(() => {
-    if (!userId || saveLockedRef.current) return;
+    if (!userId || saveLockedRef.current || resetInFlightRef.current) return;
     const t = window.setTimeout(() => { void persist(game); }, 1300);
     return () => window.clearTimeout(t);
   }, [game, userId, persist]);
@@ -755,8 +785,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         {storageOpen && <ToolWarehouse game={game} disabled={unavailable}
           onClose={()=>setStorageOpen(false)} onTransfer={transfer} onUpgrade={upgrade}/>}
         {phoneOpen && <GameDialog className="yzg-phone-backdrop" aria-label="YZ Phone" focusKey={phoneTab + ":" + (selectedCitizen ?? "list")}
-          onBack={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
-          onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
+          onBack={() => resetOpen ? (!resetBusy && setResetOpen(false)) : phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
+          onClick={e => { if (e.target === e.currentTarget && !resetOpen) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
             <div className="yzg-phone-notch"/>
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
@@ -801,18 +831,32 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               </>}
               {phoneTab === "ikd" && <>
                 <div className="yzg-phone-card yzg-id">
-                  <small>IKD · IDENTITAS KARAKTER DIGITAL</small>
-                  <div className="yzg-id-portrait"><NextImage className="yzg-character-preview" src="/game/assets/portraits/bandung/professions/work-A01.png" alt="Potret Yanzen" width={80} height={80} unoptimized/></div><strong>YANZEN</strong>
-                  <p>Warga Pasirluyu</p>
-                  <dl><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd>
-                    <dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd>
-                    <dt>Pekerjaan</dt><dd>Petani urban</dd>
-                    <dt>Tahun tinggal</dt><dd>{game.day > 0 ? "Tahun 1" : "Baru pindah"}</dd>
-                    <dt>Hari bermain</dt><dd>{game.day}</dd></dl>
-                  <small>Seluruh identitas ini fiktif. Bukan IKD pemerintah atau data kependudukan asli.</small>
+                  <span className="yzg-id-eyebrow">IKD · IDENTITAS KARAKTER DIGITAL</span>
+                  <div className="yzg-id-portrait"><NextImage className="yzg-character-preview" src="/game/assets/portraits/bandung/professions/work-A01.png" alt="Potret Yanzen" width={80} height={80} unoptimized/></div>
+                  <strong>YANZEN</strong>
+                  <p className="yzg-id-subtitle">Warga Pasirluyu</p>
+                  <dl>
+                    <div><dt>ID Game</dt><dd>YZF-{(userId || "000001").slice(0, 6).toUpperCase()}</dd></div>
+                    <div><dt>Domisili</dt><dd>Pasirluyu, Regol, Kota Bandung</dd></div>
+                    <div><dt>Pekerjaan</dt><dd>Petani urban</dd></div>
+                    <div><dt>Tahun tinggal</dt><dd>{game.day > 0 ? "Tahun 1" : "Baru pindah"}</dd></div>
+                    <div><dt>Hari bermain</dt><dd>{game.day}</dd></div>
+                  </dl>
+                  <small className="yzg-id-disclaimer">Identitas ini hanya untuk cerita YZ Farm Life, bukan identitas kependudukan resmi.</small>
                 </div>
-                <div className="yzg-phone-card"><b>Akun permainan</b>
-                  <button type="button" onClick={() => void logout()} disabled={saveStatus === "loading" || saveStatus === "saving" || (saveStatus === "error" && !!userId)}>Keluar akun</button>
+                <div className="yzg-phone-card yzg-account">
+                  <h3>Akun permainan</h3>
+                  <p>Keluar tidak akan menghapus perjalananmu. Kamu bisa melanjutkan lagi saat masuk.</p>
+                  <div className="yzg-account-actions">
+                    <button type="button" className="yzg-account-logout" onClick={() => void logout()}
+                      disabled={resetBusy || saveStatus === "loading" || saveStatus === "saving" || saveStatus === "error"}>
+                      Keluar akun
+                    </button>
+                    <button type="button" className="yzg-account-reset" onClick={() => { setResetError(""); setResetOpen(true); }}
+                      disabled={resetBusy || !userId || saveStatus === "loading" || saveStatus === "saving" || saveStatus === "error"}>
+                      Reset akun
+                    </button>
+                  </div>
                 </div>
               </>}
               {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
@@ -892,7 +936,27 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <WorldRegionDirectory/>
               </>}
             </div>
-            <div className="yzg-phone-bottom"><button onClick={() => setPhoneTab("apps")}>●</button></div>
+            <div className="yzg-phone-bottom"><button onClick={() => setPhoneTab("apps")} aria-label="Beranda YZ Phone">●</button></div>
+            {resetOpen && <div className="yzg-reset-overlay" role="alertdialog" aria-modal="true"
+              aria-labelledby="yzg-reset-title" aria-describedby="yzg-reset-description"
+              onClick={event => { if (event.target === event.currentTarget && !resetBusy) setResetOpen(false); }}>
+              <div className="yzg-reset-dialog">
+                <h3 id="yzg-reset-title">Mulai lagi dari awal?</h3>
+                <p id="yzg-reset-description">
+                  Semua progres permainan akan hilang: hari bermain, kebun, uang, barang,
+                  hubungan dengan warga, statistik, serta cerita dan misi yang sudah kamu jalani.
+                </p>
+                <p className="yzg-reset-warning">Progres yang direset tidak bisa dikembalikan. Akun untuk masuk tetap ada.</p>
+                {resetError && <p role="alert" className="yzg-reset-error">{resetError}</p>}
+                <div className="yzg-reset-actions">
+                  <button type="button" autoFocus onClick={() => setResetOpen(false)} disabled={resetBusy}>Batal, simpan progres</button>
+                  <button type="button" className="yzg-reset-confirm" onClick={() => void resetGame()}
+                    disabled={resetBusy || saveStatus === "error"}>
+                    {resetBusy ? "Mengulang permainan…" : "Ya, reset semua progres"}
+                  </button>
+                </div>
+              </div>
+            </div>}
           </section>
         </GameDialog>}
       </div>
