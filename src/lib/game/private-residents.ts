@@ -33,7 +33,7 @@ const oldCast=[...cast.characters,...previews] as Array<{id:string;name:string;o
 // A whole-roster fingerprint protects against stale/incomplete/misassigned names.
 // Derived from the 248 rows approved in the 2026-11-22 owner-supplied catalog,
 // without committing its names or occupations to this public repository.
-const OWNER_REVIEWED_ROSTER_SHA256="cd19795344bbb4fefc0022a3f17d25135d79624de4d5d9c6c618699cc1f871a0";
+const OWNER_REVIEWED_ROSTER_SHA256="24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e";
 const fingerprint=(rows:readonly {id:string;name:string;occupation:string;portrait:string}[])=>
  createHash("sha256").update(rows.slice().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0)
    .map(r=>[r.id,r.name,r.occupation,r.portrait].join("|")+"\n").join("")).digest("hex");
