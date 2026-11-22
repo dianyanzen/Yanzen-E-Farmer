@@ -29,5 +29,5 @@ export const WARGAPEDIA_FIELD_LABELS:Record<string,string>={
  playableRuntimeConfirmed:'Aktif di dunia permainan',questIntegrationConfirmed:'Misi aktif',
  legacyAssociationApproved:'Kaitan cerita lama disetujui',status:'Status sekarang'
 };
-export const WARGAPEDIA_HIDDEN_FIELDS=new Set(['canonicalId','portraitKey','conceptPortrait','fullName','name','occupation','fictionNotice','continuityLock','canonStatus','legacyCollisionPolicy','playerDependentState']);
+export const WARGAPEDIA_HIDDEN_FIELDS=new Set(['ageDesignNote','visualAgeBandDraft','observedIllustrationStyle','publicCameoVisualNotice','canonicalId','portraitKey','conceptPortrait','fullName','name','occupation','fictionNotice','continuityLock','canonStatus','legacyCollisionPolicy','playerDependentState']);
 
