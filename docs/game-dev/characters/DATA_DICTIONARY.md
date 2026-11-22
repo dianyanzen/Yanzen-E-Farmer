@@ -94,3 +94,20 @@ Empat atribut `id`, `name`, `occupation`, dan `portrait` harus dipertahankan per
 - Nilai `playableRuntimeConfirmed`, `questIntegrationConfirmed` dan `legacyAssociationApproved` selalu `false` pada rilis draf.
 - Rangkaian dialog, misi, jadwal, lokasi, dan relasi baru tidak dapat mengubah save hanya dengan masuk ke ensiklopedia.
 - Koreksi visual harus membandingkan potret dan sprite secara manual, bukan berdasarkan nama atau urutan file.
+
+## Pengayaan visual dan null — 22 November 2026
+
+Entri v2 tetap memiliki 12 kategori. Kelengkapan baru berasal dari 248 ilustrasi yang dipasangkan langsung ke kunci potret canonical, serta rancangan cerita fiksi.
+
+| Field tambahan | Tipe | Keterangan |
+|---|---|---|
+| `visualEvidence` (top-level) | object | Jalur asset canonical, deskripsi potret yang diamati, tanggal review, confidence dan flag QA |
+| `fieldProvenance` (top-level) | object | Jenis sumber, confidence, dan jenis klaim setiap atribut yang diperbarui |
+| `01_core_identity.ageDesignNote` | string | Usia numerik adalah keputusan desain fiksi sementara, **bukan** taksiran usia seseorang dari potret |
+| `01_core_identity.visualAgeBandDraft` | string | Kategori umur visual untuk panduan penulis/artist, belum approved |
+| `11_visual_references.observedIllustrationStyle` | string | Ringkasan art style yang perlu diseragamkan lintas kelompok aset |
+| `11_visual_references.publicCameoVisualNotice` | string | Perlindungan khusus visual kameo P01/P02 |
+
+**Field yang sengaja tetap kosong:** `origin` untuk 248 tokoh, `familyContext` untuk 248 tokoh, dan `publicCameoGuardrail` untuk 246 NPC biasa. Dua kameo tidak diberi usia, pendidikan, kenangan, atau motivasi pribadi dari gambar. Tidak boleh membuat isian palsu seperti `"unknown"` hanya untuk memaksa kelengkapan semu.
+
+Referensi: `docs/game-dev/NPC_PORTRAIT_NULL_ENRICHMENT.md`. Pengujian: `npm run chars:portrait:check`.

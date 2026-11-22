@@ -35,11 +35,33 @@ for(const r of rows){
  assert.equal(doc.approval,'draft');
  assert.equal(doc.publicationStatus,'public-fictional-draft');
  assert.deepEqual(Object.keys(doc.sections),categories);
- assert.equal(doc.sections['01_core_identity'].ageYears,null);
- assert.equal(doc.sections['01_core_identity'].origin,null);
- assert.equal(doc.sections['04_social_profile'].education,null);
- assert.equal(doc.sections['07_background_history'].familyContext,null);
- assert.equal(doc.sections['07_background_history'].formativeMemory,null);
+ // Creator-authorized fictional draft updates. Exact ages are creative options,
+ // never claims inferred from a real person's photograph.
+ const isCameo=['P01','P02'].includes(r.id);
+ const core=doc.sections['01_core_identity'];
+ const social=doc.sections['04_social_profile'];
+ const history=doc.sections['07_background_history'];
+ const physical=doc.sections['02_physical_appearance'];
+ const visual=doc.sections['11_visual_references'];
+ assert.equal(core.origin,null,'unknown birth origin must not be invented');
+ assert.equal(history.familyContext,null,'unreviewed family relationships must stay unassigned');
+ assert.ok(typeof physical.physicalTraits==='string'&&physical.physicalTraits.length>45,'portrait observations missing');
+ assert.equal(doc.visualEvidence.assetKey,r.portrait);
+ assert.equal(doc.visualEvidence.path,'public'+doc.portraitUrl);
+ assert.equal(doc.visualEvidence.source,'original-canonical-GitHub-portrait');
+ assert.ok(doc.fieldProvenance['02_physical_appearance.physicalTraits']);
+ if(!isCameo){
+  assert.ok(Number.isInteger(core.ageYears)&&core.ageYears>=21&&core.ageYears<=90,'fictional age candidate missing');
+  assert.ok(typeof core.preferredName==='string'&&core.preferredName.length>1);
+  assert.ok(typeof core.language==='string'&&core.language.includes('Bahasa Indonesia'));
+  assert.ok(typeof social.education==='string'&&social.education.length>20);
+  assert.ok(typeof history.formativeMemory==='string'&&history.formativeMemory.length>45);
+  assert.ok(doc.fieldProvenance['01_core_identity.ageYears'].claimType==='not-a-factual-age');
+ }else{
+  assert.equal(core.ageYears,null,'do not infer exact cameo age');
+  assert.equal(social.education,null,'do not invent real cameo educational history');
+  assert.equal(history.formativeMemory,null,'do not invent real cameo formative memories');
+ }
  assert.equal(doc.sections['08_relationship_dynamics'].connections.length,0);
  const s=doc.sections['12_continuity_current_state'];
  assert.equal(s.playableRuntimeConfirmed,false);
@@ -59,4 +81,4 @@ for(const r of rows){
    assert.equal(mind[key],null,'real-world cameo personal psychology prohibited');
  }
 }
-console.log('PASS: public fictional 248 NPC catalog, 12 sections, immutable fingerprint, 248 portraits and 248 wiki pages');
+console.log('PASS: public fictional 248 NPC catalog, 12 sections, immutable fingerprint, 248 portraits and 248 wiki pages; 248 visual notes and guarded fictional lore');
