@@ -7,6 +7,8 @@ description: Alur wajib pembuatan cutscene sinematik YZ Farm Life, dari dua fram
 
 Gunakan skill ini setiap kali ada permintaan **buat/revisi frame awal, frame akhir, video cutscene, replay Kenangan, atau integrasi cutscene ke gameplay**. Ini adalah aturan produksi developer, bukan teks yang muncul di permainan. Baca `AGENTS.md`, `docs/game-dev/CUTSCENE_PRODUCTION_STANDARD.md`, `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md`, serta skill Humanizer untuk narasi.
 
+Template siap pakai untuk tiga generasi terpisah (frame awal, frame akhir, dan video Google Flow): [dual-frame-and-flow.md](templates/dual-frame-and-flow.md).
+
 ## Pembagian tanggung jawab
 
 **AI/game editor mengerjakan:** audit misi dan peta, verifikasi identitas canonical, penyusunan storyboard, **membuat dua gambar referensi independen: FRAME AWAL dan FRAME AKHIR**, prompt untuk Google Flow/Veo, inspeksi video unggahan pemilik, pemrosesan file tanpa merusak kualitas, penggantian aset GitHub, tes runtime, dan staging.
