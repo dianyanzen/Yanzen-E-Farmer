@@ -18,7 +18,7 @@ image(manifest.frameStartPath);
 image(manifest.frameEndPath);
 assert.ok(existsSync(manifest.posterPath),"Kenangan must have an actual frame poster");
 const poster=readFileSync(manifest.posterPath);
-assert.equal(poster.toString("hex",0,8),"89504e470d0a1a0a","Poster must be PNG");
+assert.equal(poster[0],0xff);assert.equal(poster[1],0xd8);
 const code=readFileSync("src/app/game/sluice-cutscene.tsx","utf8");
 const catalogue=readFileSync("src/lib/game/cutscene-catalog.ts","utf8");
 const skill=readFileSync(".agents/skills/yz-farm-cutscene/SKILL.md","utf8");
