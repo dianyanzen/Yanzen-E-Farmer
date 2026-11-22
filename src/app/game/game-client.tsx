@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
-import { castRod,reelFish,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET } from "@/lib/game/model";
+import { castRod,reelFish,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
@@ -475,7 +475,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
       if(next!==game){setGame(next);void persist(next);}
     }else if(context.kind==="sluice"){
-      const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !game.sluiceCutsceneSeen;
+      const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !hasSluiceMemory(game);
       const next:GameState={...game,sluiceOpen:!game.sluiceOpen,...(firstOpen?{sluiceCutsceneSeen:true}:{})};
       setGame(next);void persist(next);
       if(firstOpen){setToast("");setCutscene("sluice-open");}
@@ -851,13 +851,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <b>Album Kenangan</b>
                 <p>Beberapa momen layak disimpan lebih lama dari satu hari. Kamu bisa melihatnya kembali di sini.</p>
                 <div className="yzg-memory-entry">
-                  <div className={"yzg-memory-cover"+(game.sluiceCutsceneSeen?" unlocked":" locked")} aria-hidden="true">
-                    {game.sluiceCutsceneSeen?"◈":"?"}
+                  <div className={"yzg-memory-cover"+(hasSluiceMemory(game)?" unlocked":" locked")} aria-hidden="true">
+                    {hasSluiceMemory(game)?"◈":"?"}
                   </div>
                   <div>
-                    <strong>{game.sluiceCutsceneSeen?"Pintu Air Pasirluyu":"Kenangan yang belum terbuka"}</strong>
-                    <small>{game.sluiceCutsceneSeen?"Roda yang lama diam kembali bergerak.":"Lanjutkan perjalanan dan bantu warga."}</small>
-                    {game.sluiceCutsceneSeen && <button type="button" onClick={()=>{
+                    <strong>{hasSluiceMemory(game)?"Pintu Air Pasirluyu":"Kenangan yang belum terbuka"}</strong>
+                    <small>{hasSluiceMemory(game)?"Roda yang lama diam kembali bergerak.":"Lanjutkan perjalanan dan bantu warga."}</small>
+                    {hasSluiceMemory(game) && <button type="button" onClick={()=>{
                       setPhoneOpen(false);setToast("");setCutscene("sluice-open");
                     }}>Putar ulang adegan</button>}
                   </div>
