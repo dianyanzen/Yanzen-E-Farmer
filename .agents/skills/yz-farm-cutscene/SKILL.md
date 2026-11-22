@@ -56,6 +56,16 @@ Template siap pakai untuk tiga generasi terpisah (frame awal, frame akhir, dan v
 6. **Quality gate:** cek metadata, checksum, semua sumber aset, `npm run test:game`, `npm run typecheck`, QA smartphone Safari/Android dan preview Vercel. Jangan mengklaim uji perangkat nyata jika hanya tes CI.
 7. **Penggantian:** hapus artefak runtime lama yang tidak terpakai dan build automation usang **setelah** memverifikasi tidak ada pemanggil lain; katalog/manifest harus tetap akurat.
 
+## Standar area tayang: game world, bukan browser (revisi 22 November 2026)
+
+- Cutscene harus menjadi **anak `.yzg-viewport`**, berposisi `absolute; inset:0`, bukan `position:fixed` atau modal selebar `100vw × 100dvh` yang menutupi kontrol.
+- **Wajib pertahankan aspek asli video** berdasarkan metadata, bukan mengubahnya menjadi 16:9 secara paksa bila sumber sedikit berbeda. Video Pasirluyu 910×512 menggunakan `aspect-ratio:910/512; object-fit:contain` tanpa memotong gambar maupun re-encode.
+- Subtitle dan tombol kontrol khusus cutscene berada **di bawah video tetapi tetap di dalam world viewport**. Hitung ruang melalui `ResizeObserver` terhadap ukuran world, caption dan tombol; jangan membiarkan label menabrak alat, D-pad, YZ Phone, atau kontrol lari.
+- Selama cutscene, kontrol gerak dan tools permainan dalam `.yzg-controls` dan `.yzg-touch` bersifat `inert`. Pada mobile lanskap pendek, boleh sembunyikan sementara kontrol yang tidak diperlukan agar viewport membesar; setelah cutscene selesai tampilkan kembali.
+- Tombol fullscreen sinematik jika ada harus memperbesar **game page** secara sukarela, bukan `video.webkitEnterFullscreen` yang keluar dari area permainan pada Safari iPhone.
+- QA visual wajib untuk 390×844, 393×852, 844×390, 1280×800 dan 1440×900 (atau variannya), dengan bukti geometri: video, subtitle dan tombol 100% masuk world viewport; world tidak bertabrakan dengan panel game.
+- Gunakan `node tests/game-cutscene-viewport-ui.mjs` sebagai pemeriksaan browser setelah mengubah CSS/komponen cutscene. Tes ini hanya simulasi Chromium; uji Safari nyata tetap terpisah.
+
 ## Definition of Done
 
 - Dua frame tervalidasi dan dapat direproduksi untuk setiap cutscene baru.
