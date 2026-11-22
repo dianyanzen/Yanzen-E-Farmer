@@ -11,7 +11,7 @@ const keys=[
  "12_continuity_current_state"
 ] as const;
 const isRecord=(x:unknown):x is Record<string,unknown>=>x!==null&&typeof x==="object"&&!Array.isArray(x);
-export async function readPrivateResidentBible(resident:ResidentProfile):Promise<CharacterBible|null>{
+export async function readPrivateResidentBible(resident:ResidentProfile,options:{allowDraft?:boolean}={}):Promise<CharacterBible|null>{
  const inputPath=process.env.GAME_RESIDENT_BIBLES||"deploy/private/character-bibles.json";
  const file=isAbsolute(inputPath)?inputPath:resolve(process.cwd(),inputPath);
  let data:unknown;
@@ -20,7 +20,13 @@ export async function readPrivateResidentBible(resident:ResidentProfile):Promise
  if(!isRecord(data))return null;
  const source=isRecord(data.profiles)?data.profiles:data;
  const raw=source[resident.id];
- if(!isRecord(raw)||raw.id!==resident.id||raw.approval!=="approved"||!isRecord(raw.sections))return null;
+ if(!isRecord(raw)||raw.id!==resident.id||!isRecord(raw.sections))return null;
+ const preview=options.allowDraft===true&&raw.approval==="draft";
+ if(raw.approval!=="approved"&&!preview)return null;
+ // Reject contradictory top-level identities; absent fields are supported for old private scaffolds.
+ if((raw.name!==undefined&&raw.name!==resident.name)||
+   (raw.occupation!==undefined&&raw.occupation!==resident.occupation)||
+   (raw.portrait!==undefined&&raw.portrait!==resident.portrait))return null;
  if(!keys.every(key=>isRecord(raw.sections)&&isRecord(raw.sections[key])))return null;
  const sections={...raw.sections} as Record<string,Record<string,unknown>>;
  // Approval must mean all 12 categories were individually authored and reviewed.
@@ -29,16 +35,17 @@ export async function readPrivateResidentBible(resident:ResidentProfile):Promise
   typeof value==="string"?notWritten.test(value):
   Array.isArray(value)?value.some(hasPlaceholder):
   isRecord(value)?Object.values(value).some(hasPlaceholder):false;
- if(keys.some(key=>hasPlaceholder(sections[key])))return null;
+ if(!preview&&keys.some(key=>hasPlaceholder(sections[key])))return null;
  const traitList=sections["05_personality"].traits;
  const beats=sections["10_narrative_development"].threeActBeats;
  const line=sections["09_dialogue_behavior"].sampleLine;
- if(!Array.isArray(traitList)||traitList.length<2||
+ if(!preview&&(!Array.isArray(traitList)||traitList.length<2||
    !Array.isArray(beats)||beats.length!==3||new Set(beats).size!==3||
-   typeof line!=="string"||line.trim().length<20)return null;
+   typeof line!=="string"||line.trim().length<20))return null;
  // Canonical truth always comes from the roster, never from a copied old biography.
- sections["01_core_identity"]={...sections["01_core_identity"],name:resident.name};
+ sections["01_core_identity"]={...sections["01_core_identity"],name:resident.name,fullName:resident.name};
  sections["04_social_profile"]={...sections["04_social_profile"],occupation:resident.occupation};
- sections["11_visual_references"]={...sections["11_visual_references"],conceptPortrait:bandungConceptPortraitPath(resident.portrait)};
- return {id:resident.id,approval:"approved",characterClass:"canonical-private",sections} as unknown as CharacterBible;
+ sections["11_visual_references"]={...sections["11_visual_references"],portraitKey:resident.portrait,conceptPortrait:bandungConceptPortraitPath(resident.portrait)};
+ // The caller must separately authorize draft access. No state, flags or approvals are modified.
+ return {id:resident.id,approval:raw.approval,characterClass:"canonical-private",sections} as unknown as CharacterBible;
 }

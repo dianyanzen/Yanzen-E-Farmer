@@ -6,6 +6,7 @@ import {z} from "zod";
 import type {ResidentProfile} from "./resident-profile";
 import cast from "../../../game-assets/catalog/cast.json";
 import previews from "./data/bandung-character-previews.json";
+import publicRoster from "../../../game-assets/catalog/npc-public-roster.json";
 import {bandungConceptPortraitPath} from "./bandung-concept-portrait";
 
 const residentSchema=z.object({
@@ -43,7 +44,20 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
  try {
   // Optional secret environment value for Vercel. Never use NEXT_PUBLIC_ for this data.
   const injected=process.env.GAME_RESIDENT_ROSTER_JSON;
-  source=JSON.parse(injected!==undefined?injected:await readFile(path,"utf8"));
+  if(injected!==undefined){
+   source=JSON.parse(injected);
+  }else{
+   try{
+    source=JSON.parse(await readFile(path,"utf8"));
+   }catch(error){
+    // Owner authorizes publication of the fictional canonical NPC roster.
+    // Only the absent default private file falls back to public; malformed explicit
+    // secrets and an explicitly configured missing private path remain fail-closed.
+    if((error as NodeJS.ErrnoException).code==="ENOENT"&&!process.env.GAME_RESIDENT_ROSTER)
+     source=publicRoster;
+    else throw error;
+   }
+  }
  }
  catch(error){
    if((error as NodeJS.ErrnoException).code!=="ENOENT") console.error("[residents] private roster unreadable");

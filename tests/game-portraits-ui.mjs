@@ -45,11 +45,11 @@ await build({
 await writeFile(path.join(output, 'index.html'), '<!doctype html><html lang="id"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"><style>body{margin:0}button{cursor:pointer;font:inherit}*{box-sizing:border-box}</style><div id="root"></div><script src="/app.js"></script></html>');
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
-  const target = url.pathname.startsWith('/game/assets/') ? path.join(process.cwd(), 'public', url.pathname) :
+  const target = (url.pathname.startsWith('/game/assets/') || url.pathname.startsWith('/game/data/')) ? path.join(process.cwd(), 'public', url.pathname) :
     path.join(output, url.pathname === '/' ? 'index.html' : url.pathname);
   try {
     const data = await readFile(target);
-    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.png') ? 'image/png' : 'text/html');
+    res.setHeader('Content-Type', target.endsWith('.css') ? 'text/css' : target.endsWith('.js') ? 'text/javascript' : target.endsWith('.json') ? 'application/json' : target.endsWith('.png') ? 'image/png' : 'text/html');
     res.end(data);
   } catch { res.statusCode = 404; res.end('Not found'); }
 });
@@ -74,60 +74,72 @@ async function start(page) {
 
 try {
  const page=await browser.newPage({viewport:{width:393,height:852},reducedMotion:"reduce"});
- const requests=[];
- page.on("request",r=>{if(r.url().includes("/game/assets/portraits/")&&r.url().endsWith(".png"))requests.push(r.url());});
+ const failures=[];
+ page.on('pageerror',e=>failures.push(e.message));
+ const portraits=[];
+ page.on("request",request=>{
+  if(request.url().includes("/game/assets/portraits/bandung/")&&request.url().endsWith(".png"))
+   portraits.push(request.url());
+ });
  await start(page);
- assert.equal(requests.length,0,"portraits are not fetched before use");
+ assert.equal(portraits.length,0,"no citizen portraits fetched before Warga opens");
  await page.getByRole("button",{name:/^▣ YZ Phone/}).click();
  await page.getByRole("button",{name:/Warga$/}).click();
- assert.equal(await page.locator("[data-character-card]").count(),12,"phone shows a compact list first");
- const search=page.getByRole("searchbox",{name:"Cari nama atau pekerjaan"});
- const people=JSON.parse(await readFile("game-assets/catalog/cast.json","utf8")).characters;
- for(const person of people){
-  await search.fill(person.name);
+ await page.waitForFunction(()=>document.querySelectorAll('[data-character-card]').length===10);
+ assert.equal(await page.locator('[data-character-card]').count(),10,"single Warga list paginates public 248 NPCs");
+ assert.equal(await page.getByRole('button',{name:"Wargapedia",exact:true}).count(),0,"no duplicate Wargapedia app");
+
+ const index=JSON.parse(await readFile('public/game/data/npc/index.json','utf8'));
+ assert.equal(index.characterCount,248);
+ const sample=[index.characters[0],index.characters[1],index.characters[17],index.characters[247]];
+ const search=page.getByRole("searchbox",{name:"Cari karakter"});
+ for(const person of sample){
+  await search.fill(person.id);
   const card=page.locator('[data-character-card="'+person.id+'"]');
+  await card.waitFor();
   await card.click();
   const detail=page.locator('[data-character-detail="'+person.id+'"]');
   await detail.waitFor();
-  assert.equal(await detail.locator(".yzg-citizen-section").count(),12,"all twelve profile categories available");
-  await page.waitForFunction(id=>{
-   const img=document.querySelector('[data-character-detail="'+id+'"] .yzg-portrait img');
-   return img?.complete&&img.naturalWidth===1536;
-  },person.id);
-  assert.equal(await detail.locator(".yzg-portrait").getAttribute("data-character"),person.id);
-  await detail.getByRole("button",{name:/Daftar warga/}).click();
+  await detail.getByText(person.name,{exact:true}).waitFor();
+  await detail.locator('.yzg-wargapedia-chapters details').first().waitFor();
+  assert.equal(await detail.locator('.yzg-wargapedia-chapters details').count(),12,"12 Character Bible chapters open to players at Lv.0");
+  assert.equal(await detail.getByText('Hubungan kalian').count(),1,"relationship status appears alongside lore");
+  await detail.locator('img').first().evaluate(async img=>{
+   if(!img.complete)await new Promise((resolve,reject)=>{
+    img.addEventListener('load',resolve,{once:true});
+    img.addEventListener('error',reject,{once:true});
+   });
+   if(!img.naturalWidth)throw Error("Missing canonical portrait asset");
+  });
+  await detail.getByRole("button",{name:"Daftar warga"}).click();
  }
- await search.fill("Nida");
- await page.locator('[data-character-card="A13"]').click();
- const labels=["Netral","Senang","Sedih","Khawatir","Terkejut","Kesal","Malu","Tertawa"];
- const values=["neutral","happy","sad","worried","surprised","annoyed","shy","laughing"];
- for(let i=0;i<8;i++){
-  await page.getByRole("button",{name:labels[i],exact:true}).click();
-  assert.equal(await page.locator('[data-character-detail="A13"] .yzg-portrait').getAttribute("data-emotion"),values[i]);
-  assert.equal(await page.locator('[data-character-detail="A13"] img').evaluate(im=>im.style.left),(-i*100)+"%");
- }
- await page.screenshot({path:path.join(output,"portrait-detail-mobile.png"),fullPage:true});
- await page.getByRole("button",{name:/Daftar warga/}).click();
  await search.fill("not-a-character");
- await page.getByRole("status").filter({hasText:"Belum ada warga dengan nama atau pekerjaan itu"}).waitFor();
- assert.equal(new Set(requests.map(u=>u.split("/").pop())).size,32);
+ await page.getByRole("status").filter({hasText:"Belum ada karakter dengan nama atau pekerjaan tersebut"}).waitFor();
+ await search.fill("");
+ await page.screenshot({path:path.join(output,"warga-merged-mobile.png"),fullPage:true});
+ assert.ok(portraits.length>0,"portrait files are lazy-loaded as citizen directory is browsed");
+
  await page.getByRole("button",{name:"Kembali"}).click();
- await page.getByRole("button",{name:"Kronik",exact:true}).click();
+ await page.getByRole("button",{name:/Kronik$/}).click();
  await page.getByRole("heading",{name:"Empat Timun dan Satu Nama"}).waitFor();
  assert.equal(await page.getByRole("progressbar",{name:"Kemajuan cerita utama"}).getAttribute("value"),"0");
  await page.getByRole("button",{name:"Misi",exact:true}).click();
  await page.getByText("Urusan warga").waitFor();
  await page.getByRole("button",{name:"Jejak hari",exact:true}).click();
  await page.getByRole("button",{name:"Salin ringkasan cerita"}).waitFor();
- const broken=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:"reduce"});
- await broken.route("**/game/assets/portraits/C16.png",route=>route.abort());
+
+ const broken=await browser.newPage({viewport:{width:390,height:844},reducedMotion:"reduce"});
+ const missing=sample[0].portraitUrl;
+ await broken.route("**"+missing,route=>route.abort());
  await start(broken);
  await broken.getByRole("button",{name:/^▣ YZ Phone/}).click();
  await broken.getByRole("button",{name:/Warga$/}).click();
- await broken.getByRole("searchbox").fill("Karisma");
- await broken.locator('[data-character-card="C16"]').click();
- await broken.locator('[data-character-detail="C16"] .yzg-portrait-fallback').waitFor();
- assert.equal(await broken.locator('[data-character-detail="C16"] .yzg-portrait-fallback').innerText(),"K");
+ await broken.getByRole("searchbox",{name:"Cari karakter"}).fill(sample[0].id);
+ await broken.locator('[data-character-card="'+sample[0].id+'"]').click();
+ await broken.getByText(sample[0].name,{exact:true}).waitFor();
+ assert.equal(await broken.locator('.yzg-wargapedia-chapters details').count(),12,"missing portrait cannot hide lore");
+
+ assert.deepEqual(failures,[]);
  assert.deepEqual(errors,[]);
- console.log("Portrait browser: all 32 assets, eight expressions, search, lazy loading, responsive gallery and failed-image fallback: PASS");
+ console.log("Warga browser: one entry, 248 catalog, search, twelve lore sections at level zero, relationship history, image failure resilience and Kronik: PASS");
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}

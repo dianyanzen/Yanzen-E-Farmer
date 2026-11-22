@@ -1,0 +1,1745 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-11-22",
+  "canonicalFingerprintSha256": "cd19795344bbb4fefc0022a3f17d25135d79624de4d5d9c6c618699cc1f871a0",
+  "identityCount": 248,
+  "notes": "Git blob SHAs reflect source assets used for current visual descriptions. Compare them before reusing character physicalTraits after portrait edits.",
+  "portraits": [
+    {
+      "id": "A02",
+      "portrait": "work-A02",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A02.png",
+      "gitBlobSha": "620d3a4df52b1c8c640f38c66a51a3e59157efe6",
+      "sizeBytes": 99770
+    },
+    {
+      "id": "A03",
+      "portrait": "work-A03",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A03.png",
+      "gitBlobSha": "6cf5a5c692d856de25e65f9a3307467afbe5fb8f",
+      "sizeBytes": 108709
+    },
+    {
+      "id": "A04",
+      "portrait": "work-A04",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A04.png",
+      "gitBlobSha": "60aca1f18e64d418cc9bc81339ec47a988fa71af",
+      "sizeBytes": 108862
+    },
+    {
+      "id": "A05",
+      "portrait": "work-A05",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A05.png",
+      "gitBlobSha": "3c07553dce9801e9b8f3c0dab46727c129a1f540",
+      "sizeBytes": 106970
+    },
+    {
+      "id": "A06",
+      "portrait": "work-A06",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A06.png",
+      "gitBlobSha": "5153e3220278e8de5f4c1771fb72f44b843d4695",
+      "sizeBytes": 108954
+    },
+    {
+      "id": "A07",
+      "portrait": "work-A07",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A07.png",
+      "gitBlobSha": "0e44ae4ad268df322b75787c256878c07578b3d2",
+      "sizeBytes": 109254
+    },
+    {
+      "id": "A08",
+      "portrait": "work-A08",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A08.png",
+      "gitBlobSha": "2f99776171c23c941579608e7f3ae3376d185535",
+      "sizeBytes": 113724
+    },
+    {
+      "id": "A09",
+      "portrait": "work-A09",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A09.png",
+      "gitBlobSha": "2b5c30ecc1330c1ecd129a450b1b7bef98bf0f12",
+      "sizeBytes": 109164
+    },
+    {
+      "id": "A10",
+      "portrait": "work-A10",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A10.png",
+      "gitBlobSha": "b09a89da8e572cf2c4cac5feb1ee002d73a5e435",
+      "sizeBytes": 106082
+    },
+    {
+      "id": "A11",
+      "portrait": "work-A11",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A11.png",
+      "gitBlobSha": "ad8d11a9a53c0e7fb7be98831b826ab33673f234",
+      "sizeBytes": 107141
+    },
+    {
+      "id": "A12",
+      "portrait": "work-A12",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A12.png",
+      "gitBlobSha": "7abf50dbab80a129e1cb6c0bef5cf5f38bd8a36b",
+      "sizeBytes": 108284
+    },
+    {
+      "id": "A13",
+      "portrait": "work-A13",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A13.png",
+      "gitBlobSha": "903a756031fa84f8d9e797b1024d94c8eb34ad7c",
+      "sizeBytes": 107239
+    },
+    {
+      "id": "A14",
+      "portrait": "work-A14",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A14.png",
+      "gitBlobSha": "990e3d28bcd62ad6549e0d7b7af37cbfd1747328",
+      "sizeBytes": 105395
+    },
+    {
+      "id": "A15",
+      "portrait": "work-A15",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A15.png",
+      "gitBlobSha": "a19bf8e162ef005d5f71a062fe08f4f69186bd1e",
+      "sizeBytes": 106083
+    },
+    {
+      "id": "A16",
+      "portrait": "work-A16",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-A16.png",
+      "gitBlobSha": "3053ecbc4d13b259994ae839e360045a904934f3",
+      "sizeBytes": 115148
+    },
+    {
+      "id": "C01",
+      "portrait": "work-C01",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C01.png",
+      "gitBlobSha": "f9d77260a1cd6b604cb3ccbe2555a007a7babda3",
+      "sizeBytes": 110339
+    },
+    {
+      "id": "C02",
+      "portrait": "work-C02",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C02.png",
+      "gitBlobSha": "48e93adb40a31d222bdbf23954bbc05ee614cdb6",
+      "sizeBytes": 108319
+    },
+    {
+      "id": "C03",
+      "portrait": "work-C03",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C03.png",
+      "gitBlobSha": "c76cf5087e0a8b64539c4b7791f5a264604d476f",
+      "sizeBytes": 118371
+    },
+    {
+      "id": "C04",
+      "portrait": "work-C04",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C04.png",
+      "gitBlobSha": "d8e655ec4ce74d1699560bf00a87a2fb9c029e78",
+      "sizeBytes": 106437
+    },
+    {
+      "id": "C05",
+      "portrait": "work-C05",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C05.png",
+      "gitBlobSha": "3c35c73d3b52b41fc9e5ed5e6265dfb8e83aa26d",
+      "sizeBytes": 106742
+    },
+    {
+      "id": "C06",
+      "portrait": "work-C06",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C06.png",
+      "gitBlobSha": "e43974271f61a6642d850a6571fabc1a03b29f15",
+      "sizeBytes": 113249
+    },
+    {
+      "id": "C07",
+      "portrait": "work-C07",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C07.png",
+      "gitBlobSha": "e5523827c9ae815516883e6805cf582c42218232",
+      "sizeBytes": 108000
+    },
+    {
+      "id": "C08",
+      "portrait": "work-C08",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C08.png",
+      "gitBlobSha": "1d14f403a8d6055986fac26649c25b639485c698",
+      "sizeBytes": 99711
+    },
+    {
+      "id": "C09",
+      "portrait": "work-C09",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C09.png",
+      "gitBlobSha": "a48b8cc5125c3d4c12c8f8ee2d203ba85508550e",
+      "sizeBytes": 111828
+    },
+    {
+      "id": "C10",
+      "portrait": "work-C10",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C10.png",
+      "gitBlobSha": "a575288edfb176373a6f5af31457d7ea68082bd9",
+      "sizeBytes": 108991
+    },
+    {
+      "id": "C11",
+      "portrait": "work-C11",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C11.png",
+      "gitBlobSha": "a2c0a5399e207c1a0139805a478b79d59a43cc82",
+      "sizeBytes": 111734
+    },
+    {
+      "id": "C12",
+      "portrait": "work-C12",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C12.png",
+      "gitBlobSha": "d4eabf07b748a3ba1659b093e5ef54cce89f5a21",
+      "sizeBytes": 109975
+    },
+    {
+      "id": "C13",
+      "portrait": "work-C13",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C13.png",
+      "gitBlobSha": "20a99f7b49521a2763778dabd2e3a01772de18e6",
+      "sizeBytes": 110190
+    },
+    {
+      "id": "C14",
+      "portrait": "work-C14",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C14.png",
+      "gitBlobSha": "047d6abd98704871a842a16c801e5649811c4bef",
+      "sizeBytes": 100987
+    },
+    {
+      "id": "C15",
+      "portrait": "work-C15",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C15.png",
+      "gitBlobSha": "4efee3927f7a45d02353af997f0a8c8d241a6668",
+      "sizeBytes": 112218
+    },
+    {
+      "id": "C16",
+      "portrait": "work-C16",
+      "assetPath": "public/game/assets/portraits/bandung/professions/work-C16.png",
+      "gitBlobSha": "91115577fc3133c563922eba28fcc24152b20036",
+      "sizeBytes": 121780
+    },
+    {
+      "id": "K01",
+      "portrait": "K14",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K14.png",
+      "gitBlobSha": "3efc3caf8cbbf3f3e55f686d365794b99d06fa0e",
+      "sizeBytes": 95441
+    },
+    {
+      "id": "K02",
+      "portrait": "K02",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K02.png",
+      "gitBlobSha": "fdc843aaa178dfbd09fe71c6076e8dfffeeff9d3",
+      "sizeBytes": 98473
+    },
+    {
+      "id": "K03",
+      "portrait": "K06",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K06.png",
+      "gitBlobSha": "c20831771fb6cb4fa7938c52a23c6a14e36cda9a",
+      "sizeBytes": 102760
+    },
+    {
+      "id": "K04",
+      "portrait": "K04",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K04.png",
+      "gitBlobSha": "e3e897ca677528246a765d50aa82993aefffa569",
+      "sizeBytes": 98490
+    },
+    {
+      "id": "K05",
+      "portrait": "R157",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R157.png",
+      "gitBlobSha": "32a41c92232fc765c7846ced4a468c5794b97b45",
+      "sizeBytes": 62593
+    },
+    {
+      "id": "K06",
+      "portrait": "K26",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K26.png",
+      "gitBlobSha": "62189687d82c9a69c01b457ae9159a7a0d69b392",
+      "sizeBytes": 92789
+    },
+    {
+      "id": "K07",
+      "portrait": "K27",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K27.png",
+      "gitBlobSha": "be0aa4baf337f6825bde612342dafd8ad0ddbc76",
+      "sizeBytes": 104208
+    },
+    {
+      "id": "K08",
+      "portrait": "R156",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R156.png",
+      "gitBlobSha": "35fc00abce129de61313e7e2900618cfcdb3a393",
+      "sizeBytes": 65386
+    },
+    {
+      "id": "K09",
+      "portrait": "R104",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R104.png",
+      "gitBlobSha": "dc90ae5b064e542f446877e59949c5bc86202d58",
+      "sizeBytes": 69206
+    },
+    {
+      "id": "K10",
+      "portrait": "K10",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K10.png",
+      "gitBlobSha": "a235c33e10b245491fdda47972296ed6459fc2d7",
+      "sizeBytes": 98238
+    },
+    {
+      "id": "K11",
+      "portrait": "K16",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K16.png",
+      "gitBlobSha": "1adbee08a887e5d7697693c848bf761e4a67f32b",
+      "sizeBytes": 98731
+    },
+    {
+      "id": "K12",
+      "portrait": "R108",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R108.png",
+      "gitBlobSha": "da55eb78a6f516ecf87f0ce0051237ddb89e24a2",
+      "sizeBytes": 64147
+    },
+    {
+      "id": "K13",
+      "portrait": "K20",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K20.png",
+      "gitBlobSha": "e486297c7e8db986d60ae47db3f5703392c3cf77",
+      "sizeBytes": 103659
+    },
+    {
+      "id": "K14",
+      "portrait": "N06",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N06.png",
+      "gitBlobSha": "65f96ba5816582e2195822a30c00af89808b1cbd",
+      "sizeBytes": 292460
+    },
+    {
+      "id": "K15",
+      "portrait": "R034",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R034.png",
+      "gitBlobSha": "0fe826c82890eb58c86df53e153e82868a3f1dba",
+      "sizeBytes": 68057
+    },
+    {
+      "id": "K16",
+      "portrait": "R035",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R035.png",
+      "gitBlobSha": "1fe1ae62530ae584a6e4064fe1a43f2223351710",
+      "sizeBytes": 65753
+    },
+    {
+      "id": "K17",
+      "portrait": "K17",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K17.png",
+      "gitBlobSha": "40116e3a5436d24a5b0bf6dd168845abfbbd8d8f",
+      "sizeBytes": 110538
+    },
+    {
+      "id": "K18",
+      "portrait": "R039",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R039.png",
+      "gitBlobSha": "49e3764c77c012032f54715b08363e73ea701d5e",
+      "sizeBytes": 59411
+    },
+    {
+      "id": "K19",
+      "portrait": "R109",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R109.png",
+      "gitBlobSha": "d861a786f2d379240c3e9d71830672cbdef5be33",
+      "sizeBytes": 76449
+    },
+    {
+      "id": "K20",
+      "portrait": "K29",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K29.png",
+      "gitBlobSha": "f754609fb56f75ef5a424a300a48d2f126e38c4b",
+      "sizeBytes": 102466
+    },
+    {
+      "id": "K21",
+      "portrait": "R008",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R008.png",
+      "gitBlobSha": "6b554adf1b38fb6207dd6ba7ef202ea0044e52ea",
+      "sizeBytes": 73231
+    },
+    {
+      "id": "K22",
+      "portrait": "K22",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K22.png",
+      "gitBlobSha": "20b6456ecf9c335775fcddc0d115454b78078974",
+      "sizeBytes": 98043
+    },
+    {
+      "id": "K23",
+      "portrait": "R040",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R040.png",
+      "gitBlobSha": "61ecc911d1f6625e56009b133d819d48f99687bf",
+      "sizeBytes": 61610
+    },
+    {
+      "id": "K24",
+      "portrait": "R023",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R023.png",
+      "gitBlobSha": "46ff4c01e6bf06ee6eb9863f49fe2bfe0c592672",
+      "sizeBytes": 76046
+    },
+    {
+      "id": "K25",
+      "portrait": "R042",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R042.png",
+      "gitBlobSha": "71b95a4cb7c6eb20970d50df2d120c3e445ff857",
+      "sizeBytes": 63157
+    },
+    {
+      "id": "K26",
+      "portrait": "R049",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R049.png",
+      "gitBlobSha": "f27e49662d196f47c29a734d5061d4c08fba85f9",
+      "sizeBytes": 64679
+    },
+    {
+      "id": "K27",
+      "portrait": "K09",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K09.png",
+      "gitBlobSha": "3a91b561dd9e282733db5fceb1bf5d57453ca816",
+      "sizeBytes": 112917
+    },
+    {
+      "id": "K28",
+      "portrait": "K28",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K28.png",
+      "gitBlobSha": "da7d3aea209a74ae3160c6c46cc1e07cf0c0b258",
+      "sizeBytes": 92771
+    },
+    {
+      "id": "K29",
+      "portrait": "R113",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R113.png",
+      "gitBlobSha": "ef28902c375011494a841bfd80614da0789c864a",
+      "sizeBytes": 68175
+    },
+    {
+      "id": "K30",
+      "portrait": "K18",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K18.png",
+      "gitBlobSha": "f79b8454a3ef282c288e89ee4de67578dcd515fb",
+      "sizeBytes": 98484
+    },
+    {
+      "id": "N01",
+      "portrait": "N01",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N01.png",
+      "gitBlobSha": "4cfac122260dfbeb20767c7a9677da0dd6d7b4c9",
+      "sizeBytes": 287163
+    },
+    {
+      "id": "N02",
+      "portrait": "N02",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N02.png",
+      "gitBlobSha": "dee3b65634134f5350f78796b293faaac5556223",
+      "sizeBytes": 254776
+    },
+    {
+      "id": "N03",
+      "portrait": "R070",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R070.png",
+      "gitBlobSha": "9958c36e61667556e7fa0202f5c19178a4cffb4d",
+      "sizeBytes": 68091
+    },
+    {
+      "id": "N04",
+      "portrait": "K01",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K01.png",
+      "gitBlobSha": "8a7fa97573ccb41968f941ed76e25746eae8e2dc",
+      "sizeBytes": 92972
+    },
+    {
+      "id": "N05",
+      "portrait": "R074",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R074.png",
+      "gitBlobSha": "c86902693e99103f542656ffbb02b1cc2e8ff439",
+      "sizeBytes": 68096
+    },
+    {
+      "id": "N06",
+      "portrait": "R056",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R056.png",
+      "gitBlobSha": "be5fa8753d6ded2f0be9e82f69c7b53654ae66b8",
+      "sizeBytes": 64724
+    },
+    {
+      "id": "P01",
+      "portrait": "P01",
+      "assetPath": "public/game/assets/portraits/bandung/civic/P01.png",
+      "gitBlobSha": "66eb465a85f7646cd13150f9a718748dd7f052bc",
+      "sizeBytes": 229991
+    },
+    {
+      "id": "P02",
+      "portrait": "P02",
+      "assetPath": "public/game/assets/portraits/bandung/civic/P02.png",
+      "gitBlobSha": "b349ef580ff67a65136fbfaeae6e54b56007cf69",
+      "sizeBytes": 234679
+    },
+    {
+      "id": "W001",
+      "portrait": "R073",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R073.png",
+      "gitBlobSha": "b6d1cef4a85a2867ffc8c2a3411aa5f3f5a5f86f",
+      "sizeBytes": 68256
+    },
+    {
+      "id": "W002",
+      "portrait": "R063",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R063.png",
+      "gitBlobSha": "c3db48d756734c74ff40b255296bc106f34efb90",
+      "sizeBytes": 67779
+    },
+    {
+      "id": "W003",
+      "portrait": "R120",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R120.png",
+      "gitBlobSha": "4639ff5b58fd043b6c3fcb1bbd24b445ad11608c",
+      "sizeBytes": 73106
+    },
+    {
+      "id": "W004",
+      "portrait": "K30",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K30.png",
+      "gitBlobSha": "70b19f233fb3ad959e7afe1d06265904ff54e411",
+      "sizeBytes": 110705
+    },
+    {
+      "id": "W005",
+      "portrait": "R130",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R130.png",
+      "gitBlobSha": "c80491c009bfabeb67030affc7fa667ff689d4d6",
+      "sizeBytes": 67804
+    },
+    {
+      "id": "W006",
+      "portrait": "R065",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R065.png",
+      "gitBlobSha": "d6402dc3d68673212146285a3b6e3e380c776a59",
+      "sizeBytes": 66174
+    },
+    {
+      "id": "W007",
+      "portrait": "K24",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K24.png",
+      "gitBlobSha": "3123d5a58481c482a442bdbce1f86868d1a4aa79",
+      "sizeBytes": 99684
+    },
+    {
+      "id": "W008",
+      "portrait": "K03",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K03.png",
+      "gitBlobSha": "0424d622d483f35255696be2793e98f8594db6b7",
+      "sizeBytes": 94560
+    },
+    {
+      "id": "W009",
+      "portrait": "K15",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K15.png",
+      "gitBlobSha": "e4e789bfec2f1f3fd305d721732af175ade9886e",
+      "sizeBytes": 92152
+    },
+    {
+      "id": "W010",
+      "portrait": "K12",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K12.png",
+      "gitBlobSha": "a603cd0d973bd4849fa365412162f22f26cddd33",
+      "sizeBytes": 101421
+    },
+    {
+      "id": "W011",
+      "portrait": "R142",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R142.png",
+      "gitBlobSha": "2f926a4a83926c94a201f7b28dc4311528917e39",
+      "sizeBytes": 71536
+    },
+    {
+      "id": "W012",
+      "portrait": "R144",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R144.png",
+      "gitBlobSha": "7a30adddfeb5a551b346ebcf546a8116cd2bba85",
+      "sizeBytes": 68489
+    },
+    {
+      "id": "W013",
+      "portrait": "R068",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R068.png",
+      "gitBlobSha": "a4b36d93d00795405cbe89556f461beb06a33e85",
+      "sizeBytes": 68490
+    },
+    {
+      "id": "W014",
+      "portrait": "K23",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K23.png",
+      "gitBlobSha": "047995ce0a33b2547a23a42b534aed216325394c",
+      "sizeBytes": 104770
+    },
+    {
+      "id": "W015",
+      "portrait": "K08",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K08.png",
+      "gitBlobSha": "103fe698591b9e2ad2f690cd3fd4b747e6e51449",
+      "sizeBytes": 107700
+    },
+    {
+      "id": "W016",
+      "portrait": "R047",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R047.png",
+      "gitBlobSha": "d9cfe9e011794458c15691237dcbfe6132724889",
+      "sizeBytes": 70663
+    },
+    {
+      "id": "W017",
+      "portrait": "R078",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R078.png",
+      "gitBlobSha": "93825babae7d470d3126339de7e525172b6e82b8",
+      "sizeBytes": 68224
+    },
+    {
+      "id": "W018",
+      "portrait": "R082",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R082.png",
+      "gitBlobSha": "2d898a51726eaea243fcb788415b936859410d2f",
+      "sizeBytes": 65167
+    },
+    {
+      "id": "W019",
+      "portrait": "R086",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R086.png",
+      "gitBlobSha": "4472877a054b3a7993b8a7db3bda6ca9a6560836",
+      "sizeBytes": 73985
+    },
+    {
+      "id": "W020",
+      "portrait": "K25",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K25.png",
+      "gitBlobSha": "788027f08c7375a2883a9053f8badbf4779502f3",
+      "sizeBytes": 96895
+    },
+    {
+      "id": "W021",
+      "portrait": "R003",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R003.png",
+      "gitBlobSha": "fb8e6c57a364197857dfb00292812bef1fee682e",
+      "sizeBytes": 69919
+    },
+    {
+      "id": "W022",
+      "portrait": "R087",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R087.png",
+      "gitBlobSha": "6731ffed0ac4c1b79120f4ccdd7eff61fb3830b2",
+      "sizeBytes": 69731
+    },
+    {
+      "id": "W023",
+      "portrait": "R054",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R054.png",
+      "gitBlobSha": "91b42538bc626a9bb73320efbebd24ed6cbdcb60",
+      "sizeBytes": 63874
+    },
+    {
+      "id": "W024",
+      "portrait": "R093",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R093.png",
+      "gitBlobSha": "f9a7094c0f55a38f611ef08fd33894890ba40e18",
+      "sizeBytes": 66557
+    },
+    {
+      "id": "W025",
+      "portrait": "R095",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R095.png",
+      "gitBlobSha": "27650691faddb2af6dba4edf43b3d77de3e6119a",
+      "sizeBytes": 65181
+    },
+    {
+      "id": "W026",
+      "portrait": "R010",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R010.png",
+      "gitBlobSha": "97062c0fa83db7662c7f9149b56bd8eecaac99aa",
+      "sizeBytes": 63772
+    },
+    {
+      "id": "W027",
+      "portrait": "R021",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R021.png",
+      "gitBlobSha": "33c5e5b11a87bf66ac3cdda8d6c8258313fff8cf",
+      "sizeBytes": 72928
+    },
+    {
+      "id": "W028",
+      "portrait": "R097",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R097.png",
+      "gitBlobSha": "2b6dbe863d3fa9995dad3c5222f572fb45981aa0",
+      "sizeBytes": 70007
+    },
+    {
+      "id": "W029",
+      "portrait": "R099",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R099.png",
+      "gitBlobSha": "233271d698eb999101807a3a5dae1d01b642ed75",
+      "sizeBytes": 66939
+    },
+    {
+      "id": "W030",
+      "portrait": "R102",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R102.png",
+      "gitBlobSha": "d86b761295030aefaa883520c9487b7133c3f546",
+      "sizeBytes": 68503
+    },
+    {
+      "id": "W031",
+      "portrait": "K13",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K13.png",
+      "gitBlobSha": "2475c50be29d2cc4c74700eb1f730fa1446f3546",
+      "sizeBytes": 97581
+    },
+    {
+      "id": "W032",
+      "portrait": "R137",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R137.png",
+      "gitBlobSha": "03ff9e4d21d0f66e518a624f966f1766e4f9d7ab",
+      "sizeBytes": 69559
+    },
+    {
+      "id": "W033",
+      "portrait": "N03",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N03.png",
+      "gitBlobSha": "68af66686dc1aa686e1731327fda0069a672ff5b",
+      "sizeBytes": 307483
+    },
+    {
+      "id": "W034",
+      "portrait": "K19",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K19.png",
+      "gitBlobSha": "8950432f04af688b68064bd053afe1415c050158",
+      "sizeBytes": 112094
+    },
+    {
+      "id": "W035",
+      "portrait": "R106",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R106.png",
+      "gitBlobSha": "b5e473c16f99a419260f0825615a13a9b28b4561",
+      "sizeBytes": 59386
+    },
+    {
+      "id": "W036",
+      "portrait": "R164",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R164.png",
+      "gitBlobSha": "dafa4c78823bb78028ad3ba41c8185b746dd35f3",
+      "sizeBytes": 65758
+    },
+    {
+      "id": "W037",
+      "portrait": "R165",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R165.png",
+      "gitBlobSha": "80d3f241575ba093c562af576040d1d861661c11",
+      "sizeBytes": 72257
+    },
+    {
+      "id": "W038",
+      "portrait": "R116",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R116.png",
+      "gitBlobSha": "09ba8d25f5a3c24081b7480660783e63f964ed86",
+      "sizeBytes": 80277
+    },
+    {
+      "id": "W039",
+      "portrait": "R118",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R118.png",
+      "gitBlobSha": "16b3086480fc27c862bab54d501d9ec2c5ecf79c",
+      "sizeBytes": 64244
+    },
+    {
+      "id": "W040",
+      "portrait": "N04",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N04.png",
+      "gitBlobSha": "a7487ff6c60e09749d1b4c0bac35c94f2bb8907f",
+      "sizeBytes": 313189
+    },
+    {
+      "id": "W041",
+      "portrait": "R072",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R072.png",
+      "gitBlobSha": "7ac78a64ac02629d58791f2b1196cd07b9c64bcb",
+      "sizeBytes": 67200
+    },
+    {
+      "id": "W042",
+      "portrait": "R001",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R001.png",
+      "gitBlobSha": "46eb80f52c6014ba0025ce4db8bb050cee2af191",
+      "sizeBytes": 69903
+    },
+    {
+      "id": "W043",
+      "portrait": "R005",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R005.png",
+      "gitBlobSha": "b66e74f1bc1a0a3bdddd55632d4a37851055fcad",
+      "sizeBytes": 66603
+    },
+    {
+      "id": "W044",
+      "portrait": "R032",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R032.png",
+      "gitBlobSha": "eb00f080769a32753cb88c36053cd52932184e73",
+      "sizeBytes": 76089
+    },
+    {
+      "id": "W045",
+      "portrait": "R076",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R076.png",
+      "gitBlobSha": "e380e634965f6121dc9b26df7738d2441cdc815c",
+      "sizeBytes": 71352
+    },
+    {
+      "id": "W046",
+      "portrait": "K21",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K21.png",
+      "gitBlobSha": "fef26e3dd63fef9305c0261e6499e4bf52362f8f",
+      "sizeBytes": 102915
+    },
+    {
+      "id": "W047",
+      "portrait": "R067",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R067.png",
+      "gitBlobSha": "7b6b5f708073f01b7c99b67f9c125dee1163101b",
+      "sizeBytes": 67912
+    },
+    {
+      "id": "W048",
+      "portrait": "R166",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R166.png",
+      "gitBlobSha": "22101c8df537ec4174d9346e516ec6493fc702bc",
+      "sizeBytes": 68687
+    },
+    {
+      "id": "W049",
+      "portrait": "N05",
+      "assetPath": "public/game/assets/portraits/bandung/specialists/N05.png",
+      "gitBlobSha": "dfded458bebbfd09217068dc39e2fc1e4ef5b6b1",
+      "sizeBytes": 259203
+    },
+    {
+      "id": "W050",
+      "portrait": "R038",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R038.png",
+      "gitBlobSha": "1e66c2bc79adffcec84746b199554284c41bf0ab",
+      "sizeBytes": 60152
+    },
+    {
+      "id": "W051",
+      "portrait": "R007",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R007.png",
+      "gitBlobSha": "93b2017bdb250cbd8c71105d6dd8aa8cbe802280",
+      "sizeBytes": 69188
+    },
+    {
+      "id": "W052",
+      "portrait": "R167",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R167.png",
+      "gitBlobSha": "38be4cc14c087b8c697306e9fd587ebd8f6e628e",
+      "sizeBytes": 65255
+    },
+    {
+      "id": "W053",
+      "portrait": "R084",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R084.png",
+      "gitBlobSha": "9e66937e253876d6b23885a9d3dcd719fe474cf5",
+      "sizeBytes": 71369
+    },
+    {
+      "id": "W054",
+      "portrait": "R168",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R168.png",
+      "gitBlobSha": "b484331494e1a57ae8d8b928e856f2b3bd913517",
+      "sizeBytes": 62908
+    },
+    {
+      "id": "W055",
+      "portrait": "R004",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R004.png",
+      "gitBlobSha": "d505ff469ffa2d7d641b8e1833c721550dc7e7cb",
+      "sizeBytes": 67762
+    },
+    {
+      "id": "W056",
+      "portrait": "R098",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R098.png",
+      "gitBlobSha": "fd1164ef1fd3b5db29a628426bd71814b276b4aa",
+      "sizeBytes": 75216
+    },
+    {
+      "id": "W057",
+      "portrait": "R088",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R088.png",
+      "gitBlobSha": "f1b144ccf7464391680ffbde80380d427d9ef3db",
+      "sizeBytes": 71946
+    },
+    {
+      "id": "W058",
+      "portrait": "R089",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R089.png",
+      "gitBlobSha": "623f6592c9e28a41f1ae3c5699d0568b44b620d8",
+      "sizeBytes": 65447
+    },
+    {
+      "id": "W059",
+      "portrait": "R090",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R090.png",
+      "gitBlobSha": "4a56a7035bd0abb07117f066c787cdeea6bdaacf",
+      "sizeBytes": 76315
+    },
+    {
+      "id": "W060",
+      "portrait": "R169",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R169.png",
+      "gitBlobSha": "174ac77f07eb2bf967d57e9d12ae853418b35e31",
+      "sizeBytes": 70233
+    },
+    {
+      "id": "W061",
+      "portrait": "R012",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R012.png",
+      "gitBlobSha": "537868b2a754ddb00d260d5f220fb7092b47985a",
+      "sizeBytes": 70566
+    },
+    {
+      "id": "W062",
+      "portrait": "R128",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R128.png",
+      "gitBlobSha": "64fc921bac6c0961c397cd2fd28a0f63e732c90f",
+      "sizeBytes": 69784
+    },
+    {
+      "id": "W063",
+      "portrait": "R015",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R015.png",
+      "gitBlobSha": "6eb5daadc21741815810dee69282d7acbc14f71e",
+      "sizeBytes": 71813
+    },
+    {
+      "id": "W064",
+      "portrait": "R011",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R011.png",
+      "gitBlobSha": "9090b1a759bddda50af5ce25478db2e4ad2acb3e",
+      "sizeBytes": 77652
+    },
+    {
+      "id": "W065",
+      "portrait": "R017",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R017.png",
+      "gitBlobSha": "8f1764fe3c51301766940d7a349868fa7e863cd3",
+      "sizeBytes": 74460
+    },
+    {
+      "id": "W066",
+      "portrait": "R158",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R158.png",
+      "gitBlobSha": "7c9d29bc1f5b3a156203c51f00854e088cc135dd",
+      "sizeBytes": 64884
+    },
+    {
+      "id": "W067",
+      "portrait": "R009",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R009.png",
+      "gitBlobSha": "049f05784ab4066b9320c6ad90f3e54b15841868",
+      "sizeBytes": 74273
+    },
+    {
+      "id": "W068",
+      "portrait": "R170",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R170.png",
+      "gitBlobSha": "336fe5072a52fed5e6036a813cb5cbce59ab1c59",
+      "sizeBytes": 72177
+    },
+    {
+      "id": "W069",
+      "portrait": "R132",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R132.png",
+      "gitBlobSha": "3d35ec066e60c0cafb187059a12de80462bbebf2",
+      "sizeBytes": 64542
+    },
+    {
+      "id": "W070",
+      "portrait": "R101",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R101.png",
+      "gitBlobSha": "ca4feb4ccd17cc6b0de2787d11396cb329ccf242",
+      "sizeBytes": 69659
+    },
+    {
+      "id": "W071",
+      "portrait": "K05",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K05.png",
+      "gitBlobSha": "6d14732d587d7e9d193954940954aac052d78816",
+      "sizeBytes": 99319
+    },
+    {
+      "id": "W072",
+      "portrait": "R044",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R044.png",
+      "gitBlobSha": "394fbd9e3d556d9374a41c2b9fdcea1dfd7a83bd",
+      "sizeBytes": 72892
+    },
+    {
+      "id": "W073",
+      "portrait": "R019",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R019.png",
+      "gitBlobSha": "dc7a7a461d1b3deb7e648cb62e59da0d5edff775",
+      "sizeBytes": 69738
+    },
+    {
+      "id": "W074",
+      "portrait": "R025",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R025.png",
+      "gitBlobSha": "ec8e01886833eadc57cce2b0e977f04949117ddf",
+      "sizeBytes": 73645
+    },
+    {
+      "id": "W075",
+      "portrait": "R171",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R171.png",
+      "gitBlobSha": "d0229581f95d8963009cffc3797113cb86c6027b",
+      "sizeBytes": 64479
+    },
+    {
+      "id": "W076",
+      "portrait": "R134",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R134.png",
+      "gitBlobSha": "50ce7b49d31e473f628e61d914ac2623804a5e27",
+      "sizeBytes": 65857
+    },
+    {
+      "id": "W077",
+      "portrait": "R136",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R136.png",
+      "gitBlobSha": "4a380ad779561545d6afde9917c816df721aa4db",
+      "sizeBytes": 63962
+    },
+    {
+      "id": "W078",
+      "portrait": "R141",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R141.png",
+      "gitBlobSha": "d6c8c38613faf94968c58a8b3bfee460dfd69bbb",
+      "sizeBytes": 68652
+    },
+    {
+      "id": "W079",
+      "portrait": "R110",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R110.png",
+      "gitBlobSha": "9103f9da2fec4d0734249c949bbf06450b0f3eaf",
+      "sizeBytes": 77482
+    },
+    {
+      "id": "W080",
+      "portrait": "R111",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R111.png",
+      "gitBlobSha": "5417ce355998c6fc72314f7bed97074df8b32861",
+      "sizeBytes": 68635
+    },
+    {
+      "id": "W081",
+      "portrait": "R052",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R052.png",
+      "gitBlobSha": "5391622fa1250dfebec35bbe911c9101a5379e03",
+      "sizeBytes": 72323
+    },
+    {
+      "id": "W082",
+      "portrait": "R152",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R152.png",
+      "gitBlobSha": "53e963fcb6e01f7db4ee5ddde779a82c87b1ce3a",
+      "sizeBytes": 61213
+    },
+    {
+      "id": "W083",
+      "portrait": "R153",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R153.png",
+      "gitBlobSha": "2e24379ebf980c4b7ab52b65b75ec5cf5f576e89",
+      "sizeBytes": 60613
+    },
+    {
+      "id": "W084",
+      "portrait": "R172",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R172.png",
+      "gitBlobSha": "c83973db9249e8875d6b59ee3c50bf207be4899a",
+      "sizeBytes": 65639
+    },
+    {
+      "id": "W085",
+      "portrait": "K07",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K07.png",
+      "gitBlobSha": "b6779b38d064764c16dd623de6d1dfb07a379d72",
+      "sizeBytes": 105233
+    },
+    {
+      "id": "W086",
+      "portrait": "R173",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R173.png",
+      "gitBlobSha": "833572e32bf91d2c6dc9697a9017b4b9956165a7",
+      "sizeBytes": 64704
+    },
+    {
+      "id": "W087",
+      "portrait": "K11",
+      "assetPath": "public/game/assets/portraits/bandung/neighborhood/K11.png",
+      "gitBlobSha": "231f4c951deb428066cdee5bb2de915608396166",
+      "sizeBytes": 110894
+    },
+    {
+      "id": "W088",
+      "portrait": "R058",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R058.png",
+      "gitBlobSha": "edf0b9e887eae3c6fad753e5819c670fae7aef5a",
+      "sizeBytes": 65758
+    },
+    {
+      "id": "W089",
+      "portrait": "R014",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R014.png",
+      "gitBlobSha": "e859a47146a1ede136e6449507e4f33452b65c39",
+      "sizeBytes": 72544
+    },
+    {
+      "id": "W090",
+      "portrait": "R174",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R174.png",
+      "gitBlobSha": "66c1cd2b1c791fa93936d65a2b48c2a2e3f7d2c6",
+      "sizeBytes": 65229
+    },
+    {
+      "id": "W091",
+      "portrait": "R122",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R122.png",
+      "gitBlobSha": "44230577dd350807cd573a325f8ce8c86cae6aa8",
+      "sizeBytes": 74962
+    },
+    {
+      "id": "W092",
+      "portrait": "R154",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R154.png",
+      "gitBlobSha": "17329a7abe93a456815602997b361126d6f95f71",
+      "sizeBytes": 60222
+    },
+    {
+      "id": "W093",
+      "portrait": "R175",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R175.png",
+      "gitBlobSha": "c4df376637d120f994a334851c599c55f489b704",
+      "sizeBytes": 61823
+    },
+    {
+      "id": "W094",
+      "portrait": "R125",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R125.png",
+      "gitBlobSha": "decb87dedeea8ab5f866fce21ecd61cb9eae6ccc",
+      "sizeBytes": 69868
+    },
+    {
+      "id": "W095",
+      "portrait": "R020",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R020.png",
+      "gitBlobSha": "f689e8192fbd48eec5e4698d5cbcb2c04568dfa5",
+      "sizeBytes": 71350
+    },
+    {
+      "id": "W096",
+      "portrait": "R127",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R127.png",
+      "gitBlobSha": "5322df7433bb08549f99ad6c71cb4859251cd9e5",
+      "sizeBytes": 76225
+    },
+    {
+      "id": "W097",
+      "portrait": "R002",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R002.png",
+      "gitBlobSha": "2e89e8690e8c055529f53c4abc5ab514d4e04a94",
+      "sizeBytes": 69889
+    },
+    {
+      "id": "W098",
+      "portrait": "R006",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R006.png",
+      "gitBlobSha": "7ec7b188d87583d7c05a736c79ac9fef166581d2",
+      "sizeBytes": 78479
+    },
+    {
+      "id": "W099",
+      "portrait": "R013",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R013.png",
+      "gitBlobSha": "dd0eb9dddbad1aac5475cc24aa2d45d4053eb71a",
+      "sizeBytes": 71053
+    },
+    {
+      "id": "W100",
+      "portrait": "R016",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R016.png",
+      "gitBlobSha": "1db5a45407648719007bfd6e647e9dbe7748098c",
+      "sizeBytes": 76079
+    },
+    {
+      "id": "W101",
+      "portrait": "R018",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R018.png",
+      "gitBlobSha": "f65d62cc9b667f1e0e1a07e36386115ec52c9fc4",
+      "sizeBytes": 70901
+    },
+    {
+      "id": "W102",
+      "portrait": "R022",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R022.png",
+      "gitBlobSha": "88b886a0c94fd520825ea0633f13cdea0b2fda52",
+      "sizeBytes": 79744
+    },
+    {
+      "id": "W103",
+      "portrait": "R024",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R024.png",
+      "gitBlobSha": "59ce2bff0c6d286b885258e2d4b96cda5dc7a157",
+      "sizeBytes": 77833
+    },
+    {
+      "id": "W104",
+      "portrait": "R026",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R026.png",
+      "gitBlobSha": "1c117ee6950ddf2018fa424d42f1058ae8243d16",
+      "sizeBytes": 71932
+    },
+    {
+      "id": "W105",
+      "portrait": "R027",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R027.png",
+      "gitBlobSha": "62f3b88564654f89717b8becb37112f8a3dbebbd",
+      "sizeBytes": 66978
+    },
+    {
+      "id": "W106",
+      "portrait": "R028",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R028.png",
+      "gitBlobSha": "63671b400ab2e3fa19462420aa22daf24e39a088",
+      "sizeBytes": 73079
+    },
+    {
+      "id": "W107",
+      "portrait": "R029",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R029.png",
+      "gitBlobSha": "165fcfb8dd946f2f6d9a60d95b196278050e1621",
+      "sizeBytes": 72516
+    },
+    {
+      "id": "W108",
+      "portrait": "R030",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R030.png",
+      "gitBlobSha": "1a148568c7acc3d010709bcb9848d2a0d73de235",
+      "sizeBytes": 78937
+    },
+    {
+      "id": "W109",
+      "portrait": "R031",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R031.png",
+      "gitBlobSha": "93800ea09b7d45f839bcc53b632fe18adfe35674",
+      "sizeBytes": 79553
+    },
+    {
+      "id": "W110",
+      "portrait": "R033",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R033.png",
+      "gitBlobSha": "e11506d67ad5ab9a74301c9a3e4f00e4ae25b949",
+      "sizeBytes": 76880
+    },
+    {
+      "id": "W111",
+      "portrait": "R036",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R036.png",
+      "gitBlobSha": "02ff90dc0a0c550412e946ec360f65a2a3b16816",
+      "sizeBytes": 64302
+    },
+    {
+      "id": "W112",
+      "portrait": "R037",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R037.png",
+      "gitBlobSha": "2823d3f7f8fedb937d7455a06eda9f3eaf5b1e80",
+      "sizeBytes": 65266
+    },
+    {
+      "id": "W113",
+      "portrait": "R041",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R041.png",
+      "gitBlobSha": "d5650b4a804c730611cf69dec73859630c6d9500",
+      "sizeBytes": 71217
+    },
+    {
+      "id": "W114",
+      "portrait": "R043",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R043.png",
+      "gitBlobSha": "34cf96d4214420509ba710676808080f231f8c94",
+      "sizeBytes": 69642
+    },
+    {
+      "id": "W115",
+      "portrait": "R045",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R045.png",
+      "gitBlobSha": "e38c1e5298b9107a3bb60e4f05fde773217ab787",
+      "sizeBytes": 63342
+    },
+    {
+      "id": "W116",
+      "portrait": "R046",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R046.png",
+      "gitBlobSha": "33cb824b6ab4b5261f8839beb02dc0d4c38ba6cd",
+      "sizeBytes": 62504
+    },
+    {
+      "id": "W117",
+      "portrait": "R048",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R048.png",
+      "gitBlobSha": "17d9a244ae8c25d439702dec76d632ec1b7ee7d4",
+      "sizeBytes": 67614
+    },
+    {
+      "id": "W118",
+      "portrait": "R050",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R050.png",
+      "gitBlobSha": "256ea63d5e2c35a31c2a6d144eef1a400281aab6",
+      "sizeBytes": 68499
+    },
+    {
+      "id": "W119",
+      "portrait": "R051",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R051.png",
+      "gitBlobSha": "48d5c1284ee3c25a86bb7d8f3199c834c2a0ed3c",
+      "sizeBytes": 69114
+    },
+    {
+      "id": "W120",
+      "portrait": "R053",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R053.png",
+      "gitBlobSha": "bbd02a848b66f9c8fda234b4bfa639637de6876d",
+      "sizeBytes": 61648
+    },
+    {
+      "id": "W121",
+      "portrait": "R055",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R055.png",
+      "gitBlobSha": "5f4a536116cc996bee12703b61cf0fbdf78b7fe5",
+      "sizeBytes": 67562
+    },
+    {
+      "id": "W122",
+      "portrait": "R057",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R057.png",
+      "gitBlobSha": "ddc8b4caff3f293ffc21d6cc2ee58474ddc59f43",
+      "sizeBytes": 68618
+    },
+    {
+      "id": "W123",
+      "portrait": "R059",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R059.png",
+      "gitBlobSha": "16a6dacffd8bf4e8876525a33492384926b88952",
+      "sizeBytes": 71346
+    },
+    {
+      "id": "W124",
+      "portrait": "R060",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R060.png",
+      "gitBlobSha": "b79b99f1fc27701909fd402948ff88422475b2c8",
+      "sizeBytes": 62740
+    },
+    {
+      "id": "W125",
+      "portrait": "R061",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R061.png",
+      "gitBlobSha": "69c98ecf9184e1e0ea126126ae147fb610bec800",
+      "sizeBytes": 65367
+    },
+    {
+      "id": "W126",
+      "portrait": "R062",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R062.png",
+      "gitBlobSha": "5efbf7529bf8c78e6c3340183b32090c47eec0ed",
+      "sizeBytes": 66468
+    },
+    {
+      "id": "W127",
+      "portrait": "R064",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R064.png",
+      "gitBlobSha": "ad9ec1079f0e4d5b23ed0b3b5f9d3bb1a9abffae",
+      "sizeBytes": 66706
+    },
+    {
+      "id": "W128",
+      "portrait": "R066",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R066.png",
+      "gitBlobSha": "707f2269d4e91db9d80c9d41787d81a333395199",
+      "sizeBytes": 64305
+    },
+    {
+      "id": "W129",
+      "portrait": "R069",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R069.png",
+      "gitBlobSha": "3f4e135a0075d6267e1662a126dab394d801e162",
+      "sizeBytes": 70414
+    },
+    {
+      "id": "W130",
+      "portrait": "R071",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R071.png",
+      "gitBlobSha": "fe859660fd225d8af9f36b52c16d6915a7f9c0c7",
+      "sizeBytes": 67981
+    },
+    {
+      "id": "W131",
+      "portrait": "R075",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R075.png",
+      "gitBlobSha": "53dca41e0abd38be011af79f6e77b5b78fa0fe9c",
+      "sizeBytes": 72115
+    },
+    {
+      "id": "W132",
+      "portrait": "R077",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R077.png",
+      "gitBlobSha": "5a90714dc041209f9010aae1b1cdd93663ebe7ce",
+      "sizeBytes": 69227
+    },
+    {
+      "id": "W133",
+      "portrait": "R079",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R079.png",
+      "gitBlobSha": "ebdb3027bc3535ddccaef94ab8821a7a84b74a61",
+      "sizeBytes": 72683
+    },
+    {
+      "id": "W134",
+      "portrait": "R080",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R080.png",
+      "gitBlobSha": "04af0506294b4a0ab34d144e2303a9870469e82e",
+      "sizeBytes": 70152
+    },
+    {
+      "id": "W135",
+      "portrait": "R081",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R081.png",
+      "gitBlobSha": "fb9247a710ff24357c8a44475a786df0d7147323",
+      "sizeBytes": 68571
+    },
+    {
+      "id": "W136",
+      "portrait": "R083",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R083.png",
+      "gitBlobSha": "092f802cc9d51494f4775e3997e52678354ebd2b",
+      "sizeBytes": 70285
+    },
+    {
+      "id": "W137",
+      "portrait": "R085",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R085.png",
+      "gitBlobSha": "4a82339ca5ebddb7dc1a52edcbc27dd537986552",
+      "sizeBytes": 72707
+    },
+    {
+      "id": "W138",
+      "portrait": "R091",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R091.png",
+      "gitBlobSha": "b73f961bb7226cd5a56ed5eacd46b913323785b3",
+      "sizeBytes": 73657
+    },
+    {
+      "id": "W139",
+      "portrait": "R092",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R092.png",
+      "gitBlobSha": "ea51f35fc85bc2b301498127ccf51e1ebbed1b28",
+      "sizeBytes": 70267
+    },
+    {
+      "id": "W140",
+      "portrait": "R094",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R094.png",
+      "gitBlobSha": "85a2a569952fae1d42923481597f6d90946fc699",
+      "sizeBytes": 73178
+    },
+    {
+      "id": "W141",
+      "portrait": "R096",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R096.png",
+      "gitBlobSha": "4074cced479bc4b7e7b6c949a0b686014e196b30",
+      "sizeBytes": 70473
+    },
+    {
+      "id": "W142",
+      "portrait": "R100",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R100.png",
+      "gitBlobSha": "6b95d9174ec9e397338867ce6022797ef35f4ce3",
+      "sizeBytes": 68109
+    },
+    {
+      "id": "W143",
+      "portrait": "R103",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R103.png",
+      "gitBlobSha": "ed313c3845797fc6f0d4e0567e3853880c613a55",
+      "sizeBytes": 68976
+    },
+    {
+      "id": "W144",
+      "portrait": "R105",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R105.png",
+      "gitBlobSha": "0ec0f42cbbf38103e70cb6ea508cc1a1a0d8379e",
+      "sizeBytes": 69728
+    },
+    {
+      "id": "W145",
+      "portrait": "R107",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R107.png",
+      "gitBlobSha": "5c4a85fab09c087ec7c2c95ec37561403c72017b",
+      "sizeBytes": 67856
+    },
+    {
+      "id": "W146",
+      "portrait": "R112",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R112.png",
+      "gitBlobSha": "d84229b9c3f4fad7a070bd1315fcb38f0d43432b",
+      "sizeBytes": 75988
+    },
+    {
+      "id": "W147",
+      "portrait": "R114",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R114.png",
+      "gitBlobSha": "e10e81e2f881e626177e359dac84f43a84ed1a18",
+      "sizeBytes": 75108
+    },
+    {
+      "id": "W148",
+      "portrait": "R115",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R115.png",
+      "gitBlobSha": "619fa01d6d1e5bf148b47d14a09662a98c6c8d96",
+      "sizeBytes": 66981
+    },
+    {
+      "id": "W149",
+      "portrait": "R117",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R117.png",
+      "gitBlobSha": "31343a7ec89d5ab86e6834da815e44fb8beecb57",
+      "sizeBytes": 69190
+    },
+    {
+      "id": "W150",
+      "portrait": "R119",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R119.png",
+      "gitBlobSha": "7fa225996a9f01a923c52107b5299ffdb94f93f1",
+      "sizeBytes": 68992
+    },
+    {
+      "id": "W151",
+      "portrait": "R121",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R121.png",
+      "gitBlobSha": "efd5d274c3a1d0112b462c766b6e9614209dffcf",
+      "sizeBytes": 71088
+    },
+    {
+      "id": "W152",
+      "portrait": "R123",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R123.png",
+      "gitBlobSha": "b455d6cfe5b15985b4a7d15416b3ddab3167d420",
+      "sizeBytes": 69322
+    },
+    {
+      "id": "W153",
+      "portrait": "R124",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R124.png",
+      "gitBlobSha": "792514d3ce8cc93b92053d778758f5086aa48ae1",
+      "sizeBytes": 71759
+    },
+    {
+      "id": "W154",
+      "portrait": "R126",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R126.png",
+      "gitBlobSha": "c78a385f028d0f3dd14e243a001bbc9e7c0fc35a",
+      "sizeBytes": 67670
+    },
+    {
+      "id": "W155",
+      "portrait": "R139",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R139.png",
+      "gitBlobSha": "9c12b12fbdccf695a29d8aa7bef410abe2dba8b7",
+      "sizeBytes": 68831
+    },
+    {
+      "id": "W156",
+      "portrait": "R155",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R155.png",
+      "gitBlobSha": "dd4562407f018e355fc89add5f16317656553271",
+      "sizeBytes": 59658
+    },
+    {
+      "id": "W576",
+      "portrait": "R176",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R176.png",
+      "gitBlobSha": "aafe828996bef2fa3c29dedc00d57175d821961f",
+      "sizeBytes": 73409
+    },
+    {
+      "id": "W577",
+      "portrait": "R177",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R177.png",
+      "gitBlobSha": "708e0d4dc47928289050114d356737fc8743fa92",
+      "sizeBytes": 70994
+    },
+    {
+      "id": "W578",
+      "portrait": "R178",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R178.png",
+      "gitBlobSha": "183682d5cb3e860442932e86d7082dda5b2e146a",
+      "sizeBytes": 63746
+    },
+    {
+      "id": "W579",
+      "portrait": "R179",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R179.png",
+      "gitBlobSha": "d87a0f7e63cfcdccd716d49508cf9d621906df5c",
+      "sizeBytes": 72425
+    },
+    {
+      "id": "W580",
+      "portrait": "R180",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R180.png",
+      "gitBlobSha": "2a9c12b339600662746fbd91d321547560950560",
+      "sizeBytes": 65804
+    },
+    {
+      "id": "W581",
+      "portrait": "R181",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R181.png",
+      "gitBlobSha": "e73763f0a0c20786ac7206c2fec4aea7fcf3b3c2",
+      "sizeBytes": 75809
+    },
+    {
+      "id": "W582",
+      "portrait": "R182",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R182.png",
+      "gitBlobSha": "f080d964afcfb55190ff625157af6404706d3f0c",
+      "sizeBytes": 71941
+    },
+    {
+      "id": "W584",
+      "portrait": "R184",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R184.png",
+      "gitBlobSha": "4fee9201905fbfd61c2727bc7759c50498a7352a",
+      "sizeBytes": 108385
+    },
+    {
+      "id": "W585",
+      "portrait": "R185",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R185.png",
+      "gitBlobSha": "b13984c2503e318d68554913e5ffc6cbf8c8d86c",
+      "sizeBytes": 102220
+    },
+    {
+      "id": "W586",
+      "portrait": "R186",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R186.png",
+      "gitBlobSha": "ebd38fb8f40c4235effe49858cb71cb4de3da8c5",
+      "sizeBytes": 108504
+    },
+    {
+      "id": "W587",
+      "portrait": "R187",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R187.png",
+      "gitBlobSha": "882a85bc81aa945519acf956e8ae85bd3c17c697",
+      "sizeBytes": 109237
+    },
+    {
+      "id": "W588",
+      "portrait": "R188",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R188.png",
+      "gitBlobSha": "d4560fa732cabd29ced6ea80ebf56983262d35da",
+      "sizeBytes": 109165
+    },
+    {
+      "id": "W589",
+      "portrait": "R189",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R189.png",
+      "gitBlobSha": "1c69f685d0a68455394e05751714ce0d20dd18a3",
+      "sizeBytes": 117750
+    },
+    {
+      "id": "W590",
+      "portrait": "R190",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R190.png",
+      "gitBlobSha": "d5cdc11117c4f3b85f423ddd4b67af00c0543048",
+      "sizeBytes": 111634
+    },
+    {
+      "id": "W591",
+      "portrait": "R191",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R191.png",
+      "gitBlobSha": "d3200dc751880017434b5a39811156b89ab83f6a",
+      "sizeBytes": 109164
+    },
+    {
+      "id": "W592",
+      "portrait": "R192",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R192.png",
+      "gitBlobSha": "b2873cc8686993a44c1858e02f0a3ae223ebdd97",
+      "sizeBytes": 115147
+    },
+    {
+      "id": "W593",
+      "portrait": "R193",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R193.png",
+      "gitBlobSha": "c3c89e394a58c4fb8a7e2d4adb14ad5b6fbcb2c3",
+      "sizeBytes": 112286
+    },
+    {
+      "id": "W594",
+      "portrait": "R194",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R194.png",
+      "gitBlobSha": "43cba0eaef32415cb31867187e584de55d2752c2",
+      "sizeBytes": 113981
+    },
+    {
+      "id": "W595",
+      "portrait": "R195",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R195.png",
+      "gitBlobSha": "4bc512af35b9d8fafbdc93ad7b51b3db8a7b5acf",
+      "sizeBytes": 111387
+    },
+    {
+      "id": "W596",
+      "portrait": "R196",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R196.png",
+      "gitBlobSha": "0a2ae607d98279e59f89777192b61b43aa30708d",
+      "sizeBytes": 117628
+    },
+    {
+      "id": "W597",
+      "portrait": "R197",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R197.png",
+      "gitBlobSha": "c6db807d59fad9ea12a9c830c5dda28524211180",
+      "sizeBytes": 111298
+    },
+    {
+      "id": "W598",
+      "portrait": "R198",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R198.png",
+      "gitBlobSha": "5499823068a93c52233e712e1a1af3c7614b580b",
+      "sizeBytes": 104850
+    },
+    {
+      "id": "W599",
+      "portrait": "R199",
+      "assetPath": "public/game/assets/portraits/bandung/residents/R199.png",
+      "gitBlobSha": "f5fd8e9a581306cd83a46ca21be4b742b6fc8738",
+      "sizeBytes": 108444
+    }
+  ]
+}

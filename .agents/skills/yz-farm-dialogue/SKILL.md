@@ -3,6 +3,8 @@ name: yz-farm-dialogue
 description: Menulis atau menyunting dialog NPC, quest, jurnal, cerita, dan pesan YZ Phone YZ Farm Life dalam Bahasa Indonesia yang alami, sesuai cast, progres, pilihan, dan kontinuitas Pasirluyu.
 ---
 
+> **Sumber canonical baru (22 Nov 2026):** gunakan `game-assets/catalog/npc-public-roster.json` untuk identitas 248 NPC dan `public/game/data/npc/{ID}.json` atau `docs/game-dev/characters/{ID}.md` untuk Character Bible fiksi 12 kategori. `cast.json` dan 70 profile lama hanyalah **legacy**; hanya digunakan untuk quest lama yang memang sudah aktif dan **tidak boleh diwariskan ke identitas baru tanpa asosiasi manual**. Semua lore publik tetap `draft` dan belum otomatis playable. Baca `docs/game-dev/NPC_PUBLICATION_POLICY.md`.
+
 # YZ Farm Life — Humanized narrative authoring
 
 Aktifkan skill ini pada pekerjaan *naratif game*; untuk penyuntingan gaya baca juga `../humanizer/SKILL.md`. Ikuti aturan Humanizer sebagai **editor, bukan generator fakta atau mesin perubahan gameplay**. Jika pengguna hanya meminta bugfix, rendering, database, atau optimasi aset, jangan mengubah narasi.

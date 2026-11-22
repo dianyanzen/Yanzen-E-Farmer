@@ -17,3 +17,10 @@ supabase/.temp/
 deploy/private/
 **/residents.json
 **/approved-legacy.json
+
+# Private canonical/Character Bible exports must not be added from any folder.
+**/*_PRIVATE.json
+**/*_PRIVATE.json.*
+**/character-bibles.json
+**/character-bibles.json.backup-*
+**/*_ENRICHED_DRAFT_PRIVATE.json

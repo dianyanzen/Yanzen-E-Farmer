@@ -1,0 +1,105 @@
+# Audit nilai kosong dan pengayaan visual — YZ Farm Life
+
+Tanggal: 22 November 2026. Sumber: potret canonical di GitHub + roster 248 NPC + Character Bible fiksi publik dan premis quest. Tidak menyalin isi cerita lama tanpa persetujuan asosiasi.
+
+## Ringkasan hasil
+
+| Pemeriksaan | Sebelum | Sesudah |
+|---|---:|---:|
+| Jumlah NPC | 248 | 248 |
+| Nilai null pada 12 bagian | 2,272 | 794 |
+| Null yang mendapat nilai baru | — | **1,478** |
+| Observasi potret terisi | 0 / 248 | 248 / 248 |
+| Nilai preferredName terisi dari nama canonical | 2 / 248 (non-null cameo tidak memakai atribut ini) | 246 / 248 |
+| Usia fiksi sementara | 0 | 246 |
+| Pendidikan fiksi sementara | 0 | 246 |
+| Bahasa percakapan rancangan | 0 | 246 |
+| Memori fiksi pembentuk karakter | 0 | 246 |
+| Dokumen Markdown yang diregenerasi | 248 | 248 |
+
+## Nilai kosong yang masih perlu dipertahankan
+
+- **01_core_identity.origin**: 248 NPC masih null.
+- **07_background_history.familyContext**: 248 NPC masih null.
+- **09_dialogue_behavior.publicCameoGuardrail**: 246 NPC masih null.
+- **01_core_identity.ageYears**: 2 NPC masih null.
+- **01_core_identity.language**: 2 NPC masih null.
+- **02_physical_appearance.proposedPose**: 2 NPC masih null.
+- **03_fashion_aesthetic.costumeConcept**: 2 NPC masih null.
+- **04_social_profile.education**: 2 NPC masih null.
+- **04_social_profile.workRoutineConcept**: 2 NPC masih null.
+- **04_social_profile.workplaceConcept**: 2 NPC masih null.
+- **05_personality.flawConcept**: 2 NPC masih null.
+- **05_personality.microHabitConcept**: 2 NPC masih null.
+- **05_personality.observableHabit**: 2 NPC masih null.
+- **05_personality.strengthConcept**: 2 NPC masih null.
+- **05_personality.values**: 2 NPC masih null.
+- **05_personality.weakness**: 2 NPC masih null.
+- **06_psychological_profile.agencyConcept**: 2 NPC masih null.
+- **06_psychological_profile.conflictConcept**: 2 NPC masih null.
+- **06_psychological_profile.fear**: 2 NPC masih null.
+- **06_psychological_profile.innerConflict**: 2 NPC masih null.
+- **06_psychological_profile.motivationConcept**: 2 NPC masih null.
+- **06_psychological_profile.need**: 2 NPC masih null.
+- **06_psychological_profile.primaryMotivation**: 2 NPC masih null.
+- **07_background_history.formativeMemory**: 2 NPC masih null.
+- **07_background_history.sceneConcept**: 2 NPC masih null.
+- **08_relationship_dynamics.boundaryConcept**: 2 NPC masih null.
+- **09_dialogue_behavior.habitualGesture**: 2 NPC masih null.
+- **09_dialogue_behavior.speakingCadence**: 2 NPC masih null.
+- **10_narrative_development.sideQuestConcept**: 2 NPC masih null.
+
+Sebagian besar null tersisa **sengaja**: `origin` (tempat lahir/asal yang tidak ditetapkan), `familyContext` (keluarga yang belum disetujui), dan `publicCameoGuardrail` untuk warga biasa (field hanya relevan bagi cameo publik). P01/P02 tidak diberi usia, latar pendidikan, keluarga, konflik batin, riwayat, atau motif pribadi rekaan.
+
+## Jenis sumber dan tingkat keyakinan
+
+| Atribut | Sumber | Keyakinan | Makna |
+|---|---|---:|---|
+| Ciri fisik dalam ilustrasi | Potret asli sesuai ID→portrait key | 90% | Deskripsi objek yang tampak, bukan ciri seseorang di dunia nyata |
+| Nama panggilan usulan | Nama canonical, disambiguasi duplikat | 83% | Label panggilan di dunia game, belum disahkan penulis |
+| Bahasa | Konvensi dialog YZ Farm Life | 80% | Bahasa penulisan percakapan, bukan kemampuan linguistik seseorang |
+| Kenangan pembentuk karakter | Premis side quest & pekerjaan | 52% | Adegan fiksi draf, memerlukan Humanizer dan editorial review |
+| Pendidikan cerita | Tugas dan profesi fiksi | 40% | Jalur pendidikan fiksi; bukan gelar/ijazah nyata |
+| Usia numerik rancangan | Isyarat usia visual + kebutuhan peran cerita | 38% | **Bukan hasil pengukuran usia dari potret**; usulan yang dapat direvisi |
+
+## Temuan visual dan rekomendasi QA
+
+- Ada perbedaan kepadatan piksel, tekstur shading, dan outline antara aset `professions`, `neighborhood`, `specialists`, `residents`, dan `civic`. Diperlukan art QA lintas kategori sebelum perubahan gaya final.
+- Sebagian kolom gaya pakaian awal berisi default generik seperti 'apron kerja' yang tidak cocok dengan potret. Atribut pakaian, aksesori, palet, gestur, dan kontinuitas visual kini ditulis ulang dari gambar yang dipasangkan dengan ID canonical.
+- Semua field yang diisi memiliki penanda sumber (`fieldProvenance`) dan catatan visual (`visualEvidence`). Review ulang wajib jika potret diganti.
+- Karakter C15 tergambar menggunakan kursi roda; deskripsi visual tidak membuat asumsi medis apa pun.
+- Tidak ada otomatisasi yang mengaktifkan spawn, misi, statistik relasi, atau mengganti ID canonical.
+- `origin`, `familyContext` dan hubungan antartokoh yang belum disetujui **tidak boleh diberi nilai karangan yang terkesan sebagai data faktual**.
+
+## QA dan prioritas
+
+1. **P0:** verifikasi portrait key, nama, pekerjaan, fingerprint, JSON valid, jumlah 12 kategori, serta aturan kameo.
+2. **P1:** review manual sampel 248 visual/usia/pendidikan; perbaiki naskah kilas balik yang terasa template atau tidak natural.
+3. **P2:** evaluasi perbedaan art style, perbarui sprite & animation sheet untuk kemunculan di dunia game.
+
+Hasil ini adalah **draf ensiklopedia publik**, bukan persetujuan final atau laporan bug visual pixel-by-pixel. CI/Next build perlu diuji tersendiri.
+
+## Kontrol perubahan potret berdasarkan SHA Git
+
+Seluruh 248 potret yang diamati memiliki `gitBlobSha` dan `sizeBytes` terverifikasi di `docs/game-dev/characters/PORTRAIT_ASSET_AUDIT.json`. SHA diperiksa ulang oleh `npm run chars:portrait:check` terhadap byte file lokal saat test. Jika aset potret diubah, pemeriksaan akan gagal agar ciri fisik pada Character Bible tidak dibiarkan usang tanpa peninjauan ulang. Ledger merekam **248 SHA unik** dan total sekitar **21,64 MB** aset potret yang dipasangkan ke 248 ID canonical.
+
+
+## Pengayaan lanjutan asal dan konteks keluarga — 22 November 2026
+
+- Snapshot tahap awal: **794 null** di 248 NPC. Pengayaan menambahkan **492 nilai** untuk 246 tokoh fiksi non-kameo: 246 `01_core_identity.origin` dan 246 `07_background_history.familyContext`.
+- Sisa yang disengaja: **302 null**, yaitu 246 `09_dialogue_behavior.publicCameoGuardrail` milik non-kameo yang **tidak berlaku**, serta 56 null milik P01/P02 (masing-masing 28, termasuk asal dan keluarga). Nol null bukan target yang tepat bila bidangnya tidak berlaku.
+- Asal adalah konteks lingkungan tokoh **dalam dunia fiksi** dan bukan klaim tempat lahir, tempat tinggal orang nyata, bukti dari wajah/nama, ataupun lokasi spawn dalam game. Nama kawasan dipilih sebagai usulan worldbuilding dan belum mengaktifkan peta/quest.
+- Konteks keluarga adalah cerita fiksi proposal **tanpa nama anggota keluarga**, tanpa hubungan canonical baru, tanpa koneksi antar-ID, dan tanpa perubahan status save. Di UI YZ Phone Warga tetap berstatus `draft`.
+- `fieldProvenance`: sumber `fictional-worldbuilding-editorial-draft`, confidence 48% untuk asal dan 40% untuk keluarga, `requiresReview: true` untuk keduanya.
+- P01/P02 tidak menerima latar pribadi yang dikarang; seluruh pembatasan usia/psikologi/keluarga tetap berlaku. Empat atribut canonical (ID/nama/profesi/potret), fingerprint, izin legacy, progres, dan gameplay tidak diubah.
+- 246 wiki Markdown digenerasi ulang dengan struktur yang sama seperti generator resmi. Validator diubah agar mengizinkan **usulan asal dan keluarga berlabel fiksi** pada NPC biasa, dan tetap mewajibkan `null` bagi kedua kameo.
+- Seluruh konten masih memerlukan review editorial: keragaman gaya, kewajaran hubungan keluarga, kesesuaian lokasi, dan konflik/quest sebelum approval atau merge.
+
+
+## Profil publik tersumber P01/P02 (22 November 2026)
+
+- Kameo tetap **figur publik dalam karya fiksi**, bukan biografi tokoh fiksi baru. Field asal, usia, pendidikan, dan konteks keluarga diisi **hanya dari profil publik tersumber** (berbeda dari 246 NPC fiksi). `publicBiography.sources` dan `fieldProvenance` memuat rujukan web untuk audit.
+- P01 (Dedi Mulyadi): asal Subang, lahir tahun 1971, usia 55 per 22 November 2026, pendidikan STIH Purnawarman, pejabat Gubernur Jabar. **Tanggal lahir tidak ditetapkan** karena Biro Adpim Jabar menulis 12 April sedangkan ANTARA menulis 11 April. Latar keluarga hanya ringkasan sumber publik tanpa rekayasa anggota keluarga atau relasi NPC.
+- P02 (Muhammad Farhan): lahir di Bogor, 25 Februari 1970, usia 56 per 22 November 2026, Sarjana Ekonomi Unpad 1995 dan fellowship; menjabat Wali Kota Bandung. Informasi status keluarga yang telah dipublikasikan pemerintah disingkat tanpa nama keluarga.
+- Visual pose, kostum, bahasa dan kegiatan hanya **arahan naskah fiksi**, tidak diinterpretasi sebagai karakteristik, pernyataan, jadwal, perilaku, atau keputusan nyata. Tujuh atribut psikologis personal dan memori pembentuk pribadi tetap `null`; tidak ada pemalsuan motivasi atau sikap publik.
+- Dossier yang berubah hanya P01/P02 beserta dua halaman ensiklopedia; empat identitas canonical, fingerprint, aset portret, save, quest, status `draft`, dan pemisahan legacy tidak berubah.

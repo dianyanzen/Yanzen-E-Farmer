@@ -76,6 +76,10 @@ try{
   platform:"node",format:"esm",packages:"external",outfile:privateLoader,logLevel:"silent"});
  const {readPrivateResidentBible}=await import(pathToFileURL(privateLoader).href);
  assert.equal(await readPrivateResidentBible(roster[0]),null,"Unapproved Bible must not be exposed");
+ const editorDraft=await readPrivateResidentBible(roster[0],{allowDraft:true});
+ assert.equal(editorDraft?.approval,"draft","Explicit internal preview can read a draft without changing approval");
+ assert.equal(editorDraft?.sections["01_core_identity"].name,roster[0].name,"Draft preview still uses canonical identity");
+ assert.equal(await readPrivateResidentBible(roster[0]),null,"Editor preview must not affect the default approved-only reader");
  seed.profiles[roster[0].id].approval="approved";
  seed.profiles[roster[0].id].sections["01_core_identity"].name="NAMA USANG";
  seed.profiles[roster[0].id].sections["04_social_profile"].occupation="PEKERJAAN USANG";

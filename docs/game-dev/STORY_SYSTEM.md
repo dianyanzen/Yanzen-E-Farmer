@@ -1,3 +1,5 @@
+> **Pembaruan:** 248 NPC fiksi dan Character Bible 12 kategori tersedia sebagai dokumentasi publik. Contoh 32 karakter dan scene lama di bawah bersifat **legacy runtime**; 248 profil baru adalah **konsep cerita**, bukan 248 schedule atau quest aktif. Lihat `NPC_PUBLICATION_POLICY.md` dan `characters/README.md`.
+
 # Living Stories — Narrative Engine Specification v0.1
 
 ## Story design target

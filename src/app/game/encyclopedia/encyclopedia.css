@@ -1,0 +1,39 @@
+.yz-encyclopedia{min-height:100vh;background:#f4f0e7;color:#203127;font-family:system-ui,sans-serif}
+.yz-encyclopedia-header{background:linear-gradient(140deg,#19382d,#375747);padding:36px max(24px,calc((100vw - 1160px)/2));color:#fff}
+.yz-encyclopedia-brand{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.88}
+.yz-back{color:inherit;text-decoration:underline;text-underline-offset:4px}
+.yz-encyclopedia-header h1{font-family:Georgia,serif;font-size:clamp(32px,5vw,56px);letter-spacing:-.04em;margin:25px 0 10px}
+.yz-encyclopedia-header p{max-width:740px;line-height:1.65}
+.yz-encyclopedia-notice{padding:13px 16px;border:1px solid #e2d4ad;background:#fff8e8;border-radius:8px;color:#54431e!important;font-size:13px;line-height:1.55}
+.yz-encyclopedia-layout{max-width:1240px;margin:auto;padding:28px 18px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px}
+.yz-encyclopedia-sidebar,.yz-encyclopedia-main{background:white;border:1px solid #dfded5;border-radius:14px;min-width:0}
+.yz-encyclopedia-sidebar{padding:18px;align-self:start;position:sticky;top:14px}
+.yz-encyclopedia-sidebar label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.yz-encyclopedia-sidebar input{width:100%;padding:12px 14px;border:1px solid #b8c8bc;border-radius:8px;background:#fff;color:#17281c;font:inherit}
+.yz-encyclopedia-count{font-size:12px;color:#61746a}
+.yz-encyclopedia-people{max-height:67vh;overflow:auto;display:grid;gap:4px}
+.yz-encyclopedia-people button{display:flex;align-items:center;text-align:left;width:100%;padding:8px;gap:12px;border:0;border-radius:9px;background:transparent;color:inherit;cursor:pointer}
+.yz-encyclopedia-people button[aria-current="true"],.yz-encyclopedia-people button:hover{background:#e9f0e8}
+.yz-encyclopedia-people img{flex:0 0 auto;object-fit:cover;border-radius:8px;background:#ddd}
+.yz-encyclopedia-people strong,.yz-encyclopedia-people small{display:block}
+.yz-encyclopedia-people strong{font-size:12px;line-height:1.35}
+.yz-encyclopedia-people small{color:#66776b;font-size:11px;line-height:1.4;margin-top:4px}
+.yz-encyclopedia-main{padding:clamp(18px,3vw,30px)}
+.yz-encyclopedia-person{display:flex;align-items:center;gap:23px;margin-bottom:24px}
+.yz-encyclopedia-person img{border-radius:12px;object-fit:cover;background:#e4e7dd}
+.yz-encyclopedia-person h2{font:normal clamp(26px,3vw,38px)/1.1 Georgia,serif;margin:10px 0}
+.yz-encyclopedia-person p{color:#55705c}
+.yz-encyclopedia-person small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#766944}
+.yz-encyclopedia-chapters{display:grid;gap:10px;margin-top:22px}
+.yz-encyclopedia-chapters details{border:1px solid #e1e4d9;border-radius:9px;overflow:hidden}
+.yz-encyclopedia-chapters summary{cursor:pointer;font-weight:700;padding:15px 18px;background:#f8faf5}
+.yz-encyclopedia-chapters>details>dl{padding:6px 18px 18px;margin:0}
+.yz-encyclopedia-chapters dl>div{padding:10px 0;border-bottom:1px solid #f0f1eb}
+.yz-encyclopedia-chapters dl>div:last-child{border:0}
+.yz-encyclopedia-chapters dt{font-size:12px;font-weight:700;color:#617069;margin-bottom:5px}
+.yz-encyclopedia-chapters dd{margin:0;line-height:1.6;font-size:14px;overflow-wrap:anywhere}
+.yz-encyclopedia-chapters dd ul{padding-left:20px;margin:2px 0}
+.yz-encyclopedia-chapters dd dl{margin-top:8px}
+.yz-encyclopedia-footer{font-size:12px;color:#738074;line-height:1.65;margin-top:26px}
+.yz-encyclopedia-empty{padding:80px 14px;text-align:center}.yz-encyclopedia-empty h2{font:normal 30px Georgia,serif}.yz-encyclopedia-empty p{max-width:460px;margin:auto;line-height:1.7;color:#607066}
+@media(max-width:720px){.yz-encyclopedia-layout{display:block}.yz-encyclopedia-sidebar{position:static;margin-bottom:15px}.yz-encyclopedia-people{max-height:220px}.yz-encyclopedia-person{gap:14px}.yz-encyclopedia-person img{width:100px;height:100px}.yz-encyclopedia-header{padding:24px 18px}}

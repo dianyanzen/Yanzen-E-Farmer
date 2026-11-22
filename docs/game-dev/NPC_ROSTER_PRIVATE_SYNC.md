@@ -1,3 +1,5 @@
+> **PEMBARUAN 22 NOVEMBER 2026:** Pemilik proyek telah menyetujui publikasi katalog **karakter fiksi** yang dikurasi. Sumber canonical publik sekarang ada di `game-assets/catalog/npc-public-roster.json` dengan dossier dan wiki 248 NPC. Baca [kebijakan baru](NPC_PUBLICATION_POLICY.md). Dokumen di bawah merupakan **rekam keputusan lama** dan berlaku untuk file server yang tetap privat, data save, serta approval legacy. Larangan lama mempublikasikan *nama karakter fiksi* tidak berlaku lagi.
+
 # YZ Farm Life — pemisahan roster privat dan cerita lama
 
 ## Keputusan
