@@ -1,4 +1,4 @@
-# Referensi Teknis dan Penelitian — YZ Farm Life
+> **CATATAN STATUS (22 November 2026):** Dokumen ini menyimpan hasil penelitian/perencanaan sebelumnya, bukan aturan runtime terbaru. Roster 248 canonical ada di `game-assets/catalog/npc-public-roster.json`; presentasi Warga mengikuti `src/lib/game/public-wargapedia.ts`. Baca `AGENTS.md` dan `docs/game-dev/README.md` sebelum memakai bagian lama sebagai instruksi.\n\n# Referensi Teknis dan Penelitian — YZ Farm Life
 
 **Kumpulan dokumen sumber terverifikasi, 16 November 2026.** Teks asli tetap berada di situs masing-masing; catatan ini merupakan ringkasan implementasi orisinal, bukan salinan dokumentasi yang berhak cipta.
 

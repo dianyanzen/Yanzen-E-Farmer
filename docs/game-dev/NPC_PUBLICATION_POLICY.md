@@ -1,32 +1,23 @@
-> **Pembaruan audit potret:** 248 profil kini memiliki catatan ciri fisik berdasarkan ilustrasi canonical. Nama panggilan, bahasa dialog, usia, pendidikan dan memori yang baru ditambahkan merupakan **rancangan fiksi** dengan tingkat keyakinan berbeda, bukan biografi atau informasi nyata. Asal dan konteks keluarga 246 NPC biasa merupakan usulan lore fiksi. Untuk kameo P01/P02, hanya ringkasan biografi yang didukung sumber publik yang ditambahkan; motif dan hubungan personal yang tidak terverifikasi tetap kosong. Lihat `NPC_PORTRAIT_NULL_ENRICHMENT.md` dan periksa `fieldProvenance` sebelum menulis adegan baru.
+# Kebijakan publikasi profil Warga — YZ Farm Life
 
-> **Integrasi YZ Phone terbaru:** Menu tunggal **`Warga`** menggabungkan katalog Wargapedia 248 karakter, 12 kategori lore publik tanpa syarat level, dan data kedekatan yang benar-benar berasal dari save (hanya untuk asosiasi identitas yang approved). Ikon Wargapedia terpisah sudah dihapus. `Kedekatan` dan `Kronik` tetap menggunakan state aktual, bukan isi draf lore. Lihat `YZ_PHONE_WARGA_KRONIK.md`.
+**Status: berlaku sejak 22 November 2026.** Pemilik proyek mengizinkan identitas dan lore fiksi 248 NPC dipublikasikan sebagai dokumentasi semesta game. Ini **bukan** izin menyertakan file privasi server, save pengguna, kunci akses atau data pribadi nonpublik.
 
-# Kebijakan ensiklopedia NPC publik — YZ Farm Life
+## Sumber dan batas
 
-Perubahan 22 November 2026: pemilik proyek memberikan izin untuk **mempublikasikan identitas karakter fiksi** beserta rancangan Character Bible sebagai dokumentasi game. Ini menggantikan keputusan privat untuk *identitas fiksi* saja; **tidak** mencabut perlindungan kredensial, file persetujuan asosiasi legacy, save pemain, maupun data aktual di server.
+- Identitas canonical: `game-assets/catalog/npc-public-roster.json` (ID, nama, pekerjaan, portrait) beserta fingerprint SHA; indeks pengunjung `public/game/data/npc/index.json`.
+- Character Bible 12 kategori: `public/game/data/npc/{ID}.json`, `docs/game-dev/characters/{ID}.md`. Draf asal, keluarga, pendidikan, memori dan sifat fiksi adalah usulan pengembangan, **bukan** rekaman orang nyata maupun kejadian yang sudah dialami pemain.
+- Warga untuk pemain: `wargaPlayerView` di `src/lib/game/public-wargapedia.ts` memilih hanya kisah yang relevan. Detail developer (ID, provenance, source claim, audit/null, approval, runtime status, rencana quest) tidak menjadi teks layar.
+- Relasi actual dan Kronik: `GameState` dan hanya mapping `approvedLegacyId`. `cast.json` lama tidak dijadikan identitas 248 baru secara otomatis.
+- Kameo P01/P02: hanya fakta biografi publik yang dibuktikan sumber ditampilkan sebagai fakta; dialog dan pertemuan adalah fiksi tanpa dukungan politik resmi. Motif/psikologi/privasi yang tak bersumber tidak dibuat-buat.
+- Bahan editorial internal yang memerlukan otorisasi menggunakan endpoint `/api/game/resident-bible/[id]?draft=1` atau media developer yang aman. **Public JSON tidak privat hanya karena UI menyembunyikan field.**
 
-## Batas rilis
+## Aturan antarmuka
 
-- **Publik:** 248 ID, nama karakter, pekerjaan, portrait key, halaman ensiklopedia dan 12 kategori cerita fiksi berlabel `public-fictional-draft`.
-- **Tetap internal:** file sumber privat, catatan review internal, email/ID akun, data pengguna, file penyimpanan save, `approved-legacy.json`, lingkungan server serta secrets.
-- **Tidak disimpulkan:** umur, riwayat pribadi, keluarga, pendidikan, diagnosis psikologis dan informasi yang tidak diverifikasi. Untuk dua kameo figur publik P01/P02, tidak ada motif psikologis atau riwayat keluarga rekaan; dialog ditegaskan sebagai dialog fiksi.
-- **Draft bukan gameplay:** status `approval:draft` tetap. Profil publik bisa dibaca seperti buku dunia game, tetapi tidak membuat karakter ter-spawn, memiliki jadwal aktif, mendapat relasi ataupun mewarisi quest/flags lama.
+- Pemain melihat daftar nama, pekerjaan, potret, kisah singkat, serta progres jika benar-benar ada. Tidak ada label `A03`, "NPC", "12 kategori", "draf", "belum terintegrasi", "save" atau instruksi tingkat kedekatan di profil.
+- Teks warga ditulis sebagai bagian dari dunia Pasirluyu. Hindari pola template dari hasil pengayaan massal; kelola lewat kurasi sebelum masuk proyeksi pemain.
+- Informasi yang tidak berguna pada layar ponsel **boleh tetap ada di JSON untuk developer**, tetapi tidak otomatis dirender.
+- Jangan menghapus validasi atau mengubah empat identitas canonical hanya agar suatu dialog/buku terlihat rapi.
 
-## Struktur
+## Pemeriksaan
 
-- `game-assets/catalog/npc-public-roster.json`: sumber publik empat atribut canonical, fingerprint tetap.
-- `public/game/data/npc/index.json`: katalog publik untuk pencarian.
-- `public/game/data/npc/{ID}.json`: dossier publik per tokoh, 12 kategori, diambil *on demand*.
-- `docs/game-dev/characters/{ID}.md`: halaman wiki untuk tiap NPC.
-- `src/app/game/encyclopedia`: antarmuka katalog publik dan penjelajah profil.
-- `src/app/game/character-gallery.tsx`: YZ Phone membaca profil publik, tanpa otomatis memindahkan cerita dari cast legacy.
-
-## Aturan pengembangan
-
-1. Selalu kunci fingerprint empat atribut; perbedaan harus dihentikan, bukan diselaraskan diam-diam.
-2. Kurasi dialog dan sifat yang terlalu mirip, serta tindak lanjuti review art style dan sprite sebelum menganggap final.
-3. Semua ide baru masih `draft` dan narasi baru tidak boleh mengaku sudah terjadi di save. Jika ada tokoh yang dapat ditemui, tetapkan spawn, schedule, assets dan flags terpisah.
-4. Validasi menggunakan `npm run chars:public:check`, `npm run test:game`, `npm run typecheck`, serta cek UI mobile/desktop.
-5. GitHub publik hanya memuat versi kurasi. **Jangan** commit file bernama `*_PRIVATE.json` ataupun provenance/editing notes internal secara mentah.
-6. Jika nanti beberapa karakter merujuk pada individu nyata, minta izin untuk detail personal; nama karakter game sendiri tidak boleh diperlakukan sebagai bukti riwayat nyata.
+Jalankan `npm run chars:public:check`, `npm run test:game:humanizer`, `npm run test:game:copy`, `npm run test:game`, `npm run typecheck`, lalu inspeksi browser mobile/desktop. Untuk detail klasifikasi lihat `PLAYER_DEVELOPER_CONTENT_BOUNDARY.md` dan skill `yz-farm-encyclopedia`.

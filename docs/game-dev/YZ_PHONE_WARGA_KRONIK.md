@@ -1,42 +1,32 @@
-> **PEMBARUAN PUBLIK (22 NOVEMBER 2026):** Seluruh 248 karakter canonical kini memiliki katalog fiksi publik dan 12 kategori Character Bible draf. YZ Phone mengambil `/game/data/npc/{ID}.json` sebagai fallback jika biografi privat yang approved tidak tersedia; `/game/encyclopedia` menyediakan wiki publik. Rincian di bawah mendokumentasikan fitur awal dan sebagian status sebelumnya; hanya flag dari save yang boleh dianggap kejadian yang benar-benar dialami pemain.
+# YZ Phone — Warga, Kronik dan cerita yang benar-benar terjadi
 
-# YZ Phone — Warga, Kedekatan, dan Kronik
+**Status implementasi aktif, 22 November 2026.** Baca `PLAYER_DEVELOPER_CONTENT_BOUNDARY.md` dan skill `yz-farm-encyclopedia`.
 
-## Warga — ensiklopedia dan hubungan jadi satu (implementasi terbaru)
+## Warga
 
-**Satu ikon `Warga` di beranda YZ Phone.** Tidak ada lagi aplikasi Wargapedia yang terpisah. Ketika memilih warga, semua informasi tampil dalam satu halaman detail yang sama:
+- **Satu ikon Warga**, tidak ada Wargapedia duplikat. Daftar memuat potret, nama yang ditulis manusiawi, profesi, dan pencarian nama/pekerjaan. Pagination menjaga layar portrait tetap nyaman.
+- Data diambil dari `/game/data/npc/index.json` dan `/game/data/npc/{ID}.json`. Ada 248 karakter canonical dan 12 kategori di **lapisan data developer**, namun `wargaPlayerView` memilih hanya **keseharian, cerita asal yang layak, ciri yang terlihat atau riwayat publik tersumber untuk kameo**.
+- Pemain **tidak perlu diberi tahu** profil dapat diakses sejak awal; membacanya bukan hadiah kedekatan. Jangan tampilkan ID, approval, status draf, daftar semua field mentah, atau instruksi developer.
+- Informasi percakapan dan misi hanya muncul ketika ada data `GameState` dan hubungan legacy→canonical yang **disetujui** melalui `approvedLegacyId`. Tidak boleh mengarang pertemuan/lokasi agar kartu hubungan terisi.
+- Kameo P01/P02 menampilkan biografi publik yang memiliki tautan sumber; interaksi serta dialog game bukan kegiatan atau kutipan nyata.
+- Editor memakai dokumen JSON/wiki dan endpoint review server terotorisasi `/api/game/resident-bible/[id]?draft=1`; **tidak ada toggle debug di YZ Phone pemain**.
 
-1. **Daftar publik 248 NPC** (canonical): foto, nama lengkap, pekerjaan, pencarian nama/profesi/ID, 10 entri per halaman. Termasuk tokoh ekspansi yang belum muncul di peta.
-2. **Halaman detail tunggal**: potret konsep → catatan hubungan yang benar-benar tersimpan dalam save → **12 kategori Character Bible publik**. Seluruh bab boleh dibaca sejak Lv. 0 tanpa harus berkenalan atau membuka quest.
-3. **Hubungan dan misi**: ringkasan progres hanya muncul saat ada asosiasi canonical↔legacy yang **disetujui eksplisit**, melalui `approvedLegacyId`. Tanpa asosiasi, tampil penjelasan bahwa belum ada hubungan yang terhubung; tidak menebak berdasarkan nama/ID yang bertabrakan.
-4. **Kronik → Warga** membuka halaman detail karakter yang sama, bukan aplikasi lain. ESC/tombol kembali membawa pengguna ke daftar warga, kemudian beranda aplikasi.
-5. **Editor internal** tetap dapat meninjau catatan nonpublik lewat `npcDraftPreview=1` bila akun diizinkan server melalui `GAME_BIBLE_EDITOR_USER_IDS`. Tidak ada data editor pada JSON publik.
+## Kronik
 
-Sumber publik: `/game/data/npc/index.json` dan `/game/data/npc/{ID}.json`; pembaca `src/app/game/phone-wargapedia.tsx`, gerbang UI `src/app/game/character-gallery.tsx`. File arsip/proposal `cast.json` bukan roster canonical. Lore yang masih `approval:draft` bukan bukti peristiwa sudah terjadi, NPC aktif, atau quest siap dimainkan.
+`Kronik` merangkum `GameState`: kisah dan milestone Bab 1, misi personal, jejak hari, keputusan bercabang, percakapan serta panen. Ia tidak menyisipkan cerita usulan 248 NPC sebagai pengalaman yang sudah terjadi. Tidak mengarang tanggal bila tanggal belum disimpan.
 
-**QA:** `npm run chars:public:check`, `npm run test:game`, `npm run test:portraits:ui`, `npm run typecheck` dan uji nyata iOS/desktop (Lv. 0, pencarian 248 karakter, 12 bab, jaringan gagal, ESC, riwayat save).
+Saat sebuah riwayat punya hubungan yang disetujui, tombol Warga membuka halaman orang yang tepat. Jika tidak ada mapping yang sah, tombol tidak dibuat; **jangan menjelaskan konflik ID/versi lama kepada pemain**.
 
----
+## Panduan
 
-## Kronik: ringkasan cerita berdasarkan save
+Panduan dalam YZ Phone menjadi tempat utama kontrol HP/PC, bertani, pulang dan tidur. HUD dan papan cukup menunjukkan tindakan yang sedang relevan. Jangan menampilkan rencana ekspansi, editor UI atau detail build.
 
-Buka **YZ Phone → Kronik**. Tersedia tiga pilihan:
+## Batas saat ini
 
-- **Kisah**: ringkasan Bab 1, progres lima milestone dan detail peristiwa yang sudah dialami. Peristiwa setelah tahap saat ini tampil terkunci. Foto Nani dan keputusan `nani/warung` mengikuti save, termasuk `completedDay` jika tercatat.
-- **Misi**: status lima quest personal dari `personalQuests`: belum diambil, berjalan, menunggu, selesai. Tautan dapat membuka profil pemberi misi.
-- **Jejak hari**: hari keberapa, panen, percakapan, malam istirahat, warga yang pernah ditemui, dan kedekatan. Tombol **Salin ringkasan cerita** membuat teks kronologi tanpa kontak ke AI eksternal; jika clipboard tidak tersedia, tampil kotak teks untuk disalin manual.
-
-**Sumber kebenaran:** `GameState` v1 (story flags, bonds, personalQuests, stats, game day). **Tidak menambah kolom SQL atau bentuk save**. Semua perhitungan dilakukan saat ponsel dibuka dan berubah mengikuti state. Peristiwa lama yang tidak memiliki tanggal tidak diberi tanggal palsu. Kronik belum mencatat setiap langkah, setiap tempat yang dikunjungi atau dialog lengkap; untuk granular event log perlu migrasi save dengan validasi terpisah.
+- 248 profil dan potret adalah cakupan ensiklopedia, bukan 248 tokoh yang sudah berjalan di peta.
+- Bab 1, save, dan mekanik aktivitas mengikuti source runtime; konten arsip 32/70 karakter lama masih ada untuk kompatibilitas tetapi **bukan** identitas canonical.
+- Vercel staging Hobby memakai build game-only dengan 8 entry route; halaman web ensiklopedia terpisah dapat tersedia di source, tetapi tidak termasuk rute playtest jika memang dipangkas.
 
 ## QA
 
-- `npm run test:game:phone`: memverifikasi milestone, ending bercabang, quest phase, jumlah teman, impor lazy 70 profil dan save v1.
-- `npm run test:portraits:ui`: cek daftar 12 per halaman, klik detail 12 seksi, 32 potret dan 8 ekspresi, fallback saat gambar gagal, serta tab Kronik.
-- `npm run test:game:copy`: regresi frasa nonnatural/meta yang pernah muncul.
-- `npm run typecheck`, `npm run test:game`, review browser iOS dan desktop termasuk scrolling panjang, tombol kembali, fokus keyboard, dan ukuran potret.
-
-Pengalaman harus tetap nyaman di prototipe Pasirluyu sebelum ekspansi besar berikutnya.
-
-### Pengayaan potret di menu Warga (22 November 2026)
-
-Semua 248 dossier yang dibaca YZ Phone memiliki deskripsi ciri visual sesuai potret canonical. Usia, pendidikan, dan kilas balik tokoh yang baru diisi **masih usulan fiksi**; menu tidak boleh menyatakannya sebagai data pribadi nyata, misi aktif, atau hubungan yang sudah terjadi. `origin` dan `familyContext` tetap null sampai ada keputusan penulisan yang cukup. Baca `NPC_PORTRAIT_NULL_ENRICHMENT.md` sebelum mengubah potret maupun cerita. `Kronik` tetap hanya dari save.
+Jalankan `npm run chars:public:check`, `npm run test:game`, `npm run typecheck`, `npm run test:portraits:ui`, dan inspeksi nyata iOS/desktop. Pastikan daftar 248, pencarian nama, profil tidak menampilkan ID/draf, potret dan sumber kameo, error jaringan, tombol kembali, aksesibilitas, serta Kronik berdasarkan save.

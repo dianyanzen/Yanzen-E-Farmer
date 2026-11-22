@@ -1,4 +1,4 @@
-> **PEMBARUAN:** Karakter game fiksi kini boleh diterbitkan sebagai dokumentasi publik atas izin owner. Lihat [NPC_PUBLICATION_POLICY.md](NPC_PUBLICATION_POLICY.md) dan [ensiklopedia karakter](characters/README.md). Instruksi di bawah tetap berlaku khusus untuk artefak sumber internal dan backup, bukan JSON fiksi yang telah dikurasi untuk publikasi.
+> **CATATAN STATUS (22 November 2026):** Dokumen ini menyimpan hasil penelitian/perencanaan sebelumnya, bukan aturan runtime terbaru. Roster 248 canonical ada di `game-assets/catalog/npc-public-roster.json`; presentasi Warga mengikuti `src/lib/game/public-wargapedia.ts`. Baca `AGENTS.md` dan `docs/game-dev/README.md` sebelum memakai bagian lama sebagai instruksi.\n\n> **PEMBARUAN:** Karakter game fiksi kini boleh diterbitkan sebagai dokumentasi publik atas izin owner. Lihat [NPC_PUBLICATION_POLICY.md](NPC_PUBLICATION_POLICY.md) dan [ensiklopedia karakter](characters/README.md). Instruksi di bawah tetap berlaku khusus untuk artefak sumber internal dan backup, bukan JSON fiksi yang telah dikurasi untuk publikasi.
 
 # Character Bible 248 — migrasi privat dan audit lintas modul
 

@@ -5,7 +5,8 @@ import { bandungConceptPortraitPath } from "@/lib/game/bandung-concept-portrait"
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import NextImage from "next/image";
 import { portraitCharacter, portraitColumn, EMOTION_LABELS, PORTRAIT_EMOTIONS } from "@/lib/game/portraits";
-import { NPCS, bondLabel, bondLevel, type Dialogue, type Emotion, type GameState } from "@/lib/game/model";
+import { NPCS, type Dialogue, type Emotion, type GameState } from "@/lib/game/model";
+import {wargaDisplayName} from "@/lib/game/public-wargapedia";
 
 export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; emotion?: Emotion; name?: string }) {
   const person = portraitCharacter(npcId);
@@ -21,11 +22,11 @@ export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; 
 
 export function ResidentPortrait({ resident }: { resident: ResidentProfile }) {
   const [failed,setFailed]=useState<string|null>(null);
-  if(failed===resident.portrait)return <span role="img" aria-label={`Potret ${resident.name} belum tersedia`}
+  if(failed===resident.portrait)return <span role="img" aria-label={`Potret ${wargaDisplayName(resident.name)} belum tersedia`}
     className="yzg-character-preview yzg-portrait-fallback">{resident.name.slice(0,1)}</span>;
   return <NextImage key={resident.portrait} className="yzg-character-preview"
     src={bandungConceptPortraitPath(resident.portrait)}
-    alt={`Potret karakter ${resident.name}`} width={80} height={80} unoptimized onError={()=>setFailed(resident.portrait)}/>;
+    alt={`Potret ${wargaDisplayName(resident.name)}`} width={80} height={80} unoptimized onError={()=>setFailed(resident.portrait)}/>;
 }
 
 function DialogueLine({ line, onNext, last }: { line: string; onNext: () => void; last: boolean }) {
@@ -56,17 +57,15 @@ function DialogueLine({ line, onNext, last }: { line: string; onNext: () => void
   </>;
 }
 
-export default function DialoguePanel({ dialogue, game, resident, children }: { dialogue: Dialogue; game: GameState; resident?: ResidentProfile; children: ReactNode }) {
+export default function DialoguePanel({ dialogue, resident, children }: { dialogue: Dialogue; game: GameState; resident?: ResidentProfile; children: ReactNode }) {
   const [page, setPage] = useState(0);
   const npc = NPCS.find(n => n.id === dialogue.npcId);
-  const bond = npc ? game.bonds[npc.id] : null;
   const last = page >= dialogue.lines.length - 1;
   return <>
-    <div className="yzg-dialog-head"><b>{resident?.name ?? (npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
+    <div className="yzg-dialog-head"><b>{resident?.name?wargaDisplayName(resident.name):(npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
       {npc && (resident?<ResidentPortrait resident={resident}/>:<Portrait npcId={npc.id} emotion={dialogue.emotion}/>)}
       <div className="yzg-dialog-copy">
-        {npc && <small>{npc.role} · Lv. {bondLevel(bond!.points)} · {bondLabel(bond!.points)}</small>}
         <DialogueLine key={page} line={dialogue.lines[page] || ""} last={last} onNext={() => setPage(p => p + 1)}/>
       </div>
     </div>

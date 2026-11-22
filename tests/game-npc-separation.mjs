@@ -45,7 +45,7 @@ try{
  assert.ok(!ui.includes("game-assets/catalog/cast.json"),"Citizen directory must never fall back to legacy cast");
  assert.ok(!ui.includes("fromExpansion"),"Citizen directory must not mix old expansion identities");
  assert.ok(ui.includes("catalog?.characters.filter"),"All 248 public characters must be searchable by default");
- assert.ok(ui.includes("EditorialDraftNotes"),"Existing private editor review remains protected and available");
+ assert.ok(!ui.includes("EditorialDraftNotes")&&!ui.includes("npcDraftPreview"),"Private editorial controls must not appear inside player Warga");
  for(const route of ["src/app/game/page.tsx","src/app/game/phaser/page.tsx","src/app/game/canvas/page.tsx"]){
   assert.ok(file(route).includes("readPrivateResidents()"),"Missing canonical server hydration: "+route);
  }
@@ -64,6 +64,7 @@ try{
  const draftRoute=file("src/app/api/game/resident-bible/[id]/route.ts");
  assert.ok(draftRoute.includes("GAME_BIBLE_EDITOR_USER_IDS"),"Draft route requires editor allowlist");
  assert.ok(draftRoute.includes("status:403"),"Draft route must reject unauthorized users");
- assert.ok(ui.includes("?draft=1"),"Editor preview route is explicitly opt-in");
+ assert.ok(draftRoute.includes('searchParams.get("draft")==="1"'),"Editor preview remains an explicit server-only mode");
+  assert.ok(!ui.includes("?draft=1"),"Player Warga must never expose an editor preview switch");
  console.log("PASS: 69 legacy ID collisions quarantined, 39 story candidates, 30 concepts, route/UI identity guard");
 }finally{rmSync(temp,{recursive:true,force:true});}

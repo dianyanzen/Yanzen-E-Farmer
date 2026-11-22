@@ -1,40 +1,42 @@
-# YZ Farm Life — Game Development Library
+# YZ Farm Life — pustaka kerja game
 
-**Version:** research & curation v0.1 · 2026-11-16 · **NOT** an imported sprite pack or game-release build.
+**Daftar rujukan aktif, 22 November 2026.** Repositori menyimpan game dan web E-Farmer. Isi dokumen yang dibuat lebih awal dapat berupa proposal/historis; jangan menyatakan fitur sudah aktif tanpa melihat kode atau tes.
 
-This folder is the working knowledge base for YZ Farm Life, an original GBA-style, story-rich 2D top-down life simulation based in **Pasirluyu, Regol, Kota Bandung**, with a district discovery system spanning Bandung's 30 kecamatan and an in-game **YZ Phone**.
+## Baca ini dahulu (aturan aktif)
 
-## Start here
-1. [Game Design Document](GAME_DESIGN_DOCUMENT.md) — what we are building, minimum playable experience, and narrative principles.
-2. [Art Direction](ART_DIRECTION.md) — 16x16 tile language, portrait view, camera and assets quality gates.
-3. [Asset Source Catalog](../../game-assets/catalog/sources.json) — licensed external asset candidates, no vendor binaries imported.
-4. [32 Visual References](../../game-assets/catalog/characters.json) — character-sheet inventory from private Drive; no source file export.
-5. [Asset Licensing & Integration](ASSET_PIPELINE.md) — safe acquisition, provenance, redistribution, technical optimization.
-6. [Tools & Plugins](TOOLS_AND_PLUGINS.md) — installed/connected app tools and external desktop editors.
-7. [Technical & Research References](REFERENCE_DOCUMENTS.md) — authoritative links and how they apply to the implementation.
-8. [Story/NPC specification](STORY_SYSTEM.md) — event dependency graph, NPC memory and narrative QA.
-9. [Humanizer untuk dialog dan quest](HUMANIZER_DIALOGUE_PIPELINE.md) — skill Codex lokal, audit suara NPC dan pengamanan kontrak quest.
-10. [Character Bible 12 kategori](../../game-assets/characters/profiles/README.md) — 70 tokoh bernama, status canon/proposal, dan QA tiap dimensi.
-11. [YZ Phone: Warga + Kronik](YZ_PHONE_WARGA_KRONIK.md) — daftar→detail dan ringkasan cerita terhubung save.
-12. [Humanizer untuk seluruh teks game](GAME_TEXT_STYLE_GUIDE.md) — suara NPC, HUD, peta, toast, error, dialog, dan standar QA.
-13. [Bandung Atlas plan](../YZ_FARM_LIFE_BANDUNG_ATLAS.md) — district metadata and geography methodology.
+1. [AGENTS.md](../../AGENTS.md) — sumber prioritas, batas agen, canonical, lint dan QA.
+2. [Player vs Developer](PLAYER_DEVELOPER_CONTENT_BOUNDARY.md) — apa yang boleh ditampilkan ke pemain dan apa yang harus tetap berada pada alat pengembangan.
+3. [Game Text Style Guide](GAME_TEXT_STYLE_GUIDE.md) — Humanizer untuk setiap teks dalam game.
+4. [YZ Phone Warga & Kronik](YZ_PHONE_WARGA_KRONIK.md) — pengalaman ponsel terkini dan batas data save.
+5. [NPC Publication Policy](NPC_PUBLICATION_POLICY.md) — 248 identitas, kameo, bukti dan privasi.
+6. [Humanizer Editorial Pipeline](HUMANIZER_DIALOGUE_PIPELINE.md) — alur Codex, review narasi, QA.
+7. [Story System](STORY_SYSTEM.md) — aturan naratif, dengan bagian proposal/legacy ditandai.
+8. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
 
-## Asset import status
-- **Shortlisted**: 8 external packs, 5 CC0 and 3 free-commercial/restricted-redistribution.
-- **Verified owner inventory**: 32 private character visual sheets (A01–A16, C01–C16; C08.jpg).
-- **Imported as source CC0 vendor tilesheets**: **2 packs** (Kenney Tiny Town and RPG Urban) with original license documents and provenance; see `game-assets/vendor/`. **Integrated into game runtime**: **0**; source tilesets have not yet replaced the prototype Canvas art.
-- **Prototype**: local hand-drawn Canvas pixel-art tiles and placeholder NPCs.
-- **Next integration gate**: manually obtain source files, preserve licenses, extract chosen frames, verify the exact sprite perspective and test mobile memory/performance.
+Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
 
-## Operational safety
-- Work in isolated GitHub branch `feat/yz-farm-life-asset-library`, based on the existing Stage 1 prototype.
-- Do not merge production, deploy live aliases, write to Supabase farms, or commit source visual references.
-- Use descriptive original names and credit metadata in code: avoid Harvest Moon trademarked assets, UI and maps.
-- Licensing records are a workflow aid, not a substitute for checking the upstream author's license on download day.
+## Kebenaran implementasi
 
-## Commands
+- Game: kode di `src/app/game/`, `src/lib/game/`, rute Next.js, registri peta, dan tes aktif.
+- Katalog 248: `game-assets/catalog/npc-public-roster.json` dan `public/game/data/npc/index.json`; sumber Character Bible per tokoh `public/game/data/npc/{ID}.json`. **Bukan** `cast.json` 32 yang lama.
+- User-facing Warga: `wargaPlayerView`, bukan tampilan otomatis 12 kategori.
+- Kronik: hanya kejadian dari save. Draf lore 246 NPC tidak mengaktifkan quest/spawn.
+- Staging game Vercel Hobby hanya memakai rute game terpilih; ini bukan bukti semua halaman web pertanian sudah ter-deploy.
+
+## Dokumen perencanaan (bukan mandat runtime)
+
+`GAME_DESIGN_DOCUMENT.md`, `BANDUNG_MASTER_WORLD_BLUEPRINT_v1.md`, `REFERENCE_DOCUMENTS.md`, `TOOLS_AND_PLUGINS.md` dan atlas merupakan gagasan, penelitian dan arah ekspansi. `WEB_INTEGRATION_BOUNDARY.md` menjelaskan **jalur historis** integrasi branch lama — tidak boleh diterapkan langsung ke main sekarang.
+
+Catatan `NPC_ROSTER_PRIVATE_SYNC.md`, `NPC_248_PRIVATE_ENRICHMENT_ROLLOUT.md`, `AUDIT_NPC_DOCKER_DAN_POSTGRES.md` menyimpan **riwayat migrasi**. Gunakan untuk audit asal keputusan, bukan untuk mengganti 248 nama/profesi/potret terbaru.
+
+## Pemeriksaan inti
+
 ```bash
-node scripts/game-assets/verify-catalog.mjs
-node scripts/game-assets/fetch-cc0-crops.mjs --accept-cc0
+npm run chars:public:check
+npm run test:game:humanizer
+npm run test:game:copy
+npm run typecheck
+npm run test:game
 ```
-The second command downloads the CC0 source ZIP into a *gitignored, private staging area*; it does not alter the game or commit binaries.
+
+Lanjutkan browser QA untuk halaman Warga, dialog, inventaris, suara, fullscreen, panen, tidur, dan simpan/muat. Pertahankan lisensi serta provenance aset. Penghapusan aset/dokumen wajib didahului audit referensi, tidak karena terlihat belum dipakai.

@@ -92,18 +92,22 @@ try {
  const index=JSON.parse(await readFile('public/game/data/npc/index.json','utf8'));
  assert.equal(index.characterCount,248);
  const sample=[index.characters[0],index.characters[1],index.characters[17],index.characters[247]];
- const search=page.getByRole("searchbox",{name:"Cari karakter"});
+ const displayName=name=>name.trim().split(/\s+/).map(part=>part.length<=2?part.toLocaleUpperCase('id'):part[0].toLocaleUpperCase('id')+part.slice(1).toLocaleLowerCase('id')).join(' ');
+ const search=page.getByRole("searchbox",{name:"Cari nama atau pekerjaan"});
  for(const person of sample){
-  await search.fill(person.id);
+  await search.fill(person.name);
   const card=page.locator('[data-character-card="'+person.id+'"]');
   await card.waitFor();
   await card.click();
   const detail=page.locator('[data-character-detail="'+person.id+'"]');
   await detail.waitFor();
-  await detail.getByText(person.name,{exact:true}).waitFor();
+  await detail.getByText(displayName(person.name),{exact:true}).waitFor();
   await detail.locator('.yzg-wargapedia-chapters details').first().waitFor();
-  assert.equal(await detail.locator('.yzg-wargapedia-chapters details').count(),12,"12 Character Bible chapters open to players at Lv.0");
-  assert.equal(await detail.getByText('Hubungan kalian').count(),1,"relationship status appears alongside lore");
+  const chapters=await detail.locator('.yzg-wargapedia-chapters details').count();
+  assert.ok(chapters>=1&&chapters<=3,"Warga shows short, readable sections");
+  assert.equal(await detail.getByText('Belum ada hubungan permainan').count(),0,"no technical legacy mapping notice");
+  assert.equal(await detail.getByText(/12 kategori|Draf fiksi|Lv. 0|provenance|status runtime|konsep publik/i).count(),0,"no editor labels");
+  assert.equal(await detail.getByText(person.id,{exact:true}).count(),0,"canonical ID is invisible to players");
   await detail.locator('img').first().evaluate(async img=>{
    if(!img.complete)await new Promise((resolve,reject)=>{
     img.addEventListener('load',resolve,{once:true});
@@ -113,8 +117,20 @@ try {
   });
   await detail.getByRole("button",{name:"Daftar warga"}).click();
  }
+
+ for(const cameoId of ['P01','P02']){
+  const cameo=index.characters.find(person=>person.id===cameoId);
+  assert.ok(cameo,'public cameo present in canonical index');
+  await search.fill(cameo.name);
+  await page.locator('[data-character-card="'+cameoId+'"]').click();
+  const cameoDetail=page.locator('[data-character-detail="'+cameoId+'"]');
+  await cameoDetail.getByText(displayName(cameo.name),{exact:true}).waitFor();
+  await cameoDetail.getByText('Sumber profil').waitFor();
+  assert.ok(await cameoDetail.locator('a[href^="https://"]').count()>=2,'cameo biography sources are visible');
+  await cameoDetail.getByRole('button',{name:'Daftar warga'}).click();
+ }
  await search.fill("not-a-character");
- await page.getByRole("status").filter({hasText:"Belum ada karakter dengan nama atau pekerjaan tersebut"}).waitFor();
+ await page.getByRole("status").filter({hasText:"Belum ada nama yang cocok. Coba kata lain."}).waitFor();
  await search.fill("");
  await page.screenshot({path:path.join(output,"warga-merged-mobile.png"),fullPage:true});
  assert.ok(portraits.length>0,"portrait files are lazy-loaded as citizen directory is browsed");
@@ -134,12 +150,12 @@ try {
  await start(broken);
  await broken.getByRole("button",{name:/^▣ YZ Phone/}).click();
  await broken.getByRole("button",{name:/Warga$/}).click();
- await broken.getByRole("searchbox",{name:"Cari karakter"}).fill(sample[0].id);
+ await broken.getByRole("searchbox",{name:"Cari nama atau pekerjaan"}).fill(sample[0].name);
  await broken.locator('[data-character-card="'+sample[0].id+'"]').click();
- await broken.getByText(sample[0].name,{exact:true}).waitFor();
- assert.equal(await broken.locator('.yzg-wargapedia-chapters details').count(),12,"missing portrait cannot hide lore");
+ await broken.getByText(displayName(sample[0].name),{exact:true}).waitFor();
+ assert.ok(await broken.locator('.yzg-wargapedia-chapters details').count()>=1,"missing portrait cannot hide story");
 
  assert.deepEqual(failures,[]);
  assert.deepEqual(errors,[]);
- console.log("Warga browser: one entry, 248 catalog, search, twelve lore sections at level zero, relationship history, image failure resilience and Kronik: PASS");
+ console.log("Warga browser: humanized names, curated stories, source-backed cameos, image fallback and save-based Kronik: PASS");
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
