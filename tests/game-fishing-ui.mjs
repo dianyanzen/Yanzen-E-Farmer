@@ -67,6 +67,7 @@ try{
    assert.ok(data.world.bottom<=data.controls.y+tol,"Fishing must not cover toolbelt");
    assert.ok(data.animation!=="none","Real floating bobber animation must exist");
   }
+  if(width===393)await page.screenshot({path:path.join(output,"fishing-waiting-393x852.png")});
   await page.getByRole("button",{name:"Angkat joran"}).click();
   assert.equal(await page.evaluate(()=>window.__cancelled),1);
   await page.evaluate(()=>window.__show(false));
