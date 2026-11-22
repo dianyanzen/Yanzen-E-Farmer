@@ -63,7 +63,7 @@ for(const r of rows){
  assert.ok(typeof physical.physicalTraits==='string'&&physical.physicalTraits.length>45,'portrait observations missing');
  assert.equal(doc.visualEvidence.assetKey,r.portrait);
  assert.equal(doc.visualEvidence.path,'public'+doc.portraitUrl);
- assert.equal(doc.visualEvidence.source,r.id==='C07'?'owner-authorized-generated-fishing-portrait':'original-canonical-GitHub-portrait');
+ assert.equal(doc.visualEvidence.source,r.id==='C07'?'owner-selected-portrait-reference-2026-11-22':'original-canonical-GitHub-portrait');
  assert.ok(doc.fieldProvenance['02_physical_appearance.physicalTraits']);
  if(!isCameo){
   assert.ok(Number.isInteger(core.ageYears)&&core.ageYears>=21&&core.ageYears<=90,'fictional age candidate missing');
