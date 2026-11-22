@@ -1,4 +1,4 @@
-> **Integrasi YZ Phone:** Menu `Wargapedia` sekarang memuat semua 248 dossier karakter fiksi langsung pada ponsel dalam game, dengan akses publik tanpa level kedekatan. Menu `Warga` dan `Kedekatan` tetap memakai save untuk progres hubungan. `Kronik` hanya mencatat kejadian yang sudah dialami. Lihat `YZ_PHONE_WARGA_KRONIK.md`.
+> **Integrasi YZ Phone terbaru:** Menu tunggal **`Warga`** menggabungkan katalog Wargapedia 248 karakter, 12 kategori lore publik tanpa syarat level, dan data kedekatan yang benar-benar berasal dari save (hanya untuk asosiasi identitas yang approved). Ikon Wargapedia terpisah sudah dihapus. `Kedekatan` dan `Kronik` tetap menggunakan state aktual, bukan isi draf lore. Lihat `YZ_PHONE_WARGA_KRONIK.md`.
 
 # Kebijakan ensiklopedia NPC publik — YZ Farm Life
 
