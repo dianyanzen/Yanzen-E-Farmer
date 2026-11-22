@@ -66,4 +66,4 @@ Tambahkan `Koleksi Ikan` sebagai subbagian **Statistik** yang sudah ada; hindari
 - Canonical `C07`; nama dan portrait key `work-C07` dipertahankan.
 - Profesi dan 12-kategori diselaraskan menjadi **Spesialis ikan dan memancing**. Cast runtime lama direvisi untuk peran pasar tanpa menganggap bahwa seluruh relasi legacy sudah disahkan.
 - Arah potret: pertahankan wajah, rambut acak gelap, kemeja abu; mengganti keranjang sayur dengan joran dan kotak tackle; visual QA wajib sebelum menimpa `public/game/assets/portraits/bandung/professions/work-C07.png`.
-- Kandidat potret baru harus disalin ke repository sebagai berkas biner setelah pemeriksaan berdampingan; GitHub text-only API tidak dapat mengganti PNG lewat update_file. Rehitung `PORTRAIT_ASSET_AUDIT.json` gitBlobSha setelah binernya berubah.
+- Potret kerja baru sudah ditambahkan sebagai PNG biner di branch spesialisasi Widi (kunci dan URL tetap). Fingerprint dan `PORTRAIT_ASSET_AUDIT.json` telah disinkronkan. Sebelum merge, tetap lakukan tinjauan gaya berdampingan dengan sheet ekspresi dan sprite jalan; jangan anggap sinkronisasi data sama dengan lolos QA visual.
