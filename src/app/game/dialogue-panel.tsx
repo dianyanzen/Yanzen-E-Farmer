@@ -10,13 +10,18 @@ import {wargaDisplayName} from "@/lib/game/public-wargapedia";
 
 export function Portrait({ npcId, emotion = "neutral", name }: { npcId: string; emotion?: Emotion; name?: string }) {
   const person = portraitCharacter(npcId);
-  const [failedFor, setFailedFor] = useState<string | null>(null);
   const column = portraitColumn(emotion);
   const label = (name || person?.name || "Karakter belum dikenal") + " · " + EMOTION_LABELS[PORTRAIT_EMOTIONS[column]];
-  return <span role="img" aria-label={label} className="yzg-portrait" data-character={npcId} data-emotion={PORTRAIT_EMOTIONS[column]}>
-    {person && failedFor !== person.id ? <NextImage key={person.id} src={person.sheet} alt="" aria-hidden="true" width={1536} height={256} unoptimized
-      loading="lazy" onError={() => setFailedFor(person.id)} style={{ left: "calc(" + (-column * 100) + "% + var(--portrait-center-shift, 0px))" }}/>
-      : <span className="yzg-portrait-fallback" aria-hidden="true">{(name || person?.name)?.slice(0, 1) || "?"}</span>}
+  // CSS background cropping avoids browser-specific sizing of 1536px image elements
+  // and guarantees one exact 192x256 frame. 0..7 => 0..100% background position.
+  const style = person ? {
+    backgroundImage: `url("${person.sheet}")`,
+    backgroundSize: "800% 100%",
+    backgroundPosition: `${(column / 7) * 100}% center`,
+  } : undefined;
+  return <span role="img" aria-label={label} className="yzg-portrait"
+    data-character={npcId} data-emotion={PORTRAIT_EMOTIONS[column]} style={style}>
+    {!person && <span className="yzg-portrait-fallback" aria-hidden="true">{name?.slice(0,1) || "?"}</span>}
   </span>;
 }
 
