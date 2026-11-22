@@ -46,7 +46,8 @@
     "cutscene:verify": "node tests/game-cutscene-production.mjs",
     "cutscene:import": "node scripts/game-cinematics/import-owner-video.mjs",
     "test:game:cutscene:ui": "node tests/game-cutscene-viewport-ui.mjs",
-    "test:game:fishing": "node tests/game-fishing-v2.mjs"
+    "test:game:fishing": "node tests/game-fishing-v2.mjs",
+    "test:game:fishing:ui": "node tests/game-fishing-ui.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
