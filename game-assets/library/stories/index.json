@@ -3,8 +3,8 @@
   "category": "stories",
   "label": "Cerita dan misi",
   "description": "Gambar jurnal dan adegan cerita",
-  "mediaCount": 10,
-  "bytes": 16375982,
+  "mediaCount": 11,
+  "bytes": 16392272,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -31,7 +31,8 @@
     {
       "id": "cutscenes",
       "files": [
-        "public/game/assets/cutscenes/sluice-gate.mp4"
+        "public/game/assets/cutscenes/sluice-gate.mp4",
+        "public/game/assets/cutscenes/sluice-poster.png"
       ]
     },
     {

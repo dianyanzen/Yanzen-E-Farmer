@@ -16,7 +16,7 @@ function Scene({frame}:{frame:number}){
  const flow=tween(frame,202,268,0,1),shake=frame>=176&&frame<195?Math.sin(frame*4)*3*(1-(frame-176)/19):0;
  const camera=frame<85?1+tween(frame,0,85,0,.13):frame<232?1.13+tween(frame,90,230,0,.1):1.23-tween(frame,240,325,0,.18);
  const pan=frame<166?tween(frame,0,166,-48,-30):tween(frame,175,320,-30,0);
- const night=tween(frame,0,140,.32,.45)-tween(frame,195,325,0,.3);
+ const night=tween(frame,0,140,.13,.22)-tween(frame,195,325,0,.13);
  return <div style={{width:"100%",height:"100%",overflow:"hidden",background:Color.sky,position:"relative"}}>
   <div style={{width:960,height:540,transform:`translate(${pan+shake}px,${shake}px) scale(${camera})`,transformOrigin:"50% 55%",position:"absolute"}}>
     <svg viewBox="0 0 960 540" style={{position:"absolute",inset:0,width:"100%",height:"100%",imageRendering:"pixelated"}}>
@@ -46,10 +46,10 @@ function Scene({frame}:{frame:number}){
     <Character frame={frame}/>
     <div style={{position:"absolute",inset:0,background:"#122b2c",opacity:night,pointerEvents:"none"}} />
   </div>
-  <div style={{position:"absolute",inset:0,pointerEvents:"none",background:"radial-gradient(ellipse at 50% 45%,transparent 30%,#0b181b99 100%)"}}/>
+  <div style={{position:"absolute",inset:0,pointerEvents:"none",background:"radial-gradient(ellipse at 50% 45%,transparent 30%,#0b181b55 100%)"}}/>
  </div>;
 }
-const caption=(frame:number)=>frame<70?["PASIRLUYU","Saluran yang lama terdiam"]:frame<166?["MOMEN PENENTU","Roda tua itu akhirnya bergerak"]:frame<261?["AIR KEMBALI MENGALIR","Dari pintu air menuju kebun warga"]:["SATU TINDAKAN KECIL","Membawa perubahan ke hilir"];
+const caption=(frame:number)=>frame<70?["PASIRLUYU","Saluran lama yang terdiam"]:frame<166?["MOMEN PENENTU","Roda pintu air bergerak"]:frame<261?["AIR KEMBALI MENGALIR","Air menuju kebun warga"]:["PERJALANAN BERLANJUT","Kebun di hilir kembali terairi"];
 export function SluiceGateFilm(){
  const frame=useCurrentFrame();const lines=caption(frame);
  const alpha=frame<12?tween(frame,0,12):frame>310?tween(frame,310,330,1,0):1;
@@ -57,9 +57,9 @@ export function SluiceGateFilm(){
  return <AbsoluteFill style={{background:Color.dark,color:"#fff2d3",fontFamily:"Georgia, serif"}}>
    <Scene frame={frame}/>
    <AbsoluteFill style={{pointerEvents:"none",background:`rgba(2,10,8,${fade})`}}/>
-   <div style={{position:"absolute",left:56,right:56,bottom:43,opacity:alpha,textShadow:"0 3px 12px #000,0 1px 2px #000"}}>
-     <div style={{font:"bold 17px Arial, sans-serif",letterSpacing:5,color:"#eac88f"}}>{lines[0]}</div>
-     <div style={{fontSize:33,fontWeight:700,lineHeight:1.3,marginTop:9}}>{lines[1]}</div>
+   <div style={{position:"absolute",left:30,right:30,bottom:30,padding:"24px 28px",borderRadius:12,background:"linear-gradient(90deg,#102b26eb,#102b26a0 80%,#102b2622)",opacity:alpha,textShadow:"0 3px 10px #000"}}>
+     <div style={{font:"bold 24px Arial, sans-serif",letterSpacing:4,color:"#f7cf86"}}>{lines[0]}</div>
+     <div style={{fontSize:54,fontWeight:700,lineHeight:1.18,marginTop:8}}>{lines[1]}</div>
    </div>
    <div style={{position:"absolute",left:48,right:48,top:36,height:4,background:"#f5e6bf",opacity:.45}}/>
    <div style={{position:"absolute",left:48,right:48,bottom:21,height:4,background:"#f5e6bf",opacity:.3}}/>

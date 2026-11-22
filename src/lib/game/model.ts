@@ -121,6 +121,17 @@ export type GameState = {
   phoneRead: boolean; story: StoryFlags; location: GameLocation; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 
+/** The unlocked memory belongs to quest progress, not to whether an MP4 played.
+ * Legacy saves created before cutscenes can have Ryan phase 3/4, or phase 2
+ * and an already-open gate, without sluiceCutsceneSeen.
+ */
+export function hasSluiceMemory(state:GameState):boolean {
+  const phase=state.personalQuests?.A03?.phase;
+  return state.sluiceCutsceneSeen===true || state.story.canalClue===true || state.story.photoChoice!==null ||
+    phase===3 || phase===4 ||
+    (phase===2 && state.sluiceOpen===true);
+}
+
 export const FISH_MARKET = {
   bandeng: {name:"Bandeng",price:32,frame:0},
   kakap_putih: {name:"Kakap putih",price:65,frame:1},
@@ -831,7 +842,7 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...(value.sluiceCutsceneSeen===true ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,

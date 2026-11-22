@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-canonical-roster-assets.mjs && node tests/game-active-portrait-standard.mjs && node tests/game-dialogue-market-presentation.mjs && node tests/game-private-residents.mjs && node tests/game-npc-separation.mjs && node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs && node tests/game-public-catalog.mjs && node scripts/game-characters/check-portrait-enrichment.mjs && node scripts/deploy/vercel-game-playtest.mjs --check",
+    "test:game": "node tests/game-canonical-roster-assets.mjs && node tests/game-active-portrait-standard.mjs && node tests/game-dialogue-market-presentation.mjs && node tests/game-private-residents.mjs && node tests/game-npc-separation.mjs && node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-quest-memories.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs && node tests/game-public-catalog.mjs && node scripts/game-characters/check-portrait-enrichment.mjs && node scripts/deploy/vercel-game-playtest.mjs --check && node scripts/game-cinematics/restore-hd-sluice.mjs --check",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
@@ -35,14 +35,15 @@
     "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs",
     "chars:roster:check": "node scripts/game-characters/check-private-roster.mjs",
     "chars:bible:seed": "node scripts/game-characters/seed-private-bibles.mjs",
-    "build:vercel:game-playtest": "npm run test && npm run typecheck && npm run test:game && node scripts/deploy/vercel-game-playtest.mjs --apply && next build",
+    "build:vercel:game-playtest": "npm run test && npm run typecheck && npm run test:game && node scripts/deploy/vercel-game-playtest.mjs --apply && node scripts/game-cinematics/restore-hd-sluice.mjs && next build",
     "chars:bible:audit": "node scripts/game-characters/audit-private-bibles.mjs",
     "chars:bible:audit:strict": "node scripts/game-characters/audit-private-bibles.mjs --strict",
     "chars:bible:install": "node scripts/game-characters/install-private-bibles.mjs",
     "chars:public:check": "node scripts/game-characters/verify-public-catalog.mjs && node scripts/game-characters/build-public-wiki.mjs --check",
     "chars:public:wiki": "node scripts/game-characters/build-public-wiki.mjs",
     "chars:portrait:check": "node scripts/game-characters/check-portrait-enrichment.mjs",
-    "chars:inspect": "node scripts/game-characters/inspect-warga.mjs"
+    "chars:inspect": "node scripts/game-characters/inspect-warga.mjs",
+    "cutscene:hd:verify": "node scripts/game-cinematics/restore-hd-sluice.mjs --check"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
