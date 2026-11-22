@@ -44,8 +44,16 @@ for(const r of rows){
  const physical=doc.sections['02_physical_appearance'];
  const visual=doc.sections['11_visual_references'];
  if(isCameo){
-  assert.equal(core.origin,null,'cameo origin must not be invented');
-  assert.equal(history.familyContext,null,'cameo family must not be invented');
+  assert.ok(core.origin?.includes('Jawa Barat'),'officially sourced cameo origin missing');
+  assert.ok(Number.isInteger(core.ageYears)&&core.ageYears>=50,'verified cameo age missing');
+  assert.ok(social.education?.length>35,'verified cameo education missing');
+  assert.ok(history.familyContext?.length>40,'verified public family context missing');
+  assert.ok(doc.publicBiography?.sources?.length>=2,'public fact citations missing');
+  for(const key of ['01_core_identity.ageYears','01_core_identity.origin','04_social_profile.education','07_background_history.familyContext']){
+   const provenance=doc.fieldProvenance[key];
+   assert.equal(provenance?.claimType,'public-fact-not-gameplay');
+   assert.ok(provenance.sourceUrls?.length,'public provenance source missing '+key);
+  }
  }else{
   assert.ok(typeof core.origin==='string'&&core.origin.includes('(latar fiksi; draf)'),'fictional origin missing');
   assert.ok(typeof history.familyContext==='string'&&history.familyContext.includes('(latar fiksi; draf)'),'fictional family context missing');
@@ -65,8 +73,6 @@ for(const r of rows){
   assert.ok(typeof history.formativeMemory==='string'&&history.formativeMemory.length>45);
   assert.ok(doc.fieldProvenance['01_core_identity.ageYears'].claimType==='not-a-factual-age');
  }else{
-  assert.equal(core.ageYears,null,'do not infer exact cameo age');
-  assert.equal(social.education,null,'do not invent real cameo educational history');
   assert.equal(history.formativeMemory,null,'do not invent real cameo formative memories');
  }
  assert.equal(doc.sections['08_relationship_dynamics'].connections.length,0);

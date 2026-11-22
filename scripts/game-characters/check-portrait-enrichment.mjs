@@ -26,8 +26,9 @@ for(const entry of index.characters){
  assert.equal(doc.visualEvidence.humanVisualQARequired,true);
  assert.ok(doc.fieldProvenance['02_physical_appearance.physicalTraits']);
  if(['P01','P02'].includes(entry.id)){
-  assert.equal(doc.sections['01_core_identity'].origin,null);
-  assert.equal(doc.sections['07_background_history'].familyContext,null);
+  assert.ok(doc.sections['01_core_identity'].origin?.includes('Jawa Barat'));
+  assert.ok(doc.sections['07_background_history'].familyContext?.length>40);
+  assert.ok(doc.publicBiography?.sources?.length>=2);
  }else{
   assert.ok(doc.sections['01_core_identity'].origin?.includes('(latar fiksi; draf)'));
   assert.ok(doc.sections['07_background_history'].familyContext?.includes('(latar fiksi; draf)'));
@@ -47,9 +48,9 @@ for(const entry of index.characters){
  assert.equal(gitSha,match.gitBlobSha,'portrait changed since visual description was written: '+entry.id);
  if(['P01','P02'].includes(entry.id)){
   cameos++;
-  assert.equal(doc.sections['01_core_identity'].ageYears,null);
+  assert.ok(Number.isInteger(doc.sections['01_core_identity'].ageYears));
   assert.equal(doc.sections['07_background_history'].formativeMemory,null);
-  assert.equal(doc.sections['04_social_profile'].education,null);
+  assert.ok(doc.sections['04_social_profile'].education?.length>35);
   continue;
  }
  const identity=doc.sections['01_core_identity'];

@@ -94,3 +94,12 @@ Seluruh 248 potret yang diamati memiliki `gitBlobSha` dan `sizeBytes` terverifik
 - P01/P02 tidak menerima latar pribadi yang dikarang; seluruh pembatasan usia/psikologi/keluarga tetap berlaku. Empat atribut canonical (ID/nama/profesi/potret), fingerprint, izin legacy, progres, dan gameplay tidak diubah.
 - 246 wiki Markdown digenerasi ulang dengan struktur yang sama seperti generator resmi. Validator diubah agar mengizinkan **usulan asal dan keluarga berlabel fiksi** pada NPC biasa, dan tetap mewajibkan `null` bagi kedua kameo.
 - Seluruh konten masih memerlukan review editorial: keragaman gaya, kewajaran hubungan keluarga, kesesuaian lokasi, dan konflik/quest sebelum approval atau merge.
+
+
+## Profil publik tersumber P01/P02 (22 November 2026)
+
+- Kameo tetap **figur publik dalam karya fiksi**, bukan biografi tokoh fiksi baru. Field asal, usia, pendidikan, dan konteks keluarga diisi **hanya dari profil publik tersumber** (berbeda dari 246 NPC fiksi). `publicBiography.sources` dan `fieldProvenance` memuat rujukan web untuk audit.
+- P01 (Dedi Mulyadi): asal Subang, lahir tahun 1971, usia 55 per 22 November 2026, pendidikan STIH Purnawarman, pejabat Gubernur Jabar. **Tanggal lahir tidak ditetapkan** karena Biro Adpim Jabar menulis 12 April sedangkan ANTARA menulis 11 April. Latar keluarga hanya ringkasan sumber publik tanpa rekayasa anggota keluarga atau relasi NPC.
+- P02 (Muhammad Farhan): lahir di Bogor, 25 Februari 1970, usia 56 per 22 November 2026, Sarjana Ekonomi Unpad 1995 dan fellowship; menjabat Wali Kota Bandung. Informasi status keluarga yang telah dipublikasikan pemerintah disingkat tanpa nama keluarga.
+- Visual pose, kostum, bahasa dan kegiatan hanya **arahan naskah fiksi**, tidak diinterpretasi sebagai karakteristik, pernyataan, jadwal, perilaku, atau keputusan nyata. Tujuh atribut psikologis personal dan memori pembentuk pribadi tetap `null`; tidak ada pemalsuan motivasi atau sikap publik.
+- Dossier yang berubah hanya P01/P02 beserta dua halaman ensiklopedia; empat identitas canonical, fingerprint, aset portret, save, quest, status `draft`, dan pemisahan legacy tidak berubah.
