@@ -474,11 +474,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
       if(next!==game){setGame(next);void persist(next);}
     }else if(context.kind==="sluice"){
-      const next={...game,sluiceOpen:!game.sluiceOpen};
-      setGame(next); void persist(next);
-      if(next.sluiceOpen && !game.sluiceOpen && game.personalQuests?.A03?.phase===2){
-        setToast("");setCutscene("sluice-open");
-      }else setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
+      const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !game.sluiceCutsceneSeen;
+      const next:GameState={...game,sluiceOpen:!game.sluiceOpen,...(firstOpen?{sluiceCutsceneSeen:true}:{})};
+      setGame(next);void persist(next);
+      if(firstOpen){setToast("");setCutscene("sluice-open");}
+      else setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
     }else if(context.kind==="inspect"){
       setToast(context.text);
     }else if(context.kind==="farm"||context.kind==="plant"||context.kind==="harvest"){
