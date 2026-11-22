@@ -6,6 +6,8 @@ import {readFileSync} from "node:fs";
 const sources=[
  "src/app/game/game-client.tsx",
  "src/app/game/character-gallery.tsx",
+ "src/app/game/phone-wargapedia.tsx",
+ "src/app/game/encyclopedia/encyclopedia-client.tsx",
  "src/app/game/phone-chronicle.tsx",
  "src/app/game/world-region-directory.tsx",
  "src/app/game/dialogue-panel.tsx",
@@ -47,6 +49,13 @@ for(const file of sources){
   const match=content.match(pattern);
   if(match) violations.push(`${file}: ${reason}: ${match[0]}`);
  }
+}
+
+const phoneCopy=readFileSync("src/app/game/phone-wargapedia.tsx","utf8");
+const webCopy=readFileSync("src/app/game/encyclopedia/encyclopedia-client.tsx","utf8");
+for(const [view,source] of [["YZ Phone Warga",phoneCopy],["Web Warga",webCopy]]){
+ if(/WARGAPEDIA_CATEGORIES\.map|Object\.entries\(profile\.sections|EditorialDraftNotes|npcDraftPreview|12 bagian|Tidak perlu berkenalan atau naik level/.test(source))
+  violations.push(view+": raw editor fields or developer guidance mixed into player-facing copy");
 }
 if(violations.length){
  console.error(violations.join("\n"));process.exitCode=1;
