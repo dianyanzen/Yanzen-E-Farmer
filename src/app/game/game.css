@@ -555,9 +555,9 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
  text-align:center;color:#fff6df;line-height:1.25;padding:0 4px;overflow:hidden;
 }
-.yzg-cutscene-readalong small{font:800 clamp(8px,1.9vw,11px)/1.2 system-ui,sans-serif;
+.yzg-cutscene-readalong small{font:800 clamp(9px,1.9vw,11px)/1.2 system-ui,sans-serif;
  letter-spacing:.12em;color:#f2d291}
-.yzg-cutscene-readalong strong{font:700 clamp(12px,2.8vw,19px)/1.23 Georgia,serif;
+.yzg-cutscene-readalong strong{font:700 clamp(14px,2.8vw,19px)/1.23 Georgia,serif;
  text-shadow:0 2px 5px #091911;max-width:100%;text-wrap:balance}
 .yzg-cutscene-actions{
  width:min(100%,800px);min-height:0;flex:0 0 auto;
@@ -566,7 +566,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-cutscene-actions button{
  min-width:0;min-height:38px;padding:6px 11px;border:1px solid #b9a16b;
  border-radius:7px;background:#f6ebd0;color:#2b4c39;
- font:700 clamp(10px,2.1vw,13px)/1.2 system-ui,sans-serif;cursor:pointer;
+ font:700 clamp(11px,2.1vw,13px)/1.2 system-ui,sans-serif;cursor:pointer;
 }
 .yzg-cutscene-actions .yzg-cutscene-skip{font-weight:800;background:#ffe4b5;color:#234331;border-color:#c39b58}
 .yzg-cutscene-actions button:focus-visible,.yzg-cutscene-unavailable button:focus-visible{
