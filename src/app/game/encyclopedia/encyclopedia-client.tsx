@@ -5,7 +5,7 @@ import {WARGAPEDIA_CATEGORIES,WARGAPEDIA_FIELD_LABELS,WARGAPEDIA_HIDDEN_FIELDS} 
 
 type CatalogEntry={id:string;name:string;occupation:string;portrait:string;portraitUrl:string;detailPath:string;teaser:string;status:string};
 type Catalog={characterCount:number;characters:CatalogEntry[]};
-type Profile={id:string;name:string;occupation:string;portraitUrl:string;approval:string;fictionNotice:string;publicationStatus:string;sections:Record<string,Record<string,unknown>>};
+type Profile={id:string;name:string;occupation:string;portraitUrl:string;approval:string;fictionNotice:string;publicationStatus:string;sections:Record<string,Record<string,unknown>>;publicBiography?:{sources?:Array<{title:string;url:string}>}};
 function readable(value:unknown):string{
  if(value===null||value===undefined)return 'Belum ditetapkan';
  if(typeof value==='string')return value;
@@ -69,6 +69,11 @@ export default function EncyclopediaClient(){
         <summary><span>{String(i+1).padStart(2,'0')} · {title}</span></summary>
         <dl>{Object.entries(profile.sections[key]??{}).filter(([field])=>!WARGAPEDIA_HIDDEN_FIELDS.has(field)).map(([field,value])=><div key={field}><dt>{WARGAPEDIA_FIELD_LABELS[field]??field.replaceAll(/([A-Z])/g,' $1')}</dt><dd><DetailValue value={value}/></dd></div>)}</dl>
        </details>)}</div>
+      {profile.publicBiography?.sources?.length?<details className="yz-encyclopedia-chapters">
+       <summary>Sumber biografi publik (kameo)</summary>
+       <p>Rujukan fakta publik; semua dialog dan peristiwa permainan merupakan rekaan.</p>
+       <ul>{profile.publicBiography.sources.filter(x=>x.url.startsWith('https://')).map(source=><li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul>
+      </details>:null}
       <p className="yz-encyclopedia-footer">Cerita bisa berkembang, tetapi perubahan identitas canonical tetap melewati validasi. Hubungan dan progres pemain disimpan terpisah.</p>
     </article>}
    </section>

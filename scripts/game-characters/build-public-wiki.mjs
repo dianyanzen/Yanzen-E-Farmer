@@ -66,6 +66,13 @@ for(const entry of catalog.characters){
   if(key==='06_psychological_profile'&&['P01','P02'].includes(r.id))
    lines.push('Tidak ada atribusi psikologi, motivasi, atau riwayat pribadi untuk kameo tokoh publik.','');
  }
+ if(Array.isArray(r.publicBiography?.sources)&&r.publicBiography.sources.length){
+  lines.push('## Sumber biografi publik','','Rujukan hanya untuk fakta profil kameo; dialog serta kejadian di dalam game sepenuhnya fiksi.','');
+  for(const source of r.publicBiography.sources){
+   if(typeof source.title==='string'&&typeof source.url==='string'&&source.url.startsWith('https://'))lines.push('- ['+source.title+']('+source.url+')');
+  }
+  lines.push('');
+ }
  lines.push('---','Karakter ini merupakan bagian dari katalog fiksi YZ Farm Life. Data identitas canonical dikunci; pengesahan lore dan implementasi gameplay dilakukan terpisah.','');
  compareOrWrite('docs/game-dev/characters/'+r.id+'.md',lines.join('\n'));
  count++;

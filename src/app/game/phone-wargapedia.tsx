@@ -16,6 +16,7 @@ type Dossier={
  id:string;name:string;occupation:string;portraitUrl:string;
  approval:string;characterClass:string;fictionNotice:string;
  sections:Record<string,Record<string,unknown>>;
+ publicBiography?:{sources?:Array<{title:string;url:string}>};
 };
 const PAGE_SIZE=10;
 
@@ -174,6 +175,11 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
        </div>)}</dl>
      </details>)}
     </div>
+    {profile.publicBiography?.sources?.length? <details className="yzg-citizen-section">
+     <summary>Sumber biografi publik (kameo)</summary>
+     <p>Rujukan ini mendukung fakta publik. Dialog dan kejadian dalam game tetap rekaan.</p>
+     <ul>{profile.publicBiography.sources.filter(x=>x.url.startsWith("https://")).map(source=><li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul>
+    </details>:null}
     <p className="yzg-wargapedia-caption">Ini ensiklopedia dunia YZ Farm Life, bukan daftar peristiwa yang sudah terjadi pada save-mu. Untuk cerita yang telah dimainkan, buka Kronik.</p>
     {editorDraft?.id===selectedId&&<EditorialDraftNotes draft={editorDraft}/>}
    </div>}
