@@ -43,7 +43,6 @@ export default function PhoneChronicle({game,residents,onOpenWarga,displayName}:
     <span>{record.completed} dari {record.total} bagian</span></div>
    <progress value={record.completed} max={record.total} aria-label="Kemajuan cerita utama"/>
   </div>
-  {residents.length>0&&<div className="yzg-phone-card"><p>Kronik ini menyimpan perjalanan dari versi cerita awal. Nama dan misi lama belum tentu milik warga baru; hanya tautan yang sudah diperiksa yang dibuka.</p></div>}
   <nav className="yzg-chronicle-tabs" aria-label="Isi kronik">
    {(["kisah","misi","jejak"] as const).map(id=><button type="button" key={id} aria-pressed={pane===id}
     onClick={()=>setPane(id)}>{id==="kisah"?"Kisah":id==="misi"?"Misi":"Jejak hari"}</button>)}

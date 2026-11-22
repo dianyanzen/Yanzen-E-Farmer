@@ -228,7 +228,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       }
       setUserId(id); setSaveStatus("ready");
     })().catch(e => {
-      if(active){setErrorText("Gagal memuat save: " + String(e));setSaveStatus("error"); saveLockedRef.current = true;}
+      if(active){console.error("[game] Cannot load save",e);setErrorText("Catatan perjalananmu belum bisa dibuka. Progres lama tetap aman; coba masuk lagi.");setSaveStatus("error"); saveLockedRef.current = true;}
     });
     return () => { active = false; };
   }, [router, field]);
@@ -684,7 +684,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
         <span>Lv. {playerLevel(game)} · {areaTitle(game.location)}</span>
-        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan lokal" : "Gagal save"}</span>
+        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan lokal" : "Belum tersimpan"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
         <div><b>{journal.stage === 5 ? "Bab 1 selesai" : "Tujuan berikutnya"}</b><p>{display(journal.objective)}</p></div>
@@ -696,7 +696,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="img" style={{cursor:"pointer",visibility:(!worldPresented || phaserReady)?"hidden":"visible",
             pointerEvents:(!worldPresented || phaserReady)?"none":"auto"}}/>
         {engine === "phaser" && <div ref={phaserHostRef} className="yzg-phaser-host"
-          role="region" aria-label="Peta permainan menggunakan Phaser"
+          role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
@@ -774,7 +774,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   setSelectedCitizen(null);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
                 }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
-                <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Kamu bisa mencari mereka lewat menu Warga."}</p><button onClick={() => setPhoneTab("friends")}>Lihat lokasi warga</button></div>
+                <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Kamu bisa mencari mereka lewat menu Warga."}</p><button onClick={() => setPhoneTab("characters")}>Lihat warga</button></div>
                 <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p><button type="button" onClick={()=>setPhoneTab("chronicle")}>Lihat perjalananmu</button></div>
               </>}
               {phoneTab === "chat" && <>
@@ -836,21 +836,21 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 </div>
               </>}
               {phoneTab === "friends" && <>
-                {residents.length>0&&<div className="yzg-phone-card"><p>Bagian ini menyimpan kedekatan tokoh dari cerita prototipe. Identitas warga baru hanya dihubungkan setelah pemeriksaan manual.</p></div>}
+                
                 <div className="yzg-phone-card"><b>Warga Pasirluyu</b><p>Kedekatan tumbuh dari percakapan. Kamu bisa mengenal seseorang sedikit demi sedikit.</p></div>
                 {NPCS.map(npc => {
                   const bond = game.bonds[npc.id], level = bondLevel(bond.points);
                   const place=npcWhere(game,npc.id),soul=NPC_SOULS[npc.id];
                   return <div className="yzg-phone-card yzg-bond-card" key={npc.id}>
                     {visualByLegacyId.has(npc.id) ? <ResidentPortrait resident={visualByLegacyId.get(npc.id)!}/> : <Portrait npcId={npc.id} emotion={bond.mood}/>}
-                    <div><b>{display(npc.name)}</b><small>{npc.role} · {soul.work}</small><p>Lv. {level} · {bondLabel(bond.points)}</p>
+                    <div><b>{display(npc.name)}</b><small>{npc.role} · {soul.work}</small><p>{bondLabel(bond.points)}</p>
                     <p className="yzg-npc-where">Lokasi: {areaTitle(place.location)} · {display(place.activity)}</p>
                     {level>=1&&<small>Kebiasaan: {soul.habit}</small>}
                     {level>=2&&<small>Harapan: {soul.desire}</small>}
                     {level>=3&&<small>Hal yang dikhawatirkan: {soul.fear}</small>}
                     {level>=2&&<small>Hubungan warga: {display(soul.connection)}</small>}
-                    <meter min={0} max={1000} value={bond.points} aria-label={"Kedekatan " + display(npc.name)}/><small>{bond.points}/1000 poin · {bond.talks} percakapan</small>
-                    <small>{bond.lastTalkDay === game.day ? "Sudah berbincang hari ini" : "Belum berbincang hari ini"} · {level < 2 ? "Cerita pribadi terbuka di Lv. 2" : "Cerita pribadi terbuka"}</small></div>
+                    <meter min={0} max={1000} value={bond.points} aria-label={"Kedekatan " + display(npc.name)}/><small>{bond.talks?`Sudah ${bond.talks} kali berbincang`:"Belum pernah berbincang"}</small>
+                    <small>{bond.lastTalkDay === game.day ? "Kalian sudah mengobrol hari ini" : "Mungkin ada cerita lain saat kalian bertemu lagi"}</small></div>
                   </div>;
                 })}
               </>}

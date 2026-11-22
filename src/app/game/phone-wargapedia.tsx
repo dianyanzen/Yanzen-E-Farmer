@@ -3,7 +3,7 @@
 import Image from "next/image";
 import {useEffect,useMemo,useState} from "react";
 import {WARGAPEDIA_CATEGORIES,wargaDisplayName,wargaPlayerView,type WargaDossier} from "@/lib/game/public-wargapedia";
-import {NPCS,bondLabel,bondLevel,npcWhere,areaTitle,type GameState} from "@/lib/game/model";
+import {NPCS,bondLabel,npcWhere,areaTitle,type GameState} from "@/lib/game/model";
 import {questObjective,tales} from "@/lib/game/personal-quests";
 import {approvedLegacyId} from "@/lib/game/legacy-identity";
 import type {ResidentProfile} from "@/lib/game/resident-profile";
@@ -81,7 +81,6 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
  const activeNpc=approvedOldId?NPCS.find(npc=>npc.id===approvedOldId):undefined;
  const bond=activeNpc?game.bonds[activeNpc.id]:undefined;
  const quest=activeNpc?game.personalQuests?.[activeNpc.id]:undefined;
- const level=bond?bondLevel(bond.points):0;
  const place=activeNpc&&bond?.talks?npcWhere(game,activeNpc.id):null;
 
  if(selectedId){
@@ -103,7 +102,6 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
      {place&&<small>Terakhir terlihat di {areaTitle(place.location)} · {place.activity}</small>}
     </>:null}
     {quest&&quest.phase>1&&<p><b>{tales[activeNpc.id].title}</b> · {quest.phase===4?"Sudah selesai":quest.phase===3?"Menunggu kabar":"Masih berjalan"}<small>{questObjective(game,activeNpc.id)}</small></p>}
-    <span className="sr-only">Tingkat kedekatan saat ini: {level}</span>
    </div>}
    {error&&<p role="alert">{error}</p>}
    {loading&&<p role="status">Membuka catatan…</p>}
