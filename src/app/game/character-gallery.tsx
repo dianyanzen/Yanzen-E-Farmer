@@ -35,7 +35,7 @@ function EditorialDraftNotes({profile}:{profile:CharacterBible}){
    const notes=(section as {editorialAdditions?:{values?:Record<string,unknown>}}).editorialAdditions?.values;
    if(!notes)return null;
    return <details className="yzg-citizen-section" key={key}>
-    <summary>{key.replace(/^\\d+_/,"").replaceAll("_"," ")}</summary>
+    <summary>{key.replace(/^\d+_/,"").replaceAll("_"," ")}</summary>
     {Object.entries(notes).map(([field,value])=><p key={field}><b>{field.replaceAll(/([A-Z])/g," $1")}</b>: {asText(value)}</p>)}
    </details>;
   })}
