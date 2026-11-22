@@ -601,3 +601,11 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-cutscene-readalong strong{font-size:11px;line-height:1.15}
  .yzg-cutscene-actions button{min-height:30px;padding:4px 8px;font-size:10px}
 }
+
+/* On short landscape phones, temporarily collapse unused game controls.
+   The world viewport expands; the cutscene never overlaps the control area.
+   All controls return immediately when the cinematic closes. */
+@media (max-height:520px) and (orientation:landscape){
+ .yzg-shell:has(.yzg-cutscene) > .yzg-controls,
+ .yzg-shell:has(.yzg-cutscene) > .yzg-touch{display:none}
+}
