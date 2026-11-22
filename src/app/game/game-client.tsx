@@ -164,6 +164,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const queueRef = useRef<Promise<void>>(Promise.resolve());
   const saveLockedRef = useRef(false);
   const resetInFlightRef = useRef(false);
+  const saveRevisionRef = useRef<string | null>(null);
   const [game, setGame] = useState<GameState>(() => newGame());
   const [userId, setUserId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("loading");
@@ -220,6 +221,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if (!saveData || typeof saveData !== "object" || !("data" in saveData)) {
         throw new Error("Respons penyimpanan game tidak valid.");
       }
+      saveRevisionRef.current = "updatedAt" in saveData && typeof saveData.updatedAt === "string"
+        ? saveData.updatedAt : null;
       if (saveData.data) {
         const loaded = safeLoad(saveData.data);
         if (!loaded) {
@@ -245,13 +248,17 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const response = await fetch("/api/game/save", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: snapshot }),
+        body: JSON.stringify({ data: snapshot, expectedUpdatedAt: saveRevisionRef.current }),
       });
       if (!response.ok) {
         const result: unknown = await response.json().catch(() => null);
         const message = result && typeof result === "object" && "error" in result &&
           typeof result.error === "string" ? result.error : "PostgreSQL menolak penyimpanan.";
         throw new Error(message);
+      }
+      const saved: unknown = await response.json().catch(() => null);
+      if (saved && typeof saved === "object" && "updatedAt" in saved && typeof saved.updatedAt === "string") {
+        saveRevisionRef.current = saved.updatedAt;
       }
       setSaveStatus("saved");
     }).catch(e => { saveLockedRef.current = true; setSaveStatus("error"); console.error("[game] Cannot persist save",e); setErrorText("Perjalananmu belum tersimpan. Periksa koneksi sebelum melanjutkan."); });
@@ -287,12 +294,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       // Wait for any already-running save so it cannot restore old progress after reset.
       await queueRef.current;
       if (saveLockedRef.current) throw new Error("Penyimpanan lama belum selesai.");
-      const response = await fetch("/api/game/save", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data: newGame() }),
-      });
+      const response = await fetch("/api/game/reset", { method: "POST" });
       if (!response.ok) throw new Error("Permintaan reset ditolak.");
+      // Tell any other open game tabs to reload before they try to autosave stale state.
+      if (typeof BroadcastChannel !== "undefined") {
+        const channel = new BroadcastChannel("yz-farm-progress");
+        channel.postMessage({ type: "reset", userId });
+        channel.close();
+      }
       // Reload all runtime state (world, NPCs, inventory and phone), not just React game state.
       window.location.reload();
     } catch (error) {
@@ -302,6 +311,17 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       resetInFlightRef.current = false;
     }
   }, [userId, saveStatus]);
+
+  useEffect(() => {
+    if (!userId || typeof BroadcastChannel === "undefined") return;
+    const channel = new BroadcastChannel("yz-farm-progress");
+    channel.onmessage = event => {
+      if (event.data?.type !== "reset" || event.data.userId !== userId) return;
+      saveLockedRef.current = true;
+      window.location.reload();
+    };
+    return () => channel.close();
+  }, [userId]);
 
   useEffect(() => {
     if (!userId || saveLockedRef.current || resetInFlightRef.current) return;
