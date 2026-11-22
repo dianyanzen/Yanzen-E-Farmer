@@ -1,0 +1,59 @@
+"use client";
+
+import {useEffect} from "react";
+
+/**
+ * Player-facing micro-cutscene. The save transition happens in the game model,
+ * never in this visual component, so skipping cannot duplicate quest rewards.
+ */
+export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
+  useEffect(()=>{
+    const timeout=window.setTimeout(onDone,4800);
+    const onKey=(event:KeyboardEvent)=>{
+      if(event.key==="Escape" || event.key==="Enter" || event.key===" "){event.preventDefault();onDone();}
+    };
+    document.addEventListener("keydown",onKey);
+    return ()=>{window.clearTimeout(timeout);document.removeEventListener("keydown",onKey);};
+  },[onDone]);
+  return <div className="yzg-cutscene" role="dialog" aria-modal="true" aria-label="Yanzen membuka pintu air">
+    <div className="yzg-cutscene-stage">
+      <svg viewBox="0 0 320 180" role="img" aria-label="Yanzen memutar roda pintu air hingga air mengalir kembali" preserveAspectRatio="xMidYMid meet">
+        <defs><linearGradient id="sluice-sky" x2="0" y2="1"><stop stopColor="#a3c7a2"/><stop offset="1" stopColor="#d9d6a0"/></linearGradient>
+          <pattern id="sluice-stone" width="22" height="14" patternUnits="userSpaceOnUse"><rect width="22" height="14" fill="#9c9b7a"/><path d="M0 0H22M0 7H11M11 7V14" stroke="#7b826a" strokeWidth="2"/></pattern>
+        </defs>
+        <rect width="320" height="180" fill="url(#sluice-sky)"/>
+        <path d="M0 60L45 28 97 58 153 29 208 52 259 30 320 56V120H0Z" fill="#5e8364"/>
+        <path d="M0 91Q71 75 139 91T320 83V180H0" fill="#659e75"/>
+        <rect y="125" width="320" height="55" fill="#4d918e"/>
+        <g className="yzg-cutscene-stream" stroke="#d1ebe1" strokeWidth="3" strokeLinecap="square"><path d="M3 146H69M130 150H198M231 142H307M58 168H145M196 173H289"/></g>
+        <rect x="140" y="65" width="28" height="95" fill="url(#sluice-stone)"/><rect x="233" y="65" width="34" height="95" fill="url(#sluice-stone)"/>
+        <rect x="163" y="58" width="72" height="13" fill="#644c34"/>
+        <rect x="168" y="71" width="61" height="81" fill="#323f3f"/>
+        <g className="yzg-cutscene-gate">
+          <rect x="172" y="76" width="53" height="80" fill="#986e45" stroke="#4a3b2b" strokeWidth="5"/>
+          <path d="M177 91H220M177 108H220M177 125H220M190 80V151M210 80V151" stroke="#59402d" strokeWidth="4"/>
+        </g>
+        <g className="yzg-cutscene-waterfall"><rect x="174" y="86" width="49" height="72" fill="#77c5cc" opacity=".85"/>
+          <path d="M183 89V158M195 94V167M210 84V156" stroke="#e4f3eb" strokeWidth="4" strokeDasharray="9 6"/></g>
+        <path d="M4 142H130V154H4ZM263 140H316V153H263" fill="#777b62"/>
+        <g className="yzg-cutscene-yanzen">
+          <ellipse cx="103" cy="151" rx="16" ry="4" fill="#344c3e" opacity=".45"/>
+          <rect x="95" y="127" width="8" height="21" fill="#344b59"/><rect x="105" y="127" width="8" height="21" fill="#344b59"/>
+          <rect x="92" y="100" width="23" height="32" fill="#ece2ba" stroke="#304b46" strokeWidth="4"/>
+          <rect x="94" y="78" width="20" height="25" fill="#e8ad83"/>
+          <path d="M91 84L91 72 103 66 116 72 117 86 111 80 105 79 98 84Z" fill="#282d30"/>
+          <path d="M112 104L130 94 134 98 119 115" fill="#ece2ba" stroke="#5b6551" strokeWidth="2"/>
+        </g>
+        <rect x="125" y="83" width="33" height="9" fill="#72604a"/>
+        <g className="yzg-cutscene-wheel" transform-origin="140px 88px">
+          <circle cx="140" cy="88" r="15" fill="none" stroke="#654c2d" strokeWidth="5"/>
+          <path d="M140 73V103M125 88H155M130 78L150 98M150 78L130 98" stroke="#b78d55" strokeWidth="3"/>
+          <circle cx="140" cy="88" r="5" fill="#4b3b2e"/>
+        </g>
+      </svg>
+      <div className="yzg-cutscene-caption"><strong>Pintu air di Pasirluyu</strong>
+        <p>Yanzen memutar roda tua itu. Kayunya berderit, lalu air kembali mengalir ke hilir.</p></div>
+    </div>
+    <button type="button" className="yzg-cutscene-skip" onClick={onDone}>Lewati adegan</button>
+  </div>;
+}
