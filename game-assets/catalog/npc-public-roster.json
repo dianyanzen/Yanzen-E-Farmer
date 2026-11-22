@@ -1,0 +1,1496 @@
+{
+  "schemaVersion": 1,
+  "title": "YZ Farm Life - NPC Canonical Public Roster",
+  "publicationStatus": "public-fictional-draft",
+  "currentRosterCount": 248,
+  "currentRoster": [
+    {
+      "id": "A02",
+      "name": "NABILA SEPTIA JULFIADI",
+      "occupation": "Perawat kebun bunga",
+      "portrait": "work-A02"
+    },
+    {
+      "id": "A03",
+      "name": "RYAN ANDRYANA ACHADIAT",
+      "occupation": "Pengelola irigasi",
+      "portrait": "work-A03"
+    },
+    {
+      "id": "A04",
+      "name": "AYU INDAH SARI",
+      "occupation": "Penjual benih",
+      "portrait": "work-A04"
+    },
+    {
+      "id": "A05",
+      "name": "VICKY PRASTI VERDIANA",
+      "occupation": "Teknisi alat pertanian",
+      "portrait": "work-A05"
+    },
+    {
+      "id": "A06",
+      "name": "ADANG",
+      "occupation": "Kurir hasil kebun",
+      "portrait": "work-A06"
+    },
+    {
+      "id": "A07",
+      "name": "DEWI RACHMI",
+      "occupation": "Pengelola persemaian",
+      "portrait": "work-A07"
+    },
+    {
+      "id": "A08",
+      "name": "ASTRI YULIANTI",
+      "occupation": "Perajin keranjang",
+      "portrait": "work-A08"
+    },
+    {
+      "id": "A09",
+      "name": "FAJAR FATURAHMAN",
+      "occupation": "Fotografer desa",
+      "portrait": "work-A09"
+    },
+    {
+      "id": "A10",
+      "name": "ADANG KURNIA",
+      "occupation": "Penjaga kebun bersama",
+      "portrait": "work-A10"
+    },
+    {
+      "id": "A11",
+      "name": "ADE SASMITA",
+      "occupation": "Pengelola pasar desa",
+      "portrait": "work-A11"
+    },
+    {
+      "id": "A12",
+      "name": "DENDEN YADI SETIAWAN",
+      "occupation": "Pengemudi angkutan panen",
+      "portrait": "work-A12"
+    },
+    {
+      "id": "A13",
+      "name": "ADEP KURNIAWAN",
+      "occupation": "Penjaga perpustakaan benih",
+      "portrait": "work-A13"
+    },
+    {
+      "id": "A14",
+      "name": "DESNA IKHSANDRA",
+      "occupation": "Teknisi radio desa",
+      "portrait": "work-A14"
+    },
+    {
+      "id": "A15",
+      "name": "HERU WIBOWO SUBEKTI",
+      "occupation": "Pengurus koperasi tani",
+      "portrait": "work-A15"
+    },
+    {
+      "id": "A16",
+      "name": "KHANSA AULIA HENDRA",
+      "occupation": "Perancang sistem kebun",
+      "portrait": "work-A16"
+    },
+    {
+      "id": "C01",
+      "name": "NANI SUMARTINI",
+      "occupation": "Pekebun bunga senior",
+      "portrait": "work-C01"
+    },
+    {
+      "id": "C02",
+      "name": "AGUNG NUGRAHA",
+      "occupation": "Petani kebun buah",
+      "portrait": "work-C02"
+    },
+    {
+      "id": "C03",
+      "name": "AGUNG NUGRAHA S R",
+      "occupation": "Perajin kayu senior",
+      "portrait": "work-C03"
+    },
+    {
+      "id": "C04",
+      "name": "DESI YANI IMAN NURRIZKIAH",
+      "occupation": "Pembuat roti desa",
+      "portrait": "work-C04"
+    },
+    {
+      "id": "C05",
+      "name": "AHMAD MULYANA",
+      "occupation": "Pelajar dan peserta klub kebun",
+      "portrait": "work-C05"
+    },
+    {
+      "id": "C06",
+      "name": "YANI ANDRIYANI KAUTSAR",
+      "occupation": "Mahasiswi pertanian",
+      "portrait": "work-C06"
+    },
+    {
+      "id": "C07",
+      "name": "WIDI MUNAJAT",
+      "occupation": "Pedagang hasil bumi",
+      "portrait": "work-C07"
+    },
+    {
+      "id": "C08",
+      "name": "INGGIT MARSELA",
+      "occupation": "Penjual makanan pasar",
+      "portrait": "work-C08"
+    },
+    {
+      "id": "C09",
+      "name": "ALAMSYAH PUTRA",
+      "occupation": "Ilustrator desa",
+      "portrait": "work-C09"
+    },
+    {
+      "id": "C10",
+      "name": "ALI MAMNUN",
+      "occupation": "Pencatat keuangan koperasi",
+      "portrait": "work-C10"
+    },
+    {
+      "id": "C11",
+      "name": "RAY MUHAMMAD ALFARISI",
+      "occupation": "Pemagang kebun keliling",
+      "portrait": "work-C11"
+    },
+    {
+      "id": "C12",
+      "name": "FATIHAH RIZQIYAH",
+      "occupation": "Penjaga toko perlengkapan kebun",
+      "portrait": "work-C12"
+    },
+    {
+      "id": "C13",
+      "name": "HERI RIANTO",
+      "occupation": "Penggerak kegiatan kampung",
+      "portrait": "work-C13"
+    },
+    {
+      "id": "C14",
+      "name": "ARYA NABILFADILLAH",
+      "occupation": "Kurir kebutuhan desa",
+      "portrait": "work-C14"
+    },
+    {
+      "id": "C15",
+      "name": "MALIK AL HAKIIM",
+      "occupation": "Perancang peta desa",
+      "portrait": "work-C15"
+    },
+    {
+      "id": "C16",
+      "name": "KARISMA RATU PAKSI",
+      "occupation": "Perangkai bunga",
+      "portrait": "work-C16"
+    },
+    {
+      "id": "K01",
+      "name": "ARIE SUSENO",
+      "occupation": "Perekam suara lapangan",
+      "portrait": "K14"
+    },
+    {
+      "id": "K02",
+      "name": "ARRY YUANDI",
+      "occupation": "Montir sepeda",
+      "portrait": "K02"
+    },
+    {
+      "id": "K03",
+      "name": "ASEP HIDAYAT",
+      "occupation": "Penggembala itik",
+      "portrait": "K06"
+    },
+    {
+      "id": "K04",
+      "name": "ASEP RAMDHANI",
+      "occupation": "Pelukis papan toko",
+      "portrait": "K04"
+    },
+    {
+      "id": "K05",
+      "name": "ASEP TARYANA",
+      "occupation": "Penjaga toko buku",
+      "portrait": "R157"
+    },
+    {
+      "id": "K06",
+      "name": "ASTI AGHISNA PUTRI",
+      "occupation": "Pengelola gudang dingin",
+      "portrait": "K26"
+    },
+    {
+      "id": "K07",
+      "name": "BANON MAHBUBAH",
+      "occupation": "Penjahit pasar",
+      "portrait": "K27"
+    },
+    {
+      "id": "K08",
+      "name": "TEGUH SANTOSA",
+      "occupation": "Perajin furnitur kayu",
+      "portrait": "R156"
+    },
+    {
+      "id": "K09",
+      "name": "BAYU SUKMA SAJATI",
+      "occupation": "Montir alat pertanian",
+      "portrait": "R104"
+    },
+    {
+      "id": "K10",
+      "name": "BELLA WIRANISKALA",
+      "occupation": "Perajin tahu",
+      "portrait": "K10"
+    },
+    {
+      "id": "K11",
+      "name": "CAHYADI",
+      "occupation": "Penabuh benjang",
+      "portrait": "K16"
+    },
+    {
+      "id": "K12",
+      "name": "CECEP SURACHMAN",
+      "occupation": "Petugas keselamatan pasar",
+      "portrait": "R108"
+    },
+    {
+      "id": "K13",
+      "name": "DADAN DIANA",
+      "occupation": "Perajin sepatu",
+      "portrait": "K20"
+    },
+    {
+      "id": "K14",
+      "name": "DADAN RANGGANI",
+      "occupation": "Perajin batu dan pengenal mineral",
+      "portrait": "N06"
+    },
+    {
+      "id": "K15",
+      "name": "DAFID MUSLIM MULYA",
+      "occupation": "Penjual es keliling",
+      "portrait": "R034"
+    },
+    {
+      "id": "K16",
+      "name": "DENI SETIAWAN",
+      "occupation": "Penari jaipong",
+      "portrait": "R035"
+    },
+    {
+      "id": "K17",
+      "name": "DENITYA SARASWATI GANDAR",
+      "occupation": "Perajin pewarna kain",
+      "portrait": "K17"
+    },
+    {
+      "id": "K18",
+      "name": "DESVIAN MOCHAMAD RAMDHAN MULYANA",
+      "occupation": "Kurir bibit tanaman",
+      "portrait": "R039"
+    },
+    {
+      "id": "K19",
+      "name": "DIAN FARDIANSYAH",
+      "occupation": "Pemandu jelajah kebun",
+      "portrait": "R109"
+    },
+    {
+      "id": "K20",
+      "name": "DIANNISA PERMATASARI",
+      "occupation": "Teknisi jam mekanis",
+      "portrait": "K29"
+    },
+    {
+      "id": "K21",
+      "name": "DICKY RACHMADIE",
+      "occupation": "Pengajar musik tradisional",
+      "portrait": "R008"
+    },
+    {
+      "id": "K22",
+      "name": "BIMA ADITYA DARMAWAN",
+      "occupation": "Penyiar radio malam",
+      "portrait": "K22"
+    },
+    {
+      "id": "K23",
+      "name": "DJAELANI",
+      "occupation": "Asisten peneliti kebun",
+      "portrait": "R040"
+    },
+    {
+      "id": "K24",
+      "name": "DODI SUDRAJAT",
+      "occupation": "Pengajar suling bambu",
+      "portrait": "R023"
+    },
+    {
+      "id": "K25",
+      "name": "SYUKUR SABAR",
+      "occupation": "Pengolah hasil ikan",
+      "portrait": "R042"
+    },
+    {
+      "id": "K26",
+      "name": "DUDI RAHIM",
+      "occupation": "Pelatih tari tradisional",
+      "portrait": "R049"
+    },
+    {
+      "id": "K27",
+      "name": "ENDAH SUSANTI",
+      "occupation": "Perawat properti pertunjukan",
+      "portrait": "K09"
+    },
+    {
+      "id": "K28",
+      "name": "RIDHO TIRTA SUWANJANA",
+      "occupation": "Kondektur angkutan fiktif",
+      "portrait": "K28"
+    },
+    {
+      "id": "K29",
+      "name": "DWI LESMONO PUTRA",
+      "occupation": "Pengelola kios batik",
+      "portrait": "R113"
+    },
+    {
+      "id": "K30",
+      "name": "EDO MARUBA MARBUN",
+      "occupation": "Penyetem alat musik bambu",
+      "portrait": "K18"
+    },
+    {
+      "id": "N01",
+      "name": "ALIFIA ANJANI",
+      "occupation": "Peternak unggas",
+      "portrait": "N01"
+    },
+    {
+      "id": "N02",
+      "name": "ANDHIKA WILUYA PRATAMA",
+      "occupation": "Dokter hewan keliling",
+      "portrait": "N02"
+    },
+    {
+      "id": "N03",
+      "name": "ANGGA ARYA BUANA",
+      "occupation": "Pengelola sanggar musik",
+      "portrait": "R070"
+    },
+    {
+      "id": "N04",
+      "name": "ANGKEU RATNA MUSLIHAT",
+      "occupation": "Koordinator ronda",
+      "portrait": "K01"
+    },
+    {
+      "id": "N05",
+      "name": "ARI ILHAM HARMAIN",
+      "occupation": "Perawat kebun kota",
+      "portrait": "R074"
+    },
+    {
+      "id": "N06",
+      "name": "UJANG DEDI",
+      "occupation": "Penenun kain lurik",
+      "portrait": "R056"
+    },
+    {
+      "id": "P01",
+      "name": "DEDI MULYADI",
+      "occupation": "Gubernur Jawa Barat",
+      "portrait": "P01"
+    },
+    {
+      "id": "P02",
+      "name": "MUHAMMAD FARHAN",
+      "occupation": "Wali Kota Bandung",
+      "portrait": "P02"
+    },
+    {
+      "id": "W001",
+      "name": "ELIS DEWI PURWANTINI",
+      "occupation": "Penyunting majalah kampung",
+      "portrait": "R073"
+    },
+    {
+      "id": "W002",
+      "name": "ENGKUS KUSNANDAR",
+      "occupation": "Pemusik jalanan",
+      "portrait": "R063"
+    },
+    {
+      "id": "W003",
+      "name": "EVI YUSUP",
+      "occupation": "Mandor kebun sayur",
+      "portrait": "R120"
+    },
+    {
+      "id": "W004",
+      "name": "FAHIMA AZZAHRA HAFSYARI",
+      "occupation": "Operator proyektor",
+      "portrait": "K30"
+    },
+    {
+      "id": "W005",
+      "name": "FAISAL CAHYA PRAMAULIA",
+      "occupation": "Pembuat alat musik",
+      "portrait": "R130"
+    },
+    {
+      "id": "W006",
+      "name": "FARID AKHMAD ZAMANI",
+      "occupation": "Pengamat burung",
+      "portrait": "R065"
+    },
+    {
+      "id": "W007",
+      "name": "FARID ROKHMAT",
+      "occupation": "Penyusun label Braille",
+      "portrait": "K24"
+    },
+    {
+      "id": "W008",
+      "name": "FARIDA NURSITA",
+      "occupation": "Pengelola penatu bersama",
+      "portrait": "K03"
+    },
+    {
+      "id": "W009",
+      "name": "FAUZIAH TRESNA MUNGGARAN",
+      "occupation": "Bidan kampung",
+      "portrait": "K15"
+    },
+    {
+      "id": "W010",
+      "name": "FEBRIYANI DAMAYANTI",
+      "occupation": "Pengamat satwa malam",
+      "portrait": "K12"
+    },
+    {
+      "id": "W011",
+      "name": "FEBY ISHAQ MAULANA",
+      "occupation": "Pengajar kelas seni",
+      "portrait": "R142"
+    },
+    {
+      "id": "W012",
+      "name": "FREDY HERMAWAN",
+      "occupation": "Penjual jam tangan",
+      "portrait": "R144"
+    },
+    {
+      "id": "W013",
+      "name": "GALIH RIZKI GINANJAR",
+      "occupation": "Perancang motif tenun",
+      "portrait": "R068"
+    },
+    {
+      "id": "W014",
+      "name": "GRAVISI META NORMATIKA",
+      "occupation": "Pengasuh hewan titipan",
+      "portrait": "K23"
+    },
+    {
+      "id": "W015",
+      "name": "GUGI PRIAWAN",
+      "occupation": "Penambal ban",
+      "portrait": "K08"
+    },
+    {
+      "id": "W016",
+      "name": "GUGUM GUNAWAN",
+      "occupation": "Petani padi",
+      "portrait": "R047"
+    },
+    {
+      "id": "W017",
+      "name": "TATANG MUHTAR",
+      "occupation": "Pengelola rumah budaya",
+      "portrait": "R078"
+    },
+    {
+      "id": "W018",
+      "name": "EKI SUNGKAWA",
+      "occupation": "Penata kostum pertunjukan",
+      "portrait": "R082"
+    },
+    {
+      "id": "W019",
+      "name": "HERMAN GUNAWAN",
+      "occupation": "Pembuat alat musik bambu",
+      "portrait": "R086"
+    },
+    {
+      "id": "W020",
+      "name": "IKHWAN YANUAR PURWANTO",
+      "occupation": "Pengatur porter barang",
+      "portrait": "K25"
+    },
+    {
+      "id": "W021",
+      "name": "IMAN FIRDAUS ANWAR",
+      "occupation": "Petani kebun bambu",
+      "portrait": "R003"
+    },
+    {
+      "id": "W022",
+      "name": "IMID KARMIDI",
+      "occupation": "Penyunting audio",
+      "portrait": "R087"
+    },
+    {
+      "id": "W023",
+      "name": "IRWAN NURLIAWAN",
+      "occupation": "Pengawas pekerjaan kebun",
+      "portrait": "R054"
+    },
+    {
+      "id": "W024",
+      "name": "IWAN KURNIAWAN",
+      "occupation": "Petugas koperasi",
+      "portrait": "R093"
+    },
+    {
+      "id": "W025",
+      "name": "IYAN HIDAYAT",
+      "occupation": "Penjaga arsip kampung",
+      "portrait": "R095"
+    },
+    {
+      "id": "W026",
+      "name": "IYAN RUSTIANA",
+      "occupation": "Pengrajin peci",
+      "portrait": "R010"
+    },
+    {
+      "id": "W027",
+      "name": "IYANG SUHERMAN",
+      "occupation": "Tukang reparasi jam",
+      "portrait": "R021"
+    },
+    {
+      "id": "W028",
+      "name": "JAJANG TARYANA",
+      "occupation": "Pemandu jalur wisata",
+      "portrait": "R097"
+    },
+    {
+      "id": "W029",
+      "name": "JERI MARDIANSYAH",
+      "occupation": "Perajin kain bermotif",
+      "portrait": "R099"
+    },
+    {
+      "id": "W030",
+      "name": "JOJO HERMAWAN",
+      "occupation": "Penyiar podcast lokal",
+      "portrait": "R102"
+    },
+    {
+      "id": "W031",
+      "name": "KARTIKA SHINTA RARASATI",
+      "occupation": "Konservator kertas",
+      "portrait": "K13"
+    },
+    {
+      "id": "W032",
+      "name": "KOMARUDIN",
+      "occupation": "Desainer pola kain",
+      "portrait": "R137"
+    },
+    {
+      "id": "W033",
+      "name": "LENY KARLINA",
+      "occupation": "Pemancing dan pengamat ikan",
+      "portrait": "N03"
+    },
+    {
+      "id": "W034",
+      "name": "LILIH SHOLIHAH",
+      "occupation": "Teknisi mesin rajut",
+      "portrait": "K19"
+    },
+    {
+      "id": "W035",
+      "name": "MOCHAMAD NURJAMAN",
+      "occupation": "Perancang busana panggung",
+      "portrait": "R106"
+    },
+    {
+      "id": "W036",
+      "name": "MOCHAMAD RIZKY PRATAMA",
+      "occupation": "Pengurus koperasi kerajinan",
+      "portrait": "R164"
+    },
+    {
+      "id": "W037",
+      "name": "MOH SUTISNA DARMAWAN",
+      "occupation": "Pedagang syal tenun",
+      "portrait": "R165"
+    },
+    {
+      "id": "W038",
+      "name": "MOHAMAD HAERULMILAH",
+      "occupation": "Perajin wayang kayu",
+      "portrait": "R116"
+    },
+    {
+      "id": "W039",
+      "name": "MUHAMAD REJA JELANG",
+      "occupation": "Peraga busana adat",
+      "portrait": "R118"
+    },
+    {
+      "id": "W040",
+      "name": "MUHAMMAD FAHRUL ROZI RAMADHAN",
+      "occupation": "Pembudidaya lebah",
+      "portrait": "N04"
+    },
+    {
+      "id": "W041",
+      "name": "MUHAMMAD FARHEZA MAHENDRA HANAFI",
+      "occupation": "Pemandu wisata sepeda",
+      "portrait": "R072"
+    },
+    {
+      "id": "W042",
+      "name": "MUHAMMAD HAMZAH AL HAFIZH",
+      "occupation": "Penata busana tari",
+      "portrait": "R001"
+    },
+    {
+      "id": "W043",
+      "name": "MUHAMMAD PRAJA MAHENDRA PUTRA",
+      "occupation": "Penjual album foto",
+      "portrait": "R005"
+    },
+    {
+      "id": "W044",
+      "name": "MUZANNI ALI MAHMUD",
+      "occupation": "Penenun selendang",
+      "portrait": "R032"
+    },
+    {
+      "id": "W045",
+      "name": "NAUFAL NAUFRIZAL",
+      "occupation": "Teknisi kamera",
+      "portrait": "R076"
+    },
+    {
+      "id": "W046",
+      "name": "NENG ANGGI ILIADI",
+      "occupation": "Perawat perabot enamel",
+      "portrait": "K21"
+    },
+    {
+      "id": "W047",
+      "name": "NETI NURBAETY",
+      "occupation": "Penata kerajinan kain",
+      "portrait": "R067"
+    },
+    {
+      "id": "W048",
+      "name": "NIJAM ZAKHRIFA",
+      "occupation": "Pemasok kain batik",
+      "portrait": "R166"
+    },
+    {
+      "id": "W049",
+      "name": "NINIK KURNIA",
+      "occupation": "Dokter klinik kampung",
+      "portrait": "N05"
+    },
+    {
+      "id": "W050",
+      "name": "OMANG ROCHMAN",
+      "occupation": "Penjaga galeri kerajinan",
+      "portrait": "R038"
+    },
+    {
+      "id": "W051",
+      "name": "PANGESTI RIO OKTRANIDA",
+      "occupation": "Pengelola perpustakaan",
+      "portrait": "R007"
+    },
+    {
+      "id": "W052",
+      "name": "PERI MULYADI",
+      "occupation": "Pengajar pembukuan",
+      "portrait": "R167"
+    },
+    {
+      "id": "W053",
+      "name": "PRIMA SEPTI PERDANA",
+      "occupation": "Montir peralatan pasar",
+      "portrait": "R084"
+    },
+    {
+      "id": "W054",
+      "name": "RAHMADI",
+      "occupation": "Instruktur seni tradisi",
+      "portrait": "R168"
+    },
+    {
+      "id": "W055",
+      "name": "RAMONA AYU PRIHANTINI",
+      "occupation": "Perajin kain batik",
+      "portrait": "R004"
+    },
+    {
+      "id": "W056",
+      "name": "RANI SITI HASANAH",
+      "occupation": "Perangkai bunga kering",
+      "portrait": "R098"
+    },
+    {
+      "id": "W057",
+      "name": "RATNA MARTINA",
+      "occupation": "Penyedia katering kampung",
+      "portrait": "R088"
+    },
+    {
+      "id": "W058",
+      "name": "RHESA HAVILAH MONDI",
+      "occupation": "Pendidik komunitas",
+      "portrait": "R089"
+    },
+    {
+      "id": "W059",
+      "name": "RINA ROHAETI",
+      "occupation": "Perancang hiasan kain",
+      "portrait": "R090"
+    },
+    {
+      "id": "W060",
+      "name": "RIZA ADITYA NUGRAHA",
+      "occupation": "Penjaga area konservasi",
+      "portrait": "R169"
+    },
+    {
+      "id": "W061",
+      "name": "RIZKY RIADI UTAMA",
+      "occupation": "Montir sepeda",
+      "portrait": "R012"
+    },
+    {
+      "id": "W062",
+      "name": "ROBBY NUR ZAMAN",
+      "occupation": "Pengarah pertunjukan",
+      "portrait": "R128"
+    },
+    {
+      "id": "W063",
+      "name": "RONALD TAUFIK HIDAYAT",
+      "occupation": "Perancang motif batik",
+      "portrait": "R015"
+    },
+    {
+      "id": "W064",
+      "name": "SAGITA RIMBAYANI",
+      "occupation": "Pemilik kios sayuran",
+      "portrait": "R011"
+    },
+    {
+      "id": "W065",
+      "name": "SAIFUL ANWAR",
+      "occupation": "Perajin iket Sunda",
+      "portrait": "R017"
+    },
+    {
+      "id": "W066",
+      "name": "SETIAWAN",
+      "occupation": "Pengelola warung minuman",
+      "portrait": "R158"
+    },
+    {
+      "id": "W067",
+      "name": "SILMI SABILA HASYA",
+      "occupation": "Perias pengantin",
+      "portrait": "R009"
+    },
+    {
+      "id": "W068",
+      "name": "SOBIRIN",
+      "occupation": "Perajin aksesoris etnik",
+      "portrait": "R170"
+    },
+    {
+      "id": "W069",
+      "name": "SONI",
+      "occupation": "Penata panggung kampung",
+      "portrait": "R132"
+    },
+    {
+      "id": "W070",
+      "name": "SONNY GANTIRA",
+      "occupation": "Penjual kopi kampung",
+      "portrait": "R101"
+    },
+    {
+      "id": "W071",
+      "name": "SRI RAHAYU",
+      "occupation": "Peracik soto",
+      "portrait": "K05"
+    },
+    {
+      "id": "W072",
+      "name": "SUPRIYANTO",
+      "occupation": "Nelayan tambak",
+      "portrait": "R044"
+    },
+    {
+      "id": "W073",
+      "name": "SURYANTO",
+      "occupation": "Pemandu kegiatan seni",
+      "portrait": "R019"
+    },
+    {
+      "id": "W074",
+      "name": "SYAHRUL RAMDHAN",
+      "occupation": "Perajin kain ikat",
+      "portrait": "R025"
+    },
+    {
+      "id": "W075",
+      "name": "TANRIANTO ANDHIKA PUTRA",
+      "occupation": "Pembuat tahu rumahan",
+      "portrait": "R171"
+    },
+    {
+      "id": "W076",
+      "name": "TAOPIK MULYANA",
+      "occupation": "Kurir hasil panen",
+      "portrait": "R134"
+    },
+    {
+      "id": "W077",
+      "name": "TISNA DINANGUN",
+      "occupation": "Penata etalase warung",
+      "portrait": "R136"
+    },
+    {
+      "id": "W078",
+      "name": "TITO ADITHIA OKTAVIANOV",
+      "occupation": "Pengantar pesanan sepeda",
+      "portrait": "R141"
+    },
+    {
+      "id": "W079",
+      "name": "TJIPTO ARTONO",
+      "occupation": "Pencerita sejarah warga",
+      "portrait": "R110"
+    },
+    {
+      "id": "W080",
+      "name": "TONI WIDYA PERMANA",
+      "occupation": "Pengolah hasil panen",
+      "portrait": "R111"
+    },
+    {
+      "id": "W081",
+      "name": "WAHYUDIN",
+      "occupation": "Perajin topeng kayu",
+      "portrait": "R052"
+    },
+    {
+      "id": "W082",
+      "name": "WAWAN SETIAWAN",
+      "occupation": "Pemandu lintasan hijau",
+      "portrait": "R152"
+    },
+    {
+      "id": "W083",
+      "name": "WELLY WIJATNIKA",
+      "occupation": "Fotografer acara warga",
+      "portrait": "R153"
+    },
+    {
+      "id": "W084",
+      "name": "WIDIANSYAH",
+      "occupation": "Pedagang batik",
+      "portrait": "R172"
+    },
+    {
+      "id": "W085",
+      "name": "WIDIARYATI",
+      "occupation": "Teknisi pengamatan air",
+      "portrait": "K07"
+    },
+    {
+      "id": "W086",
+      "name": "WILLY ACHMAD FAUZY",
+      "occupation": "Teknisi irigasi",
+      "portrait": "R173"
+    },
+    {
+      "id": "W087",
+      "name": "WITRI KURNIA",
+      "occupation": "Juru cerita warga",
+      "portrait": "K11"
+    },
+    {
+      "id": "W088",
+      "name": "YAN RASPATI",
+      "occupation": "Pemandu wisata kebun",
+      "portrait": "R058"
+    },
+    {
+      "id": "W089",
+      "name": "YASYIFA MAHARANI MARYUN",
+      "occupation": "Penata tekstil pasar",
+      "portrait": "R014"
+    },
+    {
+      "id": "W090",
+      "name": "YAWAN MULYAWAN",
+      "occupation": "Pengawas pasar tradisional",
+      "portrait": "R174"
+    },
+    {
+      "id": "W091",
+      "name": "YAYAN MULYANA",
+      "occupation": "Penjaga kios cendera mata",
+      "portrait": "R122"
+    },
+    {
+      "id": "W092",
+      "name": "YOPI TARYANA",
+      "occupation": "Pemandu pagelaran adat",
+      "portrait": "R154"
+    },
+    {
+      "id": "W093",
+      "name": "YOYO",
+      "occupation": "Pengelola pembibitan pohon",
+      "portrait": "R175"
+    },
+    {
+      "id": "W094",
+      "name": "YUANDA GUSTAZI",
+      "occupation": "Pemain kecapi",
+      "portrait": "R125"
+    },
+    {
+      "id": "W095",
+      "name": "YUCEU DINI AULIANA",
+      "occupation": "Penjual jajanan pasar",
+      "portrait": "R020"
+    },
+    {
+      "id": "W096",
+      "name": "YUSUP YOGI PERMANA",
+      "occupation": "Pencerita dongeng Sunda",
+      "portrait": "R127"
+    },
+    {
+      "id": "W097",
+      "name": "EUIS PERMATASARI",
+      "occupation": "Perias acara adat",
+      "portrait": "R002"
+    },
+    {
+      "id": "W098",
+      "name": "NENG KURNIASIH",
+      "occupation": "Penjual kue tradisional",
+      "portrait": "R006"
+    },
+    {
+      "id": "W099",
+      "name": "UJANG KUSUMAH",
+      "occupation": "Juru masak kantin",
+      "portrait": "R013"
+    },
+    {
+      "id": "W100",
+      "name": "ENA RAMDHANI",
+      "occupation": "Penenun selendang senior",
+      "portrait": "R016"
+    },
+    {
+      "id": "W101",
+      "name": "ENOK SUTARNA",
+      "occupation": "Penata bunga acara",
+      "portrait": "R018"
+    },
+    {
+      "id": "W102",
+      "name": "IMAS ANGGRAENI",
+      "occupation": "Pembuat taplak bermotif",
+      "portrait": "R022"
+    },
+    {
+      "id": "W103",
+      "name": "TETI SURYANA",
+      "occupation": "Pemandu kebun wisata",
+      "portrait": "R024"
+    },
+    {
+      "id": "W104",
+      "name": "LILIS PRAWIRA",
+      "occupation": "Penyulam daun dan bunga",
+      "portrait": "R026"
+    },
+    {
+      "id": "W105",
+      "name": "YAYAT KARTAWINATA",
+      "occupation": "Pembuat roti pasar",
+      "portrait": "R027"
+    },
+    {
+      "id": "W106",
+      "name": "YUYUN SETYARINI",
+      "occupation": "Pemilik kios kain",
+      "portrait": "R028"
+    },
+    {
+      "id": "W107",
+      "name": "ASEP RUKMANA",
+      "occupation": "Pengajar desain motif",
+      "portrait": "R029"
+    },
+    {
+      "id": "W108",
+      "name": "NUNUNG HARYATI",
+      "occupation": "Pembuat kue kering",
+      "portrait": "R030"
+    },
+    {
+      "id": "W109",
+      "name": "IIS KUSNADI",
+      "occupation": "Pemandu sawah edukasi",
+      "portrait": "R031"
+    },
+    {
+      "id": "W110",
+      "name": "YANI SUSILAWATI",
+      "occupation": "Penjual sambal rumahan",
+      "portrait": "R033"
+    },
+    {
+      "id": "W111",
+      "name": "ANI WIRATMA",
+      "occupation": "Penata seserahan",
+      "portrait": "R036"
+    },
+    {
+      "id": "W112",
+      "name": "DEWI SUMARNA",
+      "occupation": "Pengawas persemaian",
+      "portrait": "R037"
+    },
+    {
+      "id": "W113",
+      "name": "RINA KARTIKA",
+      "occupation": "Perajin baju batik",
+      "portrait": "R041"
+    },
+    {
+      "id": "W114",
+      "name": "SRI MULYANI",
+      "occupation": "Pemandu kebun raya",
+      "portrait": "R043"
+    },
+    {
+      "id": "W115",
+      "name": "DADANG PURNAMA",
+      "occupation": "Pengantar kompos",
+      "portrait": "R045"
+    },
+    {
+      "id": "W116",
+      "name": "NIA HIKMAWATI",
+      "occupation": "Pencatat arsip tenun",
+      "portrait": "R046"
+    },
+    {
+      "id": "W117",
+      "name": "CICI WIRANATA",
+      "occupation": "Pemain angklung",
+      "portrait": "R048"
+    },
+    {
+      "id": "W118",
+      "name": "TATI NURHAYATI",
+      "occupation": "Pengelola kebun organik",
+      "portrait": "R050"
+    },
+    {
+      "id": "W119",
+      "name": "YULI MAULANI",
+      "occupation": "Pengamat tanaman obat",
+      "portrait": "R051"
+    },
+    {
+      "id": "W120",
+      "name": "ELIS KURNIAWATI",
+      "occupation": "Pengelola warung teh",
+      "portrait": "R053"
+    },
+    {
+      "id": "W121",
+      "name": "ERNA ROHAYATI",
+      "occupation": "Pelatih sulam bunga",
+      "portrait": "R055"
+    },
+    {
+      "id": "W122",
+      "name": "LIA SURYANI",
+      "occupation": "Penjaga kebun belajar",
+      "portrait": "R057"
+    },
+    {
+      "id": "W123",
+      "name": "MIMIN HERMAWAN",
+      "occupation": "Perawat padi",
+      "portrait": "R059"
+    },
+    {
+      "id": "W124",
+      "name": "ENTIS WULANSARI",
+      "occupation": "Kurir barang pasar",
+      "portrait": "R060"
+    },
+    {
+      "id": "W125",
+      "name": "AGUS KUSNENDAR",
+      "occupation": "Pembudidaya ikan kolam",
+      "portrait": "R061"
+    },
+    {
+      "id": "W126",
+      "name": "WIDA HERYANA",
+      "occupation": "Pengawas pembibitan",
+      "portrait": "R062"
+    },
+    {
+      "id": "W127",
+      "name": "SINTA KUSWARA",
+      "occupation": "Perias panggung seni",
+      "portrait": "R064"
+    },
+    {
+      "id": "W128",
+      "name": "RATNA NURAINI",
+      "occupation": "Perajin kain lurik",
+      "portrait": "R066"
+    },
+    {
+      "id": "W129",
+      "name": "NINA KUSUMAH",
+      "occupation": "Pembuat kudapan pasar",
+      "portrait": "R069"
+    },
+    {
+      "id": "W130",
+      "name": "IDA KARTAWINATA",
+      "occupation": "Penyusun katalog kain",
+      "portrait": "R071"
+    },
+    {
+      "id": "W131",
+      "name": "MILA RUKMANA",
+      "occupation": "Penjaga kebun bunga senior",
+      "portrait": "R075"
+    },
+    {
+      "id": "W132",
+      "name": "NURI PURNAMA",
+      "occupation": "Penyuluh kebun komunitas",
+      "portrait": "R077"
+    },
+    {
+      "id": "W133",
+      "name": "EUIS KUSNADI",
+      "occupation": "Ilustrator papan toko",
+      "portrait": "R079"
+    },
+    {
+      "id": "W134",
+      "name": "KOSASIH HARDIMAN",
+      "occupation": "Pembuat jamu",
+      "portrait": "R080"
+    },
+    {
+      "id": "W135",
+      "name": "NENG SUSILAWATI",
+      "occupation": "Pengelola lapak bunga",
+      "portrait": "R081"
+    },
+    {
+      "id": "W136",
+      "name": "ENA WIRATMA",
+      "occupation": "Penjahit pakaian",
+      "portrait": "R083"
+    },
+    {
+      "id": "W137",
+      "name": "ENOK SUMARNA",
+      "occupation": "Pengajar ilustrasi",
+      "portrait": "R085"
+    },
+    {
+      "id": "W138",
+      "name": "IMAS KARTIKA",
+      "occupation": "Pemandu jalur kebun",
+      "portrait": "R091"
+    },
+    {
+      "id": "W139",
+      "name": "YANA MULYATI",
+      "occupation": "Pembuat roti panggang",
+      "portrait": "R092"
+    },
+    {
+      "id": "W140",
+      "name": "TETI MULYANI",
+      "occupation": "Penata pameran batik",
+      "portrait": "R094"
+    },
+    {
+      "id": "W141",
+      "name": "LILIS HIKMAWATI",
+      "occupation": "Pengurus perpustakaan kelurahan",
+      "portrait": "R096"
+    },
+    {
+      "id": "W142",
+      "name": "YUYUN WIRANATA",
+      "occupation": "Pemain suling",
+      "portrait": "R100"
+    },
+    {
+      "id": "W143",
+      "name": "NUNUNG NURHAYATI",
+      "occupation": "Pengelola taman kampung",
+      "portrait": "R103"
+    },
+    {
+      "id": "W144",
+      "name": "IIS MAULANI",
+      "occupation": "Perancang kemasan kerajinan",
+      "portrait": "R105"
+    },
+    {
+      "id": "W145",
+      "name": "YANI KURNIAWATI",
+      "occupation": "Perajin bros bunga",
+      "portrait": "R107"
+    },
+    {
+      "id": "W146",
+      "name": "ANI ROHAYATI",
+      "occupation": "Penyuluh tani sawah",
+      "portrait": "R112"
+    },
+    {
+      "id": "W147",
+      "name": "DEWI SURYANI",
+      "occupation": "Penata rambut acara",
+      "portrait": "R114"
+    },
+    {
+      "id": "W148",
+      "name": "RINA HERMAWAN",
+      "occupation": "Pemilik kios hasil kebun",
+      "portrait": "R115"
+    },
+    {
+      "id": "W149",
+      "name": "SRI HERYANA",
+      "occupation": "Ilustrator kartu pos",
+      "portrait": "R117"
+    },
+    {
+      "id": "W150",
+      "name": "NIA KUSWARA",
+      "occupation": "Penjaga studio tekstil",
+      "portrait": "R119"
+    },
+    {
+      "id": "W151",
+      "name": "CICI NURAINI",
+      "occupation": "Penyunting katalog batik",
+      "portrait": "R121"
+    },
+    {
+      "id": "W152",
+      "name": "TATI KUSUMAH",
+      "occupation": "Pengantar paket kios",
+      "portrait": "R123"
+    },
+    {
+      "id": "W153",
+      "name": "YULI KARTAWINATA",
+      "occupation": "Penjual teh bunga",
+      "portrait": "R124"
+    },
+    {
+      "id": "W154",
+      "name": "ELIS RUKMANA",
+      "occupation": "Perajin hiasan rambut",
+      "portrait": "R126"
+    },
+    {
+      "id": "W155",
+      "name": "ERNA PURNAMA",
+      "occupation": "Pengurus rumah kerajinan",
+      "portrait": "R139"
+    },
+    {
+      "id": "W156",
+      "name": "YUDI NURMAWATI",
+      "occupation": "Teknisi bengkel angkutan",
+      "portrait": "R155"
+    },
+    {
+      "id": "W576",
+      "name": "RATNA PURNAMAWANGI",
+      "occupation": "Pustakawan kelurahan",
+      "portrait": "R176"
+    },
+    {
+      "id": "W577",
+      "name": "MILA RENGGANIS",
+      "occupation": "Penyuluh pertanian perkotaan",
+      "portrait": "R177"
+    },
+    {
+      "id": "W578",
+      "name": "SEKAR NURWULAN",
+      "occupation": "Pemandu kebun edukasi",
+      "portrait": "R178"
+    },
+    {
+      "id": "W579",
+      "name": "NENG LARAS PUSPITASARI",
+      "occupation": "Pengelola bank sampah",
+      "portrait": "R179"
+    },
+    {
+      "id": "W580",
+      "name": "NIASARI RAHAYU",
+      "occupation": "Kader gizi posyandu",
+      "portrait": "R180"
+    },
+    {
+      "id": "W581",
+      "name": "RIRIN NURSAKANTI",
+      "occupation": "Mekanik sepeda",
+      "portrait": "R181"
+    },
+    {
+      "id": "W582",
+      "name": "MAYA TRESNAWATI",
+      "occupation": "Perajin aksesori daur ulang",
+      "portrait": "R182"
+    },
+    {
+      "id": "W584",
+      "name": "NENG AYU PUSPAWANGI",
+      "occupation": "Guru SD",
+      "portrait": "R184"
+    },
+    {
+      "id": "W585",
+      "name": "RANGGA SURYAKANCANA",
+      "occupation": "Perawat klinik",
+      "portrait": "R185"
+    },
+    {
+      "id": "W586",
+      "name": "RATRI SEKARWANGI",
+      "occupation": "Apoteker",
+      "portrait": "R186"
+    },
+    {
+      "id": "W587",
+      "name": "DADANG KUSUMADINATA",
+      "occupation": "Sopir angkot",
+      "portrait": "R187"
+    },
+    {
+      "id": "W588",
+      "name": "UJANG JAYAPRAJA",
+      "occupation": "Tukang bangunan",
+      "portrait": "R188"
+    },
+    {
+      "id": "W589",
+      "name": "IIS RATNAWULAN",
+      "occupation": "Petugas kebersihan kota",
+      "portrait": "R189"
+    },
+    {
+      "id": "W590",
+      "name": "ASEP JATNIKA",
+      "occupation": "Teknisi listrik",
+      "portrait": "R190"
+    },
+    {
+      "id": "W591",
+      "name": "NISA RENGGANI",
+      "occupation": "Kasir minimarket",
+      "portrait": "R191"
+    },
+    {
+      "id": "W592",
+      "name": "GILANG PAMUNGKAS",
+      "occupation": "Tukang cukur",
+      "portrait": "R192"
+    },
+    {
+      "id": "W593",
+      "name": "YUYUN WINANGSIH",
+      "occupation": "Petugas laundry hotel",
+      "portrait": "R193"
+    },
+    {
+      "id": "W594",
+      "name": "AGUS SURYANA",
+      "occupation": "Tukang ledeng",
+      "portrait": "R194"
+    },
+    {
+      "id": "W595",
+      "name": "DAVA RAKSA PRATAMA",
+      "occupation": "Teknisi komputer",
+      "portrait": "R195"
+    },
+    {
+      "id": "W596",
+      "name": "SEKAR AYU RAHAYU",
+      "occupation": "Konselor remaja",
+      "portrait": "R196"
+    },
+    {
+      "id": "W597",
+      "name": "RAKA GUMELAR",
+      "occupation": "Petugas pemadam kebakaran",
+      "portrait": "R197"
+    },
+    {
+      "id": "W598",
+      "name": "TANTI NURWANGI",
+      "occupation": "Teller bank",
+      "portrait": "R198"
+    },
+    {
+      "id": "W599",
+      "name": "IWA SUMANTRI",
+      "occupation": "Satpam",
+      "portrait": "R199"
+    }
+  ]
+}
