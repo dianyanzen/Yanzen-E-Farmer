@@ -15,6 +15,7 @@ import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
 import { FieldEngine, type ToolUse, type WorldPick } from "@/lib/game/field-engine";
 import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
 import CharacterGallery from "./character-gallery";
+import PhoneWargapedia from "./phone-wargapedia";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
@@ -24,7 +25,7 @@ import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
+type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "ikd" | "map" | "friends" | "stats" | "characters" | "wargapedia" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
@@ -35,6 +36,7 @@ const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "friends", name: "Kedekatan", icon: "♡" },
   { id: "stats", name: "Statistik", icon: "▤" },
   { id: "characters", name: "Warga", icon: "☷" },
+  { id: "wargapedia", name: "Wargapedia", icon: "▧" },
   { id: "guide", name: "Panduan", icon: "?" },
 ];
 function timeLabel(minutes: number) {
@@ -181,6 +183,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [storageOpen, setStorageOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
+  const [selectedWikiId,setSelectedWikiId]=useState<string|null>(null);
   const [selectedCitizen, setSelectedCitizen] = useState<string|null>(null);
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
   const [toast, setToast] = useState("");
@@ -563,7 +566,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
 
   const togglePhone = useCallback(() => {
     if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
-    setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setShowHelp(false);
+    setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setSelectedWikiId(null); setShowHelp(false);
   }, [dialogue, storageOpen, saveStatus,wakingDay]);
 
   useEffect(() => {
@@ -754,15 +757,15 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </GameDialog>}
         {storageOpen && <ToolWarehouse game={game} disabled={unavailable}
           onClose={()=>setStorageOpen(false)} onTransfer={transfer} onUpgrade={upgrade}/>}
-        {phoneOpen && <GameDialog className="yzg-phone-backdrop" aria-label="YZ Phone" focusKey={phoneTab + ":" + (selectedCitizen ?? "list")}
-          onBack={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
+        {phoneOpen && <GameDialog className="yzg-phone-backdrop" aria-label="YZ Phone" focusKey={phoneTab + ":" + (phoneTab==="wargapedia" ? selectedWikiId??"list" : selectedCitizen??"list")}
+          onBack={() => phoneTab === "wargapedia" && selectedWikiId ? setSelectedWikiId(null) : phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}
           onClick={e => { if (e.target === e.currentTarget) setPhoneOpen(false); }}>
           <section className="yzg-phone" onClick={e => e.stopPropagation()} aria-label="Smartphone YZ Phone">
             <div className="yzg-phone-notch"/>
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
-              <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
+              <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "wargapedia" && selectedWikiId ? setSelectedWikiId(null) : phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "wargapedia" ? "Wargapedia" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content" data-dialog-scroll>
@@ -772,6 +775,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   setRouteMessage("");
                   setPhoneTab(app.id);
                   setSelectedCitizen(null);
+                  setSelectedWikiId(null);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
                 }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
                 <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Kamu bisa mencari mereka lewat menu Warga."}</p><button onClick={() => setPhoneTab("friends")}>Lihat lokasi warga</button></div>
@@ -815,7 +819,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <button type="button" onClick={() => void logout()} disabled={saveStatus === "loading" || saveStatus === "saving" || (saveStatus === "error" && !!userId)}>Keluar akun</button>
                 </div>
               </>}
-              {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
+              {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}
+                 onOpenWargapedia={id=>{setSelectedWikiId(id??null);setPhoneTab("wargapedia");}}/>}
+               {phoneTab === "wargapedia" && <PhoneWargapedia selectedId={selectedWikiId} onSelect={setSelectedWikiId}/>}
               {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
