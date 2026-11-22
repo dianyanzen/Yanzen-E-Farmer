@@ -56,5 +56,10 @@ try{
  assert.ok(client.includes("approvedByLegacyId"),"Explicit approval must stay separate from display-only mapping");
  const ignore=file(".gitignore");
  assert.ok(ignore.includes("deploy/private/"));
+ assert.ok(ignore.includes("**/*_PRIVATE.json"),"Private exported JSON must be ignored outside Docker");
+ const draftRoute=file("src/app/api/game/resident-bible/[id]/route.ts");
+ assert.ok(draftRoute.includes("GAME_BIBLE_EDITOR_USER_IDS"),"Draft route requires editor allowlist");
+ assert.ok(draftRoute.includes("status:403"),"Draft route must reject unauthorized users");
+ assert.ok(ui.includes("EditorialDraftNotes"),"YZ Phone must show protected 12-category editorial dossier");
  console.log("PASS: 69 legacy ID collisions quarantined, 39 story candidates, 30 concepts, route/UI identity guard");
 }finally{rmSync(temp,{recursive:true,force:true});}
