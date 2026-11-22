@@ -97,7 +97,7 @@ export default function PhoneChronicle({game,residents,onOpenWarga,displayName}:
     {record.relationshipSummary.length?
       record.relationshipSummary.map(person=><button type="button" className="yzg-chronicle-person"
        key={person.id} disabled={!canLink(person.id)} onClick={()=>link(person.id)}>
-       <span>{displayName(person.name)} · Kedekatan Lv. {person.level}</span><small>{person.talks} percakapan</small>
+       <span>{displayName(person.name)}</span><small>{person.talks} kali berbincang</small>
       </button>):
       <p>Belum ada percakapan yang tercatat. Mulailah dengan tetangga dekat kebun.</p>}
    </div>

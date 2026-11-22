@@ -250,7 +250,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         throw new Error(message);
       }
       setSaveStatus("saved");
-    }).catch(e => { saveLockedRef.current = true; setSaveStatus("error"); setErrorText("Gagal menyimpan: " + String(e)); });
+    }).catch(e => { saveLockedRef.current = true; setSaveStatus("error"); console.error("[game] Cannot persist save",e); setErrorText("Perjalananmu belum tersimpan. Periksa koneksi sebelum melanjutkan."); });
     queueRef.current = next;
     return next;
   }, [userId]);

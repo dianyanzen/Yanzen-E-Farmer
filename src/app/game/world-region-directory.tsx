@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {BANDUNG_WORLD,WORLD_DISTRICTS,getWorldDistrict,getWorldVillages,
+import {WORLD_DISTRICTS,getWorldDistrict,getWorldVillages,
   searchWorldVillages,PASIRLUYU_LOCATIONS} from "@/lib/game/bandung-world";
 
 export default function WorldRegionDirectory(){
@@ -12,10 +12,9 @@ export default function WorldRegionDirectory(){
   const results=query.trim()?searchWorldVillages(query,25):[];
   const limitReached=query.trim()&&results.length>=25;
 
-  return <section className="yzg-phone-card yzg-world-regions" aria-label="Master wilayah Kota Bandung">
-    <b>Jelajah 30 Kecamatan · 151 Kelurahan</b>
-    <p className="yzg-world-scope">Kota Bandung: {BANDUNG_WORLD.districtCount} kecamatan dan {BANDUNG_WORLD.villageCount} kelurahan.
-      Kamu baru bisa berjalan-jalan di Pasirluyu. Kawasan lain masih menunggu untuk dijelajahi.</p>
+  return <section className="yzg-phone-card yzg-world-regions" aria-label="Jelajah Bandung">
+    <b>Jelajah Bandung</b>
+    <p className="yzg-world-scope">Perjalananmu bermula di Pasirluyu. Kamu bisa melihat tempat-tempat lain di Bandung dari sini, meski belum semua jalannya terbuka.</p>
     <label htmlFor="yzg-kecamatan" className="yzg-map-label">Pilih kecamatan</label>
     <select className="yzg-map-select" id="yzg-kecamatan" value={districtName}
       onChange={e=>{setDistrictName(e.target.value);setQuery("");}}>
@@ -54,7 +53,7 @@ export default function WorldRegionDirectory(){
       Lihat peta kecamatan
     </a>
     <details>
-      <summary>Kawasan yang dapat dimainkan sekarang ({PASIRLUYU_LOCATIONS.length})</summary>
+      <summary>Tempat yang bisa kamu datangi sekarang</summary>
       <ul>{PASIRLUYU_LOCATIONS.map(loc=><li key={loc.id}>
         {loc.name} — {loc.description}</li>)}</ul>
     </details>
