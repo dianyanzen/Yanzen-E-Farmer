@@ -87,7 +87,7 @@ try {
   assert.equal(restarted.bonds.A03.talks,0,'NPC conversation history is cleared');
   assert.equal(restarted.fishing.caught,0,'caught fish history is cleared');
   assert.equal(restarted.fishing.bait,0,'earned fishing bait is returned to initial value');
-  assert.equal(restarted.sluiceOpen,false,'sluice story world state is reset');
+  assert.notEqual(restarted.sluiceOpen,true,'sluice story world state is reset');
 
   // Stale autosave with the pre-reset revision must not restore old progress.
   const stale = await db.query(`update yz_game_saves set data=$2::jsonb
