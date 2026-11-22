@@ -11,7 +11,8 @@
 5. [NPC Publication Policy](NPC_PUBLICATION_POLICY.md) — 248 identitas, kameo, bukti dan privasi.
 6. [Humanizer Editorial Pipeline](HUMANIZER_DIALOGUE_PIPELINE.md) — alur Codex, review narasi, QA.
 7. [Story System](STORY_SYSTEM.md) — aturan naratif, dengan bagian proposal/legacy ditandai.
-8. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
+8. [Standar Potret NPC Aktif](ACTIVE_NPC_PORTRAIT_STANDARD.md) — lima tokoh gameplay, sprite, konsep, delapan ekspresi, dan quality gate (termasuk blocker Widi).
+9. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
 
 Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
 
@@ -37,6 +38,7 @@ npm run test:game:humanizer
 npm run test:game:copy
 npm run typecheck
 npm run test:game
+npm run test:portraits
 ```
 
 Lanjutkan browser QA untuk halaman Warga, dialog, inventaris, suara, fullscreen, panen, tidur, dan simpan/muat. Pertahankan lisensi serta provenance aset. Penghapusan aset/dokumen wajib didahului audit referensi, tidak karena terlihat belum dipakai.

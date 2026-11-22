@@ -54,7 +54,7 @@ export const tales:Record<NpcId,Tale> = {
       "Kuberi tanda kecil di bungkus pertama untuk mengingat kebun asal catatan ini. Ini upahmu membantu percobaan."]
   },
   C07:{
-    title:"Buku tangkapan dermaga",contact:"A03",errand:"Tanyakan kepada Ryan bagaimana mengenali arus yang tenang.",work:"Dapatkan dua tangkapan baru di lokasi pancing setelah mendengar penjelasan Ryan.",fee:120,
+    title:"Buku tangkapan tepi sungai",contact:"A03",errand:"Tanyakan kepada Ryan bagaimana mengenali arus yang tenang.",work:"Dapatkan dua tangkapan baru di lokasi pancing setelah mendengar penjelasan Ryan.",fee:120,
     offer:["Hargaku tertulis rapi di papan, tapi asal ikan masih sering hilang ketika orang pulang dari pasar. Aku mulai mencatatnya di buku kecil ini.",
       "Sebelum melempar kail, tanya Ryan bagaimana ia melihat arus dari tepi. Bawa pelet dan simpan ikanmu di keranjang."],
     reply:["Lihat permukaan di balik batu, bukan hanya buih putih dekat pintu air. Pelampung jauh lebih mudah terlihat di air yang tenang.",

@@ -21,7 +21,7 @@ assert.equal(index.characterCount,248);
 assert.equal(index.characters.length,248);
 const digest=createHash('sha256').update(rows.slice().sort((a,b)=>a.id.localeCompare(b.id,'en'))
  .map(({id,name,occupation,portrait})=>[id,name,occupation,portrait].join('|')+'\n').join('')).digest('hex');
-assert.equal(digest,'cd19795344bbb4fefc0022a3f17d25135d79624de4d5d9c6c618699cc1f871a0');
+assert.equal(digest,'24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e');
 assert.equal(index.rosterFingerprintSha256,digest);
 const ids=new Set(),names=new Set(),portraits=new Set();
 for(const r of rows){
@@ -63,7 +63,7 @@ for(const r of rows){
  assert.ok(typeof physical.physicalTraits==='string'&&physical.physicalTraits.length>45,'portrait observations missing');
  assert.equal(doc.visualEvidence.assetKey,r.portrait);
  assert.equal(doc.visualEvidence.path,'public'+doc.portraitUrl);
- assert.equal(doc.visualEvidence.source,'original-canonical-GitHub-portrait');
+ assert.equal(doc.visualEvidence.source,r.id==='C07'?'owner-selected-portrait-reference-2026-11-22':'original-canonical-GitHub-portrait');
  assert.ok(doc.fieldProvenance['02_physical_appearance.physicalTraits']);
  if(!isCameo){
   assert.ok(Number.isInteger(core.ageYears)&&core.ageYears>=21&&core.ageYears<=90,'fictional age candidate missing');

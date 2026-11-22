@@ -27,7 +27,7 @@
 | C04 | DESI YANI IMAN NURRIZKIAH | Pembuat roti desa | [12 kategori](./C04.md) |
 | C05 | AHMAD MULYANA | Pelajar dan peserta klub kebun | [12 kategori](./C05.md) |
 | C06 | YANI ANDRIYANI KAUTSAR | Mahasiswi pertanian | [12 kategori](./C06.md) |
-| C07 | WIDI MUNAJAT | Pedagang hasil bumi | [12 kategori](./C07.md) |
+| C07 | WIDI MUNAJAT | Spesialis ikan dan memancing | [12 kategori](./C07.md) |
 | C08 | INGGIT MARSELA | Penjual makanan pasar | [12 kategori](./C08.md) |
 | C09 | ALAMSYAH PUTRA | Ilustrator desa | [12 kategori](./C09.md) |
 | C10 | ALI MAMNUN | Pencatat keuangan koperasi | [12 kategori](./C10.md) |
