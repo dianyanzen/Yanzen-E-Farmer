@@ -688,7 +688,7 @@
       "id": "C07",
       "name": "Widi",
       "role": "npc",
-      "occupation": "Pedagang hasil bumi",
+      "occupation": "Spesialis ikan dan memancing",
       "active": true,
       "expressionSheet": "/game/assets/portraits/C07.png",
       "styleFamily": "dialogue-expression-pixel-v1",
