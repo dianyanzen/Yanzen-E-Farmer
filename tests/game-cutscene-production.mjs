@@ -26,6 +26,22 @@ const docs=readFileSync("docs/game-dev/CUTSCENE_PRODUCTION_STANDARD.md","utf8");
 assert.ok(code.includes("PASIRLUYU_SLUICE_CUTSCENE")&&code.includes("onEnded={finish}")&&code.includes("playsInline")&&code.includes("onError")&&code.includes("Lewati adegan"));
 assert.ok(!code.includes("yzg-cutscene-gate")&&!code.includes("sluice-sky"),"Remove old synthetic SVG storyboard");
 assert.ok(catalogue.includes('src:"/game/assets/cutscenes/sluice-gate.mp4"'));
+
+const layout=readFileSync("src/app/game/game.css","utf8");
+const app=readFileSync("src/app/game/game-client.tsx","utf8");
+assert.ok(layout.includes(".yzg-cutscene{")&&layout.includes("position:absolute;inset:0;z-index:20"),
+ "Cinematic must be scoped to world viewport, never fixed to the browser screen");
+assert.ok(!layout.includes(".yzg-cutscene{position:fixed"),
+ "Never return to fullscreen overlay that covers YZ Phone and movement controls");
+assert.ok(layout.includes("aspect-ratio:910 / 512")&&layout.includes("object-fit:contain"),
+ "Keep the native 910:512 cinematic ratio without crop or re-encode");
+assert.ok(code.includes("ResizeObserver")&&code.includes("captionRef.current")&&code.includes("actionsRef.current"),
+ "Fit video into remaining world height after reserving subtitles and action buttons");
+assert.ok(!code.includes("webkitEnterFullscreen"),
+ "Do not automatically fullscreen only the video on iPhone");
+assert.ok(app.includes('className="yzg-viewport"')&&app.includes("SluiceCutscene"),
+ "Cinematic must remain a child of the actual game viewport");
+
 assert.ok(skill.includes("FRAME AWAL")&&skill.includes("FRAME AKHIR")&&skill.includes("Google Flow"));
 assert.ok(docs.includes("FRAME AWAL")&&docs.includes("FRAME AKHIR"));
 assert.ok(!existsSync("scripts/game-cinematics/restore-hd-sluice.mjs"),"Old Remotion restore would overwrite owner video");
