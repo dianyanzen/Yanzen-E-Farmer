@@ -65,7 +65,12 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
  }
  try {
   const parsed=rosterSchema.parse(source);
-  const residents=Array.isArray(parsed)?parsed:parsed.currentRoster;
+  const sourceResidents=Array.isArray(parsed)?parsed:parsed.currentRoster;
+  // Owner-authorized 2026-11-22 profession revision: accept only the exact
+  // former Widi C07 label from an older private Vercel/Docker roster.
+  // Re-check the full 248-person fingerprint afterward; do not bypass it.
+  const residents=sourceResidents.map(r=>r.id==="C07"&&r.name==="WIDI MUNAJAT"&&
+    r.occupation==="Pedagang hasil bumi"?{...r,occupation:"Spesialis ikan dan memancing"}:r);
   if(residents.length!==248)throw new Error("invalid-count");
   const ids=new Set<string>(),names=new Set<string>(),portraits=new Set<string>();
   // Next/Vercel may serve public images from a CDN rather than mounting public/ inside a lambda.
