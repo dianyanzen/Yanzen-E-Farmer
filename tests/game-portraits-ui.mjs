@@ -84,7 +84,7 @@ try {
  await start(page);
  assert.equal(portraits.length,0,"no citizen portraits fetched before Warga opens");
  await page.getByRole("button",{name:/^▣ YZ Phone/}).click();
- await page.getByRole("button",{name:"Warga",exact:true}).click();
+ await page.getByRole("button",{name:/Warga$/}).click();
  await page.waitForFunction(()=>document.querySelectorAll('[data-character-card]').length===10);
  assert.equal(await page.locator('[data-character-card]').count(),10,"single Warga list paginates public 248 NPCs");
  assert.equal(await page.getByRole('button',{name:"Wargapedia",exact:true}).count(),0,"no duplicate Wargapedia app");
@@ -120,7 +120,7 @@ try {
  assert.ok(portraits.length>0,"portrait files are lazy-loaded as citizen directory is browsed");
 
  await page.getByRole("button",{name:"Kembali"}).click();
- await page.getByRole("button",{name:"Kronik",exact:true}).click();
+ await page.getByRole("button",{name:/Kronik$/}).click();
  await page.getByRole("heading",{name:"Empat Timun dan Satu Nama"}).waitFor();
  assert.equal(await page.getByRole("progressbar",{name:"Kemajuan cerita utama"}).getAttribute("value"),"0");
  await page.getByRole("button",{name:"Misi",exact:true}).click();
@@ -133,7 +133,7 @@ try {
  await broken.route("**"+missing,route=>route.abort());
  await start(broken);
  await broken.getByRole("button",{name:/^▣ YZ Phone/}).click();
- await broken.getByRole("button",{name:"Warga",exact:true}).click();
+ await broken.getByRole("button",{name:/Warga$/}).click();
  await broken.getByRole("searchbox",{name:"Cari karakter"}).fill(sample[0].id);
  await broken.locator('[data-character-card="'+sample[0].id+'"]').click();
  await broken.getByText(sample[0].name,{exact:true}).waitFor();
