@@ -67,5 +67,17 @@ try{
   assert.ok(profile.includes("import("+JSON.stringify(path)+")"),"Missing lazy profile "+resident.id);
  }
  assert.equal(source.characters.length,70);
+ // Destructive reset must require an explicit warning and cannot race with autosave.
+ const client=readFileSync("src/app/game/game-client.tsx","utf8");
+ const styles=readFileSync("src/app/game/game.css","utf8");
+ assert.match(client,/role="alertdialog" aria-modal="true"/,"reset must present an accessible confirmation dialog");
+ assert.match(client,/Semua progres permainan akan hilang/,"reset must explain what is lost");
+ assert.match(client,/Ya, reset semua progres/,"reset must require an explicit affirmative choice");
+ assert.match(client,/Batal, simpan progres/,"reset must offer a safe cancellation");
+ assert.match(client,/await queueRef.current;/,"reset must wait for earlier saves");
+ assert.match(client,/resetInFlightRef.current/,"autosave must be blocked during reset");
+ assert.match(client,/body: JSON.stringify\(\{ data: newGame\(\) \}\)/,"reset must use canonical initial game state");
+ assert.match(styles,/\.yzg-account-actions\{display:grid/,"account buttons must be spaced, not inline with title");
+ assert.match(styles,/\.yzg-reset-overlay\{position:absolute/,"confirmation must remain inside YZ Phone");
  console.log("PASS: real save-compatible chronicle, 5 milestones, choices, side quests, privacy, 70 lazy profiles and no game-state mutation");
 }finally{rmSync(dir,{recursive:true,force:true});}
