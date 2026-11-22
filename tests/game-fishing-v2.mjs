@@ -1,13 +1,25 @@
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
-import {facing,newGame,safeLoad,fishingWaterAt,newFishingInventory,castRod,finishFishingAttempt} from "../src/lib/game/model.ts";
-import {planFishingSession,fishingCatchSucceeds,FISHING_WAIT_MIN_MS,FISHING_WAIT_SPAN_MS,FISHING_CAST_MS,FISHING_BITE_WINDOW_MS,FISHING_REEL_MS} from "../src/lib/game/fishing-session.ts";
+import vm from "node:vm";
+import {createRequire} from "node:module";
+import ts from "typescript";
+function loadTypescript(path){
+ const compiled=ts.transpileModule(readFileSync(path,"utf8"),{
+   compilerOptions:{esModuleInterop:true,module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+ const module={exports:{}};
+ vm.runInNewContext(compiled,{exports:module.exports,module,require:createRequire(new URL("../"+path,import.meta.url))});
+ return module.exports;
+}
+const {facing,newGame,safeLoad,fishingWaterAt,newFishingInventory,castRod,finishFishingAttempt}=
+ loadTypescript("src/lib/game/model.ts");
+const {planFishingSession,fishingCatchSucceeds,FISHING_WAIT_MIN_MS,FISHING_WAIT_SPAN_MS,
+  FISHING_CAST_MS,FISHING_BITE_WINDOW_MS,FISHING_REEL_MS}=loadTypescript("src/lib/game/fishing-session.ts");
 
 assert.ok(FISHING_WAIT_MIN_MS>=4000,"The player must visibly wait several real seconds");
 assert.ok(FISHING_WAIT_MIN_MS+FISHING_WAIT_SPAN_MS>=8000,"Waiting must be variable");
 assert.ok(FISHING_CAST_MS>300&&FISHING_REEL_MS>=1200&&FISHING_BITE_WINDOW_MS>=1200);
-assert.deepEqual(planFishingSession(0,0,0),{waitMs:4800,willBite:true,species:"lele"});
-assert.deepEqual(planFishingSession(.999,.999,.999),{waitMs:9195,willBite:false,species:"nila"});
+assert.equal(JSON.stringify(planFishingSession(0,0,0)),JSON.stringify({waitMs:4800,willBite:true,species:"lele"}));
+assert.equal(JSON.stringify(planFishingSession(.999,.999,.999)),JSON.stringify({waitMs:9195,willBite:false,species:"nila"}));
 assert.equal(fishingCatchSucceeds(0),true);
 assert.equal(fishingCatchSucceeds(.999),false);
 assert.throws(()=>planFishingSession(NaN,.5,.5));
@@ -40,7 +52,7 @@ assert.equal(cast.fishing.bait,11);
 assert.equal(cast.fishing.stats.casts,1);
 assert.equal(cast.fishing.caught,0);
 assert.equal(cast.fishing.line,null,"Casting must not instantly hook an item");
-assert.deepEqual(cast.fishing.fish,spot.fishing.fish,"Fish inventory unchanged while waiting");
+assert.equal(JSON.stringify(cast.fishing.fish),JSON.stringify(spot.fishing.fish),"Fish inventory unchanged while waiting");
 const withoutBait={...spot,fishing:{...spot.fishing,bait:0}};
 assert.equal(castRod(withoutBait),withoutBait);
 const noBite=finishFishingAttempt(cast,"no_bite");
