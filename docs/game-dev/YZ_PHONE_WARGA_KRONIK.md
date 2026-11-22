@@ -36,3 +36,7 @@ Buka **YZ Phone → Kronik**. Tersedia tiga pilihan:
 - `npm run typecheck`, `npm run test:game`, review browser iOS dan desktop termasuk scrolling panjang, tombol kembali, fokus keyboard, dan ukuran potret.
 
 Pengalaman harus tetap nyaman di prototipe Pasirluyu sebelum ekspansi besar berikutnya.
+
+### Pengayaan potret di menu Warga (22 November 2026)
+
+Semua 248 dossier yang dibaca YZ Phone memiliki deskripsi ciri visual sesuai potret canonical. Usia, pendidikan, dan kilas balik tokoh yang baru diisi **masih usulan fiksi**; menu tidak boleh menyatakannya sebagai data pribadi nyata, misi aktif, atau hubungan yang sudah terjadi. `origin` dan `familyContext` tetap null sampai ada keputusan penulisan yang cukup. Baca `NPC_PORTRAIT_NULL_ENRICHMENT.md` sebelum mengubah potret maupun cerita. `Kronik` tetap hanya dari save.
