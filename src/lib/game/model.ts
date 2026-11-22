@@ -114,7 +114,7 @@ export type Dialogue = {
 export type GameState = {
   nurseryChecked?: boolean;
   personalQuests?: QuestBook;
-  fishing: FishingInventory; sluiceOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
+  fishing: FishingInventory; sluiceOpen?: boolean; sluiceCutsceneSeen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
   equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
@@ -831,7 +831,7 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...(value.sluiceCutsceneSeen===true ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
