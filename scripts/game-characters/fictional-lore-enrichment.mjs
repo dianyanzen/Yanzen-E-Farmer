@@ -63,6 +63,7 @@ const regions = {
 };
 function domain(o){
  const x=o.toLowerCase();
+ if(/kebun|tani|padi|benih|bibit|panen|bunga|kompos|pembibitan|irigasi|unggas|lebah|ikan|satwa|burung|persemaian|organik|ternak|sawah|kolam|pohon/.test(x)) return 'farm';
  if(/perawat|dokter|apoteker|posyandu|pengajar|guru|kader|perpustakaan|pustakawan|konselor|klinik|pemadam|satpam|ronda|keselamatan|kebersihan|bank sampah|penyuluh/.test(x)) return 'civic';
  if(/teknisi|mekanik|montir|listrik|sistem|mesin|komputer|peralatan|kamera|jam mekanis|ledeng|peta|peneliti|pengamat air/.test(x)) return 'tech';
  if(/perajin|penenun|tenun|batik|sulam|kain|busana|kostum|jahit|aksesoris|aksesori|sepatu|kayu|furnitur|topeng|kerajinan|batu|bambu|pewarna/.test(x)) return 'craft';
