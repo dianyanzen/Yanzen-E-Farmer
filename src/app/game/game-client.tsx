@@ -720,18 +720,41 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {dialogue && <GameDialog className="yzg-dialog yzg-chapter-dialog" aria-label={display(dialogue.title)}
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
-          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && <div className="yzg-shop">
-            {(dialogue.npcId==="A04"?["seeds","cucumber"] as const:["bait",...FISH_IDS] as const).map(item=>
-              <button key={item} disabled={unavailable} onClick={()=>{
-                if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
-                const r=marketTrade(game,dialogue.npcId,item);
-                if(r.state!==game){setGame(r.state);void persist(r.state);}
-                setDialogue({...dialogue,title:"Lapak pasar",lines:[r.message]});
-              }}>{item==="bait"?"5 pelet · 15 G":item==="seeds"?"5 bibit · 40 G":item==="cucumber"?"Jual hasil timun":"Jual "+FISH_MARKET[item].name+" ("+game.fishing.fish[item]+")"}</button>)}
-            {dialogue.npcId==="C07" && <NextImage src="/game/assets/tiles/fish-market.png" width={144} height={48} alt="Bandeng, kakap putih dan belanak"/>}
-          </div>}
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
+          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && (
+            <details className="yzg-market" open={dialogue.title==="Lapak pasar"}>
+              <summary>
+                <strong>{dialogue.npcId==="C07"?"Lapak pancing Widi":"Lapak benih Ayu"}</strong>
+                <small>{dialogue.npcId==="C07"?"Beli umpan atau jual hasil pancing":"Beli bibit atau jual hasil kebun"}</small>
+              </summary>
+              <div className="yzg-market-grid">
+                {(dialogue.npcId==="A04" ? ["seeds","cucumber"] as const :
+                  ["bait",...FISH_IDS.filter(id=>game.fishing.fish[id]>0)] as const).map(item=>{
+                  const fish=(item==="bandeng"||item==="kakap_putih"||item==="belanak")?FISH_MARKET[item]:null;
+                  const quantity=fish?game.fishing.fish[item as keyof typeof FISH_MARKET]:0;
+                  const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
+                    item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
+                  const detail=item==="bait"?"15 G · Stok: "+game.fishing.bait:
+                    item==="seeds"?"40 G":item==="cucumber"?"Timun yang belum dipesan":
+                    quantity+" ekor · "+fish!.price+" G/ekor";
+                  return <button key={item} className="yzg-market-item" disabled={unavailable} onClick={()=>{
+                    if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
+                    const result=marketTrade(game,dialogue.npcId,item);
+                    if(result.state!==game){setGame(result.state);void persist(result.state);}
+                    setDialogue({...dialogue,title:"Lapak pasar",lines:[result.message],choices:undefined,emotions:undefined});
+                  }}>
+                    {fish ? <span className="yzg-market-fish" aria-hidden="true"
+                      style={{backgroundPosition:`${fish.frame*50}% center`}}/> :
+                      <span className="yzg-market-supply" aria-hidden="true">{item==="bait"?"•••":"✦"}</span>}
+                    <span className="yzg-market-item-text"><strong>{itemName}</strong><small>{detail}</small></span>
+                  </button>;
+                })}
+              </div>
+              {dialogue.npcId==="C07" && FISH_IDS.every(id=>game.fishing.fish[id]===0) &&
+                <p className="yzg-market-empty">Belum ada ikan di tasmu. Kalau dapat, bawa ke sini, ya.</p>}
+            </details>
+          )}
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
 
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
