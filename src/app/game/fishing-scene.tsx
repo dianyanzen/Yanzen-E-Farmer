@@ -3,9 +3,10 @@
 import {fishingPhaseLabel,type FishingPhase} from "@/lib/game/fishing-session";
 import {FISH_MARKET,type RiverFishId} from "@/lib/game/model";
 
-export function FishingScene({phase}:{phase:FishingPhase}){
+export function FishingScene({phase,onCancel}:{phase:FishingPhase;onCancel:()=>void}){
   const label=fishingPhaseLabel(phase);
   return <div className={"yzg-fishing-scene yzg-fishing-"+phase} aria-label="Memancing di sungai" role="status" aria-live="polite">
+    <button className="yzg-fishing-cancel" type="button" onClick={onCancel}>Angkat joran</button>
     <div className="yzg-fishing-effect" aria-hidden="true">
       <div className="yzg-fishing-rod"/>
       <div className="yzg-fishing-line"/>
