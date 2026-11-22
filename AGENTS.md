@@ -12,6 +12,8 @@
 
 **Potret NPC aktif:** sebelum membuat/mengganti wajah, strip ekspresi atau potret profesi Ryan/Ayu/Nani/Widi/Inggit, wajib baca `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md` dan verifikasi `tests/game-active-portrait-standard.mjs`. Potret profesi statis tidak boleh menggantikan ekspresi pada dialog. Potret Widi yang dipilih pemilik pada PR #43 sudah menggantikan kandidat 512px yang tidak serasi; tetap wajib uji pada UI mobile dan sprite dunia sebelum menandai QA runtime selesai.
 
+**Cutscene wajib mengikuti** `.agents/skills/yz-farm-cutscene/SKILL.md` dan `docs/game-dev/CUTSCENE_PRODUCTION_STANDARD.md`: AI menyiapkan dua frame (awal/akhir) dari sumber canonical, pemilik membuat video, AI memverifikasi dan memasangnya. Jangan mengembalikan film Remotion lama atau menurunkan kualitas MP4 final. Quest/save tetap sumber unlock Kenangan, bukan lama playback.
+
 ## Untuk setiap perubahan yang tampil ke pemain
 
 - Gunakan **Bahasa Indonesia alami**, dialek Sunda secukupnya. Baca `.agents/skills/humanizer/SKILL.md` (upstream terkunci) bersama `.agents/skills/yz-farm-dialogue/SKILL.md`. Untuk Warga, baca juga `.agents/skills/yz-farm-encyclopedia/SKILL.md`.
