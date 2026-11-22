@@ -22,5 +22,5 @@ assert.ok(client.includes('name: "Wargapedia"'), 'Wargapedia must appear as an a
 assert.ok(client.includes('<PhoneWargapedia selectedId={selectedWikiId}'), 'YZ Phone must embed Wargapedia, not redirect out of game');
 assert.ok(client.includes('setSelectedWikiId(null)'), 'phone navigation must support back to index');
 assert.ok(ui.includes('onOpenWargapedia'), 'Warga contacts must link to the embedded public wiki');
-assert.equal((guide.match(/\\['0[1-9]_|'1[0-2]_/g)||[]).length>=12,true,'all 12 shared category labels must exist');
+assert.equal((guide.match(/\['(?:0[1-9]|1[0-2])_[a-z_]+','[^']+'\]/g)||[]).length,12,'all 12 shared category labels must exist');
 console.log('PASS: 248 public fictional dossiers, 12 phone chapters, search and unrestricted Wargapedia navigation');
