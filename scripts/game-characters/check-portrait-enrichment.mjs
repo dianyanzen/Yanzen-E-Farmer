@@ -2,9 +2,14 @@
 /** Regression guard: owner-authorized visual descriptions + fictional lore, not actual personal facts. */
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const index=read('public/game/data/npc/index.json');
+const imageLedger=read('docs/game-dev/characters/PORTRAIT_ASSET_AUDIT.json');
+const shaById=new Map(imageLedger.portraits.map(x=>[x.id,x]));
+assert.equal(imageLedger.identityCount,248);
+assert.equal(imageLedger.canonicalFingerprintSha256,index.rosterFingerprintSha256);
 assert.equal(index.characterCount,248);
 let filled=0, cameos=0;
 const ids=new Set();
@@ -28,6 +33,11 @@ for(const entry of index.characters){
  assert.equal(s.legacyAssociationApproved,false);
  const img=join('public',entry.portraitUrl);
  assert.ok(existsSync(img),'Missing linked portrait: '+img);
+ const match=shaById.get(entry.id);
+ assert.ok(match&&match.assetPath===img&&match.portrait===entry.portrait,'observed portrait/source mismatch: '+entry.id);
+ const raw=readFileSync(img);
+ const gitSha=createHash('sha1').update(Buffer.from('blob '+raw.length+'\0')).update(raw).digest('hex');
+ assert.equal(gitSha,match.gitBlobSha,'portrait changed since visual description was written: '+entry.id);
  if(['P01','P02'].includes(entry.id)){
   cameos++;
   assert.equal(doc.sections['01_core_identity'].ageYears,null);
