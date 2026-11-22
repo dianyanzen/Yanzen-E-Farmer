@@ -749,9 +749,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                     if(result.state!==game){setGame(result.state);void persist(result.state);}
                     setDialogue({...dialogue,title:"Lapak pasar",lines:[result.message],choices:undefined,emotions:undefined});
                   }}>
-                    {fish ? <span className="yzg-market-fish" aria-hidden="true"
-                      style={{backgroundPosition:`${fish.frame*50}% center`}}/> :
-                      <span className="yzg-market-supply" aria-hidden="true">{item==="bait"?"•••":"✦"}</span>}
+                    {fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
+                      style={{backgroundPosition:fish.frame===0?"100% 0%":fish.frame===1?"0% 100%":"50% 100%"}}/> :
+                      <span className={dialogue.npcId==="C07"?"yzg-market-sprite yzg-market-sprite--widi":"yzg-market-sprite yzg-market-sprite--ayu"}
+                        style={{backgroundPosition:item==="bait"?"50% 0%":item==="seeds"?"0% 0%":"0% 100%"}} aria-hidden="true"/>}
                     <span className="yzg-market-item-text"><strong>{itemName}</strong><small>{detail}</small></span>
                   </button>;
                 })}
