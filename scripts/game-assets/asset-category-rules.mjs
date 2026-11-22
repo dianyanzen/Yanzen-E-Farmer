@@ -103,7 +103,8 @@ export const PUBLIC_SECTIONS = {
   "pasirluyu": "world",
   "residences": "buildings",
   "audio": "audio",
-  "story": "stories"
+  "story": "stories",
+  "cutscenes": "stories"
 };
 export function categorizeMedia(path){
  const p=path.split("/");

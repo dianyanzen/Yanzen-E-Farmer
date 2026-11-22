@@ -563,3 +563,30 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-market-sprite--ayu{background-image:url("/game/assets/tiles/ayu-shop-atlas.png");background-size:200% 200%}
 .yzg-market-sprite--widi{background-image:url("/game/assets/tiles/widi-shop-atlas.png");background-size:300% 200%}
 .yzg-market-item .yzg-market-item-text{flex:1}
+
+/* Cinematic letterbox: Remotion renders the authored MP4, Phaser remains behind it. */
+.yzg-cutscene{position:fixed;inset:0;width:100vw;height:100dvh;z-index:9999;box-sizing:border-box;
+ background:radial-gradient(ellipse at center,#283e34 0%,#090f0d 72%);
+ padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.yzg-cutscene-stage{width:min(96vw,960px);max-height:min(77dvh,660px);border:2px solid #bfa378;
+ box-shadow:0 0 0 10px #0a1510,0 18px 60px #000a;overflow:hidden;background:#10221e}
+.yzg-cutscene-video{display:block;width:100%;aspect-ratio:16/9;height:auto;max-height:70dvh;object-fit:contain;background:#10221e}
+.yzg-cutscene-stage svg{width:100%;height:auto;max-height:68dvh}
+.yzg-cutscene-actions{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
+.yzg-cutscene-actions button{min-width:128px;min-height:44px;border:2px solid #b8a16c;border-radius:7px;
+ background:#f8edd0;color:#2b4c39;font:700 13px Arial,sans-serif;padding:9px 15px}
+.yzg-phone .yzg-memory-entry{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;
+ padding:12px 0;border-top:1px solid #d7e3d3;margin-top:12px;align-items:start}
+.yzg-memory-cover{height:75px;display:grid;place-items:center;border-radius:10px;
+ background:linear-gradient(145deg,#6b896d,#244f4a);color:#ffebaf;font:700 30px Georgia,serif}
+.yzg-memory-cover.locked{background:#e7e9df;color:#a3b0a4}
+.yzg-memory-entry strong{display:block;color:#315d41;font-size:13px;line-height:1.35}
+.yzg-phone .yzg-memory-entry small{margin:5px 0 2px;font-size:11px;line-height:1.4}
+.yzg-phone .yzg-memory-entry button{display:block;margin-top:8px;width:100%;max-width:170px;text-align:center}
+.yzg-portrait[data-character="C07"]{--portrait-center-shift:0px}
+@media(max-width:520px){
+ .yzg-cutscene{padding-inline:7px;gap:10px}
+ .yzg-cutscene-stage{width:100%;max-height:72dvh}
+ .yzg-cutscene-actions button{font-size:12px}
+}

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2489,
-  "uniqueContents": 1197,
-  "totalBytes": 128770158,
+  "totalMedia": 2490,
+  "uniqueContents": 1198,
+  "totalBytes": 128627889,
   "categories": [
     {
       "id": "characters",
@@ -71,7 +71,7 @@
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
       "mediaCount": 384,
-      "bytes": 41602384,
+      "bytes": 41440339,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
@@ -444,8 +444,8 @@
       "id": "stories",
       "label": "Cerita dan misi",
       "description": "Gambar jurnal dan adegan cerita",
-      "mediaCount": 9,
-      "bytes": 16356206,
+      "mediaCount": 10,
+      "bytes": 16375982,
       "sections": [
         {
           "id": "aset/cerita",
@@ -458,6 +458,10 @@
         {
           "id": "bandung-151/cerita",
           "count": 2
+        },
+        {
+          "id": "cutscenes",
+          "count": 1
         },
         {
           "id": "explore-bandung/cerita",

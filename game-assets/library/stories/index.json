@@ -3,8 +3,8 @@
   "category": "stories",
   "label": "Cerita dan misi",
   "description": "Gambar jurnal dan adegan cerita",
-  "mediaCount": 9,
-  "bytes": 16356206,
+  "mediaCount": 10,
+  "bytes": 16375982,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -26,6 +26,12 @@
       "files": [
         "game-assets/yz-farm-life/bandung-151/cerita/foto-saluran-jurnal.png",
         "game-assets/yz-farm-life/bandung-151/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "cutscenes",
+      "files": [
+        "public/game/assets/cutscenes/sluice-gate.mp4"
       ]
     },
     {

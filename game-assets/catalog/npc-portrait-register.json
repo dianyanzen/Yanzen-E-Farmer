@@ -711,7 +711,7 @@
         "workConcept": "/game/assets/portraits/bandung/professions/work-C07.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
-      "styleReview": "owner-selected-art-20261122-pending-in-game-visual-qa",
+      "styleReview": "owner-requested-remaster-8-emotions-20261122-awaiting-safari-qa",
       "usedInDialogue": true,
       "visualReviewNote": "Pemilik memilih revisi potret profesi Widi (256×256): wajah muda tanpa kumis/janggut, rambut gelap acak, baju charcoal, joran dan kotak pancing. Gaya serta latar krem mengikuti empat potret profesi aktif lain. Identitas wajah dan delapan ekspresi tidak diubah. Review di viewport mobile dan sprite dunia masih diperlukan.",
       "ownerSelectedOn": "2026-11-22"

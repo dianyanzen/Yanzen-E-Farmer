@@ -100,3 +100,11 @@ Lakukan sebelum merge:
 - **Bukan lingkup ini:** membuat 243 sprite/strip ekspresi tambahan hanya untuk memenuhi 248 profil Warga.
 
 Lihat juga `PORTRAIT_CATALOG.md`, `ART_DIRECTION.md`, `PLAYER_DEVELOPER_CONTENT_BOUNDARY.md`, `YZ_PHONE_WARGA_KRONIK.md`, dan `docs/game-dev/FISHING_EXPERIENCE_V2.md`.
+
+
+## Tambahan implementasi — 22 November 2026 (Remaster Widi)
+Pemilik meminta **strip ekspresi Widi baru** dipakai, bukan sekadar menggeser potret lama. Frame baru telah disusun dari delapan ekspresi hasil generasi yang disediakan, dalam bentuk 8×1 sel 192×256 (total 1536×256), untuk `public/game/assets/portraits/C07.png`. Setiap potret di-center pada area transparan sendiri; tidak boleh ada pixel karakter lain pada tepi frame. Palet dipadatkan untuk keterbacaan piksel pada layar ponsel.
+
+Potret profesi Widi `work-C07.png` **tetap** digunakan sebagai potret Warga. Perbaikan ekspresi tidak mengubah pekerjaan, ID canonical, save, hubungan, atau cerita.
+
+Validasi gambar baru perlu dibandingkan pada 80px / 112px dan pada kedelapan emosi (neutral, happy, sad, worried, surprised, annoyed, shy, laughing) di Safari iOS dan Android Chrome. `styleReview` pada register bernilai `owner-requested-remaster-8-emotions-20261122-awaiting-safari-qa` hingga review viewport selesai; tes berkas otomatis bukan pengganti review manusia.

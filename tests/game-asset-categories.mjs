@@ -60,4 +60,4 @@ if(existsSync(".git")){
  const report=execFileSync(process.execPath,["scripts/game-assets/build-asset-categories.mjs","--check"],{encoding:"utf8"});
  assert.match(report,/PASS:/);
 }
-console.log("PASS: 2487 media categorized once, concept portrait paths migrated, no missing targets.");
+console.log("PASS: "+source.rows.length+" media categorized once, concept portrait paths migrated, no missing targets.");

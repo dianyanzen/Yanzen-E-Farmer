@@ -37,7 +37,7 @@ for(const row of db.rows){
  const [path,sha,bytes,kind,stage,purpose,family,license,duplicate,flag]=row;
  assert.ok(existsSync(path),"stale asset path "+path);
  assert.match(sha,/^[a-f0-9]{40}$/);
- assert.ok(bytes>=0 && ["image","audio","vector"].includes(kind));
+ assert.ok(bytes>=0 && ["image","audio","vector","video"].includes(kind));
  assert.ok(stage&&purpose&&family&&license);
  if(duplicate){assert.ok(paths.has(duplicate),"missing duplicate target "+duplicate);assert.equal(paths.get(duplicate)[1],sha);}
  if(flag==="shared-template-sprite")assert.ok(path.startsWith("game-assets/yz-farm-life/aset/tanaman/"));
