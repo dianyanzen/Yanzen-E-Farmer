@@ -23,21 +23,21 @@
       "visualAgeBandDraft": "dewasa dalam rancangan karakter"
     },
     "02_physical_appearance": {
-      "general": "Potret Widi menonjolkan wajah ramah, rambut agak acak dan peralatan memancing di tepi sungai.",
-      "physicalTraits": "Rambut cokelat gelap agak acak, kemeja abu arang; memegang joran pancing dan kotak peralatan berisi pelampung, kail, senar, serta umpan.",
+      "general": "Potret Widi bergaya ilustrasi game dengan wajah muda tanpa kumis, rambut gelap acak dan senyum tenang, membawa perlengkapan memancing.",
+      "physicalTraits": "Rambut gelap agak acak, wajah muda tanpa kumis atau janggut, kemeja charcoal dan rompi kerja cokelat zaitun; membawa joran dengan reel, kotak umpan berisi pelampung, senar, dan kail; jaring tampak di belakang.",
       "bodyLanguageDirection": "Menatap pelampung sebelum menoleh kepada lawan bicara; tangan terbiasa mengatur senar dan mengganti umpan.",
-      "proposedPose": "Satu tangan menggenggam joran, tangan lain menahan kotak umpan terbuka. Bentuk rambut dan wajah mengikuti potret canonical setelah QA."
+      "proposedPose": "Potret profesi disetujui pemilik: satu tangan memegang joran, tangan lain membawa kotak perlengkapan pancing dengan latar krem hangat."
     },
     "03_fashion_aesthetic": {
       "signatureClothing": "Rambut cokelat gelap acak, kemeja abu gelap",
       "accessories": [
-        "Joran pancing",
-        "Kotak perlengkapan pancing",
-        "Pelampung dan gulungan senar"
+        "Joran pancing dengan reel",
+        "Kotak pancing dan pelampung",
+        "Jaring pancing di belakang"
       ],
       "aesthetic": "Ilustrasi karakter 2D yang hangat dan senada dengan tokoh pasar Pasirluyu",
       "palette": "cokelat, abu",
-      "costumeConcept": "Kemeja gelap tetap dipertahankan; joran, kotak umpan, gulungan senar dan pelampung menunjukkan pekerjaannya tanpa perlu papan tulisan."
+      "costumeConcept": "Kemeja charcoal asli tetap terlihat, ditambah rompi kerja cokelat zaitun dan perlengkapan memancing agar peran Widi jelas tanpa mengganti wajah."
     },
     "04_social_profile": {
       "occupation": "Spesialis ikan dan memancing",
@@ -140,7 +140,7 @@
     "11_visual_references": {
       "portraitKey": "work-C07",
       "conceptPortrait": "/game/assets/portraits/bandung/professions/work-C07.png",
-      "visualContinuity": "Potret baru work-C07 mempertahankan rambut gelap acak dan kemeja abu arang; joran serta kotak pancing kini mengganti keranjang sayuran. Samakan wajah dengan sprite jalan dan ekspresi sebelum melepas status QA.",
+      "visualContinuity": "Versi potret profesi terpilih 256×256, latar krem, garis kartun tegas; mempertahankan rambut gelap acak, wajah muda tanpa kumis dan nuansa kemeja gelap dari strip ekspresi C07. Perlengkapan sayur diganti joran, reel, jaring dan kotak umpan. Masih perlu QA tampilan saat dimainkan.",
       "suggestedPalette": "abu arang, cokelat rambut, hijau zaitun kotak umpan, kilau air biru",
       "animationRequired": [
         "idle",
@@ -155,7 +155,7 @@
     "12_continuity_current_state": {
       "availability": "Katalog; jadwal dan spawn mengikuti ekspansi bertahap",
       "playerDependentState": "Tidak boleh tertukar dengan ID cerita lama",
-      "canonStatus": "Nama, profesi spesialis memancing dan portrait key tetap; potret kerja baru menunggu redesign agar sama dengan ekspresi dialog pixel-art.",
+      "canonStatus": "Profesi dan identitas canonical C07 tetap. Potret kerja yang dipilih pemilik sudah diintegrasikan; review tampilan di mobile dan perbandingan dengan sprite dialog/dunia masih diperlukan.",
       "playableRuntimeConfirmed": false,
       "questIntegrationConfirmed": false,
       "legacyAssociationApproved": false,
@@ -163,18 +163,21 @@
     }
   },
   "visualEvidence": {
-    "source": "owner-authorized-generated-fishing-portrait",
+    "source": "owner-selected-portrait-reference-2026-11-22",
     "path": "public/game/assets/portraits/bandung/professions/work-C07.png",
     "assetKey": "work-C07",
     "inspectionDate": "2026-11-22",
-    "observedDescription": "Rambut cokelat gelap agak acak, kemeja abu arang; memegang joran pancing dan kotak peralatan berisi pelampung, kail, senar, serta umpan.",
+    "observedDescription": "Rambut gelap agak acak, wajah muda tanpa kumis atau janggut, kemeja charcoal dan rompi kerja cokelat zaitun; membawa joran dengan reel, kotak umpan berisi pelampung, senar, dan kail; jaring tampak di belakang.",
     "visualObservationConfidence": 0.95,
     "humanVisualQARequired": true,
-    "productionAssetStatus": "blocked-cross-style-mismatch-until-reviewed"
+    "productionAssetStatus": "owner-selected-pending-runtime-qa",
+    "imageWidth": 256,
+    "imageHeight": 256,
+    "gitBlobSha": "e08f78280438d8f4eda651bb540875e340d2a175"
   },
   "fieldProvenance": {
     "02_physical_appearance.physicalTraits": {
-      "source": "generated-portrait-visual-inspection-2026-11-22",
+      "source": "owner-selected-visual-inspection-2026-11-22",
       "confidence": 0.95,
       "claimType": "depicted-only"
     },
@@ -226,7 +229,7 @@
       "claimType": "owner-approved-fictional-profession-change"
     },
     "03_fashion_aesthetic.accessories": {
-      "source": "generated-portrait-visual-inspection-2026-11-22",
+      "source": "owner-selected-visual-inspection-2026-11-22",
       "confidence": 0.95,
       "claimType": "depicted-only"
     }
