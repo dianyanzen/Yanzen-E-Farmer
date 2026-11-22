@@ -86,8 +86,10 @@ try{
    `Cutscene buttons escaped the viewport at ${width}x${height}: ${JSON.stringify(data)}`);
   assert.ok(data.actions.bottom<=data.controls.y+tol&&data.world.bottom<=data.controls.y+tol,
    `Cutscene collided with toolbelt at ${width}x${height}: ${JSON.stringify(data)}`);
-  assert.ok(data.controls.bottom<=data.touch.y+tol,
+  if(data.controls.h>0&&data.touch.h>0)assert.ok(data.controls.bottom<=data.touch.y+tol,
    `The game control rows overlap at ${width}x${height}: ${JSON.stringify(data)}`);
+  if(height<=520)assert.ok(data.stage.w>250,
+   `Landscape cinematic is too small; temporary controls should collapse: ${JSON.stringify(data)}`);
   assert.equal(data.videoObjectFit,"contain");
   assert.ok(data.screenW<=width+tol,`Horizontal browser overflow at ${width}x${height}`);
   if(width===393||width===1280)
