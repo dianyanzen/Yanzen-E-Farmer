@@ -609,3 +609,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-cutscene-actions{width:100%;gap:8px}
  .yzg-cutscene-actions button{min-width:90px;font-size:12px;padding:9px}
 }
+
+/* Kenangan uses a frame from the actual Remotion film, not a developer badge. */
+.yzg-memory-cover.unlocked{background-image:linear-gradient(#10271c15,#10271c20),url("/game/assets/cutscenes/sluice-poster.png");
+ background-repeat:no-repeat;background-position:center;background-size:cover;border:1px solid #a4b4a3}
