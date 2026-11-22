@@ -25,12 +25,13 @@ import SluiceCutscene from "./sluice-cutscene";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
+type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "memories" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
   { id: "chronicle", name: "Kronik", icon: "☷" },
+  { id: "memories", name: "Kenangan", icon: "▣" },
   { id: "ikd", name: "IKD", icon: "▣" },
   { id: "map", name: "Jelajah", icon: "⌖" },
   { id: "friends", name: "Kedekatan", icon: "♡" },
@@ -703,7 +704,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
-        {cutscene==="sluice-open" && <SluiceCutscene onDone={()=>setCutscene(null)}/>}
+        {cutscene==="sluice-open" && <SluiceCutscene onDone={()=>{setCutscene(null);setToast("Kenangan baru tersimpan di YZ Phone.");}}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
           <div className="yzg-loading-copy">
@@ -791,7 +792,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
               <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "memories" ? "Kenangan" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content" data-dialog-scroll>
@@ -845,14 +846,23 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 </div>
               </>}
               {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
-              {phoneTab === "chronicle" && <>
-                <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>
-                {game.sluiceCutsceneSeen && <div className="yzg-phone-card">
-                  <b>Kenangan dari bantaran</b>
-                  <p>Hari ketika roda pintu air akhirnya bergerak dan air kembali mengalir.</p>
-                  <button type="button" onClick={()=>{setPhoneOpen(false);setCutscene("sluice-open");}}>Lihat lagi adegannya</button>
-                </div>}
-              </>}
+              {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
+              {phoneTab === "memories" && <div className="yzg-phone-card yzg-memory-album">
+                <b>Album Kenangan</b>
+                <p>Beberapa momen layak disimpan lebih lama dari satu hari. Kamu bisa melihatnya kembali di sini.</p>
+                <div className="yzg-memory-entry">
+                  <div className={"yzg-memory-cover"+(game.sluiceCutsceneSeen?" unlocked":" locked")} aria-hidden="true">
+                    {game.sluiceCutsceneSeen?"◈":"?"}
+                  </div>
+                  <div>
+                    <strong>{game.sluiceCutsceneSeen?"Pintu Air Pasirluyu":"Kenangan yang belum terbuka"}</strong>
+                    <small>{game.sluiceCutsceneSeen?"Roda yang lama diam kembali bergerak.":"Lanjutkan perjalanan dan bantu warga."}</small>
+                    {game.sluiceCutsceneSeen && <button type="button" onClick={()=>{
+                      setPhoneOpen(false);setToast("");setCutscene("sluice-open");
+                    }}>Putar ulang adegan</button>}
+                  </div>
+                </div>
+              </div>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
                   <b>Mulai bermain</b>
