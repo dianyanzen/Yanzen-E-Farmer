@@ -7,7 +7,11 @@ if(!secret){
  console.log("SKIP: private canonical roster not available to this CI environment; server health will gate deployment.");
 }else{
  const source=JSON.parse(secret);
- const rows=Array.isArray(source)?source:source.currentRoster;
+ const sourceRows=Array.isArray(source)?source:source.currentRoster;
+ // Mirror the narrowly authorized profession migration in private-residents.ts.
+ // No other identity or occupation is silently rewritten.
+ const rows=sourceRows.map(r=>r.id==="C07"&&r.name==="WIDI MUNAJAT"&&
+   r.occupation==="Pedagang hasil bumi"?{...r,occupation:"Spesialis ikan dan memancing"}:r);
  assert.equal(rows?.length,248,"Canonical roster count must be exactly 248");
  const seenId=new Set(),seenNames=new Set(),seenPortrait=new Set();
  const groups={R:"residents",K:"neighborhood",N:"specialists",P:"civic",work:"professions",phone:"phone"};
