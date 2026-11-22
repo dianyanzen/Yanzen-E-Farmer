@@ -11,8 +11,12 @@ type Pane="kisah"|"misi"|"jejak";
 export default function PhoneChronicle({game,residents,onOpenWarga,displayName}:{game:GameState;residents:readonly ResidentProfile[];onOpenWarga:(id:string)=>void;displayName:(text:string)=>string}){
  const currentCitizenForLegacy=(legacyId:string)=>residents.length?
    residents.find(r=>approvedLegacyId(r)===legacyId)?.id:null;
- const canLink=(legacyId:string)=>!residents.length||Boolean(currentCitizenForLegacy(legacyId));
- const link=(legacyId:string)=>onOpenWarga(currentCitizenForLegacy(legacyId)??legacyId);
+ // A legacy ID is never enough to link to one of the 248 public fictional citizens.
+ const canLink=(legacyId:string)=>Boolean(currentCitizenForLegacy(legacyId));
+ const link=(legacyId:string)=>{
+  const canonicalId=currentCitizenForLegacy(legacyId);
+  if(canonicalId)onOpenWarga(canonicalId);
+ };
  const [pane,setPane]=useState<Pane>("kisah");
  const [exportStatus,setExportStatus]=useState("");
  const [showExport,setShowExport]=useState(false);
