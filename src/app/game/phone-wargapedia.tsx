@@ -78,7 +78,7 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
      throw new Error("catalog count");
     setCatalog(data);
    })
-   .catch(()=>{if(!controller.signal.aborted)setError("Wargapedia belum bisa dibuka. Coba lagi saat koneksi membaik.");});
+   .catch(()=>{if(!controller.signal.aborted)setError("Daftar Warga belum bisa dibuka. Coba lagi saat koneksi membaik.");});
   return()=>controller.abort();
  },[]);
 
@@ -199,7 +199,7 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
    </button>)}
   </div>
   {catalog&&!results.length&&<p role="status">Belum ada karakter dengan nama atau pekerjaan tersebut.</p>}
-  {pages>1&&<nav aria-label="Halaman Wargapedia" className="yzg-citizen-pages">
+  {pages>1&&<nav aria-label="Halaman warga" className="yzg-citizen-pages">
    <button type="button" disabled={currentPage===0} onClick={()=>setPage(currentPage-1)}>Sebelumnya</button>
    <span>{currentPage+1}/{pages}</span>
    <button type="button" disabled={currentPage>=pages-1} onClick={()=>setPage(currentPage+1)}>Berikutnya</button>
