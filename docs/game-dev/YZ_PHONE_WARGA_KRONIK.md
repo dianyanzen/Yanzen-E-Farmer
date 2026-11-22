@@ -1,6 +1,22 @@
 > **PEMBARUAN PUBLIK (22 NOVEMBER 2026):** Seluruh 248 karakter canonical kini memiliki katalog fiksi publik dan 12 kategori Character Bible draf. YZ Phone mengambil `/game/data/npc/{ID}.json` sebagai fallback jika biografi privat yang approved tidak tersedia; `/game/encyclopedia` menyediakan wiki publik. Rincian di bawah mendokumentasikan fitur awal dan sebagian status sebelumnya; hanya flag dari save yang boleh dianggap kejadian yang benar-benar dialami pemain.
 
-# YZ Phone — Warga dan Kronik
+# YZ Phone — Warga, Wargapedia, dan Kronik
+
+## Wargapedia — ensiklopedia publik di YZ Phone (implementasi terbaru)
+
+- **YZ Phone → Wargapedia** adalah aplikasi tersendiri di layar ponsel, tidak memindahkan pemain ke tab browser lain.
+- Seluruh 248 NPC canonical fiksi tampil sejak awal permainan, termasuk karakter yang belum hadir di peta Pasirluyu. Daftar bisa dicari melalui nama, profesi, dan ID; dipaginasi 10 per halaman; potret konsep tampil bersamaan dengan nama dan pekerjaan.
+- Ketuk tokoh untuk membaca **semua 12 kategori Character Bible publik**. JSON diunduh ketika profil dibuka dari `/game/data/npc/{ID}.json`; indeksnya dari `/game/data/npc/index.json`.
+- **Tidak ada prasyarat kedekatan, percakapan, quest, login editor, atau unlock hubungan** untuk membaca lore publik. Tanpa mengubah `GameState`/save.
+- Menu **Warga** tetap menjadi kontak personal dan catatan hubungan berdasarkan save, dengan tombol internal **Buka Wargapedia** untuk membuka profil tokoh yang sama. **Kedekatan** tetap punya reward dan dialog yang terbuka sesuai level.
+- Catatan `approval:draft` menunjukkan cerita **fiksi yang sedang dikembangkan**, bukan bukti misi sudah aktif atau peristiwa pernah terjadi; kejadian pemain tetap hanya berasal dari menu **Kronik** dan flags save.
+- Tombol kembali/ESC ketika membuka profil mengembalikan ke daftar Wargapedia; tombol berikutnya ke beranda aplikasi, lalu menutup ponsel. Wargapedia tidak boleh mencocokkan ID `cast.json` lama berdasarkan nama atau urutan.
+
+**Pengujian:** `npm run chars:public:check`, `npm run test:game`, `npm run typecheck`, uji browser perangkat kecil untuk daftar 248 NPC, profil panjang, keyboard/ESC, serta skenario pemain Lv.0.
+
+---
+
+
 
 **Implementasi UI:** `src/app/game/character-gallery.tsx`, `src/app/game/phone-chronicle.tsx`, `src/lib/game/phone-profiles.ts`, `src/lib/game/phone-story.ts`.
 
