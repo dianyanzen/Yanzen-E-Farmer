@@ -35,7 +35,10 @@
     "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs",
     "chars:roster:check": "node scripts/game-characters/check-private-roster.mjs",
     "chars:bible:seed": "node scripts/game-characters/seed-private-bibles.mjs",
-    "build:vercel:game-playtest": "npm run test && npm run typecheck && npm run test:game && node scripts/deploy/vercel-game-playtest.mjs --apply && next build"
+    "build:vercel:game-playtest": "npm run test && npm run typecheck && npm run test:game && node scripts/deploy/vercel-game-playtest.mjs --apply && next build",
+    "chars:bible:audit": "node scripts/game-characters/audit-private-bibles.mjs",
+    "chars:bible:audit:strict": "node scripts/game-characters/audit-private-bibles.mjs --strict",
+    "chars:bible:install": "node scripts/game-characters/install-private-bibles.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
