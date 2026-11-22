@@ -5,7 +5,7 @@ export const PASIRLUYU_SLUICE_CUTSCENE = {
   id:"pasirluyu-sluice",
   title:"Pintu Air Pasirluyu",
   src:"/game/assets/cutscenes/sluice-gate.mp4",
-  poster:"/game/assets/cutscenes/sluice-poster.png",
+  poster:"/game/assets/cutscenes/sluice-poster.jpg",
   startFrame:"/game/assets/cutscenes/frames/sluice-start.jpg",
   endFrame:"/game/assets/cutscenes/frames/sluice-end.jpg",
   durationSeconds:10,
