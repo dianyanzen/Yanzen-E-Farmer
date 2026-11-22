@@ -155,7 +155,7 @@
     "12_continuity_current_state": {
       "availability": "Katalog; jadwal dan spawn mengikuti ekspansi bertahap",
       "playerDependentState": "Tidak boleh tertukar dengan ID cerita lama",
-      "canonStatus": "Nama, pekerjaan dan portrait key tetap; potret kerja baru memegang joran telah diunggah dan menunggu tinjauan silang dengan sprite serta ekspresi.",
+      "canonStatus": "Nama, profesi spesialis memancing dan portrait key tetap; potret kerja baru menunggu redesign agar sama dengan ekspresi dialog pixel-art.",
       "playableRuntimeConfirmed": false,
       "questIntegrationConfirmed": false,
       "legacyAssociationApproved": false,
@@ -170,7 +170,7 @@
     "observedDescription": "Rambut cokelat gelap agak acak, kemeja abu arang; memegang joran pancing dan kotak peralatan berisi pelampung, kail, senar, serta umpan.",
     "visualObservationConfidence": 0.95,
     "humanVisualQARequired": true,
-    "productionAssetStatus": "branch-staging-needs-style-review"
+    "productionAssetStatus": "blocked-cross-style-mismatch-until-reviewed"
   },
   "fieldProvenance": {
     "02_physical_appearance.physicalTraits": {
