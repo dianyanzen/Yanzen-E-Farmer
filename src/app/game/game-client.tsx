@@ -251,6 +251,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         body: JSON.stringify({ data: snapshot, expectedUpdatedAt: saveRevisionRef.current }),
       });
       if (!response.ok) {
+        if (response.status === 409) throw new Error("SAVE_STALE");
         const result: unknown = await response.json().catch(() => null);
         const message = result && typeof result === "object" && "error" in result &&
           typeof result.error === "string" ? result.error : "PostgreSQL menolak penyimpanan.";
@@ -261,7 +262,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         saveRevisionRef.current = saved.updatedAt;
       }
       setSaveStatus("saved");
-    }).catch(e => { saveLockedRef.current = true; setSaveStatus("error"); console.error("[game] Cannot persist save",e); setErrorText("Perjalananmu belum tersimpan. Periksa koneksi sebelum melanjutkan."); });
+    }).catch(e => {
+      saveLockedRef.current = true;
+      setSaveStatus("error");
+      console.error("[game] Cannot persist save", e);
+      setErrorText(e instanceof Error && e.message === "SAVE_STALE"
+        ? "Permainan ini sudah berubah di tab atau perangkat lain. Muat ulang untuk melihat progres terbaru; catatan lama tidak ditimpa."
+        : "Perjalananmu belum tersimpan. Periksa koneksi sebelum melanjutkan.");
+    });
     queueRef.current = next;
     return next;
   }, [userId]);
