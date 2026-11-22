@@ -27,7 +27,7 @@ export default function Login(){
     const {error}=await supabase.auth.signInWithPassword({email,password});
     if(error)throw error;
    }
-   router.replace('/home');router.refresh();
+   router.replace(process.env.NEXT_PUBLIC_YZ_GAME_PLAYTEST==='1'?'/game':'/home');router.refresh();
   }catch{setFailed(true);setMessage(mode==='signup'?'Pendaftaran gagal. Periksa email dan kata sandi, atau coba masuk jika sudah terdaftar.':'Gagal masuk. Periksa email, kata sandi, dan konfirmasi akun.');}
   finally{setBusy(false);}
  }
