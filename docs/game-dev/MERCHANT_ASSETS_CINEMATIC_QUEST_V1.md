@@ -1,3 +1,5 @@
+> **HISTORIS — digantikan 22 November 2026.** Bagian cutscene SVG/CSS/Remotion pada dokumen ini tidak lagi digunakan. Video final resmi adalah file milik pemilik game: `public/game/assets/cutscenes/sluice-gate.mp4` (10 detik, H.264/AAC, 910×512). Untuk standar baru, baca [CUTSCENE_PRODUCTION_STANDARD.md](CUTSCENE_PRODUCTION_STANDARD.md) serta skill `../../.agents/skills/yz-farm-cutscene/SKILL.md`. Bagian aturan ikon Ayu/Widi tetap relevan.
+
 # Merchant Assets & Cinematic Quest V1 — 22 November 2026
 
 Status: implemented on feature branch; awaiting mobile acceptance and merge.
