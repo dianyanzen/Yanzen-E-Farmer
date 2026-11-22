@@ -942,7 +942,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           </section>
         </GameDialog>}
       </div>
-      <div className="yzg-controls">
+      <div className="yzg-controls" inert={cutscene!==null}>
         <div className="yzg-action-context">
           {context.kind !== "none" ? <button type="button" className="yzg-context-button"
             onClick={action} disabled={controlsLocked} aria-keyshortcuts="E">
@@ -983,7 +983,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <button onClick={() => void persist(game)} disabled={saveStatus === "loading" || saveStatus === "error"}>☁ Simpan</button>
         </div>
       </div>
-      <div className="yzg-touch">
+      <div className="yzg-touch" inert={cutscene!==null}>
         <div className="yzg-dpad" aria-label="Kontrol bergerak">
           <DirectionButton direction="up" label="Atas" symbol="▲" step={step} press={press} release={release} />
           <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} press={press} release={release} />
