@@ -1,3 +1,5 @@
+> **Integrasi YZ Phone:** Menu `Wargapedia` sekarang memuat semua 248 dossier karakter fiksi langsung pada ponsel dalam game, dengan akses publik tanpa level kedekatan. Menu `Warga` dan `Kedekatan` tetap memakai save untuk progres hubungan. `Kronik` hanya mencatat kejadian yang sudah dialami. Lihat `YZ_PHONE_WARGA_KRONIK.md`.
+
 # Kebijakan ensiklopedia NPC publik — YZ Farm Life
 
 Perubahan 22 November 2026: pemilik proyek memberikan izin untuk **mempublikasikan identitas karakter fiksi** beserta rancangan Character Bible sebagai dokumentasi game. Ini menggantikan keputusan privat untuk *identitas fiksi* saja; **tidak** mencabut perlindungan kredensial, file persetujuan asosiasi legacy, save pemain, maupun data aktual di server.
