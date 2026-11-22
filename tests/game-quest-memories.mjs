@@ -22,8 +22,13 @@ assert.equal(hasSluiceMemory(legacy(2,true)),true,"Active Ryan mission plus open
 assert.equal(hasSluiceMemory(legacy(3,false)),true,"Handover complete unlocks even after gate closes");
 assert.equal(hasSluiceMemory(legacy(4,false)),true,"Completed Ryan quest unlocks even after gate closes");
 assert.equal(hasSluiceMemory({...base,sluiceOpen:true}),false,"Opening unrelated gate alone is not Ryan memory");
-assert.equal(hasSluiceMemory({...base,story:{...base.story,canalClue:true}}),false,
-  "General chapter clue is not proof of finished sluice quest");
+assert.equal(hasSluiceMemory({...base,story:{...base.story,canalClue:true}}),true,
+  "Completed Ryan canal-clue mission unlocks memory in legacy Chapter 1 saves");
+assert.equal(hasSluiceMemory({...base,story:{...base.story,orderDone:true}}),false,
+  "Inggit cucumber order alone must not unlock canal Kenangan");
+const clueMigrated=safeLoad({...base,story:{...base.story,canalClue:true}});
+assert.equal(clueMigrated.sluiceCutsceneSeen,true,"Old Chapter 1 Ryan clue unlock migrates");
+assert.equal(clueMigrated.coins,base.coins,"Clue migration does not award money");
 assert.equal(hasSluiceMemory({...base,sluiceCutsceneSeen:true}),true,"Previously watched memory remains accessible");
 const finishedChapter={...base,story:{...base.story,orderAccepted:true,orderDone:true,canalClue:true,
  photoSeen:true,photoChoice:"nani",completedDay:base.day}};
