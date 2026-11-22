@@ -40,21 +40,15 @@ assert.ok(read("src/app/game/game-client.tsx").includes('className={dialogue.npc
  "Both sellers should render item assets");
 assert.ok(client.includes('SluiceCutscene') && client.includes('game.personalQuests?.A03?.phase===2'),
  "Sluice cutscene should happen only as a quest beat");
-assert.ok(css.includes("yzg-sluice-gate") && css.includes("yzg-cutscene-skip"),
- "Cutscene animation and skip must exist");
+assert.ok(css.includes("yzg-cutscene-skip") && css.includes("yzg-cutscene-video"),
+ "Mobile cutscene player and skip must exist");
 
-const motion=read("cutscenes/remotion/src/sluice-gate.tsx");
-const composition=read("cutscenes/remotion/src/root.tsx");
 const cinematic=read("src/app/game/sluice-cutscene.tsx");
-const remotionPkg=JSON.parse(read("cutscenes/remotion/package.json"));
-assert.ok(motion.includes("useCurrentFrame")&&motion.includes("interpolate(")&&motion.includes("Character frame={frame}")&&motion.includes("Html5Audio"),
-  "Cinematic must be a real Remotion frame-driven composition with actor and sound");
-assert.ok(composition.includes('id="SluiceGate"')&&composition.includes("durationInFrames={SLUICE_FRAMES}"),
-  "Sluice must have deterministic Remotion composition dimensions and duration");
-assert.ok(remotionPkg.dependencies.remotion&&remotionPkg.devDependencies["@remotion/cli"],
-  "Remotion rendering toolchain should be independently installable");
-assert.ok(cinematic.includes('src="/game/assets/cutscenes/sluice-gate.mp4"')&&cinematic.includes("videoUnavailable")&&cinematic.includes("onEnded={finish}"),
-  "Runtime must use the Remotion MP4, skip cleanly and fall back if missing");
+const newSkill=read(".agents/skills/yz-farm-cutscene/SKILL.md");
+assert.ok(cinematic.includes("PASIRLUYU_SLUICE_CUTSCENE")&&cinematic.includes("videoRef")&&cinematic.includes("onEnded={finish}")&&cinematic.includes("onError"),
+  "Cinematic must play the owner-supplied video and support reliable fallback");
+assert.ok(newSkill.includes("FRAME AWAL")&&newSkill.includes("FRAME AKHIR"),
+  "Each future cinematic must start with two consistent reference frames");
 assert.ok(client.includes('{ id: "memories", name: "Kenangan"')&&client.includes('phoneTab === "memories"')&&client.includes("Putar ulang adegan"),
   "Kenangan must be a visible YZ Phone app, not hidden in Kronik");
 const sprite=readFileSync("public/game/assets/portraits/C07.png");

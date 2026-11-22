@@ -517,32 +517,6 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-market-item-text small{font-size:11px}
 }
 
-/* Quest micro-cutscene: animation is decorative, save authority remains in model. */
-.yzg-cutscene{position:absolute;inset:0;z-index:45;display:flex;flex-direction:column;justify-content:center;align-items:center;
- gap:10px;padding:12px;background:#101e18e8;color:#fff4d4;isolation:isolate}
-.yzg-cutscene-stage{width:min(100%,580px);border:4px solid #a88b5d;background:#1b3935;border-radius:10px;overflow:hidden;box-shadow:0 9px 34px #0b1812aa}
-.yzg-cutscene-stage svg{width:100%;height:auto;aspect-ratio:16/9;display:block;shape-rendering:crispEdges;image-rendering:pixelated}
-.yzg-cutscene-caption{padding:10px 15px 13px;background:#2d473a}
-.yzg-cutscene-caption strong{font:800 14px/1.3 Georgia,serif;display:block}
-.yzg-cutscene-caption p{font:13px/1.5 Arial,sans-serif;margin:5px 0 0}
-.yzg-cutscene-skip{min-height:44px;padding:10px 17px;background:#f8eccf;border:2px solid #c6a776;border-radius:8px;
- color:#314d39;font:800 13px/1.3 Arial,sans-serif}
-.yzg-cutscene-wheel{animation:yzg-sluice-wheel 2.4s .4s ease-in-out both}
-.yzg-cutscene-gate{animation:yzg-sluice-gate 2.7s .6s cubic-bezier(.18,.73,.23,.97) both}
-.yzg-cutscene-waterfall{animation:yzg-sluice-water 3.2s .2s both}
-.yzg-cutscene-stream{animation:yzg-sluice-stream 1.2s 1.8s linear infinite}
-.yzg-cutscene-yanzen{animation:yzg-sluice-yanzen 1.4s .35s ease-in-out 1 both}
-@keyframes yzg-sluice-wheel{0%{transform:rotate(0deg)}55%,100%{transform:rotate(145deg)}}
-@keyframes yzg-sluice-gate{0%,12%{transform:translateY(0)}75%,100%{transform:translateY(-47px)}}
-@keyframes yzg-sluice-water{0%,46%{opacity:0}69%,100%{opacity:1}}
-@keyframes yzg-sluice-stream{0%{transform:translateX(-11px);opacity:.5}100%{transform:translateX(12px);opacity:1}}
-@keyframes yzg-sluice-yanzen{0%,100%{transform:translateX(0)}40%,70%{transform:translateX(3px)}}
-@media(max-width:600px){
- .yzg-cutscene{padding:8px;gap:7px}
- .yzg-cutscene-caption{padding:7px 10px}
- .yzg-cutscene-caption p{font-size:11px}
- .yzg-cutscene-skip{font-size:12px}
-}
 /* Pixel-accurate atlas crop. No neighboring-expression pixels or stray silhouettes. */
 .yzg-portrait{background-repeat:no-repeat;background-color:#e7dca6;background-clip:padding-box}
 .yzg-portrait img{display:none}
@@ -551,11 +525,6 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-dpad button{display:grid;place-items:center;width:100%;height:100%;font-size:21px;line-height:1;padding:0}
 .yzg-tool-switch{align-items:center}
 .yzg-tool-switch button{display:grid;place-items:center;line-height:1;padding:0}
-@media(prefers-reduced-motion:reduce){
- .yzg-cutscene-wheel,.yzg-cutscene-gate,.yzg-cutscene-waterfall,.yzg-cutscene-stream,.yzg-cutscene-yanzen{animation:none!important}
- .yzg-cutscene-gate{transform:translateY(-47px)}
- .yzg-cutscene-waterfall{opacity:1}
-}
 
 /* Generated, license-owned pixel atlases: each trade action receives its own sprite. */
 .yzg-market-sprite{display:block;flex:0 0 56px;width:56px;height:56px;image-rendering:pixelated;
@@ -564,7 +533,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-market-sprite--widi{background-image:url("/game/assets/tiles/widi-shop-atlas.png");background-size:300% 200%}
 .yzg-market-item .yzg-market-item-text{flex:1}
 
-/* Cinematic letterbox: Remotion renders the authored MP4, Phaser remains behind it. */
+/* Cinematic letterbox: user-supplied MP4. Phaser state remains authoritative. */
 .yzg-cutscene{position:fixed;inset:0;width:100vw;height:100dvh;z-index:9999;box-sizing:border-box;
  background:radial-gradient(ellipse at center,#283e34 0%,#090f0d 72%);
  padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));
@@ -572,7 +541,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-cutscene-stage{width:min(96vw,960px);max-height:min(77dvh,660px);border:2px solid #bfa378;
  box-shadow:0 0 0 10px #0a1510,0 18px 60px #000a;overflow:hidden;background:#10221e}
 .yzg-cutscene-video{display:block;width:100%;aspect-ratio:16/9;height:auto;max-height:70dvh;object-fit:contain;background:#10221e}
-.yzg-cutscene-stage svg{width:100%;height:auto;max-height:68dvh}
+
 .yzg-cutscene-actions{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
 .yzg-cutscene-actions button{min-width:128px;min-height:44px;border:2px solid #b8a16c;border-radius:7px;
  background:#f8edd0;color:#2b4c39;font:700 13px Arial,sans-serif;padding:9px 15px}
@@ -591,7 +560,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-cutscene-actions button{font-size:12px}
 }
 
-/* HD Remotion cinematic: the 16:9 picture remains unobstructed while
+/* Owner-provided cinematic: the 16:9 picture remains unobstructed while
    supporting high-contrast readable story text underneath on portrait phones. */
 .yzg-cutscene-readalong{width:min(96vw,960px);text-align:center;color:#fff4d7;
  display:flex;flex-direction:column;gap:7px;align-items:center;justify-content:center}
@@ -610,6 +579,20 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  .yzg-cutscene-actions button{min-width:90px;font-size:12px;padding:9px}
 }
 
-/* Kenangan uses a frame from the actual Remotion film, not a developer badge. */
-.yzg-memory-cover.unlocked{background-image:linear-gradient(#10271c15,#10271c20),url("/game/assets/cutscenes/sluice-poster.png");
+/* Kenangan uses a frame from the actual user-supplied video. */
+.yzg-memory-cover.unlocked{background-image:linear-gradient(#10271c15,#10271c20),url("/game/assets/cutscenes/sluice-poster.jpg");
  background-repeat:no-repeat;background-position:center;background-size:cover;border:1px solid #a4b4a3}
+
+.yzg-cutscene-unavailable{min-height:180px;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;gap:10px;padding:14px;text-align:center;color:#fff4da}
+.yzg-cutscene-unavailable img{display:block;width:min(100%,520px);height:auto;max-height:44dvh;
+ object-fit:contain;border-radius:6px}
+.yzg-cutscene-unavailable p{font:13px/1.5 system-ui,sans-serif;max-width:400px;margin:0}
+.yzg-cutscene-unavailable button{min-height:44px;background:#f8edd0;border:1px solid #bd9c68;
+ border-radius:8px;padding:8px 15px;color:#34523b;font:700 13px system-ui,sans-serif}
+.yzg-cutscene-buffering{color:#f1dda2;font:12px/1.5 system-ui,sans-serif}
+.yzg-cutscene-readalong{min-height:75px}
+.yzg-cutscene-stage{border-radius:9px}
+.yzg-cutscene-actions button:focus-visible,.yzg-cutscene-unavailable button:focus-visible{
+ outline:3px solid #ffdc86;outline-offset:2px}
+.yzg-cutscene-skip{font-weight:800!important;background:#ffe4b5!important;color:#234331!important;border-color:#c39b58!important}
