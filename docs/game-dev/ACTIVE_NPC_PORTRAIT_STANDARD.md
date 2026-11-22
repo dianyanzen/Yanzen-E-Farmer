@@ -1,5 +1,5 @@
 # Standar Potret NPC Aktif — YZ Farm Life
-**Dokumen normatif v1.0 | 22 November 2026 | ruang lingkup: lima NPC yang benar-benar muncul dalam gameplay Pasirluyu**
+**Dokumen normatif v1.1 | 22 November 2026 | ruang lingkup: lima NPC yang benar-benar muncul dalam gameplay Pasirluyu**
 
 > Status: standar editorial dan kontrak runtime yang disusun setelah inspeksi **sepuluh PNG aktual** (lima potret profesi + lima strip ekspresi) dan kode dialog; bukan pernyataan bahwa setiap aset telah lolos QA final. Dokumen untuk 248 NPC lain bukan cakupan tahap ini.
 
@@ -17,7 +17,7 @@
 |---|---|---|---|
 | Sprite dunia | karakter berjalan / berinteraksi di peta | Aset berjalan renderer dan frame dunia, bukan 256×256 portrait | Bentuk kepala, warna rambut, penutup kepala, pakaian dan siluet harus tetap dapat dikenali; jangan memaksakan detail potret ke sprite 24×32 |
 | Strip ekspresi | percakapan/reaksi emosi | **PNG 1536×256**, 8 kolom × 192×256, urutan tetap | Posisi kepala, bahu, kostum, dan outline tidak boleh meloncat antarsel; transparansi bersih |
-| Potret profesi | profil Warga / pekerjaan | Empat contoh aktif saat ini **256×256**, karya ilustrasi latar krem; Widi dalam PR #43 **512×512** dan belum harmonis | Target ekspor 256×256, square untuk Warga. Versi resolusi lebih tinggi boleh sebagai sumber, tetapi output publik harus sesuai gaya artistik dan pemeriksaan QA |
+| Potret profesi | profil Warga / pekerjaan | Seluruh lima potret profesi aktif **256×256**; Widi menggunakan versi perbaikan pilihan pemilik berlatar krem | Target ekspor 256×256, square untuk Warga. Versi resolusi lebih tinggi boleh sebagai sumber, tetapi output publik harus sesuai gaya artistik dan pemeriksaan QA |
 
 **Jangan memakai potret persegi untuk menggantikan ekspresi dialog.** Foto/konsep statis tidak mempunyai delapan emosi. Bila thumbnail Warga tampil sebagai potret statis, itu tidak boleh mematikan strip ekspresi pada panel dialog.
 
@@ -28,18 +28,18 @@
 | **Ryan (A03)** | rambut gelap berantakan, alis tegas, kemeja kerja ochre/kuning tanah | tampak mengatur sambungan pipa | 8 wajah, rambut dan warna busana tetap | **Cocok secara umum**; beda pose kerja wajar, periksa garis atas strip dan anti-alias |
 | **Ayu (A04)** | hijab lavender abu-ungu, pakaian senada, wajah lembut | membawa bungkus benih | 8 wajah dengan hijab dan outfit konsisten | **Cocok secara umum**; beberapa ekspresi sedih dan khawatir perlu cukup terbedakan di layar kecil |
 | **Nani (C01)** | usia lanjut, hijab beige/merah muda pudar, blus bunga, kerutan wajah | membawa pot tanaman | 8 wajah dengan ciri umur tetap | **Cocok secara umum**; jaga kerutan dan corak baju di semua emosi, periksa kebersihan alpha |
-| **Widi (C07)** | rambut gelap berantakan, kemeja charcoal, wajah yang mudah dikenali | **main:** memegang keranjang sayur 256×256; **PR #43:** joran dan kotak umpan 512×512 | 8 wajah dengan gaya pixel, tanpa kumis/janggut menonjol | **GAGAL harmonisasi konsep baru**: potret PR #43 jauh lebih semi-realistis, berkumis/janggut, tampak lebih dewasa, latar foto-sinematik; mismatch besar dengan strip ekspresi |
+| **Widi (C07)** | rambut gelap berantakan, wajah muda tanpa kumis, kemeja charcoal | **PR #43:** versi **256×256 yang dipilih pemilik**, joran, reel, jaring dan kotak umpan, latar krem | 8 wajah pixel-anime, identitas rambut/mata dan pakaian tetap | **Arah visual diperbaiki dan dipilih pemilik**; uji lagi pada ukuran 80px dan sprite dunia sebelum menyatakan QA runtime selesai |
 | **Inggit (C08)** | rambut cokelat bersanggul, atasan gelap, apron cokelat muda | membawa semangkuk makanan | 8 wajah dengan sanggul dan apron | **Cocok secara umum**; bentuk sanggul dan warna apron konsisten |
 
-Observasi gaya diberi **keyakinan inspeksi visual sekitar 90–95%** untuk adanya kecocokan empat pasangan; **sekitar 95%** untuk ketidakselarasan potret Widi pada branch PR #43. Angka ini adalah keyakinan observasi, **bukan skor otomatis kualitas atau kesamaan wajah**. Tinjauan desain pada ukuran UI aktual masih wajib.
+Empat potret awal terlihat selaras secara umum berdasarkan inspeksi visual. Potret Widi generasi pertama dalam PR #43 memang tidak cocok; versi itu **sudah diganti** dengan pilihan pemilik yang lebih dekat ke wajah, palet, latar krem, dan gaya NPC aktif. Persetujuan arah visual ini belum menggantikan uji tampilan mobile dan sprite dunia.
 
 ### Keputusan khusus Widi
 
-- Identitas, profesi *Spesialis ikan dan memancing*, dan cerita baru **dipertahankan**.
-- **Jangan merge portrait PR #43 ke produksi sebagai final** sebelum dirancang ulang dengan rasio wajah, umur visual, rambut, bentuk mata, outline tegas/pixel-art, palet muted, dan latar sederhana seperti empat NPC lain.
-- Pertahankan rambut gelap acak dan kemeja charcoal, tetapi **hilangkan janggut/kumis baru yang menciptakan identitas wajah berbeda** dari strip `C07.png`. Joran, pelampung, dan kotak umpan adalah atribut profesi, bukan alasan mengganti wajah.
-- Komposisi yang disarankan: setengah badan, **latar krem hangat**, satu joran terbaca jelas dan kotak umpan sederhana, tanpa scenery realistis yang berkompetisi dengan wajah.
-- Bila ekspresi `C07.png` nanti direvisi untuk detail profesi, seluruh delapan frame harus berangkat dari satu wajah master yang sama, dengan semua checksum dan tes diperbarui. Jangan mengganti satu sel secara terpisah.
+- Potret profesi **yang dipilih pemilik** telah diintegrasikan sebagai `work-C07.png` ukuran 256×256, mengikuti standarisasi empat NPC lain.
+- **Identitas tidak berubah:** rambut gelap acak, wajah muda tanpa kumis/janggut dan kemeja charcoal. Rompi, joran, reel, kotak umpan dan jaring adalah atribut profesi tambahan.
+- Gambar generasi sebelumnya (512×512, semi-realistis dan berkumis) **digantikan**, bukan digunakan pada game. Potret lama berkeranjang sayur tetap tercatat dalam Git history, bukan gambar aktif di branch.
+- **Status:** arah visual disetujui pemilik pada 22 November 2026; masih perlu inspeksi pada ukuran kartu Warga 80px, koherensi sprite dunia, dan tes saat dialog. Delapan-frame ekspresi `C07.png` tidak diubah.
+- Hindari mengganti penanda wajah/hijab dan jangan menambahkan aksesori yang merombak identitas karakter di ekspresi.
 
 ## 4. Aturan generasi, ilustrasi, dan komposisi
 
@@ -79,7 +79,7 @@ Urutan ini ditetapkan di `PORTRAIT_EMOTIONS`; jangan menukar kolom tanpa migrasi
 
 ## 7. Quality gate sebelum aset diganti atau rilis
 
-**P0 — blok rilis:** wajah/umur/siluet tidak sesuai, profesi atau potret milik orang lain, rasio frame salah, salah urutan emosi, dialog memakai wajah statis saat emosi berubah, PNG terpotong, sumber tanpa izin, atau mismatch seperti konsep Widi baru.
+**P0 — blok rilis:** wajah/umur/siluet tidak sesuai, profesi atau potret milik orang lain, rasio frame salah, salah urutan emosi, dialog memakai wajah statis saat emosi berubah, PNG terpotong, sumber tanpa izin, atau mismatch identitas antara konsep Widi dan ekspresinya.
 
 **P1 — perbaiki saat QA:** kontur kurang konsisten, proporsi kepala bergeser, latar/alpha kotor, warna outfit melenceng, ekspresi sedih vs khawatir nyaris sama, artefak blur pada skala 80 px.
 
@@ -94,7 +94,7 @@ Lakukan sebelum merge:
 
 ## 8. Rekomendasi prioritas
 
-- **P0:** benahi pilihan render ekspresi dialog dan koreksi visual Widi sebelum produksi.
+- **P0:** pertahankan perbaikan render ekspresi dialog, periksa potret Widi pilihan pemilik di ukuran UI aktual sebelum produksi.
 - **P1:** ukur ulang keseragaman lima pasangan pada layar perangkat fisik serta pastikan emosi per halaman bila tersedia tidak diabaikan.
 - **P2:** polish art kecil, animasi masuk potret halus, dan variasi reaksi natural tanpa menambah HUD.
 - **Bukan lingkup ini:** membuat 243 sprite/strip ekspresi tambahan hanya untuk memenuhi 248 profil Warga.
