@@ -9,7 +9,7 @@ function kindOf(path){const x=path.split(".").at(-1).toLowerCase();return ["wav"
 function stageOf(path){if(path.startsWith("public/game/assets/"))return"public-candidate";if(path.startsWith("game-assets/vendor/")||path.includes("/vendor/"))return"licensed-source";if(path.startsWith("game-assets/characters/"))return"character-source";if(path.startsWith("game-assets/yz-farm-life/aset/"))return"vault-core";return"vault-expansion"}
 function familyOf(path){
  if(path==="public/game/assets/cutscenes/sluice-gate.mp4")return"cinematic-owner-google-flow-h264-v2";
- if(path==="public/game/assets/cutscenes/sluice-poster.png")return"cinematic-owner-video-poster-v2";
+ if(path==="public/game/assets/cutscenes/sluice-poster.jpg")return"cinematic-owner-video-poster-v2";
  if(/^public\/game\/assets\/cutscenes\/frames\/sluice-(start|end)\.jpg$/.test(path))return"cinematic-owner-video-frame-v2";
  if(/^public\/game\/assets\/fish\/(lele|nila)\.png$/.test(path))return"freshwater-fishing-pixel-runtime";
  if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return"market-ui-pixel-runtime";
