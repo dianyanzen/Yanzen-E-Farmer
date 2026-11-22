@@ -1,4 +1,4 @@
-# Audit NPC Docker dan PostgreSQL
+> **CATATAN STATUS (22 November 2026):** Dokumen ini menyimpan hasil penelitian/perencanaan sebelumnya, bukan aturan runtime terbaru. Roster 248 canonical ada di `game-assets/catalog/npc-public-roster.json`; presentasi Warga mengikuti `src/lib/game/public-wargapedia.ts`. Baca `AGENTS.md` dan `docs/game-dev/README.md` sebelum memakai bagian lama sebagai instruksi.\n\n# Audit NPC Docker dan PostgreSQL
 
 ## Hasil perbandingan aset NPC
 
