@@ -10,7 +10,7 @@ const read = path => readFileSync(path,"utf8");
 const json = path => JSON.parse(read(path));
 const activeIds = ["A03","A04","C01","C07","C08"];
 const standard = read("docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md");
-assert.ok(standard.includes("Widi")&&standard.includes("GAGAL harmonisasi"),"Review findings must not be silently hidden");
+assert.ok(standard.includes("Widi")&&standard.includes("dipilih pemilik"),"Widi portrait approval and remaining runtime QA must be documented");
 
 const model = read("src/lib/game/model.ts");
 const placementSection = model.match(/const placements = \[([\s\S]*?)\] as const;/)?.[1];
@@ -31,7 +31,7 @@ function pngSize(file){
  assert.equal(png.subarray(1,4).toString(),"PNG",file+" must be PNG");
  return [png.readUInt32BE(16),png.readUInt32BE(20),png.length];
 }
-let conceptMismatch=0;
+let ownerSelectedCount=0;
 for(const id of activeIds){
  const entry=rows.find(x=>x.id===id);
  const member=manifest.characters.find(x=>x.id===id);
@@ -45,14 +45,14 @@ for(const id of activeIds){
  const conceptPath="public"+entry.variant.workConcept;
  const dims=pngSize(conceptPath).slice(0,2);
  if(id==="C07"){
-  assert.deepEqual(dims,[512,512],"Widi's unapproved 512px candidate changed; reassess visual QA");
-  assert.match(entry.styleReview,/blocked-cross-style-mismatch/,"Widi's art mismatch must remain a visible QA blocker");
-  conceptMismatch++;
+  assert.deepEqual(dims,[256,256],"Owner-selected Widi profile must match portrait standard");
+  assert.match(entry.styleReview,/owner-selected-art-20261122-pending-in-game-visual-qa/,"Widi owner approval must retain viewport QA status");
+  ownerSelectedCount++;
  }else{
   assert.deepEqual(dims,[256,256],id+" profession portrait target size changed");
  }
 }
-assert.equal(conceptMismatch,1,"Known Widi candidate review count differs");
+assert.equal(ownerSelectedCount,1,"Owner-selected Widi portrait count differs");
 
 const dialogue=read("src/app/game/dialogue-panel.tsx");
 assert.ok(dialogue.includes("dialogue.emotions?.[page] ?? dialogue.emotion"),"Per-page expression should override the default");
@@ -61,4 +61,4 @@ assert.ok(!dialogue.includes("resident?<ResidentPortrait"),"Static resident phot
 assert.ok(dialogue.includes("export function ResidentPortrait"),"Static citizen portraits must still be available for Warga");
 const client=read("src/app/game/game-client.tsx");
 assert.ok(client.includes("visualByLegacyId.get(dialogue.npcId)"),"Keep conservative canonical display-name matching");
-console.log("PASS: five live NPCs, 10 portrait assets, 8 ordered expressions, dynamic dialogue, canonical separation; Widi concept flagged for manual redraw");
+console.log("PASS: five live NPCs, 10 portrait assets, 8 ordered expressions, dynamic dialogue, canonical separation; Widi owner-selected art integrated, in-game viewport review pending");
