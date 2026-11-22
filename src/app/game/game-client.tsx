@@ -969,6 +969,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <p>PC: Q/R mengganti alat, 1–9 memilih alat. Gunakan cangkul untuk mengolah tanah, tanam bibit, siram dengan gembor, dan panen saat matang.</p>
                   <p>Buka gudang dari pintu bangunan untuk mengambil dan menyimpan alat.</p>
                 </div>
+                <div className="yzg-phone-card"><b>Memancing di sungai</b>
+                  <p>Ambil joran dari gudang dan beli pelet di lapak Widi. Berdirilah di tepi sungai menghadap air, lalu tekan A atau E untuk melempar kail.</p>
+                  <p>Tunggu pelampung tenggelam sebelum menarik. Kalau terlalu cepat atau terlambat, ikan bisa lolos. Bahkan ketika tarikannya tepat, belum tentu berhasil setiap kali.</p>
+                  <p>Tekan Esc di PC atau Angkat joran pada layar HP untuk berhenti. Catatan hasil pancingmu ada di Statistik.</p>
+                </div>
                 <div className="yzg-phone-card"><b>Waktu & progres</b>
                   <p>Kalau sudah malam, pulang ke rumah, hadap ranjang, lalu pilih Tidur. Perjalananmu akan tersimpan.</p>
                   <p>Kenali warga lewat percakapan. Lihat kabarnya di Warga, dan perjalanan kalian di Kronik.</p>
