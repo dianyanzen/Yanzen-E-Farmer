@@ -35,13 +35,17 @@ try{
   {id:"A03",name:"TOKOH",role:"Uji"},[{...current,id:"A06"}]),null,
   "Do not assume identity when ID does not match");
 
- const ui=file("src/app/game/character-gallery.tsx");
- assert.match(ui,/if\(selected\?\.legacyApproved\)/,"Private citizen does not load a legacy bible without approval");
- assert.ok(ui.includes("/api/game/resident-bible/"),"Current citizen loads private Bible only on demand");
- assert.ok(ui.includes("return <ResidentPortrait resident={{id:person.id"),"Every canonical citizen uses mapped portrait key");
- assert.ok(!ui.includes("game-assets/catalog/cast.json"),"Citizen list must never fall back to legacy cast");
- assert.ok(!ui.includes("fromExpansion"),"Citizen list must not mix old expansion identities");
- assert.ok(ui.includes("const matches=roster.filter"),"All 248 citizens must be visible by default");
+ const ui=file("src/app/game/phone-wargapedia.tsx");
+ const gallery=file("src/app/game/character-gallery.tsx");
+ assert.ok(gallery.includes("<PhoneWargapedia"),"Only one canonical Warga app remains");
+ assert.ok(ui.includes('approvedLegacyId(currentResident)'),"Relationship/save links require owner-approved legacy association");
+ assert.ok(ui.includes('game.bonds[activeNpc.id]'),"Relationship level must come from actual saved game progress");
+ assert.ok(ui.includes('/game/data/npc/'),"Canonical citizen loads the public fiction dossier by ID");
+ assert.ok(ui.includes('src={known.portraitUrl}'),"Every canonical citizen uses its own catalog portrait");
+ assert.ok(!ui.includes("game-assets/catalog/cast.json"),"Citizen directory must never fall back to legacy cast");
+ assert.ok(!ui.includes("fromExpansion"),"Citizen directory must not mix old expansion identities");
+ assert.ok(ui.includes("catalog?.characters.filter"),"All 248 public characters must be searchable by default");
+ assert.ok(ui.includes("EditorialDraftNotes"),"Existing private editor review remains protected and available");
  for(const route of ["src/app/game/page.tsx","src/app/game/phaser/page.tsx","src/app/game/canvas/page.tsx"]){
   assert.ok(file(route).includes("readPrivateResidents()"),"Missing canonical server hydration: "+route);
  }
@@ -60,6 +64,6 @@ try{
  const draftRoute=file("src/app/api/game/resident-bible/[id]/route.ts");
  assert.ok(draftRoute.includes("GAME_BIBLE_EDITOR_USER_IDS"),"Draft route requires editor allowlist");
  assert.ok(draftRoute.includes("status:403"),"Draft route must reject unauthorized users");
- assert.ok(ui.includes("EditorialDraftNotes"),"YZ Phone must show protected 12-category editorial dossier");
+ assert.ok(ui.includes("?draft=1"),"Editor preview route is explicitly opt-in");
  console.log("PASS: 69 legacy ID collisions quarantined, 39 story candidates, 30 concepts, route/UI identity guard");
 }finally{rmSync(temp,{recursive:true,force:true});}
