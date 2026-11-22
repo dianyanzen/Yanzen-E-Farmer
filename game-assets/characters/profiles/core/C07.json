@@ -101,7 +101,7 @@
       "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
       "styleFamily": "dialogue-expression-pixel-v1",
       "qaStatus": "needs-human-side-by-side",
-      "visualContinuity": "Pertahankan wajah, rambut dan kemeja gelap; atribut pancing mengganti keranjang sayur setelah potret final tersedia."
+      "visualContinuity": "Rambut gelap acak, wajah muda tanpa kumis, kemeja charcoal; potret profesi 256px pilihan pemilik menampilkan joran dan kotak umpan di latar krem. Pertahankan kesamaan siluet pada sprite dunia dan ekspresi dialog."
     },
     "12_continuity_current_state": {
       "asOf": "2026-11-21",
