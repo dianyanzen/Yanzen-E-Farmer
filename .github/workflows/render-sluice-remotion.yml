@@ -1,8 +1,8 @@
-name: Render YZ Farm Life Cinematic
+name: Render Pasirluyu Cinematic HD
 on:
   push:
     branches:
-      - feat/widi-portrait-remotion-memories-20261122
+      - fix/widi-portrait-quest-memory-hd-cinematic-20261122
     paths:
       - 'cutscenes/remotion/**'
       - '.github/workflows/render-sluice-remotion.yml'
@@ -10,40 +10,53 @@ on:
 permissions:
   contents: write
 jobs:
-  render-sluice:
+  render-hd:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Prepare source sprites and audio
+      - name: Install headless Chrome libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libnss3 libnspr4 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 || true
+      - name: Prepare scene assets
         run: |
           mkdir -p cutscenes/remotion/public
           cp public/game/assets/characters/stage1.png cutscenes/remotion/public/yanzen-actor.png
           cp game-assets/yz-farm-life/aset/audio/kanal.wav cutscenes/remotion/public/kanal.wav
-      - name: Install pinned Remotion toolchain
+      - name: Install Remotion and render master
         working-directory: cutscenes/remotion
-        run: npm install --no-audit --no-fund --ignore-scripts
-      - name: Install headless renderer
-        working-directory: cutscenes/remotion
-        run: npx remotion browser ensure
-      - name: Render cinematic
-        working-directory: cutscenes/remotion
-        run: npm run render
-      - name: Verify video file
         run: |
+          npm install --no-audit --no-fund
+          npx remotion browser ensure
+          npm run render
+      - name: Publish HD film
+        run: |
+          set -euo pipefail
           test -s cutscenes/remotion/out/sluice-gate.mp4
-          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 cutscenes/remotion/out/sluice-gate.mp4
-      - name: Publish cinematic in feature branch
+          ffmpeg -y -hide_banner -loglevel error -i cutscenes/remotion/out/sluice-gate.mp4 \
+            -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p \
+            -c:a aac -b:a 96k -movflags +faststart \
+            public/game/assets/cutscenes/sluice-gate.mp4
+          ffprobe -v error -show_entries stream=width,height,r_frame_rate -show_entries format=duration \
+            -of default=noprint_wrappers=1 public/game/assets/cutscenes/sluice-gate.mp4
+      - name: Sync asset catalog and open QA gate
         run: |
-          mkdir -p public/game/assets/cutscenes
-          cp cutscenes/remotion/out/sluice-gate.mp4 public/game/assets/cutscenes/sluice-gate.mp4
+          set -euo pipefail
+          git add public/game/assets/cutscenes/sluice-gate.mp4
+          node scripts/game-assets/build-asset-database.mjs
+          node scripts/game-assets/build-asset-categories.mjs
+          npm run assets:index:check
+          npm run assets:categories:check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/game/assets/cutscenes/sluice-gate.mp4
+          git add game-assets/catalog/asset-database.json game-assets/library/
           if ! git diff --cached --quiet; then
-            git commit -m 'assets(game): render Remotion sluice-gate cinematic'
+            git commit -m 'assets(game): deliver HD Remotion sluice cinematic and sync media manifest'
             git push origin HEAD:${GITHUB_REF_NAME}
           fi
