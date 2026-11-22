@@ -48,7 +48,8 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
  const self=false; // A01 is the player, not a member of the canonical 248-NPC roster.
  const met=Boolean(bond?.talks)||self,level=bond?bondLevel(bond.points):0;
  const face=profile?.sections;
- const editorialDraft=profile?.approval==="draft";
+ const editorialDraft=profile?.approval==="draft"&&profile?.characterClass==="canonical-private";
+ const publicDraft=profile?.approval==="draft"&&profile?.characterClass==="canonical-public-fictional-draft";
  const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
  const voice=face?.["09_dialogue_behavior"];
@@ -81,6 +82,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
     <small>{level<1?"Berbincanglah agar makin mengenal kebiasaannya.":level<2?"Semakin akrab, semakin banyak cerita yang ia bagikan.":level<3?"Ia mulai lebih terbuka tentang apa yang diharapkan.":"Kalian sudah saling percaya lebih jauh."}</small>
   </div>}
   {editorialDraft&&<p role="status">Pratinjau khusus editor. Catatan ini belum disahkan atau diterapkan sebagai gameplay.</p>}
+  {publicDraft&&<p role="status">Catatan ini bagian dari dunia fiksi YZ Farm Life. Cerita dan sifat tokoh masih rancangan, belum tentu sudah terjadi di permainan. <a href={"/game/encyclopedia?npc="+encodeURIComponent(person.id)}>Baca ensiklopedia karakter</a></p>}
   <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
@@ -164,6 +166,17 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
      }
     }catch{ /* no private bio yet; do not infer legacy identity */ }
    }
+   // Public fictional drafts are indexed by the canonical ID, never by a legacy ID.
+   try{
+    const publicResponse=await fetch("/game/data/npc/"+encodeURIComponent(selectedId)+".json",{cache:"force-cache"});
+    if(publicResponse.ok){
+     const dossier=await publicResponse.json() as CharacterBible;
+     if(dossier.id===selectedId&&dossier.characterClass==="canonical-public-fictional-draft"){
+      if(alive)setLoaded({id:selectedId,profile:dossier});
+      return;
+     }
+    }
+   }catch{ /* A missing public dossier must not break old save compatibility. */ }
    if(selected?.legacyApproved){
     try{
      const profile=await loadCharacterBible(selected.legacyId??selectedId);
@@ -180,6 +193,7 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
  return <section aria-label="Daftar warga">
   <div className="yzg-phone-card">
    <b>Warga</b><p>Cari orang yang ingin kamu kenal. Cerita pribadi mereka akan terbuka lewat pertemuan.</p>
+   <p><a href="/game/encyclopedia">Buka Ensiklopedia Warga · 248 karakter</a></p>
    <label htmlFor="yzg-character-search">Cari nama atau pekerjaan</label>
    <input id="yzg-character-search" type="search" value={search} onChange={e=>{setSearch(e.target.value);setPage(0);}}
      placeholder="Nama atau pekerjaan"/>
