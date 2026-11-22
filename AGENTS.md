@@ -1,4 +1,4 @@
-> **Keputusan produk:** `YZ Phone → Wargapedia` memperlihatkan seluruh 248 Character Bible fiksi publik tanpa gate level kedekatan. `Warga`/dialog intim/quest/Kronik tetap dipandu `GameState`; jangan memasukkan syarat `bondLevel` ke pembaca `phone-wargapedia.tsx` atau menganggap draf lore sebagai misi yang telah dimainkan.
+> **Keputusan produk:** YZ Phone hanya mempunyai **satu menu `Warga`**, yang menggabungkan ensiklopedia 248 NPC publik dan progres hubungan aktual. Semua 12 kategori Character Bible dapat dibaca tanpa level kedekatan. Hanya dialog intim/quest/Kronik dan ringkasan hubungan yang mengikuti `GameState` serta asosiasi legacy yang disetujui. Jangan pernah memberi `bondLevel` sebagai prasyarat membaca 12 kategori fiksi atau menganggap draf lore sebagai misi selesai.
 
 <!-- SOURCE PRIORITY: published owner-authorized 248 canonical fictional roster + public draft dossiers > optional validated private overrides > isolated legacy. Never treat cast.json as current NPC identities. -->
 # Panduan agen — Yanzen E-Farmer / YZ Farm Life
