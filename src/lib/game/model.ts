@@ -109,7 +109,7 @@ export type StoryFlags = {
   photoSeen: boolean; photoChoice: PhotoChoice | null; completedDay: number | null;
 };
 export type Dialogue = {
-  title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
+  title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; emotions?: Emotion[]; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
 };
 export type GameState = {
   nurseryChecked?: boolean;
