@@ -23,44 +23,45 @@
       "identity": "Tokoh fiktif YZ Farm Life; bukan profil warga nyata"
     },
     "02_physical_appearance": {
-      "general": "Gerak luwes membawa keranjang; mata menaksir kebutuhan pasar",
-      "bodyLanguageBaseline": "Menimbang keranjang di satu tangan sebelum bernegosiasi",
+      "general": "Gerak tenang membawa joran; mata mudah menangkap perubahan arah pelampung.",
+      "bodyLanguageBaseline": "Memeriksa senar dan mengangkat kotak umpan saat memberi saran.",
       "visualVerification": "Art direction proposal; penampilan persis mengikuti ilustrasi setelah QA"
     },
     "03_fashion_aesthetic": {
-      "signatureClothing": "Kemeja charcoal, celana beige, tas penjualan",
-      "styleReason": "Kemeja charcoal dan celana beige memberi arah visual pedagang hasil bumi.",
+      "signatureClothing": "Kemeja gelap, celana kerja, joran dan kotak umpan.",
+      "styleReason": "Warna kemeja asli dipertahankan agar mudah dikenali; perlengkapan pancing mengganti keranjang hasil bumi.",
       "accessories": "Aksesori dan pakaian mengikuti fungsi kegiatan, tanpa merek atau identitas asli"
     },
     "04_social_profile": {
-      "occupation": "Pedagang hasil bumi",
-      "education": "Berpengalaman menyuplai hasil bumi ke pedagang dan rumah makan",
-      "communityActivity": "Pasar Warga",
+      "occupation": "Spesialis ikan dan memancing",
+      "education": "Mengenal alat pancing dan ikan melalui pengalaman lapak dan praktik memancing.",
+      "communityActivity": "Lapak pancing Pasar Warga dan tempat memancing di sungai.",
       "hobbies": [
-        "Mencoba masakan lokal",
-        "Bermain bulu tangkis"
+        "Memancing",
+        "Merawat joran",
+        "Mengenali ikan sungai"
       ]
     },
     "05_personality": {
       "traits": [
-        "Luwes",
-        "Percaya diri",
-        "Pandai bernegosiasi"
+        "Teliti",
+        "Sabar",
+        "Terus terang"
       ],
-      "habit": "Menanya kebutuhan lapak sebelum membeli stok tambahan",
-      "values": "Menjaga tanggung jawab pekerjaannya dan batas dengan warga",
-      "weakness": "Kadang menekan tawar-menawar terlalu keras"
+      "habit": "Menguji ketegangan senar sebelum meminjamkan joran.",
+      "values": "Membagikan ilmu memancing tanpa menjanjikan keberhasilan tiap lemparan.",
+      "weakness": "Sering memotong penjelasan orang saat melihat simpul yang salah."
     },
     "06_psychological_profile": {
-      "primaryMotivation": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima",
-      "unspokenNeed": "Belajar menghadapi kadang menekan tawar-menawar terlalu keras",
-      "fear": "Terjebak sisa barang yang tak laku",
-      "innerConflict": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima tetapi kadang menekan tawar-menawar terlalu keras",
-      "copingResponse": "Berunding makin kencang ketika khawatir rugi"
+      "primaryMotivation": "Menjaga lapak pancing dan membantu warga memancing dengan baik.",
+      "unspokenNeed": "Belajar membiarkan pemula mencoba sendiri.",
+      "fear": "Senar putus karena alat tidak terawat.",
+      "innerConflict": "Ia ingin membantu, tetapi kadang terlalu cepat memberi instruksi.",
+      "copingResponse": "Memeriksa alat untuk menenangkan diri."
     },
     "07_background_history": {
       "familyContext": "Tumbuh dekat pusat perdagangan bahan pangan",
-      "formativeMemory": "Pernah memesan banyak ikan saat cuaca menutup rute pasokan",
+      "formativeMemory": "Pernah kehilangan ikan karena menarik terlalu cepat.",
       "storyStatus": "Rancangan fiktif; bukan biografi orang nyata"
     },
     "08_relationship_dynamics": {
@@ -71,27 +72,27 @@
           "designState": "planned"
         }
       ],
-      "trustEarnedBy": "Pemain memenuhi janji, menghormati batas, dan menanggapi kebutuhan spesifik",
+      "trustEarnedBy": "Pemain menghargai kesabaran, merawat alat dan mau belajar dari kegagalan.",
       "personalBoundary": "Tidak menyembunyikan asal atau kondisi bahan pangan",
       "affinityPolicy": "Trust dan affection adalah dimensi terpisah"
     },
     "09_dialogue_behavior": {
-      "speechSignature": "Percaya diri, cepat menghitung, tidak selalu menyetujui tawaran",
-      "habitualGesture": "Menimbang keranjang di satu tangan sebelum bernegosiasi",
-      "stressReaction": "Berunding makin kencang ketika khawatir rugi",
-      "sampleLine": "Aku bisa bawakan lebih banyak, tapi dua toplesmu cuma butuh yang segar hari ini."
+      "speechSignature": "Tenang dan ringkas, menjelaskan melalui gerak pelampung.",
+      "habitualGesture": "Memeriksa ujung senar di antara jari.",
+      "stressReaction": "Berhenti berbicara dan memeriksa joran.",
+      "sampleLine": "Belum turun pelampungnya. Tunggu sedikit lagi."
     },
     "10_narrative_development": {
-      "storyArc": "Belajar bahwa hubungan lebih awet dari satu untung besar",
-      "initialDesire": "Menjaga pasar mendapat bahan segar dengan harga yang bisa diterima",
-      "mainObstacle": "Kadang menekan tawar-menawar terlalu keras",
+      "storyArc": "Dari peracik umpan menjadi mentor yang sabar.",
+      "initialDesire": "Membantu warga memancing dan mengenali ikan di sungai.",
+      "mainObstacle": "Cenderung terlalu cepat menolong pemancing baru.",
       "threeActBeats": [
-        "Menetapkan harga sepihak",
-        "Pasokan pasar berlebihan",
-        "Menyusun kesepakatan stok kecil dengan pedagang"
+        "Mengajari lempar dan tunggu",
+        "Belajar dari ikan yang lepas",
+        "Mencatat jenis ikan bersama pemain"
       ],
       "playerChoice": "Pemain dapat mendukung solusi cepat atau membantu tokoh memeriksa dampaknya bagi orang lain",
-      "mechanics": "Perdagangan dan quest suplai bahan",
+      "mechanics": "Jual beli umpan, memancing, katalog spesies, dan misi tangkapan.",
       "implementation": "Proposed; tidak menyatakan arc sudah playable"
     },
     "11_visual_references": {
@@ -100,19 +101,19 @@
       "movementManifest": "game-assets/characters/gba-v2-c/manifest.json",
       "styleFamily": "dialogue-expression-pixel-v1",
       "qaStatus": "needs-human-side-by-side",
-      "visualContinuity": "Siluet, pakaian dasar, proporsi, ekspresi, dan aksesori penting tidak berubah antar-aset"
+      "visualContinuity": "Pertahankan wajah, rambut dan kemeja gelap; atribut pancing mengganti keranjang sayur setelah potret final tersedia."
     },
     "12_continuity_current_state": {
       "asOf": "2026-11-21",
       "prototypePresence": "Registered active prototype NPC (per portrait register)",
       "knownCanon": [
         "Widi",
-        "Pedagang hasil bumi",
-        "Luwes",
-        "Percaya diri",
-        "Pandai bernegosiasi"
+        "Spesialis ikan dan memancing",
+        "Teliti",
+        "Sabar",
+        "Terus terang"
       ],
-      "proposedArcStartingPoint": "Menetapkan harga sepihak",
+      "proposedArcStartingPoint": "Mengajari pemancing mengenali gerak pelampung",
       "notYetOccurred": [
         "Pasokan pasar berlebihan",
         "Menyusun kesepakatan stok kecil dengan pedagang"
