@@ -852,7 +852,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <p>Beberapa momen layak disimpan lebih lama dari satu hari. Kamu bisa melihatnya kembali di sini.</p>
                 <div className="yzg-memory-entry">
                   <div className={"yzg-memory-cover"+(hasSluiceMemory(game)?" unlocked":" locked")} aria-hidden="true">
-                    {hasSluiceMemory(game)?"◈":"?"}
+                    {hasSluiceMemory(game)?"":"?"}
                   </div>
                   <div>
                     <strong>{hasSluiceMemory(game)?"Pintu Air Pasirluyu":"Kenangan yang belum terbuka"}</strong>
