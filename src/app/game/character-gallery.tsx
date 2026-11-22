@@ -18,12 +18,37 @@ function Section({label,open,children}:{label:string;open:boolean;children:React
   <div>{open?children:<p>Kenali orangnya lebih dekat dulu. Catatan ini akan terisi lewat pertemuan kalian.</p>}</div>
  </details>;
 }
+/** Only rendered when the authenticated server explicitly returned an editorial draft. */
+function EditorialDraftNotes({profile}:{profile:CharacterBible}){
+ const asText=(value:unknown):string=>{
+  if(value===null||value===undefined)return "Belum diverifikasi";
+  if(typeof value==="string")return value;
+  if(typeof value==="boolean")return value?"Ya":"Tidak";
+  if(Array.isArray(value))return value.length?value.map(asText).join(" · "):"Belum tersedia";
+  if(typeof value==="object")return JSON.stringify(value);
+  return String(value);
+ };
+ return <section className="yzg-phone-card" aria-label="Catatan editorial privat">
+  <b>Catatan editor · 12 kategori</b>
+  <p>Semua isi di bawah masih rancangan. Tidak ada misi, hubungan, atau jadwal baru yang aktif karena catatan ini.</p>
+  {Object.entries(profile.sections).map(([key,section])=>{
+   const notes=(section as {editorialAdditions?:{values?:Record<string,unknown>}}).editorialAdditions?.values;
+   if(!notes)return null;
+   return <details className="yzg-citizen-section" key={key}>
+    <summary>{key.replace(/^\\d+_/,"").replaceAll("_"," ")}</summary>
+    {Object.entries(notes).map(([field,value])=><p key={field}><b>{field.replaceAll(/([A-Z])/g," $1")}</b>: {asText(value)}</p>)}
+   </details>;
+  })}
+ </section>;
+}
+
 function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:GameState;profile:CharacterBible|null;onBack:()=>void;loading:boolean}){
  const npc=person.legacyApproved?NPCS.find(n=>n.id===(person.legacyId??person.id)):undefined;
  const bond=npc?game.bonds[npc.id]:undefined;
  const self=false; // A01 is the player, not a member of the canonical 248-NPC roster.
  const met=Boolean(bond?.talks)||self,level=bond?bondLevel(bond.points):0;
  const face=profile?.sections;
+ const editorialDraft=profile?.approval==="draft";
  const look=face?.["02_physical_appearance"],clothes=face?.["03_fashion_aesthetic"];
  const social=face?.["04_social_profile"],personality=face?.["05_personality"],mind=face?.["06_psychological_profile"];
  const voice=face?.["09_dialogue_behavior"];
@@ -55,6 +80,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
     {met&&currentPlace&&<small>Biasanya sekarang: {areaTitle(currentPlace.location)} · {currentPlace.activity}</small>}
     <small>{level<1?"Berbincanglah agar makin mengenal kebiasaannya.":level<2?"Semakin akrab, semakin banyak cerita yang ia bagikan.":level<3?"Ia mulai lebih terbuka tentang apa yang diharapkan.":"Kalian sudah saling percaya lebih jauh."}</small>
   </div>}
+  {editorialDraft&&<p role="status">Pratinjau khusus editor. Catatan ini belum disahkan atau diterapkan sebagai gameplay.</p>}
   <div className="yzg-phone-card"><p className="yzg-citizen-lead">{outline}</p>
    {loading&&<p role="status">Membuka catatan warga…</p>}
    {!loading&&<div className="yzg-citizen-sections">
@@ -103,6 +129,7 @@ function WargaDetail({person,game,profile,onBack,loading}:{person:Citizen;game:G
     </Section>
    </div>}
   </div>
+  {editorialDraft&&profile&&<EditorialDraftNotes profile={profile}/>}
  </article>;
 }
 
@@ -128,7 +155,8 @@ export default function CharacterGallery({game,residents,selectedId,onSelect}:{
    // Private Canon profiles take precedence and are requested only when viewing a citizen.
    if(residents.length){
     try{
-     const response=await fetch("/api/game/resident-bible/"+encodeURIComponent(selectedId),{cache:"no-store"});
+     const preview=new URLSearchParams(window.location.search).get("npcDraftPreview")==="1";
+     const response=await fetch("/api/game/resident-bible/"+encodeURIComponent(selectedId)+(preview?"?draft=1":""),{cache:"no-store"});
      if(response.ok){
       const data=await response.json() as {profile?:CharacterBible};
       if(alive)setLoaded({id:selectedId,profile:data.profile?.id===selectedId?data.profile:null});
