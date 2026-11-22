@@ -64,7 +64,8 @@ export default function DialoguePanel({ dialogue, resident, children }: { dialog
   return <>
     <div className="yzg-dialog-head"><b>{resident?.name?wargaDisplayName(resident.name):(npc?.name || dialogue.title)}</b><span>{page + 1}/{dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
-      {npc && (resident?<ResidentPortrait resident={resident}/>:<Portrait npcId={npc.id} emotion={dialogue.emotion}/>)}
+      {npc && <Portrait npcId={npc.id} emotion={dialogue.emotions?.[page] ?? dialogue.emotion}
+        name={resident?.name ? wargaDisplayName(resident.name) : npc.name}/>}
       <div className="yzg-dialog-copy">
         <DialogueLine key={page} line={dialogue.lines[page] || ""} last={last} onNext={() => setPage(p => p + 1)}/>
       </div>
