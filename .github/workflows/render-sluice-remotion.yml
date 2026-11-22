@@ -1,0 +1,49 @@
+name: Render YZ Farm Life Cinematic
+on:
+  push:
+    branches:
+      - feat/widi-portrait-remotion-memories-20261122
+    paths:
+      - 'cutscenes/remotion/**'
+      - '.github/workflows/render-sluice-remotion.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render-sluice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Prepare source sprites and audio
+        run: |
+          mkdir -p cutscenes/remotion/public
+          cp public/game/assets/characters/stage1.png cutscenes/remotion/public/yanzen-actor.png
+          cp game-assets/yz-farm-life/aset/audio/kanal.wav cutscenes/remotion/public/kanal.wav
+      - name: Install pinned Remotion toolchain
+        working-directory: cutscenes/remotion
+        run: npm install --no-audit --no-fund --ignore-scripts
+      - name: Install headless renderer
+        working-directory: cutscenes/remotion
+        run: npx remotion browser ensure
+      - name: Render cinematic
+        working-directory: cutscenes/remotion
+        run: npm run render
+      - name: Verify video file
+        run: |
+          test -s cutscenes/remotion/out/sluice-gate.mp4
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 cutscenes/remotion/out/sluice-gate.mp4
+      - name: Publish cinematic in feature branch
+        run: |
+          mkdir -p public/game/assets/cutscenes
+          cp cutscenes/remotion/out/sluice-gate.mp4 public/game/assets/cutscenes/sluice-gate.mp4
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/game/assets/cutscenes/sluice-gate.mp4
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(game): render Remotion sluice-gate cinematic'
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
