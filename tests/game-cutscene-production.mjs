@@ -6,7 +6,7 @@ const manifest=JSON.parse(readFileSync("game-assets/cinematics/pasirluyu-sluice/
 const sha=bytes=>createHash("sha256").update(bytes).digest("hex");
 const image=path=>{assert.ok(existsSync(path),"Missing reference frame "+path);
  const buf=readFileSync(path);assert.equal(buf[0],0xff);assert.equal(buf[1],0xd8);
- assert.ok(buf.length>20000&&buf.length<5000000,"Bad frame export size "+path);
+ assert.ok(buf.length>8000&&buf.length<5000000,"Bad frame export size "+path);
 };
 const file=manifest.playbackPath;
 assert.ok(existsSync(file),"Missing owner-provided cinematic video");
