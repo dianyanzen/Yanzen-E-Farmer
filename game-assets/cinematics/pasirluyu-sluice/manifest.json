@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "pasirluyu-sluice",
+  "title": "Pintu Air Pasirluyu",
+  "status": "approved-user-video-pending-device-qa",
+  "assetOrigin": "user-supplied-Google-Flow-video",
+  "canonicalCharacters": [
+    "A01"
+  ],
+  "relatedResident": "A03",
+  "location": "Pasirluyu river sluice, sungai",
+  "playbackPath": "public/game/assets/cutscenes/sluice-gate.mp4",
+  "posterPath": "public/game/assets/cutscenes/sluice-poster.png",
+  "frameStartPath": "public/game/assets/cutscenes/frames/sluice-start.jpg",
+  "frameEndPath": "public/game/assets/cutscenes/frames/sluice-end.jpg",
+  "sourceFileName": "Man_operating_irrigation_mechanism_3e1dfd4f_1080p.mp4",
+  "sourceSha256": "6692a1a19cf1f466121bc0ba2dcec5e431bab1e9043f4103ca9e7804be105b20",
+  "sourceBytes": 6199340,
+  "sourceVideo": {
+    "durationSeconds": 10,
+    "width": 910,
+    "height": 512,
+    "fps": 30,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "channels": 2,
+    "aspectRatio": "approximately 16:9"
+  },
+  "frames": {
+    "startTimeSeconds": 0.2,
+    "endTimeSeconds": 9.6,
+    "provenance": "extracted from final owner-submitted MP4 for continuity review; future productions require two AI-generated frames before video generation"
+  },
+  "story": {
+    "startState": "Yanzen berdiri pada pijakan kanan, memutar roda pengangkat pintu air",
+    "endState": "Gerbang terbuka, air mengalir ke hilir, Yanzen menuntaskan putaran dan tampak lega",
+    "questUnlockContract": "hasSluiceMemory(state) from src/lib/game/model.ts; save before playback; skip/replay never modifies rewards"
+  },
+  "visualStyle": "polished 2D anime cinematic, not pixel art",
+  "artReferences": [
+    "public/game/assets/characters/yanzen-gaits.png",
+    "public/game/assets/portraits/A01.png",
+    "screenshots from active Pasirluyu sungai game map"
+  ],
+  "qa": {
+    "sourceSha256Verified": true,
+    "frameContinuityReview": "observed at 0.15, 1.5, 3, 4.5, 6, 7.5, 9.5 seconds",
+    "browserPlayback": "pending",
+    "iosSafari": "pending"
+  }
+}
