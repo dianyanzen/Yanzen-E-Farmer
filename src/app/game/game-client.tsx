@@ -827,7 +827,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               <div className="yzg-market-grid">
                 {(dialogue.npcId==="A04" ? ["seeds","cucumber"] as const :
                   ["bait",...FISH_IDS.filter(id=>game.fishing.fish[id]>0)] as const).map(item=>{
-                  const fish=(item==="bandeng"||item==="kakap_putih"||item==="belanak")?FISH_MARKET[item]:null;
+                  const fish=FISH_IDS.includes(item as keyof typeof FISH_MARKET)?FISH_MARKET[item as keyof typeof FISH_MARKET]:null;
                   const quantity=fish?game.fishing.fish[item as keyof typeof FISH_MARKET]:0;
                   const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
                     item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
@@ -840,7 +840,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                     if(result.state!==game){setGame(result.state);void persist(result.state);}
                     setDialogue({...dialogue,title:"Lapak pasar",lines:[result.message],choices:undefined,emotions:undefined});
                   }}>
-                    {fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
+                    {fish && (item==="lele"||item==="nila") ?
+                      <img className="yzg-market-freshwater" src={"/game/assets/fish/"+item+".png"} alt="" aria-hidden="true"/> :
+                     fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
                       style={{backgroundPosition:fish.frame===0?"100% 0%":fish.frame===1?"0% 100%":"50% 100%"}}/> :
                       <span className={dialogue.npcId==="C07"?"yzg-market-sprite yzg-market-sprite--widi":"yzg-market-sprite yzg-market-sprite--ayu"}
                         style={{backgroundPosition:item==="bait"?"50% 0%":item==="seeds"?"0% 0%":"0% 100%"}} aria-hidden="true"/>}
@@ -1078,7 +1080,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <div className="yzg-tools" role="toolbar" aria-label="Pilih alat yang dibawa">
             {game.carriedTools.length===0?<small>Tas kosong. Kunjungi gudang.</small>:game.carriedTools.map((id,index)=>
               <button key={id} type="button" className={game.equippedTool===id?"active":""} aria-label={"Pilih "+toolName(id)}
-                aria-pressed={game.equippedTool===id} disabled={controlsLocked} onClick={()=>equip(id)}>
+                aria-pressed={game.equippedTool===id} disabled={movementLocked} onClick={()=>equip(id)}>
                 <span>{index+1}</span>{toolName(id)}
               </button>)}
           </div>
