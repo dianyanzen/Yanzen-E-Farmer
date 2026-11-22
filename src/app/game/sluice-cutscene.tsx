@@ -9,6 +9,8 @@ import {useEffect,useState,useCallback,useRef} from "react";
 export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
   const [videoUnavailable,setVideoUnavailable]=useState(false);
   const [muted,setMuted]=useState(true);
+  const [playbackSeconds,setPlaybackSeconds]=useState(0);
+  const cinematicLine=playbackSeconds<2.4?"Saluran yang lama terdiam":playbackSeconds<5.5?"Yanzen memutar roda pintu air":playbackSeconds<8.7?"Air mulai bergerak menuju hilir":"Kebun warga kembali mendapat air";
   const videoRef=useRef<HTMLVideoElement>(null);
   const finished=useRef(false);
   const finish=useCallback(()=>{if(finished.current)return;finished.current=true;onDone();},[onDone]);
@@ -22,7 +24,7 @@ export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
   },[finish,videoUnavailable]);
   return <div className="yzg-cutscene" role="dialog" aria-modal="true" aria-label="Yanzen membuka pintu air">
     <div className="yzg-cutscene-stage">
-      {!videoUnavailable && <video ref={videoRef} className="yzg-cutscene-video" autoPlay muted={muted} playsInline preload="auto"
+      {!videoUnavailable && <video ref={videoRef} className="yzg-cutscene-video" autoPlay muted={muted} playsInline preload="auto" onTimeUpdate={event=>setPlaybackSeconds(event.currentTarget.currentTime)}
         src="/game/assets/cutscenes/sluice-gate.mp4" onEnded={finish} onError={()=>setVideoUnavailable(true)}
         aria-label="Adegan sinematik Yanzen membuka pintu air di Pasirluyu"/>}
       {videoUnavailable && <svg viewBox="0 0 320 180" role="img" aria-label="Yanzen memutar roda pintu air hingga air mengalir kembali" preserveAspectRatio="xMidYMid meet">
@@ -62,9 +64,11 @@ export default function SluiceCutscene({onDone}: {onDone:()=>void}) {
       {videoUnavailable && <div className="yzg-cutscene-caption"><strong>Pintu air di Pasirluyu</strong>
         <p>Yanzen memutar roda tua itu. Kayunya berderit, lalu air kembali mengalir ke hilir.</p></div>}
     </div>
+    {!videoUnavailable && <div className="yzg-cutscene-readalong" aria-live="off"><small>KENANGAN · PINTU AIR PASIRLUYU</small><strong>{cinematicLine}</strong></div>}
     <div className="yzg-cutscene-actions">
       {!videoUnavailable && <button type="button" onClick={()=>{setMuted(x=>!x);if(videoRef.current?.paused)void videoRef.current.play().catch(()=>{});}}>
         {muted?"Aktifkan suara":"Matikan suara"}</button>}
+      {!videoUnavailable && <button type="button" onClick={()=>{const player=videoRef.current as (HTMLVideoElement & {webkitEnterFullscreen?:()=>void})|null;if(!player)return; if(typeof player.requestFullscreen==="function")void player.requestFullscreen().catch(()=>player.webkitEnterFullscreen?.());else player.webkitEnterFullscreen?.();}}>Layar penuh</button>}
       <button type="button" className="yzg-cutscene-skip" onClick={finish}>Lewati adegan</button>
     </div>
   </div>;
