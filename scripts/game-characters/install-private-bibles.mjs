@@ -8,7 +8,7 @@ import {spawnSync} from "node:child_process";
 const root=process.cwd();
 const absolute=p=>isAbsolute(p)?p:resolve(root,p);
 const destination=absolute(process.env.GAME_RESIDENT_BIBLES||"deploy/private/character-bibles.json");
-const candidate=process.argv.find(x=>!x.startsWith("--"));
+const candidate=process.argv.slice(2).find(x=>!x.startsWith("--"));
 const checkOnly=process.argv.includes("--check");
 let staged;
 try{
