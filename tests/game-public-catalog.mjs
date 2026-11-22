@@ -1,0 +1,11 @@
+import {execFileSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const report=execFileSync(process.execPath,['scripts/game-characters/verify-public-catalog.mjs'],{encoding:'utf8'});
+assert.match(report,/PASS: public fictional 248 NPC catalog/);
+const rosterReader=readFileSync('src/lib/game/private-residents.ts','utf8');
+assert.ok(rosterReader.includes('npc-public-roster.json'),'missing canonical public roster fallback');
+const ui=readFileSync('src/app/game/character-gallery.tsx','utf8');
+assert.ok(ui.includes('/game/data/npc/'),'YZ Phone does not load public dossier by canonical ID');
+assert.ok(ui.includes('public-fictional-draft'),'YZ Phone must mark public lore as draft');
+console.log('PASS: public NPC 248 corpus and on-demand YZ Phone integration');
