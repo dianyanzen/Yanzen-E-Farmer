@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2487,
-  "uniqueContents": 1195,
-  "totalBytes": 128763326,
+  "totalMedia": 2489,
+  "uniqueContents": 1197,
+  "totalBytes": 128770158,
   "categories": [
     {
       "id": "characters",
@@ -473,8 +473,8 @@
       "id": "commerce",
       "label": "Pasar dan perdagangan",
       "description": "Aset pasar, barang dan ikon toko",
-      "mediaCount": 4,
-      "bytes": 121344,
+      "mediaCount": 6,
+      "bytes": 128176,
       "sections": [
         {
           "id": "aset/pasar",
@@ -491,6 +491,10 @@
         {
           "id": "explore-bandung/pasar",
           "count": 1
+        },
+        {
+          "id": "tiles/shop-icons",
+          "count": 2
         }
       ]
     },
