@@ -37,7 +37,22 @@ try {
     assert.equal(restored.story.photoChoice, choice);
     assert.equal(restored.story.completedDay, 1);
   }
-  await db.exec(`set request.jwt.claim.sub='${second}';`);
+  // Reset uses the same authenticated, validated save upsert as ordinary saving.
+  // It must replace all player progress without deleting the login or another user's save.
+  const fresh = newGame();
+  await db.query(`insert into yz_game_saves(user_id,version,data) values($1,1,$2::jsonb)
+    on conflict(user_id) do update set data=excluded.data,updated_at=now()`, [first, JSON.stringify(fresh)]);
+  const resetRows = (await db.query('select data from yz_game_saves where user_id=$1', [first])).rows;
+  assert.equal(resetRows.length,1,"reset preserves the account's game save row");
+  const restarted = safeLoad(resetRows[0].data);
+  assert.ok(restarted,"fresh reset save must be valid");
+  assert.equal(restarted.day,1,"reset returns to first day");
+  assert.equal(restarted.coins,280,"reset restores starting coins");
+  assert.equal(restarted.harvested,0,"reset clears harvested count");
+  assert.equal(restarted.plots.length,0,"reset clears planted plots");
+  assert.equal(restarted.stats.harvests,0,"reset clears production statistics");
+  assert.equal(restarted.story.photoChoice,undefined,"reset clears story choices");
+    await db.exec(`set request.jwt.claim.sub='${second}';`);
   assert.equal((await db.query('select * from yz_game_saves')).rows.length, 0, 'other account cannot read save');
   assert.equal((await db.query('update yz_game_saves set data=\'{}\'::jsonb where user_id=$1 returning user_id', [first])).rows.length, 0);
   await assert.rejects(db.query(`insert into yz_game_saves(user_id,data) values($1,'{}')
