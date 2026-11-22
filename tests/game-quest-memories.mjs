@@ -25,6 +25,15 @@ assert.equal(hasSluiceMemory({...base,sluiceOpen:true}),false,"Opening unrelated
 assert.equal(hasSluiceMemory({...base,story:{...base.story,canalClue:true}}),false,
   "General chapter clue is not proof of finished sluice quest");
 assert.equal(hasSluiceMemory({...base,sluiceCutsceneSeen:true}),true,"Previously watched memory remains accessible");
+const finishedChapter={...base,story:{...base.story,orderAccepted:true,orderDone:true,canalClue:true,
+ photoSeen:true,photoChoice:"nani",completedDay:base.day}};
+assert.equal(hasSluiceMemory(finishedChapter),true,
+ "Players who finished the earlier Ryan/Chapter 1 storyline should get Kenangan");
+const chapterMigrated=safeLoad(JSON.parse(JSON.stringify(finishedChapter)));
+assert.equal(chapterMigrated.sluiceCutsceneSeen,true,"Completed old Chapter 1 save migrates unlock");
+assert.equal(chapterMigrated.story.photoChoice,"nani","Narrative ending stays unchanged");
+assert.equal(chapterMigrated.coins,finishedChapter.coins,"Migration never grants rewards");
+
 
 for(const phase of [2,3,4]){
   const oldSave=legacy(phase,phase===2);
