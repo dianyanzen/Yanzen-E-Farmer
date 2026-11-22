@@ -21,7 +21,7 @@ assert.equal(index.characterCount,248);
 assert.equal(index.characters.length,248);
 const digest=createHash('sha256').update(rows.slice().sort((a,b)=>a.id.localeCompare(b.id,'en'))
  .map(({id,name,occupation,portrait})=>[id,name,occupation,portrait].join('|')+'\n').join('')).digest('hex');
-assert.equal(digest,'cd19795344bbb4fefc0022a3f17d25135d79624de4d5d9c6c618699cc1f871a0');
+assert.equal(digest,'24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e');
 assert.equal(index.rosterFingerprintSha256,digest);
 const ids=new Set(),names=new Set(),portraits=new Set();
 for(const r of rows){
