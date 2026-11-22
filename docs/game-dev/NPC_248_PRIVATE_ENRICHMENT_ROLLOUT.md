@@ -1,3 +1,5 @@
+> **PEMBARUAN:** Karakter game fiksi kini boleh diterbitkan sebagai dokumentasi publik atas izin owner. Lihat [NPC_PUBLICATION_POLICY.md](NPC_PUBLICATION_POLICY.md) dan [ensiklopedia karakter](characters/README.md). Instruksi di bawah tetap berlaku khusus untuk artefak sumber internal dan backup, bukan JSON fiksi yang telah dikurasi untuk publikasi.
+
 # Character Bible 248 — migrasi privat dan audit lintas modul
 
 Status: kode integrasi di branch review. Semua 248 profil hasil enrichment tetap DRAFT (22 November 2026).
