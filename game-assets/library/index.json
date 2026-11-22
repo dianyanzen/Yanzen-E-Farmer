@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2493,
-  "uniqueContents": 1201,
-  "totalBytes": 128687238,
+  "totalMedia": 2492,
+  "uniqueContents": 1200,
+  "totalBytes": 128667462,
   "categories": [
     {
       "id": "characters",
@@ -444,8 +444,8 @@
       "id": "stories",
       "label": "Cerita dan misi",
       "description": "Gambar jurnal dan adegan cerita",
-      "mediaCount": 13,
-      "bytes": 16415066,
+      "mediaCount": 12,
+      "bytes": 16395290,
       "sections": [
         {
           "id": "aset/cerita",
@@ -461,7 +461,7 @@
         },
         {
           "id": "cutscenes",
-          "count": 4
+          "count": 3
         },
         {
           "id": "explore-bandung/cerita",
