@@ -10,7 +10,7 @@
   "relatedResident": "A03",
   "location": "Pasirluyu river sluice, sungai",
   "playbackPath": "public/game/assets/cutscenes/sluice-gate.mp4",
-  "posterPath": "public/game/assets/cutscenes/sluice-poster.png",
+  "posterPath": "public/game/assets/cutscenes/sluice-poster.jpg",
   "frameStartPath": "public/game/assets/cutscenes/frames/sluice-start.jpg",
   "frameEndPath": "public/game/assets/cutscenes/frames/sluice-end.jpg",
   "sourceFileName": "Man_operating_irrigation_mechanism_3e1dfd4f_1080p.mp4",
