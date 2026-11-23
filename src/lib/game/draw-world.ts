@@ -207,7 +207,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
       ctx.save();ctx.globalAlpha=covered?.65:1;
-      if(hd) drawHDSprite(ctx,image,hd.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
+      if(hd) drawHDSprite(ctx,image,hd.frame,Math.round(prop.x-width/2),prop.y-height+hd.footOffset,width,height);
       else if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
       else ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);
       ctx.restore();
