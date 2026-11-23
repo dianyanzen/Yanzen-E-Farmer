@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {createHash} from "node:crypto";
 import {readFileSync,existsSync} from "node:fs";
 const cutscene=readFileSync("src/app/game/sluice-cutscene.tsx","utf8");
 const css=readFileSync("src/app/game/game.css","utf8");
@@ -22,8 +23,16 @@ assert.ok(cutscene.includes("durationSeconds")&&cutscene.includes("finish();retu
 assert.ok(cutscene.includes("onEnded={finish}")&&cutscene.includes("playsInline"));
 assert.ok(cutscene.includes("completed.current")&&cutscene.includes("onDone()"),
  "Both finished video and fallback may only complete once");
-assert.ok(catalog.includes('src:"/game/assets/cutscenes/sluice-gate.mp4"'),
- "Do not replace the approved original film with a fabricated one");
+const userVideo="public/game/assets/cutscenes/sluice-poster.mp4";
+assert.ok(catalog.includes('src:"/game/assets/cutscenes/sluice-poster.mp4"'),
+ "The player must point to the MP4 uploaded by the game owner");
+assert.ok(existsSync(userVideo),"Owner-uploaded MP4 is missing from the repository");
+const video=readFileSync(userVideo);
+assert.equal(video.length,13801571,"Owner-uploaded MP4 size has changed");
+assert.equal(video.toString("ascii",4,8),"ftyp","Owner video must be a valid MP4 container");
+const gitBlobSha=createHash("sha1").update(`blob ${video.length}\\0`).update(video).digest("hex");
+assert.equal(gitBlobSha,"02366abd7b97346fabc55e8f66ad6f00999ec8c9",
+ "Do not silently replace the owner-uploaded MP4 with another film");
 assert.ok(css.includes(".yzg-cutscene-storyboard{")&&css.includes("aspect-ratio:910 / 512")&&
  css.includes(".yzg-cutscene-still")&&css.includes("object-fit:contain"),
  "Keep stills uncropped and preserve original aspect");
