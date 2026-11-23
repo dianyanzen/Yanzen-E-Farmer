@@ -43,8 +43,15 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const W = isOutdoorLocation(state.location) ? WORLD.width : 24;
-  const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (camera.x + .5)*T - canvas.width/2)));
-  const cameraY = Math.round(Math.min(H*T - canvas.height, Math.max(0, (camera.y + .5)*T - canvas.height/2)));
+  // When the interior world is narrower than the viewport, center it.
+  // The former clamp returned the FULL negative width difference and
+  // shifted the room to one side in the Canvas fallback.
+  const cameraX=Math.round(W*T<=canvas.width ?
+    (W*T-canvas.width)/2 :
+    Math.min(W*T-canvas.width,Math.max(0,(camera.x+.5)*T-canvas.width/2)));
+  const cameraY=Math.round(H*T<=canvas.height ?
+    (H*T-canvas.height)/2 :
+    Math.min(H*T-canvas.height,Math.max(0,(camera.y+.5)*T-canvas.height/2)));
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
