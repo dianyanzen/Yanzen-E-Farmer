@@ -95,6 +95,16 @@ const ui=readFileSync("src/app/game/game-client.tsx","utf8");
 const css=readFileSync("src/app/game/game.css","utf8");
 assert.ok(ui.includes("<FishingScene")&&ui.includes('phase==="bite"')&&ui.includes('fishingRef.current'));
 assert.ok(ui.includes("finishFishing")&&ui.includes("fishingCatchSucceeds"));
-assert.ok(css.includes("yzg-fishing-float")&&css.includes("yzg-fish-cast")&&css.includes("yzg-fishing-bite"));
+assert.ok(css.includes("yzg-fishing-message")&&css.includes("yzg-fishing-bite"));
+assert.ok(!css.includes(".yzg-fishing-effect{")&&!css.includes(".yzg-fishing-float{"),
+  "Oversized viewport-centered pole and float must not return");
+assert.ok(ui.includes("fishingSession, fishingNotice") &&
+  !ui.includes("<FishingResult"),"Player fishing phases and overhead results must reach world renderers");
+const phaser=readFileSync("src/lib/game/phaser-world.ts","utf8");
+const canvas=readFileSync("src/lib/game/draw-world.ts","utf8");
+assert.ok(phaser.includes("fishingGeometry(")&&phaser.includes("fishingPopupLabel("),
+  "Phaser must animate pole and catch popup at actor coordinates");
+assert.ok(canvas.includes("fishingGeometry(")&&canvas.includes("fishingPopupLabel("),
+  "Fallback Canvas must use the same tile-anchored fishing coordinates");
 assert.ok(css.includes("prefers-reduced-motion:reduce"));
 console.log("PASS: delayed variable bites, misses, no-bite, escapes, catches, animations and legacy save migration");
