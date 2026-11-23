@@ -15,6 +15,7 @@ import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
+import {ROOM_FURNITURE,furnitureScreenRect} from "./world-layout";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -50,6 +51,7 @@ class YZWorldScene extends Phaser.Scene {
   private background!: Phaser.GameObjects.Image;
   private soil: Phaser.GameObjects.Sprite[] = [];
   private mapProps: Phaser.GameObjects.Image[] = [];
+  private interiorProps: Phaser.GameObjects.Image[] = [];
   private questSprites: Phaser.GameObjects.Image[] = [];
   private questStateKey = "";
   private farm!: Phaser.GameObjects.Graphics;
@@ -115,9 +117,22 @@ class YZWorldScene extends Phaser.Scene {
         const canvas=document.createElement("canvas");
         canvas.width=480;canvas.height=HEIGHT;
         const brush=canvas.getContext("2d");
-        if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening);
+        if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening,"base");
           else drawHousingInterior(brush,atlas,room,evening);}
         this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
+      }
+      if(useHD)for(const room of ["home","shed"] as const){
+        for(const piece of ROOM_FURNITURE[room]){
+          const frame=room==="home"?1:3;
+          const canvas=document.createElement("canvas");
+          canvas.width=piece.width;canvas.height=piece.height;
+          const brush=canvas.getContext("2d");
+          if(!brush)continue;
+          brush.drawImage(atlas,(frame%2)*320+piece.x,
+            Math.floor(frame/2)*320+piece.y,piece.width,piece.height,
+            0,0,piece.width,piece.height);
+          this.textures.addCanvas("yz-hd-piece-"+room+"-"+piece.id,canvas);
+        }
       }
       if(this.textures.exists("yz-hd-exteriors")){
         const hd=this.textures.get("yz-hd-exteriors").getSourceImage() as HTMLImageElement;
@@ -228,7 +243,9 @@ class YZWorldScene extends Phaser.Scene {
     this.crops.forEach(crop => crop.setVisible(false));
     this.soil.forEach(tile => tile.setVisible(false));
     for (const prop of this.mapProps) prop.destroy();
+    for (const prop of this.interiorProps) prop.destroy();
     this.mapProps = [];
+    this.interiorProps = [];
     if (isOutdoorLocation(location)) {
       const key = "yz-zone-" + location;
       if (!this.textures.exists(key)) {
@@ -253,6 +270,17 @@ class YZWorldScene extends Phaser.Scene {
         "yz-housing-home-"+(minutes>=18*60?"night":"day") :
         location==="warung" ? "yz-warung" : "yz-housing-shed-day";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
+      if((location==="home"||location==="shed")&&this.textures.exists("yz-hd-interiors")){
+        this.interiorProps=ROOM_FURNITURE[location].map(piece=>{
+          const rect=furnitureScreenRect(piece);
+          const sprite=this.add.image(rect.x,rect.y,
+              "yz-hd-piece-"+location+"-"+piece.id)
+            .setOrigin(0,0).setDisplaySize(rect.width,rect.height)
+            .setDepth(1000+rect.footY-TILE);
+          if(minutes>=18*60)sprite.setTint(0xcbd4e0);
+          return sprite;
+        });
+      }
     }
   }
 
