@@ -4,6 +4,7 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
+import {atomicCharacterFrame,atomicFramePosition,type Motion} from "./atomic-characters";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -24,7 +25,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
+export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { atomic?:Record<string,HTMLImageElement>; cucumber?: HTMLImageElement; effects?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
@@ -56,7 +57,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }
     const residents=npcHere(state);
     for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
-    actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+    drawActivePlayer();
     for(const npc of residents)if(npc.y>position.y)drawNpc(npc);
     return;
   }
@@ -65,10 +66,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if (art.warungInterior) ctx.drawImage(art.warungInterior,0,0,W*T,H*T);
     else box(ctx,160,120,180,160,"#b49970");
     for (const npc of npcHere(state)) drawPerson(ctx,npc.x,npc.y,npc.color,"#e4b48b","#553a2c",false);
-    if(art.people){
-      ctx.drawImage(art.people,24,facingRows[position.dir]*32,24,32,
-        Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
-    }else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    drawActivePlayer();
     return;
   }
   if(state.location==="shed"){
@@ -90,9 +88,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG ALAT",9*T,5*T-4);
     label(ctx,"Rak: dekati + Aksi",8*T,14*T+14);
     }
-    if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
-      Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
-    else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    drawActivePlayer();
     return;
   }
   if (state.location === "home") {
@@ -119,10 +115,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"RUMAH YANZEN",9*T,5*T-4);
     label(ctx,"Tidur: dekati ranjang + Aksi",8*T,14*T+14);
     }
-    if(art.people) {
-      const row=facingRows[position.dir];
-      ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
-    } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    drawActivePlayer();
     return;
   }
   // Keep farm art and terrain separate from other real, connected neighborhoods.
@@ -157,12 +150,37 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }
   }
   }
-  function actor(id: keyof typeof actorRows, x: number, y: number, dir: Direction, frame: number, color: string) {
-    if (art.people) {
-      const row = actorRows[id] * 4 + facingRows[dir];
-      ctx!.drawImage(art.people, frame*24, row*32, 24, 32, Math.round(x*T)-2, Math.round(y*T)-12, 24, 32);
-    } else {
-      drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
+  function drawAtomic(id:keyof typeof actorRows,motion:Motion,lane:string,frameIndex:number,
+                      x:number,y:number,shiftX=0,shiftY=0){
+    const visual=atomicCharacterFrame(id,motion,lane,frameIndex);
+    const image=art.atomic?.[visual.key];
+    if(image){
+      const loc=atomicFramePosition(visual,x,y,shiftX,shiftY);
+      ctx!.drawImage(image,loc.x,loc.y,visual.width,visual.height);
+    }else{
+      // Individual PNGs may still be loading. Procedural silhouette fallback
+      // is self-contained: it never loads any old shared spritesheet.
+      drawPerson(ctx!,x,y,id==="A01"?"#295d4d":"#496d60","#e4b48b","#553a2c",id==="A01");
+    }
+  }
+  function actor(id:keyof typeof actorRows,x:number,y:number,dir:Direction,frame:number,_color:string){
+    drawAtomic(id,"idle",dir,Math.max(0,Math.min(2,frame)),x,y);
+  }
+  /** Single animation decision tree and foot-anchor across indoor/outdoor. */
+  function drawActivePlayer(){
+    const fish=state.location==="sungai" && fishing?.session?
+      fishingGeometry(position,fishing.session.phase,fishing.session.elapsed):undefined;
+    if(fish){
+      drawAtomic("A01","idle",position.dir,fish.spriteFrame,position.x,position.y,0,fish.bodyShift);
+    }else if(action && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y){
+      drawAtomic("A01",action.use.tool,action.use.origin.dir,action.frame,position.x,position.y);
+    }else if(weight){
+      drawAtomic("A01","turn","angle-"+weight.row,weight.column,
+        position.x,position.y,weight.shiftX,weight.shiftY);
+    }else if(pose!==null){
+      drawAtomic("A01",running?"run":"walk",position.dir,pose,position.x,position.y);
+    }else{
+      drawAtomic("A01","idle",position.dir,1,position.x,position.y);
     }
   }
   function drawNpc(npc: NpcPlacement) {
@@ -203,7 +221,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.lineWidth=1;
     ctx.strokeRect(target.x*T+1,target.y*T+1,T-2,T-2);
   }
-  const footX=Math.round(position.x*T)+10, footY=Math.round(position.y*T)+17;
+  const footX=Math.round(position.x*T)+10, footY=Math.round(position.y*T)+18;
   box(ctx,footX-5,footY-1,10,2,"rgba(55,54,33,.24)");
   box(ctx,footX-3,footY+1,6,1,"rgba(55,54,33,.16)");
   if (dust) {
@@ -217,25 +235,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   const fishPose=state.location==="sungai" && fishing?.session?
     fishingGeometry(position,fishing.session.phase,fishing.session.elapsed):undefined;
-  if (fishPose) {
-    ctx.save();ctx.translate(0,fishPose.bodyShift);
-    actor("A01",position.x,position.y,position.dir,fishPose.spriteFrame,"#295d4d");
-    ctx.restore();
-  } else if (action && art.actions && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y) {
-    const index = { hoe: 0, seed: 1, water: 2, harvest: 3 }[action.use.tool];
-    const row = index*4 + facingRows[action.use.origin.dir];
-    ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
-      Math.round(position.x*T)-14, Math.round(position.y*T)-23, 48, 48);
-  } else if (weight && art.turns) {
-    ctx.drawImage(art.turns,weight.column*32,weight.row*40,32,40,
-      Math.round(position.x*T)-6+weight.shiftX,Math.round(position.y*T)-18+weight.shiftY,32,40);
-  } else if (pose !== null && art.gaits) {
-    const row = facingRows[position.dir] + (running ? 4 : 0);
-    ctx.drawImage(art.gaits, pose*32, row*40, 32, 40,
-      Math.round(position.x*T)-6, Math.round(position.y*T)-18, 32, 40);
-  } else {
-    actor("A01", position.x, position.y, position.dir, pose === null ? 1 : (pose < 3 ? 0 : 2), "#295d4d");
-  }
+  drawActivePlayer();
   if (action && art.effects && action.effect>=0) {
     const row={hoe:0,seed:1,water:2,harvest:3}[action.use.tool];
     const {x,y}=action.use.target;
