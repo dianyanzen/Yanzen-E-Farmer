@@ -234,7 +234,7 @@ export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem)
   }
   if(merchant==="A04" && item==="cucumber"){
     const qty=sellableCucumbers(s);
-    if(!qty || s.coins+qty*25>99999999 || f.cropsSold+qty>99999999)return fail("Tidak ada timun lepas yang dapat dibeli.");
+    if(!qty || s.coins+qty*25>99999999 || f.cropsSold+qty>99999999)return fail("Belum ada timun di luar pesanan yang bisa kamu jual.");
     return {state:{...sellCucumbers(s),fishing:{...f,cropsSold:f.cropsSold+qty}},message:qty+" timun terjual seharga "+qty*25+" G."};
   }
   if(merchant==="C07" && FISH_IDS.includes(item as FishId)){
@@ -432,9 +432,9 @@ export type NpcId = (typeof NPCS)[number]["id"];
 export const NPC_SOULS:Record<NpcId,{
   home:string;work:string;desire:string;fear:string;habit:string;connection:string;
 }> = {
-  A04:{home:"Permukiman Nani",work:"Menjaga lapak benih",desire:"Setiap keluarga bisa menanam kembali benih sendiri",
+  A04:{home:"Gang Pasirluyu",work:"Menjaga lapak benih",desire:"Setiap keluarga bisa menanam kembali benih sendiri",
     fear:"Benih lama tertukar dengan biji untuk masak",habit:"Menguji daya kecambah dengan kain basah sebelum membuka kios",connection:"Menitipkan contoh benih kepada Nani"},
-  C07:{home:"Permukiman Nani",work:"Membeli ikan dan meracik pelet",desire:"Menjaga kualitas ikan dan membantu warga memancing dengan sabar",
+  C07:{home:"Gang Pasirluyu",work:"Membeli ikan dan meracik pelet",desire:"Menjaga kualitas ikan dan membantu warga memancing dengan sabar",
     fear:"Pedagang membawa pulang keranjang kosong",habit:"Membasahi alas keranjang saat matahari mulai tinggi",connection:"Menukar catatan tinggi air dengan Ryan"},
   A03:{home:"Gang Pasirluyu",work:"Penjaga saluran air",desire:"Air kebun hulu dan hilir terbagi adil",
     fear:"Dituduh merugikan tetangga ketika pintu air rusak",habit:"Mengecek catatan tinggi air setiap siang",
@@ -490,7 +490,7 @@ export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] 
     const [morning, work, home] = dailyStops[npc.id];
     const close=closingTime(npc.id);
     const returning=s.minutes>=close;
-    if(isMarketMerchant(npc.id) && !returning)return {...npc,...work,activity:npc.id==="A04"?"Menjaga lapak benih":"Melayani nelayan di lapak ikan"};
+    if(isMarketMerchant(npc.id) && !returning)return {...npc,...work,activity:npc.id==="A04"?"Menjaga lapak benih":"Membantu pemancing di lapak ikan"};
     const departed = s.minutes >= 720;
     if (!departed) return {...npc,...morning,activity:"Beraktivitas di kebun"};
     const start = returning ? close : 720;
@@ -597,7 +597,7 @@ export function farmOverview(s:GameState){
   if(ready)next="Ada timun matang: hadap tanaman lalu tekan Aksi untuk panen.";
   else if(needsWater&&!s.carriedTools.includes("water"))next="Ambil gembor dari gudang agar tanaman bisa disiram.";
   else if(needsWater)next="Pilih Gembor Penyiram lalu siram tanaman yang belum basah.";
-  else if(tilled&&!s.seeds)next="Bibit habis! Beli bibit dari Ayu di pasar → Pesan.";
+  else if(tilled&&!s.seeds)next="Bibit habis. Temui Ayu di lapak benih Pasar Warga untuk membeli bibit.";
   else if(tilled)next="Tanah siap tanam: hadapkan karakter ke petak dan tekan Aksi.";
   else if(watered)next="Tanaman sudah disiram. Tidur di kasur rumah untuk berganti hari dan menumbuhkannya.";
   else if(empty&&!s.carriedTools.includes("hoe"))next="Ambil cangkul dari gudang untuk membuka lahan.";
@@ -708,7 +708,7 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
   }
   if (tool === "seed") {
     if (!p || p.stage !== -1) return { state: s, message: "Cangkul petak kosong terlebih dahulu." };
-    if (s.seeds < 1) return { state: s, message: "Bibit habis. Temui Inggit untuk membeli bibit." };
+    if (s.seeds < 1) return { state: s, message: "Bibit habis. Temui Ayu di lapak benih Pasar Warga." };
     return { state: addMinutes({ ...s, seeds: s.seeds - 1,
       plots: s.plots.map(q => q === p ? { ...q, stage: 0 } : q) }),
       message: "Bibit timun ditanam. Siram dan istirahat agar tumbuh." };
@@ -778,7 +778,7 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
     s.story.orderDone ? "Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
     s.story.orderAccepted ? "Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
     "Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
-    s.seeds <= 2 && s.coins >= 40 ? "Bibit hampir habis? Cari Ayu di depan kios sayur Pasar Warga." :
+    s.seeds <= 2 && s.coins >= 40 ? "Bibit hampir habis? Ayu menjaga lapak benih di Pasar Warga." :
       "Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
 }
 export function choosePhoto(s: GameState, choice: PhotoChoice): GameState {
@@ -800,7 +800,7 @@ export function chapterJournal(s: GameState) {
     "Temui Ryan di pinggir timur kebun. Hadapkan Yanzen kepadanya lalu tekan Aksi.",
     "Temui Nani di gang timur kebun untuk melihat foto pintu air.",
     "Kembali kepada Nani saat siap menentukan tempat foto. Pilihan boleh ditunda.",
-    "Bab 1 selesai. Rawat kebun, jual panen di warung, atau kunjungi kembali warga. Cimincrang belum dibuka."];
+    "Bab 1 selesai. Rawat kebun, jual timun tambahan di lapak Ayu, atau kunjungi kembali warga. Cimincrang belum dibuka."];
   return { stage, objective: objectives[stage], entries: [
     { title: "Empat timun untuk Inggit", done: s.story.orderDone },
     { title: "Dua garis bersama Ryan", done: s.story.canalClue },
