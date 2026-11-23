@@ -89,7 +89,8 @@ try{
  assert.match(client,/Batal, simpan progres/,"reset must offer a safe cancellation");
  assert.match(client,/await queueRef.current;/,"reset must wait for earlier saves");
  assert.match(client,/resetInFlightRef.current/,"autosave must be blocked during reset");
- assert.match(client,/fetch\("\/api\/game\/reset", \{ method: "POST" \}\)/,"reset must use dedicated server endpoint");
+ assert.match(client,/fetch\("\/api\/game\/save", \{ method: "POST" \}\)/,"reset must use authenticated reset handler on the staging-supported route");
+ assert.match(saveApi,/export \{ POST \} from "\.\.\/reset\/route"/,"staging save POST must reuse the authenticated reset endpoint");
  assert.match(client,/expectedUpdatedAt: saveRevisionRef.current/,"save must carry a revision for stale-tab protection");
  assert.match(client,/new BroadcastChannel\("yz-farm-progress"\)/,"reset should notify other open tabs");
  const resetApi=readFileSync("src/app/api/game/reset/route.ts","utf8");
