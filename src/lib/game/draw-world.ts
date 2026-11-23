@@ -4,6 +4,8 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
+import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./housing-v2";
+import {drawHDInterior,drawHDInteriorProps,drawHDSprite,exteriorHDSprite} from "./housing-hd";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -25,7 +27,8 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
-  outdoor?: Record<string,HTMLImageElement>;
+  outdoor?: Record<string,HTMLImageElement>; housingAtlas?: HTMLImageElement;
+  housingHDExteriors?: HTMLImageElement;housingHDInteriors?: HTMLImageElement;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
@@ -72,7 +75,12 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
+    if (art.housingHDInteriors){
+      drawHDInterior(ctx,art.housingHDInteriors,"shed",state.minutes>=18*60,"base");
+      drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"behind");
+    }
+    else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
+    else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
     box(ctx,7*T,5*T,11*T,10*T,"#53402f");
@@ -93,10 +101,16 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
       Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
     else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"front");
     return;
   }
   if (state.location === "home") {
-    if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
+    if (art.housingHDInteriors){
+      drawHDInterior(ctx,art.housingHDInteriors,"home",state.minutes>=18*60,"base");
+      drawHDInteriorProps(ctx,art.housingHDInteriors,"home",(position.y+1)*T,"behind");
+    }
+    else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"home",state.minutes>=18*60);
+    else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
@@ -123,6 +137,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       const row=facingRows[position.dir];
       ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
     } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"home",(position.y+1)*T,"front");
     return;
   }
   // Keep farm art and terrain separate from other real, connected neighborhoods.
@@ -182,15 +197,20 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1}))
   ];
   for (const prop of physicalProps) {
-    const image = art.outdoor?.[prop.asset];
+    const hd = art.housingHDExteriors ? exteriorHDSprite(prop.asset) : null;
+    const custom = hd ? null : art.housingAtlas ? exteriorHousingSprite(prop.asset) : null;
+    const image = hd ? art.housingHDExteriors : custom ? art.housingAtlas : art.outdoor?.[prop.asset];
     if (!image) continue;
-    const scale = prop.scale ?? 1;
-    const width = Math.round(image.width*scale), height = Math.round(image.height*scale);
+    const scale = (hd || custom) ? 1 : (prop.scale ?? 1);
+    const width = Math.round((hd?.width ?? custom?.width ?? image.width)*scale), height = Math.round((hd?.height ?? custom?.height ?? image.height)*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
       ctx.save();ctx.globalAlpha=covered?.65:1;
-      ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);ctx.restore();
+      if(hd) drawHDSprite(ctx,image,hd.frame,Math.round(prop.x-width/2),prop.y-height+hd.footOffset,width,height);
+      else if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
+      else ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);
+      ctx.restore();
     }});
   }
   ordered.sort((a,b)=>a.y-b.y);

@@ -3,6 +3,8 @@ import { riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./mode
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
+import {MARKET_STOREFRONTS,EXTERIOR_THRESHOLDS} from "./world-layout";
+import {exteriorHDSprite} from "./housing-hd";
 
 const kit = "tiles/farm-kit/";
 const everyday = ["rumah-yanzen","gudang-kayu","warung-inggit","kandang-ayam","kanopi-pohon",
@@ -40,9 +42,9 @@ type Route = readonly [number,readonly Point[]];
 const paths: Record<OutdoorLocation,Route[]> = {
   field: [
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
-    [15,[[78,94],[78,116],[106,130],[192,130],[224,142],[253,183],[279,222]]],
-    [14,[[191,93],[190,112],[191,132]]],
-    [16,[[387,93],[387,132],[368,169],[348,216]]],
+    [15,[[72,102],[72,118],[106,130],[192,130],[224,142],[253,183],[279,222]]],
+    [14,[[186,95],[186,112],[191,132]]],
+    [16,[[387,95],[387,132],[368,169],[348,216]]],
     [14,[[314,215],[320,253],[350,273],[366,285]]],
     [13,[[82,117],[55,128],[35,141],[24,141]]],
     [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
@@ -50,10 +52,10 @@ const paths: Record<OutdoorLocation,Route[]> = {
   gang: [
     [34,[[-14,220],[90,218],[174,226],[240,220],[323,212],[413,219],[483,226],[565,220],[652,220]]],
     [32,[[240,-14],[235,69],[247,149],[240,219],[230,263],[240,334]]],
-    [15,[[160,153],[158,183],[178,206],[186,222]]],
-    [15,[[403,153],[405,184],[389,218]]],
-    [12,[[90,276],[89,292],[143,294],[158,275],[156,240],[145,222]]],
-    [13,[[309,276],[310,297],[369,296],[376,270],[378,240],[390,218]]],
+    [15,[[160,155],[158,183],[178,206],[186,222]]],
+    [15,[[403,155],[405,184],[389,218]]],
+    [14,[[85,278],[85,293],[143,294],[158,275],[156,240],[145,222]]],
+    [14,[[305,278],[305,297],[369,296],[376,270],[378,240],[390,218]]],
     [13,[[530,154],[530,175],[511,191],[510,218]]],
     [13,[[488,225],[505,198],[536,189],[570,187],[588,202],[600,220]]],
   ],
@@ -76,7 +78,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
-    {asset:"rumah-yanzen",x:78,y:96,scale:.94},{asset:"gudang-kayu",x:191,y:95},
+    {asset:"rumah-yanzen",x:78,y:102,scale:.94},{asset:"gudang-kayu",x:191,y:95},
     {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
     {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
@@ -101,7 +103,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
-    {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
+    {asset:"lapak-benih",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
     {asset:"warung-inggit",x:374,y:177,scale:1.04},{asset:"peti-kayu",x:321,y:178},
     {asset:"papan-pasar",x:303,y:100},
@@ -157,7 +159,7 @@ for(const location of Object.keys(gardens) as OutdoorLocation[]){
 }
 props.field.push(
   ...([[530,139],[590,139],[550,199],[610,199]] as Point[]).map(([x,y],i)=>({asset:i%2?"tajuk-terang":"tajuk-kebun",x,y,scale:.69})),
-  {asset:"tong-dan-papan",x:210,y:97,scale:.57},{asset:"kelompok-pot",x:357,y:98,scale:.57},
+  {asset:"tong-dan-papan",x:249,y:100,scale:.55},{asset:"kelompok-pot",x:339,y:101,scale:.54},
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
 );
 props.gang.push(
@@ -200,8 +202,8 @@ props.gang.push(
 );
 props.gang.push(
   {asset:"atelier-nani",x:123,y:154},{asset:"atelier-ryan",x:439,y:156},
-  {asset:"atelier-inggit",x:58,y:278},{asset:"atelier-ayu",x:278,y:277},
-  {asset:"atelier-widi",x:565,y:155}
+  {asset:"atelier-inggit",x:47,y:280,scale:.68},{asset:"atelier-ayu",x:268,y:281,scale:.68},
+  {asset:"atelier-widi",x:582,y:158,scale:.68}
 );
 props.pasar.push(
   {asset:"kios-sayur-buka",closedAsset:"kios-sayur-tutup",x:451,y:160,scale:.72},
@@ -222,6 +224,38 @@ props.sungai.push(
   {asset:"kelompok-pot",x:22,y:183,scale:.49},{asset:"tong-dan-papan",x:20,y:235,scale:.55},
   {asset:"rumpun-tepian",x:39,y:284,scale:.64},{asset:"ilalang-kanal",x:35,y:300,scale:.55},
   {asset:"batu-kembar",x:43,y:104,scale:.65},{asset:"rumput-tinggi",x:15,y:125,scale:.54}
+);
+/** HD market curation: the original small-stall layout overlapped THREE shops.
+ * Retain individual buildings at their canonical counters; move small stalls to
+ * the southern row. Decorative items under a shop roof are removed, NOT hidden
+ * underneath textures where they still cause z-order flashes.
+ */
+const isMarketBuilding=(asset:string)=>MARKET_STOREFRONTS.some(shop=>shop.asset===asset);
+const reservedMarketRoof=(p:Placement)=>MARKET_STOREFRONTS.some(shop=>
+  Math.abs(shop.x-p.x)<shop.width/2+8 &&
+  p.y>shop.y-shop.height+8 && p.y<shop.y+15);
+props.pasar=props.pasar.filter(p=>
+  isMarketBuilding(p.asset) || (
+    !["lapak-anyaman","kios-sayur-buka","kios-sayur-tutup","atelier-widi"].includes(p.asset) &&
+    !reservedMarketRoof(p) &&
+    !(p.y>=229 && p.y<=315 && (
+      (p.x>=35&&p.x<=142)||(p.x>=402&&p.x<=552)
+    ))
+  ));
+props.pasar.push(
+  // Ayu: displays at the *edges* of the large store, never over the door.
+  {asset:"keranjang-buah",x:49,y:181,scale:.51},
+  {asset:"pot-berbunga",x:208,y:181,scale:.59},
+  // A dedicated southern market row leaves the y=180–225 promenade free.
+  {asset:"lapak-anyaman",x:87,y:300,scale:.70},
+  {asset:"kios-sayur-buka",closedAsset:"kios-sayur-tutup",x:441,y:298,scale:.79},
+  {asset:"lapak-anyaman",x:516,y:299,scale:.68},
+  {asset:"peti-dagangan-sayur",x:402,y:305,scale:.63},
+  {asset:"keranjang-buah",x:477,y:302,scale:.62},
+  {asset:"tong-dan-papan",x:556,y:304,scale:.56},
+  // Widi's shop board is outside the shop silhouette, not inside its roof.
+  {asset:"atelier-widi",x:472,y:169,scale:.64},
+  {asset:"papan-pasar",x:618,y:206,scale:.72}
 );
 for(const location of Object.keys(props) as OutdoorLocation[])props[location].push(...sharedBorderProps(location));
 // Quest-specific art is drawn only while its owner's request is active; see activeQuestProps().
@@ -364,6 +398,28 @@ function paintRiver(ctx:CanvasRenderingContext2D,art:OutdoorImages) {
   for(let x=35;x<51;x+=3){ctx.fillStyle="#b99160";ctx.fillRect(x,225,2,15);}
 }
 
+/** Threshold stones lead exactly from every new HD doorway to its road. */
+const doorLandingRuns:Record<OutdoorLocation,readonly {asset:keyof typeof EXTERIOR_THRESHOLDS;toY:number}[]>={
+  field:[{asset:"rumah-yanzen",toY:126},{asset:"gudang-kayu",toY:129},{asset:"warung-inggit",toY:130}],
+  gang:[{asset:"fasad-nani",toY:185},{asset:"fasad-ryan",toY:185},
+    {asset:"fasad-inggit",toY:296},{asset:"fasad-ayu",toY:297},{asset:"fasad-widi",toY:185}],
+  pasar:[{asset:"lapak-benih",toY:190},{asset:"lapak-pancing",toY:177}],
+  sungai:[]
+};
+export function drawEntranceLandings(ctx:CanvasRenderingContext2D,location:OutdoorLocation){
+  for(const run of doorLandingRuns[location]){
+    const start=EXTERIOR_THRESHOLDS[run.asset],length=run.toY-start.y;
+    if(length<=0)continue;
+    ctx.save();
+    ctx.fillStyle="#a18c68";ctx.fillRect(start.x-9,start.y+2,18,length-2);
+    for(let dy=4;dy<length;dy+=7){
+      const y=start.y+dy,taper=Math.max(1,Math.round(dy/11));
+      ctx.fillStyle="#c9b58b";ctx.fillRect(start.x-8-taper,y,16+taper*2,4);
+      ctx.fillStyle="#e0c9a2";ctx.fillRect(start.x-7-taper,y,13+taper*2,1);
+    }
+    ctx.restore();
+  }
+}
 function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:OutdoorImages){
   ctx.imageSmoothingEnabled=false;
   ctx.fillStyle="#a4bc70";
@@ -398,6 +454,7 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     ctx.restore();
   }
   if (location==="field") drawFieldCanal(ctx,art);
+  drawEntranceLandings(ctx,location);
   if (location==="sungai"){
     layRiceBeds(ctx);
     paintRiver(ctx,art);
@@ -433,7 +490,10 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
   for(const prop of props[location]){
     const image=art[prop.asset];
     if(!image || !("naturalWidth" in image))continue;
-    const width=image.naturalWidth*(prop.scale??1);
+    const hd=exteriorHDSprite(prop.asset);
+    // HD facades are larger than their legacy thumbnail and need ground-level
+    // contact shadows matching the new visible size, not the old asset width.
+    const width=hd?.width ?? image.naturalWidth*(prop.scale??1);
     if(width<30)continue;
     ctx.beginPath();ctx.ellipse(prop.x+2,prop.y-2,width*.36,Math.max(2,width*.055),0,0,Math.PI*2);ctx.fill();
   }

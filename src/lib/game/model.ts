@@ -1,4 +1,5 @@
 import type { QuestBook, FollowUpBook } from "./personal-quests";
+import interiorLayoutData from "./world-layout-data.json";
 
 import cast from "../../../game-assets/catalog/cast.json";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
@@ -74,9 +75,11 @@ export function cycleFarmTool(tool:ToolId|null,direction:1|-1,available:readonly
   return available[index<0 ? (direction===1?0:available.length-1) :
     (index+available.length+direction)%available.length] ?? null;
 }
+function activeFurnitureTarget(kind:keyof typeof interiorLayoutData.active,front:{x:number;y:number}){
+  return interiorLayoutData.active[kind].some(([x,y])=>x===front.x&&y===front.y);
+}
 export function canManageTools(s:GameState):boolean{
-  const front=facing(s.player);
-  return s.location==="shed"&&front.x===SHED.rack.x&&front.y===SHED.rack.y;
+  return s.location==="shed"&&activeFurnitureTarget("shedStorage",facing(s.player));
 }
 export function transferTool(s:GameState,tool:ToolId,direction:"store"|"take"):{state:GameState;message:string}{
   if(!canManageTools(s)) return {state:s,message:"Buka rak gudang dahulu untuk memindahkan alat."};
@@ -621,7 +624,17 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[4,6,8,8],[16,6,20,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  // The large Ayu store and Widi fishing shop occupy the northern frontage;
+  // small kiosks moved to the southern market row. Keep the central road open.
+  pasar:[
+    [3,6,9,8],       // Ayu: large general store (counter remains y=9)
+    [16,6,20,8],     // Inggit's warung
+    [24,6,30,7],     // Widi's fishing shop, NPC remains at x27/y8
+    [2,13,5,14],     // southern craft stall
+    [20,13,23,14],   // vegetable kiosk
+    [24,13,27,14],   // smaller craft stall
+    [16,13,17,13],   // existing public seating
+  ],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -652,6 +665,8 @@ export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState
   if(location==="warung") return x<8 || x>16 || y<6 || y>13 ||
     (y===6 && x!==10) || (y===7 && x>=12);
   if(isResidentHome(location))return x<8 || x>16 || y<8 || y>13;
+  if(location==="home")return homeBlocked(x,y);
+  if(location==="shed")return interiorRoomBlocked("shed",x,y);
   if(!isOutdoorLocation(location))return homeBlocked(x,y);
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
@@ -851,17 +866,23 @@ export function safeLoad(value: unknown): GameState | null {
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
       !Array.isArray(value.plots) || value.plots.length > 48) return null;
   let playerX=player.x, playerY=player.y;
-  // Older saves can stand inside an updated footprint. Recover the nearest
-  // traversable outdoor tile while leaving valid positions and all progress intact.
+  // New HD furniture footprints must never invalidate an existing save.
+  // Relocate a legacy room position only within that room's original bounds;
+  // unrelated indoor invalid coordinates still fail validation.
   if(areaBlocked(location as GameLocation,playerX,playerY)){
-    if(!isOutdoorLocation(location as GameLocation))return null;
+    const roomLegacy=location==="home"||location==="shed";
+    const outdoor=isOutdoorLocation(location as GameLocation);
+    if(!outdoor && !roomLegacy)return null;
+    if(roomLegacy && (playerX<8||playerX>16||playerY<6||playerY>13))return null;
     let bestDistance=Infinity;
-    for(let y=0;y<WORLD.height;y++)for(let x=0;x<WORLD.width;x++){
-      const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
-      if(distance<bestDistance && !areaBlocked(location as OutdoorLocation,x,y)){
-        playerX=x;playerY=y;bestDistance=distance;
+    for(let y=roomLegacy?6:0;y<(roomLegacy?14:WORLD.height);y++)
+      for(let x=roomLegacy?8:0;x<(roomLegacy?17:WORLD.width);x++){
+        const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
+        if(distance<bestDistance && !areaBlocked(location as GameLocation,x,y)){
+          playerX=x;playerY=y;bestDistance=distance;
+        }
       }
-    }
+    if(!Number.isFinite(bestDistance))return null;
   }
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
@@ -998,8 +1019,12 @@ function facingInteraction(s: Pick<GameState, "location" | "player">) {
 export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
+function interiorRoomBlocked(room:"home"|"shed",x:number,y:number):boolean{
+  if(x<8||x>16||y<6||y>13)return true;
+  return interiorLayoutData[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
+}
 export function homeBlocked(x: number, y: number) {
-  return x < 8 || x > 16 || y < 6 || y > 13 || (x <= 10 && y <= 7) || (x >= 15 && y <= 8) || (x === 12 && y === 7);
+  return interiorRoomBlocked("home",x,y);
 }
 function warungOpen(s: GameState) {
   const inggit = npcWhere(s,"C08");
@@ -1061,10 +1086,18 @@ export function getActionContext(s:GameState):ActionContext {
   if(s.location==="home"){
     if(interactDoor(s)!==s) return {kind:"door",label:"Keluar rumah"};
     if(canSleep(s)) return {kind:"sleep",label:"Tidur di kasur"};
-    if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
-      text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
-    if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
-      return {kind:"inspect",label:"Periksa lemari",text:"Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang."};
+    if(activeFurnitureTarget("homeBookshelf",front))
+      return {kind:"inspect",label:"Periksa rak buku",
+        text:"Rak kecil berisi catatan budidaya, buku, dan dokumen kebun yang tersusun rapi."};
+    if(activeFurnitureTarget("homeDesk",front))
+      return {kind:"inspect",label:"Periksa meja kerja",
+        text:"Catatan kerja dan perkembangan kebun bisa kamu lihat di YZ Phone."};
+    if(activeFurnitureTarget("homeCabinet",front))
+      return {kind:"inspect",label:"Periksa lemari",
+        text:"Pakaian dan perlengkapan rumah tersimpan di sini."};
+    if(activeFurnitureTarget("homeChest",front))
+      return {kind:"inspect",label:"Periksa peti",
+        text:"Peti dan karung hasil kebun ditata di dekat tempat tidur. Barang di tas tetap bisa dilihat dari inventaris."};
     return {kind:"none",label:"Tidak ada objek"};
   }
   if (s.location === "field") {

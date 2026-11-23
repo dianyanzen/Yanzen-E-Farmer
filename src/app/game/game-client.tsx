@@ -121,7 +121,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     let active = true;
     const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png",
       rumahDay: "pasirluyu/rumah-yanzen-interior-day.svg", rumahEvening: "pasirluyu/rumah-yanzen-interior-evening.svg",
-      warungInterior: "pasirluyu/warung-interior.svg", gudangInterior: "pasirluyu/gudang-interior.svg" };
+      warungInterior: "pasirluyu/warung-interior.svg", gudangInterior: "pasirluyu/gudang-interior.svg",
+      housingAtlas: "locations/yanzen/housing-atlas-v2.png",
+      housingHDExteriors:"hd/housing-market-hd.webp", housingHDInteriors:"hd/housing-interiors-hd.webp" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };

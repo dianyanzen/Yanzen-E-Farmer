@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-23",
+  "ownerGenerated": true,
+  "runtime": {
+    "exteriors": {
+      "path": "public/game/assets/hd/housing-market-hd.webp",
+      "sha256": "1613ab871c65005de64f6a003e6f22bbe8c183971cfe54ad5b33bc423ffd6a42",
+      "bytes": 155660,
+      "cell": 320,
+      "layout": "3x2"
+    },
+    "interiors": {
+      "path": "public/game/assets/hd/housing-interiors-hd.webp",
+      "sha256": "b843b1563152b15ae053f4559e67f5f0c8fb76e7bde1994b7500755927236f9e",
+      "bytes": 78228,
+      "cell": 320,
+      "layout": "2x2"
+    }
+  },
+  "sourceAssets": [
+    {
+      "file": "house.png",
+      "sha256": "1ec27134f6dc35ff85299fe4fd22058928df5d63f2dcb9cdc2f76b96eba52ab4",
+      "cloudReference": "https://at.adobe.com/0WYSm6wuwgNivmo6"
+    },
+    {
+      "file": "house-base.png",
+      "sha256": "c99da1166219bf0ef22c9d3aaa4724f6c0a7b5bda2c1dd0473a15caa808ac27c",
+      "cloudReference": "https://at.adobe.com/GhByLPzKe6ndcGtu"
+    },
+    {
+      "file": "house-furniture.png",
+      "sha256": "b8031e7abec7fd1b63e9baf184740e9e70596cfa84269539de3eb22df0936342",
+      "cloudReference": "https://at.adobe.com/pr95W4PvwQgsgZnA"
+    },
+    {
+      "file": "shed.png",
+      "sha256": "1af09517552c79e851b324e59e7d69ea09304494dc61963e11033978049ff139",
+      "cloudReference": "https://at.adobe.com/2oNPWXOIbAzRS1XA"
+    },
+    {
+      "file": "shed-base.png",
+      "sha256": "f65503b922796aeb875ea15d747f328f183c388cb10205277d5264f36a197aa5",
+      "cloudReference": "https://at.adobe.com/RHgv6zpWJDQ5cKMU"
+    },
+    {
+      "file": "shed-furniture.png",
+      "sha256": "b46f75ba91714b9e2b386d0a58d9d04ca5f0b2fb9064ae17f6f2534498198df5",
+      "cloudReference": "https://at.adobe.com/KQpaMg7QCwDA4RJb"
+    },
+    {
+      "file": "resident-a.png",
+      "sha256": "250f8b2104c7ea07449d8a023cf53d535c0152f22b2d04d161683c81fa9c93aa",
+      "cloudReference": "https://at.adobe.com/bcXtT73GJZqz9s5u"
+    },
+    {
+      "file": "resident-b.png",
+      "sha256": "898442a40c4724b1004348dca4701aeaf669ee57a4d4ba3816cbe92a2140c511",
+      "cloudReference": "https://at.adobe.com/Sq95ISUMhAqPy1nY"
+    },
+    {
+      "file": "ayu-store.png",
+      "sha256": "d58662380311c747d421f2b1fefb409cde4938c6397310f786fde155a34effbb",
+      "cloudReference": "https://at.adobe.com/Lyth8iH2PYyAm4yL"
+    },
+    {
+      "file": "widi-store.png",
+      "sha256": "c1793b90b7b4c605d9cd4df563d69db2e09e365de12e10f9662d9cffcd44c1ef",
+      "cloudReference": "https://at.adobe.com/eIjA9EEt5wyzKBca"
+    }
+  ],
+  "originalPack": {
+    "file": "YZ_Farm_Life_Housing_V2_Full_Resolution_Masters.zip",
+    "sha256": "4bc59ace053ee51c7a0e4f00dfd3b50aac72c4e0b4a55b751e9ff995734c7c60",
+    "cloudReference": "https://at.adobe.com/fDokiz6Q3JA1jEMS"
+  }
+}

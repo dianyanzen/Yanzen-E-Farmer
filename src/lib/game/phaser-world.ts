@@ -13,6 +13,9 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
+import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
+import {ROOM_FURNITURE,furnitureScreenRect} from "./world-layout";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -48,6 +51,7 @@ class YZWorldScene extends Phaser.Scene {
   private background!: Phaser.GameObjects.Image;
   private soil: Phaser.GameObjects.Sprite[] = [];
   private mapProps: Phaser.GameObjects.Image[] = [];
+  private interiorProps: Phaser.GameObjects.Image[] = [];
   private questSprites: Phaser.GameObjects.Image[] = [];
   private questStateKey = "";
   private farm!: Phaser.GameObjects.Graphics;
@@ -93,6 +97,9 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
+    this.load.spritesheet("yz-housing-v2", HOUSING_ATLAS_PATH, { frameWidth: 48, frameHeight: 48 });
+    this.load.spritesheet("yz-hd-exteriors", HD_EXTERIOR_PATH, {frameWidth:320,frameHeight:320});
+    this.load.image("yz-hd-interiors",HD_INTERIOR_PATH);
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
@@ -102,6 +109,35 @@ class YZWorldScene extends Phaser.Scene {
 
   create() {
     try {
+      // Convert atlas frames into visual-only interior maps. The base and furniture
+      // are separate frames; stateful bed/rack interactions remain in model.ts.
+      const useHD=this.textures.exists("yz-hd-interiors");
+      const atlas=this.textures.get(useHD?"yz-hd-interiors":"yz-housing-v2").getSourceImage() as HTMLImageElement;
+      for(const room of ["home","shed"] as const)for(const evening of [false,true]){
+        const canvas=document.createElement("canvas");
+        canvas.width=480;canvas.height=HEIGHT;
+        const brush=canvas.getContext("2d");
+        if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening,"base");
+          else drawHousingInterior(brush,atlas,room,evening);}
+        this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
+      }
+      if(useHD)for(const room of ["home","shed"] as const){
+        for(const piece of ROOM_FURNITURE[room]){
+          const frame=room==="home"?1:3;
+          const canvas=document.createElement("canvas");
+          canvas.width=piece.width;canvas.height=piece.height;
+          const brush=canvas.getContext("2d");
+          if(!brush)continue;
+          brush.drawImage(atlas,(frame%2)*320+piece.x,
+            Math.floor(frame/2)*320+piece.y,piece.width,piece.height,
+            0,0,piece.width,piece.height);
+          this.textures.addCanvas("yz-hd-piece-"+room+"-"+piece.id,canvas);
+        }
+      }
+      if(this.textures.exists("yz-hd-exteriors")){
+        const hd=this.textures.get("yz-hd-exteriors").getSourceImage() as HTMLImageElement;
+        this.textures.addCanvas("yz-widi-hd-clean",cleanWidiSource(hd));
+      }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
       this.farm = this.add.graphics().setDepth(10);
       this.highlight = this.add.graphics().setDepth(11);
@@ -207,7 +243,9 @@ class YZWorldScene extends Phaser.Scene {
     this.crops.forEach(crop => crop.setVisible(false));
     this.soil.forEach(tile => tile.setVisible(false));
     for (const prop of this.mapProps) prop.destroy();
+    for (const prop of this.interiorProps) prop.destroy();
     this.mapProps = [];
+    this.interiorProps = [];
     if (isOutdoorLocation(location)) {
       const key = "yz-zone-" + location;
       if (!this.textures.exists(key)) {
@@ -216,13 +254,34 @@ class YZWorldScene extends Phaser.Scene {
         this.textures.addCanvas(key,makeCanvas(ctx => drawModularGround(ctx,location,art)));
       }
       this.background.setTexture(key).setDisplaySize(WIDTH, HEIGHT);
-      this.mapProps = outdoorObjects(location,minutes).map(prop =>
-        this.add.image(prop.x,prop.y,"yz-map-"+prop.asset)
-          .setOrigin(.5,1).setScale(prop.scale ?? 1).setDepth(1000 + prop.y - TILE));
+      this.mapProps = outdoorObjects(location,minutes).map(prop => {
+        const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
+        const custom=hd?null:exteriorHousingSprite(prop.asset);
+        const widi=hd&&prop.asset==="lapak-pancing";
+        const image=this.add.image(prop.x,prop.y,widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
+          widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        if(hd)image.setY(prop.y+hd.footOffset);
+        if(hd)image.setDisplaySize(hd.width,hd.height);
+        else if(custom)image.setDisplaySize(custom.width,custom.height);
+        else image.setScale(prop.scale??1);
+        return image;
+      });
     } else {
-      const key=isResidentHome(location) ? location : location==="home" ? (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") :
-        location==="warung" ? "yz-warung" : "yz-shed";
+      const key=isResidentHome(location) ? location : location==="home" ?
+        "yz-housing-home-"+(minutes>=18*60?"night":"day") :
+        location==="warung" ? "yz-warung" : "yz-housing-shed-"+(minutes>=18*60?"night":"day");
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
+      if((location==="home"||location==="shed")&&this.textures.exists("yz-hd-interiors")){
+        this.interiorProps=ROOM_FURNITURE[location].map(piece=>{
+          const rect=furnitureScreenRect(piece);
+          const sprite=this.add.image(rect.x,rect.y,
+              "yz-hd-piece-"+location+"-"+piece.id)
+            .setOrigin(0,0).setDisplaySize(rect.width,rect.height)
+            .setDepth(1000+rect.footY-TILE);
+          if(minutes>=18*60)sprite.setTint(0xcbd4e0);
+          return sprite;
+        });
+      }
     }
   }
 
@@ -333,7 +392,10 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.changeLocation(location, frame.state.minutes);
     }
-    if (location === "home") this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
+    if(location==="home" || location==="shed"){
+      this.background.setTexture("yz-housing-"+location+"-"+(evening?"night":"day"));
+      for(const prop of this.interiorProps)prop.setTint(evening?0xcbd4e0:0xffffff);
+    }
     this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);
@@ -350,7 +412,12 @@ class YZWorldScene extends Phaser.Scene {
     if ((location === "pasar" || location === "sungai") && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
       const sprite = this.mapProps[index];
 
-      if (sprite && sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
+      const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
+      const texture=hd&&prop.asset==="lapak-pancing"?"yz-widi-hd-clean":hd?"yz-hd-exteriors":"yz-map-"+prop.asset;
+      if(sprite && (sprite.texture.key!==texture || (hd && sprite.frame.name!==String(hd.frame)))) {
+        sprite.setTexture(texture,texture==="yz-widi-hd-clean"?undefined:hd?.frame);
+        if(hd)sprite.setDisplaySize(hd.width,hd.height);
+      }
     });
     this.propState=propState;
     const route = frame.route ?? [];

@@ -103,6 +103,7 @@ export const PUBLIC_SECTIONS = {
   "tiles": "world",
   "pasirluyu": "world",
   "residences": "buildings",
+  "locations": "buildings",
   "audio": "audio",
   "story": "stories",
   "cutscenes": "stories",

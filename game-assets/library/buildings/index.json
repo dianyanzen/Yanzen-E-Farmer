@@ -3,10 +3,16 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 5,
-  "bytes": 622113,
+  "mediaCount": 6,
+  "bytes": 627184,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
+    {
+      "id": "locations/yanzen",
+      "files": [
+        "public/game/assets/locations/yanzen/housing-atlas-v2.png"
+      ]
+    },
     {
       "id": "residences",
       "files": [
