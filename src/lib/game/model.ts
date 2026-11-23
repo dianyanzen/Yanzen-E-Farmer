@@ -1,4 +1,5 @@
-import type { QuestBook } from "./personal-quests";
+import type { QuestBook, FollowUpBook } from "./personal-quests";
+import { questPropAt, type QuestPropId } from "./quest-props";
 import cast from "../../../game-assets/catalog/cast.json";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
 export const TOOL_CATALOG = {
@@ -114,6 +115,7 @@ export type Dialogue = {
 export type GameState = {
   nurseryChecked?: boolean;
   personalQuests?: QuestBook;
+  followUpQuests?: FollowUpBook;
   fishing: FishingInventory; sluiceOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
@@ -569,6 +571,7 @@ export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
   if(!isOutdoorLocation(location))return homeBlocked(x,y);
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
+  if(questPropAt(location,x,y))return true;
   if(x===0 || x===WORLD.width-1 || y===0 || y===WORLD.height-1){
     return !ROUTE_PORTALS.some(p=>p.from===location && onEdge(p.direction,x,y,p.start,p.end));
   }
@@ -746,6 +749,16 @@ export function safeLoad(value: unknown): GameState | null {
       personalQuests[owner.id]={phase:q.phase as 1|2|3|4,day:q.day,baseline:q.baseline};
     }
   }
+  const followUpQuests:FollowUpBook={};
+  if(value.followUpQuests!==undefined){
+    if(!record(value.followUpQuests))return null;
+    for(const [id,q] of Object.entries(value.followUpQuests)){
+      if(!NPCS.some(n=>n.id===id) || !record(q) || !integer(q.phase,1,3) ||
+         !integer(q.day,1,100000) || !integer(q.baseline,0,99999999) ||
+         typeof value.day!=="number" || q.day>value.day)return null;
+      followUpQuests[id as NpcId]={phase:q.phase as 1|2|3,day:q.day,baseline:q.baseline};
+    }
+  }
   const { player, story } = value;
   const location=value.location??"field";
   if(!isResidentHome(String(location)) && !["field","home","shed","warung","gang","pasar","sungai"].includes(String(location)))return null;
@@ -830,7 +843,7 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
@@ -948,7 +961,8 @@ export function interactDoor(s: GameState): GameState {
 export type ActionContext =
   | {kind:"nursery"|"fish"|"sluice"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
-  | {kind:"inspect";label:string;text:string};
+  | {kind:"inspect";label:string;text:string}
+  | {kind:"quest-prop";label:string;propId:QuestPropId};
 /** One action key resolves the object in front before ever considering a farm tool. */
 export function getActionContext(s:GameState):ActionContext {
   const front=facing(s.player);
@@ -992,6 +1006,8 @@ export function getActionContext(s:GameState):ActionContext {
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if (!isOutdoorLocation(s.location)) return {kind:"none",label:"Tidak ada objek"};
+  const questProp = questPropAt(s.location,front.x,front.y);
+  if(questProp)return {kind:"quest-prop",label:questProp.label,propId:questProp.id};
   const sign = signpostAt(s.location, front.x, front.y);
   if(sign) return {kind:"inspect",label:sign.title,text:sign.message};
   if(s.location!=="field"){
