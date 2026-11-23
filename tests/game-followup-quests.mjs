@@ -11,12 +11,13 @@ try{
  await build({
   stdin:{contents:`export {newGame,safeLoad,getActionContext,areaBlocked} from "./src/lib/game/model.ts";
     export {followUpTales,followUpAvailable,followUpTalk,inspectFollowUpProp} from "./src/lib/game/personal-quests.ts";
-    export {QUEST_PROPS,questPropAt} from "./src/lib/game/quest-props.ts";`,
+    export {QUEST_PROPS,questPropAt} from "./src/lib/game/quest-props.ts";
+    export {planTapRoute} from "./src/lib/game/tap-navigation.ts";`,
     resolveDir:process.cwd(),loader:"ts"},
   outfile:output,bundle:true,platform:"node",format:"esm",logLevel:"silent"
  });
  const {newGame,safeLoad,getActionContext,areaBlocked,followUpTales,followUpAvailable,
-   followUpTalk,inspectFollowUpProp,QUEST_PROPS,questPropAt}=await import(pathToFileURL(output).href);
+   followUpTalk,inspectFollowUpProp,QUEST_PROPS,questPropAt,planTapRoute}=await import(pathToFileURL(output).href);
  assert.equal(QUEST_PROPS.length,5);
  const known=new Set();
  for(const p of QUEST_PROPS){
@@ -29,6 +30,8 @@ try{
    const interaction=getActionContext(user);
    assert.equal(interaction.kind,"quest-prop","approaching prop triggers action: "+p.id);
    assert.equal(interaction.propId,p.id);
+   const tap=planTapRoute(user,p.x,p.y);
+   assert.equal(tap?.interact,true,"mobile tap should target an interactive quest prop: "+p.id);
    const asset="public/game/assets/quests/"+p.asset+".svg";
    const svg=readFileSync(asset,"utf8");
    assert.match(svg,/viewBox="0 0 24 28"/);
