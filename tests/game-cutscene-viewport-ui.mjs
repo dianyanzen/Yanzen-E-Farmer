@@ -5,6 +5,7 @@ import {build} from "esbuild";
 import {chromium} from "@playwright/test";
 import {createServer} from "node:http";
 import {mkdir,readFile,writeFile} from "node:fs/promises";
+import {existsSync} from "node:fs";
 import path from "node:path";
 import {browserPath} from "./browser-path.mjs";
 
@@ -56,6 +57,8 @@ try{
   page.on("pageerror",err=>problems.push(err.message));
   await page.goto("http://127.0.0.1:"+server.address().port);
   await page.locator(".yzg-cutscene-stage").waitFor();
+  if(!existsSync("public/game/assets/cutscenes/sluice-gate.mp4"))
+    await page.locator(".yzg-cutscene-storyboard").waitFor({timeout:15000});
   await page.waitForFunction(()=>{
    const stage=document.querySelector(".yzg-cutscene-stage");
    return stage&&stage.getBoundingClientRect().width>1&&getComputedStyle(document.querySelector(".yzg-cutscene")).position==="absolute";
@@ -63,12 +66,18 @@ try{
   const data=await page.evaluate(()=>{
    const r=s=>{const x=document.querySelector(s).getBoundingClientRect();return{x:x.x,y:x.y,w:x.width,h:x.height,right:x.right,bottom:x.bottom};};
    const video=document.querySelector(".yzg-cutscene-video");
+   const storyboard=document.querySelector(".yzg-cutscene-storyboard");
+   const surface=video??storyboard;
+   const art=video??storyboard?.querySelector(".yzg-cutscene-still");
+   if(!surface||!art)throw Error("Cutscene visual is absent");
+   const bounds=surface.getBoundingClientRect();
    return {world:r(".yzg-viewport"),overlay:r(".yzg-cutscene"),stage:r(".yzg-cutscene-stage"),
-     video:r(".yzg-cutscene-video"),caption:r(".yzg-cutscene-readalong"),
+     video:{x:bounds.x,y:bounds.y,w:bounds.width,h:bounds.height,right:bounds.right,bottom:bounds.bottom},
+     caption:r(".yzg-cutscene-readalong"),
      actions:r(".yzg-cutscene-actions"),controls:r(".yzg-controls"),
      touch:r(".yzg-touch"),screenW:document.documentElement.scrollWidth,
-     videoObjectFit:getComputedStyle(video).objectFit,
-     videoAspect:getComputedStyle(video).aspectRatio
+     videoObjectFit:getComputedStyle(art).objectFit,mode:video?"video":"storyboard",
+     disclaimer:document.querySelector(".yzg-cutscene-readalong")?.textContent??""
    };
   });
   const tol=2;
@@ -91,12 +100,15 @@ try{
   if(height<=520)assert.ok(data.stage.w>250,
    `Landscape cinematic is too small; temporary controls should collapse: ${JSON.stringify(data)}`);
   assert.equal(data.videoObjectFit,"contain");
+  if(data.mode==="storyboard")
+   assert.match(data.disclaimer,/video asli belum tersedia/,
+    "Missing MP4 may only show transparently labeled two-frame illustration");
   assert.ok(data.screenW<=width+tol,`Horizontal browser overflow at ${width}x${height}`);
   if(width===393||width===1280)
    await page.screenshot({path:path.join(output,`cinematic-${width}x${height}.png`),fullPage:true});
   await page.getByRole("button",{name:"Lewati adegan"}).click();
   assert.equal(await page.evaluate(()=>window.__cutsceneFinished),1,"Skip should complete exactly once");
-  console.log("PASS: "+width+"x"+height+"; video "+Math.round(data.video.w)+"x"+Math.round(data.video.h)+
+  console.log("PASS: "+width+"x"+height+"; "+data.mode+" "+Math.round(data.video.w)+"x"+Math.round(data.video.h)+
     ", subtitle and buttons inside viewport, game controls untouched");
   await page.close();
  }
