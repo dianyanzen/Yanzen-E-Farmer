@@ -192,9 +192,14 @@ class YZWorldScene extends Phaser.Scene {
     if (!this.frame) return;
     const camera = this.cameras.main;
     if (!isOutdoorLocation(this.frame.state.location)) {
-      const zoom = Math.min(camera.width / 236, camera.height / 212);
+      const workingRoom=this.frame.state.location==="home"||this.frame.state.location==="shed";
+      // Fit the complete HD interior rather than cropping the top of beds and
+      // wall shelves. Guest-house framing remains unchanged for compatibility.
+      const zoom=workingRoom?
+        Math.min(camera.width/248,camera.height/248):
+        Math.min(camera.width/236,camera.height/212);
       if (camera.zoom !== zoom) camera.setZoom(zoom);
-      camera.centerOn(250, 200);
+      camera.centerOn(250,workingRoom?185:200);
       return;
     }
     // Keep the viewport inside the authored map even on ultrawide windows.
