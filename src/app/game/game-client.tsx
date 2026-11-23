@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
-import { castRod,reelFish,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET } from "@/lib/game/model";
+import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
@@ -22,14 +22,20 @@ import {approvedLegacyId,conservativeDisplayMatch} from "@/lib/game/legacy-ident
 import { questObjective, questTalk, questTalks, tales, followUpTales, followUpTalk, followUpAvailable, inspectFollowUpProp } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
+import SluiceCutscene from "./sluice-cutscene";
+import {FishingScene,FishingResult} from "./fishing-scene";
+import {planFishingSession,fishingCatchSucceeds,FISHING_CAST_MS,FISHING_BITE_WINDOW_MS,FISHING_REEL_MS,type FishingPhase,type FishingPlan} from "@/lib/game/fishing-session";
 import "./game.css";
 
-type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
+type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "memories" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
+type ActiveFishing=FishingPlan & {id:number;phase:FishingPhase};
+type FishingNotice={outcome:FishingOutcome;species?:RiverFishId};
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
   { id: "chronicle", name: "Kronik", icon: "☷" },
+  { id: "memories", name: "Kenangan", icon: "▣" },
   { id: "ikd", name: "IKD", icon: "▣" },
   { id: "map", name: "Jelajah", icon: "⌖" },
   { id: "friends", name: "Kedekatan", icon: "♡" },
@@ -188,6 +194,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [resetError, setResetError] = useState("");
   const [selectedCitizen, setSelectedCitizen] = useState<string|null>(null);
   const [dialogue, setDialogue] = useState<Dialogue | null>(null);
+  const [cutscene, setCutscene] = useState<"sluice-open"|"sluice-replay"|null>(null);
   const [toast, setToast] = useState("");
   const [showHelp, setShowHelp] = useState(engine === "canvas");
 
@@ -274,6 +281,63 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return next;
   }, [userId]);
 
+  // Fishing timers exist only while a cast is active. A reload never restores
+  // a hooked fish; the cost of the bait and total attempts remain in the save.
+  const gameRef=useRef(game);
+  gameRef.current=game;
+  const fishingRef=useRef<ActiveFishing|null>(null);
+  const fishingId=useRef(0);
+  const [fishingSession,setFishingSession]=useState<ActiveFishing|null>(null);
+  const [fishingNotice,setFishingNotice]=useState<FishingNotice|null>(null);
+  const finishFishing=useCallback((id:number,outcome:FishingOutcome,species?:RiverFishId)=>{
+    if(fishingRef.current?.id!==id)return; // timer, skip and duplicate inputs are idempotent
+    fishingRef.current=null;
+    setFishingSession(null);
+    const next=finishFishingAttempt(gameRef.current,outcome,species);
+    if(next!==gameRef.current){gameRef.current=next;setGame(next);void persist(next);}
+    setFishingNotice({outcome,species:outcome==="caught"?species:undefined});
+    setToast(outcome==="caught"&&species?"Dapat "+FISH_MARKET[species].name+"!":
+      outcome==="escaped"?"Ikannya lepas!":
+      outcome==="early"?"Belum ada sambaran. Coba tunggu pelampung bergerak.":
+      outcome==="late"?"Terlambat! Ikannya sudah pergi.":
+      outcome==="no_bite"?"Belum ada ikan yang mendekat. Coba lempar lagi.":"Pancing diangkat kembali.");
+  },[persist]);
+  const setFishingPhase=useCallback((id:number,phase:FishingPhase)=>{
+    const active=fishingRef.current;
+    if(!active||active.id!==id)return;
+    const next={...active,phase};
+    fishingRef.current=next;
+    setFishingSession(next);
+  },[]);
+  useEffect(()=>{
+    if(!fishingSession)return;
+    const {id,phase}=fishingSession;
+    const delay=phase==="casting"?FISHING_CAST_MS:phase==="waiting"?fishingSession.waitMs:
+      phase==="bite"?FISHING_BITE_WINDOW_MS:FISHING_REEL_MS;
+    const timeout=window.setTimeout(()=>{
+      if(fishingRef.current?.id!==id)return;
+      if(phase==="casting")setFishingPhase(id,"waiting");
+      else if(phase==="waiting"){
+        if(fishingRef.current.willBite){field.audio.hit("water",.35);setFishingPhase(id,"bite");}
+        else finishFishing(id,"no_bite");
+      }else if(phase==="bite")finishFishing(id,"late");
+      else {const landed=fishingCatchSucceeds(Math.random());if(landed)field.audio.hit("harvest",.3);finishFishing(id,landed?"caught":"escaped",fishingRef.current.species);}
+    },delay);
+    return ()=>window.clearTimeout(timeout);
+  },[fishingSession,finishFishing,setFishingPhase,field]);
+  useEffect(()=>{
+    if(!fishingNotice)return;
+    const t=window.setTimeout(()=>setFishingNotice(null),2900);
+    return ()=>window.clearTimeout(t);
+  },[fishingNotice]);
+  useEffect(()=>{
+    const cancelHidden=()=>{
+      if(document.hidden&&fishingRef.current)finishFishing(fishingRef.current.id,"cancelled");
+    };
+    document.addEventListener("visibilitychange",cancelHidden);
+    return ()=>document.removeEventListener("visibilitychange",cancelHidden);
+  },[finishFishing]);
+
   const logout = useCallback(async () => {
     try {
       if (userId) {
@@ -349,13 +413,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const id=window.setTimeout(()=>setWakingDay(null),1800);
     return ()=>window.clearTimeout(id);
   },[wakingDay]);
-  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || saveStatus === "loading" || saveStatus === "error";
+  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || !!cutscene || saveStatus === "loading" || saveStatus === "error";
+  const movementLocked=controlsLocked || !!fishingSession;
   const step = useCallback((direction: Direction) => {
-    if (controlsLocked) return;
+    if (movementLocked) return;
     tapRoute.current = null;
     queuedKeys.current.push(direction);
     setShowHelp(false);
-  }, [controlsLocked]);
+  }, [movementLocked]);
 
   const crossing = useRef<{next: GameState; message: string} | null>(null);
   const queueCrossing = useCallback((current: GameState, next: GameState, dir: Direction, message: string) => {
@@ -367,12 +432,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     field.aim({...facing({...current.player,dir}),dir});
   }, [field]);
   const press = useCallback<WalkInput>((id, dir) => {
-    if (controlsLocked || crossing.current || field.held.get(id) === dir) return;
+    if (movementLocked || crossing.current || field.held.get(id) === dir) return;
     tapRoute.current = null;
     if (!field.held.size) queuedKeys.current.push(dir);
     field.held.set(id, dir);
     setShowHelp(false);
-  }, [controlsLocked, field]);
+  }, [movementLocked, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
   const scene = useRef({ game, art, swing, runMode });
   const lastArea = useRef(game.location);
@@ -389,7 +454,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       lastArea.current=game.location;
     }
     if (!crossing.current) field.aim(game.player);
-    if (controlsLocked) {
+    if (movementLocked) {
       field.held.clear();
       field.setShift(false);
       queuedKeys.current.length = 0;
@@ -475,17 +540,17 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [queueCrossing, release, field]);
 
   const equip=useCallback((next:ToolId)=>{
-    if(controlsLocked||!game.carriedTools.includes(next))return;
+    if(movementLocked||!game.carriedTools.includes(next))return;
     setGame(current=>equipFarmTool(current,next));
     setToast("Sekarang kamu memegang "+toolName(next)+(TOOL_CATALOG[next].status==="planned"?" · Alat ini belum bisa dipakai di sini.":""));
     setShowHelp(false);
-  },[controlsLocked,game.carriedTools]);
+  },[movementLocked,game.carriedTools]);
   const swapTool=useCallback((direction:1|-1)=>{
-    if(controlsLocked)return;
+    if(movementLocked)return;
     const next=cycleFarmTool(game.equippedTool,direction,game.carriedTools);
     if(next)equip(next);
     else setToast("Tasmu kosong. Coba ambil alat di gudang.");
-  },[controlsLocked,game.equippedTool,game.carriedTools,equip]);
+  },[movementLocked,game.equippedTool,game.carriedTools,equip]);
   const transfer=(id:ToolId,direction:"store"|"take")=>{
     if(saveStatus==="loading"||saveStatus==="error")return;
     const result=transferTool(game,id,direction);
@@ -502,6 +567,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const action=useCallback(()=>{
     if(controlsLocked || crossing.current || field.moving) return;
     tapRoute.current = null;
+    if(fishingRef.current){
+      const session=fishingRef.current;
+      if(session.phase==="waiting")finishFishing(session.id,"early");
+      else if(session.phase==="bite")setFishingPhase(session.id,"reeling");
+      return;
+    }
     const context=getActionContext(game);
     if(context.kind==="door"){
       const next=interactDoor(game);
@@ -530,13 +601,29 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if(result.state!==game){setGame(result.state);void persist(result.state);}
       setToast(result.message);
     }else if(context.kind==="fish"){
-      const next=game.fishing.line?reelFish(game):castRod(game,Math.random());
-      setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
-      if(next!==game){setGame(next);void persist(next);}
+      const next=castRod(game);
+      if(next===game)setToast("Umpan habis atau joran belum siap. Beli pelet dari Widi.");
+      else{
+        const plan=planFishingSession(Math.random(),Math.random(),Math.random());
+        const session:ActiveFishing={...plan,id:++fishingId.current,phase:"casting"};
+        fishingRef.current=session;
+        setFishingSession(session);
+        setFishingNotice(null);
+        queuedKeys.current.length=0;
+        field.held.clear();
+        tapRoute.current=null;
+        field.audio.hit("water",.16);
+        gameRef.current=next;
+        setGame(next);
+        void persist(next);
+        setToast("");
+      }
     }else if(context.kind==="sluice"){
-      const next={...game,sluiceOpen:!game.sluiceOpen};
-      setGame(next); void persist(next);
-      setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
+      const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !hasSluiceMemory(game);
+      const next:GameState={...game,sluiceOpen:!game.sluiceOpen,...(firstOpen?{sluiceCutsceneSeen:true}:{})};
+      setGame(next);void persist(next);
+      if(firstOpen){setToast("");setCutscene("sluice-open");}
+      else setToast(next.sluiceOpen?"Pintu air terbuka. Air mengalir ke hilir.":"Pintu air ditutup.");
     }else if(context.kind==="inspect"){
       setToast(context.text);
     }else if(context.kind==="farm"||context.kind==="plant"||context.kind==="harvest"){
@@ -559,10 +646,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         : "Hadapkan karakter ke objek yang bisa digunakan.");
     }
     setShowHelp(false);
-  },[game,controlsLocked,persist,field,queueCrossing]);
+  },[game,controlsLocked,persist,field,queueCrossing,finishFishing,setFishingPhase]);
 
   const selectWorldTile = useCallback((tile: WorldPick | null) => {
-    if (controlsLocked || crossing.current || !tile) return;
+    if (movementLocked || crossing.current || !tile) return;
     const route = planTapRoute(game, tile.x, tile.y, tile.world);
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
     tapRoute.current = route ? {...route,resident:resident?.id} : null;
@@ -571,7 +658,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       return;
     }
     setShowHelp(false);
-  }, [controlsLocked, game]);
+  }, [movementLocked, game]);
   const [routeMessage, setRouteMessage] = useState("");
   const walkToNeighbour = (portal: typeof ROUTE_PORTALS[number]) => {
     if (crossing.current || portal.from !== game.location) return;
@@ -601,7 +688,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   useLayoutEffect(() => {
     finishTap.current = () => {
       const route = tapRoute.current;
-      if (controlsLocked || !route || route.steps.length || scene.current.game !== game) return;
+      if (movementLocked || !route || route.steps.length || scene.current.game !== game) return;
       if (route.face && game.player.dir !== route.face) {
         setGame({ ...game, player: { ...game.player, dir: route.face } });
         return;
@@ -621,10 +708,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         action();
       }
     };
-  }, [game, controlsLocked, action, queueCrossing]);
+  }, [game, movementLocked, action, queueCrossing]);
 
   const togglePhone = useCallback(() => {
-    if (wakingDay!==null || dialogue || storageOpen || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
+    if (wakingDay!==null || dialogue || storageOpen || fishingRef.current || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setShowHelp(false);
   }, [dialogue, storageOpen, saveStatus,wakingDay]);
 
