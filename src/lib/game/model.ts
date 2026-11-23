@@ -864,17 +864,23 @@ export function safeLoad(value: unknown): GameState | null {
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
       !Array.isArray(value.plots) || value.plots.length > 48) return null;
   let playerX=player.x, playerY=player.y;
-  // Older saves can stand inside an updated footprint. Recover the nearest
-  // traversable outdoor tile while leaving valid positions and all progress intact.
+  // New HD furniture footprints must never invalidate an existing save.
+  // Relocate a legacy room position only within that room's original bounds;
+  // unrelated indoor invalid coordinates still fail validation.
   if(areaBlocked(location as GameLocation,playerX,playerY)){
-    if(!isOutdoorLocation(location as GameLocation))return null;
+    const roomLegacy=location==="home"||location==="shed";
+    const outdoor=isOutdoorLocation(location as GameLocation);
+    if(!outdoor && !roomLegacy)return null;
+    if(roomLegacy && (playerX<8||playerX>16||playerY<6||playerY>13))return null;
     let bestDistance=Infinity;
-    for(let y=0;y<WORLD.height;y++)for(let x=0;x<WORLD.width;x++){
-      const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
-      if(distance<bestDistance && !areaBlocked(location as OutdoorLocation,x,y)){
-        playerX=x;playerY=y;bestDistance=distance;
+    for(let y=roomLegacy?6:0;y<(roomLegacy?14:WORLD.height);y++)
+      for(let x=roomLegacy?8:0;x<(roomLegacy?17:WORLD.width);x++){
+        const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
+        if(distance<bestDistance && !areaBlocked(location as GameLocation,x,y)){
+          playerX=x;playerY=y;bestDistance=distance;
+        }
       }
-    }
+    if(!Number.isFinite(bestDistance))return null;
   }
   for (const key of ["orderAccepted", "orderDone", "canalClue", "sarisStory"]) {
     if (typeof story[key] !== "boolean") return null;
