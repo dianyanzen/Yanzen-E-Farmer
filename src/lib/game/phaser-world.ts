@@ -14,6 +14,7 @@ import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
+import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite} from "./housing-hd";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -95,6 +96,8 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-housing-v2", HOUSING_ATLAS_PATH, { frameWidth: 48, frameHeight: 48 });
+    this.load.spritesheet("yz-hd-exteriors", HD_EXTERIOR_PATH, {frameWidth:320,frameHeight:320});
+    this.load.image("yz-hd-interiors",HD_INTERIOR_PATH);
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
@@ -106,12 +109,14 @@ class YZWorldScene extends Phaser.Scene {
     try {
       // Convert atlas frames into visual-only interior maps. The base and furniture
       // are separate frames; stateful bed/rack interactions remain in model.ts.
-      const atlas=this.textures.get("yz-housing-v2").getSourceImage() as HTMLImageElement;
+      const useHD=this.textures.exists("yz-hd-interiors");
+      const atlas=this.textures.get(useHD?"yz-hd-interiors":"yz-housing-v2").getSourceImage() as HTMLImageElement;
       for(const room of ["home","shed"] as const)for(const evening of [false,true]){
         const canvas=document.createElement("canvas");
         canvas.width=480;canvas.height=HEIGHT;
         const brush=canvas.getContext("2d");
-        if(brush)drawHousingInterior(brush,atlas,room,evening);
+        if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening);
+          else drawHousingInterior(brush,atlas,room,evening);}
         this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
       }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
@@ -229,10 +234,12 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.background.setTexture(key).setDisplaySize(WIDTH, HEIGHT);
       this.mapProps = outdoorObjects(location,minutes).map(prop => {
-        const custom=exteriorHousingSprite(prop.asset);
-        const image=this.add.image(prop.x,prop.y,custom?"yz-housing-v2":"yz-map-"+prop.asset,
-          custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
-        if(custom)image.setDisplaySize(custom.width,custom.height);
+        const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
+        const custom=hd?null:exteriorHousingSprite(prop.asset);
+        const image=this.add.image(prop.x,prop.y,hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
+          hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        if(hd)image.setDisplaySize(hd.width,hd.height);
+        else if(custom)image.setDisplaySize(custom.width,custom.height);
         else image.setScale(prop.scale??1);
         return image;
       });
@@ -368,7 +375,12 @@ class YZWorldScene extends Phaser.Scene {
     if ((location === "pasar" || location === "sungai") && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
       const sprite = this.mapProps[index];
 
-      if (sprite && sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
+      const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
+      const texture=hd?"yz-hd-exteriors":"yz-map-"+prop.asset;
+      if(sprite && (sprite.texture.key!==texture || (hd && sprite.frame.name!==String(hd.frame)))) {
+        sprite.setTexture(texture,hd?.frame);
+        if(hd)sprite.setDisplaySize(hd.width,hd.height);
+      }
     });
     this.propState=propState;
     const route = frame.route ?? [];
