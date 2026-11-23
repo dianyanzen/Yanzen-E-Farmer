@@ -89,5 +89,5 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
     steps.push(link.dir);cursor=link.prev;
   }
   steps.reverse();
-  return {steps,face:goal.face,interact:goal.interact,exit:goal.exit,...("targetLabel" in goal?{targetLabel:goal.targetLabel}:{})};
+  return {steps,face:goal.face,interact:goal.interact,exit:goal.exit,...("targetLabel" in goal && typeof goal.targetLabel==="string"?{targetLabel:goal.targetLabel}:{})};
 }
