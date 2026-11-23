@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2499,
-  "uniqueContents": 1205,
-  "totalBytes": 128742334,
+  "totalMedia": 2500,
+  "uniqueContents": 1206,
+  "totalBytes": 128747405,
   "categories": [
     {
       "id": "characters",
@@ -266,9 +266,13 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 5,
-      "bytes": 622113,
+      "mediaCount": 6,
+      "bytes": 627184,
       "sections": [
+        {
+          "id": "locations/yanzen",
+          "count": 1
+        },
         {
           "id": "residences",
           "count": 5
