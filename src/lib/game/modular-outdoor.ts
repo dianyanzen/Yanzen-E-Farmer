@@ -224,8 +224,7 @@ props.sungai.push(
   {asset:"batu-kembar",x:43,y:104,scale:.65},{asset:"rumput-tinggi",x:15,y:125,scale:.54}
 );
 for(const location of Object.keys(props) as OutdoorLocation[])props[location].push(...sharedBorderProps(location));
-// Quest props have real colliders and front-facing actions from the same tile registry.
-for(const prop of QUEST_PROPS)props[prop.location].push({asset:prop.asset,x:prop.x*20+10,y:(prop.y+1)*20});
+// Quest-specific art is drawn only while its owner's request is active; see activeQuestProps().
 
 export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number) {
   return (watered?12:0)+(stage===0?6:3)+((x+2*y)%3);
