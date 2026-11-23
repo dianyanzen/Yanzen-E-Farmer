@@ -2,6 +2,7 @@
  * Source masters are preserved separately in the asset source manifest.
  * Positions, NPC roles, collisions and progression remain in model.ts.
  */
+import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,type FurnitureCrop,type RoomKind} from "./world-layout";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -29,25 +30,39 @@ export function drawHDSprite(ctx:CanvasRenderingContext2D,image:CanvasImageSourc
   else ctx.drawImage(image,sx,sy,HD_FRAME_SIZE,HD_FRAME_SIZE,x,y,width,height);
   ctx.restore();
 }
-export type HDRoom="home"|"shed";
-/** Four independent 320px interior frames in a 2x2 atlas:
- * house base, house furniture, shed base, shed furniture.
- * Model collision and interactive furniture hotspots do not move.
+export type HDRoom=RoomKind;
+/** Full floor stays below the avatar. Furniture is divided into independent
+ * sprites, each sorted against the PLAYER'S FEET, never as one giant overlay.
  */
 export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,evening=false){
-  const base=room==="home"?0:2;
-  const active=base+1;
+ room:HDRoom,evening=false,layer:"all"|"base"="all"){
+  const base=room==="home"?0:2,p=ROOM_PROJECTION;
   ctx.save();ctx.imageSmoothingEnabled=true;
   ctx.fillStyle="#24282a";ctx.fillRect(0,0,480,320);
-  // These are full interior floor-plan assets, not tiny atlas placeholders.
-  const x=132,y=63,w=232,h=244;
-  const draw=(frame:number)=>{
-    const sourceX=(frame%2)*320,sourceY=Math.floor(frame/2)*320;
-    ctx.drawImage(image,sourceX,sourceY,320,320,x,y,w,h);
-  };
-  draw(base);draw(active);
-  if(evening){ctx.fillStyle="rgba(16,24,42,0.23)";ctx.fillRect(x,y,w,h);}
+  ctx.drawImage(image,(base%2)*320,Math.floor(base/2)*320,320,320,
+    p.x,p.y,p.width,p.height);
+  if(layer==="all")for(const piece of ROOM_FURNITURE[room])
+    drawHDInteriorPiece(ctx,image,room,piece);
+  if(evening){ctx.fillStyle="rgba(16,24,42,0.23)";
+    ctx.fillRect(p.x,p.y,p.width,p.height);}
+  ctx.restore();
+}
+export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
+ room:HDRoom,piece:FurnitureCrop){
+  const rect=furnitureScreenRect(piece),frame=room==="home"?1:3;
+  ctx.drawImage(image,(frame%2)*320+piece.x,Math.floor(frame/2)*320+piece.y,
+    piece.width,piece.height,rect.x,rect.y,rect.width,rect.height);
+}
+/** Canvas fallback uses the exact same foot-depth ordering as Phaser.
+ * The behind pass draws before avatar; foreground draws afterwards.
+ */
+export function drawHDInteriorProps(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
+ room:HDRoom,avatarFeetY:number,pass:"behind"|"front"){
+  ctx.save();ctx.imageSmoothingEnabled=true;
+  for(const piece of ROOM_FURNITURE[room]){
+    const inFront=furnitureScreenRect(piece).footY>=avatarFeetY;
+    if(inFront===(pass==="front"))drawHDInteriorPiece(ctx,image,room,piece);
+  }
   ctx.restore();
 }
 
