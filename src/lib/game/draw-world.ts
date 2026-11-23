@@ -177,7 +177,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
   const physicalProps=[
     ...outdoorObjects(state.location,state.minutes,state.sluiceOpen),
-    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T}))
+    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1}))
   ];
   for (const prop of physicalProps) {
     const image = art.outdoor?.[prop.asset];
