@@ -17,6 +17,15 @@
 - Saat browser gagal memuat MP4, pemutar **tidak menahan pemain pada layar error**. Ia memakai ilustrasi bergerak berupa **dua frame asli** yang crossfade selama 10 dtk, dengan subtitel asli dan penanda terlihat `Ilustrasi dua frame · video asli belum tersedia`. Tidak mengklaim dua JPG sebagai video. Tidak ada perubahan foto asli, aspect-ratio 910:512 atau wilayah controller.
 - Begitu pemilik memberikan kembali **berkas MP4 asli identik hash** ke repo melalui `scripts/game-cinematics/import-owner-video.mjs --file ...`, jalur `cutscene-catalog.ts` tetap sama sehingga video otomatis menjadi sumber utama; jangan membuat video sintetis yang menimpa karya pemilik.
 
+### Audit pohon Git secara menyeluruh (bukan sekadar daftar sampel)
+Perbandingan **rekursif tanpa truncation** antara Git tree preview lama `6250fd26` dan Git tree `main e2e5e55` pada path `public/game/assets/`, `src/app/game/` dan `src/lib/game/`:
+
+- **488** file aktif/sumber pada preview lama, **496** pada `main`.
+- **0 path yang ada pada preview lama tetapi hilang dari `main`**.
+- **477 file SHA identik**; **11 file berbeda**: `game-client.tsx`, `game.css`, `phone-chronicle.tsx`, `draw-world.ts`, `model.ts`, `modular-outdoor.ts`, `pasirluyu-areas.ts`, `personal-quests.ts`, `phaser-world.ts`, `phone-story.ts`, `tap-navigation.ts`. Perbedaan ini perlu dipertahankan karena main mencakup misi NPC tambahan, rumah, reset dan sistem terkait; **jangan** menimpa langsung dengan versi lama.
+- MP4 **tidak muncul pada kedua pohon sumber**, sehingga bukan path yang "terhapus saat merge"; MP4 sebelumnya hanya diimpor sementara pada build preview tertentu.
+- Audit membuktikan **kelengkapan file path dalam cakupan tersebut**, tidak otomatis membuktikan setiap aset aktif termuat dan berfungsi pada browser/di luar cakupan.
+
 ## Audit migrasi aktif antara preview lama dan main
 Verifikasi berdasarkan path dan SHA blob Git (bukan dugaan dari UI):
 | Aspek | Hasil audit |
