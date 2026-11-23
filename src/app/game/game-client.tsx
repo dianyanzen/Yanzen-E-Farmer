@@ -14,6 +14,7 @@ import WorldRegionDirectory from "./world-region-directory";
 import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
 import { FieldEngine, type ToolUse, type WorldPick } from "@/lib/game/field-engine";
 import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
+import {FARMHOUSE_NATIVE_PATHS,type FarmhouseAssetId} from "@/lib/game/farmhouse-native";
 import CharacterGallery from "./character-gallery";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
@@ -135,6 +136,18 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         if (active) setArt(previous => ({...previous,outdoor:{...previous.outdoor,[key]:image}}));
       };
       image.src = "/game/assets/" + path;
+    }
+    // Native farmhouse images are independently generated, not atlas slices.
+    // The game renders a complete room only after all image fetches finish.
+    for(const [key,url] of Object.entries(FARMHOUSE_NATIVE_PATHS)){
+      const image=new Image();
+      image.onload=()=>{
+        if(active)setArt(previous=>({...previous,farmhouseNative:{
+          ...previous.farmhouseNative,[key as FarmhouseAssetId]:image
+        }}));
+      };
+      image.onerror=()=>console.warn("Farmhouse image unavailable:",key);
+      image.src=url;
     }
     return () => { active = false; };
   }, []);
