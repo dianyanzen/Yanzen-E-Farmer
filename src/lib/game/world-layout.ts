@@ -23,11 +23,11 @@ export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
     {id:"bed",source:"native",x:0,y:0,width:268,height:320,footY:216,
       display:{x:155,y:160,width:47,height:56}},
     {id:"chest",source:"native",x:0,y:0,width:320,height:232,footY:273,
-      display:{x:156,y:243,width:42,height:30}},
+      display:{x:296,y:244,width:42,height:30}},
     {id:"bookshelf",source:"native",x:0,y:0,width:320,height:238,footY:170,
       display:{x:225,y:136,width:45,height:34}},
     {id:"computer-desk",source:"native",x:0,y:0,width:296,height:320,footY:212,
-      display:{x:288,y:154,width:54,height:58}}
+      display:{x:290,y:139,width:54,height:58}}
   ],
   shed:[
     {id:"tools-shelves",x:8,y:22,width:155,height:91,footY:113,
