@@ -18,7 +18,7 @@ function loadTS(path,overrides={}){
 const metrics=JSON.parse(readFileSync("src/lib/game/character-frame-bounds.json","utf8"));
 const scale=loadTS("src/lib/game/world-scale.ts");
 const layout=loadTS("src/lib/game/world-layout.ts");
-const hd=loadTS("src/lib/game/housing-hd.ts",{"./world-layout":layout,"./farmhouse-visual":{drawMinimalFarmhouseBase:()=>{}}});
+const hd=loadTS("src/lib/game/housing-hd.ts",{"./world-layout":layout,"./farmhouse-visual":{drawMinimalFarmhouseBase:()=>{}},"./farmhouse-native":{drawFarmhouseRoomBase:()=>{}}});
 const model=loadTS("src/lib/game/model.ts");
 for(const name of ["idle","gait","turn"]){
  const spec=metrics.sheets[name];
@@ -49,12 +49,13 @@ for(const room of ["home","shed"]){
   assert.ok(rect.height<=avatar*2.75,room+"/"+crop.id+" feels oversized next to player");
  }
 }
+assert.ok(layout.ROOM_FURNITURE.home.every(x=>x.source==="native"),"No home atlas cuts allowed");
 const bed=layout.ROOM_FURNITURE.home.find(x=>x.id==="bed");
 assert.ok(bed.display.width<=55&&bed.display.height<=80,"Bed must be human-scale");
 const house=hd.exteriorHDSprite("rumah-yanzen");
 const shed=hd.exteriorHDSprite("gudang-kayu");
 const actualGap=191-78-(house.width*284/320+shed.width*293/320)/2;
-assert.ok(actualGap>=20,"The farmhouse and shed need at least one full tile of visible separation");
+assert.ok(actualGap>0,"The native farmhouse and shed must not overlap at ground level");
 const ayu=hd.exteriorHDSprite("lapak-benih");
 const widi=hd.exteriorHDSprite("lapak-pancing");
 assert.ok(ayu.width>widi.width,"Ayu must remain the main general store");
