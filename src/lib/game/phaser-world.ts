@@ -14,7 +14,7 @@ import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
-import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite} from "./housing-hd";
+import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -118,6 +118,10 @@ class YZWorldScene extends Phaser.Scene {
         if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening);
           else drawHousingInterior(brush,atlas,room,evening);}
         this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
+      }
+      if(this.textures.exists("yz-hd-exteriors")){
+        const hd=this.textures.get("yz-hd-exteriors").getSourceImage() as HTMLImageElement;
+        this.textures.addCanvas("yz-widi-hd-clean",cleanWidiSource(hd));
       }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
       this.farm = this.add.graphics().setDepth(10);
@@ -236,8 +240,9 @@ class YZWorldScene extends Phaser.Scene {
       this.mapProps = outdoorObjects(location,minutes).map(prop => {
         const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
         const custom=hd?null:exteriorHousingSprite(prop.asset);
-        const image=this.add.image(prop.x,prop.y,hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
-          hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        const widi=hd&&prop.asset==="lapak-pancing";
+        const image=this.add.image(prop.x,prop.y,widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
+          widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
         if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);
         else image.setScale(prop.scale??1);
@@ -376,9 +381,9 @@ class YZWorldScene extends Phaser.Scene {
       const sprite = this.mapProps[index];
 
       const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
-      const texture=hd?"yz-hd-exteriors":"yz-map-"+prop.asset;
+      const texture=hd&&prop.asset==="lapak-pancing"?"yz-widi-hd-clean":hd?"yz-hd-exteriors":"yz-map-"+prop.asset;
       if(sprite && (sprite.texture.key!==texture || (hd && sprite.frame.name!==String(hd.frame)))) {
-        sprite.setTexture(texture,hd?.frame);
+        sprite.setTexture(texture,texture==="yz-widi-hd-clean"?undefined:hd?.frame);
         if(hd)sprite.setDisplaySize(hd.width,hd.height);
       }
     });
