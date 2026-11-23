@@ -5,7 +5,7 @@
  * sheets, multi-object composition, and shared-file references are removed.
  * See docs/game-dev/ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md.
  */
-import {existsSync,readdirSync,readFileSync,statSync} from "node:fs";
+import {existsSync,readdirSync,readFileSync} from "node:fs";
 import {join,relative,resolve,sep} from "node:path";
 
 const root=resolve(process.cwd());
@@ -78,7 +78,7 @@ if(existsSync(manifestPath)){
     if(owners.has(owner))manifestErrors.push({row:i,reason:"duplicate owner/variant/frame "+owner});else owners.add(owner);
     if(a.cropSource||a.sheetRect||a.frameOffsetInAtlas||a.sharedTextureOwner)
       manifestErrors.push({row:i,reason:"composite/sheet reference prohibited"});
-    const local=url.startsWith("/")?url.slice(1):url;
+    const local=url.startsWith("/game/")?"public"+url:url.startsWith("/")?url.slice(1):url;
     if(!existsSync(join(root,local)))manifestErrors.push({row:i,reason:"file not found: "+url});
   }
 }
