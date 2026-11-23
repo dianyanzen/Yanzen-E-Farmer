@@ -118,7 +118,8 @@ assert.ok(world.includes('x:441,y:298') && world.includes('x:516,y:299'),"Small 
 assert.ok(world.includes('reservedMarketRoof(p)'),"No free-floating props under store facades");
 assert.match(hd,/drawHDInteriorProps/);
 assert.match(hd,/footOffset:number/);
-for(const n of [6,14,15,18,6,4])assert.ok(hd.includes("footOffset:"+n));
+for(const n of [6,14,4])assert.ok(hd.includes("footOffset:"+n));
+assert.match(hd,/residentFacadeSpec/);
 assert.ok(world.includes('x:78,y:102'),"Yanzen must fit roof within top of world");
 
 assert.match(canvas,/drawHDInteriorProps\(ctx,art.housingHDInteriors,"home"/);
