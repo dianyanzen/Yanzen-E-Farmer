@@ -101,7 +101,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
-    {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
+    {asset:"lapak-benih",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
     {asset:"warung-inggit",x:374,y:177,scale:1.04},{asset:"peti-kayu",x:321,y:178},
     {asset:"papan-pasar",x:303,y:100},
