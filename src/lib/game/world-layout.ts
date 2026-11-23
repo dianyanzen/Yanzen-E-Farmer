@@ -3,6 +3,7 @@
  * Pure data is shared by both renderers, route QA and model collision.
  * No game-state or save-format mutation.
  */
+import roomSolids from "./world-layout-data.json";
 export const TILE_PX=20;
 export type RoomKind="home"|"shed";
 export type FurnitureCrop={
@@ -46,17 +47,7 @@ export function furnitureScreenRect(piece:FurnitureCrop){
  * The middle route x=11..14 connects spawn/exit and bed/tool hotspots.
  * Explicit corridors keep old-save positions reachable.
  */
-const ROOM_TILE_SOLIDS:Record<RoomKind,readonly (readonly [number,number,number,number])[]>={
-  home:[
-    [8,6,9,10], [8,11,10,13],      // bed/chest and harvest sacks, left
-    [12,6,13,7], [14,6,16,8],      // bookshelf and desk
-    [15,9,16,12]                   // right-hand cabinet
-  ],
-  shed:[
-    [8,6,9,11], [8,12,10,13],     // tool rack, crates and barrels
-    [11,6,13,7], [14,6,16,13]     // workbench and stored bags
-  ]
-} as const;
+const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
   if(x<8||x>16||y<6||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
