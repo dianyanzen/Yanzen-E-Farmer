@@ -442,7 +442,7 @@ export const NPC_SOULS:Record<NpcId,{
   C01:{home:"Gang Pasirluyu",work:"Perawat tanaman dan pengingat sejarah warga",
     desire:"Kisah masa lalu disimpan tanpa membuka luka keluarga",fear:"Foto keluarga dipakai tanpa izin",
     habit:"Merawat melati sebelum bertemu tetangga",connection:"Mempercayai Ryan menyimpan catatan pintu air"},
-  C08:{home:"Pasirluyu",work:"Pemilik warung dan pedagang sayur",
+  C08:{home:"Pasirluyu",work:"Mengelola warung dan menyiapkan makanan pasar",
     desire:"Warungnya menjadi tempat warga saling membantu",fear:"Bahan makanan terbuang dan dagangan tidak laku",
     habit:"Menyusun dagangan pagi, merapikan lapak sore",
     connection:"Menunggu panen Yanzen; memberi kabar tentang Ryan dan Nani"}
