@@ -622,7 +622,17 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[4,6,8,8],[16,6,20,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  // The large Ayu store and Widi fishing shop occupy the northern frontage;
+  // small kiosks moved to the southern market row. Keep the central road open.
+  pasar:[
+    [3,6,9,8],       // Ayu: large general store (counter remains y=9)
+    [16,6,20,8],     // Inggit's warung
+    [24,6,30,7],     // Widi's fishing shop, NPC remains at x27/y8
+    [2,13,5,14],     // southern craft stall
+    [20,13,23,14],   // vegetable kiosk
+    [24,13,27,14],   // smaller craft stall
+    [16,13,17,13],   // existing public seating
+  ],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
