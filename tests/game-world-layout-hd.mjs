@@ -99,6 +99,7 @@ for(const door of ["rumah-yanzen","gudang-kayu","fasad-inggit","fasad-ayu","fasa
   assert.ok(world.includes('asset:"'+door+'"'),door+" must be represented in world");
 }
 assert.ok(world.includes("drawEntranceLandings(ctx,location)"),"Road endings must be painted");
+assert.ok(world.includes("exteriorHDSprite(prop.asset)"),"House shadows must match HD facade widths");
 assert.ok(world.includes('x:441,y:298') && world.includes('x:516,y:299'),"Small kiosks relocate south");
 assert.ok(world.includes('reservedMarketRoof(p)'),"No free-floating props under store facades");
 assert.match(hd,/drawHDInteriorProps/);
