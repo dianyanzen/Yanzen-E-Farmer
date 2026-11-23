@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2487,
-  "uniqueContents": 1195,
-  "totalBytes": 128763326,
+  "totalMedia": 2492,
+  "uniqueContents": 1200,
+  "totalBytes": 128766193,
   "categories": [
     {
       "id": "characters",
@@ -275,8 +275,8 @@
       "id": "props",
       "label": "Properti lingkungan",
       "description": "Perabot, objek kecil dan dekorasi",
-      "mediaCount": 60,
-      "bytes": 16028,
+      "mediaCount": 65,
+      "bytes": 18895,
       "sections": [
         {
           "id": "aset/properti",
@@ -293,6 +293,10 @@
         {
           "id": "explore-bandung/properti",
           "count": 15
+        },
+        {
+          "id": "quests",
+          "count": 5
         }
       ]
     },
