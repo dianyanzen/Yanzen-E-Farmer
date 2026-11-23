@@ -96,4 +96,14 @@ assert.ok(areas.includes('"KIOS BENIH"') && !areas.includes('"KIOS SAYUR"'),
   "Public seed kiosk sign must match its actual owner");
 assert.ok(!source.includes("Temui Inggit untuk membeli bibit."));
 assert.ok(!source.includes("jual panen di warung"));
+assert.ok(!client.includes('Tersimpan lokal'),"Cloud save confirmation cannot be mislabeled as local");
+assert.ok(client.includes('saveStatus === "saved" ? "Tersimpan"'),"Player sees truthful server save status");
+assert.ok(!source.includes('A04:{home:"Permukiman Nani"'),"Ayu has her own home, not Nani's");
+assert.ok(!source.includes('C07:{home:"Permukiman Nani"'),"Widi has his own home, not Nani's");
+const library=readFileSync("game-assets/library/README.md","utf8");
+const index=JSON.parse(readFileSync("game-assets/library/index.json","utf8"));
+assert.equal(index.totalMedia,2499,"Combined mission, portrait, fish and shop assets must remain indexed");
+assert.equal(index.uniqueContents,1205,"Unique blob count must match combined catalog");
+assert.ok(library.includes("2.499") && library.includes("1.205") &&
+  library.includes("hanya 5 NPC playable"),"Asset README must distinguish active NPCs from 32 archived strips");
 console.log("PASS: merchant roles, Ayu notifications, Widi fish shop, Inggit order reservation, and unique Nani scene");
