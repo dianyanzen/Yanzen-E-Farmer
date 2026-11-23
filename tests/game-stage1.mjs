@@ -13,7 +13,7 @@ vm.runInNewContext(compiled, { exports: mod.exports, module: mod, require: creat
 const { newGame, movePlayer, applyFarmTool, nextDay, acceptOrder, meetNpc, safeLoad, buySeeds,
   choosePhoto, sellCucumbers, sellableCucumbers, chapterJournal } = mod.exports;
 function sleepAtHome(s) {
-  const rested = nextDay({ ...s, location: "home", player: { x: 9, y: 8, dir: "up" } });
+  const rested = nextDay({ ...s, location: "home", player: { x: 10, y: 9, dir: "left" } });
   return { ...rested, location: s.location, player: s.player };
 }
 const initial = newGame();
