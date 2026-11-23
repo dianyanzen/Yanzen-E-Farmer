@@ -868,7 +868,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         {worldPresented && phaserError && <div className="yzg-toast" role="status">{phaserError}</div>}
         {worldPresented && toast && <div className="yzg-toast" role="status">{display(toast)}</div>}
         {worldPresented && !phoneOpen && !dialogue && game.location === "field" && (unread || game.seeds===0) && <button className="yzg-notif"
-          onClick={()=>{setPhoneOpen(true);setPhoneTab("chat");setSelectedCitizen(null);setShowHelp(false);}}>
+          onClick={()=>{setPhoneOpen(true);setPhoneTab("chat");setSelectedCitizen(null);setShowHelp(false);if(unread)setGame(g=>({...g,phoneRead:true}));}}>
           <span className="yzg-notif-icon">✉</span>
           <span><b>{unread?"YZ Phone · Pesan baru":"YZ Phone · Stok bibit habis"}</b>
             <small>{display(unread?"Inggit: Ada pesanan timun untuk warungku!":"Ayu: Bibit habis? Mampir ke lapak benihku di Pasar Warga.")}</small></span>
