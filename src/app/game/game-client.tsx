@@ -19,7 +19,7 @@ import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
 import {approvedLegacyId,conservativeDisplayMatch} from "@/lib/game/legacy-identity";
-import { questObjective, questTalk, questTalks, tales } from "@/lib/game/personal-quests";
+import { questObjective, questTalk, questTalks, tales, followUpTales, followUpTalk, followUpAvailable, inspectFollowUpProp } from "@/lib/game/personal-quests";
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import "./game.css";
@@ -525,6 +525,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const wet=game.plots.filter(p=>p.watered && p.stage>=0).length;
       setDialogue({title:"Meja semai",lines:[wet?"Tanah sampel terasa lembap. Ada "+wet+" petak tanaman tersiram.":"Tanah sampel masih kering. Tanam lalu siram satu petak hidup sebelum melapor kepada Nani.", "Catatan Nani: sentuh permukaannya sebelum menyiram lagi. Akar juga memerlukan udara."]});
       if(wet && game.personalQuests?.C01?.phase===2){const next={...game,nurseryChecked:true};setGame(next);void persist(next);}
+    }else if(context.kind==="quest-prop"){
+      const result=inspectFollowUpProp(game,context.propId);
+      if(result.state!==game){setGame(result.state);void persist(result.state);}
+      setToast(result.message);
     }else if(context.kind==="fish"){
       const next=game.fishing.line?reelFish(game):castRod(game,Math.random());
       setToast(next===game?"Beli pelet dari Widi di pasar.":game.fishing.line?"Tangkapan: "+FISH_MARKET[game.fishing.line].name:"Pelampung bergerak. Tekan Aksi untuk menarik joran.");
@@ -723,7 +727,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const actionVerb = context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
-    context.kind==="wait"?"INFO":context.kind==="sleep"?"TIDUR":
+    context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":
     context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
     context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
@@ -802,6 +806,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               if(next.state!==game){setGame(next.state);void persist(next.state);}
               setDialogue(next);
             }}>{game.personalQuests?.[id]?"Bahas misi":"Terima misi"} ? {tales[id].title}</button>)}
+          {dialogue.npcId && dialogue.choices && followUpAvailable(game,dialogue.npcId) &&
+            <button type="button" disabled={unavailable} onClick={()=>{
+              const next=followUpTalk(game,dialogue.npcId!);
+              if(next.state!==game){setGame(next.state);void persist(next.state);}
+              setDialogue(next);
+            }}>{game.followUpQuests?.[dialogue.npcId]?"Bahas permintaan":"Dengarkan permintaan"}: {followUpTales[dialogue.npcId].title}</button>}
           {dialogue.choices && <div className="yzg-response-list" aria-label="Pilih jawaban">{dialogue.choices.map(choice => {
             const locked = bondLevel(game.bonds[dialogue.npcId!].points) < (choice.minLevel || 0);
             return <button key={choice.id} disabled={unavailable || locked} onClick={() => respond(choice.id)}>{choice.label}{locked && <small>Terbuka pada kedekatan Lv. {choice.minLevel}</small>}</button>;
