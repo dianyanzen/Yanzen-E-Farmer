@@ -1,6 +1,6 @@
 # Pedoman agen — YZ Farm Life / Yanzen E-Farmer
 
-**Berlaku untuk pekerjaan game, 22 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
+**Berlaku untuk pekerjaan game, diperbarui 23 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
 
 ## Prioritas sumber (wajib)
 
@@ -9,6 +9,16 @@
 3. **Character Bible 12 kategori**: `public/game/data/npc/{ID}.json`, berlabel draf fiksi; catatan visual/provenance adalah bahan editor, bukan teks yang harus dilihat pemain. Wiki `docs/game-dev/characters/{ID}.md` diturunkan dari JSON, bukan sumber identitas terpisah.
 4. **Cerita runtime lama**: `game-assets/catalog/cast.json` dan `game-assets/characters/profiles/` adalah sumber untuk sistem/quest legacy yang masih hidup. **Jangan** menyamakan karakter lama dengan roster baru berdasarkan ID, nama pendek, atau gambar. Relasi hanya melalui `approvedLegacyId` dengan izin manual.
 5. **Rencana jangka panjang**: dokumen desain/atlas/ekspansi adalah proposal sampai didukung kode dan tes. 30 kecamatan/151 kelurahan belum berarti seluruh peta dimainkan.
+
+## Identitas visual dan kurasi aset (wajib untuk SEMUA pekerjaan aset)
+
+**Keputusan pemilik 23 November 2026:** YZ Farm Life harus terasa sebagai dunia farming-life Bandung yang hangat, natural, jelas, kaya detail secara selektif, **tidak terlalu ramai**, dan mempunyai ciri khas yang konsisten. Keindahan satu aset tidak mengalahkan keserasian seluruh game. Jangan langsung generate ulang massal atau menghapus koleksi lama.
+
+- **Sumber arah visual canonical:** baca `docs/game-dev/YZ_VISUAL_IDENTITY_BIBLE.md`; untuk audit, regenerasi, tata letak, folder aset, penghapusan atau ekspansi wajib baca `docs/game-dev/ASSET_REDESIGN_LIFECYCLE.md` dan skill `.agents/skills/yz-farm-art-director/SKILL.md`. Gunakan `docs/game-dev/ASSET_VISUAL_AUDIT_20261123.md` sebagai baseline dari tujuh screenshot pemilik, bukan kesimpulan permanen.
+- **Sebelum generate:** tetapkan fungsi bangunan, style family, perspektif, ukuran relatif 20px tile / 24×32px karakter (verifikasi runtime), footprint, pintu, jalan, interior, active props, density, dan akses. Bandingkan usulan terhadap aset paling baik yang sudah ada.
+- **Aset harus jelas namun tidak berisik:** fokus visual, ruang tenang, warna-material harmonis, bentuk bangunan logis, jalan benar-benar menyentuh ambang pintu, perabot punya collision/interaksi sesuai bentuk. Uji di ukuran ponsel dan kedua renderer.
+- **Kebijakan retensi:** KEEP/POLISH/REDESIGN/FUTURE_KEEP/ARCHIVE/QUARANTINE/REMOVE_CANDIDATE; jangan hapus master, aset referensi, aset ekspansi berkualitas, atau file yang masih dipakai game/quest/NPC/komoditas/UI. Penghapusan hanya setelah audit dependensi, QA pengganti, rollback, dan persetujuan pemilik terpisah.
+- **Sebelum merge:** screenshot before/after, tes navigasi/collision/save, QA ketajaman/overlap, validasi katalog media, Vercel status sebenarnya, dan keputusan final yang dijelaskan kepada pemilik. Jangan mengubah sistem pertanian non-game.
 
 **Potret NPC aktif:** sebelum membuat/mengganti wajah, strip ekspresi atau potret profesi Ryan/Ayu/Nani/Widi/Inggit, wajib baca `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md` dan verifikasi `tests/game-active-portrait-standard.mjs`. Potret profesi statis tidak boleh menggantikan ekspresi pada dialog. Potret Widi yang dipilih pemilik pada PR #43 sudah menggantikan kandidat 512px yang tidak serasi; tetap wajib uji pada UI mobile dan sprite dunia sebelum menandai QA runtime selesai.
 
