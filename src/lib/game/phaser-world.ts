@@ -13,6 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -93,6 +94,7 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
+    this.load.spritesheet("yz-housing-v2", HOUSING_ATLAS_PATH, { frameWidth: 48, frameHeight: 48 });
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
@@ -102,6 +104,16 @@ class YZWorldScene extends Phaser.Scene {
 
   create() {
     try {
+      // Convert atlas frames into visual-only interior maps. The base and furniture
+      // are separate frames; stateful bed/rack interactions remain in model.ts.
+      const atlas=this.textures.get("yz-housing-v2").getSourceImage() as HTMLImageElement;
+      for(const room of ["home","shed"] as const)for(const evening of [false,true]){
+        const canvas=document.createElement("canvas");
+        canvas.width=480;canvas.height=HEIGHT;
+        const brush=canvas.getContext("2d");
+        if(brush)drawHousingInterior(brush,atlas,room,evening);
+        this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
+      }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
       this.farm = this.add.graphics().setDepth(10);
       this.highlight = this.add.graphics().setDepth(11);
@@ -216,12 +228,18 @@ class YZWorldScene extends Phaser.Scene {
         this.textures.addCanvas(key,makeCanvas(ctx => drawModularGround(ctx,location,art)));
       }
       this.background.setTexture(key).setDisplaySize(WIDTH, HEIGHT);
-      this.mapProps = outdoorObjects(location,minutes).map(prop =>
-        this.add.image(prop.x,prop.y,"yz-map-"+prop.asset)
-          .setOrigin(.5,1).setScale(prop.scale ?? 1).setDepth(1000 + prop.y - TILE));
+      this.mapProps = outdoorObjects(location,minutes).map(prop => {
+        const custom=exteriorHousingSprite(prop.asset);
+        const image=this.add.image(prop.x,prop.y,custom?"yz-housing-v2":"yz-map-"+prop.asset,
+          custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        if(custom)image.setDisplaySize(custom.width,custom.height);
+        else image.setScale(prop.scale??1);
+        return image;
+      });
     } else {
-      const key=isResidentHome(location) ? location : location==="home" ? (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") :
-        location==="warung" ? "yz-warung" : "yz-shed";
+      const key=isResidentHome(location) ? location : location==="home" ?
+        "yz-housing-home-"+(minutes>=18*60?"night":"day") :
+        location==="warung" ? "yz-warung" : "yz-housing-shed-day";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
     }
   }
@@ -333,7 +351,7 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.changeLocation(location, frame.state.minutes);
     }
-    if (location === "home") this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
+    if (location === "home") this.background.setTexture("yz-housing-home-"+(evening?"night":"day"));
     this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);
