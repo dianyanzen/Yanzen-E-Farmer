@@ -55,7 +55,9 @@ export function furnitureScreenRect(piece:FurnitureCrop){
  */
 const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
-  if(x<8||x>16||y<6||y>13)return true;
+  // Farmer's home has a wider visible floor (11 columns), while storage
+  // retains its own narrower collision footprint.
+  if(x<(room==="home"?7:8)||x>(room==="home"?17:16)||y<6||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 
