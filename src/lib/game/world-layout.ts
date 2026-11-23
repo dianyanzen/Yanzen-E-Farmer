@@ -59,6 +59,24 @@ export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 
+/** A one-storey house is a building class, not an arbitrary asset scale.
+ * Source dimensions differ; these sizes have measured ~92px alpha silhouettes.
+ * Inggit/Ayu include transparency in their 320px HD atlas frames. Do NOT
+ * stretch their square source non-uniformly just to match footprint numerals.
+ * Nani/Ryan/Widi are legacy native-size PNGs; old random .9 scales are ignored.
+ */
+export const ONE_STOREY_HOUSE_VISIBLE_HEIGHT=92;
+export const RESIDENT_FACADE_SPECS={
+  "fasad-nani":{width:109,height:92,visibleWidth:109,visibleHeight:92,footOffset:0},
+  "fasad-ryan":{width:112,height:92,visibleWidth:112,visibleHeight:92,footOffset:0},
+  "fasad-widi":{width:112,height:92,visibleWidth:112,visibleHeight:92,footOffset:0},
+  "fasad-inggit":{width:124,height:124,visibleWidth:102,visibleHeight:92,footOffset:17},
+  "fasad-ayu":{width:134,height:134,visibleWidth:110,visibleHeight:92,footOffset:23}
+} as const;
+export function residentFacadeSpec(asset:string){
+  return RESIDENT_FACADE_SPECS[asset as keyof typeof RESIDENT_FACADE_SPECS]??null;
+}
+
 /** Accurate entrance anchors — stepping-stone routes must touch THESE points.
  * Road paths and building/merchant visuals are distinct from NPC state.
  */
