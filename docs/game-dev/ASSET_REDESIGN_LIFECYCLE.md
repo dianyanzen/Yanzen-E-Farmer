@@ -1,5 +1,8 @@
 # YZ Farm Life — Asset Redesign, Retention & Removal Protocol v1.0
 
+> **ATURAN MUTLAK TERBARU — 24 November 2026:** Semua aset game termasuk setiap frame animasi, setiap ekspresi NPC, tile, furnitur, bangunan, dan efek **wajib berupa file individual milik satu entitas**, tanpa spritesheet, atlas, sumber gambar gabungan, teknik cutting/cropping dari sheet, atau penggunaan file bersama lintas entitas/instance. Tidak boleh mengemas ulang ke atlas pada runtime. Baca [Atomic Assets & Yanzen Scale Standard](./ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md) dan skill [yz-farm-atomic-assets](../../.agents/skills/yz-farm-atomic-assets/SKILL.md). Kunci skala tubuh dan titik kaki Yanzen di semua animasi. Instruksi historis dalam dokumen ini yang menyarankan atlas, sheet, shared asset, atau cutting **tidak berlaku lagi**. Aset lama dimigrasikan bertahap dan tidak boleh dihapus sebelum QA/rollback.
+
+
 **Tanggal:** 23 November 2026. **Status:** kebijakan pengelolaan aset yang disetujui pemilik: kurasi menyeluruh A–Z, kualitas lebih penting daripada kuantitas yang tidak berguna, namun *aset berkualitas untuk ekspansi harus tetap dipertahankan*. **Tidak ada otorisasi untuk menghapus aset secara massal hanya dari dokumen ini.**
 
 **Baca dulu:** \`docs/game-dev/YZ_VISUAL_IDENTITY_BIBLE.md\`, \`AGENTS.md\`, katalog aset terindeks, dan file runtime renderer/model terkait.
