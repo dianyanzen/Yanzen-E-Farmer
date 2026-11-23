@@ -23,14 +23,14 @@ import { questObjective, questTalk, questTalks, tales, followUpTales, followUpTa
 import DialoguePanel, { Portrait, ResidentPortrait } from "./dialogue-panel";
 import ToolWarehouse from "./tool-warehouse";
 import SluiceCutscene from "./sluice-cutscene";
-import {FishingScene,FishingResult} from "./fishing-scene";
+import {FishingScene} from "./fishing-scene";
 import {planFishingSession,fishingCatchSucceeds,FISHING_CAST_MS,FISHING_BITE_WINDOW_MS,FISHING_REEL_MS,type FishingPhase,type FishingPlan} from "@/lib/game/fishing-session";
 import "./game.css";
 
 type PhoneTab = "apps" | "chat" | "farm" | "chronicle" | "memories" | "ikd" | "map" | "friends" | "stats" | "characters" | "guide";
 type SaveStatus = "loading" | "ready" | "saving" | "saved" | "error";
-type ActiveFishing=FishingPlan & {id:number;phase:FishingPhase};
-type FishingNotice={outcome:FishingOutcome;species?:RiverFishId};
+type ActiveFishing=FishingPlan & {id:number;phase:FishingPhase;phaseAt:number};
+type FishingNotice={outcome:FishingOutcome;species?:RiverFishId;startedAt:number};
 const APPS: { id: PhoneTab; name: string; icon: string }[] = [
   { id: "chat", name: "Pesan", icon: "✉" },
   { id: "farm", name: "Kebunku", icon: "✿" },
@@ -295,17 +295,14 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setFishingSession(null);
     const next=finishFishingAttempt(gameRef.current,outcome,species);
     if(next!==gameRef.current){gameRef.current=next;setGame(next);void persist(next);}
-    setFishingNotice({outcome,species:outcome==="caught"?species:undefined});
-    setToast(outcome==="caught"&&species?"Dapat "+FISH_MARKET[species].name+"!":
-      outcome==="escaped"?"Ikannya lepas!":
-      outcome==="early"?"Belum ada sambaran. Coba tunggu pelampung bergerak.":
-      outcome==="late"?"Terlambat! Ikannya sudah pergi.":
-      outcome==="no_bite"?"Belum ada ikan yang mendekat. Coba lempar lagi.":"Pancing diangkat kembali.");
+    setFishingNotice({outcome,species:outcome==="caught"?species:undefined,startedAt:performance.now()});
+    // The catch/result appears above Yanzen, never in a viewport-centered toast.
+    setToast("");
   },[persist]);
   const setFishingPhase=useCallback((id:number,phase:FishingPhase)=>{
     const active=fishingRef.current;
     if(!active||active.id!==id)return;
-    const next={...active,phase};
+    const next={...active,phase,phaseAt:performance.now()};
     fishingRef.current=next;
     setFishingSession(next);
   },[]);
@@ -439,11 +436,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setShowHelp(false);
   }, [movementLocked, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
-  const scene = useRef({ game, art, swing, runMode });
+  const scene = useRef({ game, art, swing, runMode, fishingSession, fishingNotice });
   const lastArea = useRef(game.location);
   const portalArrival = useRef(false);
   useLayoutEffect(() => {
-    scene.current = { game, art, swing, runMode };
+    scene.current = { game, art, swing, runMode, fishingSession, fishingNotice };
     if(lastArea.current!==game.location){
       field.clear();
       const {x, y, dir} = game.player;
@@ -460,7 +457,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       queuedKeys.current.length = 0;
       tapRoute.current = null;
     }
-  }, [game, art, swing, controlsLocked, runMode, field]);
+  }, [game, art, swing, controlsLocked, runMode, field, fishingSession, fishingNotice]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -605,7 +602,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if(next===game)setToast("Umpan habis atau joran belum siap. Beli pelet dari Widi.");
       else{
         const plan=planFishingSession(Math.random(),Math.random(),Math.random());
-        const session:ActiveFishing={...plan,id:++fishingId.current,phase:"casting"};
+        const session:ActiveFishing={...plan,id:++fishingId.current,phase:"casting",phaseAt:performance.now()};
         fishingRef.current=session;
         setFishingSession(session);
         setFishingNotice(null);
@@ -856,7 +853,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
         {fishingSession&&<FishingScene phase={fishingSession.phase} onCancel={()=>finishFishing(fishingSession.id,"cancelled")}/>}
-        {!fishingSession&&fishingNotice&&<FishingResult outcome={fishingNotice.outcome} species={fishingNotice.species}/>}
+        {/* Fishing notifications are rendered over the character in both world engines. */}
         {cutscene!==null && <SluiceCutscene onDone={()=>{const newMemory=cutscene==="sluice-open";setCutscene(null);if(newMemory)setToast("Kenangan tersimpan di YZ Phone.");}}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
