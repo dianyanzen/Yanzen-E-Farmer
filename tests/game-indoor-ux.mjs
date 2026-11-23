@@ -62,7 +62,7 @@ for(const room of ["home","shed"]){
     routing.planTapRoute(origin,7,7,{x:150,y:150});
   assert.ok(wall && !wall.interact,room+": tapping ordinary wall should approach open floor");
 }
-assert.equal(layout.ROOM_FURNITURE.home.length,5);
+assert.equal(layout.ROOM_FURNITURE.home.length,4);
 assert.equal(layout.ROOM_FURNITURE.shed.length,4);
 const sizes=Object.values(layout.RESIDENT_FACADE_SPECS);
 assert.equal(sizes.length,5);
@@ -74,4 +74,4 @@ const fallback=readFileSync("src/lib/game/draw-world.ts","utf8");
 assert.match(phd,/residentFacadeSpec\(prop.asset\)/);
 assert.match(fallback,/residentFacadeSpec\(prop.asset\)/);
 assert.match(phd,/camera\.height\/248/);
-console.log("PASS: 9 natural furniture tap targets, 2 dead-end-free interiors, matching house silhouette and unclipped room camera");
+console.log("PASS: 8 easy-to-tap functional furnishings, 2 connected interiors, consistent resident houses");
