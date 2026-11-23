@@ -15,7 +15,7 @@ import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
-import {ROOM_FURNITURE,furnitureScreenRect} from "./world-layout";
+import {ROOM_FURNITURE,furnitureScreenRect,residentFacadeSpec} from "./world-layout";
 import {playerSpriteTopY} from "./world-scale";
 
 const WIDTH = WORLD.width * WORLD.tile;
@@ -264,7 +264,10 @@ class YZWorldScene extends Phaser.Scene {
         if(hd)image.setY(prop.y+hd.footOffset);
         if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);
-        else image.setScale(prop.scale??1);
+        else if(residentFacadeSpec(prop.asset)){
+          const spec=residentFacadeSpec(prop.asset)!;
+          image.setDisplaySize(spec.width,spec.height);
+        }else image.setScale(prop.scale??1);
         return image;
       });
     } else {
