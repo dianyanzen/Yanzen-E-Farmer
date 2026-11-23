@@ -41,7 +41,7 @@ for(const room of ["home","shed"]){
   assert.ok(route(room,[12,12],[12,13]),"Exit needs open floor");
 }
 assert.equal(model.areaBlocked("home",9,9),true,"Bed may not be stepped on");
-assert.equal(model.areaBlocked("home",16,10),true,"Cabinet may not be stepped on");
+assert.equal(model.areaBlocked("home",16,10),false,"Removed cabinet must leave open floor");
 assert.equal(model.areaBlocked("home",16,13),false,"South room aisle must remain walkable");
 assert.equal(model.areaBlocked("shed",9,9),true,"Crates may not be stepped on");
 assert.equal(model.areaBlocked("shed",16,10),false,"Removed sacks must leave usable floor");
@@ -69,10 +69,9 @@ assert.equal(model.canManageTools({...game,location:"shed",player:{x:10,y:7,dir:
 assert.equal(model.canManageTools({...game,location:"shed",player:{x:13,y:7,dir:"right"}}),true);
 assert.equal(model.canManageTools({...game,location:"shed",player:{x:10,y:9,dir:"left"}}),true);
 for(const [x,y,dir,label] of [
-  [12,8,"up","Periksa rak buku"],
-  [14,9,"up","Periksa meja kerja"],
-  [14,10,"right","Periksa lemari"],
-  [10,10,"left","Periksa peti"]
+  [12,6,"up","Periksa rak buku"],
+  [14,7,"right","Periksa meja kerja"],
+  [10,11,"left","Periksa peti"]
 ]){
   const state={...game,location:"home",player:{x,y,dir}};
   assert.equal(model.areaBlocked("home",x,y),false,"Interactive prop must be approached from open floor");
@@ -125,4 +124,4 @@ assert.ok(world.includes('x:78,y:102'),"Yanzen must fit roof within top of world
 assert.match(canvas,/drawHDInteriorProps\(ctx,art.housingHDInteriors,"home"/);
 assert.match(phaser,/private interiorProps/);
 assert.match(phaser,/ROOM_FURNITURE\[location\]/);
-console.log("PASS: 2 accessible interior floorplans, 9 functional depth sprites, market clearance and connected doors");
+console.log("PASS: 2 accessible rooms, minimalist farmhouse furnishings, collision, market and doors");
