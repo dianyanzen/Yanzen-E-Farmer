@@ -73,4 +73,5 @@ assert.match(fallbackMap,/LAPAK BENIH/);
 assert.doesNotMatch(modelText,/Temui Inggit untuk membeli bibit/);
 assert.doesNotMatch(modelText,/Tidak ada timun lepas yang dapat dibeli/);
 assert.doesNotMatch(modelText,/Melayani nelayan di lapak ikan/);
+assert.match(modelText,/C08:\{home:"Pasirluyu",work:"Mengelola warung dan menyiapkan makanan pasar"/);
 console.log("PASS: Ayu owns seed and surplus crop trade; Inggit owns food order; Widi owns fishing; guide and chat match; one story photo/decision; cloud save label accurate");
