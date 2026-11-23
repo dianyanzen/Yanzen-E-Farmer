@@ -30,7 +30,7 @@ assert.ok(existsSync(userVideo),"Owner-uploaded MP4 is missing from the reposito
 const video=readFileSync(userVideo);
 assert.equal(video.length,13801571,"Owner-uploaded MP4 size has changed");
 assert.equal(video.toString("ascii",4,8),"ftyp","Owner video must be a valid MP4 container");
-const gitBlobSha=createHash("sha1").update(`blob ${video.length}\\0`).update(video).digest("hex");
+const gitBlobSha=createHash("sha1").update(`blob ${video.length}\0`).update(video).digest("hex");
 assert.equal(gitBlobSha,"02366abd7b97346fabc55e8f66ad6f00999ec8c9",
  "Do not silently replace the owner-uploaded MP4 with another film");
 assert.ok(css.includes(".yzg-cutscene-storyboard{")&&css.includes("aspect-ratio:910 / 512")&&
