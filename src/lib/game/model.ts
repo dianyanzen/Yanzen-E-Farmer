@@ -1,4 +1,5 @@
 import type { QuestBook, FollowUpBook } from "./personal-quests";
+import {interiorTileBlocked} from "./world-layout";
 
 import cast from "../../../game-assets/catalog/cast.json";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
@@ -652,6 +653,8 @@ export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState
   if(location==="warung") return x<8 || x>16 || y<6 || y>13 ||
     (y===6 && x!==10) || (y===7 && x>=12);
   if(isResidentHome(location))return x<8 || x>16 || y<8 || y>13;
+  if(location==="home")return homeBlocked(x,y);
+  if(location==="shed")return interiorTileBlocked("shed",x,y);
   if(!isOutdoorLocation(location))return homeBlocked(x,y);
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
@@ -999,7 +1002,7 @@ export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
 export function homeBlocked(x: number, y: number) {
-  return x < 8 || x > 16 || y < 6 || y > 13 || (x <= 10 && y <= 7) || (x >= 15 && y <= 8) || (x === 12 && y === 7);
+  return interiorTileBlocked("home",x,y);
 }
 function warungOpen(s: GameState) {
   const inggit = npcWhere(s,"C08");
