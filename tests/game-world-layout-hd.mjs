@@ -31,7 +31,7 @@ const route=(room,origin,target)=>{
 for(const room of ["home","shed"]){
   assert.equal(interiorTileBlocked(room,12,12),false,"Spawn must be on open floor");
   assert.equal(interiorTileBlocked(room,12,13),false,"Door landing must remain accessible");
-  assert.ok(ROOM_FURNITURE[room].length>=6,"Separate furniture clusters for depth");
+  assert.ok(ROOM_FURNITURE[room].length>=4,"Usable furniture must be separated into depth sprites");
   for(const p of ROOM_FURNITURE[room]){
     const rect=furnitureScreenRect(p);
     assert.ok(rect.x>=132 && rect.y>=63 && rect.x+rect.width<=366 &&
@@ -42,18 +42,32 @@ for(const room of ["home","shed"]){
 }
 assert.equal(model.areaBlocked("home",9,9),true,"Bed may not be stepped on");
 assert.equal(model.areaBlocked("home",16,10),true,"Cabinet may not be stepped on");
-assert.equal(model.areaBlocked("home",16,13),true,"Cabinet front must not be walkable");
+assert.equal(model.areaBlocked("home",16,13),false,"South room aisle must remain walkable");
 assert.equal(model.areaBlocked("shed",9,9),true,"Crates may not be stepped on");
-assert.equal(model.areaBlocked("shed",16,10),true,"Sacks may not be stepped on");
+assert.equal(model.areaBlocked("shed",16,10),false,"Removed sacks must leave usable floor");
+assert.equal(model.areaBlocked("shed",9,11),true,"Irrigation rack stays solid");
 assert.equal(model.areaBlocked("home",12,10),false);
 assert.equal(model.areaBlocked("shed",12,10),false);
 assert.ok(route("home",[12,12],[10,8]),"Bed interaction aisle must be reachable");
 assert.ok(route("shed",[12,12],[10,7]),"Tool rack aisle must be reachable");
+for(const room of ["home","shed"]){
+  let reachable=0;
+  for(let y=6;y<=13;y++)for(let x=8;x<=16;x++){
+    if(model.areaBlocked(room,x,y))continue;
+    reachable++;
+    assert.ok(route(room,[12,12],[x,y]),room+": disconnected tile "+x+","+y);
+    const neighbours=[[1,0],[-1,0],[0,1],[0,-1]]
+      .filter(([dx,dy])=>!model.areaBlocked(room,x+dx,y+dy)).length;
+    assert.ok(neighbours>=2,room+": blind one-tile dead end "+x+","+y);
+  }
+  assert.ok(reachable>=40,room+": decorative clutter consumes playable floor");
+}
+
 const game=model.newGame();
-assert.equal(model.canSleep({...game,location:"home",player:{x:10,y:8,dir:"up"}}),true);
+assert.equal(model.canSleep({...game,location:"home",player:{x:10,y:8,dir:"left"}}),true);
 assert.equal(model.canManageTools({...game,location:"shed",player:{x:10,y:7,dir:"left"}}),true);
-assert.equal(model.canManageTools({...game,location:"shed",player:{x:12,y:8,dir:"up"}}),true);
-assert.equal(model.canManageTools({...game,location:"shed",player:{x:13,y:10,dir:"right"}}),true);
+assert.equal(model.canManageTools({...game,location:"shed",player:{x:13,y:7,dir:"right"}}),true);
+assert.equal(model.canManageTools({...game,location:"shed",player:{x:10,y:9,dir:"left"}}),true);
 for(const [x,y,dir,label] of [
   [12,8,"up","Periksa rak buku"],
   [14,9,"up","Periksa meja kerja"],
@@ -104,10 +118,11 @@ assert.ok(world.includes('x:441,y:298') && world.includes('x:516,y:299'),"Small 
 assert.ok(world.includes('reservedMarketRoof(p)'),"No free-floating props under store facades");
 assert.match(hd,/drawHDInteriorProps/);
 assert.match(hd,/footOffset:number/);
-for(const n of [6,14,15,18,6,4])assert.ok(hd.includes("footOffset:"+n));
+for(const n of [6,14,4])assert.ok(hd.includes("footOffset:"+n));
+assert.match(hd,/residentFacadeSpec/);
 assert.ok(world.includes('x:78,y:102'),"Yanzen must fit roof within top of world");
 
 assert.match(canvas,/drawHDInteriorProps\(ctx,art.housingHDInteriors,"home"/);
 assert.match(phaser,/private interiorProps/);
 assert.match(phaser,/ROOM_FURNITURE\[location\]/);
-console.log("PASS: 2 layered interiors, 12 depth crops, bed/tools access, market clearance, door-to-road landings");
+console.log("PASS: 2 accessible interior floorplans, 9 functional depth sprites, market clearance and connected doors");

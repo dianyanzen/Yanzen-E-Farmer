@@ -6,6 +6,7 @@ import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./housing-v2";
 import {drawHDInterior,drawHDInteriorProps,drawHDSprite,exteriorHDSprite} from "./housing-hd";
+import {residentFacadeSpec} from "./world-layout";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -206,10 +207,12 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   for (const prop of physicalProps) {
     const hd = art.housingHDExteriors ? exteriorHDSprite(prop.asset) : null;
     const custom = hd ? null : art.housingAtlas ? exteriorHousingSprite(prop.asset) : null;
+    const resident=residentFacadeSpec(prop.asset);
     const image = hd ? art.housingHDExteriors : custom ? art.housingAtlas : art.outdoor?.[prop.asset];
     if (!image) continue;
-    const scale = (hd || custom) ? 1 : (prop.scale ?? 1);
-    const width = Math.round((hd?.width ?? custom?.width ?? image.width)*scale), height = Math.round((hd?.height ?? custom?.height ?? image.height)*scale);
+    const scale = (hd || custom || resident) ? 1 : (prop.scale ?? 1);
+    const width = Math.round((hd?.width ?? custom?.width ?? resident?.width ?? image.width)*scale),
+      height = Math.round((hd?.height ?? custom?.height ?? resident?.height ?? image.height)*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;

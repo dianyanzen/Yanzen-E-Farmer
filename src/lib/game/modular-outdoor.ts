@@ -3,7 +3,7 @@ import { riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./mode
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
-import {MARKET_STOREFRONTS,EXTERIOR_THRESHOLDS} from "./world-layout";
+import {MARKET_STOREFRONTS,EXTERIOR_THRESHOLDS,residentFacadeSpec} from "./world-layout";
 import {exteriorHDSprite} from "./housing-hd";
 
 const kit = "tiles/farm-kit/";
@@ -501,7 +501,7 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     const hd=exteriorHDSprite(prop.asset);
     // HD facades are larger than their legacy thumbnail and need ground-level
     // contact shadows matching the new visible size, not the old asset width.
-    const width=hd?.width ?? image.naturalWidth*(prop.scale??1);
+    const width=hd?.width ?? residentFacadeSpec(prop.asset)?.width ?? image.naturalWidth*(prop.scale??1);
     if(width<30)continue;
     ctx.beginPath();ctx.ellipse(prop.x+2,prop.y-2,width*.36,Math.max(2,width*.055),0,0,Math.PI*2);ctx.fill();
   }

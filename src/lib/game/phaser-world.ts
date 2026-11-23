@@ -15,7 +15,7 @@ import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
-import {ROOM_FURNITURE,furnitureScreenRect} from "./world-layout";
+import {ROOM_FURNITURE,furnitureScreenRect,residentFacadeSpec} from "./world-layout";
 import {playerSpriteTopY} from "./world-scale";
 
 const WIDTH = WORLD.width * WORLD.tile;
@@ -192,9 +192,14 @@ class YZWorldScene extends Phaser.Scene {
     if (!this.frame) return;
     const camera = this.cameras.main;
     if (!isOutdoorLocation(this.frame.state.location)) {
-      const zoom = Math.min(camera.width / 236, camera.height / 212);
+      const workingRoom=this.frame.state.location==="home"||this.frame.state.location==="shed";
+      // Fit the complete HD interior rather than cropping the top of beds and
+      // wall shelves. Guest-house framing remains unchanged for compatibility.
+      const zoom=workingRoom?
+        Math.min(camera.width/248,camera.height/248):
+        Math.min(camera.width/236,camera.height/212);
       if (camera.zoom !== zoom) camera.setZoom(zoom);
-      camera.centerOn(250, 200);
+      camera.centerOn(250,workingRoom?185:200);
       return;
     }
     // Keep the viewport inside the authored map even on ultrawide windows.
@@ -264,7 +269,10 @@ class YZWorldScene extends Phaser.Scene {
         if(hd)image.setY(prop.y+hd.footOffset);
         if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);
-        else image.setScale(prop.scale??1);
+        else if(residentFacadeSpec(prop.asset)){
+          const spec=residentFacadeSpec(prop.asset)!;
+          image.setDisplaySize(spec.width,spec.height);
+        }else image.setScale(prop.scale??1);
         return image;
       });
     } else {

@@ -653,9 +653,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
     tapRoute.current = route ? {...route,resident:resident?.id} : null;
     if (!route) {
-      setToast("Belum ada jalan ke sana. Ketuk tanah atau benda yang bisa kamu jangkau.");
+      setToast("Belum bisa dijangkau. Ketuk objek atau lantai di dekatnya.");
       return;
     }
+    // A clear interaction confirmation matters on a small touchscreen:
+    // players can now tap the object itself rather than manually lining up.
+    if(route.targetLabel && route.steps.length>0)
+      setToast("Menghampiri "+route.targetLabel.toLowerCase()+"…");
     setShowHelp(false);
   }, [movementLocked, game]);
   const [routeMessage, setRouteMessage] = useState("");
@@ -700,6 +704,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         }
       } else if (route.interact) {
         const target = getActionContext(game);
+        if(route.targetLabel && target.label!==route.targetLabel){
+          setToast("Objek belum bisa digunakan dari posisi ini. Coba ketuk sekali lagi.");
+          return;
+        }
         if ((route.resident || target.kind==="npc") && (target.kind!=="npc" || target.npcId!==route.resident)) {
           setToast("Orangnya sudah beranjak. Coba dekati lagi.");
           return;
@@ -1168,6 +1176,16 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           </section>
         </GameDialog>}
       </div>
+      <div className="yzg-touch">
+        <div className="yzg-dpad" aria-label="Kontrol bergerak">
+          <DirectionButton direction="up" label="Atas" symbol="▲" step={step} press={press} release={release} />
+          <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} press={press} release={release} />
+          <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} press={press} release={release} />
+          <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
+        </div>
+        <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
+        <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>{actionVerb}</small></button>
+      </div>
       <div className="yzg-controls">
         <div className="yzg-action-context">
           {context.kind !== "none" ? <button type="button" className="yzg-context-button"
@@ -1208,16 +1226,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           <span className="yzg-home-hint">☾ Tidur: masuk rumah → ranjang → Aksi</span>
           <button onClick={() => void persist(game)} disabled={saveStatus === "loading" || saveStatus === "error"}>☁ Simpan</button>
         </div>
-      </div>
-      <div className="yzg-touch">
-        <div className="yzg-dpad" aria-label="Kontrol bergerak">
-          <DirectionButton direction="up" label="Atas" symbol="▲" step={step} press={press} release={release} />
-          <DirectionButton direction="left" label="Kiri" symbol="◀" step={step} press={press} release={release} />
-          <DirectionButton direction="down" label="Bawah" symbol="▼" step={step} press={press} release={release} />
-          <DirectionButton direction="right" label="Kanan" symbol="▶" step={step} press={press} release={release} />
-        </div>
-        <button className="yzg-run" aria-pressed={runMode} disabled={controlsLocked} onClick={() => setRunMode(value => !value)}>Lari</button>
-        <button className="yzg-action" onClick={action} aria-label="Aksi" title={actionLabel}>A <small>{actionVerb}</small></button>
       </div>
       <div className="yzg-footer"><span>WASD/panah: jalan | E/Enter: aksi | Q/R atau 1-9: alat | P: YZ Phone</span><span>Menu: panah/Tab untuk memilih, Enter untuk buka, Esc untuk kembali</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">

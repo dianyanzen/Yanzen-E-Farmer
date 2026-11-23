@@ -20,8 +20,6 @@ export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
       display:{x:152,y:110,width:50,height:76}},
     {id:"chest",x:8,y:172,width:97,height:55,footY:227,
       display:{x:151,y:201,width:50,height:28}},
-    {id:"harvest-bags",x:8,y:227,width:110,height:90,footY:316,
-      display:{x:151,y:247,width:55,height:45}},
     {id:"bookshelf",x:106,y:17,width:95,height:94,footY:111,
       display:{x:215,y:81,width:58,height:57}},
     {id:"computer-desk",x:202,y:18,width:118,height:118,footY:136,
@@ -37,11 +35,7 @@ export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
     {id:"produce-crates",x:8,y:113,width:108,height:105,footY:218,
       display:{x:151,y:160,width:55,height:53}},
     {id:"irrigation-rack",x:8,y:218,width:110,height:99,footY:317,
-      display:{x:151,y:232,width:61,height:55}},
-    {id:"stored-sacks",x:210,y:115,width:110,height:99,footY:214,
-      display:{x:286,y:162,width:60,height:54}},
-    {id:"storage-cabinets",x:210,y:214,width:110,height:104,footY:318,
-      display:{x:287,y:231,width:62,height:59}}
+      display:{x:151,y:232,width:61,height:55}}
   ]
 } as const;
 
@@ -55,13 +49,32 @@ export function furnitureScreenRect(piece:FurnitureCrop){
   return {...d,footY:d.y+d.height};
 }
 /** Tile footprints of floor-level furniture, not roof/wall decoration.
- * The middle route x=11..14 connects spawn/exit and bed/tool hotspots.
- * Explicit corridors keep old-save positions reachable.
+ * 10+ contiguous walking tiles on the center and southern edge stay free;
+ * no decorative floor bags or redundant sacks block access to the door.
+ * Furniture remains an independent depth-sorted active layer.
  */
 const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
   if(x<8||x>16||y<6||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
+}
+
+/** A one-storey house is a building class, not an arbitrary asset scale.
+ * Source dimensions differ; these sizes have measured ~92px alpha silhouettes.
+ * Inggit/Ayu include transparency in their 320px HD atlas frames. Do NOT
+ * stretch their square source non-uniformly just to match footprint numerals.
+ * Nani/Ryan/Widi are legacy native-size PNGs; old random .9 scales are ignored.
+ */
+export const ONE_STOREY_HOUSE_VISIBLE_HEIGHT=92;
+export const RESIDENT_FACADE_SPECS={
+  "fasad-nani":{width:109,height:92,visibleWidth:109,visibleHeight:92,footOffset:0},
+  "fasad-ryan":{width:112,height:92,visibleWidth:112,visibleHeight:92,footOffset:0},
+  "fasad-widi":{width:112,height:92,visibleWidth:112,visibleHeight:92,footOffset:0},
+  "fasad-inggit":{width:124,height:124,visibleWidth:102,visibleHeight:92,footOffset:17},
+  "fasad-ayu":{width:134,height:134,visibleWidth:110,visibleHeight:92,footOffset:23}
+} as const;
+export function residentFacadeSpec(asset:string){
+  return RESIDENT_FACADE_SPECS[asset as keyof typeof RESIDENT_FACADE_SPECS]??null;
 }
 
 /** Accurate entrance anchors — stepping-stone routes must touch THESE points.

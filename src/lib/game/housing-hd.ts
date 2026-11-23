@@ -2,7 +2,7 @@
  * Source masters are preserved separately in the asset source manifest.
  * Positions, NPC roles, collisions and progression remain in model.ts.
  */
-import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,type FurnitureCrop,type RoomKind} from "./world-layout";
+import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,residentFacadeSpec,type FurnitureCrop,type RoomKind} from "./world-layout";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -16,8 +16,8 @@ const sprites:Record<string,HDSprite>={
   // House moved +6px and resized to stay fully inside the top of the field map.
   "rumah-yanzen":{frame:0,width:100,height:100,footOffset:6},
   "gudang-kayu":{frame:1,width:104,height:104,footOffset:14},
-  "fasad-inggit":{frame:2,width:108,height:108,footOffset:15},
-  "fasad-ayu":{frame:3,width:108,height:108,footOffset:18},
+  "fasad-inggit":{frame:2,width:residentFacadeSpec("fasad-inggit")!.width,height:residentFacadeSpec("fasad-inggit")!.height,footOffset:residentFacadeSpec("fasad-inggit")!.footOffset},
+  "fasad-ayu":{frame:3,width:residentFacadeSpec("fasad-ayu")!.width,height:residentFacadeSpec("fasad-ayu")!.height,footOffset:residentFacadeSpec("fasad-ayu")!.footOffset},
   "lapak-benih":{frame:4,width:146,height:146,footOffset:6},
   "lapak-pancing":{frame:5,width:132,height:132,footOffset:4},
 };

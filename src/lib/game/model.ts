@@ -985,7 +985,7 @@ const INTERACTION_HITBOXES = [
   ]),
   { id: "lapak-pintu", location: "pasar", left: 345, top: 147, right: 414, bottom: 180 },
   { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
-  { id: "bed", location: "home", left: 175, top: 120, right: 227, bottom: 163 },
+  { id: "bed", location: "home", left: 153, top: 111, right: 206, bottom: 192 },
 ] as const;
 
 type InteractionHitbox = (typeof INTERACTION_HITBOXES)[number];
