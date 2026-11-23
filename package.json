@@ -49,7 +49,9 @@
     "cutscene:verify": "node tests/game-cutscene-production.mjs",
     "cutscene:import": "node scripts/game-cinematics/import-owner-video.mjs",
     "test:game:fishing:anchored": "node tests/game-fishing-anchored.mjs",
-    "test:game:cutscene:fallback": "node tests/game-cutscene-fallback.mjs"
+    "test:game:cutscene:fallback": "node tests/game-cutscene-fallback.mjs",
+    "assets:atomic:audit": "node scripts/game-assets/audit-atomic-assets.mjs",
+    "assets:atomic:strict": "node scripts/game-assets/audit-atomic-assets.mjs --strict"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",
