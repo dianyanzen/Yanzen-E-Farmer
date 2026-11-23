@@ -1,6 +1,6 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
-import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, weatherForDay, type NpcPlacement } from "./model";
+import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 
@@ -47,6 +47,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,0,0,W*T,H*T,"#29272a");
     const room=art[state.location];
     if(room)ctx.drawImage(room,0,0,W*T,H*T);
+    for(const prop of activeQuestProps(state)){
+      const artProp=art.outdoor?.[prop.asset];
+      if(artProp)ctx.drawImage(artProp,Math.round((prop.x+.5)*T-artProp.width/2),
+        (prop.y+1)*T-artProp.height,artProp.width,artProp.height);
+    }
     const residents=npcHere(state);
     for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
     actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
@@ -170,7 +175,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     box(ctx,x,y,width,1,"#83bdb1");
   }
   const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
-  for (const prop of outdoorObjects(state.location,state.minutes,state.sluiceOpen)) {
+  const physicalProps=[
+    ...outdoorObjects(state.location,state.minutes,state.sluiceOpen),
+    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T}))
+  ];
+  for (const prop of physicalProps) {
     const image = art.outdoor?.[prop.asset];
     if (!image) continue;
     const scale = prop.scale ?? 1;
