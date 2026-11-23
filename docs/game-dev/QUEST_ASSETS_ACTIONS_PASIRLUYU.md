@@ -1,6 +1,6 @@
 # YZ Farm Life — Audit Aset dan Aksi untuk 30 Rancangan Misi NPC Aktif
 
-**Status 23 November 2026:** lima misi pertama dari masing-masing NPC tetap mengikuti runtime lama; lima **misi lanjutan tahap awal** dalam branch `feat/quest-assets-actions-pasirluyu-20261123` memiliki objek fisik baru dan aksi penyelesaian. **20 misi lain dalam matriks di bawah masih rancangan**, bukan quest runtime. Tulis metadata dan pengalaman pemain secara terpisah; jangan menyatakan aset cadangan sebagai fitur yang sudah dimainkan.
+**Status 23 November 2026 (revisi lokasi dan akses rumah):** lima misi pertama dari masing-masing NPC tetap mengikuti runtime lama; lima **misi lanjutan tahap awal** pada gameplay `main` dan penataan rumah pada branch `feat/quest-props-inside-homes-20261123` memiliki objek fisik baru dan aksi penyelesaian. **20 misi lain dalam matriks di bawah masih rancangan**, bukan quest runtime. Tulis metadata dan pengalaman pemain secara terpisah; jangan menyatakan aset cadangan sebagai fitur yang sudah dimainkan.
 
 ## Prinsip pembuatan
 
@@ -8,7 +8,10 @@
 - Utamakan aset yang sudah ada: kelima rumah warga, ruang tamu, buku ukur air di rumah Ryan, meja semai, pot, lapak benih, lapak pancing, bendung buka/tutup, gudang, warung, pasar, petak timun, joran dan ikan.
 - Pertahankan satu bahasa visual: pixel-object 24×28, edge tajam, palet hangat, alpha transparan, anchor bawah, target interaksi 20×20. Kualitas harus dinilai pada skala ponsel dan peta dunia, bukan hanya file terpisah.
 - Jangan mengubah identitas, potret wajah, nama canonical, atau sprite ekspresi saat menambah properti quest.
-- Interaksi harus memakai tombol Aksi/keyboard maupun ketuk untuk navigasi. Jika NPC sedang berada pada titik kerja, jangan tempatkan collider quest di titik itu. Uji `npcSchedule`, `areaBlocked`, tap route dan semua jalur keluar.
+- Interaksi memakai tombol Aksi/keyboard maupun ketuk. Keempat aset milik Ryan, Ayu, Widi, dan Inggit ditempatkan **di interior rumah masing-masing**, bukan di jalan atau lapak; **pot Nani tetap di gang**.
+- Aset khusus misi hanya dirender, menghalangi langkah, dan memiliki tombol Aksi selama quest pemiliknya sudah diterima (`followUpQuests.phase = 1 atau 2`). Misi belum aktif atau telah selesai tidak boleh menyisakan benda interaktif/collider tak terlihat.
+- Saat quest rumah aktif, akses bertamu dibuka **meskipun kedekatan 0** selama pukul **07.00–20.30**, termasuk ketika pemilik sedang di luar. Setelah quest selesai, akses kembali memakai aturan bertamu normal. Pemain yang telah akrab tetap mengikuti aturan akses akrab yang lama.
+- Tidak ada efek otomatis pada poin kedekatan hanya karena berhasil masuk rumah. Uji `npcSchedule`, `areaBlocked`, tap route, interaksi interior dan jalur keluar.
 - Aksi gagal tidak menghapus item atau memberi hadiah; hasil periksa yang benar mencatat state; mengulang aksi tak dapat mengklaim reward lagi.
 - `newGame()` dan reset harus menghilangkan `followUpQuests` berikut semua reward/progresnya. Loading save v1 sebelum fitur baru tetap valid.
 
@@ -16,17 +19,19 @@
 
 | Pemilik | Quest lanjutan | Aset asli (file) | Lokasi/tile | Action nyata | Prasyarat |
 |---|---|---|---|---|---|
-| Ryan A03 | Jejak Dua Garis | `quests/quest-water-marks.svg` | sungai (8,7) | Aksi: periksa batu dan ingat dua garis; lapor Ryan | Misi pertama Ryan selesai |
+| Ryan A03 | Jejak Dua Garis | `quests/quest-water-marks.svg` | **rumah-ryan (13,7)** | Aksi: periksa contoh penanda air milik Ryan; lapor Ryan | Misi pertama Ryan selesai, quest aktif, jam bertamu |
 | Nani C01 | Pot yang Terlupa | `quests/quest-nani-pots.svg` | gang (10,9) | Aksi: membandingkan kelembapan dua pot; lapor Nani | Misi pertama Nani selesai |
-| Ayu A04 | Menunggu Kecambah | `quests/quest-ayu-seeds.svg` | pasar (9,9) | Aksi: memeriksa kecambah baru; baru valid hari setelah menerima tugas | Misi pertama Ayu selesai; hari berikutnya |
-| Widi C07 | Tiga Tanda di Air | `quests/quest-widi-ledger.svg` | pasar (29,8) | Aksi: menulis dua ikan yang benar-benar didapat setelah misi diterima | Misi pertama Widi selesai; tambah >=2 tangkapan |
-| Inggit C08 | Pagi yang Sibuk | `quests/quest-inggit-orders.svg` | pasar (13,11) | Aksi: menyerahkan dua timun tambahan yang tidak terikat pesanan utama | Misi pertama Inggit selesai; ada >=2 timun bebas |
+| Ayu A04 | Menunggu Kecambah | `quests/quest-ayu-seeds.svg` | **rumah-ayu (13,7)** | Aksi: memeriksa kecambah; baru valid hari setelah menerima tugas | Misi pertama Ayu selesai, quest aktif, hari berikutnya |
+| Widi C07 | Tiga Tanda di Air | `quests/quest-widi-ledger.svg` | **rumah-widi (13,7)** | Aksi: mencatat dua ikan baru yang didapat setelah misi diterima | Misi pertama Widi selesai, quest aktif, tambah >=2 tangkapan |
+| Inggit C08 | Pagi yang Sibuk | `quests/quest-inggit-orders.svg` | **rumah-inggit (13,7)** | Aksi: menyerahkan dua timun tambahan di dapur rumah | Misi pertama Inggit selesai, quest aktif, ada >=2 timun bebas |
 
 Implementasi:
 - `model.ts`: registri lokasi, collision, action context, field `followUpQuests`, validasi `safeLoad`.
 - `quest-props.ts`: antarmuka baca per-id untuk modul aset.
 - `personal-quests.ts`: syarat, cerita, progres tindakan, reward satu kali per misi.
-- `modular-outdoor.ts`: sprite dan penempatan bersama.
+- `modular-outdoor.ts`: registri sumber aset; tanpa penempatan permanen untuk quest.
+- `draw-world.ts` dan `phaser-world.ts`: render kontekstual objek quest aktif di interior rumah dan satu pot Nani di luar.
+- `tap-navigation.ts`: hanya mengenali objek misi yang sedang aktif untuk navigasi ketuk.
 - `phaser-world.ts`: loader SVG 24×28 untuk Phaser, sedangkan Canvas memakai `outdoorSources`.
 - `game-client.tsx`: tombol aksi dan dialog menerima/melaporkan misi.
 - `phone-story.ts` dan `phone-chronicle.tsx`: jejak dan status misi baru berdasarkan save.
@@ -81,7 +86,7 @@ Legenda: **Ada** berarti objek/mekanik dasar ada sekarang; **Aktif P1** berarti 
 
 ## Prioritas dan gerbang
 
-- **P0:** tes seluruh objek dapat dicapai, tidak memblokir kerja NPC, tidak mengambil jatah pesanan utama, reward hanya sekali, save lama aman, reset kembali benar-benar awal.
+- **P0:** tes seluruh objek dapat dicapai, tidak memblokir kerja NPC, tidak mengambil jatah pesanan utama, reward hanya sekali, save lama aman, reset kembali benar-benar awal, dan **izin masuk rumah harus berakhir ketika quest selesai**.
 - **P1:** evaluasi visual skala ponsel dan tanggapan player setelah menggunakan lima objek.
 - **P2:** siapkan state visual bernapas (kering/basah/terisi), puzzle pengamatan, pilihan hasil dan alat kerja tambahan untuk lima NPC.
 - **P3:** perluas event sosial, frame animasi, SFX dan koneksi antarmisi tanpa perlu memperbesar peta Pasirluyu.

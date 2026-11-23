@@ -8,7 +8,7 @@
  * visible canvas, sprite layers, native camera and scene graphics.
  */
 import * as Phaser from "phaser";
-import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, weatherForDay, type GameLocation } from "./model";
+import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, activeQuestProps, weatherForDay, type GameLocation, type GameState } from "./model";
 import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
@@ -47,6 +47,8 @@ class YZWorldScene extends Phaser.Scene {
   private background!: Phaser.GameObjects.Image;
   private soil: Phaser.GameObjects.Sprite[] = [];
   private mapProps: Phaser.GameObjects.Image[] = [];
+  private questSprites: Phaser.GameObjects.Image[] = [];
+  private questStateKey = "";
   private farm!: Phaser.GameObjects.Graphics;
   private highlight!: Phaser.GameObjects.Graphics;
   private dust!: Phaser.GameObjects.Graphics;
@@ -217,6 +219,22 @@ class YZWorldScene extends Phaser.Scene {
     }
   }
 
+  /** Quest props are separate from static scenery: hidden until a request is accepted.
+   * Rebuild on location/progress changes, never as permanent map furniture.
+   */
+  private updateQuestSprites(state: GameState) {
+    const props = activeQuestProps(state);
+    const key = state.location + ":" + props.map(p => p.id).join("|");
+    if(key===this.questStateKey)return;
+    for(const sprite of this.questSprites)sprite.destroy();
+    this.questSprites = props.map(prop=>{
+      const footY=(prop.y+1)*TILE;
+      return this.add.image((prop.x+.5)*TILE,footY,"yz-map-"+prop.asset)
+        .setOrigin(.5,1).setDepth(1000+footY-TILE);
+    });
+    this.questStateKey=key;
+  }
+
   private updatePlots(frame: FieldFrame) {
     const signature = frame.plots.map(p =>
       String(p.x) + ":" + p.y + ":" + p.stage + ":" + Number(p.watered)).join("|");
@@ -309,6 +327,7 @@ class YZWorldScene extends Phaser.Scene {
       this.changeLocation(location, frame.state.minutes);
     }
     if (location === "home") this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
+    this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);
       const tile = frame.state.player;

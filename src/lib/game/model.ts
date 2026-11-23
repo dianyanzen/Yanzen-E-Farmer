@@ -113,16 +113,25 @@ export type Dialogue = {
   title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; emotions?: Emotion[]; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
 };
 export const QUEST_PROPS = [
-  {id:"water-marks",owner:"A03",location:"sungai",x:8,y:7,asset:"quest-water-marks",label:"Periksa batu ukur air"},
+  {id:"water-marks",owner:"A03",location:"rumah-ryan",x:13,y:7,asset:"quest-water-marks",label:"Periksa penanda air Ryan"},
   {id:"nani-pots",owner:"C01",location:"gang",x:10,y:9,asset:"quest-nani-pots",label:"Periksa pot milik Nani"},
-  {id:"ayu-seeds",owner:"A04",location:"pasar",x:9,y:9,asset:"quest-ayu-seeds",label:"Periksa wadah semai Ayu"},
-  {id:"widi-ledger",owner:"C07",location:"pasar",x:29,y:8,asset:"quest-widi-ledger",label:"Periksa buku tangkapan Widi"},
-  {id:"inggit-orders",owner:"C08",location:"pasar",x:13,y:11,asset:"quest-inggit-orders",label:"Periksa keranjang pesanan Inggit"},
+  {id:"ayu-seeds",owner:"A04",location:"rumah-ayu",x:13,y:7,asset:"quest-ayu-seeds",label:"Periksa wadah semai Ayu"},
+  {id:"widi-ledger",owner:"C07",location:"rumah-widi",x:13,y:7,asset:"quest-widi-ledger",label:"Periksa buku tangkapan Widi"},
+  {id:"inggit-orders",owner:"C08",location:"rumah-inggit",x:13,y:7,asset:"quest-inggit-orders",label:"Periksa keranjang pesanan Inggit"},
 ] as const;
 export type QuestPropId = (typeof QUEST_PROPS)[number]["id"];
 export type QuestProp = (typeof QUEST_PROPS)[number];
 export const questPropAt = (location:string,x:number,y:number):QuestProp|undefined =>
   QUEST_PROPS.find(p=>p.location===location&&p.x===x&&p.y===y);
+
+/** Quest-only furniture is present and usable exclusively during its owner's accepted request. */
+export function questPropActive(s:GameState,prop:QuestProp):boolean{
+  const owner=prop.owner as NpcId,phase=s.followUpQuests?.[owner]?.phase;
+  return s.personalQuests?.[owner]?.phase===4 && (phase===1 || phase===2);
+}
+export function activeQuestProps(s:GameState):QuestProp[]{
+  return QUEST_PROPS.filter(prop=>prop.location===s.location&&questPropActive(s,prop));
+}
 
 export type GameState = {
   nurseryChecked?: boolean;
@@ -576,14 +585,15 @@ export function isRiverWaterTile(x:number,y:number):boolean {
   const px=(x+.5)*WORLD.tile;
   return px>=left && px<right;
 }
-export function areaBlocked(location:GameLocation,x:number,y:number):boolean{
+export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState):boolean{
   if(location==="warung") return x<8 || x>16 || y<6 || y>13 ||
     (y===6 && x!==10) || (y===7 && x>=12);
   if(isResidentHome(location))return x<8 || x>16 || y<8 || y>13;
   if(!isOutdoorLocation(location))return homeBlocked(x,y);
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
-  if(questPropAt(location,x,y))return true;
+  const questProp=questPropAt(location,x,y);
+  if(questProp && s && questPropActive(s,questProp))return true;
   if(x===0 || x===WORLD.width-1 || y===0 || y===WORLD.height-1){
     return !ROUTE_PORTALS.some(p=>p.from===location && onEdge(p.direction,x,y,p.start,p.end));
   }
@@ -608,7 +618,7 @@ export function movePlayer(s: GameState, dir: Direction): GameState {
   const steps=(s.walkingSteps??0)+(isOutdoorLocation(s.location)?1:0);
   const minutes=Math.min(1320,s.minutes+Math.floor(steps/4));
   const occupied=(n:NpcPlacement)=>n.x===at.x && n.y===at.y;
-  if(areaBlocked(location,at.x,at.y) || npcHere({...s,location}).some(occupied) ||
+  if(areaBlocked(location,at.x,at.y,s) || npcHere({...s,location}).some(occupied) ||
       (minutes!==s.minutes && npcHere({...s,location,minutes}).some(occupied))){
     return {...s,player:{...s.player,dir}};
   }
@@ -936,8 +946,12 @@ function warungOpen(s: GameState) {
   return inggit.location === "pasar" && !inggit.indoors && s.minutes < 1140;
 }
 function visitAllowed(s:GameState,owner:NpcId) {
+  const visitingHours=s.minutes>=7*60 && s.minutes<20*60+30;
+  const personal=s.personalQuests?.[owner],followUp=s.followUpQuests?.[owner];
+  const commissionActive=(personal!==undefined && personal.phase<4) ||
+    (personal?.phase===4 && (followUp?.phase===1 || followUp?.phase===2));
   return bondLevel(s.bonds[owner].points)>=VISIT_ANYTIME_LEVEL ||
-    (s.minutes>=7*60 && s.minutes<20*60+30 && npcWhere(s,owner).indoors);
+    (visitingHours && (commissionActive || npcWhere(s,owner).indoors));
 }
 export function interactDoor(s: GameState): GameState {
   const id=facingInteraction(s)?.id;
@@ -948,7 +962,7 @@ export function interactDoor(s: GameState): GameState {
   if(id==="guest-exit"){
     const home=RESIDENT_HOMES.find(h=>h.location===s.location)!;
     const waiting=npcHere({...s,location:"gang"});
-    const clear=[0,1,-1].map(dx=>home.x+dx).find(x=>!areaBlocked("gang",x,home.y) &&
+    const clear=[0,1,-1].map(dx=>home.x+dx).find(x=>!areaBlocked("gang",x,home.y,s) &&
       !waiting.some(n=>n.x===x && n.y===home.y));
     if(clear!==undefined)return {...s,location:"gang",player:{x:clear,y:home.y,dir:"down"}};
     return s;
@@ -1004,11 +1018,15 @@ export function getActionContext(s:GameState):ActionContext {
   if(privateDoor && isResidentHome(privateDoor)){
     const home=RESIDENT_HOMES.find(h=>h.location===privateDoor)!;
     if(visitAllowed(s,home.owner))return {kind:"door",label:"Bertamu ke rumah "+home.name};
-    const reason=npcWhere(s,home.owner).indoors ? "Pemilik sudah beristirahat." : "Pemilik sedang di luar.";
+    const reason=s.minutes<7*60 || s.minutes>=20*60+30 ? "Sudah di luar jam bertamu." :
+      npcWhere(s,home.owner).indoors ? "Pemilik sudah beristirahat." : "Pemilik sedang di luar.";
     return {kind:"inspect",label:areaTitle(privateDoor),text:areaTitle(privateDoor)+" terkunci. "+reason+
       " Biasanya rumah ini menerima tamu sampai pukul 20.30. Jika kalian sudah sangat akrab, mungkin ada kunci cadangan untukmu."};
   }
   if(privateDoor==="guest-exit")return {kind:"door",label:"Keluar ke gang"};
+  const roomQuest=questPropAt(s.location,front.x,front.y);
+  if(roomQuest && questPropActive(s,roomQuest))
+    return {kind:"quest-prop",label:roomQuest.label,propId:roomQuest.id};
   if(privateDoor==="guest-keepsake" && isResidentHome(s.location)){
     const home=RESIDENT_HOMES.find(h=>h.location===s.location)!;
     return {kind:"inspect",label:home.object,text:home.note};
@@ -1019,7 +1037,8 @@ export function getActionContext(s:GameState):ActionContext {
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if (!isOutdoorLocation(s.location)) return {kind:"none",label:"Tidak ada objek"};
   const questProp = questPropAt(s.location,front.x,front.y);
-  if(questProp)return {kind:"quest-prop",label:questProp.label,propId:questProp.id};
+  if(questProp && questPropActive(s,questProp))
+    return {kind:"quest-prop",label:questProp.label,propId:questProp.id};
   const sign = signpostAt(s.location, front.x, front.y);
   if(sign) return {kind:"inspect",label:sign.title,text:sign.message};
   if(s.location!=="field"){
