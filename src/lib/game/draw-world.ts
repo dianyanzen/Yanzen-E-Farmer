@@ -76,7 +76,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   if(state.location==="shed"){
     if (art.housingHDInteriors){
-      drawHDInterior(ctx,art.housingHDInteriors,"shed",false,"base");
+      drawHDInterior(ctx,art.housingHDInteriors,"shed",state.minutes>=18*60,"base");
       drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"behind");
     }
     else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
