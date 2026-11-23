@@ -58,7 +58,8 @@ for(const room of ["home","shed"]){
     assert.ok(l<=rect.x && t<=rect.y && r>=rect.x+rect.width && b>=rect.y+rect.height,
       room+"/"+target.id+": hitbox must wrap rendered sprite");
   }
-  const wall=routing.planTapRoute(origin,10,6,{x:210,y:130});
+  const wall=room==="home"?routing.planTapRoute(origin,10,6,{x:210,y:130}):
+    routing.planTapRoute(origin,7,7,{x:150,y:150});
   assert.ok(wall && !wall.interact,room+": tapping ordinary wall should approach open floor");
 }
 assert.equal(layout.ROOM_FURNITURE.home.length,5);
