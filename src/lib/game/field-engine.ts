@@ -4,6 +4,9 @@ import { Footwork } from "./footwork";
 import { FieldAudio } from "./field-audio";
 import { type Direction, type FarmTool, type GameState } from "./model";
 import { WalkPath, STEP_MS, RUN_STEP_MS } from "./walking";
+import type {FishingVisual} from "./fishing-visuals";
+import type {FishingPhase} from "./fishing-session";
+import type {FishingOutcome,RiverFishId} from "./model";
 
 export type WorldPick = { x: number; y: number; world: { x: number; y: number } };
 
@@ -20,6 +23,7 @@ export type FieldFrame = {
   plots: GameState["plots"];
   weight: import("./footwork").WeightPose | undefined;
   dust: { x: number; y: number; dir: Direction; phase: number } | undefined;
+  fishing: FishingVisual | undefined;
 };
 export type FieldRendererAdapter = { draw(frame: FieldFrame): void };
 
@@ -27,7 +31,10 @@ export type ToolUse = {
   tool: FarmTool; started: number; before: GameState["plots"];
   origin: GameState["player"]; target: { x: number; y: number };
 };
-type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: boolean };
+type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: boolean;
+  fishingSession?:{phase:FishingPhase;phaseAt:number}|null;
+  fishingNotice?:{outcome:FishingOutcome;species?:RiverFishId;startedAt:number}|null;
+};
 const timings = {
   hoe: [135, 275, 420], seed: [90, 170, 290],
   water: [130, 350, 500], harvest: [115, 225, 365],
@@ -128,17 +135,22 @@ export class FieldEngine {
     camera.x=follow(camera.x,walk.x,.30);camera.y=follow(camera.y,walk.y,.28);
     const pan=Math.abs(camera.x-previousX)+Math.abs(camera.y-previousY)>.001;
     const ambient=reduced?0:Math.floor(now/170);
-    const active=wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan;
+    const fishing: FishingVisual | undefined = scene.fishingSession || scene.fishingNotice ? {
+      session:scene.fishingSession?{phase:scene.fishingSession.phase,elapsed:now-scene.fishingSession.phaseAt}:undefined,
+      popup:scene.fishingNotice?{outcome:scene.fishingNotice.outcome,species:scene.fishingNotice.species,
+        elapsed:now-scene.fishingNotice.startedAt}:undefined
+    }:undefined;
+    const active=wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan || !!fishing;
     const position = { x: walk.x, y: walk.y, dir: walk.dir };
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {
       const plots = swing && age<impact && !reduced ? swing.before : game.plots;
       if (this.renderer) {
         this.renderer.draw({
           state: game, position,
-          pose, running, action, camera: { ...camera }, reducedMotion: reduced, ambient, route, plots, weight, dust
+          pose, running, action, camera: { ...camera }, reducedMotion: reduced, ambient, route, plots, weight, dust, fishing
         });
       } else {
-        drawWorld(canvas,game,scene.art,position,pose,running,action,camera,ambient,plots,weight,dust);
+        drawWorld(canvas,game,scene.art,position,pose,running,action,camera,ambient,plots,weight,dust,fishing);
       }
       if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,game);
     }
