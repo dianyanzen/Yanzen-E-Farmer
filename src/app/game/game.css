@@ -585,6 +585,15 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 }
 .yzg-cutscene-video{display:block;width:100%;height:100%;aspect-ratio:910 / 512;
  object-fit:contain;object-position:center;background:#0e201c;image-rendering:auto}
+/* Honest animated two-frame continuity when the original approved MP4 is missing.
+   Both images remain in their native frame, uncropped, inside the game canvas. */
+.yzg-cutscene-storyboard{position:relative;width:100%;height:100%;aspect-ratio:910 / 512;
+ overflow:hidden;background:#0e201c;isolation:isolate}
+.yzg-cutscene-still{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+ object-position:center;image-rendering:auto;pointer-events:none}
+.yzg-cutscene-still--start{animation:yzg-sluice-lumen 3s ease-in-out infinite alternate}
+.yzg-cutscene-still--end{transition:opacity .15s linear}
+@keyframes yzg-sluice-lumen{from{filter:brightness(.96)}to{filter:brightness(1.04)}}
 .yzg-cutscene-readalong{
  width:min(100%,780px);min-height:0;max-height:35%;flex:0 0 auto;
  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
