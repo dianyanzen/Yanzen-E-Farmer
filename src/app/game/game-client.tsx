@@ -840,7 +840,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
         <span>Lv. {playerLevel(game)} · {areaTitle(game.location)}</span>
-        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan lokal" : "Belum tersimpan"}</span>
+        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Belum tersimpan"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
         <div><b>{journal.stage === 5 ? "Bab 1 selesai" : "Tujuan berikutnya"}</b><p>{display(journal.objective)}</p></div>
