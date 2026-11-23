@@ -58,7 +58,8 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
   const indoorCandidates=indoor ? queue.flatMap(tile=>dirs.flatMap(d=>{
     const frontX=tile.x+d.dx,frontY=tile.y+d.dy;
     const centerX=(frontX+.5)*WORLD.tile,centerY=(frontY+.5)*WORLD.tile;
-    if(distanceToRect(centerX,centerY,indoor.rect)>16)return [];
+    // A player can stand a whole tile away from an object's visual edge.
+    if(distanceToRect(centerX,centerY,indoor.rect)>26)return [];
     const context=getActionContext({...s,player:{...s.player,x:tile.x,y:tile.y,dir:d.dir}});
     return context.kind===indoor.kind && context.label===indoor.label ?
       [{...tile,face:d.dir,interact:true,exit:null as Direction|null,targetLabel:indoor.label}]:[];
