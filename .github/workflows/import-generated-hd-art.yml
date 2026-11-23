@@ -1,0 +1,59 @@
+name: Import generated HD source art
+on:
+  push:
+    branches:
+      - feat/yanzen-modular-housing-20261123
+    paths:
+      - .github/workflows/import-generated-hd-art.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-source-masters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download and verify user-generated HD source art
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p game-assets/hd-masters/v3 game-assets/hd-masters/previous
+          curl -fLsS --retry 3 'https://at.adobe.com/0WYSm6wuwgNivmo6' -o 'game-assets/hd-masters/v3/house.png'
+          echo '1ec27134f6dc35ff85299fe4fd22058928df5d63f2dcb9cdc2f76b96eba52ab4  game-assets/hd-masters/v3/house.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/GhByLPzKe6ndcGtu' -o 'game-assets/hd-masters/v3/house-base.png'
+          echo 'c99da1166219bf0ef22c9d3aaa4724f6c0a7b5bda2c1dd0473a15caa808ac27c  game-assets/hd-masters/v3/house-base.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/pr95W4PvwQgsgZnA' -o 'game-assets/hd-masters/v3/house-furniture.png'
+          echo 'b8031e7abec7fd1b63e9baf184740e9e70596cfa84269539de3eb22df0936342  game-assets/hd-masters/v3/house-furniture.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/2oNPWXOIbAzRS1XA' -o 'game-assets/hd-masters/v3/shed.png'
+          echo '1af09517552c79e851b324e59e7d69ea09304494dc61963e11033978049ff139  game-assets/hd-masters/v3/shed.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/RHgv6zpWJDQ5cKMU' -o 'game-assets/hd-masters/v3/shed-base.png'
+          echo 'f65503b922796aeb875ea15d747f328f183c388cb10205277d5264f36a197aa5  game-assets/hd-masters/v3/shed-base.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/KQpaMg7QCwDA4RJb' -o 'game-assets/hd-masters/v3/shed-furniture.png'
+          echo 'b46f75ba91714b9e2b386d0a58d9d04ca5f0b2fb9064ae17f6f2534498198df5  game-assets/hd-masters/v3/shed-furniture.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/bcXtT73GJZqz9s5u' -o 'game-assets/hd-masters/v3/resident-a.png'
+          echo '250f8b2104c7ea07449d8a023cf53d535c0152f22b2d04d161683c81fa9c93aa  game-assets/hd-masters/v3/resident-a.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/Sq95ISUMhAqPy1nY' -o 'game-assets/hd-masters/v3/resident-b.png'
+          echo '898442a40c4724b1004348dca4701aeaf669ee57a4d4ba3816cbe92a2140c511  game-assets/hd-masters/v3/resident-b.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/Lyth8iH2PYyAm4yL' -o 'game-assets/hd-masters/v3/ayu-store.png'
+          echo 'd58662380311c747d421f2b1fefb409cde4938c6397310f786fde155a34effbb  game-assets/hd-masters/v3/ayu-store.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/eIjA9EEt5wyzKBca' -o 'game-assets/hd-masters/v3/widi-store.png'
+          echo 'c1793b90b7b4c605d9cd4df563d69db2e09e365de12e10f9662d9cffcd44c1ef  game-assets/hd-masters/v3/widi-store.png' | sha256sum -c -
+          curl -fLsS --retry 3 'https://at.adobe.com/fDokiz6Q3JA1jEMS' -o /tmp/yanzen-original-masters.zip
+          echo '4bc59ace053ee51c7a0e4f00dfd3b50aac72c4e0b4a55b751e9ff995734c7c60  /tmp/yanzen-original-masters.zip' | sha256sum -c -
+          unzip -oq /tmp/yanzen-original-masters.zip -d game-assets/hd-masters/previous/
+          echo "Approved source masters downloaded and verified."
+      - name: Commit source masters to integration branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add game-assets/hd-masters/
+          if git diff --cached --quiet; then
+            echo "All master PNGs already committed."
+          else
+            git commit -m "assets(hd): archive original and regenerated PNG masters"
+            git push origin HEAD:"${GITHUB_REF_NAME}"
+          fi
