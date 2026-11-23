@@ -947,8 +947,9 @@ function warungOpen(s: GameState) {
 }
 function visitAllowed(s:GameState,owner:NpcId) {
   const visitingHours=s.minutes>=7*60 && s.minutes<20*60+30;
-  const mission=s.followUpQuests?.[owner],commissionActive=
-    s.personalQuests?.[owner]?.phase===4 && (mission?.phase===1 || mission?.phase===2);
+  const personal=s.personalQuests?.[owner],followUp=s.followUpQuests?.[owner];
+  const commissionActive=(personal!==undefined && personal.phase<4) ||
+    (personal?.phase===4 && (followUp?.phase===1 || followUp?.phase===2));
   return bondLevel(s.bonds[owner].points)>=VISIT_ANYTIME_LEVEL ||
     (visitingHours && (commissionActive || npcWhere(s,owner).indoors));
 }
