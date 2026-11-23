@@ -1,4 +1,7 @@
 # Standar Potret NPC Aktif — YZ Farm Life
+
+> **ATURAN MUTLAK TERBARU — 24 November 2026:** Semua aset game termasuk setiap frame animasi, setiap ekspresi NPC, tile, furnitur, bangunan, dan efek **wajib berupa file individual milik satu entitas**, tanpa spritesheet, atlas, sumber gambar gabungan, teknik cutting/cropping dari sheet, atau penggunaan file bersama lintas entitas/instance. Tidak boleh mengemas ulang ke atlas pada runtime. Baca [Atomic Assets & Yanzen Scale Standard](./ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md) dan skill [yz-farm-atomic-assets](../../.agents/skills/yz-farm-atomic-assets/SKILL.md). Kunci skala tubuh dan titik kaki Yanzen di semua animasi. Instruksi historis dalam dokumen ini yang menyarankan atlas, sheet, shared asset, atau cutting **tidak berlaku lagi**. Aset lama dimigrasikan bertahap dan tidak boleh dihapus sebelum QA/rollback.
+
 **Dokumen normatif v1.1 | 22 November 2026 | ruang lingkup: lima NPC yang benar-benar muncul dalam gameplay Pasirluyu**
 
 > Status: standar editorial dan kontrak runtime yang disusun setelah inspeksi **sepuluh PNG aktual** (lima potret profesi + lima strip ekspresi) dan kode dialog; bukan pernyataan bahwa setiap aset telah lolos QA final. Dokumen untuk 248 NPC lain bukan cakupan tahap ini.
