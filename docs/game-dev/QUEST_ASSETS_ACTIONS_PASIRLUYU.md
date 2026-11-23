@@ -23,7 +23,7 @@
 | Nani C01 | Pot yang Terlupa | `quests/quest-nani-pots.svg` | gang (10,9) | Aksi: membandingkan kelembapan dua pot; lapor Nani | Misi pertama Nani selesai |
 | Ayu A04 | Menunggu Kecambah | `quests/quest-ayu-seeds.svg` | **rumah-ayu (13,7)** | Aksi: memeriksa kecambah; baru valid hari setelah menerima tugas | Misi pertama Ayu selesai, quest aktif, hari berikutnya |
 | Widi C07 | Tiga Tanda di Air | `quests/quest-widi-ledger.svg` | **rumah-widi (13,7)** | Aksi: mencatat dua ikan baru yang didapat setelah misi diterima | Misi pertama Widi selesai, quest aktif, tambah >=2 tangkapan |
-| Inggit C08 | Pagi yang Sibuk | `quests/quest-inggit-orders.svg` | **rumah-inggit (10,7)** | Aksi: menyerahkan dua timun tambahan di dapur rumah | Misi pertama Inggit selesai, quest aktif, ada >=2 timun bebas |
+| Inggit C08 | Pagi yang Sibuk | `quests/quest-inggit-orders.svg` | **rumah-inggit (13,7)** | Aksi: menyerahkan dua timun tambahan di dapur rumah | Misi pertama Inggit selesai, quest aktif, ada >=2 timun bebas |
 
 Implementasi:
 - `model.ts`: registri lokasi, collision, action context, field `followUpQuests`, validasi `safeLoad`.
