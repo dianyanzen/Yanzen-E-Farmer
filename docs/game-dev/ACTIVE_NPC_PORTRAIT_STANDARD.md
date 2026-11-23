@@ -100,3 +100,7 @@ Lakukan sebelum merge:
 - **Bukan lingkup ini:** membuat 243 sprite/strip ekspresi tambahan hanya untuk memenuhi 248 profil Warga.
 
 Lihat juga `PORTRAIT_CATALOG.md`, `ART_DIRECTION.md`, `PLAYER_DEVELOPER_CONTENT_BOUNDARY.md`, `YZ_PHONE_WARGA_KRONIK.md`, dan `docs/game-dev/FISHING_EXPERIENCE_V2.md`.
+
+
+## Revisi setelah integrasi portrait Widi — 23 November 2026
+Strip ekspresi delapan frame Widi (`C07.png`, 8×1 sel 192×256) dari preview lama telah disatukan dengan game main tanpa mengubah potret profesi `work-C07.png`, nama canonical, pekerjaan, ikatan sosial, maupun save pemain. Bingkai dialog memakai crop CSS per ekspresi supaya tidak menampilkan karakter dari frame tetangga. Metadata `styleReview` Widi pada register mengikuti versi **`owner-requested-Widi-HQ-Ayu-parity-20261122-pending-Safari-review`**. Review manusia pada Safari iOS dan Android Chrome, termasuk ukuran 80 dan 112 piksel, tetap diperlukan; kelulusan tes otomatis belum mengesahkan QA visual perangkat fisik.
