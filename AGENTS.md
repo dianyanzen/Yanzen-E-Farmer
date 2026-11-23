@@ -10,6 +10,14 @@
 4. **Cerita runtime lama**: `game-assets/catalog/cast.json` dan `game-assets/characters/profiles/` adalah sumber untuk sistem/quest legacy yang masih hidup. **Jangan** menyamakan karakter lama dengan roster baru berdasarkan ID, nama pendek, atau gambar. Relasi hanya melalui `approvedLegacyId` dengan izin manual.
 5. **Rencana jangka panjang**: dokumen desain/atlas/ekspansi adalah proposal sampai didukung kode dan tes. 30 kecamatan/151 kelurahan belum berarti seluruh peta dimainkan.
 
+## KEBIJAKAN PALING BARU: 100% INDIVIDUAL ASSETS (24 NOVEMBER 2026 — HARD RULE)
+
+**Perintah mutlak pemilik:** setiap objek/entitas/varian/pose/arah/**frame animasi** wajib berupa file gambar individual, tidak boleh digabung, dibagi pakai lintas entitas, atau dipotong dari sheet. **Larangan total** terhadap spritesheet, texture atlas, image contact sheet yang dipakai game, packed multi-frame WebP, crop sub-rectangle `drawImage`, CSS background-position pemotong ekspresi, auto-packing runtime, dan penggunaan satu file sebagai gambar dua identitas/instance berbeda. Tidak boleh mengakali aturan dengan menyalin byte-identik. Metadata dan loader harus membaca **satu file per frame**. Berlaku untuk source/master **dan runtime**, tidak ada pengecualian optimasi performa.
+
+**Mandatory skill:** sebelum pekerjaan asset apa pun, WAJIB baca `.agents/skills/yz-farm-atomic-assets/SKILL.md`, `docs/game-dev/ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md`, dan audit `docs/game-dev/YANZEN_ANIMATION_SCALE_AUDIT_20261124.md`. Ketiganya **mengalahkan anjuran atlas/cutting/sharing** dalam dokumen lama. Jangan membuat atlas baru. Aset lama yang masih dipakai ditandai LEGACY_BLOCKED_FOR_NEW_USE sampai diganti aman; jangan hapus/migrasikan massal tanpa QA, izin, dan rollback.
+
+**Height lock Yanzen:** satu body scale konsisten pada idle, walk, run, turn, farming action, fishing dan seluruh lokasi. Frame lama 24×32, 32×40, 48×48 tidak boleh membuat tinggi tubuh berbeda. Ukur body-only alpha bounds, proporsi anatomis dan foot pivot per frame, rendering Canvas & Phaser memakai kontrak yang sama, tanpa stretch/zoom saat animasi. Variasi siluet anatomis akibat langkah/jongkok boleh; transisi pose berdiri ekuivalen dan titik kaki harus stabil (target error 0–1 px pada world scale). Perbaiki frame sumber satu per satu. **Belum ada klaim seluruh aset/animasi legacy telah dimigrasikan**.
+
 ## Identitas visual dan kurasi aset (wajib untuk SEMUA pekerjaan aset)
 
 **Keputusan pemilik 23 November 2026:** YZ Farm Life harus terasa sebagai dunia farming-life Bandung yang hangat, natural, jelas, kaya detail secara selektif, **tidak terlalu ramai**, dan mempunyai ciri khas yang konsisten. Keindahan satu aset tidak mengalahkan keserasian seluruh game. Jangan langsung generate ulang massal atau menghapus koleksi lama.
