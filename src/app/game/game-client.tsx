@@ -728,6 +728,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         return;
       }
       if (dialogue || phoneOpen || storageOpen) return;
+      if (key==="escape" && fishingRef.current){
+        e.preventDefault();finishFishing(fishingRef.current.id,"cancelled");return;
+      }
       if (key === "escape" && tapRoute.current) {
         e.preventDefault();
         tapRoute.current = null;
@@ -754,7 +757,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     };
     window.addEventListener("keydown", handle);
     return () => window.removeEventListener("keydown", handle);
-  }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools]);
+  }, [press, action, togglePhone, phoneOpen, dialogue, storageOpen, field, equip, swapTool, game.carriedTools, finishFishing]);
 
   const rest = () => {
     if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
@@ -810,8 +813,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const namePattern=new RegExp("\\b("+[...activeNames.keys()]
     .sort((a,b)=>b.length-a.length).join("|")+")\\b","g");
   const display=(message:string)=>message.replace(namePattern,name=>activeNames.get(name)??name);
-  const actionLabel = display(context.label);
-  const actionVerb = context.kind==="plant"?"TANAM":
+  const actionLabel = fishingSession?
+    fishingSession.phase==="bite"?"Tarik sekarang!":
+    fishingSession.phase==="waiting"?"Tunggu sambaran":
+    fishingSession.phase==="reeling"?"Sedang menarik ikan":"Melempar kail":
+    display(context.label);
+  const actionVerb = fishingSession ? (fishingSession.phase==="bite"?"TARIK":fishingSession.phase==="waiting"?"TUNGGU":fishingSession.phase==="reeling"?"MENARIK":"LEMPAR") : context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":
@@ -848,6 +855,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           role="region" aria-label="Peta permainan"
           onClick={tapOnPhaserWorld}
           style={{opacity:worldPresented&&phaserReady?1:0,pointerEvents:worldPresented&&phaserReady?"auto":"none"}} />}
+        {fishingSession&&<FishingScene phase={fishingSession.phase} onCancel={()=>finishFishing(fishingSession.id,"cancelled")}/>}
+        {!fishingSession&&fishingNotice&&<FishingResult outcome={fishingNotice.outcome} species={fishingNotice.species}/>}
+        {cutscene!==null && <SluiceCutscene onDone={()=>{const newMemory=cutscene==="sluice-open";setCutscene(null);if(newMemory)setToast("Kenangan tersimpan di YZ Phone.");}}/>}
         {wakingDay!==null && <div className="yzg-sleep-scene" role="status"><strong>Hari {wakingDay}</strong><small>Pagi di rumah Yanzen</small></div>}
         {!worldPresented && <div className="yzg-loading" aria-busy={saveStatus !== "error"}>
           <div className="yzg-loading-copy">
@@ -869,18 +879,50 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {dialogue && <GameDialog className="yzg-dialog yzg-chapter-dialog" aria-label={display(dialogue.title)}
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
-          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && <div className="yzg-shop">
-            {(dialogue.npcId==="A04"?["seeds","cucumber"] as const:["bait",...FISH_IDS] as const).map(item=>
-              <button key={item} disabled={unavailable} onClick={()=>{
-                if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
-                const r=marketTrade(game,dialogue.npcId,item);
-                if(r.state!==game){setGame(r.state);void persist(r.state);}
-                setDialogue({...dialogue,title:"Lapak pasar",lines:[r.message]});
-              }}>{item==="bait"?"5 pelet · 15 G":item==="seeds"?"5 bibit · 40 G":item==="cucumber"?"Jual hasil timun":"Jual "+FISH_MARKET[item].name+" ("+game.fishing.fish[item]+")"}</button>)}
-            {dialogue.npcId==="C07" && <NextImage src="/game/assets/tiles/fish-market.png" width={144} height={48} alt="Bandeng, kakap putih dan belanak"/>}
-          </div>}
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
+          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && (
+            <details className="yzg-market" open={dialogue.title==="Lapak pasar"}>
+              <summary>
+                <strong>{dialogue.npcId==="C07"?"Lapak pancing Widi":"Lapak benih Ayu"}</strong>
+                <small>{dialogue.npcId==="C07"?"Beli umpan atau jual hasil pancing":"Beli bibit atau jual hasil kebun"}</small>
+              </summary>
+              <div className="yzg-market-grid">
+                {(dialogue.npcId==="A04" ? ["seeds","cucumber"] as const :
+                  ["bait",...FISH_IDS.filter(id=>game.fishing.fish[id]>0)] as const).map(item=>{
+                  const fish=FISH_IDS.includes(item as keyof typeof FISH_MARKET)?FISH_MARKET[item as keyof typeof FISH_MARKET]:null;
+                  const quantity=fish?game.fishing.fish[item as keyof typeof FISH_MARKET]:0;
+                  const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
+                    item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
+                  const detail=item==="bait"?"15 G · Stok: "+game.fishing.bait:
+                    item==="seeds"?"40 G":item==="cucumber"?"Timun yang belum dipesan":
+                    quantity+" ekor · "+fish!.price+" G/ekor";
+                  return <button key={item} className="yzg-market-item" disabled={unavailable} onClick={()=>{
+                    if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
+                    const result=marketTrade(game,dialogue.npcId,item);
+                    if(result.state!==game){setGame(result.state);void persist(result.state);}
+                    setDialogue({...dialogue,title:"Lapak pasar",lines:[result.message],choices:undefined,emotions:undefined});
+                  }}>
+                    {fish && (item==="lele"||item==="nila") ?
+                      <img className="yzg-market-freshwater" src={"/game/assets/fish/"+item+".png"} alt="" aria-hidden="true"/> :
+                     fish ? <span className="yzg-market-sprite yzg-market-sprite--widi" aria-hidden="true"
+                      style={{backgroundPosition:fish.frame===0?"100% 0%":fish.frame===1?"0% 100%":"50% 100%"}}/> :
+                      <span className={dialogue.npcId==="C07"?"yzg-market-sprite yzg-market-sprite--widi":"yzg-market-sprite yzg-market-sprite--ayu"}
+                        style={{backgroundPosition:item==="bait"?"50% 0%":item==="seeds"?"0% 0%":"0% 100%"}} aria-hidden="true"/>}
+                    <span className="yzg-market-item-text"><strong>{itemName}</strong><small>{detail}</small></span>
+                  </button>;
+                })}
+              </div>
+              {dialogue.npcId==="C07" && FISH_IDS.every(id=>game.fishing.fish[id]===0) &&
+                <p className="yzg-market-empty">Belum ada ikan di tasmu. Kalau dapat, bawa ke sini, ya.</p>}
+            </details>
+          )}
+          {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
+
+          {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
+            <button onClick={() => decidePhoto("nani")} disabled={unavailable}>{display("Percayakan foto asli kepada Nani")}<small>Kisah disimpan bersama keluarga.</small></button>
+            <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
+          </div>}
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
 
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
@@ -917,7 +959,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
             <div className="yzg-phone-time"><span>{minutes}</span><span>●●●  ▰</span></div>
             <div className="yzg-phone-top">
               <button aria-label="Kembali" data-dialog-start={phoneTab !== "apps" ? "" : undefined} onClick={() => phoneTab === "characters" && selectedCitizen ? setSelectedCitizen(null) : phoneTab === "apps" ? setPhoneOpen(false) : setPhoneTab("apps")}>‹</button>
-              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
+              <b>{phoneTab === "apps" ? "YZ PHONE" : phoneTab === "chat" ? "Pesan" : phoneTab === "farm" ? "Kebunku" : phoneTab === "chronicle" ? "Kronik" : phoneTab === "memories" ? "Kenangan" : phoneTab === "ikd" ? "IKD" : phoneTab === "friends" ? "Kedekatan" : phoneTab === "stats" ? "Statistik" : phoneTab === "characters" ? "Warga" : phoneTab === "guide" ? "Panduan" : "Jelajah"}</b>
               <button aria-label="Tutup ponsel" onClick={() => setPhoneOpen(false)}>×</button>
             </div>
             <div className="yzg-phone-content" data-dialog-scroll>
@@ -986,6 +1028,22 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               </>}
               {phoneTab === "characters" && <CharacterGallery game={game} residents={residents} selectedId={selectedCitizen} onSelect={setSelectedCitizen}/>}
               {phoneTab === "chronicle" && <PhoneChronicle game={game} residents={residents} displayName={display} onOpenWarga={id=>{setSelectedCitizen(id);setPhoneTab("characters");}}/>}
+              {phoneTab === "memories" && <div className="yzg-phone-card yzg-memory-album">
+                <b>Album Kenangan</b>
+                <p>Beberapa momen layak disimpan lebih lama dari satu hari. Kamu bisa melihatnya kembali di sini.</p>
+                <div className="yzg-memory-entry">
+                  <div className={"yzg-memory-cover"+(hasSluiceMemory(game)?" unlocked":" locked")} aria-hidden="true">
+                    {hasSluiceMemory(game)?"":"?"}
+                  </div>
+                  <div>
+                    <strong>{hasSluiceMemory(game)?"Pintu Air Pasirluyu":"Kenangan yang belum terbuka"}</strong>
+                    <small>{hasSluiceMemory(game)?"Roda yang lama diam kembali bergerak.":"Lanjutkan perjalanan dan bantu warga."}</small>
+                    {hasSluiceMemory(game) && <button type="button" onClick={()=>{
+                      setPhoneOpen(false);setToast("");setCutscene("sluice-replay");
+                    }}>Putar ulang adegan</button>}
+                  </div>
+                </div>
+              </div>}
               {phoneTab === "guide" && <>
                 <div className="yzg-phone-card">
                   <b>Mulai bermain</b>
@@ -998,6 +1056,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <div className="yzg-phone-card"><b>Alat & bertani</b>
                   <p>PC: Q/R mengganti alat, 1–9 memilih alat. Gunakan cangkul untuk mengolah tanah, tanam bibit, siram dengan gembor, dan panen saat matang.</p>
                   <p>Buka gudang dari pintu bangunan untuk mengambil dan menyimpan alat.</p>
+                </div>
+                <div className="yzg-phone-card"><b>Memancing di sungai</b>
+                  <p>Ambil joran dari gudang dan beli pelet di lapak Widi. Berdirilah di tepi sungai menghadap air, lalu tekan A atau E untuk melempar kail.</p>
+                  <p>Tunggu pelampung tenggelam sebelum menarik. Kalau terlalu cepat atau terlambat, ikan bisa lolos. Bahkan ketika tarikannya tepat, belum tentu berhasil setiap kali.</p>
+                  <p>Tekan Esc di PC atau Angkat joran pada layar HP untuk berhenti. Catatan hasil pancingmu ada di Statistik.</p>
                 </div>
                 <div className="yzg-phone-card"><b>Waktu & progres</b>
                   <p>Kalau sudah malam, pulang ke rumah, hadap ranjang, lalu pilih Tidur. Perjalananmu akan tersimpan.</p>
@@ -1030,6 +1093,25 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                     <span>Pengalaman<strong>{game.stats.xp} XP</strong></span><span>Aksi bertani<strong>{game.stats.actions}</strong></span>
                     <span>Total panen<strong>{game.stats.harvests}</strong></span><span>Percakapan<strong>{game.stats.conversations}</strong></span>
                     <span>Malam beristirahat<strong>{game.stats.nights}</strong></span><span>Saldo<strong>{game.coins} G</strong></span>
+                  </div>
+                </div>
+                <div className="yzg-phone-card">
+                  <b>Catatan memancing</b>
+                  <div className="yzg-phone-stats">
+                    <span>Lemparan<strong>{game.fishing.stats.casts}</strong></span>
+                    <span>Sambaran<strong>{game.fishing.stats.bites}</strong></span>
+                    <span>Berhasil<strong>{game.fishing.caught}</strong></span>
+                    <span>Meleset<strong>{game.fishing.stats.missed}</strong></span>
+                    <span>Ikan lepas<strong>{game.fishing.stats.escaped}</strong></span>
+                    <span>Tanpa sambaran<strong>{game.fishing.stats.noBite}</strong></span>
+                  </div>
+                  <p>Hasil dari sungai:</p>
+                  <div className="yzg-fishing-species-grid">
+                    {(["lele","nila"] as const).map(id=><div key={id}>
+                      <img src={"/game/assets/fish/"+id+".png"} alt={FISH_MARKET[id].name}/>
+                      <strong>{FISH_MARKET[id].name}</strong>
+                      <small>Tertangkap {game.fishing.stats.caughtBySpecies[id]} kali · di tas {game.fishing.fish[id]}</small>
+                    </div>)}
                   </div>
                 </div>
               </>}
