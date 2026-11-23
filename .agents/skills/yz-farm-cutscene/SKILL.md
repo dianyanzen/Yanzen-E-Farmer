@@ -43,8 +43,15 @@ Template siap pakai untuk tiga generasi terpisah (frame awal, frame akhir, dan v
 - Frame key art, poster dan tombol replay **harus berasal dari adegan aktual**. Simpan provenance dan checksum di `game-assets/cinematics/<slug>/manifest.json`.
 - Import final ke `public/game/assets/cutscenes/<slug>.mp4` (untuk sluice URL historis `sluice-gate.mp4` dipertahankan). Perbarui katalog aset dan QA. Video lama digantikan, jangan restore otomatis di build dari render lama.
 - Phaser mengatur pemicu gameplay. Komponen React video **hanya memutar, pause, skip, toggle audio, fullscreen, dan report selesai**. Tidak boleh mengubah save, uang, affinity, hadiah, atau quest ketika replay/skip.
-- Game `YZ Phone → Kenangan` memperlihatkan adegan yang telah terbuka berdasarkan `src/lib/game/model.ts` melalui `hasSluiceMemory`; save lama tetap valid. Poster dan detail player harus mobile-first, subtitle besar dan terpisah dari video bila diperlukan, autoplay muted untuk Safari, `playsInline`, video load failure memiliki retry/skip.
+- Game `YZ Phone → Kenangan` memperlihatkan adegan yang telah terbuka berdasarkan `src/lib/game/model.ts` melalui `hasSluiceMemory`; save lama tetap valid. Poster dan detail player harus mobile-first, subtitle besar dan terpisah dari video bila diperlukan, autoplay muted untuk Safari, `playsInline`. **Ketika MP4 asli belum tersedia**, jangan menahan pemain pada retry/error: boleh tampilkan ilustrasi kontinuitas dua frame asli dengan label terlihat bahwa itu **bukan video**, durasi selesai otomatis, dan tombol skip. Jalur video asli tetap prioritas serta tidak boleh dipalsukan sebagai file lain.
 - Remotion bersifat **opsional untuk penyuntingan** ketika diperlukan; **bukan prasyarat** untuk video yang sudah dihasilkan pemilik.
+
+## Larangan regresi media staging dan QA runtime (23 November 2026)
+
+- Untuk pintu air historis, poster dan frame ada di Git, **MP4 pemilik 6.199.340 byte belum ada sebagai blob Git**. File yang hanya diunduh saat build Vercel preview bukan migrasi permanen; jangan menulis laporan bahwa video sudah aman di Git tanpa audit berkas dan checksum.
+- `src/app/game/sluice-cutscene.tsx` kini memutar MP4 jika tersedia; ketika terjadi load error beralih ke **dua frame final** yang crossfade dalam area permainan yang sama, menampilkan keterangan `Ilustrasi dua frame · video asli belum tersedia`. Ini bukan klip video pengganti dan tidak boleh dijadikan final art tanpa persetujuan.
+- Tidak boleh menambahkan modal retry yang menghalangi kontrol sampai pemain berulang kali menekan tombol; fallback harus auto selesai dalam durasi adegan dan tetap bisa dilewati.
+- Pastikan `npm run test:game` mencakup `tests/game-cutscene-fallback.mjs`; setelah mengubah rasio, fase atau teks, lakukan pula `node tests/game-cutscene-viewport-ui.mjs`. `npm run cutscene:verify` adalah gerbang **khusus berkas MP4 asli permanen**: kegagalannya ketika MP4 memang belum diimpor bukan alasan mengarang video.
 
 ## Alur standar untuk misi baru
 
