@@ -142,5 +142,110 @@
         11
       ]
     ]
+  },
+  "tapTargets": {
+    "home": [
+      {
+        "id": "bed",
+        "label": "Tidur di kasur",
+        "kind": "sleep",
+        "rect": [
+          149,
+          108,
+          206,
+          194
+        ]
+      },
+      {
+        "id": "chest",
+        "label": "Periksa peti",
+        "kind": "inspect",
+        "rect": [
+          148,
+          198,
+          206,
+          233
+        ]
+      },
+      {
+        "id": "bookshelf",
+        "label": "Periksa rak buku",
+        "kind": "inspect",
+        "rect": [
+          211,
+          78,
+          278,
+          142
+        ]
+      },
+      {
+        "id": "computer-desk",
+        "label": "Periksa meja kerja",
+        "kind": "inspect",
+        "rect": [
+          280,
+          80,
+          350,
+          151
+        ]
+      },
+      {
+        "id": "storage-cabinet",
+        "label": "Periksa lemari",
+        "kind": "inspect",
+        "rect": [
+          286,
+          184,
+          354,
+          270
+        ]
+      }
+    ],
+    "shed": [
+      {
+        "id": "tools-shelves",
+        "label": "Buka gudang peralatan",
+        "kind": "storage",
+        "rect": [
+          144,
+          80,
+          248,
+          145
+        ]
+      },
+      {
+        "id": "workbench",
+        "label": "Buka gudang peralatan",
+        "kind": "storage",
+        "rect": [
+          265,
+          83,
+          357,
+          143
+        ]
+      },
+      {
+        "id": "produce-crates",
+        "label": "Buka gudang peralatan",
+        "kind": "storage",
+        "rect": [
+          148,
+          157,
+          212,
+          219
+        ]
+      },
+      {
+        "id": "irrigation-rack",
+        "label": "Buka gudang peralatan",
+        "kind": "storage",
+        "rect": [
+          148,
+          229,
+          218,
+          292
+        ]
+      }
+    ]
   }
 }
