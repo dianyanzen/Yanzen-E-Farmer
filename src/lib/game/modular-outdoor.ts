@@ -397,6 +397,28 @@ function paintRiver(ctx:CanvasRenderingContext2D,art:OutdoorImages) {
   for(let x=35;x<51;x+=3){ctx.fillStyle="#b99160";ctx.fillRect(x,225,2,15);}
 }
 
+/** Threshold stones lead exactly from every new HD doorway to its road. */
+const doorLandingRuns:Record<OutdoorLocation,readonly {asset:keyof typeof EXTERIOR_THRESHOLDS;toY:number}[]>={
+  field:[{asset:"rumah-yanzen",toY:126},{asset:"gudang-kayu",toY:129},{asset:"warung-inggit",toY:130}],
+  gang:[{asset:"fasad-nani",toY:185},{asset:"fasad-ryan",toY:185},
+    {asset:"fasad-inggit",toY:296},{asset:"fasad-ayu",toY:297},{asset:"fasad-widi",toY:185}],
+  pasar:[{asset:"lapak-benih",toY:190},{asset:"lapak-pancing",toY:177}],
+  sungai:[]
+};
+export function drawEntranceLandings(ctx:CanvasRenderingContext2D,location:OutdoorLocation){
+  for(const run of doorLandingRuns[location]){
+    const start=EXTERIOR_THRESHOLDS[run.asset],length=run.toY-start.y;
+    if(length<=0)continue;
+    ctx.save();
+    ctx.fillStyle="#a18c68";ctx.fillRect(start.x-9,start.y+2,18,length-2);
+    for(let dy=4;dy<length;dy+=7){
+      const y=start.y+dy,taper=Math.max(1,Math.round(dy/11));
+      ctx.fillStyle="#c9b58b";ctx.fillRect(start.x-8-taper,y,16+taper*2,4);
+      ctx.fillStyle="#e0c9a2";ctx.fillRect(start.x-7-taper,y,13+taper*2,1);
+    }
+    ctx.restore();
+  }
+}
 function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:OutdoorImages){
   ctx.imageSmoothingEnabled=false;
   ctx.fillStyle="#a4bc70";
@@ -431,6 +453,7 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     ctx.restore();
   }
   if (location==="field") drawFieldCanal(ctx,art);
+  drawEntranceLandings(ctx,location);
   if (location==="sungai"){
     layRiceBeds(ctx);
     paintRiver(ctx,art);
