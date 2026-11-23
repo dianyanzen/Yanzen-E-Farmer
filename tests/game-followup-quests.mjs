@@ -57,6 +57,13 @@ try{
        player:{x:home.x,y:home.y,dir:"up"}};
      assert.notEqual(getActionContext(entrance).kind,"door",
        "low closeness alone does not grant access when owner is outside: "+p.owner);
+     const firstQuestVisitor={...entrance,
+       personalQuests:{[p.owner]:{phase:1,day:1,baseline:0}}};
+     assert.equal(getActionContext(firstQuestVisitor).kind,"door",
+       "an accepted first personal quest must also permit visiting");
+     assert.notEqual(getActionContext({...firstQuestVisitor,
+       personalQuests:{[p.owner]:{phase:4,day:1,baseline:0}}}).kind,"door",
+       "finished first quest must not retain a free pass");
      const visitor={...entrance,personalQuests:accepted.personalQuests,
        followUpQuests:accepted.followUpQuests};
      assert.equal(getActionContext(visitor).kind,"door",
