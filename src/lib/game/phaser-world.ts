@@ -17,6 +17,7 @@ import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./ho
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
 import {ROOM_FURNITURE,furnitureScreenRect,residentFacadeSpec} from "./world-layout";
 import {playerSpriteTopY} from "./world-scale";
+import {farmhouseFacadeSource} from "./farmhouse-visual";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -138,6 +139,7 @@ class YZWorldScene extends Phaser.Scene {
       if(this.textures.exists("yz-hd-exteriors")){
         const hd=this.textures.get("yz-hd-exteriors").getSourceImage() as HTMLImageElement;
         this.textures.addCanvas("yz-widi-hd-clean",cleanWidiSource(hd));
+        this.textures.addCanvas("yz-yanzen-farmhouse",farmhouseFacadeSource(hd));
       }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
       this.farm = this.add.graphics().setDepth(10);
@@ -264,8 +266,11 @@ class YZWorldScene extends Phaser.Scene {
         const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
         const custom=hd?null:exteriorHousingSprite(prop.asset);
         const widi=hd&&prop.asset==="lapak-pancing";
-        const image=this.add.image(prop.x,prop.y,widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
-          widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        const farmhouse=hd&&prop.asset==="rumah-yanzen";
+        const image=this.add.image(prop.x,prop.y,
+          farmhouse?"yz-yanzen-farmhouse":
+            widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
+          farmhouse||widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
         if(hd)image.setY(prop.y+hd.footOffset);
         if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);

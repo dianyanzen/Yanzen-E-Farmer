@@ -3,6 +3,7 @@
  * Positions, NPC roles, collisions and progression remain in model.ts.
  */
 import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,residentFacadeSpec,type FurnitureCrop,type RoomKind} from "./world-layout";
+import {drawMinimalFarmhouseBase} from "./farmhouse-visual";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -38,7 +39,15 @@ export type HDRoom=RoomKind;
  */
 export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
  room:HDRoom,evening=false,layer:"all"|"base"="all"){
-  const base=room==="home"?0:2,p=ROOM_PROJECTION;
+  if(room==="home"){
+    // No leftover rugs or furniture baked into the base: visual floor and
+    // model navigation are authored from the same minimalist room plan.
+    drawMinimalFarmhouseBase(ctx,evening);
+    if(layer==="all")for(const piece of ROOM_FURNITURE.home)
+      drawHDInteriorPiece(ctx,image,"home",piece);
+    return;
+  }
+  const base=2,p=ROOM_PROJECTION;
   ctx.save();ctx.imageSmoothingEnabled=true;
   ctx.fillStyle="#24282a";ctx.fillRect(0,0,480,320);
   ctx.drawImage(image,(base%2)*320,Math.floor(base/2)*320,320,320,

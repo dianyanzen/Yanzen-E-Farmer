@@ -16,16 +16,16 @@ export type FurnitureCrop={
  */
 export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
   home:[
+    // Minimal farmer residence: a bed, farm ledger/work desk, keepsake chest
+    // and a wall-mounted cultivation notebook shelf. No large floor cabinet.
     {id:"bed",x:8,y:25,width:97,height:147,footY:172,
-      display:{x:152,y:110,width:50,height:76}},
+      display:{x:151,y:135,width:45,height:68}},
     {id:"chest",x:8,y:172,width:97,height:55,footY:227,
-      display:{x:151,y:201,width:50,height:28}},
+      display:{x:151,y:218,width:44,height:25}},
     {id:"bookshelf",x:106,y:17,width:95,height:94,footY:111,
-      display:{x:215,y:81,width:58,height:57}},
+      display:{x:220,y:87,width:48,height:48}},
     {id:"computer-desk",x:202,y:18,width:118,height:118,footY:136,
-      display:{x:283,y:84,width:63,height:63}},
-    {id:"storage-cabinet",x:202,y:136,width:118,height:146,footY:282,
-      display:{x:289,y:188,width:62,height:77}}
+      display:{x:291,y:129,width:53,height:53}}
   ],
   shed:[
     {id:"tools-shelves",x:8,y:22,width:155,height:91,footY:113,
@@ -55,7 +55,9 @@ export function furnitureScreenRect(piece:FurnitureCrop){
  */
 const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
-  if(x<8||x>16||y<6||y>13)return true;
+  // Farmer's home has a wider visible floor (11 columns), while storage
+  // retains its own narrower collision footprint.
+  if(x<(room==="home"?7:8)||x>(room==="home"?17:16)||y<6||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 

@@ -873,10 +873,10 @@ export function safeLoad(value: unknown): GameState | null {
     const roomLegacy=location==="home"||location==="shed";
     const outdoor=isOutdoorLocation(location as GameLocation);
     if(!outdoor && !roomLegacy)return null;
-    if(roomLegacy && (playerX<8||playerX>16||playerY<6||playerY>13))return null;
+    if(roomLegacy && (playerX<(location==="home"?7:8)||playerX>(location==="home"?17:16)||playerY<6||playerY>13))return null;
     let bestDistance=Infinity;
     for(let y=roomLegacy?6:0;y<(roomLegacy?14:WORLD.height);y++)
-      for(let x=roomLegacy?8:0;x<(roomLegacy?17:WORLD.width);x++){
+      for(let x=roomLegacy?(location==="home"?7:8):0;x<(roomLegacy?(location==="home"?18:17):WORLD.width);x++){
         const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
         if(distance<bestDistance && !areaBlocked(location as GameLocation,x,y)){
           playerX=x;playerY=y;bestDistance=distance;
@@ -985,7 +985,7 @@ const INTERACTION_HITBOXES = [
   ]),
   { id: "lapak-pintu", location: "pasar", left: 345, top: 147, right: 414, bottom: 180 },
   { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
-  { id: "bed", location: "home", left: 153, top: 111, right: 206, bottom: 192 },
+  { id: "bed", location: "home", left: 149, top: 132, right: 199, bottom: 206 },
 ] as const;
 
 type InteractionHitbox = (typeof INTERACTION_HITBOXES)[number];
@@ -1020,7 +1020,7 @@ export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
 function interiorRoomBlocked(room:"home"|"shed",x:number,y:number):boolean{
-  if(x<8||x>16||y<6||y>13)return true;
+  if(x<(room==="home"?7:8)||x>(room==="home"?17:16)||y<6||y>13)return true;
   return interiorLayoutData[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 export function homeBlocked(x: number, y: number) {
@@ -1091,13 +1091,10 @@ export function getActionContext(s:GameState):ActionContext {
         text:"Rak kecil berisi catatan budidaya, buku, dan dokumen kebun yang tersusun rapi."};
     if(activeFurnitureTarget("homeDesk",front))
       return {kind:"inspect",label:"Periksa meja kerja",
-        text:"Catatan kerja dan perkembangan kebun bisa kamu lihat di YZ Phone."};
-    if(activeFurnitureTarget("homeCabinet",front))
-      return {kind:"inspect",label:"Periksa lemari",
-        text:"Pakaian dan perlengkapan rumah tersimpan di sini."};
+        text:"Buku catatan panen dan kondisi kebun ada di meja. Ringkasan progres bisa dibuka lewat YZ Phone."};
     if(activeFurnitureTarget("homeChest",front))
       return {kind:"inspect",label:"Periksa peti",
-        text:"Peti dan karung hasil kebun ditata di dekat tempat tidur. Barang di tas tetap bisa dilihat dari inventaris."};
+        text:"Peti kecil berisi benih cadangan dan catatan panen. Barang bawaanmu tetap bisa diperiksa lewat inventaris."};
     return {kind:"none",label:"Tidak ada objek"};
   }
   if (s.location === "field") {

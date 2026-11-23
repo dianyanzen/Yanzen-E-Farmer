@@ -83,7 +83,7 @@ assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" }
 for (const [state, id, points] of [
   [outdoor, "home-door", [[65, 69], [91, 99]]],
   [outdoor, "shed-door", [[181, 70], [200, 99]]],
-  [home, "bed", [[158, 116], [201, 185]]],
+  [home, "bed", [[155, 140], [195, 199]]],
   [home, "home-exit", [[240, 270], [279, 288]]],
   [{ ...home, location: "shed" }, "shed-exit", [[236, 270], [285, 288]]],
 ]) {
