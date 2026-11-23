@@ -1,0 +1,60 @@
+import assert from "node:assert/strict";
+import {createHash} from "node:crypto";
+import {existsSync,readFileSync,statSync} from "node:fs";
+import {spawnSync} from "node:child_process";
+const manifest=JSON.parse(readFileSync("game-assets/cinematics/pasirluyu-sluice/manifest.json","utf8"));
+const sha=bytes=>createHash("sha256").update(bytes).digest("hex");
+const image=path=>{assert.ok(existsSync(path),"Missing reference frame "+path);
+ const buf=readFileSync(path);assert.equal(buf[0],0xff);assert.equal(buf[1],0xd8);
+ assert.ok(buf.length>8000&&buf.length<5000000,"Bad frame export size "+path);
+};
+const file=manifest.playbackPath;
+assert.ok(existsSync(file),"Missing owner-provided cinematic video");
+const buf=readFileSync(file);
+assert.equal(buf.length,manifest.sourceBytes,"Do not silently recompress user's video");
+assert.equal(sha(buf),manifest.sourceSha256,"Old Remotion video must not replace owner's video");
+assert.equal(buf.toString("ascii",4,8),"ftyp","Must be an MP4");
+image(manifest.frameStartPath);
+image(manifest.frameEndPath);
+assert.ok(existsSync(manifest.posterPath),"Kenangan must have an actual frame poster");
+const poster=readFileSync(manifest.posterPath);
+assert.equal(poster[0],0xff);assert.equal(poster[1],0xd8);
+const code=readFileSync("src/app/game/sluice-cutscene.tsx","utf8");
+const catalogue=readFileSync("src/lib/game/cutscene-catalog.ts","utf8");
+const skill=readFileSync(".agents/skills/yz-farm-cutscene/SKILL.md","utf8");
+const docs=readFileSync("docs/game-dev/CUTSCENE_PRODUCTION_STANDARD.md","utf8");
+assert.ok(code.includes("PASIRLUYU_SLUICE_CUTSCENE")&&code.includes("onEnded={finish}")&&code.includes("playsInline")&&code.includes("onError")&&code.includes("Lewati adegan"));
+assert.ok(!code.includes("yzg-cutscene-gate")&&!code.includes("sluice-sky"),"Remove old synthetic SVG storyboard");
+assert.ok(catalogue.includes('src:"/game/assets/cutscenes/sluice-gate.mp4"'));
+
+const layout=readFileSync("src/app/game/game.css","utf8");
+const app=readFileSync("src/app/game/game-client.tsx","utf8");
+assert.ok(layout.includes(".yzg-cutscene{")&&layout.includes("position:absolute;inset:0;z-index:20"),
+ "Cinematic must be scoped to world viewport, never fixed to the browser screen");
+assert.ok(!layout.includes(".yzg-cutscene{position:fixed"),
+ "Never return to fullscreen overlay that covers YZ Phone and movement controls");
+assert.ok(layout.includes("aspect-ratio:910 / 512")&&layout.includes("object-fit:contain"),
+ "Keep the native 910:512 cinematic ratio without crop or re-encode");
+assert.ok(code.includes("ResizeObserver")&&code.includes("captionRef.current")&&code.includes("actionsRef.current"),
+ "Fit video into remaining world height after reserving subtitles and action buttons");
+assert.ok(!code.includes("webkitEnterFullscreen"),
+ "Do not automatically fullscreen only the video on iPhone");
+assert.ok(app.includes('className="yzg-viewport"')&&app.includes("SluiceCutscene"),
+ "Cinematic must remain a child of the actual game viewport");
+
+assert.ok(skill.includes("FRAME AWAL")&&skill.includes("FRAME AKHIR")&&skill.includes("Google Flow"));
+assert.ok(docs.includes("FRAME AWAL")&&docs.includes("FRAME AKHIR"));
+assert.ok(!existsSync("scripts/game-cinematics/restore-hd-sluice.mjs"),"Old Remotion restore would overwrite owner video");
+assert.ok(!existsSync("game-assets/cinematics/sluice-gate-hd"),"Obsolete Remotion transports must be removed");
+assert.ok(!existsSync("cutscenes/remotion"),"Old Remotion scene must not return");
+const probe=spawnSync("ffprobe",["-v","error","-show_entries","format=duration","-show_entries","stream=codec_type,codec_name,width,height,r_frame_rate","-of","json",file],{encoding:"utf8"});
+if(probe.status===0){
+ const info=JSON.parse(probe.stdout);
+ assert.ok(Math.abs(Number(info.format.duration)-manifest.sourceVideo.durationSeconds)<0.08);
+ const video=info.streams.find(x=>x.codec_type==="video");
+ assert.equal(video.width,manifest.sourceVideo.width);
+ assert.equal(video.height,manifest.sourceVideo.height);
+ assert.equal(video.r_frame_rate,"30/1");
+ assert.equal(video.codec_name,"h264");
+}else if(probe.error?.code!=="ENOENT")throw Error("ffprobe failed: "+probe.stderr);
+console.log("PASS: user-approved 10-second original MP4, dual frames, poster, skill, and old-scene removal");
