@@ -7,6 +7,7 @@ import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-out
 import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./housing-v2";
 import {drawHDInterior,drawHDInteriorProps,drawHDSprite,exteriorHDSprite} from "./housing-hd";
 import {residentFacadeSpec} from "./world-layout";
+import {farmhouseFacadeSource} from "./farmhouse-visual";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -217,7 +218,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
       ctx.save();ctx.globalAlpha=covered?.65:1;
-      if(hd) drawHDSprite(ctx,image,hd.frame,Math.round(prop.x-width/2),prop.y-height+hd.footOffset,width,height);
+      if(hd && prop.asset==="rumah-yanzen"){
+        const farmhouse=farmhouseFacadeSource(image);
+        ctx.imageSmoothingEnabled=true;
+        ctx.drawImage(farmhouse,Math.round(prop.x-width/2),
+          prop.y-height+hd.footOffset,width,height);
+      }else if(hd)drawHDSprite(ctx,image,hd.frame,
+        Math.round(prop.x-width/2),prop.y-height+hd.footOffset,width,height);
       else if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
       else ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);
       ctx.restore();
