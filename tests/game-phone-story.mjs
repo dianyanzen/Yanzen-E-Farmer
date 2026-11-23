@@ -92,9 +92,9 @@ try{
  assert.match(client,/fetch\("\/api\/game\/save", \{ method: "POST" \}\)/,"reset must use authenticated reset handler on the staging-supported route");
  assert.match(client,/expectedUpdatedAt: saveRevisionRef.current/,"save must carry a revision for stale-tab protection");
  assert.match(client,/new BroadcastChannel\("yz-farm-progress"\)/,"reset should notify other open tabs");
- const resetApi=readFileSync("src/app/api/game/reset/route.ts","utf8");
+ const resetApi=readFileSync("src/lib/game/reset-progress.ts","utf8");
  const saveApi=readFileSync("src/app/api/game/save/route.ts","utf8");
- assert.match(saveApi,/export \{ POST \} from "\.\.\/reset\/route"/,"staging save POST must reuse the authenticated reset endpoint");
+ assert.match(saveApi,/export \{ resetPlayerProgress as POST \} from "@\/lib\/game\/reset-progress"/,"staging save POST must reuse the authenticated reset endpoint");
  assert.match(resetApi,/const initial = newGame\(\);/,"server must generate the actual beginning state");
  assert.match(resetApi,/\.eq\("user_id", user.id\)/,"server must scope reset to authenticated player");
  assert.match(saveApi,/\.eq\("updated_at", expectedUpdatedAt\)/,"stale saves must not overwrite reset");
