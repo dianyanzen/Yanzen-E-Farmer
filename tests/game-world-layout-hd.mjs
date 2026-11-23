@@ -51,6 +51,23 @@ assert.ok(route("shed",[12,12],[10,7]),"Tool rack aisle must be reachable");
 const game=model.newGame();
 assert.equal(model.canSleep({...game,location:"home",player:{x:10,y:8,dir:"up"}}),true);
 assert.equal(model.canManageTools({...game,location:"shed",player:{x:10,y:7,dir:"left"}}),true);
+assert.equal(model.canManageTools({...game,location:"shed",player:{x:12,y:8,dir:"up"}}),true);
+assert.equal(model.canManageTools({...game,location:"shed",player:{x:13,y:10,dir:"right"}}),true);
+for(const [x,y,dir,label] of [
+  [12,8,"up","Periksa rak buku"],
+  [14,9,"up","Periksa meja kerja"],
+  [14,10,"right","Periksa lemari"],
+  [10,10,"left","Periksa peti"]
+]){
+  const state={...game,location:"home",player:{x,y,dir}};
+  assert.equal(model.areaBlocked("home",x,y),false,"Interactive prop must be approached from open floor");
+  assert.equal(model.getActionContext(state).label,label,"Wrong HD furniture hotspot");
+}
+const oldRoom={...game,location:"home",player:{x:9,y:8,dir:"up"}};
+const migrated=model.safeLoad(JSON.parse(JSON.stringify(oldRoom)));
+assert.ok(migrated,"HD furniture may not invalidate old saved rooms");
+assert.equal(model.areaBlocked("home",migrated.player.x,migrated.player.y),false);
+assert.equal(migrated.location,"home");
 const market=MARKET_STOREFRONTS;
 for(let i=0;i<market.length;i++)for(let j=i+1;j<market.length;j++)
   assert.equal(storefrontEnvelopesOverlap(market[i],market[j],3),false,
