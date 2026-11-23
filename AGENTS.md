@@ -22,6 +22,7 @@
 - Jangan tampilkan istilah `legacy`, `runtime`, `draft`, `NPC ID`, `JSON`, `Phaser`, `PostgreSQL`, `confidence` atau masalah build sebagai narasi game. Kesalahan user cukup menjelaskan dampak dan langkah yang dapat dilakukan. Log teknis tetap tersedia untuk developer.
 - **Jangan menjalankan Humanizer saat runtime atau mengirim dialog/save pemain ke layanan AI**. Ini skill editorial pada saat development; tidak mengganti quest ID, flags, hadiah, jadwal, keuangan, pilihan, atau skema save.
 - **Aset dan aksi misi NPC:** sebelum menambahkan permintaan warga, baca `docs/game-dev/QUEST_ASSETS_ACTIONS_PASIRLUYU.md`. Properti baru harus dimuat Canvas/Phaser, punya aksi berprasyarat, tidak menghalangi rute NPC, memiliki metadata di `asset-database.json` serta indeks kategori, dan menyimpan progres tanpa hadiah ganda. Pastikan reset kembali ke `newGame()` dan save lama tetap valid.
+- **Cutscene hanya konsep:** `docs/game-dev/NPC_QUEST_CUTSCENE_CONCEPT.md` mendokumentasikan 7 kandidat dan standar produksi, **tidak mengizinkan pembuatan trigger/video/runtime cutscene** tanpa instruksi eksplisit berikutnya. Pemilik membuat video Google Flow dan menyerahkannya secara terpisah.
 
 ## Kameo figur publik P01/P02
 
