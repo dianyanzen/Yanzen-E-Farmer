@@ -81,9 +81,9 @@ export const EXTERIOR_THRESHOLDS={
 } as const;
 /** HD merchant envelopes exclude ancillary tents, shadows, and free-floating props. */
 export const MARKET_STOREFRONTS=[
-  {asset:"lapak-benih",x:128,y:174,width:154,height:154},
+  {asset:"lapak-benih",x:128,y:174,width:146,height:146},
   {asset:"warung-inggit",x:374,y:177,width:109,height:96},
-  {asset:"lapak-pancing",x:550,y:159,width:140,height:140}
+  {asset:"lapak-pancing",x:550,y:159,width:132,height:132}
 ] as const;
 export function storefrontEnvelopesOverlap(a:{x:number;y:number;width:number;height:number},
  b:{x:number;y:number;width:number;height:number},padding=0):boolean{
