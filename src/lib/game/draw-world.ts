@@ -5,6 +5,7 @@ import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentH
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./housing-v2";
+import {drawHDInterior,drawHDSprite,exteriorHDSprite} from "./housing-hd";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -27,6 +28,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
 }
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>; housingAtlas?: HTMLImageElement;
+  housingHDExteriors?: HTMLImageElement;housingHDInteriors?: HTMLImageElement;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
@@ -73,7 +75,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
+    if (art.housingHDInteriors) drawHDInterior(ctx,art.housingHDInteriors,"shed");
+    else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
     else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
@@ -98,7 +101,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if (state.location === "home") {
-    if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"home",state.minutes>=18*60);
+    if (art.housingHDInteriors) drawHDInterior(ctx,art.housingHDInteriors,"home",state.minutes>=18*60);
+    else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"home",state.minutes>=18*60);
     else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
@@ -185,16 +189,18 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1}))
   ];
   for (const prop of physicalProps) {
-    const custom = art.housingAtlas ? exteriorHousingSprite(prop.asset) : null;
-    const image = custom ? art.housingAtlas : art.outdoor?.[prop.asset];
+    const hd = art.housingHDExteriors ? exteriorHDSprite(prop.asset) : null;
+    const custom = hd ? null : art.housingAtlas ? exteriorHousingSprite(prop.asset) : null;
+    const image = hd ? art.housingHDExteriors : custom ? art.housingAtlas : art.outdoor?.[prop.asset];
     if (!image) continue;
-    const scale = custom ? 1 : (prop.scale ?? 1);
-    const width = Math.round((custom?.width ?? image.width)*scale), height = Math.round((custom?.height ?? image.height)*scale);
+    const scale = (hd || custom) ? 1 : (prop.scale ?? 1);
+    const width = Math.round((hd?.width ?? custom?.width ?? image.width)*scale), height = Math.round((hd?.height ?? custom?.height ?? image.height)*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
       ctx.save();ctx.globalAlpha=covered?.65:1;
-      if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
+      if(hd) drawHDSprite(ctx,image,hd.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
+      else if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
       else ctx.drawImage(image,Math.round(prop.x-width/2),prop.y-height,width,height);
       ctx.restore();
     }});
