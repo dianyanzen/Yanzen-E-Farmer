@@ -89,6 +89,8 @@ assert.ok(client.includes('{game.seeds<=2 && <p>') &&
   "Ayu must show both buying and selling advice when both conditions apply");
 assert.ok(client.includes("Pembelian bibit dan penjualan timun dilakukan langsung di lapak Ayu."));
 assert.ok(client.includes("✉ Inggit · Pemilik warung"),"Original four-cucumber quest remains Inggit");
+assert.ok(client.includes('if(unread)setGame(g=>({...g,phoneRead:true}))'),
+  "Tapping Inggit's notification must clear the unread flag without accepting the order");
 assert.ok(client.includes("Inggit: Ada pesanan timun untuk warungku!"));
 assert.ok(areas.includes('"KIOS BENIH"') && !areas.includes('"KIOS SAYUR"'),
   "Public seed kiosk sign must match its actual owner");
