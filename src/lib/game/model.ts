@@ -115,7 +115,7 @@ export type Dialogue = {
 export const QUEST_PROPS = [
   {id:"water-marks",owner:"A03",location:"rumah-ryan",x:13,y:7,asset:"quest-water-marks",label:"Periksa penanda air Ryan"},
   {id:"nani-pots",owner:"C01",location:"gang",x:10,y:9,asset:"quest-nani-pots",label:"Periksa pot milik Nani"},
-  {id:"ayu-seeds",owner:"A04",location:"rumah-ayu",x:10,y:7,asset:"quest-ayu-seeds",label:"Periksa wadah semai Ayu"},
+  {id:"ayu-seeds",owner:"A04",location:"rumah-ayu",x:13,y:7,asset:"quest-ayu-seeds",label:"Periksa wadah semai Ayu"},
   {id:"widi-ledger",owner:"C07",location:"rumah-widi",x:10,y:7,asset:"quest-widi-ledger",label:"Periksa buku tangkapan Widi"},
   {id:"inggit-orders",owner:"C08",location:"rumah-inggit",x:10,y:7,asset:"quest-inggit-orders",label:"Periksa keranjang pesanan Inggit"},
 ] as const;
