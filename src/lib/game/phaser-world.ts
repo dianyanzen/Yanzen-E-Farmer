@@ -11,6 +11,7 @@ import * as Phaser from "phaser";
 import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, activeQuestProps, weatherForDay, type GameLocation, type GameState } from "./model";
 import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
+import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 
 const WIDTH = WORLD.width * WORLD.tile;
@@ -66,6 +67,8 @@ class YZWorldScene extends Phaser.Scene {
   private actor!: Phaser.GameObjects.Sprite;
   private actorShadow!: Phaser.GameObjects.Ellipse;
   private effect!: Phaser.GameObjects.Sprite;
+  private fishingInk!: Phaser.GameObjects.Graphics;
+  private fishingText!: Phaser.GameObjects.Text;
   private npcSprites = new Map<string, Phaser.GameObjects.Sprite>();
   private crops: Phaser.GameObjects.Sprite[] = [];
   private lastLocation = "";
@@ -103,6 +106,10 @@ class YZWorldScene extends Phaser.Scene {
       this.farm = this.add.graphics().setDepth(10);
       this.highlight = this.add.graphics().setDepth(11);
       this.effect = this.add.sprite(0, 0, "yz-effects", 0).setOrigin(0).setDepth(1700).setVisible(false);
+      this.fishingInk = this.add.graphics().setDepth(2650);
+      this.fishingText = this.add.text(0,0,"",{fontFamily:"monospace",
+        fontSize:"7px",color:"#fff1d0",fontStyle:"bold",align:"center"})
+        .setOrigin(.5,0).setDepth(2651).setVisible(false);
       this.dust = this.add.graphics().setDepth(999);
       this.pathGuide = this.add.graphics().setDepth(13);
       this.water = this.add.graphics().setDepth(9);
@@ -378,7 +385,12 @@ class YZWorldScene extends Phaser.Scene {
     }
     const actorRow = dirs[frame.position.dir];
     let texture="yz-people", spriteFrame=actorRow*3+1, x=frame.position.x*TILE-2, y=frame.position.y*TILE-12;
-    if (frame.action && frame.action.use.origin.x === frame.state.player.x &&
+    if (location==="sungai" && frame.fishing?.session) {
+      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
+      texture="yz-people";spriteFrame=actorRow*3+pose.spriteFrame;
+      x=frame.position.x*TILE-2;
+      y=frame.position.y*TILE-12+pose.bodyShift;
+    } else if (frame.action && frame.action.use.origin.x === frame.state.player.x &&
         frame.action.use.origin.y === frame.state.player.y) {
       const actionRow = { hoe:0, seed:1, water:2, harvest:3 }[frame.action.use.tool];
       texture="yz-actions";spriteFrame=(actionRow*4 + actorRow)*3+frame.action.frame;
@@ -403,6 +415,46 @@ class YZWorldScene extends Phaser.Scene {
     this.actor.setTexture(texture, Math.max(0,spriteFrame))
       .setPosition(x, y)
       .setDepth(characterDepth(frame.position.y) + 1);
+    this.fishingInk.clear();
+    this.fishingText.setVisible(false);
+    if (location==="sungai" && frame.fishing?.session) {
+      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
+      const p=(v:number)=>Math.round(v);
+      // A two-pixel pixel-arm swings with the pole, not beside the camera.
+      this.fishingInk.lineStyle(2,0xdfb58d,1).lineBetween(
+        p(pose.shoulder.x),p(pose.shoulder.y),p(pose.hand.x),p(pose.hand.y));
+      this.fishingInk.lineStyle(2,0x392a18,1).lineBetween(
+        p(pose.hand.x),p(pose.hand.y),p(pose.tip.x),p(pose.tip.y));
+      this.fishingInk.lineStyle(1,0xc89855,1).lineBetween(
+        p(pose.hand.x),p(pose.hand.y),p(pose.tip.x),p(pose.tip.y));
+      if(pose.showFloat){
+        this.fishingInk.lineStyle(1,0xdbece8,.8).lineBetween(
+          p(pose.tip.x),p(pose.tip.y),p(pose.float.x),p(pose.float.y));
+        if(pose.ripple)this.fishingInk.lineStyle(1,0xa5e3dc,.6).strokeCircle(
+          pose.water.x,pose.water.y,pose.rippleRadius);
+        if(pose.splash)this.fishingInk.fillStyle(0xbdf4e9,1)
+          .fillRect(p(pose.float.x)-4,p(pose.float.y),2,1)
+          .fillRect(p(pose.float.x)+3,p(pose.float.y)-2,2,1);
+        this.fishingInk.fillStyle(0x332923,1).fillRect(p(pose.float.x)-2,p(pose.float.y)-3,4,6);
+        this.fishingInk.fillStyle(0xe4cd95,1).fillRect(p(pose.float.x)-1,p(pose.float.y)-2,2,2);
+        this.fishingInk.fillStyle(0xe25b44,1).fillRect(p(pose.float.x)-1,p(pose.float.y),2,2);
+      }
+    }
+    if (location==="sungai" && frame.fishing?.popup){
+      const notice=frame.fishing.popup,position=fishingPopupPosition(frame.position,notice.elapsed);
+      if(position.alpha>0){
+        const x=Math.round(position.x),y=Math.round(position.y);
+        this.fishingInk.fillStyle(0x1b3e33,.95*position.alpha).fillRect(x-38,y-11,76,15);
+        this.fishingInk.lineStyle(1,notice.outcome==="caught"?0xffdda0:0xe6b6a0,position.alpha)
+          .strokeRect(x-38,y-11,76,15);
+        if(notice.outcome==="caught"){
+          this.fishingInk.fillStyle(0xe9c46a,position.alpha)
+            .fillRect(x-32,y-6,5,3).fillRect(x-34,y-7,2,5);
+        }
+        this.fishingText.setText(fishingPopupLabel(notice.outcome,notice.species))
+          .setPosition(x,y-9).setAlpha(position.alpha).setVisible(true);
+      }
+    }
     if (frame.action && frame.action.effect >= 0) {
       const effectRow={hoe:0,seed:1,water:2,harvest:3}[frame.action.use.tool];
       this.effect.setPosition(frame.action.use.target.x*TILE+2,frame.action.use.target.y*TILE+1)
