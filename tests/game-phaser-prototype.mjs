@@ -78,7 +78,7 @@ for (const y of [7,8,9]) {
   assert.equal(model.canSleep({ ...home, player: { x: 10, y, dir: "left" } }), true);
   assert.equal(model.areaBlocked("home",10,y),false,"Bed approach must be walkable");
 }
-assert.equal(model.canSleep({ ...home, player: { x: 9, y: 9, dir: "up" } }), false);
+assert.equal(model.canSleep({ ...home, player: { x: 12, y: 9, dir: "up" } }), false);
 assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" } }).location, "field");
 for (const [state, id, points] of [
   [outdoor, "home-door", [[65, 69], [91, 99]]],
