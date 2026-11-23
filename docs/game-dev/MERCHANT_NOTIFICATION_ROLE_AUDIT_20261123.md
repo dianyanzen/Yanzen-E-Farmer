@@ -27,3 +27,9 @@ Notifikasi pertama `Inggit: Ada pesanan timun untuk warungku!` **tidak salah**, 
 `tests/game-merchant-ownership.mjs` wajib ikut `npm run test:game`. Tes ini menegaskan pembelian bibit, penjualan timun umum, reservasi empat timun, pedagang pelet, pesan kontekstual YZ Phone, tulisan kios, serta jumlah foto dan pilihan Nani.
 
 Audit berbasis kode/tes otomatis. Uji akhir layout di layar mobile dan pemeriksaan teks secara visual tetap diperlukan setelah deployment. Dokumen ini tidak menyatakan seluruh 248 NPC telah diaudit sebagai NPC playable.
+
+## Aturan notifikasi YZ Phone setelah koreksi
+- Pesan pembuka Bab 1: **Inggit** tetap prioritas sampai pesanan empat timun diterima atau dibaca sesuai progres saat ini.
+- Saat stok bibit = 0 dan pemain berada di area kebun, **Ayu** memberi pengingat pada banner YZ Phone. Menekan banner langsung membuka Pesan, bukan halaman beranda.
+- Di aplikasi Pesan, **Ayu** memberi petunjuk pembelian jika stok bibit ≤ 2; ia juga mengajak menjual panen surplus bila ada yang bisa dijual. Jika kedua syarat terpenuhi, **dua pesan ditampilkan bersama**. Pesan ini tidak mengubah save atau memicu transaksi otomatis.
+- Dialog bukti pembayaran di lapak tetap sumber kepastian bahwa transaksi sudah terjadi. Tidak ada pembayaran timun ke Inggit selain pesanan utama dan misi tambahan yang memang dimiliki Inggit.
