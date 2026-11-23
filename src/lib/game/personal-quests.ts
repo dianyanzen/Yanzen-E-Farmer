@@ -191,7 +191,7 @@ export function followUpTalk(s:GameState,id:NpcId):Dialogue & {state:GameState}{
 export function inspectFollowUpProp(s:GameState,propId:QuestPropId):{state:GameState;message:string}{
   const prop=questPropById(propId),id=prop.owner as NpcId,t=followUpTales[id];
   const q=s.followUpQuests?.[id];
-  if(s.location!==prop.location || !questPropActive(s,prop))
+  if(!q || s.location!==prop.location || !questPropActive(s,prop))
     return {state:s,message:"Belum ada permintaan yang bisa dikerjakan di sini."};
   if(q.phase!==1)return {state:s,message:q.phase===2?"Catatanmu sudah siap. Sekarang laporkan kepada pemiliknya.":"Permintaan ini sudah selesai."};
   if(id==="A04"&&s.day<=q.day)return {state:s,message:"Tanah nampan masih tenang. Ayu memintamu memeriksanya lagi besok."};
