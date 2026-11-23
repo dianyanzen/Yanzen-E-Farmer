@@ -5,7 +5,7 @@ import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentH
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./housing-v2";
-import {drawHDInterior,drawHDSprite,exteriorHDSprite} from "./housing-hd";
+import {drawHDInterior,drawHDInteriorProps,drawHDSprite,exteriorHDSprite} from "./housing-hd";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -75,7 +75,10 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.housingHDInteriors) drawHDInterior(ctx,art.housingHDInteriors,"shed");
+    if (art.housingHDInteriors){
+      drawHDInterior(ctx,art.housingHDInteriors,"shed",false,"base");
+      drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"behind");
+    }
     else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
     else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
@@ -98,10 +101,14 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
       Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
     else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"front");
     return;
   }
   if (state.location === "home") {
-    if (art.housingHDInteriors) drawHDInterior(ctx,art.housingHDInteriors,"home",state.minutes>=18*60);
+    if (art.housingHDInteriors){
+      drawHDInterior(ctx,art.housingHDInteriors,"home",state.minutes>=18*60,"base");
+      drawHDInteriorProps(ctx,art.housingHDInteriors,"home",(position.y+1)*T,"behind");
+    }
     else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"home",state.minutes>=18*60);
     else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
