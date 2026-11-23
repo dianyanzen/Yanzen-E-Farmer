@@ -4,6 +4,7 @@
  */
 import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,residentFacadeSpec,type FurnitureCrop,type RoomKind} from "./world-layout";
 import {drawMinimalFarmhouseBase} from "./farmhouse-visual";
+import {drawFarmhouseRoomBase,type FarmhouseNativeArt} from "./farmhouse-native";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -15,7 +16,7 @@ export type HDSprite={frame:number;width:number;height:number;footOffset:number}
 const sprites:Record<string,HDSprite>={
   // footOffset compensates transparent bottom padding in each 320px atlas cell.
   // House moved +6px and resized to stay fully inside the top of the field map.
-  "rumah-yanzen":{frame:0,width:100,height:100,footOffset:6},
+  "rumah-yanzen":{frame:0,width:112,height:85,footOffset:0},
   "gudang-kayu":{frame:1,width:104,height:104,footOffset:14},
   "fasad-inggit":{frame:2,width:residentFacadeSpec("fasad-inggit")!.width,height:residentFacadeSpec("fasad-inggit")!.height,footOffset:residentFacadeSpec("fasad-inggit")!.footOffset},
   "fasad-ayu":{frame:3,width:residentFacadeSpec("fasad-ayu")!.width,height:residentFacadeSpec("fasad-ayu")!.height,footOffset:residentFacadeSpec("fasad-ayu")!.footOffset},
@@ -38,13 +39,14 @@ export type HDRoom=RoomKind;
  * sprites, each sorted against the PLAYER'S FEET, never as one giant overlay.
  */
 export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,evening=false,layer:"all"|"base"="all"){
+ room:HDRoom,evening=false,layer:"all"|"base"="all",native?:FarmhouseNativeArt){
   if(room==="home"){
     // No leftover rugs or furniture baked into the base: visual floor and
     // model navigation are authored from the same minimalist room plan.
-    drawMinimalFarmhouseBase(ctx,evening);
+    if(native?.roomBase)drawFarmhouseRoomBase(ctx,native.roomBase,evening);
+    else drawMinimalFarmhouseBase(ctx,evening);
     if(layer==="all")for(const piece of ROOM_FURNITURE.home)
-      drawHDInteriorPiece(ctx,image,"home",piece);
+      drawHDInteriorPiece(ctx,image,"home",piece,native);
     return;
   }
   const base=2,p=ROOM_PROJECTION;
@@ -59,8 +61,18 @@ export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSou
   ctx.restore();
 }
 export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,piece:FurnitureCrop){
-  const rect=furnitureScreenRect(piece),frame=room==="home"?1:3;
+ room:HDRoom,piece:FurnitureCrop,native?:FarmhouseNativeArt){
+  const rect=furnitureScreenRect(piece);
+  if(room==="home" && piece.source==="native"){
+    const sprite=native?.[piece.id as keyof FarmhouseNativeArt];
+    if(sprite){
+      ctx.save();ctx.imageSmoothingEnabled=true;
+      ctx.drawImage(sprite,rect.x,rect.y,rect.width,rect.height);
+      ctx.restore();
+    }
+    return;
+  }
+  const frame=room==="home"?1:3;
   ctx.drawImage(image,(frame%2)*320+piece.x,Math.floor(frame/2)*320+piece.y,
     piece.width,piece.height,rect.x,rect.y,rect.width,rect.height);
 }
@@ -68,11 +80,11 @@ export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasIma
  * The behind pass draws before avatar; foreground draws afterwards.
  */
 export function drawHDInteriorProps(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,avatarFeetY:number,pass:"behind"|"front"){
+ room:HDRoom,avatarFeetY:number,pass:"behind"|"front",native?:FarmhouseNativeArt){
   ctx.save();ctx.imageSmoothingEnabled=true;
   for(const piece of ROOM_FURNITURE[room]){
     const inFront=furnitureScreenRect(piece).footY>=avatarFeetY;
-    if(inFront===(pass==="front"))drawHDInteriorPiece(ctx,image,room,piece);
+    if(inFront===(pass==="front"))drawHDInteriorPiece(ctx,image,room,piece,native);
   }
   ctx.restore();
 }
