@@ -74,7 +74,7 @@ assert.deepEqual([continuous.x, continuous.y, continuous.dir, continuous.moving]
 const outdoor = { ...model.newGame(), player: { x: 4, y: 5, dir: "up" } };
 assert.equal(model.interactDoor(outdoor).location, "home", "the right side of the entrance must open");
 const home = model.interactDoor(outdoor);
-for (const y of [7,8,9]) {
+for (const y of [8,9,10]) {
   assert.equal(model.canSleep({ ...home, player: { x: 10, y, dir: "left" } }), true);
   assert.equal(model.areaBlocked("home",10,y),false,"Bed approach must be walkable");
 }
@@ -83,7 +83,7 @@ assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" }
 for (const [state, id, points] of [
   [outdoor, "home-door", [[65, 69], [91, 99]]],
   [outdoor, "shed-door", [[181, 70], [200, 99]]],
-  [home, "bed", [[155, 140], [195, 199]]],
+  [home, "bed", [[153, 159], [204, 218]]],
   [home, "home-exit", [[240, 270], [279, 288]]],
   [{ ...home, location: "shed" }, "shed-exit", [[236, 270], [285, 288]]],
 ]) {
