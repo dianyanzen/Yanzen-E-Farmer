@@ -1,6 +1,6 @@
 # YZ Farm Life — Asset Library (categorized)
 
-**2487 media entries, 1195 unique Git blobs.** Every media path is categorized into one index, without duplicating the underlying PNG/WAV. The folder structure below is a browseable **index**, not copies of legacy media; media that can be safely moved are organized physically under `public/game/assets/`.
+**Indeks gabungan (23 November 2026): 2.499 media, 1.205 konten Git unik.** Jumlah dinamis yang benar berada di [`index.json`](./index.json) dan [`asset-database.json`](../catalog/asset-database.json); angka historis pada catatan pemangkasan aset 21 November bukan jumlah sekarang. Setiap berkas dikategorikan pada satu indeks tanpa menggandakan PNG/WAV asli. The folder structure below is a browseable **index**, not copies of legacy media; media that can be safely moved are organized physically under `public/game/assets/`.
 
 | Category | Folder | Purpose |
 | --- | --- | --- |
@@ -24,7 +24,7 @@
 ```text
 public/game/assets/
   characters/           # runtime walking actors
-  portraits/             # 32 active A/C dialogue expression strips (legacy URLs preserved)
+  portraits/             # 32 strip ekspresi A/C tersimpan; hanya 5 NPC playable di Pasirluyu saat ini
     bandung/
       neighborhood/      # 30 K character concepts
       specialists/       # 6 N character concepts
@@ -36,14 +36,18 @@ public/game/assets/
   pasirluyu/            # existing world resources
   residences/           # building artwork
   audio/                # active audio resources
-  story/                # active journal imagery
+  story/                # gambar jurnal aktif
+  fish/                 # lele dan nila untuk memancing sungai
+  quests/               # 5 properti misi aktif
+  cutscenes/            # poster dan 2 frame pintu air (MP4 asli belum ada di Git)
+  tiles/                # termasuk atlas toko Ayu/Widi
 ```
 
 ## Access and production rules
 
 1. **Runtime** loads only the assets needed for an active zone. The asset index and legacy packs must never be bundled into the game's initial scene.
 2. **Legacy asset bundles** at `game-assets/yz-farm-life/{aset,atlas-bandung,bandung-151,explore-bandung}` retain their original media and relative reference paths (including TMJ/SQLite/ZIP). These are *indexed* by category but not mass-moved to protect their dependencies.
-3. **Canon character source** stays at `game-assets/characters/gba-v2*/sheets/`; the 32 dialogue expressions remain at their original public URL to avoid breaking existing saves or integrations.
+3. **Sumber sprite 32 karakter legacy/aktif** berada di `game-assets/characters/gba-v2*/sheets/`; 32 strip ekspresi dialog tetap pada URL lama untuk kompatibilitas, tetapi **bukan berarti 32 tokoh sudah playable**. Identitas resmi 248 warga mengikuti roster canonical terpisah; saat ini hanya lima NPC aktif.
 4. **Public Bandung concept artwork** is physically divided into six folders; use `bandungConceptPortraitPath(id)` from `src/lib/game/bandung-concept-portrait.ts` rather than concatenating raw URLs.
 5. An asset can be **ACTIVE**, **FUTURE**, **REWORK**, or **DELETE**. Categorization is **not** visual approval; the quality audits remain in the catalog. Do not interpret 196 plant filenames as 196 unique species drawings.
 6. **After committing media changes** run `npm run assets:index && npm run assets:categories`, then `npm run assets:index:check && npm run assets:categories:check && npm run test:game:assets`. Do not modify SQLite production, public DNS or release deployments in this refactor.
