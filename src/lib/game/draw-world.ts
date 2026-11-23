@@ -1,5 +1,6 @@
 import type { WeightPose } from "./footwork";
 import type { ToolUse } from "./field-engine";
+import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisual} from "./fishing-visuals";
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
@@ -34,7 +35,8 @@ export type FarmAnimation = { use: ToolUse; frame: number; effect: number };
 export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: WorldArt,
                           position: { x: number; y: number; dir: Direction }, pose: number | null, running: boolean, action: FarmAnimation | undefined, camera: {x:number;y:number},
                           ambient: number, plots: GameState["plots"], weight?: WeightPose,
-                          dust?: {x:number;y:number;dir:Direction;phase:number}) {
+                          dust?: {x:number;y:number;dir:Direction;phase:number},
+                          fishing?:FishingVisual) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const W = isOutdoorLocation(state.location) ? WORLD.width : 24;
@@ -213,7 +215,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
         dust.y*T+17+trailY*drift-drift*.65,1+(i===1?1:0),1,`rgba(222,195,135,${.8*(1-dust.phase)})`);
     }
   }
-  if (action && art.actions && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y) {
+  const fishPose=state.location==="sungai" && fishing?.session?
+    fishingGeometry(position,fishing.session.phase,fishing.session.elapsed):undefined;
+  if (fishPose) {
+    ctx.save();ctx.translate(0,fishPose.bodyShift);
+    actor("A01",position.x,position.y,position.dir,fishPose.spriteFrame,"#295d4d");
+    ctx.restore();
+  } else if (action && art.actions && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y) {
     const index = { hoe: 0, seed: 1, water: 2, harvest: 3 }[action.use.tool];
     const row = index*4 + facingRows[action.use.origin.dir];
     ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
@@ -234,6 +242,51 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.drawImage(art.effects,action.effect*16,row*16,16,16,x*T+2,y*T+1,16,16);
   }
   for (const item of ordered) if (item.y>position.y) item.draw();
+  // Held rod, hand swing, line and small water bobber use the very same
+  // 20px world-tile coordinates as the character, even while the camera moves.
+  if (fishPose) {
+    ctx.save();
+    const round=(n:number)=>Math.round(n);
+    ctx.strokeStyle="#dfb58d";ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(round(fishPose.shoulder.x),round(fishPose.shoulder.y));
+    ctx.lineTo(round(fishPose.hand.x),round(fishPose.hand.y));ctx.stroke();
+    ctx.strokeStyle="#392a18";ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(round(fishPose.hand.x),round(fishPose.hand.y));
+    ctx.lineTo(round(fishPose.tip.x),round(fishPose.tip.y));ctx.stroke();
+    ctx.strokeStyle="#c89855";ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(round(fishPose.hand.x),round(fishPose.hand.y));
+    ctx.lineTo(round(fishPose.tip.x),round(fishPose.tip.y));ctx.stroke();
+    if(fishPose.showFloat){
+      ctx.strokeStyle="#dbece8";ctx.lineWidth=.6;
+      ctx.beginPath();ctx.moveTo(round(fishPose.tip.x),round(fishPose.tip.y));
+      ctx.lineTo(round(fishPose.float.x),round(fishPose.float.y));ctx.stroke();
+      if(fishPose.ripple){ctx.strokeStyle="#a5e3dc";ctx.lineWidth=.6;
+        ctx.beginPath();ctx.ellipse(fishPose.water.x,fishPose.water.y,fishPose.rippleRadius,
+          fishPose.rippleRadius*.48,0,0,Math.PI*2);ctx.stroke();}
+      if(fishPose.splash){ctx.fillStyle="#bdf4e9";
+        ctx.fillRect(round(fishPose.float.x)-4,round(fishPose.float.y),2,1);
+        ctx.fillRect(round(fishPose.float.x)+3,round(fishPose.float.y)-2,2,1);}
+      ctx.fillStyle="#332923";ctx.fillRect(round(fishPose.float.x)-2,round(fishPose.float.y)-3,4,6);
+      ctx.fillStyle="#e4cd95";ctx.fillRect(round(fishPose.float.x)-1,round(fishPose.float.y)-2,2,2);
+      ctx.fillStyle="#e25b44";ctx.fillRect(round(fishPose.float.x)-1,round(fishPose.float.y),2,2);
+    }
+    ctx.restore();
+  }
+  if(state.location==="sungai" && fishing?.popup){
+    const popup=fishing.popup,p=fishingPopupPosition(position,popup.elapsed);
+    if(p.alpha>0){
+      ctx.save();ctx.globalAlpha=p.alpha;
+      const x=Math.round(p.x),y=Math.round(p.y),message=fishingPopupLabel(popup.outcome,popup.species);
+      ctx.fillStyle="#1b3e33";ctx.fillRect(x-38,y-11,76,15);
+      ctx.strokeStyle=popup.outcome==="caught"?"#ffdda0":"#e6b6a0";
+      ctx.lineWidth=1;ctx.strokeRect(x-38.5,y-11.5,77,16);
+      ctx.fillStyle="#fff1d0";ctx.font="bold 7px monospace";ctx.textAlign="center";
+      ctx.fillText(message,x,y-1);
+      if(popup.outcome==="caught"){ctx.fillStyle="#e9c46a";
+        ctx.fillRect(x-32,y-6,5,3);ctx.fillRect(x-34,y-7,2,5);}
+      ctx.restore();
+    }
+  }
   const dusk=Math.max(0,Math.min(1,(state.minutes-960)/120));
   if (dusk) {
     const night=art.outdoor?.["night-"+state.location];

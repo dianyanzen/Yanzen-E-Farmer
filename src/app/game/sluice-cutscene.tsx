@@ -16,8 +16,7 @@ export default function SluiceCutscene({onDone}:{onDone:()=>void}){
   const captionRef=useRef<HTMLDivElement>(null);
   const actionsRef=useRef<HTMLDivElement>(null);
   const completed=useRef(false);
-  const [attempt,setAttempt]=useState(0);
-  const [status,setStatus]=useState<"loading"|"ready"|"error">("loading");
+  const [status,setStatus]=useState<"loading"|"ready"|"storyboard">("loading");
   const [muted,setMuted]=useState(true);
   const [seconds,setSeconds]=useState(0);
   const [frameWidth,setFrameWidth]=useState<number|null>(null);
@@ -36,9 +35,22 @@ export default function SluiceCutscene({onDone}:{onDone:()=>void}){
   },[finish]);
   useEffect(()=>{
     if(status!=="loading")return;
-    const t=window.setTimeout(()=>setStatus("error"),14000);
+    const t=window.setTimeout(()=>{setSeconds(0);setStatus("storyboard");},14000);
     return ()=>window.clearTimeout(t);
-  },[status,attempt]);
+  },[status]);
+  // Preserve the original approved first/last frames while the 10-second owner
+  // MP4 is missing. This is visibly labeled as a two-frame illustration, not a
+  // synthetic replacement video and never grants extra quest rewards.
+  useEffect(()=>{
+    if(status!=="storyboard")return;
+    const start=performance.now();
+    const timer=window.setInterval(()=>{
+      const elapsed=(performance.now()-start)/1000;
+      if(elapsed>=PASIRLUYU_SLUICE_CUTSCENE.durationSeconds){finish();return;}
+      setSeconds(elapsed);
+    },100);
+    return ()=>window.clearInterval(timer);
+  },[status,finish]);
 
   // Reserve actual room for the subtitle and buttons before fitting the video.
   // ResizeObserver also catches rotations, desktop resizes and font-size changes.
@@ -65,7 +77,6 @@ export default function SluiceCutscene({onDone}:{onDone:()=>void}){
     return ()=>observer.disconnect();
   },[status]);
 
-  const retry=()=>{setSeconds(0);setStatus("loading");setAttempt(value=>value+1);};
   const expandGame=()=>{
     // Fullscreen the *game* (world + controls), never the video element.
     const page=overlayRef.current?.closest(".yzg-page") as HTMLElement|null;
@@ -74,24 +85,29 @@ export default function SluiceCutscene({onDone}:{onDone:()=>void}){
 
   return <div ref={overlayRef} className="yzg-cutscene" role="dialog" aria-modal="true" aria-label={PASIRLUYU_SLUICE_CUTSCENE.title}>
     <div className="yzg-cutscene-stage" style={frameWidth===null?undefined:{width:`${frameWidth}px`}}>
-      {status!=="error" ? <video key={attempt} ref={videoRef} className="yzg-cutscene-video" src={PASIRLUYU_SLUICE_CUTSCENE.src}
+      {status!=="storyboard" ? <video ref={videoRef} className="yzg-cutscene-video" src={PASIRLUYU_SLUICE_CUTSCENE.src}
         poster={PASIRLUYU_SLUICE_CUTSCENE.poster} autoPlay muted={muted} playsInline preload="auto"
         onLoadedData={()=>setStatus("ready")} onPlaying={()=>setStatus("ready")}
-        onTimeUpdate={event=>setSeconds(event.currentTarget.currentTime)} onEnded={finish} onError={()=>setStatus("error")}
+        onTimeUpdate={event=>setSeconds(event.currentTarget.currentTime)} onEnded={finish}
+        onError={()=>{setSeconds(0);setStatus("storyboard");}}
         aria-label="Yanzen memutar roda pintu air, kemudian air mengalir ke hilir"/> :
-        <div className="yzg-cutscene-unavailable" role="status">
-          <img src={PASIRLUYU_SLUICE_CUTSCENE.poster} alt="Pintu air Pasirluyu telah terbuka"/>
-          <p>Adegan belum bisa diputar. Kamu bisa mencobanya lagi atau melanjutkan permainan.</p>
-          <button type="button" onClick={retry}>Coba putar lagi</button>
+        <div className="yzg-cutscene-storyboard" role="img"
+          aria-label="Ilustrasi dua frame asli pintu air Pasirluyu, sebelum dan sesudah pintu dibuka">
+          <img className="yzg-cutscene-still yzg-cutscene-still--start"
+            src={PASIRLUYU_SLUICE_CUTSCENE.startFrame} alt=""/>
+          <img className="yzg-cutscene-still yzg-cutscene-still--end"
+            src={PASIRLUYU_SLUICE_CUTSCENE.endFrame} alt=""
+            style={{opacity:Math.min(1,Math.max(0,(seconds-4)/2))}}/>
         </div>}
     </div>
-    {status!=="error"&&<div ref={captionRef} className="yzg-cutscene-readalong" aria-live="off">
+    <div ref={captionRef} className="yzg-cutscene-readalong" aria-live="off">
       <small>KENANGAN · PINTU AIR PASIRLUYU</small>
       <strong>{pasirluyuCutsceneCaption(seconds)}</strong>
       {status==="loading"&&<span className="yzg-cutscene-buffering">Menyiapkan adegan…</span>}
-    </div>}
+      {status==="storyboard"&&<span className="yzg-cutscene-buffering">Ilustrasi dua frame · video asli belum tersedia</span>}
+    </div>
     <div ref={actionsRef} className="yzg-cutscene-actions">
-      {status!=="error"&&<>
+      {status!=="storyboard"&&<>
         <button type="button" onClick={()=>{setMuted(value=>!value);if(videoRef.current?.paused)void videoRef.current.play().catch(()=>{});}}>
           {muted?"Aktifkan suara":"Matikan suara"}</button>
         {canExpandGame&&<button type="button" onClick={expandGame}>Layar permainan penuh</button>}
