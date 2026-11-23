@@ -7,6 +7,12 @@ description: Standar wajib YZ Farm Life untuk audit, konsep, desain, generate, v
 
 **Trigger:** gunakan untuk permintaan yang menyebut aset, gambar sprite, pixel art, rumah, gudang, interior, pasar, rumah warga, lingkungan, tile, dekorasi, props, tanaman, UI world, collision visual, asset library, artwork style, kurasi/hapus aset, atau ekspansi peta. Berlaku untuk tahap konsep maupun implementasi.
 
+## Pembaruan WAJIB 24 November 2026 — atomic asset ownership
+
+**Prioritas tertinggi**: baca dan gunakan `.agents/skills/yz-farm-atomic-assets/SKILL.md` dan `docs/game-dev/ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md` untuk semua perubahan. Pemilik MELARANG spritesheet, atlas, multi-object cropping, source rectangle, texture packing runtime, dan sharing satu file antar entitas/varian/frame/instance. Semua source, output produksi dan animation frame harus satu file individual per pemilik. **Poin lama “sprite/atlas naming” dan “satu atlas per scene” di bawah hanya catatan historis, tidak boleh dipakai untuk produksi baru.** Tidak ada pengecualian untuk performa; optimasi dengan lazy loading per lokasi dan file sendiri.
+
+Kunci proporsi tubuh Yanzen dan pivot kaki pada idle, walk, run, turn, tanam, siram, panen dan memancing, tanpa stretch frame dan tanpa perubahan tinggi nyata saat transisi. Audit terukur ada di `docs/game-dev/YANZEN_ANIMATION_SCALE_AUDIT_20261124.md`. Migrasi legacy bertahap, aman bagi save dan quest, tidak mengklaim compliance sebelum runtime benar-benar beralih.
+
 ## Sumber wajib sebelum bertindak
 1. \`AGENTS.md\` — batas aplikasi game vs E-Farmer, NPC/save/runtime.
 2. \`docs/game-dev/YZ_VISUAL_IDENTITY_BIBLE.md\` — *sumber canonical art direction YZ Farm Life*.
