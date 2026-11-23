@@ -101,7 +101,7 @@ export function drawOutdoorArea(ctx:C,where:Exclude<OutdoorLocation,"field">,_am
     for(let x=0;x<W;x++){if(x!==11&&x!==12)boundaryTree(ctx,x,4,x+2);
       if(x!==11&&x!==12)boundaryTree(ctx,x,15,x);}
     for(let y=5;y<15;y++){boundaryTree(ctx,0,y,y);boundaryTree(ctx,23,y,y+2);}
-    stall(ctx,3*T,6*T,140,"KIOS SAYUR","#6c9654");
+    stall(ctx,3*T,6*T,140,"LAPAK BENIH","#6c9654");
     stall(ctx,15*T,6*T,110,"WARUNG INGGIT","#bc7153");
     r(ctx,390,147,18,23,"#604633");
     r(ctx,392,149,14,19,"#99734c");
