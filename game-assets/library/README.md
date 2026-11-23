@@ -32,7 +32,7 @@ public/game/assets/
       residents/         # 179 R resident concepts
       professions/       # 32 work concepts
       phone/             # 19 phone concepts
-  tiles/                # map tile and farm-kit
+  tiles/                # map tile, farm-kit, dan atlas toko Ayu/Widi
   pasirluyu/            # existing world resources
   residences/           # building artwork
   audio/                # active audio resources
@@ -40,7 +40,6 @@ public/game/assets/
   fish/                 # lele dan nila untuk memancing sungai
   quests/               # 5 properti misi aktif
   cutscenes/            # poster dan 2 frame pintu air (MP4 asli belum ada di Git)
-  tiles/                # termasuk atlas toko Ayu/Widi
 ```
 
 ## Access and production rules
