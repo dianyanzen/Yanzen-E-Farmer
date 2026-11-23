@@ -56,11 +56,11 @@ export function drawMinimalFarmhouseBase(
   rect(ctx,187,87,2,27,"#6b4a2f");
   rect(ctx,172,99,32,2,"#6b4a2f");
   rect(ctx,170,111,37,4,"#cf9c62");
-  rect(ctx,210,86,19,28,"#e6d6b5");
-  rect(ctx,211,86,17,3,"#84634b");
-  rect(ctx,213,93,13,2,"#86965f");
-  rect(ctx,213,98,10,1,"#b38c60");
-  rect(ctx,213,102,12,1,"#b38c60");
+  rect(ctx,278,86,19,28,"#e6d6b5");
+  rect(ctx,279,86,17,3,"#84634b");
+  rect(ctx,281,93,13,2,"#86965f");
+  rect(ctx,281,98,10,1,"#b38c60");
+  rect(ctx,281,102,12,1,"#b38c60");
   // A single tiny hanging farming apron, above player reach.
   rect(ctx,330,87,3,17,"#69442b");
   rect(ctx,323,93,16,15,"#64816c");
