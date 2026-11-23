@@ -13,6 +13,7 @@
 7. [Story System](STORY_SYSTEM.md) — aturan naratif, dengan bagian proposal/legacy ditandai.
 8. [Standar Potret NPC Aktif](ACTIVE_NPC_PORTRAIT_STANDARD.md) — lima tokoh gameplay, sprite, konsep, delapan ekspresi, dan quality gate (termasuk blocker Widi).
 9. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
+10. [Aset & Aksi Misi NPC](QUEST_ASSETS_ACTIONS_PASIRLUYU.md) — objek aktif 5 NPC, mekanik, lokasi, backlog 30 rancangan misi dan QA.
 
 Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
 
