@@ -133,7 +133,7 @@ class YZWorldScene extends Phaser.Scene {
       // ONLY legacy shed textures are cropped. Home uses native full images.
       if(useHD)for(const room of ["shed"] as const){
         for(const piece of ROOM_FURNITURE[room]){
-          const frame=room==="home"?1:3;
+          const frame=3; // Shed alone retains legacy crop; never cut home props.
           const canvas=document.createElement("canvas");
           canvas.width=piece.width;canvas.height=piece.height;
           const brush=canvas.getContext("2d");
