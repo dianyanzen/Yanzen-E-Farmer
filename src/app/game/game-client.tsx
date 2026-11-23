@@ -867,9 +867,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {worldPresented && phaserError && <div className="yzg-toast" role="status">{phaserError}</div>}
         {worldPresented && toast && <div className="yzg-toast" role="status">{display(toast)}</div>}
-        {worldPresented && !phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
+        {worldPresented && !phoneOpen && !dialogue && game.location === "field" && (unread || game.seeds===0) && <button className="yzg-notif"
+          onClick={()=>{setPhoneOpen(true);setPhoneTab("chat");setSelectedCitizen(null);setShowHelp(false);}}>
           <span className="yzg-notif-icon">✉</span>
-          <span><b>YZ Phone · Pesan baru</b><small>{display("Inggit: Ada pesanan timun untuk warungku!")}</small></span>
+          <span><b>{unread?"YZ Phone · Pesan baru":"YZ Phone · Stok bibit habis"}</b>
+            <small>{display(unread?"Inggit: Ada pesanan timun untuk warungku!":"Ayu: Bibit habis? Mampir ke lapak benihku di Pasar Warga.")}</small></span>
         </button>}
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
@@ -975,9 +977,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 </div>
                 {(game.seeds<=2 || sellableCucumbers(game)>0) && <div className="yzg-phone-card">
                   <b>{display("✉ Ayu · Lapak benih")}</b>
-                  <p>{game.seeds<=2
-                    ?"Bibit timunmu hampir habis? Mampir ke lapakku di Pasar Warga. Aku siapkan sebungkus isi lima seharga 40 G."
-                    :"Kalau ada timun lebih dari pesanan Inggit, bawa ke lapakku. Aku terima hasil kebunmu seharga 25 G per timun."}</p>
+                  {game.seeds<=2 && <p>Bibit timunmu hampir habis? Mampir ke lapakku di Pasar Warga. Aku siapkan sebungkus isi lima seharga 40 G.</p>}
+                  {sellableCucumbers(game)>0 && <p>Kalau ada timun lebih dari pesanan Inggit, bawa ke lapakku. Aku terima hasil kebunmu seharga 25 G per timun.</p>}
                   <small>Pembelian bibit dan penjualan timun dilakukan langsung di lapak Ayu.</small>
                 </div>}
                 <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau lewat dekat saluran nanti, panggil aku. Ada yang ingin kutunjukkan.&rdquo;</p></div>
