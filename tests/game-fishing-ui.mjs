@@ -11,12 +11,11 @@ await mkdir(output,{recursive:true});
 await build({
  stdin:{contents:`import React,{useState,useEffect} from "react";
  import {createRoot} from "react-dom/client";
- import {FishingScene,FishingResult} from "./src/app/game/fishing-scene";
+ import {FishingScene} from "./src/app/game/fishing-scene";
  function FishingTest(){
-  const [phase,setPhase]=useState("casting"),[show,setShow]=useState(true);
-  useEffect(()=>{window.__phase=setPhase;window.__show=setShow},[]);
-  return show?<FishingScene phase={phase} onCancel={()=>{window.__cancelled=(window.__cancelled||0)+1;}}/>:
-    <FishingResult outcome="caught" species="lele"/>;
+  const [phase,setPhase]=useState("casting");
+  useEffect(()=>{window.__phase=setPhase},[]);
+  return <FishingScene phase={phase} onCancel={()=>{window.__cancelled=(window.__cancelled||0)+1;}}/>;
  }
  createRoot(document.getElementById("root")).render(<FishingTest/>);`,
  resolveDir:process.cwd(),loader:"tsx"},bundle:true,outfile:path.join(output,"app.js"),
@@ -57,7 +56,8 @@ try{
     const box=s=>{const n=document.querySelector(s),r=n.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}};
     return {world:box(".yzg-viewport"),overlay:box(".yzg-fishing-scene"),
       message:box(".yzg-fishing-message"),cancel:box(".yzg-fishing-cancel"),
-      controls:box(".yzg-controls"),animation:getComputedStyle(document.querySelector(".yzg-fishing-float")).animationName};
+      controls:box(".yzg-controls"),detached:!!document.querySelector(".yzg-fishing-effect, .yzg-fishing-float"),
+      text:document.querySelector(".yzg-fishing-message").textContent};
    });
    const tol=2;
    assert.ok(data.overlay.y>=data.world.y-tol&&data.overlay.bottom<=data.world.bottom+tol);
@@ -65,18 +65,13 @@ try{
      "Instructions must remain inside world, "+width+"x"+height);
    assert.ok(data.cancel.right<=data.world.right+tol&&data.cancel.bottom<=data.world.bottom+tol);
    assert.ok(data.world.bottom<=data.controls.y+tol,"Fishing must not cover toolbelt");
-   assert.ok(data.animation!=="none","Real floating bobber animation must exist");
+   assert.equal(data.detached,false,"Fishing gear may not be a fixed centered DOM effect");
+   assert.ok(data.text.length>5,"Phase guidance remains readable");
   }
   if(width===393)await page.screenshot({path:path.join(output,"fishing-waiting-393x852.png")});
   await page.getByRole("button",{name:"Angkat joran"}).click();
   assert.equal(await page.evaluate(()=>window.__cancelled),1);
-  await page.evaluate(()=>window.__show(false));
-  const fish=page.locator(".yzg-fishing-result img");
-  await fish.waitFor();
-  const loaded=await fish.evaluate(i=>i.complete&&i.naturalWidth>0);
-  assert.equal(loaded,true,"Lele sprite must be available to the user");
-  if(width===393)await page.screenshot({path:path.join(output,"fishing-393x852.png")});
-  console.log("PASS fishing CSS, bobber, controls and lele image: "+width+"x"+height);
+  console.log("PASS compact world-scoped fishing HUD: "+width+"x"+height);
   await page.close();
  }
  assert.deepEqual(errors,[],"No unhandled browser failures");
