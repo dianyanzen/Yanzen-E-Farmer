@@ -17,31 +17,31 @@ export type FurnitureCrop={
 export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
   home:[
     {id:"bed",x:8,y:25,width:97,height:147,footY:172,
-      display:{x:152,y:110,width:50,height:78}},
+      display:{x:152,y:110,width:50,height:76}},
     {id:"chest",x:8,y:172,width:97,height:55,footY:227,
-      display:{x:151,y:201,width:50,height:34}},
+      display:{x:151,y:201,width:50,height:28}},
     {id:"harvest-bags",x:8,y:227,width:110,height:90,footY:316,
-      display:{x:151,y:251,width:55,height:39}},
+      display:{x:151,y:247,width:55,height:45}},
     {id:"bookshelf",x:106,y:17,width:95,height:94,footY:111,
-      display:{x:215,y:83,width:63,height:42}},
+      display:{x:215,y:81,width:58,height:57}},
     {id:"computer-desk",x:202,y:18,width:118,height:118,footY:136,
-      display:{x:281,y:86,width:69,height:57}},
+      display:{x:283,y:84,width:63,height:63}},
     {id:"storage-cabinet",x:202,y:136,width:118,height:146,footY:282,
-      display:{x:289,y:188,width:63,height:83}}
+      display:{x:289,y:188,width:62,height:77}}
   ],
   shed:[
     {id:"tools-shelves",x:8,y:22,width:155,height:91,footY:113,
-      display:{x:147,y:85,width:97,height:51}},
+      display:{x:147,y:84,width:97,height:57}},
     {id:"workbench",x:163,y:23,width:157,height:95,footY:118,
-      display:{x:269,y:86,width:84,height:53}},
+      display:{x:268,y:86,width:86,height:52}},
     {id:"produce-crates",x:8,y:113,width:108,height:105,footY:218,
-      display:{x:151,y:158,width:59,height:55}},
+      display:{x:151,y:160,width:55,height:53}},
     {id:"irrigation-rack",x:8,y:218,width:110,height:99,footY:317,
-      display:{x:151,y:233,width:63,height:58}},
+      display:{x:151,y:232,width:61,height:55}},
     {id:"stored-sacks",x:210,y:115,width:110,height:99,footY:214,
       display:{x:286,y:162,width:60,height:54}},
     {id:"storage-cabinets",x:210,y:214,width:110,height:104,footY:318,
-      display:{x:287,y:229,width:63,height:63}}
+      display:{x:287,y:231,width:62,height:59}}
   ]
 } as const;
 
