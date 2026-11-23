@@ -8,6 +8,8 @@ export const TILE_PX=20;
 export type RoomKind="home"|"shed";
 export type FurnitureCrop={
   id:string;x:number;y:number;width:number;height:number;footY:number;
+  /** Native = independent transparent image, not an atlas crop. */
+  source?:"native"|"atlas";
   /** Final logical-world display rect. Raw alpha crop dimensions are NOT real furniture dimensions. */
   display:{x:number;y:number;width:number;height:number};
 };
@@ -16,16 +18,16 @@ export type FurnitureCrop={
  */
 export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
   home:[
-    // Minimal farmer residence: a bed, farm ledger/work desk, keepsake chest
-    // and a wall-mounted cultivation notebook shelf. No large floor cabinet.
-    {id:"bed",x:8,y:25,width:97,height:147,footY:172,
-      display:{x:151,y:135,width:45,height:68}},
-    {id:"chest",x:8,y:172,width:97,height:55,footY:227,
-      display:{x:151,y:218,width:44,height:25}},
-    {id:"bookshelf",x:106,y:17,width:95,height:94,footY:111,
-      display:{x:220,y:87,width:48,height:48}},
-    {id:"computer-desk",x:202,y:18,width:118,height:118,footY:136,
-      display:{x:291,y:129,width:53,height:53}}
+    // Full standalone sprites generated separately; NO atlas cropping.
+    // width/height are the dimensions of the entire native runtime image.
+    {id:"bed",source:"native",x:0,y:0,width:268,height:320,footY:216,
+      display:{x:155,y:160,width:47,height:56}},
+    {id:"chest",source:"native",x:0,y:0,width:320,height:232,footY:273,
+      display:{x:156,y:243,width:42,height:30}},
+    {id:"bookshelf",source:"native",x:0,y:0,width:320,height:238,footY:170,
+      display:{x:225,y:136,width:45,height:34}},
+    {id:"computer-desk",source:"native",x:0,y:0,width:296,height:320,footY:212,
+      display:{x:288,y:154,width:54,height:58}}
   ],
   shed:[
     {id:"tools-shelves",x:8,y:22,width:155,height:91,footY:113,
@@ -55,9 +57,9 @@ export function furnitureScreenRect(piece:FurnitureCrop){
  */
 const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
-  // Farmer's home has a wider visible floor (11 columns), while storage
-  // retains its own narrower collision footprint.
-  if(x<(room==="home"?7:8)||x>(room==="home"?17:16)||y<6||y>13)return true;
+  // y=6..7 is illustrated wall: only rows 8..13 in home are floor.
+  // Keep exact visual footprint separate from furniture collisions.
+  if(x<8||x>16||y<(room==="home"?8:6)||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 
