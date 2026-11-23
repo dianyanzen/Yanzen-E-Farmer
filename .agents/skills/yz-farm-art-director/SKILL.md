@@ -11,15 +11,17 @@ description: Standar wajib YZ Farm Life untuk audit, konsep, desain, generate, v
 1. \`AGENTS.md\` — batas aplikasi game vs E-Farmer, NPC/save/runtime.
 2. \`docs/game-dev/YZ_VISUAL_IDENTITY_BIBLE.md\` — *sumber canonical art direction YZ Farm Life*.
 3. \`docs/game-dev/ASSET_REDESIGN_LIFECYCLE.md\` — klasifikasi, audit dependensi, approval, rollback dan penghapusan.
-4. \`docs/game-dev/ASSET_VISUAL_AUDIT_20261123.md\` — baseline visual dari tujuh screenshot pemilik; sifatnya historis dan bisa direvisi.
-5. \`docs/game-dev/HD_ASSET_STANDARD.md\`, \`docs/game-dev/HD_WORLD_LAYOUT_AUDIT_20261123.md\` — kontrak teknis Housing HD di branch integrasi; periksa keberadaannya, jangan asumsikan sudah ada di main.
-6. Runtime aktual: \`src/lib/game/model.ts\`, \`src/lib/game/modular-outdoor.ts\`, \`src/lib/game/phaser-world.ts\`, \`src/lib/game/draw-world.ts\`, katalog media dan pengujian.
+4. \`docs/game-dev/WORLD_SCALE_AND_PROPORTION_STANDARD.md\` — skala karakter indoor/outdoor, proporsi furnitur, foot-anchor, Scale Lab dan pilot Pasirluyu.
+5. \`docs/game-dev/ASSET_VISUAL_AUDIT_20261123.md\` — baseline visual dari tujuh screenshot pemilik; sifatnya historis dan bisa direvisi.
+6. \`docs/game-dev/HD_ASSET_STANDARD.md\`, \`docs/game-dev/HD_WORLD_LAYOUT_AUDIT_20261123.md\` — kontrak teknis Housing HD di branch integrasi; periksa keberadaannya, jangan asumsikan sudah ada di main.
+7. Runtime aktual: \`src/lib/game/model.ts\`, \`src/lib/game/modular-outdoor.ts\`, \`src/lib/game/phaser-world.ts\`, \`src/lib/game/draw-world.ts\`, katalog media dan pengujian.
 
 ## Prinsip mengikat
 **YZ Farm Life: warm Bandung farming life, detailed HD pixel art yang koheren, bentuk jelas, cukup detail, tidak ramai.**
 - Jangan generate gambar baru sebelum audit ukuran/posisi/tujuan dan benchmark. **Tidak semua aset perlu diregenerate**.
 - Jangan salah menganggap resolusi master besar sebagai kualitas di ukuran tampil.
 - Bangunan harus punya fungsi arsitektur, identitas penghuni, akses, skala karakter, footprint, pintu, jalan, bayangan kontak, dan material yang konsisten.
+- Tinggi tubuh yang tampak **tidak berubah** ketika masuk/keluar rumah atau berganti animasi; kasur/peti/meja/pintu harus proporsional terhadap karakter, dengan pengujian visible-alpha, footprint, dan zoom permainan. Jangan menyamakan ukuran frame animasi dengan ukuran tubuh.
 - Interior wajib dipisah menjadi base floor/walls, props di belakang/depan pemain, objek aktif, collision/hotspot, optional roof/weather/light. Jangan mengambil props bersama lantai secara sembarangan.
 - Gameplay, route, NPC, quest, save, katalog tidak boleh berubah diam-diam karena artwork.
 - Detail terkonsentrasi secara sadar; ruang tenang dan jalan tetap terbaca. Tolak random asset spam atau decorative overload.
