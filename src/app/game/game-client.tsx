@@ -653,9 +653,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
     tapRoute.current = route ? {...route,resident:resident?.id} : null;
     if (!route) {
-      setToast("Belum ada jalan ke sana. Ketuk tanah atau benda yang bisa kamu jangkau.");
+      setToast("Belum bisa dijangkau. Ketuk objek atau lantai di dekatnya.");
       return;
     }
+    // A clear interaction confirmation matters on a small touchscreen:
+    // players can now tap the object itself rather than manually lining up.
+    if(route.targetLabel && route.steps.length>0)
+      setToast("Menghampiri "+route.targetLabel.toLowerCase()+"…");
     setShowHelp(false);
   }, [movementLocked, game]);
   const [routeMessage, setRouteMessage] = useState("");
@@ -700,6 +704,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         }
       } else if (route.interact) {
         const target = getActionContext(game);
+        if(route.targetLabel && target.label!==route.targetLabel){
+          setToast("Objek belum bisa digunakan dari posisi ini. Coba ketuk sekali lagi.");
+          return;
+        }
         if ((route.resident || target.kind==="npc") && (target.kind!=="npc" || target.npcId!==route.resident)) {
           setToast("Orangnya sudah beranjak. Coba dekati lagi.");
           return;
