@@ -1,93 +1,109 @@
 import assert from "node:assert/strict";
-import {readFileSync} from "node:fs";
+import {readFileSync,existsSync} from "node:fs";
 import {createRequire} from "node:module";
 import vm from "node:vm";
 import ts from "typescript";
+import sharp from "sharp";
 
 function loadTS(path,overrides={}){
- const code=ts.transpileModule(readFileSync(path,"utf8"),{compilerOptions:{
-   target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true
- }}).outputText;
- const out={exports:{}},req=createRequire(new URL("../"+path,import.meta.url));
- vm.runInNewContext(code,{module:out,exports:out.exports,
-  require:id=>overrides[id]??req(id)},{timeout:4000});
- return out.exports;
+  const transpiled=ts.transpileModule(readFileSync(path,"utf8"),{compilerOptions:{
+    target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,esModuleInterop:true
+  }}).outputText;
+  const entry={exports:{}},fallback=createRequire(new URL("../"+path,import.meta.url));
+  vm.runInNewContext(transpiled,{
+    module:entry,exports:entry.exports,require:id=>overrides[id]??fallback(id)
+  },{timeout:4000});
+  return entry.exports;
 }
 const model=loadTS("src/lib/game/model.ts");
-const route=loadTS("src/lib/game/tap-navigation.ts",{"./model":model});
-const geom=loadTS("src/lib/game/world-layout.ts");
+const routes=loadTS("src/lib/game/tap-navigation.ts",{"./model":model});
+const layout=loadTS("src/lib/game/world-layout.ts");
+const native=loadTS("src/lib/game/farmhouse-native.ts");
 const data=JSON.parse(readFileSync("src/lib/game/world-layout-data.json","utf8"));
 const home={...model.newGame(),location:"home"};
-const floor=[];
-for(let y=6;y<=13;y++)for(let x=7;x<=17;x++){
+const open=[];
+for(let y=8;y<=13;y++)for(let x=8;x<=16;x++){
   if(model.areaBlocked("home",x,y))continue;
-  floor.push([x,y]);
+  open.push([x,y]);
   const neighbors=[[1,0],[-1,0],[0,1],[0,-1]]
     .filter(([dx,dy])=>!model.areaBlocked("home",x+dx,y+dy));
-  assert.ok(neighbors.length>=2,"Blind hallway ending at "+x+","+y);
-  const click=route.planTapRoute({...home,player:{x:12,y:12,dir:"up"}},x,y);
-  assert.ok(click,"Visible empty floor cannot be walked to: "+x+","+y);
+  assert.ok(neighbors.length>=2,"Dead-end at farmhouse "+x+","+y);
+  const route=routes.planTapRoute({...home,player:{x:12,y:12,dir:"up"}},x,y);
+  assert.ok(route,"Unreachable illustrated floor: "+x+","+y);
 }
-assert.equal(floor.length,76,"Uncluttered house should have exactly 76 traversable tiles");
-// The door must remain reachable from every walkable tile, not only spawn.
-for(const [x,y] of floor){
- const state={...home,player:{x,y,dir:"up"}};
- const path=route.planTapRoute(state,12,13,{x:250,y:275});
- assert.ok(path&&path.interact,"Cannot reach exit from "+x+","+y);
- let walking=state;
- for(const direction of path.steps)walking=model.movePlayer(walking,direction);
- assert.equal(model.getActionContext({...walking,player:{...walking.player,dir:path.face}}).label,
-   "Keluar rumah","Player cannot use door after route");
-}
-const outside={...model.newGame(),location:"field",player:{x:3,y:5,dir:"up"}};
-assert.equal(model.getActionContext(outside).label,"Masuk rumah");
-assert.equal(model.interactDoor(outside).location,"home");
-
-const interactive=data.tapTargets.home;
-assert.deepEqual(interactive.map(p=>p.id).sort(),
- ["bed","bookshelf","chest","computer-desk"].sort());
-for(const [x,y] of floor){
-  for(const target of interactive){
-    const [left,top,right,bottom]=target.rect;
-    const px=(left+right)/2,py=(top+bottom)/2;
-    const state={...home,player:{x,y,dir:"down"}};
-    const routeTo=route.planTapRoute(state,Math.floor(px/20),Math.floor(py/20),{x:px,y:py});
-    assert.ok(routeTo,"Cannot tap "+target.id+" from "+x+","+y);
-    assert.equal(routeTo.targetLabel,target.label);
-    let simulated=state;
-    for(const direction of routeTo.steps){
-      const advanced=model.movePlayer(simulated,direction);
-      assert.ok(advanced.player.x!==simulated.player.x||advanced.player.y!==simulated.player.y,
-       target.id+" path hit invisible wall at "+simulated.player.x+","+simulated.player.y);
-      simulated=advanced;
+assert.equal(open.length,40,"Home must have exactly 40 safe floor tiles");
+assert.deepEqual(data.tapTargets.home.map(x=>x.id).sort(),
+  ["bed","bookshelf","chest","computer-desk"].sort());
+let attempted=0;
+for(const [x,y] of open){
+  const initial={...home,player:{x,y,dir:"up"}};
+  const door=routes.planTapRoute(initial,12,13,{x:250,y:277});
+  assert.ok(door?.interact,"Exit cannot be reached from "+x+","+y);
+  let toward=initial;
+  for(const step of door.steps)toward=model.movePlayer(toward,step);
+  assert.equal(model.getActionContext({...toward,player:{...toward.player,dir:door.face}}).label,"Keluar rumah");
+  for(const object of data.tapTargets.home){
+    const [l,t,r,b]=object.rect;
+    const px=(l+r)/2,py=(t+b)/2;
+    const route=routes.planTapRoute(initial,Math.floor(px/20),Math.floor(py/20),{x:px,y:py});
+    assert.ok(route,"Cannot reach "+object.id+" from "+x+","+y);
+    assert.equal(route.targetLabel,object.label);
+    let arrived=initial;
+    for(const step of route.steps){
+      const next=model.movePlayer(arrived,step);
+      assert.ok(next.player.x!==arrived.player.x||next.player.y!==arrived.player.y,
+        "Route collides on "+object.id+" from "+x+","+y);
+      arrived=next;
     }
-    const facing={...simulated,player:{...simulated.player,dir:routeTo.face}};
-    assert.equal(model.getActionContext(facing).label,target.label,
-      target.id+" interaction mismatched from "+x+","+y);
+    const action=model.getActionContext({...arrived,player:{...arrived.player,dir:route.face}});
+    assert.equal(action.label,object.label);
+    assert.equal(action.kind,object.kind);
+    attempted++;
   }
 }
-assert.equal(model.areaBlocked("home",7,10),false);
-assert.equal(model.areaBlocked("home",17,10),false);
-assert.equal(model.areaBlocked("home",16,10),false);
-assert.equal(model.areaBlocked("home",9,8),true,"Bed must be solid, despite open room");
-assert.equal(model.areaBlocked("home",9,11),true,"Chest footprint remains solid");
-assert.equal(model.areaBlocked("home",15,7),true,"Work desk remains solid");
-assert.equal(model.areaBlocked("home",12,13),false,"Exit must be open");
-
-const oldSave={...home,player:{x:8,y:8,dir:"down"}};
-const recovered=model.safeLoad(JSON.parse(JSON.stringify(oldSave)));
-assert.ok(recovered);
-assert.equal(recovered.location,"home");
-assert.equal(model.areaBlocked("home",recovered.player.x,recovered.player.y),false);
-
-const base=readFileSync("src/lib/game/farmhouse-visual.ts","utf8");
-const housing=readFileSync("src/lib/game/housing-hd.ts","utf8");
+assert.equal(attempted,160);
+assert.equal(model.areaBlocked("home",7,10),true,"Wall cannot be walked through");
+assert.equal(model.areaBlocked("home",12,7),true,"Upper wall cannot be walked through");
+assert.equal(model.areaBlocked("home",9,9),true,"Solid bed");
+assert.equal(model.areaBlocked("home",16,8),true,"Solid work desk");
+assert.equal(model.areaBlocked("home",16,13),true,"Solid wooden chest");
+assert.equal(model.areaBlocked("home",10,11),false,"Open corridor");
+assert.equal(model.areaBlocked("home",12,13),false,"Door remains open");
+const fromOutside={...model.newGame(),location:"field",player:{x:3,y:5,dir:"up"}};
+assert.equal(model.interactDoor(fromOutside).location,"home");
+const legacy={...home,player:{x:7,y:7,dir:"up"}};
+const loaded=model.safeLoad(JSON.parse(JSON.stringify(legacy)));
+assert.ok(loaded && !model.areaBlocked("home",loaded.player.x,loaded.player.y),
+  "Legacy saved position must be moved safely to walkable floor");
+const roomObjects=layout.ROOM_FURNITURE.home;
+assert.equal(roomObjects.length,4);
+for(const sprite of roomObjects){
+  assert.equal(sprite.source,"native","Home object unexpectedly cropped from atlas");
+  const bounds=layout.furnitureScreenRect(sprite);
+  const sourceRatio=sprite.width/sprite.height;
+  assert.ok(Math.abs(bounds.width/bounds.height/sourceRatio-1)<.04,
+    sprite.id+" stretched outside native aspect ratio");
+  assert.ok(bounds.height<=66,"No giant furniture: "+sprite.id);
+  assert.ok(data.tapTargets.home.some(x=>x.id===sprite.id));
+}
+const manifest=JSON.parse(readFileSync("public/game/assets/farmhouse-native/v1/manifest.json","utf8"));
+assert.equal(manifest.files.length,6);
+let total=0;
+for(const asset of manifest.files){
+  const file="public"+asset.src;
+  assert.ok(existsSync(file),"Runtime asset missing: "+asset.id);
+  const meta=await sharp(file).metadata();
+  assert.equal(meta.width,asset.exportWidth);
+  assert.equal(meta.height,asset.exportHeight);
+  assert.ok(meta.width>=200,"Export quality unexpectedly too small: "+asset.id);
+  total+=asset.bytes;
+}
+assert.ok(total<300000,"Six farmhouse WebP textures should be mobile friendly");
 const phaser=readFileSync("src/lib/game/phaser-world.ts","utf8");
 const canvas=readFileSync("src/lib/game/draw-world.ts","utf8");
-assert.match(base,/drawMinimalFarmhouseBase/);
-assert.match(base,/farmhouseFacadeSource/);
-assert.match(housing,/drawMinimalFarmhouseBase\(ctx,evening\)/);
-assert.match(phaser,/yz-yanzen-farmhouse/);
-assert.match(canvas,/farmhouseFacadeSource\(image\)/);
-assert.equal(geom.ROOM_FURNITURE.home.length,4);
-console.log("PASS: farmhouse 76 walkable tiles, 76 exit routes, 304 prop routes, collision, saved positions and exterior parity");
+assert.match(phaser,/yz-native-exterior/);
+assert.match(phaser,/yz-native-"\+piece.id/);
+assert.match(canvas,/farmhouseNative/);
+assert.match(canvas,/drawHDInteriorProps/);
+assert.ok(native.FARMHOUSE_EXTERIOR.width>=100 && native.FARMHOUSE_EXTERIOR.height<=92);
+console.log("PASS: 40 navigable floor tiles, 160 native-furniture tap paths, 40 exits, 6 optimized assets, 0 atlas crops");
