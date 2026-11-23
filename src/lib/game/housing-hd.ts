@@ -14,12 +14,12 @@ export type HDSprite={frame:number;width:number;height:number;footOffset:number}
 const sprites:Record<string,HDSprite>={
   // footOffset compensates transparent bottom padding in each 320px atlas cell.
   // House moved +6px and resized to stay fully inside the top of the field map.
-  "rumah-yanzen":{frame:0,width:112,height:112,footOffset:6},
+  "rumah-yanzen":{frame:0,width:100,height:100,footOffset:6},
   "gudang-kayu":{frame:1,width:104,height:104,footOffset:14},
   "fasad-inggit":{frame:2,width:108,height:108,footOffset:15},
   "fasad-ayu":{frame:3,width:108,height:108,footOffset:18},
-  "lapak-benih":{frame:4,width:154,height:154,footOffset:6},
-  "lapak-pancing":{frame:5,width:140,height:140,footOffset:4},
+  "lapak-benih":{frame:4,width:146,height:146,footOffset:6},
+  "lapak-pancing":{frame:5,width:132,height:132,footOffset:4},
 };
 export function exteriorHDSprite(asset:string):HDSprite|null {
   return sprites[asset]??null;
