@@ -81,6 +81,12 @@ assert.equal((client.match(/dialogue\.photo && <figure/g)||[]).length,1,
 assert.equal((client.match(/dialogue\.choosePhoto &&/g)||[]).length,1,
   "Nani's two story-choice buttons must not be duplicated");
 assert.ok(client.includes("✉ Ayu · Lapak benih"),"Ayu's YZ Phone commerce message is required");
+assert.ok(client.includes('unread || game.seeds===0') &&
+  client.includes('Ayu: Bibit habis? Mampir ke lapak benihku'),
+  "Empty-seed floating notification must come from Ayu");
+assert.ok(client.includes('{game.seeds<=2 && <p>') &&
+  client.includes('{sellableCucumbers(game)>0 && <p>'),
+  "Ayu must show both buying and selling advice when both conditions apply");
 assert.ok(client.includes("Pembelian bibit dan penjualan timun dilakukan langsung di lapak Ayu."));
 assert.ok(client.includes("✉ Inggit · Pemilik warung"),"Original four-cucumber quest remains Inggit");
 assert.ok(client.includes("Inggit: Ada pesanan timun untuk warungku!"));
