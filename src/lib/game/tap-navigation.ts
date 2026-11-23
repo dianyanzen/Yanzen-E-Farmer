@@ -1,5 +1,5 @@
 import { fishingWaterAt, areaBlocked, WORLD, SHED, facesInteractionHitbox, interactionHitboxAt, isOutdoorLocation, isFarm, mapExit, npcHere, routeBarrierAt,
-  type Direction,type GameState, signpostAt } from "./model";
+  type Direction,type GameState, signpostAt, questPropAt } from "./model";
 
 export type TapRoute={steps:Direction[];face:Direction|null;interact:boolean;exit:Direction|null};
 const dirs:{dir:Direction;dx:number;dy:number}[]=[
@@ -16,7 +16,8 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
   const isSign = isOutdoorLocation(s.location) && !!signpostAt(s.location,tx,ty);
   const hitbox = interactionHitboxAt(s.location, point?.x ?? (tx + .5) * WORLD.tile,
     point?.y ?? (ty + .5) * WORLD.tile);
-  const clickable=(s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
+  const clickable=(isOutdoorLocation(s.location) && !!questPropAt(s.location,tx,ty)) ||
+    (s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
     (s.location==="field" && isFarm(tx,ty)) ||
     (s.location==="shed" && tx===SHED.rack.x && ty===SHED.rack.y);
   const origin=k(s.player.x,s.player.y),queue=[{x:s.player.x,y:s.player.y}];
