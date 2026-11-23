@@ -15,6 +15,7 @@
 9. [Art Direction](ART_DIRECTION.md) dan [Asset Library Master](ASSET_LIBRARY_MASTER.md) — visual dan manajemen aset.
 10. [Aset & Aksi Misi NPC](QUEST_ASSETS_ACTIONS_PASIRLUYU.md) — objek aktif 5 NPC, mekanik, lokasi, backlog 30 rancangan misi dan QA.
 11. [Konsep Cutscene Misi NPC](NPC_QUEST_CUTSCENE_CONCEPT.md) — tujuh kandidat sinematik, dua frame/Google Flow, subtitle canvas, keamanan progres; **belum implementasi**.
+12. [Audit migrasi dan animasi memancing](STAGING_FISHING_CINEMATIC_MIGRATION_AUDIT_20261123.md) — bukti 488 berkas aktif lama, nol path hilang, implementasi gerak pancing menempel pada Yanzen dan status asli MP4 pintu air.
 
 Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-farm-encyclopedia/SKILL.md`, dan upstream terkunci `.agents/skills/humanizer/SKILL.md`.
 
