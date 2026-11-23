@@ -2,6 +2,7 @@ import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-e
 import { riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
+import { QUEST_PROPS } from "./quest-props";
 
 const kit = "tiles/farm-kit/";
 const everyday = ["rumah-yanzen","gudang-kayu","warung-inggit","kandang-ayam","kanopi-pohon",
@@ -13,6 +14,7 @@ const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","
   "daun-tropis","bunga-pinggir","titian-kayu","pagar-kandang","gerbang-kandang","tiang-kandang",
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
 export const outdoorSources: Record<string,string> = {
+  ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["fasad-"+owner,kit+"landmark/fasad-"+owner+".png"])),
@@ -222,6 +224,8 @@ props.sungai.push(
   {asset:"batu-kembar",x:43,y:104,scale:.65},{asset:"rumput-tinggi",x:15,y:125,scale:.54}
 );
 for(const location of Object.keys(props) as OutdoorLocation[])props[location].push(...sharedBorderProps(location));
+// Quest props have real colliders and front-facing actions from the same tile registry.
+for(const prop of QUEST_PROPS)props[prop.location].push({asset:prop.asset,x:prop.x*20+10,y:(prop.y+1)*20});
 
 export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number) {
   return (watered?12:0)+(stage===0?6:3)+((x+2*y)%3);
