@@ -260,6 +260,7 @@ class YZWorldScene extends Phaser.Scene {
         const widi=hd&&prop.asset==="lapak-pancing";
         const image=this.add.image(prop.x,prop.y,widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
           widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
+        if(hd)image.setY(prop.y+hd.footOffset);
         if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);
         else image.setScale(prop.scale??1);
