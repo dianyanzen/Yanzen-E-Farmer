@@ -16,6 +16,7 @@ import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } f
 import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./housing-v2";
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
 import {ROOM_FURNITURE,furnitureScreenRect} from "./world-layout";
+import {playerSpriteTopY} from "./world-scale";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -468,6 +469,15 @@ class YZWorldScene extends Phaser.Scene {
     } else if (frame.pose !== null) {
       texture="yz-gaits";spriteFrame=(actorRow+(frame.running ? 4:0))*6+frame.pose;
       x=frame.position.x*TILE-6;y=frame.position.y*TILE-18;
+    }
+    // All character animation frames share a measured foot baseline,
+    // regardless of whether their sprite sheets are 24x32 or 32x40.
+    if(texture==="yz-people" || texture==="yz-gaits" || texture==="yz-turns"){
+      const sheet=texture==="yz-people"?"idle":texture==="yz-gaits"?"gait":"turn";
+      const poseShift=sheet==="turn"?(frame.weight?.shiftY??0):
+        sheet==="idle" && location==="sungai" && frame.fishing?.session ?
+        fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed).bodyShift:0;
+      y=playerSpriteTopY(frame.position.y,sheet,spriteFrame,poseShift);
     }
     const footX=frame.position.x*TILE+TILE/2;
     const footY=(frame.position.y+1)*TILE;
