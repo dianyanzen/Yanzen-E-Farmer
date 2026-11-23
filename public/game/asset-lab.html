@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YZ Farm Life — Scale Lab</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif}*{box-sizing:border-box}
+body{margin:0;background:#162c29;color:#ecf0d9;padding:16px}
+header{max-width:1100px;margin:auto auto 15px}
+h1{font-size:1.4rem;margin:0 0 7px}p{color:#c4d1be;line-height:1.5;font-size:.92rem}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:15px 0}
+button{background:#375947;color:white;border:1px solid #809477;padding:8px 13px;border-radius:8px;cursor:pointer}
+button[aria-pressed="true"]{background:#bb8555;color:#13251f}
+input{accent-color:#cfad78}.grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+section{background:#223b34;border:1px solid #5e7567;border-radius:12px;padding:12px}
+h2{font-size:1.05rem;margin:0 0 5px}.note{font-size:.8rem;color:#c9d4c3}
+canvas{display:block;width:100%;height:auto;image-rendering:pixelated;background:#1d2d2b;border:1px solid #617763;border-radius:7px;margin-top:10px}
+footer{max-width:1100px;margin:18px auto;font-size:.8rem;color:#a9b5aa}
+</style></head>
+<body><header><h1>Scale Lab · Pasirluyu</h1>
+<p>Panel pemeriksaan untuk pengembang, bukan menu warga. Karakter memakai sprite sumber asli dengan satu patokan kaki. Bandingkan kasur, gudang, toko, dan rumah pada skala koordinat dunia tanpa menyembunyikan masalah dengan zoom terpisah.</p>
+<div class="controls"><button id="gridBtn" aria-pressed="false">Tampilkan grid 20px</button><label><input id="labels" type="checkbox" checked> Penanda ukuran dan anchor</label></div></header>
+<main class="grid">
+<section><h2>01 · Halaman Yanzen</h2><div class="note">Rumah & gudang, tanpa memperbesar karakter</div><canvas id="field" width="640" height="320"></canvas></section>
+<section><h2>02 · Interior Rumah</h2><div class="note">Kasur dan furnitur berukuran wajar terhadap tubuh karakter</div><canvas id="home" width="640" height="320"></canvas></section>
+<section><h2>03 · Interior Gudang</h2><div class="note">Ruang berjalan dan area angkut harus tetap terbaca</div><canvas id="shed" width="640" height="320"></canvas></section>
+<section><h2>04 · Perbandingan Pasar</h2><div class="note">Ayu tetap toko utama; Widi toko spesialis lebih kecil</div><canvas id="market" width="640" height="320"></canvas></section>
+</main><footer>Source: /game/assets/hd dan /game/assets/characters. Proyeksi mengikuti konstanta staging. Pemeriksaan ini bukan pengganti tes collision, tampilan mobile, atau walkthrough manual.</footer>
+<script>
+'use strict';
+const specs={
+ home:[
+  [1,8,25,97,147,152,110,50,76],[1,8,172,97,55,151,201,50,28],
+  [1,8,227,110,90,151,247,55,45],[1,106,17,95,94,215,81,58,57],
+  [1,202,18,118,118,283,84,63,63],[1,202,136,118,146,289,188,62,77]
+ ],
+ shed:[
+  [3,8,22,155,91,147,84,97,57],[3,163,23,157,95,268,86,86,52],
+  [3,8,113,108,105,151,160,55,53],[3,8,218,110,99,151,232,61,55],
+  [3,210,115,110,99,286,162,60,54],[3,210,214,110,104,287,231,62,59]
+ ]
+};
+const images={};
+const files={
+ exteriors:'/game/assets/hd/housing-market-hd.webp',
+ interiors:'/game/assets/hd/housing-interiors-hd.webp',
+ character:'/game/assets/characters/stage1.png'
+};
+let showGrid=false,showLabels=true;
+function drawCharacter(c,x,y){
+ const img=images.character;c.save();c.imageSmoothingEnabled=false;
+ c.drawImage(img,24,0,24,32,x-2,y-12,24,32);c.restore();
+ if(showLabels)marker(c,x+10,y+18,'Yanzen · 30px');
+}
+function marker(c,x,y,s){
+ c.save();c.font='bold 10px system-ui';c.fillStyle='rgba(18,39,31,.83)';
+ const w=c.measureText(s).width+10;
+ c.fillRect(Math.max(1,x-4),Math.max(1,y-11),w,15);
+ c.fillStyle='#f6ead1';c.fillText(s,Math.max(3,x+1),Math.max(13,y));c.restore();
+}
+function grid(c){
+ if(!showGrid)return;
+ c.save();c.strokeStyle='rgba(255,243,196,.35)';c.lineWidth=1;
+ for(let x=0;x<=640;x+=20){c.beginPath();c.moveTo(x+.5,0);c.lineTo(x+.5,320);c.stroke();}
+ for(let y=0;y<=320;y+=20){c.beginPath();c.moveTo(0,y+.5);c.lineTo(640,y+.5);c.stroke();}
+ c.restore();
+}
+function drawFrame(c,frame,x,y,w,h){
+ const sx=(frame%3)*320,sy=Math.floor(frame/3)*320;c.drawImage(images.exteriors,sx,sy,320,320,x,y,w,h);
+}
+function drawRoom(c,room){
+ c.fillStyle='#1e2827';c.fillRect(0,0,640,320);
+ const base=room==='home'?0:2;
+ c.drawImage(images.interiors,(base%2)*320,Math.floor(base/2)*320,320,320,132,69,232,232);
+ for(const [frame,x,y,w,h,dx,dy,dw,dh] of specs[room]){
+  c.drawImage(images.interiors,(frame%2)*320+x,Math.floor(frame/2)*320+y,w,h,dx,dy,dw,dh);
+ }
+ drawCharacter(c,12*20,10*20);
+ if(showLabels)marker(c,140,296,room==='home'?'Kasur 50 × 76 px':'Gudang · jalur tengah');
+}
+function drawField(c){
+ c.fillStyle='#92a76c';c.fillRect(0,0,640,320);
+ c.strokeStyle='#cfb68e';c.lineWidth=27;c.beginPath();c.moveTo(0,166);c.lineTo(330,170);c.stroke();
+ drawFrame(c,0,78-50,102-100+6,100,100);
+ drawFrame(c,1,191-52,95-104+14,104,104);
+ drawCharacter(c,160,141);
+ if(showLabels){marker(c,25,119,'Rumah 100px');marker(c,155,117,'Gudang 104px');}
+}
+function drawMarket(c){
+ c.fillStyle='#c5b797';c.fillRect(0,0,640,320);
+ c.fillStyle='#aeb786';c.fillRect(0,0,640,100);
+ drawFrame(c,4,128-73,174-146+6,146,146);
+ drawFrame(c,5,550-66,159-132+4,132,132);
+ drawCharacter(c,270,214);
+ if(showLabels){marker(c,54,195,'Ayu 146px');marker(c,481,183,'Widi 132px');}
+}
+function render(){
+ for(const id of ['field','home','shed','market']){
+  const canvas=document.getElementById(id),c=canvas.getContext('2d');
+  c.clearRect(0,0,640,320);
+  if(id==='field')drawField(c);
+  else if(id==='market')drawMarket(c);
+  else drawRoom(c,id);
+  grid(c);
+ }
+}
+Promise.all(Object.entries(files).map(([key,url])=>new Promise((ok,fail)=>{
+ const im=new Image();im.onload=()=>{images[key]=im;ok();};im.onerror=()=>fail(new Error(url+' tidak tersedia'));im.src=url;
+}))).then(render).catch(error=>{document.querySelector('footer').textContent=error.message;});
+document.getElementById('gridBtn').addEventListener('click',e=>{
+ showGrid=!showGrid;e.currentTarget.setAttribute('aria-pressed',String(showGrid));render();
+});
+document.getElementById('labels').addEventListener('change',e=>{showLabels=e.target.checked;render();});
+</script></body></html>

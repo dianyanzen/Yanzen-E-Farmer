@@ -79,7 +79,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
     {asset:"rumah-yanzen",x:78,y:102,scale:.94},{asset:"gudang-kayu",x:191,y:95},
-    {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
+    {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:122,y:111,scale:.53},
     {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
     {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
@@ -97,8 +97,8 @@ const props: Record<OutdoorLocation, Placement[]> = {
   ],
   gang: [
     {asset:"fasad-nani",x:160,y:155,scale:.96},{asset:"fasad-ryan",x:403,y:155,scale:.9},
-    {asset:"jemuran",x:55,y:152},{asset:"bangku-kayu",x:114,y:152,scale:.8},
-    {asset:"rumpun-bunga-liar",x:110,y:155,scale:.72},{asset:"pohon-pisang",x:312,y:124,scale:.7},
+    {asset:"jemuran",x:55,y:152},{asset:"bangku-kayu",x:109,y:165,scale:.62},
+    {asset:"pohon-pisang",x:312,y:124,scale:.7},
     {asset:"talud-batu",x:322,y:78,scale:.8},{asset:"bunga-melati",x:191,y:154,scale:.75},
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
@@ -164,9 +164,9 @@ props.field.push(
 );
 props.gang.push(
   {asset:"pohon-pisang",x:69,y:87,scale:.81},{asset:"kelompok-pot",x:137,y:157,scale:.64},
-  {asset:"pot-berbunga",x:429,y:159,scale:.8},{asset:"jemuran",x:584,y:130,scale:1.05},
+  {asset:"pot-berbunga",x:451,y:161,scale:.61},{asset:"jemuran",x:584,y:130,scale:.86},
   {asset:"bangku-kayu",x:582,y:156,scale:.8},{asset:"talud-batu",x:604,y:157,scale:1.03},
-  {asset:"bunga-pinggir",x:483,y:158,scale:.62},{asset:"bunga-melati",x:566,y:157,scale:.78}
+  {asset:"bunga-pinggir",x:477,y:160,scale:.44},{asset:"bunga-melati",x:589,y:162,scale:.54}
 );
 props.pasar.push(
   {asset:"keranjang-buah",x:70,y:176,scale:.74},{asset:"pot-berbunga",x:422,y:178,scale:.74},
@@ -303,7 +303,9 @@ function randomFrom(seed:number){
 function meadow(ctx:CanvasRenderingContext2D,location:OutdoorLocation){
   const random=randomFrom({field:17,gang:51,pasar:35,sungai:90}[location]);
   // Groups of tiny blades follow each wash, rather than a repeated tile stamp.
-  for(let patch=0;patch<1550;patch++){
+  // Intentional visual rest: roads and houses should remain legible.
+  const patchBudget={field:840,gang:660,pasar:340,sungai:760}[location];
+  for(let patch=0;patch<patchBudget;patch++){
     const x=Math.floor(random()*640), y=Math.floor(random()*320);
     const shade=random()>.52;
     ctx.fillStyle=shade?"rgba(75,105,54,.13)":"rgba(217,203,117,.15)";
@@ -335,16 +337,22 @@ function flagstones(ctx:CanvasRenderingContext2D){
 function layRiceBeds(ctx:CanvasRenderingContext2D){
   const random=randomFrom(971);
   // A narrow berm surrounds rows planted parallel to the irrigation ditch.
-  for(const [x,y,width,height] of RIVER_RICE_BEDS){
+  for(const [index,[x,y,width,height]] of RIVER_RICE_BEDS.entries()){
+    // Young, mixed, and mature rice clumps; open water avoids carpet repetition.
     ctx.fillStyle="#8f9056";ctx.fillRect(x-3,y-2,width+6,height+6);
     ctx.fillStyle="#597e68";ctx.fillRect(x,y,width,height);
-    ctx.fillStyle="#80af96";ctx.fillRect(x+1,y+2,width-2,height-4);
-    for(let row=y+7;row<y+height-2;row+=7){
-      for(let col=x+5;col<x+width-4;col+=6){
-        const yy=row+Math.floor(random()*2);
-        ctx.fillStyle="#9dc5a8";ctx.fillRect(col-2,yy+1,5,1);
-        ctx.fillStyle="#557f3b";ctx.fillRect(col,yy-3,1,4);ctx.fillRect(col-1,yy-2,1,2);
-        ctx.fillStyle="#bbce64";ctx.fillRect(col+1,yy-4,1,3);
+    ctx.fillStyle=index===0?"#7ca598":index===1?"#82ad9e":"#90b6a3";
+    ctx.fillRect(x+1,y+2,width-2,height-4);
+    for(let row=y+8;row<y+height-3;row+=11){
+      for(let col=x+7;col<x+width-6;col+=10){
+        if(random()<(index===0?.36:.22))continue;
+        const yy=row+Math.floor(random()*3)-1;
+        const growth=2+index+Math.floor(random()*2);
+        ctx.fillStyle="rgba(171,211,185,.36)";ctx.fillRect(col-3,yy+1,7,1);
+        ctx.fillStyle="#4e7d41";ctx.fillRect(col,yy-growth,1,growth+1);
+        ctx.fillRect(col-2,yy-growth+1,1,growth-1);
+        ctx.fillStyle=index===2?"#c0bd64":"#9dbf70";
+        ctx.fillRect(col+1,yy-growth-2,1,growth);
       }
     }
   }
@@ -393,7 +401,7 @@ function paintRiver(ctx:CanvasRenderingContext2D,art:OutdoorImages) {
   }
   ctx.fillStyle="#875f41";ctx.fillRect(37,188,3,13);
   ctx.fillStyle="#e8cc95";ctx.fillRect(22,181,32,10);
-  ctx.fillStyle="#694d3d";ctx.font="bold 6px monospace";ctx.fillText("PESISIR",25,188);
+  ctx.fillStyle="#694d3d";ctx.font="bold 6px monospace";ctx.fillText("KOLAM",25,188);
   ctx.fillStyle="#7d7154";ctx.fillRect(34,224,17,17);
   for(let x=35;x<51;x+=3){ctx.fillStyle="#b99160";ctx.fillRect(x,225,2,15);}
 }
