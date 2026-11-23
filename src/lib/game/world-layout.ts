@@ -57,7 +57,7 @@ export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
  * Road paths and building/merchant visuals are distinct from NPC state.
  */
 export const EXTERIOR_THRESHOLDS={
-  "rumah-yanzen":{x:72,y:95},
+  "rumah-yanzen":{x:72,y:102},
   "gudang-kayu":{x:186,y:95},
   "warung-inggit":{x:387,y:95},
   "fasad-nani":{x:160,y:155},
