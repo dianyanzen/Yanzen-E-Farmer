@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { safeLoad } from "@/lib/game/model";
 import { nextSaveRevision } from "@/lib/game/save-revision";
+// Dedicated staging keeps eight routes; POST shares the protected reset handler.
+export { resetPlayerProgress as POST } from "@/lib/game/reset-progress";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

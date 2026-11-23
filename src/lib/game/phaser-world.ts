@@ -77,7 +77,10 @@ class YZWorldScene extends Phaser.Scene {
 
   preload() {
     this.load.on("loaderror", () => this.failed(new Error("Gagal memuat aset Phaser.")));
-    for (const [id,path] of Object.entries(outdoorSources)) if (id!=="petak") this.load.image("yz-map-"+id,"/game/assets/"+path);
+    for (const [id,path] of Object.entries(outdoorSources)) if (id!=="petak") {
+      if (path.endsWith(".svg")) this.load.svg("yz-map-"+id,"/game/assets/"+path,{width:24,height:28});
+      else this.load.image("yz-map-"+id,"/game/assets/"+path);
+    }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
     this.load.spritesheet("yz-people", "/game/assets/characters/stage1.png", { frameWidth: 24, frameHeight: 32 });
     this.load.spritesheet("yz-gaits", "/game/assets/characters/yanzen-gaits.png", { frameWidth: 32, frameHeight: 40 });

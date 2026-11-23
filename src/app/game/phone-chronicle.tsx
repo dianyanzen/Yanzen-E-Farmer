@@ -73,12 +73,12 @@ export default function PhoneChronicle({game,residents,onOpenWarga,displayName}:
    <div className="yzg-phone-card"><b>Urusan warga</b><p>{record.activeMissions} sedang berjalan · {record.finishedMissions} sudah selesai.</p></div>
    {ready.length?ready.map(m=><article className="yzg-phone-card yzg-chronicle-quest" key={m.id}>
     <small>{m.status==="done"?"Selesai":m.step}</small><b>{displayName(m.title)}</b><p>{displayName(m.objective)}</p>
-    {canLink(m.id)&&<button type="button" onClick={()=>link(m.id)}>Catatan {displayName(m.npc)}</button>}
+    {canLink(m.npcId)&&<button type="button" onClick={()=>link(m.npcId)}>Catatan {displayName(m.npc)}</button>}
    </article>):<div className="yzg-phone-card"><p>Belum ada permintaan pribadi yang kamu ambil. Cobalah berbincang dengan warga saat mereka tidak sibuk.</p></div>}
    <details className="yzg-phone-card yzg-chronicle-unstarted">
     <summary>Permintaan yang belum kamu ambil ({available.length})</summary>
     {available.map(m=><div key={m.id}><b>{displayName(m.npc)}</b><p>Bicaralah dengannya untuk mengetahui apakah ada yang perlu dibantu.</p>
-      {canLink(m.id)&&<button type="button" onClick={()=>link(m.id)}>Lihat warga</button>}</div>)}
+      {canLink(m.npcId)&&<button type="button" onClick={()=>link(m.npcId)}>Lihat warga</button>}</div>)}
    </details>
   </>}
   {pane==="jejak"&&<>
