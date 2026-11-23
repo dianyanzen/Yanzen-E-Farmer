@@ -793,6 +793,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const planted = game.plots.filter(p => p.stage >= 0).length;
   const readyCrops = game.plots.filter(p => p.stage === 3).length;
   const unread = !game.story.orderAccepted && !game.phoneRead;
+  // Keep Inggit's opening order separate from Ayu's seed-stock reminder.
+  // The reminder disappears as soon as the player has seeds again; no new save flag.
+  const seedStockEmpty = game.seeds === 0;
+  const phoneAlert = unread || seedStockEmpty;
   const minutes = timeLabel(game.minutes);
   const journal = chapterJournal(game);
   const context = getActionContext(game);
@@ -840,7 +844,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         <span>◈ {game.coins} G</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
         <span>Lv. {playerLevel(game)} · {areaTitle(game.location)}</span>
-        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan lokal" : "Belum tersimpan"}</span>
+        <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Belum tersimpan"}</span>
       </div>
       <section className="yzg-objective" aria-label="Tujuan cerita">
         <div><b>{journal.stage === 5 ? "Bab 1 selesai" : "Tujuan berikutnya"}</b><p>{display(journal.objective)}</p></div>
@@ -867,10 +871,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {worldPresented && phaserError && <div className="yzg-toast" role="status">{phaserError}</div>}
         {worldPresented && toast && <div className="yzg-toast" role="status">{display(toast)}</div>}
-        {worldPresented && !phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
-          <span className="yzg-notif-icon">✉</span>
-          <span><b>YZ Phone · Pesan baru</b><small>{display("Inggit: Ada pesanan timun untuk warungku!")}</small></span>
-        </button>}
+        {worldPresented && !phoneOpen && !dialogue && !fishingSession && game.location === "field" && phoneAlert &&
+          <button className="yzg-notif" onClick={()=>{togglePhone();setPhoneTab("chat");}}>
+            <span className="yzg-notif-icon">✉</span>
+            <span><b>YZ Phone · {unread?"Pesan baru":"Kabar dari Ayu"}</b>
+              <small>{display(unread?"Inggit: Ada pesanan timun untuk warungku!":"Ayu: Bibitmu habis? Mampir ke lapak benihku di pasar.")}</small>
+            </span>
+          </button>}
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
           Bergerak: WASD / panah atau ketuk tujuan di peta · Aksi: E · HP: P<br/>
@@ -923,12 +930,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
             <button onClick={() => decidePhoto("nani")} disabled={unavailable}>{display("Percayakan foto asli kepada Nani")}<small>Kisah disimpan bersama keluarga.</small></button>
             <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
           </div>}
-          {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
-
-          {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
-            <button onClick={() => decidePhoto("nani")} disabled={unavailable}>{display("Percayakan foto asli kepada Nani")}<small>Kisah disimpan bersama keluarga.</small></button>
-            <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
-          </div>}
           {dialogue.npcId && dialogue.choices && questTalks(game,dialogue.npcId).map(id=>
             <button key={id} disabled={unavailable} onClick={()=>{
               const next=questTalk(game,dialogue.npcId!,id);
@@ -970,11 +971,15 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   setPhoneTab(app.id);
                   setSelectedCitizen(null);
                   if (app.id === "chat") setGame(g => ({ ...g, phoneRead: true }));
-                }}><span>{app.icon}{app.id === "chat" && unread && <i/>}</span><b>{app.name}</b></button>)}</div>
+                }}><span>{app.icon}{app.id === "chat" && phoneAlert && <i/>}</span><b>{app.name}</b></button>)}</div>
                 <div className="yzg-phone-card"><b>Warga di sekitarmu</b><p>{npcHere(game).map(n => display(n.name)).join(", ") || "Kamu bisa mencari mereka lewat menu Warga."}</p><button onClick={() => setPhoneTab("characters")}>Lihat warga</button></div>
                 <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p><button type="button" onClick={()=>setPhoneTab("chronicle")}>Lihat perjalananmu</button></div>
               </>}
               {phoneTab === "chat" && <>
+                <div className="yzg-phone-card"><b>{display("✉ Ayu · Penjual benih")}</b>
+                  <p>“Bibit timun tersedia di lapakku, lima bibit seharga 40 G. Kalau ada timun tambahan di luar pesanan Inggit, boleh juga kamu jual kepadaku.”</p>
+                  <small>Transaksi dilakukan langsung di lapak Ayu, bukan melalui pesan.</small>
+                </div>
                 <div className="yzg-phone-card"><b>{display("✉ Inggit · Pedagang pasar")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : display("Pesanan diterima. Temui Inggit setelah panen.")}</small>}
