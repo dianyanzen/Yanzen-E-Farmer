@@ -42,6 +42,7 @@ for(const room of ["home","shed"]){
 }
 assert.equal(model.areaBlocked("home",9,9),true,"Bed may not be stepped on");
 assert.equal(model.areaBlocked("home",16,10),true,"Cabinet may not be stepped on");
+assert.equal(model.areaBlocked("home",16,13),true,"Cabinet front must not be walkable");
 assert.equal(model.areaBlocked("shed",9,9),true,"Crates may not be stepped on");
 assert.equal(model.areaBlocked("shed",16,10),true,"Sacks may not be stepped on");
 assert.equal(model.areaBlocked("home",12,10),false);
