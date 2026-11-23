@@ -962,7 +962,7 @@ export type Bond = { points: number; lastTalkDay: number; talks: number; mood: E
 /** stamina is a deprecated v1-save field: ignored by gameplay, kept only for backward compatibility. */
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
-export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
+export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 9 } } as const;
 export const SHED = { door:{x:9,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
 export function newBonds(): Record<NpcId, Bond> {
   return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral", lastChoice: null }])) as Record<NpcId, Bond>;
@@ -985,7 +985,7 @@ const INTERACTION_HITBOXES = [
   ]),
   { id: "lapak-pintu", location: "pasar", left: 345, top: 147, right: 414, bottom: 180 },
   { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
-  { id: "bed", location: "home", left: 149, top: 132, right: 199, bottom: 206 },
+  { id: "bed", location: "home", left: 152, top: 157, right: 205, bottom: 219 },
 ] as const;
 
 type InteractionHitbox = (typeof INTERACTION_HITBOXES)[number];
@@ -1020,7 +1020,7 @@ export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
 function interiorRoomBlocked(room:"home"|"shed",x:number,y:number):boolean{
-  if(x<(room==="home"?7:8)||x>(room==="home"?17:16)||y<6||y>13)return true;
+  if(x<8||x>16||y<(room==="home"?8:6)||y>13)return true;
   return interiorLayoutData[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 export function homeBlocked(x: number, y: number) {
