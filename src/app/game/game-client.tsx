@@ -302,7 +302,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       // Wait for any already-running save so it cannot restore old progress after reset.
       await queueRef.current;
       if (saveLockedRef.current) throw new Error("Penyimpanan lama belum selesai.");
-      const response = await fetch("/api/game/reset", { method: "POST" });
+      const response = await fetch("/api/game/save", { method: "POST" });
       if (!response.ok) throw new Error("Permintaan reset ditolak.");
       // Tell any other open game tabs to reload before they try to autosave stale state.
       if (typeof BroadcastChannel !== "undefined") {
