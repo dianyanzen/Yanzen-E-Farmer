@@ -5,20 +5,20 @@ import {createRequire} from "node:module";
 import vm from "node:vm";
 import ts from "typescript";
 const requireHere=createRequire(import.meta.url);
-function loadTS(path){
+function loadTS(path,overrides={}){
  const source=readFileSync(path,"utf8");
  const compiled=ts.transpileModule(source,{compilerOptions:{
    module:ts.ModuleKind.CommonJS,esModuleInterop:true,target:ts.ScriptTarget.ES2022
  }}).outputText;
  const m={exports:{}};
  const req=createRequire(new URL("../"+path,import.meta.url));
- vm.runInNewContext(compiled,{module:m,exports:m.exports,require:req},{timeout:3500});
+ vm.runInNewContext(compiled,{module:m,exports:m.exports,require:spec=>overrides[spec]??req(spec)},{timeout:3500});
  return m.exports;
 }
 const metrics=JSON.parse(readFileSync("src/lib/game/character-frame-bounds.json","utf8"));
 const scale=loadTS("src/lib/game/world-scale.ts");
 const layout=loadTS("src/lib/game/world-layout.ts");
-const hd=loadTS("src/lib/game/housing-hd.ts");
+const hd=loadTS("src/lib/game/housing-hd.ts",{"./world-layout":layout});
 const model=loadTS("src/lib/game/model.ts");
 for(const name of ["idle","gait","turn"]){
  const spec=metrics.sheets[name];
