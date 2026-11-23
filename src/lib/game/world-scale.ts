@@ -11,7 +11,9 @@ export function playerFrameBounds(sheet:PlayerSheet,frame:number){
   const spec=frames.sheets[sheet];
   const count=spec.verticalBounds.length;
   const index=((Math.trunc(frame)%count)+count)%count;
-  const pair=spec.verticalBounds[index] as readonly [number,number];
+  const raw=spec.verticalBounds[index];
+  if(!raw || raw.length!==2)throw new Error("Missing character alpha metrics: "+sheet+"/"+index);
+  const pair:readonly [number,number]=[raw[0],raw[1]];
   return {frame:index,top:pair[0],bottom:pair[1],
     height:pair[1]-pair[0], frameWidth:spec.frameWidth,frameHeight:spec.frameHeight};
 }
