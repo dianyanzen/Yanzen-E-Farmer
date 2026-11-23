@@ -137,6 +137,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       const row=facingRows[position.dir];
       ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
     } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"home",(position.y+1)*T,"front");
     return;
   }
   // Keep farm art and terrain separate from other real, connected neighborhoods.
