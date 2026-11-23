@@ -653,49 +653,13 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
  border:1px solid #bd9f68;border-radius:7px;color:#2c573e;
  font:700 12px system-ui,sans-serif;cursor:pointer}
 .yzg-fishing-cancel:focus-visible{outline:3px solid #f0ba58;outline-offset:2px}
-.yzg-fishing-effect{position:absolute;left:50%;top:44%;width:194px;height:120px;
- transform:translate(-50%,-50%);filter:drop-shadow(1px 3px 3px #091c1e7a)}
-.yzg-fishing-rod{position:absolute;left:18px;bottom:9px;height:94px;width:6px;
- border:1px solid #3b3027;border-radius:6px 6px 2px 2px;
- background:linear-gradient(90deg,#402816 15%,#d9ae5e 52%,#54402c 85%);
- transform-origin:50% 100%;transform:rotate(62deg)}
-.yzg-fishing-line{position:absolute;left:87px;top:25px;width:88px;height:2px;
- border-top:1.5px solid #eef5db;transform:rotate(24deg);transform-origin:left center;opacity:.85}
-.yzg-fishing-ring{position:absolute;left:147px;top:56px;width:29px;height:12px;
- border:2px solid #bcf0eaaa;border-radius:50%;animation:yzg-fish-ring 2.7s ease-out infinite}
-.yzg-fishing-ring--two{animation-delay:1.2s}
-.yzg-fishing-float{position:absolute;left:156px;top:37px;width:12px;height:27px;
- border-radius:9px 9px 6px 6px;border:2px solid #352c2c;
- background:linear-gradient(#eab578 0 48%,#e65545 48% 100%);
- box-shadow:0 2px 4px #09272b70;animation:yzg-fish-float 2.4s ease-in-out infinite}
-.yzg-fishing-float span{position:absolute;left:4px;top:-10px;width:2px;height:10px;background:#f5edc0}
-.yzg-fishing-splash{position:absolute;left:138px;top:46px;opacity:0}
-.yzg-fishing-splash i{position:absolute;width:5px;height:7px;border-radius:90% 90% 0 90%;
- background:#d1f8f5;transform:rotate(25deg)}
-.yzg-fishing-splash i:nth-child(2){left:25px;top:-8px;transform:rotate(-35deg)}
-.yzg-fishing-splash i:nth-child(3){left:17px;top:15px;transform:rotate(80deg)}
-.yzg-fishing-splash i:nth-child(4){left:-8px;top:7px;transform:rotate(-50deg)}
-.yzg-fishing-casting .yzg-fishing-rod{animation:yzg-fish-cast .56s ease-out both}
-.yzg-fishing-casting .yzg-fishing-float{animation:yzg-fish-land .56s ease-out both}
-.yzg-fishing-bite .yzg-fishing-float{animation:yzg-fish-bite .4s ease-in-out infinite}
-.yzg-fishing-bite .yzg-fishing-splash,
-.yzg-fishing-reeling .yzg-fishing-splash{opacity:1;animation:yzg-fish-splash .55s ease-out infinite}
-.yzg-fishing-bite .yzg-fishing-ring{border-color:#fff4b0;animation-duration:.65s}
-.yzg-fishing-reeling .yzg-fishing-rod{animation:yzg-fish-reel .36s ease-in-out infinite alternate}
-.yzg-fishing-reeling .yzg-fishing-float{animation:yzg-fish-pull .45s ease-in-out infinite alternate}
 .yzg-fishing-message{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);
- width:min(92%,440px);padding:7px 11px;background:#153c34eb;
+ width:min(84%,310px);padding:5px 8px;background:#153c34e8;
  border:1px solid #d6bd83;border-radius:9px;text-align:center;
  box-shadow:0 3px 12px #062d28aa;display:flex;flex-direction:column;gap:3px}
-.yzg-fishing-message strong{font:800 clamp(12px,2vw,17px)/1.25 system-ui,sans-serif}
-.yzg-fishing-message small{font:500 clamp(10px,1.7vw,13px)/1.2 system-ui,sans-serif;color:#e4f0d8}
+.yzg-fishing-message strong{font:800 clamp(11px,1.6vw,14px)/1.25 system-ui,sans-serif}
+.yzg-fishing-message small{font:500 clamp(9px,1.4vw,11px)/1.2 system-ui,sans-serif;color:#e4f0d8}
 .yzg-fishing-bite .yzg-fishing-message{background:#694322f2;border-color:#ffe59b;animation:yzg-fish-alert .35s ease-in-out infinite alternate}
-.yzg-fishing-result{position:absolute;z-index:4;left:50%;top:43%;transform:translate(-50%,-50%);
- display:flex;align-items:center;gap:10px;max-width:88%;padding:10px 14px;
- background:#183f34f2;border:2px solid #e7c988;border-radius:9px;
- box-shadow:0 5px 26px #092a22a9;color:#fff9e1;font:800 15px system-ui,sans-serif;
- pointer-events:none;animation:yzg-fish-result-in .2s ease-out}
-.yzg-fishing-result img{width:64px;height:56px;object-fit:contain;image-rendering:pixelated}
 .yzg-fishing-species-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .yzg-fishing-species-grid>div{display:flex;align-items:center;flex-direction:column;text-align:center;
  border:1px solid #cadfc6;border-radius:8px;padding:8px 5px;min-width:0;background:#f8f8e9}
@@ -704,22 +668,7 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-fishing-species-grid small{font-size:10px;line-height:1.4;color:#5e6c58}
 .yzg-market-freshwater{flex:0 0 56px;width:56px;height:56px;object-fit:contain;
  image-rendering:pixelated;border-radius:6px;background:#f3ecd5}
-@keyframes yzg-fish-cast{0%{transform:rotate(-35deg)}75%{transform:rotate(80deg)}100%{transform:rotate(62deg)}}
-@keyframes yzg-fish-land{0%{opacity:0;transform:translate(-90px,-45px) scale(.5)}
- 75%{opacity:1;transform:translate(0,4px) scale(1.12)}100%{transform:translate(0,0) scale(1)}}
-@keyframes yzg-fish-float{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
-@keyframes yzg-fish-ring{0%{transform:scale(.5);opacity:.65}100%{transform:scale(2);opacity:0}}
-@keyframes yzg-fish-bite{0%,100%{transform:translateY(8px)}50%{transform:translateY(23px)}}
-@keyframes yzg-fish-reel{0%{transform:rotate(51deg)}100%{transform:rotate(30deg)}}
-@keyframes yzg-fish-pull{0%{transform:translate(-5px,8px)}100%{transform:translate(-35px,-16px)}}
-@keyframes yzg-fish-splash{0%{transform:scale(.4);opacity:0}35%{opacity:1}100%{transform:scale(1.3);opacity:0}}
 @keyframes yzg-fish-alert{from{box-shadow:0 0 3px #f6b351aa}to{box-shadow:0 0 14px #f9d879}}
-@keyframes yzg-fish-result-in{from{opacity:0;transform:translate(-50%,-40%) scale(.9)}
- to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-@media(max-height:480px){.yzg-fishing-effect{top:42%;transform:translate(-50%,-50%) scale(.75)}
- .yzg-fishing-message{bottom:4px;padding:4px 8px}
+@media(max-height:480px){.yzg-fishing-message{bottom:3px;padding:4px 8px}
  .yzg-fishing-message small{display:none}}
-@media(prefers-reduced-motion:reduce){
- .yzg-fishing-scene *, .yzg-fishing-result{animation:none!important}
- .yzg-fishing-bite .yzg-fishing-float{transform:translateY(12px)}
-}
+@media(prefers-reduced-motion:reduce){.yzg-fishing-scene *{animation:none!important}}
