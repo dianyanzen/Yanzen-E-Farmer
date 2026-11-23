@@ -41,7 +41,7 @@ type Route = readonly [number,readonly Point[]];
 const paths: Record<OutdoorLocation,Route[]> = {
   field: [
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
-    [15,[[72,95],[72,118],[106,130],[192,130],[224,142],[253,183],[279,222]]],
+    [15,[[72,102],[72,118],[106,130],[192,130],[224,142],[253,183],[279,222]]],
     [14,[[186,95],[186,112],[191,132]]],
     [16,[[387,95],[387,132],[368,169],[348,216]]],
     [14,[[314,215],[320,253],[350,273],[366,285]]],
@@ -77,7 +77,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
-    {asset:"rumah-yanzen",x:78,y:96,scale:.94},{asset:"gudang-kayu",x:191,y:95},
+    {asset:"rumah-yanzen",x:78,y:102,scale:.94},{asset:"gudang-kayu",x:191,y:95},
     {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
     {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
