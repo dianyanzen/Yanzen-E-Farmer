@@ -75,9 +75,11 @@ export function cycleFarmTool(tool:ToolId|null,direction:1|-1,available:readonly
   return available[index<0 ? (direction===1?0:available.length-1) :
     (index+available.length+direction)%available.length] ?? null;
 }
+function activeFurnitureTarget(kind:keyof typeof interiorLayoutData.active,front:{x:number;y:number}){
+  return interiorLayoutData.active[kind].some(([x,y])=>x===front.x&&y===front.y);
+}
 export function canManageTools(s:GameState):boolean{
-  const front=facing(s.player);
-  return s.location==="shed"&&front.x===SHED.rack.x&&front.y===SHED.rack.y;
+  return s.location==="shed"&&activeFurnitureTarget("shedStorage",facing(s.player));
 }
 export function transferTool(s:GameState,tool:ToolId,direction:"store"|"take"):{state:GameState;message:string}{
   if(!canManageTools(s)) return {state:s,message:"Buka rak gudang dahulu untuk memindahkan alat."};
@@ -1084,10 +1086,18 @@ export function getActionContext(s:GameState):ActionContext {
   if(s.location==="home"){
     if(interactDoor(s)!==s) return {kind:"door",label:"Keluar rumah"};
     if(canSleep(s)) return {kind:"sleep",label:"Tidur di kasur"};
-    if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
-      text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
-    if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
-      return {kind:"inspect",label:"Periksa lemari",text:"Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang."};
+    if(activeFurnitureTarget("homeBookshelf",front))
+      return {kind:"inspect",label:"Periksa rak buku",
+        text:"Rak kecil berisi catatan budidaya, buku, dan dokumen kebun yang tersusun rapi."};
+    if(activeFurnitureTarget("homeDesk",front))
+      return {kind:"inspect",label:"Periksa meja kerja",
+        text:"Catatan kerja dan perkembangan kebun bisa kamu lihat di YZ Phone."};
+    if(activeFurnitureTarget("homeCabinet",front))
+      return {kind:"inspect",label:"Periksa lemari",
+        text:"Pakaian dan perlengkapan rumah tersimpan di sini."};
+    if(activeFurnitureTarget("homeChest",front))
+      return {kind:"inspect",label:"Periksa peti",
+        text:"Peti dan karung hasil kebun ditata di dekat tempat tidur. Barang di tas tetap bisa dilihat dari inventaris."};
     return {kind:"none",label:"Tidak ada objek"};
   }
   if (s.location === "field") {
