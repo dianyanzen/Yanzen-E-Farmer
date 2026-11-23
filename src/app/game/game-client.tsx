@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, getActionContext, farmOverview, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { START_LOCATION } from "@/lib/game/bandung-locations";
@@ -867,9 +867,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         </div>}
         {worldPresented && phaserError && <div className="yzg-toast" role="status">{phaserError}</div>}
         {worldPresented && toast && <div className="yzg-toast" role="status">{display(toast)}</div>}
-        {worldPresented && !phoneOpen && !dialogue && game.location === "field" && unread && <button className="yzg-notif" onClick={togglePhone}>
+        {worldPresented && !phoneOpen && !dialogue && game.location === "field" && (unread || game.seeds===0) && <button className="yzg-notif"
+          onClick={()=>{setPhoneOpen(true);setPhoneTab("chat");setSelectedCitizen(null);setShowHelp(false);if(unread)setGame(g=>({...g,phoneRead:true}));}}>
           <span className="yzg-notif-icon">✉</span>
-          <span><b>YZ Phone · Pesan baru</b><small>{display("Inggit: Ada pesanan timun untuk warungku!")}</small></span>
+          <span><b>{unread?"YZ Phone · Pesan baru":"YZ Phone · Stok bibit habis"}</b>
+            <small>{display(unread?"Inggit: Ada pesanan timun untuk warungku!":"Ayu: Bibit habis? Mampir ke lapak benihku di Pasar Warga.")}</small></span>
         </button>}
         {showHelp && <div className="yzg-help">
           <b>Selamat datang, Yanzen!</b><br/>
@@ -895,7 +897,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
                     item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
                   const detail=item==="bait"?"15 G · Stok: "+game.fishing.bait:
-                    item==="seeds"?"40 G":item==="cucumber"?"Timun yang belum dipesan":
+                    item==="seeds"?"40 G · 5 bibit":item==="cucumber"?sellableCucumbers(game)+" timun tersedia · 25 G/timun":
                     quantity+" ekor · "+fish!.price+" G/ekor";
                   return <button key={item} className="yzg-market-item" disabled={unavailable} onClick={()=>{
                     if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
@@ -917,12 +919,6 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <p className="yzg-market-empty">Belum ada ikan di tasmu. Kalau dapat, bawa ke sini, ya.</p>}
             </details>
           )}
-          {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
-
-          {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
-            <button onClick={() => decidePhoto("nani")} disabled={unavailable}>{display("Percayakan foto asli kepada Nani")}<small>Kisah disimpan bersama keluarga.</small></button>
-            <button onClick={() => decidePhoto("warung")} disabled={unavailable}>Titip salinan di warung<small>Warga dapat menambahkan nama.</small></button>
-          </div>}
           {dialogue.photo && <figure className="yzg-story-photo"><NextImage src="/game/assets/story/foto-saluran.png" width={1536} height={1024} sizes="(max-width: 640px) 90vw, 580px" alt="Foto cerita fiktif: dua garis pada batu di samping pintu air dan jembatan kebun."/><figcaption>{display("Foto pintu air · koleksi Nani · ilustrasi fiktif")}</figcaption></figure>}
 
           {dialogue.choosePhoto && <div className="yzg-photo-choices" aria-label="Pilih tempat foto">
@@ -975,10 +971,16 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p><button type="button" onClick={()=>setPhoneTab("chronicle")}>Lihat perjalananmu</button></div>
               </>}
               {phoneTab === "chat" && <>
-                <div className="yzg-phone-card"><b>{display("✉ Inggit · Pedagang pasar")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
+                <div className="yzg-phone-card"><b>{display("✉ Inggit · Pemilik warung")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : display("Pesanan diterima. Temui Inggit setelah panen.")}</small>}
                 </div>
+                {(game.seeds<=2 || sellableCucumbers(game)>0) && <div className="yzg-phone-card">
+                  <b>{display("✉ Ayu · Lapak benih")}</b>
+                  {game.seeds<=2 && <p>Bibit timunmu hampir habis? Mampir ke lapakku di Pasar Warga. Aku siapkan sebungkus isi lima seharga 40 G.</p>}
+                  {sellableCucumbers(game)>0 && <p>Kalau ada timun lebih dari pesanan Inggit, bawa ke lapakku. Aku terima hasil kebunmu seharga 25 G per timun.</p>}
+                  <small>Pembelian bibit dan penjualan timun dilakukan langsung di lapak Ayu.</small>
+                </div>}
                 <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau lewat dekat saluran nanti, panggil aku. Ada yang ingin kutunjukkan.&rdquo;</p></div>
               </>}
               {phoneTab === "farm" && <>
