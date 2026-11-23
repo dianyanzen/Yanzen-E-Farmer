@@ -1,5 +1,5 @@
 ﻿import type { GameState, Dialogue, NpcId } from "./model";
-import { sellableCucumbers } from "./model";
+import { sellableCucumbers, questPropActive } from "./model";
 import { questPropById, type QuestPropId } from "./quest-props";
 
 export type QuestStep = { phase:1|2|3|4; day:number; baseline:number };
@@ -122,8 +122,8 @@ export type FollowUpBook = Partial<Record<NpcId,FollowUpStep>>;
 export const followUpTales:Record<NpcId,{title:string;prop:QuestPropId;fee:number;offer:string;found:string;ending:string}> = {
   A03:{
     title:"Jejak Dua Garis",prop:"water-marks",fee:65,
-    offer:"Ada tanda lain dekat pintu air. Aku belum yakin itu bekas hujan atau tinggi aliran kemarin. Bisa lihat batunya dari dekat?",
-    found:"Dua guratan terlihat pada batu. Yang atas memudar, yang bawah masih gelap karena lembap.",
+    offer:"Aku membawa contoh batu penanda dari dekat pintu air ke rumah. Ada dua garis yang perlu kucocokkan. Bisa periksa penandanya di meja rumahku?",
+    found:"Batu penanda yang disimpan Ryan memiliki dua guratan. Yang atas memudar, sedangkan garis bawah masih berbekas lembap.",
     ending:"Nah, garis bawahnya memang masih basah. Aku catat tanggalnya dulu. Besok kalau berubah, kita punya pembanding."
   },
   C01:{
@@ -134,19 +134,19 @@ export const followUpTales:Record<NpcId,{title:string;prop:QuestPropId;fee:numbe
   },
   A04:{
     title:"Menunggu Kecambah",prop:"ayu-seeds",fee:70,
-    offer:"Nampan semai di dekat kios baru kutata. Tunggu sampai besok, lalu lihat apakah tunasnya mulai tampak. Aku ingin mendengar pengamatanmu.",
+    offer:"Nampan semaiku kusimpan di rumah agar tidak terkena angin pasar. Tunggu sampai besok, lalu mampir dan lihat apakah tunasnya mulai tampak.",
     found:"Beberapa ujung hijau kecil muncul di nampan. Tanahnya masih cukup lembap.",
     ending:"Tunas pertama biasanya kecil sekali. Catatanmu cukup untuk percobaan hari ini. Aku akan menyimpan amplopnya."
   },
   C07:{
     title:"Tiga Tanda di Air",prop:"widi-ledger",fee:85,
-    offer:"Buku tangkapanku masih kurang catatan dari pemancing baru. Dapatkan dua ikan lagi setelah obrolan ini, lalu tandai hasilnya pada buku di samping lapak.",
+    offer:"Buku tangkapanku ada di meja rumah. Dapatkan dua ikan lagi setelah obrolan ini, lalu mampir ke rumah untuk mencatatnya.",
     found:"Dua tangkapan baru dicatat. Widi menyisakan tempat untuk mencatat ikan yang lepas pada kesempatan berikutnya.",
     ending:"Buku ini mulai terisi dari pengalamanmu sendiri. Tidak apa kalau tiap lemparan tidak berhasil; yang penting kamu tahu kapan harus menunggu."
   },
   C08:{
     title:"Pagi yang Sibuk",prop:"inggit-orders",fee:80,
-    offer:"Ada keranjang pesanan di depan lapak. Kalau hasil kebunmu sudah cukup, taruh dua timun tambahan di sana. Empat timun pesanan utama tetap harus aman.",
+    offer:"Keranjang untuk pesanan tambahan sudah kusiapkan di dapur rumah. Kalau hasil kebunmu cukup, antarkan dua timun ke sana. Jangan ganggu jatah pesanan utama.",
     found:"Dua timun tambahan tersusun di keranjang. Catatan pesanan Inggit kini diberi tanda sudah diterima.",
     ending:"Nah, pas. Aku bisa mulai menyiapkan bahan sebelum pembeli datang. Jangan sampai kamu sendiri lupa makan karena sibuk menolongku."
   }
@@ -159,11 +159,11 @@ export function followUpObjective(s:GameState,id:NpcId):string{
   if(!q)return "Bicaralah dengan "+(s.bonds[id]?.talks>0?"warga ini":"pemilik permintaan")+" untuk mendengar permintaannya.";
   if(q.phase===2)return "Kembali kepada pemberi permintaan untuk menyampaikan hasilnya.";
   if(q.phase===3)return "Selesai";
-  if(id==="A04" && s.day<=q.day)return "Tidur sampai hari berikutnya, lalu periksa nampan semai di dekat kios Ayu.";
-  if(id==="C07" && s.fishing.caught-q.baseline<2)return "Dapatkan dua tangkapan baru, lalu periksa buku Widi di pasar.";
-  if(id==="C08" && sellableCucumbers(s)<2)return "Siapkan dua timun tambahan, lalu letakkan di keranjang pesanan Inggit.";
-  return ({A03:"Periksa batu ukur air dekat bendung.",C01:"Periksa pot Nani di gang.",A04:"Periksa nampan semai di pasar.",
-    C07:"Catat hasil tangkapan di buku Widi.",C08:"Masukkan dua timun tambahan ke keranjang Inggit."} as Record<NpcId,string>)[id]??t.title;
+  if(id==="A04" && s.day<=q.day)return "Tidur sampai hari berikutnya, lalu periksa nampan semai di rumah Ayu.";
+  if(id==="C07" && s.fishing.caught-q.baseline<2)return "Dapatkan dua tangkapan baru, lalu periksa buku di rumah Widi.";
+  if(id==="C08" && sellableCucumbers(s)<2)return "Siapkan dua timun tambahan, lalu antarkan ke rumah Inggit.";
+  return ({A03:"Periksa contoh batu ukur air di rumah Ryan.",C01:"Periksa pot Nani di gang.",A04:"Periksa nampan semai di rumah Ayu.",
+    C07:"Catat hasil tangkapan di buku rumah Widi.",C08:"Antarkan dua timun tambahan ke keranjang dapur rumah Inggit."} as Record<NpcId,string>)[id]??t.title;
 }
 export function followUpTalk(s:GameState,id:NpcId):Dialogue & {state:GameState}{
   const t=followUpTales[id],q=s.followUpQuests?.[id];
@@ -184,19 +184,15 @@ export function followUpTalk(s:GameState,id:NpcId):Dialogue & {state:GameState}{
   }
   return {...base,state:s,lines:["Urusan itu sudah selesai. Terima kasih."]};
 }
-/** A prop is visible to everyone, but quest completion only counts
- * if the correct owner's follow-up is active and its prerequisites were met.
+/** Quest props only become inspectable after the right request is accepted,
+ * and only in their real location. Neither proximity to other props nor an old
+ * save can complete a mission before it is active.
  */
 export function inspectFollowUpProp(s:GameState,propId:QuestPropId):{state:GameState;message:string}{
   const prop=questPropById(propId),id=prop.owner as NpcId,t=followUpTales[id];
   const q=s.followUpQuests?.[id];
-  if(!q)return {state:s,message:({
-    A03:"Ada dua tanda di batu dekat bendung. Ryan mungkin tahu kapan keduanya dibuat.",
-    C01:"Dua pot milik Nani diletakkan di sisi gang. Daunnya tidak tampak sama segar.",
-    A04:"Nampan semai ditata rapi. Ayu menulis tanggal pada kertas kecil di sampingnya.",
-    C07:"Buku Widi memuat catatan ikan, umpan dan tempat memancing.",
-    C08:"Keranjang pesanan masih menunggu hasil kebun segar."
-  } as Record<NpcId,string>)[id]};
+  if(s.location!==prop.location || !questPropActive(s,prop))
+    return {state:s,message:"Belum ada permintaan yang bisa dikerjakan di sini."};
   if(q.phase!==1)return {state:s,message:q.phase===2?"Catatanmu sudah siap. Sekarang laporkan kepada pemiliknya.":"Permintaan ini sudah selesai."};
   if(id==="A04"&&s.day<=q.day)return {state:s,message:"Tanah nampan masih tenang. Ayu memintamu memeriksanya lagi besok."};
   if(id==="C07"&&s.fishing.caught-q.baseline<2)return {state:s,message:"Belum ada dua tangkapan baru yang bisa dicatat. Coba memancing lagi."};
