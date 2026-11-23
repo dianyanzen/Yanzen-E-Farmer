@@ -1,3 +1,19 @@
+> **Implementasi bertahap — 23 November 2026:** Loop inti memancing V2 kini tersedia di cabang `feat/fishing-wait-bite-animation-20261123`. Ini menggantikan perilaku lama yang selalu langsung menangkap ikan. Bagian spekulatif seperti mini-game tegangan tali multi-input, bobot per ikan, variasi cuaca serta koleksi spesies lain **belum diterapkan** dan tetap menjadi pengembangan lanjutan. Dokumen lama di bawah ini adalah rancangan awal, bukan seluruhnya klaim fitur sudah aktif.
+
+## Implementasi yang dapat diuji sekarang
+
+- **Alur gameplay:** `CASTING` (560 ms) → `WAITING` (4.800–9.199 ms waktu nyata) → `BITE` (jendela tekan A/E 1.700 ms) → `REELING` (animasi otomatis 1.750 ms) → hasil.
+- **Peluang:** 80% lemparan mendapat sambaran; 20% tidak ada sambaran. Bila bereaksi tepat, peluang berhasil 70% dan ikan dapat lepas 30%. Menarik sewaktu menunggu = terlalu awal; melewati jendela = terlambat. Angka awal untuk playtest, bukan jaminan tangkap.
+- **Visual:** joran melenting pada lemparan, senar dan pelampung berayun, lingkar riak sungai, sambaran yang terlihat, percikan dan tarikan senar. Semua dirender di dalam canvas viewport via overlay DOM/CSS yang tidak menutupi kontrol game; `prefers-reduced-motion` didukung.
+- **Ikan sungai:** lele dan nila. Sprite menggunakan aset **yang sudah dimiliki dalam vault game** dan dibuat tersedia di `public/game/assets/fish/`. Bandeng, belanak dan kakap putih adalah stok legacy yang dapat dijual tetapi tidak muncul sebagai hasil mancing Sungai Pasirluyu.
+- **Statistik:** jumlah lemparan, sambaran, meleset, lepas, tanpa sambaran, total tangkap, dan catatan per spesies di **YZ Phone → Statistik**. Catatan `caughtBySpecies` dimulai setelah migrasi; tidak merekayasa jumlah masa lalu.
+- **Save:** waktu tunggu dan ikan yang belum ditangkap tidak disimpan permanen. Reload membuang `line` legacy secara aman; hasil baru dicatat tepat satu kali lewat session ID saat selesai. Umpan tetap dikonsumsi pada lemparan yang sah. Menyembunyikan tab atau Esc membatalkan percobaan.
+- **Batasan:** animasi berada pada overlay world, bukan animasi rangka tubuh Yanzen yang menyatu sepenuhnya dengan Phaser. Mekanisme tegangan tali interaktif 2–3 detik, bobot, rarity, dan suara pemancingan khusus belum dirilis.
+
+**Tes:** `node tests/game-fishing-v2.mjs`, `npm run test:game`, dan pemeriksaan Playwright antarmuka. Keadaan hasil ditentukan RNG eksplisit di `src/lib/game/fishing-session.ts`; timer aktif di `game-client.tsx`.
+
+---
+
 # Fishing Experience V2 — YZ Farm Life
 **Status:** spesifikasi implementasi / belum playable. Diperiksa terhadap `src/lib/game/model.ts`, `src/app/game/game-client.tsx`, dan `src/lib/game/field-engine.ts` pada 22 November 2026.
 

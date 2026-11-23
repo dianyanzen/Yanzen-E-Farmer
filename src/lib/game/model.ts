@@ -26,7 +26,7 @@ export const TOOL_CATALOG = {
   flashlight: {name:"Senter",category:"Eksplorasi",function:"Memberi cahaya terarah di malam hari.",target:"Lingkungan",status:"planned"},
   compass: {name:"Kompas",category:"Eksplorasi",function:"Membantu orientasi ketika menjelajah.",target:"Peta",status:"planned"},
   metal_detector: {name:"Detektor Logam",category:"Eksplorasi",function:"Mendeteksi benda logam terkubur.",target:"Tanah",status:"planned"},
-  fishing_rod: {name:"Joran Pancing",category:"Memancing",function:"Memancing ikan laut di keramba pesisir dengan satu pelet per lemparan.",target:"Keramba di bantaran",status:"active"},
+  fishing_rod: {name:"Joran Pancing",category:"Memancing",function:"Memancing ikan sungai dengan satu pelet per lemparan.",target:"Keramba di bantaran",status:"active"},
   fishing_net: {name:"Jaring Ikan",category:"Memancing",function:"Menangkap ikan kecil atau umpan.",target:"Air",status:"planned"},
   crab_trap: {name:"Perangkap Kepiting",category:"Memancing",function:"Memasang perangkap dan mengambil hasil setelah waktu tertentu.",target:"Tepi air",status:"planned"},
   fish_bucket: {name:"Ember Ikan",category:"Memancing",function:"Menyimpan sementara ikan hidup hasil tangkapan.",target:"Hasil tangkap",status:"planned"},
@@ -137,36 +137,78 @@ export type GameState = {
   nurseryChecked?: boolean;
   personalQuests?: QuestBook;
   followUpQuests?: FollowUpBook;
-  fishing: FishingInventory; sluiceOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
+  fishing: FishingInventory; sluiceOpen?: boolean; sluiceCutsceneSeen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
   equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
   phoneRead: boolean; story: StoryFlags; location: GameLocation; bonds: Record<NpcId, Bond>; stats: LifeStats;
 };
 
+/** The unlocked memory belongs to quest progress, not to whether an MP4 played.
+ * Legacy saves created before cutscenes can have Ryan phase 3/4, or phase 2
+ * and an already-open gate, without sluiceCutsceneSeen.
+ */
+export function hasSluiceMemory(state:GameState):boolean {
+  const phase=state.personalQuests?.A03?.phase;
+  return state.sluiceCutsceneSeen===true || state.story.canalClue===true || state.story.photoChoice!==null ||
+    phase===3 || phase===4 ||
+    (phase===2 && state.sluiceOpen===true);
+}
+
 export const FISH_MARKET = {
+  // Pre-existing marine inventory remains sellable to preserve older saves.
   bandeng: {name:"Bandeng",price:32,frame:0},
   kakap_putih: {name:"Kakap putih",price:65,frame:1},
   belanak: {name:"Belanak",price:24,frame:2},
+  // These two freshwater species can actually be caught in Sungai Pasirluyu.
+  lele: {name:"Lele",price:28,frame:3},
+  nila: {name:"Nila",price:34,frame:4},
 } as const;
 export type FishId=keyof typeof FISH_MARKET;
 export const FISH_IDS=Object.keys(FISH_MARKET) as FishId[];
+export const RIVER_FISH_IDS=["lele","nila"] as const;
+export type RiverFishId=typeof RIVER_FISH_IDS[number];
+export type FishingOutcome="caught"|"escaped"|"early"|"late"|"no_bite"|"cancelled";
+export type FishingStats={
+  casts:number;bites:number;missed:number;escaped:number;noBite:number;cancelled:number;
+  caughtBySpecies:Record<RiverFishId,number>;
+};
 export type FishingInventory={
   bait:number;fish:Record<FishId,number>;line:FishId|null;
-  caught:number;sold:number;seedPacks:number;cropsSold:number;
+  caught:number;sold:number;seedPacks:number;cropsSold:number;stats:FishingStats;
 };
+function newFishingStats():FishingStats{
+  return {casts:0,bites:0,missed:0,escaped:0,noBite:0,cancelled:0,
+    caughtBySpecies:{lele:0,nila:0}};
+}
 export function newFishingInventory():FishingInventory{
-  return {bait:0,fish:{bandeng:0,kakap_putih:0,belanak:0},line:null,caught:0,sold:0,seedPacks:0,cropsSold:0};
+  return {bait:0,fish:{bandeng:0,kakap_putih:0,belanak:0,lele:0,nila:0},
+    line:null,caught:0,sold:0,seedPacks:0,cropsSold:0,stats:newFishingStats()};
 }
 function loadFishing(raw:unknown):FishingInventory|null{
   if(raw===undefined)return newFishingInventory();
-  if(!raw || typeof raw!=="object")return null;
-  const f=raw as FishingInventory;
+  if(!raw || typeof raw!=="object" || Array.isArray(raw))return null;
+  const f=raw as Partial<FishingInventory>;
   const count=(x:unknown)=>typeof x==="number" && Number.isSafeInteger(x) && x>=0 && x<=99999999;
   if(!count(f.bait) || !count(f.caught) || !count(f.sold) || !count(f.seedPacks) || !count(f.cropsSold) ||
-     !f.fish || !FISH_IDS.every(id=>count(f.fish[id])) || !(f.line===null || FISH_IDS.includes(f.line)))return null;
-  return {bait:f.bait,caught:f.caught,sold:f.sold,seedPacks:f.seedPacks,cropsSold:f.cropsSold,line:f.line,
-    fish:{bandeng:f.fish.bandeng,kakap_putih:f.fish.kakap_putih,belanak:f.fish.belanak}};
+     !f.fish || !["bandeng","kakap_putih","belanak"].every(id=>count(f.fish?.[id as FishId])) ||
+     !["lele","nila"].every(id=>f.fish?.[id as RiverFishId]===undefined||count(f.fish?.[id as RiverFishId])) ||
+     !(f.line===null || f.line===undefined || FISH_IDS.includes(f.line)))return null;
+  const stats=newFishingStats();
+  if(f.stats!==undefined){
+    const v=f.stats;
+    if(!v || typeof v!=="object" || !["casts","bites","missed","escaped","noBite","cancelled"].every(key=>
+      count(v[key as keyof Omit<FishingStats,"caughtBySpecies">])) ||
+      !v.caughtBySpecies || !RIVER_FISH_IDS.every(id=>count(v.caughtBySpecies[id])))return null;
+    Object.assign(stats,v);
+    stats.caughtBySpecies={lele:v.caughtBySpecies.lele,nila:v.caughtBySpecies.nila};
+  }
+  // In old saves 'line' already represented a preselected, instantly catchable fish.
+  // Drop it on migration; an unfinished cast must NEVER award a fish after reload.
+  return {bait:f.bait!,caught:f.caught!,sold:f.sold!,seedPacks:f.seedPacks!,
+    cropsSold:f.cropsSold!,line:null,stats,
+    fish:{bandeng:f.fish.bandeng,kakap_putih:f.fish.kakap_putih,
+      belanak:f.fish.belanak,lele:f.fish.lele??0,nila:f.fish.nila??0}};
 }
 export type MarketMerchant="A04"|"C07";
 export function isMarketMerchant(id:NpcId):id is MarketMerchant{return id==="A04"||id==="C07";}
@@ -205,19 +247,30 @@ export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem)
 export function fishingWaterAt(s:GameState,x:number,y:number):boolean{
   return s.location==="sungai" && y>=9 && y<=14 && x>=0 && x<WORLD.width && isRiverWaterTile(x,y);
 }
-export function castRod(s:GameState,roll:number):GameState{
+export function castRod(s:GameState):GameState{
   const at=facing(s.player);
   if(s.equippedTool!=="fishing_rod" || !s.carriedTools.includes("fishing_rod") || !fishingWaterAt(s,at.x,at.y) ||
-     s.fishing.line || s.fishing.bait<=0 || !Number.isFinite(roll) || roll<0 || roll>=1)return s;
-  const species:FishId=roll<.22?"kakap_putih":roll<.61?"bandeng":"belanak";
-  return {...addMinutes(s,2),fishing:{...s.fishing,bait:s.fishing.bait-1,line:species}};
+     s.fishing.bait<=0 || s.fishing.stats.casts>=99999999)return s;
+  return {...addMinutes(s,2),fishing:{...s.fishing,bait:s.fishing.bait-1,line:null,
+    stats:{...s.fishing.stats,casts:s.fishing.stats.casts+1}}};
 }
-export function reelFish(s:GameState):GameState{
-  const at=facing(s.player),id=s.fishing.line;
-  if(!id || s.equippedTool!=="fishing_rod" || !fishingWaterAt(s,at.x,at.y) ||
-    s.fishing.fish[id]>=99999999 || s.fishing.caught>=99999999)return s;
-  return {...s,fishing:{...s.fishing,line:null,caught:s.fishing.caught+1,
-    fish:{...s.fishing.fish,[id]:s.fishing.fish[id]+1}}};
+/** Complete one cast EXACTLY ONCE. The UI's live session ID prevents duplicate
+ * completions, and callers cannot receive fish for a cancelled/failed cast.
+ */
+export function finishFishingAttempt(s:GameState,outcome:FishingOutcome,species?:RiverFishId):GameState{
+  const f=s.fishing,stats=f.stats;
+  if((outcome==="caught" && (!species || !RIVER_FISH_IDS.includes(species) ||
+    f.fish[species]>=99999999 || stats.caughtBySpecies[species]>=99999999 || f.caught>=99999999)) ||
+    stats.bites>=99999999 || stats.missed>=99999999 || stats.escaped>=99999999 ||
+    stats.noBite>=99999999 || stats.cancelled>=99999999)return s;
+  const bite=outcome==="caught"||outcome==="escaped"||outcome==="late";
+  const caught=outcome==="caught",missed=outcome==="early"||outcome==="late";
+  return {...s,fishing:{...f,line:null,caught:f.caught+(caught?1:0),
+    fish:caught?{...f.fish,[species!]:f.fish[species!]+1}:f.fish,
+    stats:{...stats,bites:stats.bites+(bite?1:0),missed:stats.missed+(missed?1:0),
+      escaped:stats.escaped+(outcome==="escaped"?1:0),noBite:stats.noBite+(outcome==="no_bite"?1:0),
+      cancelled:stats.cancelled+(outcome==="cancelled"?1:0),
+      caughtBySpecies:caught?{...stats.caughtBySpecies,[species!]:stats.caughtBySpecies[species!]+1}:stats.caughtBySpecies}}};
 }
 
 export const WORLD = { width: 32, height: 16, tile: 20 } as const;
@@ -471,7 +524,13 @@ export function npcAmbient(s:GameState,id:NpcId):string{
   if(isMarketMerchant(id)){
     if(place.indoors)return "Hari ini lapaknya sudah tutup. Besok pagi kita bertemu lagi di pasar.";
     if(place.activity==="Berjalan pulang")return "Mari berjalan bersama sampai gang. Gerobaknya sudah kutitipkan pada penjaga pasar.";
-    return id==="A04"?"Ambil satu timun, belah, lihat bijinya. Yang sudah tua keras di ujung kuku. Yang masih lunak enak dibuat acar.":"Punggung bandeng berkilat seperti sendok. Kalau masih sulit mengenalinya, lihat ekor yang bercabang itu.";
+    if(id==="C07"){
+      if(FISH_IDS.some(fish=>s.fishing.fish[fish]>0))
+        return "Ada ikan di tasmu? Sini, kita timbang satu per satu. Ukurannya jangan sampai tertukar.";
+      if(s.fishing.bait===0)return "Peletmu habis, ya? Di kotak sebelah timbangan masih ada beberapa bungkus.";
+      return "Kalau mencari tempat mancing baru, tanya Ryan soal arus. Dia lebih hafal bagian sungai itu.";
+    }
+    return "Ambil satu timun, belah, lihat bijinya. Yang sudah tua keras di ujung kuku. Yang masih lunak enak dibuat acar.";
   }
   const yesterday=bond.lastTalkDay>0 && bond.lastTalkDay<s.day;
   if(bond.points>=300 && bond.lastChoice==="confide")
@@ -682,11 +741,8 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
     "Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
     "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
   ]};
-  if(npc==="C07")return {state:s,title:"Widi · Es di bawah keranjang",lines:[
-    "Widi sedang memeriksa ujung senar. Kotak umpan terbuka di samping timbangan ikan.",
-    "Ryan yang lebih hafal aliran sungai. Aku biasanya melihat pelampung dan arah arus sebelum memilih tempat untuk melempar.",
-    "Ambil joran di gudang, lalu mampir untuk membeli umpan. Berdirilah dekat air dan lempar. Tunggu pelampung benar-benar turun sebelum menarik.",
-    "Ada bandeng, belanak, dan kakap putih di lapak kiriman. Kalau nanti dapat ikan dari sungai, kita catat jenisnya juga."
+  if(npc==="C07")return {state:s,title:"Widi · Lapak pancing",lines:[
+    "Sebentar, kusimpan joran ini dulu. Mau cari pelet atau jual ikan? Biar kutimbang kalau sudah ada hasil."
   ]};
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
@@ -865,7 +921,7 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
@@ -1047,7 +1103,7 @@ export function getActionContext(s:GameState):ActionContext {
     const closed=routeBarrierAt(s.location,front.x,front.y);
     if(closed)return {kind:"inspect",label:closed.label,text:closed.message};
     if(s.equippedTool==="fishing_rod" && fishingWaterAt(s,front.x,front.y))return {kind:"fish",
-      label:s.fishing.line?"Tarik joran":s.fishing.bait?"Lempar pancing":"Periksa umpan"};
+      label:s.fishing.bait?"Lempar pancing":"Periksa umpan"};
     if(s.location==="sungai" && front.x===6 && front.y===7)return {kind:"sluice",label:s.sluiceOpen?"Tutup pintu air":"Buka pintu air"};
     if(s.location==="sungai"&&front.x<=7)return {kind:"inspect",
       label:"Periksa sungai",text:"Permukaan air mengalir ke hilir. Ryan mencatatnya setiap siang."};
