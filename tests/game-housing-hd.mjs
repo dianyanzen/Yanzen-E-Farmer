@@ -28,6 +28,8 @@ assert.match(canvas,/drawHDInterior/);
 assert.match(canvas,/exteriorHDSprite/);
 assert.match(phaser,/yz-hd-exteriors/);
 assert.match(phaser,/drawHDInterior/);
+assert.match(phaser,/cleanWidiSource/);
+assert.match(hd,/cleanWidiSource/);
 assert.match(client,/housingHDExteriors/);
 assert.match(client,/housingHDInteriors/);
 assert.match(outdoor,/{asset:"lapak-benih",x:128,y:174}/);
