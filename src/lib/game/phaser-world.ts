@@ -17,7 +17,7 @@ import {HOUSING_ATLAS_PATH,drawHousingInterior,exteriorHousingSprite} from "./ho
 import {HD_EXTERIOR_PATH,HD_INTERIOR_PATH,drawHDInterior,exteriorHDSprite,cleanWidiSource} from "./housing-hd";
 import {ROOM_FURNITURE,furnitureScreenRect,residentFacadeSpec} from "./world-layout";
 import {playerSpriteTopY} from "./world-scale";
-import {farmhouseFacadeSource} from "./farmhouse-visual";
+import {FARMHOUSE_NATIVE_PATHS,FARMHOUSE_EXTERIOR,drawFarmhouseRoomBase} from "./farmhouse-native";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -102,6 +102,8 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-housing-v2", HOUSING_ATLAS_PATH, { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-hd-exteriors", HD_EXTERIOR_PATH, {frameWidth:320,frameHeight:320});
     this.load.image("yz-hd-interiors",HD_INTERIOR_PATH);
+    for(const [name,src] of Object.entries(FARMHOUSE_NATIVE_PATHS))
+      this.load.image("yz-native-"+name,src);
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
@@ -119,11 +121,17 @@ class YZWorldScene extends Phaser.Scene {
         const canvas=document.createElement("canvas");
         canvas.width=480;canvas.height=HEIGHT;
         const brush=canvas.getContext("2d");
-        if(brush){if(useHD)drawHDInterior(brush,atlas,room,evening,"base");
-          else drawHousingInterior(brush,atlas,room,evening);}
+        if(brush){
+          if(room==="home" && this.textures.exists("yz-native-roomBase")){
+            const background=this.textures.get("yz-native-roomBase").getSourceImage() as HTMLImageElement;
+            drawFarmhouseRoomBase(brush,background,evening);
+          }else if(useHD)drawHDInterior(brush,atlas,room,evening,"base");
+          else drawHousingInterior(brush,atlas,room,evening);
+        }
         this.textures.addCanvas("yz-housing-"+room+"-"+(evening?"night":"day"),canvas);
       }
-      if(useHD)for(const room of ["home","shed"] as const){
+      // ONLY legacy shed textures are cropped. Home uses native full images.
+      if(useHD)for(const room of ["shed"] as const){
         for(const piece of ROOM_FURNITURE[room]){
           const frame=room==="home"?1:3;
           const canvas=document.createElement("canvas");
@@ -139,7 +147,7 @@ class YZWorldScene extends Phaser.Scene {
       if(this.textures.exists("yz-hd-exteriors")){
         const hd=this.textures.get("yz-hd-exteriors").getSourceImage() as HTMLImageElement;
         this.textures.addCanvas("yz-widi-hd-clean",cleanWidiSource(hd));
-        this.textures.addCanvas("yz-yanzen-farmhouse",farmhouseFacadeSource(hd));
+        // House exterior is now a true-alpha native image, not a recolored atlas frame.
       }
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
       this.farm = this.add.graphics().setDepth(10);
@@ -266,13 +274,14 @@ class YZWorldScene extends Phaser.Scene {
         const hd=this.textures.exists("yz-hd-exteriors")?exteriorHDSprite(prop.asset):null;
         const custom=hd?null:exteriorHousingSprite(prop.asset);
         const widi=hd&&prop.asset==="lapak-pancing";
-        const farmhouse=hd&&prop.asset==="rumah-yanzen";
+        const farmhouse=prop.asset==="rumah-yanzen"&&this.textures.exists("yz-native-exterior");
         const image=this.add.image(prop.x,prop.y,
-          farmhouse?"yz-yanzen-farmhouse":
+          farmhouse?"yz-native-exterior":
             widi?"yz-widi-hd-clean":hd?"yz-hd-exteriors":custom?"yz-housing-v2":"yz-map-"+prop.asset,
           farmhouse||widi?undefined:hd?.frame??custom?.frame).setOrigin(.5,1).setDepth(1000+prop.y-TILE);
         if(hd)image.setY(prop.y+hd.footOffset);
-        if(hd)image.setDisplaySize(hd.width,hd.height);
+        if(farmhouse)image.setDisplaySize(FARMHOUSE_EXTERIOR.width,FARMHOUSE_EXTERIOR.height);
+        else if(hd)image.setDisplaySize(hd.width,hd.height);
         else if(custom)image.setDisplaySize(custom.width,custom.height);
         else if(residentFacadeSpec(prop.asset)){
           const spec=residentFacadeSpec(prop.asset)!;
@@ -288,8 +297,8 @@ class YZWorldScene extends Phaser.Scene {
       if((location==="home"||location==="shed")&&this.textures.exists("yz-hd-interiors")){
         this.interiorProps=ROOM_FURNITURE[location].map(piece=>{
           const rect=furnitureScreenRect(piece);
-          const sprite=this.add.image(rect.x,rect.y,
-              "yz-hd-piece-"+location+"-"+piece.id)
+          const key=location==="home"?"yz-native-"+piece.id:"yz-hd-piece-"+location+"-"+piece.id;
+          const sprite=this.add.image(rect.x,rect.y,key)
             .setOrigin(0,0).setDisplaySize(rect.width,rect.height)
             .setDepth(1000+rect.footY-TILE);
           if(minutes>=18*60)sprite.setTint(0xcbd4e0);
