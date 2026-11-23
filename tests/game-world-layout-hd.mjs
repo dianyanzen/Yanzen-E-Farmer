@@ -79,6 +79,16 @@ assert.equal(model.areaBlocked("pasar",22,11),false,"Market crosswalk must be cl
 assert.equal(model.areaBlocked("pasar",6,7),true,"Ayu shop body needs collision");
 assert.equal(model.areaBlocked("pasar",27,7),true,"Widi shop body needs collision");
 assert.equal(model.areaBlocked("pasar",22,14),true,"Vegetable kiosk needs collision");
+for(const [zone,door,central] of [
+  ["field",[3,5],[14,11]],["field",[9,5],[14,11]],
+  ["gang",[8,8],[12,11]],["gang",[20,8],[12,11]],
+  ["gang",[4,14],[12,11]],["gang",[15,14],[12,11]],
+  ["gang",[26,8],[12,11]],
+  ["pasar",[6,9],[12,11]],["pasar",[27,8],[12,11]]
+]){
+  assert.ok(route(zone,door,central),zone+": doorstep must reach its active main-road corridor");
+}
+
 const world=readFileSync("src/lib/game/modular-outdoor.ts","utf8");
 const hd=readFileSync("src/lib/game/housing-hd.ts","utf8");
 const canvas=readFileSync("src/lib/game/draw-world.ts","utf8");
@@ -91,6 +101,10 @@ assert.ok(world.includes("drawEntranceLandings(ctx,location)"),"Road endings mus
 assert.ok(world.includes('x:441,y:298') && world.includes('x:516,y:299'),"Small kiosks relocate south");
 assert.ok(world.includes('reservedMarketRoof(p)'),"No free-floating props under store facades");
 assert.match(hd,/drawHDInteriorProps/);
+assert.match(hd,/footOffset:number/);
+for(const n of [6,14,15,18,6,4])assert.ok(hd.includes("footOffset:"+n));
+assert.ok(world.includes('x:78,y:102'),"Yanzen must fit roof within top of world");
+
 assert.match(canvas,/drawHDInteriorProps\(ctx,art.housingHDInteriors,"home"/);
 assert.match(phaser,/private interiorProps/);
 assert.match(phaser,/ROOM_FURNITURE\[location\]/);
