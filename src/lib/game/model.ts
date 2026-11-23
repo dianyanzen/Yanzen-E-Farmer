@@ -436,9 +436,9 @@ export type NpcId = (typeof NPCS)[number]["id"];
 export const NPC_SOULS:Record<NpcId,{
   home:string;work:string;desire:string;fear:string;habit:string;connection:string;
 }> = {
-  A04:{home:"Permukiman Nani",work:"Menjaga lapak benih",desire:"Setiap keluarga bisa menanam kembali benih sendiri",
+  A04:{home:"Gang Pasirluyu",work:"Menjaga lapak benih",desire:"Setiap keluarga bisa menanam kembali benih sendiri",
     fear:"Benih lama tertukar dengan biji untuk masak",habit:"Menguji daya kecambah dengan kain basah sebelum membuka kios",connection:"Menitipkan contoh benih kepada Nani"},
-  C07:{home:"Permukiman Nani",work:"Membeli ikan dan meracik pelet",desire:"Menjaga kualitas ikan dan membantu warga memancing dengan sabar",
+  C07:{home:"Gang Pasirluyu",work:"Membeli ikan dan meracik pelet",desire:"Menjaga kualitas ikan dan membantu warga memancing dengan sabar",
     fear:"Pedagang membawa pulang keranjang kosong",habit:"Membasahi alas keranjang saat matahari mulai tinggi",connection:"Menukar catatan tinggi air dengan Ryan"},
   A03:{home:"Gang Pasirluyu",work:"Penjaga saluran air",desire:"Air kebun hulu dan hilir terbagi adil",
     fear:"Dituduh merugikan tetangga ketika pintu air rusak",habit:"Mengecek catatan tinggi air setiap siang",
