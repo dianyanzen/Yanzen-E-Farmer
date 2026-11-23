@@ -29,6 +29,20 @@ for(let y=6;y<=13;y++)for(let x=7;x<=17;x++){
   assert.ok(click,"Visible empty floor cannot be walked to: "+x+","+y);
 }
 assert.equal(floor.length,76,"Uncluttered house should have exactly 76 traversable tiles");
+// The door must remain reachable from every walkable tile, not only spawn.
+for(const [x,y] of floor){
+ const state={...home,player:{x,y,dir:"up"}};
+ const path=route.planTapRoute(state,12,13,{x:250,y:275});
+ assert.ok(path&&path.interact,"Cannot reach exit from "+x+","+y);
+ let walking=state;
+ for(const direction of path.steps)walking=model.movePlayer(walking,direction);
+ assert.equal(model.getActionContext({...walking,player:{...walking.player,dir:path.face}}).label,
+   "Keluar rumah","Player cannot use door after route");
+}
+const outside={...model.newGame(),location:"field",player:{x:3,y:5,dir:"up"}};
+assert.equal(model.getActionContext(outside).label,"Masuk rumah");
+assert.equal(model.interactDoor(outside).location,"home");
+
 const interactive=data.tapTargets.home;
 assert.deepEqual(interactive.map(p=>p.id).sort(),
  ["bed","bookshelf","chest","computer-desk"].sort());
@@ -76,4 +90,4 @@ assert.match(housing,/drawMinimalFarmhouseBase\(ctx,evening\)/);
 assert.match(phaser,/yz-yanzen-farmhouse/);
 assert.match(canvas,/farmhouseFacadeSource\(image\)/);
 assert.equal(geom.ROOM_FURNITURE.home.length,4);
-console.log("PASS: farmhouse 76 walkable tiles, no dead ends, 304 tap routes, real bed/chest/desk collision and exterior renderer parity");
+console.log("PASS: farmhouse 76 walkable tiles, 76 exit routes, 304 prop routes, collision, saved positions and exterior parity");
