@@ -4,7 +4,7 @@
  */
 import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,residentFacadeSpec,type FurnitureCrop,type RoomKind} from "./world-layout";
 import {drawMinimalFarmhouseBase} from "./farmhouse-visual";
-import {drawFarmhouseRoomBase,type FarmhouseNativeArt} from "./farmhouse-native";
+import {drawFarmhouseRoomBase,isFarmhouseArtReady,type FarmhouseNativeArt} from "./farmhouse-native";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -43,9 +43,10 @@ export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSou
   if(room==="home"){
     // No leftover rugs or furniture baked into the base: visual floor and
     // model navigation are authored from the same minimalist room plan.
-    if(native?.roomBase)drawFarmhouseRoomBase(ctx,native.roomBase,evening);
+    const ready=isFarmhouseArtReady(native);
+    if(ready)drawFarmhouseRoomBase(ctx,native.roomBase,evening);
     else drawMinimalFarmhouseBase(ctx,evening);
-    if(layer==="all")for(const piece of ROOM_FURNITURE.home)
+    if(layer==="all" && ready)for(const piece of ROOM_FURNITURE.home)
       drawHDInteriorPiece(ctx,image,"home",piece,native);
     return;
   }
@@ -81,6 +82,7 @@ export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasIma
  */
 export function drawHDInteriorProps(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
  room:HDRoom,avatarFeetY:number,pass:"behind"|"front",native?:FarmhouseNativeArt){
+  if(room==="home" && !isFarmhouseArtReady(native))return;
   ctx.save();ctx.imageSmoothingEnabled=true;
   for(const piece of ROOM_FURNITURE[room]){
     const inFront=furnitureScreenRect(piece).footY>=avatarFeetY;
