@@ -269,7 +269,7 @@ class YZWorldScene extends Phaser.Scene {
     } else {
       const key=isResidentHome(location) ? location : location==="home" ?
         "yz-housing-home-"+(minutes>=18*60?"night":"day") :
-        location==="warung" ? "yz-warung" : "yz-housing-shed-day";
+        location==="warung" ? "yz-warung" : "yz-housing-shed-"+(minutes>=18*60?"night":"day");
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
       if((location==="home"||location==="shed")&&this.textures.exists("yz-hd-interiors")){
         this.interiorProps=ROOM_FURNITURE[location].map(piece=>{
@@ -392,7 +392,10 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.changeLocation(location, frame.state.minutes);
     }
-    if (location === "home") this.background.setTexture("yz-housing-home-"+(evening?"night":"day"));
+    if(location==="home" || location==="shed"){
+      this.background.setTexture("yz-housing-"+location+"-"+(evening?"night":"day"));
+      for(const prop of this.interiorProps)prop.setTint(evening?0xcbd4e0:0xffffff);
+    }
     this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);
