@@ -245,12 +245,12 @@ export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem)
       ?"Empat timun pesanan Inggit masih disisihkan. Panen lagi jika ingin menjual kepada Ayu."
       :"Belum ada timun yang bisa kamu jual kepada Ayu.");
     if(s.coins+qty*25>99999999 || f.cropsSold+qty>99999999)return fail("Penjualan timun belum dapat diproses.");
-    return {state:{...sellCucumbers(s),fishing:{...f,cropsSold:f.cropsSold+qty}},message:"Ayu membeli "+qty+" timun. Kamu menerima "+qty*25+" G."};
+    return {state:{...sellCucumbers(s),fishing:{...f,cropsSold:f.cropsSold+qty}},message:"Ayu membeli "+qty+" timun. Kamu menerima "+formatGameRupiah(qty*25)+"."};
   }
   if(merchant==="C07" && FISH_IDS.includes(item as FishId)){
     const id=item as FishId,qty=f.fish[id],price=qty*FISH_MARKET[id].price;
     if(!qty || s.coins+price>99999999 || f.sold+qty>99999999)return fail("Belum ada ikan jenis ini untuk dijual.");
-    return {state:{...s,coins:s.coins+price,fishing:{...f,fish:{...f.fish,[id]:0},sold:f.sold+qty}},message:"Widi membeli "+qty+" "+FISH_MARKET[id].name+". Kamu menerima "+price+" G."};
+    return {state:{...s,coins:s.coins+price,fishing:{...f,fish:{...f.fish,[id]:0},sold:f.sold+qty}},message:"Widi membeli "+qty+" "+FISH_MARKET[id].name+". Kamu menerima "+formatGameRupiah(price)+"."};
   }
   return fail("Barang ini dijual di lapak lain.");
 }
