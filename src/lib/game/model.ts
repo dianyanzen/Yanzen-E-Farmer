@@ -963,7 +963,7 @@ export type Bond = { points: number; lastTalkDay: number; talks: number; mood: E
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
 export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 9 } } as const;
-export const SHED = { door:{x:9,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
+export const SHED = { door:{x:9,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:9} } as const;
 export function newBonds(): Record<NpcId, Bond> {
   return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral", lastChoice: null }])) as Record<NpcId, Bond>;
 }
@@ -1020,7 +1020,7 @@ export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
 function interiorRoomBlocked(room:"home"|"shed",x:number,y:number):boolean{
-  if(x<8||x>16||y<(room==="home"?8:6)||y>13)return true;
+  if(x<8||x>16||y<8||y>13)return true;
   return interiorLayoutData[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 export function homeBlocked(x: number, y: number) {
