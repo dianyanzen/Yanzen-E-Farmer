@@ -136,7 +136,7 @@ const firstWatered=applyFarmTool(firstSeeded,"water").state;
 assert.equal(getActionContext(firstWatered).kind,"wait","watered crop must not act like no object");
 assert.ok(farmOverview(firstWatered).next.includes("Tidur"));
 assert.equal(firstWatered.stats.stamina,0);
-const asHome={...firstWatered,location:"home",player:{x:9,y:8,dir:"up"}};
+const asHome={...firstWatered,location:"home",player:{x:10,y:9,dir:"left"}};
 const next=nextDay(asHome);
 assert.equal(next.plots[0].stage,1,"sleep still advances growth");
 assert.equal(next.plots[0].watered,false,"watering resets next morning");
