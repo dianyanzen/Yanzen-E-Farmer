@@ -133,13 +133,18 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const px=x*T, py=y*T;
     const plot=byTile.get(x+","+y);
     if(!plot)continue;
-    const soil = art.outdoor?.petak;
+    const soil = art.outdoor?.[plot.watered?"plot-wet":"plot-dry"];
     const tile = plotTextureFrame(x,y,plot.watered,plot.stage);
-    if (soil) ctx.drawImage(soil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
+    const legacySoil = art.outdoor?.petak;
+    if (soil) ctx.drawImage(soil,px,py,T,T);
+    else if (legacySoil) ctx.drawImage(legacySoil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
     else box(ctx,px,py,T,T,plot.watered?"#927256":"#b48b61");
-    if(plot.stage>=0 && art.cucumber){
+    const cropStage=art.outdoor?.["cucumber-stage-"+Math.min(3,plot.stage)];
+    if(plot.stage>=0 && cropStage) {
+      ctx.drawImage(cropStage,px+2,py+1,16,18);
+    } else if(plot.stage>=0 && art.cucumber){
       ctx.drawImage(art.cucumber,plot.stage*16,0,16,16,px+2,py+2,16,16);
-    }else if(plot.stage>=0){
+    } else if(plot.stage>=0){
       const height=5+plot.stage*3;
       box(ctx,px+9,py+16-height,2,height,"#347346");
       box(ctx,px+4,py+12-plot.stage*2,7+plot.stage,3,"#4d994f");
@@ -185,7 +190,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const image = art.outdoor?.[prop.asset];
     if (!image) continue;
     const scale = prop.scale ?? 1;
-    const width = Math.round(image.width*scale), height = Math.round(image.height*scale);
+    const width = prop.displayW ?? Math.round(image.width*scale);
+    const height = prop.displayH ?? Math.round(image.height*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
