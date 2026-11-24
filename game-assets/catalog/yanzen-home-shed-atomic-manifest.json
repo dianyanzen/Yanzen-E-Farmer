@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cluster": "yanzen-home-shed",
+  "createdAt": "2026-11-24",
+  "assets": [
+    {
+      "assetId": "yanzen.shed.tool-rack.01",
+      "ownerId": "building:yanzen-shed",
+      "objectId": "tool-rack",
+      "instanceId": "rack-01",
+      "variant": "primary",
+      "direction": "front-three-quarter",
+      "frameIndex": null,
+      "sourceFile": "public/game/assets/locations/yanzen/shed/tool-rack-01.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/shed/tool-rack-01.png",
+      "sourceSha256": null,
+      "runtimeSha256": null,
+      "canvasW": 1220,
+      "canvasH": 1289,
+      "visibleAlphaBounds": "pending-pixel-audit",
+      "footPivot": null,
+      "worldOffset": { "x": 0, "y": 0 },
+      "displayW": 64,
+      "displayH": 68,
+      "collisionFootprint": [],
+      "interactionHotspot": { "location": "shed", "tileX": 9, "tileY": 7 },
+      "zDepth": "behind-player",
+      "provenance": "Generated specifically for YZ Farm Life using OpenAI image generation on 2026-11-24; original single-object transparent PNG.",
+      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "notes": "Structure only. Empty shelves; tools and stored items remain separate assets."
+    }
+  ]
+}
