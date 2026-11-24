@@ -8,13 +8,13 @@ const root=new URL("../src/lib/game/bandung-world.ts",import.meta.url);
 const compiled=ts.transpileModule(readFileSync(root,"utf8"),{
   compilerOptions:{esModuleInterop:true,module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}
 }).outputText;
-const module={exports:{}};
-vm.runInNewContext(compiled,{exports:module.exports,module,require:createRequire(root)},{timeout:2000});
+const testModule={exports:{}};
+vm.runInNewContext(compiled,{exports:testModule.exports,module:testModule,require:createRequire(root)},{timeout:2000});
 const {
   BANDUNG_WORLD,WORLD_DISTRICTS,WORLD_VILLAGES,getWorldDistrict,getWorldVillages,
   getWorldVillageById,isVillagePlayable,searchWorldVillages,
   WORLD_ZONE_CATEGORIES,PASIRLUYU_LOCATIONS,PASIRLUYU_CONNECTIONS,VERIFIED_CITY_ROUTES
-}=module.exports;
+}=testModule.exports;
 const raw=JSON.parse(readFileSync(new URL("../src/lib/game/data/bandung-master-registry.json",import.meta.url),"utf8"));
 assert.equal(BANDUNG_WORLD.districtCount,30);
 assert.equal(BANDUNG_WORLD.villageCount,151);

@@ -42,7 +42,7 @@ export const TOOL_CATALOG = {
   paintbrush: {name:"Kuas Cat",category:"Konstruksi",function:"Mengubah warna atau dekorasi furnitur.",target:"Furnitur",status:"planned"},
   cooking_knife: {name:"Pisau Dapur",category:"Memasak",function:"Mengolah bahan makanan di meja dapur.",target:"Meja dapur",status:"planned"},
   cooking_pan: {name:"Wajan",category:"Memasak",function:"Memasak resep tumis atau goreng di kompor.",target:"Kompor",status:"planned"},
-  camera: {name:"Kamera",category:"Eksplorasi",function:"Memotret tempat menarik untuk album dan quest.",target:"Objek/landmark",status:"planned"},
+  camera: {name:"Kamera",category:"Eksplorasi",function:"Memotret tempat menarik untuk album dan cerita.",target:"Objek/landmark",status:"planned"},
   binoculars: {name:"Teropong",category:"Eksplorasi",function:"Mengamati burung, hewan, dan pemandangan dari jauh.",target:"Lingkungan",status:"planned"},
   bug_net: {name:"Jaring Serangga",category:"Eksplorasi",function:"Menangkap serangga untuk koleksi atau penelitian.",target:"Serangga",status:"planned"},
   climbing_rope: {name:"Tali Panjat",category:"Eksplorasi",function:"Mencapai lokasi curam melalui titik pendakian aman.",target:"Titik pendakian",status:"planned"}
@@ -466,14 +466,20 @@ export function npcAmbient(s:GameState,id:NpcId):string{
       id==="C01"?"Saat hujan begini, melati perlu tempat yang tidak tergenang.":
       "Warung sepi saat hujan. Aku memasak sesuatu yang hangat untuk warga.";
   if(bond.points>=200 && bond.mood==="worried")
-    return "Ada hal yang belum selesai kupikirkan. Aku senang kamu tidak mendesakku bercerita.";
+    return id==="A03"?"Catatan saluran itu belum lengkap. Nanti kalau sudah kupastikan, kuceritakan.":
+      id==="C01"?"Ada bagian foto yang belum ingin kubuka. Terima kasih sudah menunggu.":
+        "Aku sedang memikirkan harga bahan besok. Kalau sudah jelas, baru kubicarakan.";
   if(bond.points>=100 && bond.lastTalkDay===s.day)
-    return "Terima kasih sudah mampir. Rasanya lebih mudah menghadapi hari setelah mengobrol.";
-  if(s.minutes>=1080)return "Hari sudah sore. Harapanku tetap sama: "+soul.desire.toLowerCase()+".";
+    return id==="A03"?"Catatan hari ini sudah kita cocokkan. Besok kita lihat lagi.":
+      id==="C01"?"Melatiku sudah kusiram. Kamu boleh mampir lagi besok.":
+        "Masih ada yang harus kusiapkan untuk warung. Nanti kita sambung, ya.";
+  if(s.minutes>=1080)return id==="A03"?"Sebentar lagi gelap. Aku mesti menyelesaikan catatan air sebelum pulang.":
+    id==="C01"?"Sore ini bunga melatiku sudah menutup. Besok pagi kita lihat lagi.":
+      "Warung hampir tutup. Aku mau merapikan panci dulu sebelum pulang.";
   const lines=[
     id==="A03"?"Kalau air hulu cukup, kebun hilir juga harus kebagian.":
-      id==="C01"?"Melati tumbuh perlahan; kisah orang juga perlu waktu.":
-        "Warung bukan cuma tempat jual beli, tetapi tempat warga saling mendengar.",
+      id==="C01"?"Melati yang ini belum berbunga. Besok pagi aku mau lihat daunnya lagi.":
+        "Kalau pasar mulai sepi, para pedagang suka duduk sebentar di warungku.",
     id==="A03"?"Aku menyimpan buku kecil untuk mencatat perubahan aliran air.":
       id==="C01"?"Kadang aku ingat satu nama lama ketika menyiram tanaman.":
         "Aku tahu siapa suka acar manis dan siapa suka pedas.",
@@ -481,7 +487,7 @@ export function npcAmbient(s:GameState,id:NpcId):string{
       id==="C01"?"Beberapa foto sebaiknya dibuka hanya saat pemiliknya siap.":
         "Saat warung ramai, aku suka mendengar cerita warga satu per satu."
   ];
-  return place.activity+". "+lines[(s.day-1)%lines.length];
+  return lines[(s.day-1)%lines.length];
 }
 
 export const DEFAULT_STORY: StoryFlags = {
@@ -645,54 +651,54 @@ export function acceptOrder(s: GameState): GameState {
   return { ...s, phoneRead: true, story: { ...s.story, orderAccepted: true } };
 }
 function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
-  if(npc==="A04")return {state:s,title:"Ayu ? Benih dalam lipatan kertas",lines:[
+  if(npc==="A04")return {state:s,title:"Ayu · Benih dalam lipatan kertas",lines:[
     "Ayu menghitung biji di atas kertas minyak. Ada tiga lipatan kecil bertanda arang di meja.",
-    "Ayu: Nani yang mengajariku tanda itu. Satu garis untuk tanggal simpan, dua untuk benih yang sudah kucoba semai. Aku tak mau orang baru menunggu seminggu untuk benih yang kosong.",
-    "Ayu: Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
-    "Ayu: Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
+    "Nani yang mengajariku tanda itu. Satu garis untuk tanggal simpan, dua untuk benih yang sudah kucoba semai. Aku tak mau orang baru menunggu seminggu untuk benih yang kosong.",
+    "Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
+    "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
   ]};
-  if(npc==="C07")return {state:s,title:"Widi ? Es di bawah keranjang",lines:[
+  if(npc==="C07")return {state:s,title:"Widi · Es di bawah keranjang",lines:[
     "Widi mengangkat kain lembap. Dari bawahnya terdengar es beradu ketika ia menggeser timbangan.",
-    "Widi: Yang dijaga Ryan itu saluran air tawar. Di samping jembatan ada keramba pesisir dengan bak air asin tersendiri. Aku yang mengurus kiriman ikan dari pantai.",
-    "Widi: Ambil joran dari rak gudang, lalu beli pelet di lapakku. Berdiri di jembatan, hadap ke air keramba dan lempar satu pelet. Tarik saat pelampung turun.",
-    "Widi: Bandeng, belanak, kakap putih, semua kutimbang di sini. Pelanggan warung biasanya titip pesanan sebelum aku pulang."
+    "Yang dijaga Ryan itu saluran air tawar. Di samping jembatan ada keramba pesisir dengan bak air asin tersendiri. Aku yang mengurus kiriman ikan dari pantai.",
+    "Ambil joran dari rak gudang, lalu beli pelet di lapakku. Berdiri di jembatan, hadap ke air keramba dan lempar satu pelet. Tarik saat pelampung turun.",
+    "Bandeng, belanak, kakap putih, semua kutimbang di sini. Pelanggan warung biasanya titip pesanan sebelum aku pulang."
   ]};
   if (npc === "A03") {
     if (!s.story.orderDone) return { state: s, title: "Ryan · Pinggir Kebun", lines: [
-      "Ryan: Inggit sedang menunggu empat timun untuk acar. Selesaikan dulu pesananmu; setelah itu kita cocokkan tanda di pintu air."] };
+      "Inggit sedang menunggu empat timun untuk acar. Selesaikan dulu pesananmu; setelah itu kita cocokkan tanda di pintu air."] };
     return { state: { ...s, story: { ...s.story, canalClue: true } }, title: "Ryan · Dua Garis di Pintu Air", lines:
-      s.story.photoChoice ? ["Ryan: Catatanmu sudah kusimpan. Nama Cimincrang di foto itu akan jadi petunjuk perjalanan berikutnya. Untuk sekarang kita rawat kebun ini dahulu."] : [
-        "Ryan: Di batu pintu air ada dua garis. Aku hanya pernah mencatat yang atas. Mengapa foto lama Nani menunjukkan keduanya?",
-        "Ryan: Temui Nani di gang sebelah timur kebun. Biar beliau sendiri yang membuka lipatan fotonya."] };
+      s.story.photoChoice ? ["Catatanmu sudah kusimpan. Nama Cimincrang di foto itu akan jadi petunjuk perjalanan berikutnya. Untuk sekarang kita rawat kebun ini dahulu."] : [
+        "Di batu pintu air ada dua garis. Aku hanya pernah mencatat yang atas. Mengapa foto lama Nani menunjukkan keduanya?",
+        "Temui Nani di gang sebelah timur kebun. Biar beliau sendiri yang membuka lipatan fotonya."] };
   }
   if (npc === "C01") {
     if (!s.story.orderDone || !s.story.canalClue) return { state: s, title: "Nani · Gang Kampung", lines: [
-      s.story.orderDone ? "Nani: Ryan ingin menunjukkan sesuatu di saluran. Dengarkan dulu catatannya, lalu mampir lagi kepadaku." :
-        "Nani: Inggit menyisihkan satu meja hari ini. Empat timun kecil dari kebunmu akan berarti banyak baginya."] };
+      s.story.orderDone ? "Ryan ingin menunjukkan sesuatu di saluran. Dengarkan dulu catatannya, lalu mampir lagi kepadaku." :
+        "Inggit menyisihkan satu meja hari ini. Empat timun kecil dari kebunmu akan berarti banyak baginya."] };
     if (s.story.photoChoice) return { state: s, title: "Nani · Foto yang Kini Punya Tempat", photo: true, lines: [
-      s.story.photoChoice === "nani" ? "Nani: Foto aslinya aman di amplopku. Aku mulai menulis nama orang-orang di dalamnya. Bila kelak siap, kisahnya akan kuceritakan dengan suaraku sendiri." :
-        "Nani: Salinannya sudah di warung. Ada yang mengenali lipatan bungkus benih pada gambar itu. Nama baru mulai muncul di belakangnya.",
-      "Nani: Cimincrang. Itu nama yang tertulis di balik foto. Perjalanan ke sana belum dibuka; kamu boleh kembali berkebun kapan saja."] };
+      s.story.photoChoice === "nani" ? "Foto aslinya aman di amplopku. Aku mulai menulis nama orang-orang di dalamnya. Bila kelak siap, kisahnya akan kuceritakan dengan suaraku sendiri." :
+        "Salinannya sudah di warung. Ada yang mengenali lipatan bungkus benih pada gambar itu. Nama baru mulai muncul di belakangnya.",
+      "Cimincrang. Itu nama yang tertulis di balik foto. Perjalanan ke sana belum dibuka; kamu boleh kembali berkebun kapan saja."] };
     return { state: { ...s, story: { ...s.story, sarisStory: true, photoSeen: true } },
       title: "Nani · Foto yang Dilipat ke Dalam", photo: true, choosePhoto: true, lines: [
         "Nani membuka foto pintu air. Ada dua garis pada batu, dan tulisan Cimincrang di belakangnya. Ia menahan lipatan itu dengan kedua tangan.",
-        "Nani: Ibu pernah mengalihkan air ke kebun tetangga. Aku belum tahu bagaimana warga hilir mengingatnya. Boleh kita tentukan bersama tempat untuk foto ini?",
+        "Ibu pernah mengalihkan air ke kebun tetangga. Aku belum tahu bagaimana warga hilir mengingatnya. Boleh kita tentukan bersama tempat untuk foto ini?",
         "Keduanya menjaga kisah yang sama: foto asli bersama Nani, atau salinan di warung agar warga dapat menambahkan nama. Kamu boleh memutuskan nanti."] };
   }
   if (s.story.orderAccepted && !s.story.orderDone && s.harvested >= 4) return {
     state: { ...s, harvested: s.harvested - 4, coins: s.coins + 160,
       story: { ...s.story, orderDone: true } }, title: "Inggit · Empat Timun untuk Satu Meja", shop: true,
-    lines: ["Inggit: Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini 160 G; terima kasih sudah mengantar.",
+    lines: ["Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini 160 G; terima kasih sudah mengantar.",
       "Inggit membalik piring kelima di meja. Di sampingnya ada cangkir retak dengan dua goresan.",
-      "Inggit: Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
+      "Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
   return { state: s, title: "Inggit · Warung Pasar", shop: true, lines: [
-    s.story.photoChoice === "warung" ? "Inggit: Salinan foto Nani sudah di meja warung. Warga boleh menambahkan nama di baliknya; foto asli tetap bersama Nani." :
-    s.story.photoChoice === "nani" ? "Inggit: Foto asli tetap bersama Nani. Kalau beliau siap bercerita, meja ini selalu punya tempat untuknya." :
-    s.story.orderDone ? "Inggit: Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
-    s.story.orderAccepted ? "Inggit: Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
-    "Inggit: Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
-    s.seeds <= 2 && s.coins >= 40 ? "Inggit: Bibit hampir habis? Cari Ayu di depan kios sayur Pasar Warga." :
-      "Inggit: Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
+    s.story.photoChoice === "warung" ? "Salinan foto Nani sudah di meja warung. Warga boleh menambahkan nama di baliknya; foto asli tetap bersama Nani." :
+    s.story.photoChoice === "nani" ? "Foto asli tetap bersama Nani. Kalau beliau siap bercerita, meja ini selalu punya tempat untuknya." :
+    s.story.orderDone ? "Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
+    s.story.orderAccepted ? "Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
+    "Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
+    s.seeds <= 2 && s.coins >= 40 ? "Bibit hampir habis? Cari Ayu di depan kios sayur Pasar Warga." :
+      "Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
 }
 export function choosePhoto(s: GameState, choice: PhotoChoice): GameState {
   if (!s.story.orderDone || !s.story.canalClue || !s.story.photoSeen || s.story.photoChoice ||
@@ -958,7 +964,7 @@ export function getActionContext(s:GameState):ActionContext {
     if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
       text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
     if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
-      return {kind:"inspect",label:"Periksa lemari",text:"Lemari Yanzen. Fitur mengganti pakaian belum tersedia."};
+      return {kind:"inspect",label:"Periksa lemari",text:"Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang."};
     return {kind:"none",label:"Tidak ada objek"};
   }
   if (s.location === "field") {
@@ -974,7 +980,7 @@ export function getActionContext(s:GameState):ActionContext {
     if(visitAllowed(s,home.owner))return {kind:"door",label:"Bertamu ke rumah "+home.name};
     const reason=npcWhere(s,home.owner).indoors ? "Pemilik sudah beristirahat." : "Pemilik sedang di luar.";
     return {kind:"inspect",label:areaTitle(privateDoor),text:areaTitle(privateDoor)+" terkunci. "+reason+
-      " Waktu bertamu sampai 20.30. Teman baik (Lv. 4) mendapat kunci untuk datang kapan saja."};
+      " Biasanya rumah ini menerima tamu sampai pukul 20.30. Jika kalian sudah sangat akrab, mungkin ada kunci cadangan untukmu."};
   }
   if(privateDoor==="guest-exit")return {kind:"door",label:"Keluar ke gang"};
   if(privateDoor==="guest-keepsake" && isResidentHome(s.location)){
@@ -982,7 +988,7 @@ export function getActionContext(s:GameState):ActionContext {
     return {kind:"inspect",label:home.object,text:home.note};
   }
   if(privateDoor==="warung-pintu" || privateDoor==="lapak-pintu")
-    return {kind:"inspect",label:"Warung Inggit",text:"Warung Inggit / Terkunci."};
+    return {kind:"inspect",label:"Warung Inggit",text:"Pintu warung terkunci. Coba datang saat Inggit sudah membuka lapak."};
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if (!isOutdoorLocation(s.location)) return {kind:"none",label:"Tidak ada objek"};
@@ -1025,34 +1031,34 @@ export function getActionContext(s:GameState):ActionContext {
 
 const reactions: Record<NpcId, Record<SocialChoice, { emotion: Emotion; line: string }>> = {
   A04:{
-    listen:{emotion:"happy",line:"Ayu: Coba dengar biji kering dalam lipatan ini. Kecil sekali suaranya, tapi kebun seluas itu bermula dari sini."},
-    help:{emotion:"surprised",line:"Ayu: Boleh bantu catat tanggal semainya? Kertas di lapak mudah terbang kalau angin datang dari gang."},
-    dismiss:{emotion:"sad",line:"Ayu: Aku mengerti. Akan kusimpan ceritanya sampai kita punya waktu."},
-    confide:{emotion:"shy",line:"Ayu: Pernah satu batch-ku gagal berkecambah. Sejak itu aku menguji setiap lipatan sendiri."}
+    listen:{emotion:"happy",line:"Coba dengar biji kering di kertas ini. Yang dua ini bunyinya beda, kan? Aku mau cek apa keduanya masih bisa tumbuh."},
+    help:{emotion:"surprised",line:"Boleh bantu catat tanggal semainya? Kertas di lapak suka terbang kalau angin masuk dari gang."},
+    dismiss:{emotion:"sad",line:"Baik. Kertas ini kusimpan dulu. Nanti kalau senggang, kita lanjut."},
+    confide:{emotion:"shy",line:"Pernah satu kotak benihku sama sekali tak tumbuh. Sejak itu aku mencoba sedikit di kain basah sebelum menjualnya."}
   },
   C07:{
-    listen:{emotion:"happy",line:"Widi: Pelampung yang bergeser pelan kadang cuma tersenggol arus. Tunggu sampai ujungnya ikut tenggelam."},
-    help:{emotion:"surprised",line:"Widi: Kalau lewat jembatan, perhatikan jaring pinggirnya. Simpul yang lepas lebih baik ketahuan sebelum keramba dibuka."},
-    dismiss:{emotion:"neutral",line:"Widi: Mangga, nanti kalau lewat pasar kita sambung. Es di keranjang ini juga perlu kutambah."},
-    confide:{emotion:"worried",line:"Widi: Aku paling takut gagal membawa ikan segar untuk orang yang sudah memesan. Itu sebabnya aku selalu membawa timbangan sendiri."}
+    listen:{emotion:"happy",line:"Kalau pelampung bergerak pelan, belum tentu ada ikan. Tunggu ujungnya turun, baru tarik."},
+    help:{emotion:"surprised",line:"Kalau lewat jembatan, bisa lihat simpul jaring yang paling bawah? Aku takut ada yang terlepas."},
+    dismiss:{emotion:"neutral",line:"Mangga. Nanti kita sambung di pasar. Es di keranjang ini juga tinggal sedikit."},
+    confide:{emotion:"worried",line:"Kalau ikan telat sampai, pelanggan yang menunggu harus pulang dengan tangan kosong. Aku selalu memikirkan itu."}
   },
-  A03: {
-    listen: { emotion: "happy", line: "Ryan: Kamu mau mendengar dulu. Aku suka itu. Saluran ini mengajarkan kita sabar sebelum bertindak." },
-    help: { emotion: "surprised", line: "Ryan: Mau ikut memeriksa pintu air? Wah, terima kasih. Besok kubawakan catatanku agar kita bisa belajar bersama." },
-    dismiss: { emotion: "annoyed", line: "Ryan: Baik, selesaikan urusanmu dulu. Lain kali katakan saja kalau kamu sedang terburu-buru." },
-    confide: { emotion: "worried", line: "Ryan: Kadang aku takut airnya tidak cukup untuk kebun hilir. Rasanya lebih ringan setelah bisa bercerita kepadamu." }
+  A03:{
+    listen:{emotion:"happy",line:"Lihat bekas basah di batu sebelah kiri. Kemarin garisnya lebih rendah. Biar kuambil buku catatanku."},
+    help:{emotion:"surprised",line:"Mau ikut memeriksa pintu air? Besok pagi bawa sepatu yang tahan lumpur. Jalannya masih licin."},
+    dismiss:{emotion:"annoyed",line:"Selesaikan urusanmu dulu. Aku masih harus mengukur saluran sebelum pulang."},
+    confide:{emotion:"worried",line:"Kalau air tak sampai ke hilir, orang pertama yang dicari biasanya aku. Padahal kadang pintunya sudah terbuka."}
   },
-  C01: {
-    listen: { emotion: "happy", line: "Nani: Duduk sebentar, Nak. Senang ada yang mau mendengar tanpa buru-buru meminta akhir ceritanya." },
-    help: { emotion: "surprised", line: "Nani: Mau membantu merawat melati? Tangan tuaku akan sangat terbantu. Terima kasih sudah menawarkan." },
-    dismiss: { emotion: "sad", line: "Nani: Oh... tidak apa-apa. Kuenya kusimpan dulu. Semoga lain kali ada waktu untuk bercerita." },
-    confide: { emotion: "worried", line: "Nani: Ada kenangan yang masih sulit kuucapkan. Terima kasih sudah membiarkanku memilih kapan siap bercerita." }
+  C01:{
+    listen:{emotion:"happy",line:"Duduk dulu, Nak. Melati yang ini baru berbunga tadi pagi. Harumnya paling kuat sebelum siang."},
+    help:{emotion:"surprised",line:"Boleh bantu pindahkan dua pot itu ke tempat teduh? Daunnya mulai layu sejak kemarin."},
+    dismiss:{emotion:"sad",line:"Tak apa. Kuenya kusimpan di wadah dulu. Kalau mampir lagi, kita makan bersama."},
+    confide:{emotion:"worried",line:"Ada nama yang belum sanggup kutulis di belakang foto itu. Mungkin nanti, kalau aku sudah siap."}
   },
-  C08: {
-    listen: { emotion: "happy", line: "Inggit: Kamu ingin dengar cerita warung? Resep acar ini berawal dari timun kecil yang hampir tidak dipilih siapa-siapa!" },
-    help: { emotion: "surprised", line: "Inggit: Serius mau membantu? Wah, pasar pagi bisa ramai sekali. Kehadiran tetangga seperti kamu bikin semangat." },
-    dismiss: { emotion: "sad", line: "Inggit: Oh, sedang sibuk ya. Aku kembali menata dagangan dulu. Semoga harimu lancar." },
-    confide: { emotion: "worried", line: "Inggit: Aku sering khawatir makanan tersisa. Kalau kamu mampir, rasanya warung ini punya teman." }
+  C08:{
+    listen:{emotion:"happy",line:"Acar ini mulanya dari timun yang kecil-kecil. Kalau dipotong tipis, bumbunya meresap sampai tengah."},
+    help:{emotion:"surprised",line:"Boleh bantu angkat keranjang ini ke meja? Sebentar lagi orang pasar datang untuk makan siang."},
+    dismiss:{emotion:"sad",line:"Ya sudah, pergilah dulu. Aku masih harus membereskan panci sebelum pasar ramai."},
+    confide:{emotion:"worried",line:"Yang paling kutakutkan bukan meja kosong. Kalau masakan tak habis, besok aku harus memikirkan bahan yang terbuang."}
   }
 };
 export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { state: GameState } & Dialogue {
@@ -1066,7 +1072,7 @@ export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { 
     lastTalkDay: s.day, talks: Math.min(99999999, bond.talks + 1), mood: reaction.emotion, lastChoice: choice } },
     stats: { ...s.stats, xp: Math.min(99999999,s.stats.xp + (fresh ? 8 : 0)), conversations: Math.min(99999999,s.stats.conversations + 1) } };
   return { state, npcId: npc, emotion: reaction.emotion, title: NPCS.find(n => n.id === npc)!.name + " · Jawabanmu",
-    lines: [reaction.line, fresh ? (delta >= 0 ? "Kedekatan +" + delta : "Kedekatan " + delta) + " · " + bondLabel(state.bonds[npc].points) : "Kalian sudah berbincang hari ini. Poin kedekatan berikutnya bisa diperoleh besok."] };
+    lines: [reaction.line] };
 }
 export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   const result = storyDialogue(s, npc);

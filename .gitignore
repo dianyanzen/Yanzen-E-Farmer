@@ -12,3 +12,6 @@ coverage/
 
 *.tsbuildinfo
 supabase/.temp/
+
+# Docker runtime data, character identities and editorial reports (private)
+deploy/private/

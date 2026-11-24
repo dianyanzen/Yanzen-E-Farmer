@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node tests/database.mjs",
     "test:ui": "node tests/ui.mjs",
-    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs",
+    "test:game": "node tests/game-stage1.mjs && node tests/game-life.mjs && node tests/game-save.mjs && node tests/game-living-world.mjs && node tests/game-bandung-world.mjs && node tests/game-phaser-prototype.mjs && node tests/game-asset-database.mjs && node tests/game-asset-categories.mjs && node tests/game-humanizer-skill.mjs && node tests/game-character-bible.mjs && node tests/game-published-residents.mjs && node tests/game-resident-bibles.mjs && node tests/game-docker-character-bibles.mjs && node tests/game-docker-vercel-sync.mjs && node tests/game-resident-route-sync.mjs && node tests/game-phone-story.mjs && node scripts/game-narrative/audit-game-copy.mjs",
     "test:game:ui": "node tests/game-chapter1-ui.mjs",
     "assets:audit": "node scripts/game-assets/verify-catalog.mjs",
     "assets:fetch:crops": "node scripts/game-assets/fetch-cc0-crops.mjs",
@@ -30,7 +30,14 @@
     "test:game:humanizer": "node tests/game-humanizer-skill.mjs",
     "chars:index": "node scripts/game-characters/build-character-index.mjs",
     "chars:index:check": "node scripts/game-characters/build-character-index.mjs --check",
-    "test:game:characters": "node tests/game-character-bible.mjs"
+    "test:game:characters": "node tests/game-character-bible.mjs",
+    "test:game:phone": "node tests/game-phone-story.mjs",
+    "test:game:copy": "node scripts/game-narrative/audit-game-copy.mjs",
+    "chars:residents": "node scripts/game-characters/build-resident-bibles.mjs --write",
+    "chars:residents:check": "node scripts/game-characters/build-resident-bibles.mjs --check",
+    "test:game:docker-bibles": "node tests/game-docker-character-bibles.mjs",
+    "chars:docker": "node scripts/game-characters/complete-docker-bibles.mjs",
+    "chars:docker:vercel": "node scripts/game-characters/sync-docker-roster-vercel.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.7.0",

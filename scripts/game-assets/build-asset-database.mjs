@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Deterministic index of ALL tracked media in the asset vault and public game bundle. No network. */
 import {execFileSync} from "node:child_process";
-import {statSync,readFileSync,writeFileSync} from "node:fs";
+import {readFileSync,writeFileSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath} from "node:url";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"../..");
@@ -32,18 +32,30 @@ function buildAssetIndex(e){
  return{schemaVersion:1,project:"YZ Farm Life",source:"tracked-Git-media-assets",baseCommit:"3330580b90a75f194f7f96b5e48326b7e1945c4e",columns:["path","gitBlobSha","bytes","mediaKind","storageStage","purpose","styleFamily","sourceLicense","duplicateOfPath","qualityFlag"],stats:{fileCount:rows.length,uniqueBlobs:bySha.size,duplicateCopies:duplicates,sharedTemplatePlants:sharedPlant,totalBytes:bytes,formats},rows}
 }
 const tracked=execFileSync("git",["ls-files","--stage","-z"],{cwd:root,maxBuffer:15*1024*1024}).toString("utf8").split("\0").filter(Boolean);
-const files=[];
+const candidates=[];
 for(const line of tracked){
  const match=/^\d{6} ([a-f0-9]{40}) \d+\t(.+)$/.exec(line);
  if(!match)continue;
  const path=match[2];
  if(!/^(game-assets\/|public\/game\/assets\/)/.test(path)||!/\.(png|jpg|jpeg|webp|svg|gif|wav|mp3|ogg)$/i.test(path))continue;
- files.push({path,sha:match[1],size:statSync(resolve(root,path)).size});
+ candidates.push({path,sha:match[1]});
 }
+const sizes=execFileSync("git",["cat-file","--batch-check=%(objectname) %(objectsize)"],{
+ cwd:root,input:candidates.map(file=>file.sha).join("\n")+"\n",encoding:"utf8",maxBuffer:15*1024*1024
+}).trimEnd().split(/\r?\n/).map(line=>{
+ const [sha,size]=line.split(" ");
+ return[sha,Number(size)];
+});
+const sizeBySha=new Map(sizes);
+const files=candidates.map(file=>{
+ const size=sizeBySha.get(file.sha);
+ if(!Number.isSafeInteger(size))throw new Error("Missing Git blob size for "+file.path);
+ return{...file,size};
+});
 const generated=JSON.stringify(buildAssetIndex(files))+"\n";
 const filename=resolve(root,"game-assets/catalog/asset-database.json");
 if(process.argv.includes("--check")){
- if(readFileSync(filename,"utf8")!==generated){
+ if(readFileSync(filename,"utf8").replace(/\r\n/g,"\n")!==generated){
    console.error("FAIL: asset-database.json is stale. Run: node scripts/game-assets/build-asset-database.mjs");
    process.exitCode=1;
  }else console.log("PASS: asset database matches "+files.length+" tracked media files");
