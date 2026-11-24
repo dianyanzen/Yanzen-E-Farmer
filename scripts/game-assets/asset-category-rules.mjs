@@ -98,15 +98,19 @@ export const LEGACY_SECTIONS = {
 };
 export const PUBLIC_SECTIONS = {
   "characters": "characters",
+  "fish": "animals",
   "portraits": "portraits",
   "tiles": "world",
   "pasirluyu": "world",
   "residences": "buildings",
   "audio": "audio",
-  "story": "stories"
+  "story": "stories",
+  "cutscenes": "stories",
+  "quests": "props"
 };
 export function categorizeMedia(path){
  const p=path.split("/");
+ if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return {category:"commerce",section:"tiles/shop-icons"};
  if(path.startsWith("game-assets/characters/"))return {category:"characters",section:p.slice(2,4).join("/")};
  if(path.startsWith("game-assets/vendor/"))return {category:"vendors",section:p.slice(2,4).join("/")};
  if(path.startsWith("public/game/assets/"))return {category:PUBLIC_SECTIONS[p[3]],section:p.slice(3,Math.min(p.length-1,7)).join("/")||"root"};

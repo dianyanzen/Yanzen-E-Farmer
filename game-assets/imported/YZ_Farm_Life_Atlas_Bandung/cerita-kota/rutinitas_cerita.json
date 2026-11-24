@@ -1,0 +1,1542 @@
+[
+ {
+  "npc": "A02",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Perawat kebun bunga di titik kerja Neglasari"
+ },
+ {
+  "npc": "A02",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Temui Dewi di serambi untuk membahas bunga yang dibiarkan mekar"
+ },
+ {
+  "npc": "A02",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Berteduh di titik perjumpaan Neglasari; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A03",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Pengelola irigasi di titik kerja Pasirluyu"
+ },
+ {
+  "npc": "A03",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Temui Nani di serambi untuk membahas garis kedua pada batu"
+ },
+ {
+  "npc": "A03",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirluyu; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A04",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Penjual benih di titik kerja Jatisari"
+ },
+ {
+  "npc": "A04",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Temui Nida di serambi untuk membahas bungkus tanpa merek"
+ },
+ {
+  "npc": "A04",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Berteduh di titik perjumpaan Jatisari; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A05",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Teknisi alat pertanian di titik kerja Sukamiskin"
+ },
+ {
+  "npc": "A05",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Temui Tatang di serambi untuk membahas palu di bawah meja"
+ },
+ {
+  "npc": "A05",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Berteduh di titik perjumpaan Sukamiskin; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A06",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Kurir hasil kebun di titik kerja Arjuna"
+ },
+ {
+  "npc": "A06",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Temui Astri di serambi untuk membahas kiriman tanpa tanda terima"
+ },
+ {
+  "npc": "A06",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Berteduh di titik perjumpaan Arjuna; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A07",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Pengelola persemaian di titik kerja Antapani Tengah"
+ },
+ {
+  "npc": "A07",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Temui Yani di serambi untuk membahas baki nomor nol"
+ },
+ {
+  "npc": "A07",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Berteduh di titik perjumpaan Antapani Tengah; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A08",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Perajin keranjang di titik kerja Binong"
+ },
+ {
+  "npc": "A08",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Temui Asep di serambi untuk membahas anyaman untuk tangan kiri"
+ },
+ {
+  "npc": "A08",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Berteduh di titik perjumpaan Binong; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A09",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Fotografer desa di titik kerja Braga"
+ },
+ {
+  "npc": "A09",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Temui Nani di serambi untuk membahas orang di luar bingkai"
+ },
+ {
+  "npc": "A09",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Berteduh di titik perjumpaan Braga; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A10",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Penjaga kebun bersama di titik kerja Mengger"
+ },
+ {
+  "npc": "A10",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Temui Heru di serambi untuk membahas kunci pagar kedua"
+ },
+ {
+  "npc": "A10",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Berteduh di titik perjumpaan Mengger; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A11",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Pengelola pasar desa di titik kerja Kebon Jeruk"
+ },
+ {
+  "npc": "A11",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Temui Widi di serambi untuk membahas lapak di ujung lorong"
+ },
+ {
+  "npc": "A11",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Berteduh di titik perjumpaan Kebon Jeruk; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A12",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Pengemudi angkutan panen di titik kerja Babakan Ciparay"
+ },
+ {
+  "npc": "A12",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Temui Malik di serambi untuk membahas kursi kosong di bak depan"
+ },
+ {
+  "npc": "A12",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Berteduh di titik perjumpaan Babakan Ciparay; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A13",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Penjaga perpustakaan benih di titik kerja Isola"
+ },
+ {
+  "npc": "A13",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Temui Ayu di serambi untuk membahas nama di balik amplop"
+ },
+ {
+  "npc": "A13",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Berteduh di titik perjumpaan Isola; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A14",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Teknisi radio desa di titik kerja Tamansari"
+ },
+ {
+  "npc": "A14",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Temui Ryan di serambi untuk membahas radio pukul lima"
+ },
+ {
+  "npc": "A14",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Berteduh di titik perjumpaan Tamansari; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A15",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Pengurus koperasi tani di titik kerja Sadang Serang"
+ },
+ {
+  "npc": "A15",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Temui Inggit di serambi untuk membahas cap pada karung kosong"
+ },
+ {
+  "npc": "A15",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Berteduh di titik perjumpaan Sadang Serang; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "A16",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Perancang sistem kebun di titik kerja Karang Pamulang"
+ },
+ {
+  "npc": "A16",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Temui Malik di serambi untuk membahas garis yang tidak lurus"
+ },
+ {
+  "npc": "A16",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Berteduh di titik perjumpaan Karang Pamulang; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C01",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Pekebun bunga senior di titik kerja Pasirluyu"
+ },
+ {
+  "npc": "C01",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Temui Ryan di serambi untuk membahas foto yang dilipat ke dalam"
+ },
+ {
+  "npc": "C01",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirluyu; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C02",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Petani kebun buah di titik kerja Pasirjati"
+ },
+ {
+  "npc": "C02",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Temui Nani di serambi untuk membahas cabang terakhir"
+ },
+ {
+  "npc": "C02",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirjati; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C03",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Perajin kayu senior di titik kerja Mekarmulya"
+ },
+ {
+  "npc": "C03",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Temui Denden di serambi untuk membahas bangku dengan satu takik"
+ },
+ {
+  "npc": "C03",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Berteduh di titik perjumpaan Mekarmulya; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C04",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Pembuat roti desa di titik kerja Lingkar Selatan"
+ },
+ {
+  "npc": "C04",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Temui Asep di serambi untuk membahas roti yang pulang utuh"
+ },
+ {
+  "npc": "C04",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Berteduh di titik perjumpaan Lingkar Selatan; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C05",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Pelajar dan peserta klub kebun di titik kerja Sadang Serang"
+ },
+ {
+  "npc": "C05",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Temui Yani di serambi untuk membahas pita ukur terlalu pendek"
+ },
+ {
+  "npc": "C05",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Berteduh di titik perjumpaan Sadang Serang; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C06",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Mahasiswi pertanian di titik kerja Ciumbuleuit"
+ },
+ {
+  "npc": "C06",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Temui Eza di serambi untuk membahas halaman yang basah"
+ },
+ {
+  "npc": "C06",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Berteduh di titik perjumpaan Ciumbuleuit; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C07",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Pedagang hasil bumi di titik kerja Karasak"
+ },
+ {
+  "npc": "C07",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Temui Anggi di serambi untuk membahas harga menjelang tutup"
+ },
+ {
+  "npc": "C07",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Berteduh di titik perjumpaan Karasak; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C08",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Penjual makanan pasar di titik kerja Pasirluyu"
+ },
+ {
+  "npc": "C08",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Temui Nani di serambi untuk membahas empat timun untuk satu meja"
+ },
+ {
+  "npc": "C08",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirluyu; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C09",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Ilustrator desa di titik kerja Babakan Penghulu"
+ },
+ {
+  "npc": "C09",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Temui Malik di serambi untuk membahas warna yang terasa sama"
+ },
+ {
+  "npc": "C09",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Berteduh di titik perjumpaan Babakan Penghulu; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C10",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Pencatat keuangan koperasi di titik kerja Jamika"
+ },
+ {
+  "npc": "C10",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Temui Heru di serambi untuk membahas satu angka di bawah lipatan"
+ },
+ {
+  "npc": "C10",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Berteduh di titik perjumpaan Jamika; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C11",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Pemagang kebun keliling di titik kerja Derwati"
+ },
+ {
+  "npc": "C11",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Temui Yani di serambi untuk membahas jurnal yang terlalu bersih"
+ },
+ {
+  "npc": "C11",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Berteduh di titik perjumpaan Derwati; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C12",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Penjaga toko perlengkapan kebun di titik kerja Cibaduyut"
+ },
+ {
+  "npc": "C12",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Temui Vicky di serambi untuk membahas barang yang tak pernah dibeli"
+ },
+ {
+  "npc": "C12",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Berteduh di titik perjumpaan Cibaduyut; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C13",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Penggerak kegiatan kampung di titik kerja Padasuka"
+ },
+ {
+  "npc": "C13",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Temui Anggi di serambi untuk membahas kursi yang selalu kosong"
+ },
+ {
+  "npc": "C13",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Berteduh di titik perjumpaan Padasuka; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C14",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Kurir kebutuhan desa di titik kerja Babakan Sari"
+ },
+ {
+  "npc": "C14",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Temui Ray di serambi untuk membahas alamat di belakang nota"
+ },
+ {
+  "npc": "C14",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Berteduh di titik perjumpaan Babakan Sari; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C15",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Perancang peta desa di titik kerja Cisurupan"
+ },
+ {
+  "npc": "C15",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Temui Khansa di serambi untuk membahas peta selepas gerimis"
+ },
+ {
+  "npc": "C15",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Berteduh di titik perjumpaan Cisurupan; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "C16",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Perangkai bunga di titik kerja Sukagalih"
+ },
+ {
+  "npc": "C16",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Temui Astri di serambi untuk membahas karangan yang boleh dibongkar"
+ },
+ {
+  "npc": "C16",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Berteduh di titik perjumpaan Sukagalih; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "P01",
+  "kondisi": "Agenda kunjungan",
+  "jam": "09.00–11.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Forum warga dengan undangan sesuai bab"
+ },
+ {
+  "npc": "P01",
+  "kondisi": "Setelah forum",
+  "jam": "11.00–12.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Tinjau catatan hasil bersama tuan rumah"
+ },
+ {
+  "npc": "P02",
+  "kondisi": "Agenda kunjungan",
+  "jam": "09.00–11.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Forum warga dengan undangan sesuai bab"
+ },
+ {
+  "npc": "P02",
+  "kondisi": "Setelah forum",
+  "jam": "11.00–12.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Tinjau catatan hasil bersama tuan rumah"
+ },
+ {
+  "npc": "N01",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Peternak unggas di titik kerja Pasirjati"
+ },
+ {
+  "npc": "N01",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Temui Surya di serambi untuk membahas ayam yang tak pulang ke kandang"
+ },
+ {
+  "npc": "N01",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirjati; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "N02",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Dokter hewan keliling di titik kerja Pasirjati"
+ },
+ {
+  "npc": "N02",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Temui Sinta di serambi untuk membahas bel di pagar kandang"
+ },
+ {
+  "npc": "N02",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirjati; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "N03",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Pemancing dan pengamat ikan di titik kerja Cimincrang"
+ },
+ {
+  "npc": "N03",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Temui Ryan di serambi untuk membahas umpan peninggalan kakak"
+ },
+ {
+  "npc": "N03",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Berteduh di titik perjumpaan Cimincrang; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "N04",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Pembudidaya lebah di titik kerja Cisurupan"
+ },
+ {
+  "npc": "N04",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Temui Nabila di serambi untuk membahas madu yang tidak dipanen"
+ },
+ {
+  "npc": "N04",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Berteduh di titik perjumpaan Cisurupan; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "N05",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Dokter klinik kampung di titik kerja Pasirluyu"
+ },
+ {
+  "npc": "N05",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Temui Heru di serambi untuk membahas kursi di depan klinik"
+ },
+ {
+  "npc": "N05",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Berteduh di titik perjumpaan Pasirluyu; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "N06",
+  "kondisi": "Hari kerja",
+  "jam": "07.00–11.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Perajin batu dan pengenal mineral di titik kerja Karasak"
+ },
+ {
+  "npc": "N06",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Temui Vicky di serambi untuk membahas batu yang bernyanyi"
+ },
+ {
+  "npc": "N06",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Berteduh di titik perjumpaan Karasak; petunjuk pribadi tersedia lewat percakapan"
+ },
+ {
+  "npc": "K01",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Cocokkan pola ketukan dengan catatan pos"
+ },
+ {
+  "npc": "K01",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K01",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K01",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "20:00–22:00",
+  "kelurahan": "kel-pasirluyu",
+  "aktivitas": "Ketukan yang pulang sendiri"
+ },
+ {
+  "npc": "K02",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Setel tegangan roda kurir"
+ },
+ {
+  "npc": "K02",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K02",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-antapani-tengah",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K03",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Atur urutan cuci kain dan tiriskan"
+ },
+ {
+  "npc": "K03",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K03",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-mengger",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K04",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Cat huruf yang terbaca dari dua arah"
+ },
+ {
+  "npc": "K04",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K04",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K04",
+  "kondisi": "Undangan malam Semua",
+  "jam": "20:00–22:15",
+  "kelurahan": "kel-jatisari",
+  "aktivitas": "Tulisan sesudah kios tutup"
+ },
+ {
+  "npc": "K05",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Uji ukuran satu porsi pada mangkuk berbeda"
+ },
+ {
+  "npc": "K05",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K05",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-lingkar-selatan",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K06",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Giring kawanan melewati jalur kering"
+ },
+ {
+  "npc": "K06",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K06",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K06",
+  "kondisi": "Undangan malam Semua",
+  "jam": "19:00–21:00",
+  "kelurahan": "kel-cimincrang",
+  "aktivitas": "Barisan yang lebih satu"
+ },
+ {
+  "npc": "K07",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Bandingkan kejernihan dua sampel air dalam simulasi"
+ },
+ {
+  "npc": "K07",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K07",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-derwati",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K08",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Temukan gelembung dan tandai letak bocor"
+ },
+ {
+  "npc": "K08",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K08",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sukamiskin",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K09",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Bersihkan sambungan figur panggung"
+ },
+ {
+  "npc": "K09",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K09",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-mekarmulya",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K10",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-cibuntu",
+  "aktivitas": "Atur tekanan dan waktu cetak"
+ },
+ {
+  "npc": "K10",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cibuntu",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K10",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cibuntu",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K11",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Catat kesaksian dengan izin penutur"
+ },
+ {
+  "npc": "K11",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K11",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K11",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "18:30–20:30",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Saung dengan tikar terlipat"
+ },
+ {
+  "npc": "K12",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Tandai lintasan terbang tanpa menyorot satwa"
+ },
+ {
+  "npc": "K12",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K12",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K12",
+  "kondisi": "Undangan malam Semua",
+  "jam": "18:00–21:00",
+  "kelurahan": "kel-ciumbuleuit",
+  "aktivitas": "Siluet di antara dua jemuran"
+ },
+ {
+  "npc": "K13",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Pisahkan dan salin lembar rapuh dalam simulasi"
+ },
+ {
+  "npc": "K13",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K13",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-isola",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K14",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Ambil dua arah suara dari titik diam"
+ },
+ {
+  "npc": "K14",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K14",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sadang-serang",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K15",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Susun rute kunjungan dan waktu istirahat fiktif"
+ },
+ {
+  "npc": "K15",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K15",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-karang-pamulang",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K16",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Ulang pola panggil dan jawab saat latihan"
+ },
+ {
+  "npc": "K16",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K16",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K16",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "21:00–23:00",
+  "kelurahan": "kel-pasirjati",
+  "aktivitas": "Penabuh di balik bilik"
+ },
+ {
+  "npc": "K17",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Bandingkan contoh warna pada dua jenis serat"
+ },
+ {
+  "npc": "K17",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K17",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-neglasari",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K18",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Pasangkan dua tabung berdasar telinga dan getaran"
+ },
+ {
+  "npc": "K18",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K18",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K18",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "19:00–21:30",
+  "kelurahan": "kel-padasuka",
+  "aktivitas": "Tabung yang tetap bernapas"
+ },
+ {
+  "npc": "K19",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Telusuri satu baris benang yang melompat"
+ },
+ {
+  "npc": "K19",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K19",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-binong",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K20",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Cocokkan acuan dengan jejak langkah"
+ },
+ {
+  "npc": "K20",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K20",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K20",
+  "kondisi": "Undangan malam Semua",
+  "jam": "19:30–22:30",
+  "kelurahan": "kel-cibaduyut",
+  "aktivitas": "Jejak sebelah kiri"
+ },
+ {
+  "npc": "K21",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Ratakan tepi benda pajangan dalam simulasi"
+ },
+ {
+  "npc": "K21",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K21",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K21",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "18:30–20:00",
+  "kelurahan": "kel-karasak",
+  "aktivitas": "Segelas air untuk mengenang"
+ },
+ {
+  "npc": "K22",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Susun urutan siaran dan tandai sumber rekaman"
+ },
+ {
+  "npc": "K22",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K22",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K22",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "22:00–23:55",
+  "kelurahan": "kel-tamansari",
+  "aktivitas": "Siaran yang terlambat sehari"
+ },
+ {
+  "npc": "K23",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Cocokkan catatan ciri dan buku penitipan"
+ },
+ {
+  "npc": "K23",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K23",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-sukagalih",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K24",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Susun label inventaris dan minta pembaca mengujinya"
+ },
+ {
+  "npc": "K24",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K24",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-penghulu",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K25",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Seimbangkan peti sebelum berangkat"
+ },
+ {
+  "npc": "K25",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K25",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K26",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Baca urutan penyimpanan kiriman dalam simulasi"
+ },
+ {
+  "npc": "K26",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K26",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-babakan-ciparay",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K27",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Pindahkan ukuran pada pola kertas"
+ },
+ {
+  "npc": "K27",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K27",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-kebon-jeruk",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K28",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Cocokkan karcis sambungan dengan jadwal"
+ },
+ {
+  "npc": "K28",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K28",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K29",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Bandingkan selisih dua jam dalam simulasi"
+ },
+ {
+  "npc": "K29",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K29",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K29",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "21:30–23:30",
+  "kelurahan": "kel-jamika",
+  "aktivitas": "Lonceng sesudah pegas dilepas"
+ },
+ {
+  "npc": "K30",
+  "kondisi": "Jam kerja",
+  "jam": "08.00–12.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Cocokkan urutan gulungan latihan"
+ },
+ {
+  "npc": "K30",
+  "kondisi": "Sore",
+  "jam": "15.00–17.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Serah terima hasil dan dengar kabar mitra."
+ },
+ {
+  "npc": "K30",
+  "kondisi": "Hujan",
+  "jam": "09.00–12.00",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Penerimaan pesanan serta percakapan di tempat teduh."
+ },
+ {
+  "npc": "K30",
+  "kondisi": "Undangan malam Kamis",
+  "jam": "20:30–23:30",
+  "kelurahan": "kel-braga",
+  "aktivitas": "Bayangan di kursi ketiga"
+ },
+ {
+  "npc": "K28",
+  "kondisi": "Undangan MALAM-13",
+  "jam": "22:10–23:40",
+  "kelurahan": "kel-arjuna",
+  "aktivitas": "Penumpang sesudah karcis terakhir"
+ },
+ {
+  "npc": "K25",
+  "kondisi": "Undangan MALAM-14",
+  "jam": "21:15–23:15",
+  "kelurahan": "kel-babakan-sari",
+  "aktivitas": "Lorong yang mengembalikan langkah"
+ },
+ {
+  "npc": "K11",
+  "kondisi": "Undangan MALAM-15",
+  "jam": "16:30–17:50",
+  "kelurahan": "kel-cisurupan",
+  "aktivitas": "Kembang di tangan cucu"
+ }
+]

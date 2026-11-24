@@ -1,0 +1,258 @@
+[
+ {
+  "id": "canal",
+  "karakter_id": "A03",
+  "judul": "Petunjuk saluran tua",
+  "kondisi": "Berbicara dengan Ryan",
+  "dampak": "Tandai canalClue",
+  "status": "Di game"
+ },
+ {
+  "id": "memory",
+  "karakter_id": "C01",
+  "judul": "Ingatan Nani",
+  "kondisi": "Berbicara dengan Nani, respons mengikuti canalClue",
+  "dampak": "Tandai sarisStory",
+  "status": "Di game"
+ },
+ {
+  "id": "order",
+  "karakter_id": "C08",
+  "judul": "Pesanan empat timun",
+  "kondisi": "Terima melalui YZ Phone",
+  "dampak": "Tandai orderAccepted dan phoneRead",
+  "status": "Di game"
+ },
+ {
+  "id": "handover",
+  "karakter_id": "C08",
+  "judul": "Serah pesanan",
+  "kondisi": "Empat timun dan pesanan aktif, belum selesai",
+  "dampak": "Transaksi deliver, tandai orderDone",
+  "status": "Di game"
+ },
+ {
+  "id": "ide-A02",
+  "karakter_id": "A02",
+  "judul": "Merangkai bunga untuk warung",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A04",
+  "karakter_id": "A04",
+  "judul": "Memilih benih untuk demonstrasi kebun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A05",
+  "karakter_id": "A05",
+  "judul": "Memperbaiki gagang cangkul",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A06",
+  "karakter_id": "A06",
+  "judul": "Mengantar peti hasil kebun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A07",
+  "karakter_id": "A07",
+  "judul": "Menyortir bibit siap pindah",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A08",
+  "karakter_id": "A08",
+  "judul": "Menganyam keranjang timun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A09",
+  "karakter_id": "A09",
+  "judul": "Memotret perubahan saluran",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A10",
+  "karakter_id": "A10",
+  "judul": "Mengecek pagar kebun bersama",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A11",
+  "karakter_id": "A11",
+  "judul": "Menyiapkan lapak hari pasar",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A12",
+  "karakter_id": "A12",
+  "judul": "Menentukan muatan kendaraan panen",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A13",
+  "karakter_id": "A13",
+  "judul": "Mencatat varietas di perpustakaan benih",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A14",
+  "karakter_id": "A14",
+  "judul": "Memperbaiki radio kampung",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A15",
+  "karakter_id": "A15",
+  "judul": "Membahas pesanan koperasi",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-A16",
+  "karakter_id": "A16",
+  "judul": "Menggambar tata bedengan",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C02",
+  "karakter_id": "C02",
+  "judul": "Memilih batang untuk dicangkok",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C03",
+  "karakter_id": "C03",
+  "judul": "Membuat patok kayu",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C04",
+  "karakter_id": "C04",
+  "judul": "Memesan sayur untuk isian roti",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C05",
+  "karakter_id": "C05",
+  "judul": "Mencatat percobaan klub kebun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C06",
+  "karakter_id": "C06",
+  "judul": "Membandingkan jurnal pertumbuhan",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C07",
+  "karakter_id": "C07",
+  "judul": "Menawar hasil panen di pasar",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C09",
+  "karakter_id": "C09",
+  "judul": "Menggambar kartu kebun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C10",
+  "karakter_id": "C10",
+  "judul": "Mencocokkan kas pesanan",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C11",
+  "karakter_id": "C11",
+  "judul": "Mengantar jurnal antarkebun",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C12",
+  "karakter_id": "C12",
+  "judul": "Menata perlengkapan di etalase",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C13",
+  "karakter_id": "C13",
+  "judul": "Mengumpulkan cerita warga",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C14",
+  "karakter_id": "C14",
+  "judul": "Menentukan rute pengantaran",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C15",
+  "karakter_id": "C15",
+  "judul": "Menguji jalur akses dan memperbarui peta",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ },
+ {
+  "id": "ide-C16",
+  "karakter_id": "C16",
+  "judul": "Merangkai bunga untuk festival",
+  "kondisi": "Lokasi dan pemicu belum ditetapkan",
+  "dampak": "Rancangan interaksi awal",
+  "status": "Usulan"
+ }
+]

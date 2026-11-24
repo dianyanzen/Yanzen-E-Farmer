@@ -1,0 +1,242 @@
+[
+ {
+  "id": "kec-regol",
+  "kelurahan": "kel-pasirluyu",
+  "berkas": "kec-regol.tmj",
+  "bab": 1,
+  "pulang": "kec-regol",
+  "aktivitas": "Tanam lalu antar empat timun ke Inggit"
+ },
+ {
+  "id": "kec-antapani",
+  "kelurahan": "kel-antapani-tengah",
+  "berkas": "kec-antapani.tmj",
+  "bab": 1,
+  "pulang": "kec-regol",
+  "aktivitas": "Bandingkan dua baki semai dan pilih bibit untuk kebun"
+ },
+ {
+  "id": "kec-bandung-kidul",
+  "kelurahan": "kel-mengger",
+  "berkas": "kec-bandung-kidul.tmj",
+  "bab": 1,
+  "pulang": "kec-regol",
+  "aktivitas": "Pisahkan sisa daun dari hasil layak jual"
+ },
+ {
+  "id": "kec-buahbatu",
+  "kelurahan": "kel-jatisari",
+  "berkas": "kec-buahbatu.tmj",
+  "bab": 1,
+  "pulang": "kec-regol",
+  "aktivitas": "Rawat satu baris tanaman untuk menghasilkan benih"
+ },
+ {
+  "id": "kec-lengkong",
+  "kelurahan": "kel-lingkar-selatan",
+  "berkas": "kec-lengkong.tmj",
+  "bab": 1,
+  "pulang": "kec-regol",
+  "aktivitas": "Rakit paket bahan karedok sesuai pesanan dapur"
+ },
+ {
+  "id": "kec-gedebage",
+  "kelurahan": "kel-cimincrang",
+  "berkas": "kec-gedebage.tmj",
+  "bab": 2,
+  "pulang": "kec-regol",
+  "aktivitas": "Buka petak bersama Heru dan atur pintu air bersama Ryan"
+ },
+ {
+  "id": "kec-rancasari",
+  "kelurahan": "kel-derwati",
+  "berkas": "kec-rancasari.tmj",
+  "bab": 2,
+  "pulang": "kec-regol",
+  "aktivitas": "Catat pertumbuhan satu kelompok ikan sampai ukuran pesanan"
+ },
+ {
+  "id": "kec-arcamanik",
+  "kelurahan": "kel-sukamiskin",
+  "berkas": "kec-arcamanik.tmj",
+  "bab": 2,
+  "pulang": "kec-regol",
+  "aktivitas": "Perbaiki pompa untuk giliran siram ladang jagung"
+ },
+ {
+  "id": "kec-panyileukan",
+  "kelurahan": "kel-mekarmulya",
+  "berkas": "kec-panyileukan.tmj",
+  "bab": 2,
+  "pulang": "kec-regol",
+  "aktivitas": "Rakit rak pengering dan kelola dua kiriman gabah"
+ },
+ {
+  "id": "kec-bandung-kulon",
+  "kelurahan": "kel-cibuntu",
+  "berkas": "kec-bandung-kulon.tmj",
+  "bab": 2,
+  "pulang": "kec-regol",
+  "aktivitas": "Kirim kedelai dan pilih pesanan tahu atau tempe"
+ },
+ {
+  "id": "kec-cibiru",
+  "kelurahan": "kel-cisurupan",
+  "berkas": "kec-cibiru.tmj",
+  "bab": 3,
+  "pulang": "kec-regol",
+  "aktivitas": "Petakan akses panen tanpa tangga bersama Malik"
+ },
+ {
+  "id": "kec-cidadap",
+  "kelurahan": "kel-ciumbuleuit",
+  "berkas": "kec-cidadap.tmj",
+  "bab": 3,
+  "pulang": "kec-regol",
+  "aktivitas": "Bandingkan hasil selada dari petak dengan naungan berbeda"
+ },
+ {
+  "id": "kec-sukasari",
+  "kelurahan": "kel-isola",
+  "berkas": "kec-sukasari.tmj",
+  "bab": 3,
+  "pulang": "kec-regol",
+  "aktivitas": "Catat asal benih buncis lalu tukar dengan penanam lain"
+ },
+ {
+  "id": "kec-coblong",
+  "kelurahan": "kel-sadang-serang",
+  "berkas": "kec-coblong.tmj",
+  "bab": 3,
+  "pulang": "kec-regol",
+  "aktivitas": "Dampingi klub kebun menanam hingga panen pertama"
+ },
+ {
+  "id": "kec-mandalajati",
+  "kelurahan": "kel-karang-pamulang",
+  "berkas": "kec-mandalajati.tmj",
+  "bab": 3,
+  "pulang": "kec-regol",
+  "aktivitas": "Susun jalur limpasan agar petak jahe tidak tergerus"
+ },
+ {
+  "id": "kec-ujungberung",
+  "kelurahan": "kel-pasirjati",
+  "berkas": "kec-ujungberung.tmj",
+  "bab": 4,
+  "pulang": "kec-regol",
+  "aktivitas": "Pilih tingkat kematangan jambu untuk kiriman Anggi"
+ },
+ {
+  "id": "kec-cibeunying-kaler",
+  "kelurahan": "kel-neglasari",
+  "berkas": "kec-cibeunying-kaler.tmj",
+  "bab": 4,
+  "pulang": "kec-regol",
+  "aktivitas": "Atur giliran tanam agar bunga siap menjelang acara"
+ },
+ {
+  "id": "kec-cibeunying-kidul",
+  "kelurahan": "kel-padasuka",
+  "berkas": "kec-cibeunying-kidul.tmj",
+  "bab": 4,
+  "pulang": "kec-regol",
+  "aktivitas": "Koordinasikan konsumsi bagi kelompok pertunjukan"
+ },
+ {
+  "id": "kec-batununggal",
+  "kelurahan": "kel-binong",
+  "berkas": "kec-batununggal.tmj",
+  "bab": 4,
+  "pulang": "kec-regol",
+  "aktivitas": "Uji tas rajut agar pesanan buah tiba utuh"
+ },
+ {
+  "id": "kec-bojongloa-kidul",
+  "kelurahan": "kel-cibaduyut",
+  "berkas": "kec-bojongloa-kidul.tmj",
+  "bab": 4,
+  "pulang": "kec-regol",
+  "aktivitas": "Uji alas kaki kerja saat membawa hasil dari petak berlumpur"
+ },
+ {
+  "id": "kec-astanaanyar",
+  "kelurahan": "kel-karasak",
+  "berkas": "kec-astanaanyar.tmj",
+  "bab": 5,
+  "pulang": "kec-regol",
+  "aktivitas": "Bawa contoh jahe ke Widi dan temui mitra kebun kopi"
+ },
+ {
+  "id": "kec-bandung-wetan",
+  "kelurahan": "kel-tamansari",
+  "berkas": "kec-bandung-wetan.tmj",
+  "bab": 5,
+  "pulang": "kec-regol",
+  "aktivitas": "Konfirmasi kabar panen sebelum mengumumkan pesanan lewat radio"
+ },
+ {
+  "id": "kec-sukajadi",
+  "kelurahan": "kel-sukagalih",
+  "berkas": "kec-sukajadi.tmj",
+  "bab": 5,
+  "pulang": "kec-regol",
+  "aktivitas": "Gabungkan bunga kiriman menjadi rangkaian pesanan warga"
+ },
+ {
+  "id": "kec-cinambo",
+  "kelurahan": "kel-babakan-penghulu",
+  "berkas": "kec-cinambo.tmj",
+  "bab": 5,
+  "pulang": "kec-regol",
+  "aktivitas": "Buat label asal dan cocokkan dengan kelompok panen"
+ },
+ {
+  "id": "kec-kiaracondong",
+  "kelurahan": "kel-babakan-sari",
+  "berkas": "kec-kiaracondong.tmj",
+  "bab": 5,
+  "pulang": "kec-regol",
+  "aktivitas": "Gabungkan dua kiriman kecil agar satu perjalanan cukup"
+ },
+ {
+  "id": "kec-babakan-ciparay",
+  "kelurahan": "kel-babakan-ciparay",
+  "berkas": "kec-babakan-ciparay.tmj",
+  "bab": 6,
+  "pulang": "kec-regol",
+  "aktivitas": "Temui Denden untuk mencocokkan pasokan ikan dengan pesanan"
+ },
+ {
+  "id": "kec-andir",
+  "kelurahan": "kel-kebon-jeruk",
+  "berkas": "kec-andir.tmj",
+  "bab": 6,
+  "pulang": "kec-regol",
+  "aktivitas": "Titipkan satu kelompok barang dan bandingkan hasilnya dengan jual putus"
+ },
+ {
+  "id": "kec-cicendo",
+  "kelurahan": "kel-arjuna",
+  "berkas": "kec-cicendo.tmj",
+  "bab": 6,
+  "pulang": "kec-regol",
+  "aktivitas": "Pilih rute yang menjaga stroberi tiba sebelum batas terima"
+ },
+ {
+  "id": "kec-bojongloa-kaler",
+  "kelurahan": "kel-jamika",
+  "berkas": "kec-bojongloa-kaler.tmj",
+  "bab": 6,
+  "pulang": "kec-regol",
+  "aktivitas": "Cocokkan jumlah kiriman, retur dan pembayaran pedagang"
+ },
+ {
+  "id": "kec-sumur-bandung",
+  "kelurahan": "kel-braga",
+  "berkas": "kec-sumur-bandung.tmj",
+  "bab": 6,
+  "pulang": "kec-regol",
+  "aktivitas": "Kumpulkan foto dan cerita asal hasil kebun untuk pameran"
+ }
+]

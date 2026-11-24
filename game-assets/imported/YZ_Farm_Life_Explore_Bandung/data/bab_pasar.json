@@ -1,0 +1,56 @@
+[
+ {
+  "id": 1,
+  "nama": "Kebun rumah di Pasirluyu",
+  "prasyarat": null,
+  "flag_pembuka": "awal",
+  "misi_sebelum_buka": "Mulai di kebun Yanzen",
+  "npc_id": "A01",
+  "status": "Rancangan"
+ },
+ {
+  "id": 2,
+  "nama": "Sawah Cimincrang",
+  "prasyarat": 1,
+  "flag_pembuka": "surat-koperasi",
+  "misi_sebelum_buka": "Antarkan empat timun kepada Inggit lalu temui Heru di pasar awal",
+  "npc_id": "A15",
+  "status": "Rancangan"
+ },
+ {
+  "id": 3,
+  "nama": "Agrowisata Cisurupan",
+  "prasyarat": 2,
+  "flag_pembuka": "jalur-lereng",
+  "misi_sebelum_buka": "Bantu Malik memetakan jalan angkut hasil sawah",
+  "npc_id": "C15",
+  "status": "Rancangan"
+ },
+ {
+  "id": 4,
+  "nama": "Kebun dan ternak Pasirjati",
+  "prasyarat": 3,
+  "flag_pembuka": "kemitraan-desa",
+  "misi_sebelum_buka": "Kirim sayuran lereng ke pasar bersama Anggi",
+  "npc_id": "A11",
+  "status": "Rancangan"
+ },
+ {
+  "id": 5,
+  "nama": "Kebun jahe Karasak",
+  "prasyarat": 4,
+  "flag_pembuka": "kontrak-kebun",
+  "misi_sebelum_buka": "Penuhi pesanan buah untuk pedagang Widi",
+  "npc_id": "C07",
+  "status": "Rancangan"
+ },
+ {
+  "id": 6,
+  "nama": "Distribusi pangan Babakan Ciparay",
+  "prasyarat": 5,
+  "flag_pembuka": "jalur-pesisir",
+  "misi_sebelum_buka": "Bawa contoh rempah Karasak menemui Denden untuk membuka jalur pemasok di Pasar Induk Caringin",
+  "npc_id": "A12",
+  "status": "Rancangan"
+ }
+]

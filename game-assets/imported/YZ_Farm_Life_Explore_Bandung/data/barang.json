@@ -1,0 +1,4742 @@
+[
+ {
+  "id": "timun",
+  "nama": "Timun",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "timun",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "terung-ungu",
+  "nama": "Terung ungu",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "terung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "terung-hijau",
+  "nama": "Terung hijau",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "terung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tomat",
+  "nama": "Tomat",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "tomat",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-rawit",
+  "nama": "Cabai rawit",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "cabai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-merah-besar",
+  "nama": "Cabai merah besar",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "cabai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-keriting",
+  "nama": "Cabai keriting",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "cabai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-panjang",
+  "nama": "Kacang panjang",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kacang-panjang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "oyong",
+  "nama": "Oyong",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "oyong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pare",
+  "nama": "Pare",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "pare",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "labu-air",
+  "nama": "Labu air",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "labu-air",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "labu-kuning",
+  "nama": "Labu kuning",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "labu-kuning",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kecipir",
+  "nama": "Kecipir",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kecipir",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "okra",
+  "nama": "Okra",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "okra",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "leunca",
+  "nama": "Leunca",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "leunca",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gambas-ular",
+  "nama": "Gambas ular",
+  "kelompok": "Sayur buah dan polong",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "gambas-ular",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bayam-hijau",
+  "nama": "Bayam hijau",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "bayam-cabut",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bayam-merah",
+  "nama": "Bayam merah",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "bayam-cabut",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kangkung-darat",
+  "nama": "Kangkung darat",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kangkung-darat",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "caisim",
+  "nama": "Caisim",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "caisim",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pakcoy",
+  "nama": "Pakcoy",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "pakcoy",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-katuk",
+  "nama": "Daun katuk",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "katuk",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kelor",
+  "nama": "Daun kelor",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kelor",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kenikir",
+  "nama": "Kenikir",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kenikir",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kemangi",
+  "nama": "Kemangi",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kemangi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "genjer",
+  "nama": "Genjer",
+  "kelompok": "Sayur daun",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "genjer",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "wortel",
+  "nama": "Wortel",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "wortel",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kentang",
+  "nama": "Kentang",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kentang",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kubis",
+  "nama": "Kubis",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kubis",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kubis-merah",
+  "nama": "Kubis merah",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kubis",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "buncis",
+  "nama": "Buncis",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "buncis",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kapri",
+  "nama": "Kapri",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kapri",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "brokoli",
+  "nama": "Brokoli",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "brokoli",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kembang-kol",
+  "nama": "Kembang kol",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kembang-kol",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "lobak",
+  "nama": "Lobak",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "lobak",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bit",
+  "nama": "Bit",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "bit",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "paprika",
+  "nama": "Paprika",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "paprika",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "zukini",
+  "nama": "Zukini",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "zukini",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "labu-siam",
+  "nama": "Labu siam",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "labu-siam",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "selada",
+  "nama": "Selada",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "selada",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "sawi-putih",
+  "nama": "Sawi putih",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "sawi-putih",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "seledri",
+  "nama": "Seledri",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "seledri",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "daun-bawang",
+  "nama": "Daun bawang",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "bawang-daun",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kailan",
+  "nama": "Kailan",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kailan",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "peterseli",
+  "nama": "Peterseli",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "peterseli",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "selada-air",
+  "nama": "Selada air",
+  "kelompok": "Sayur dataran sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "selada-air",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bawang-putih",
+  "nama": "Bawang putih",
+  "kelompok": "Bumbu umbi",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "bawang-putih",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bawang-merah",
+  "nama": "Bawang merah",
+  "kelompok": "Bumbu umbi",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "bawang-merah",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jahe",
+  "nama": "Jahe",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "jahe",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jahe-merah",
+  "nama": "Jahe merah",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "jahe-karasak",
+  "tanaman": "jahe",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kunyit",
+  "nama": "Kunyit",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kunyit",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kencur",
+  "nama": "Kencur",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kencur",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "temulawak",
+  "nama": "Temulawak",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "temulawak",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "lengkuas",
+  "nama": "Lengkuas",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "lengkuas",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "temu-kunci",
+  "nama": "Temu kunci",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "temu-kunci",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "lempuyang",
+  "nama": "Lempuyang",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "lempuyang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "serai-dapur",
+  "nama": "Serai dapur",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "serai-dapur",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-pandan",
+  "nama": "Daun pandan",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "pandan-wangi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-salam",
+  "nama": "Daun salam",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "salam",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-jeruk-purut",
+  "nama": "Daun jeruk purut",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "jeruk-purut",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kunyit",
+  "nama": "Daun kunyit",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kunyit",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-mint",
+  "nama": "Daun mint",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "mint",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kari",
+  "nama": "Daun kari",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "salam-koja",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jeruk-limau",
+  "nama": "Jeruk limau",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "jeruk-limau",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "belimbing-wuluh",
+  "nama": "Belimbing wuluh",
+  "kelompok": "Rimpang dan bumbu segar",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "belimbing-wuluh",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gabah-padi",
+  "nama": "Gabah padi",
+  "kelompok": "Serealia",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "sawah",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gabah-ketan-putih",
+  "nama": "Gabah ketan putih",
+  "kelompok": "Serealia",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "sawah",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gabah-ketan-hitam",
+  "nama": "Gabah ketan hitam",
+  "kelompok": "Serealia",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "sawah",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jagung-pipilan",
+  "nama": "Jagung pipilan",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "jagung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jagung-manis",
+  "nama": "Jagung manis",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "jagung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "singkong",
+  "nama": "Singkong",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "singkong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-singkong",
+  "nama": "Daun singkong",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "singkong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ubi-jalar",
+  "nama": "Ubi jalar",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "ubi-jalar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ubi-ungu",
+  "nama": "Ubi ungu",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "ubi-jalar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "talas",
+  "nama": "Talas",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "talas",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "garut",
+  "nama": "Garut",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "garut",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ganyong",
+  "nama": "Ganyong",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "ganyong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "sorgum",
+  "nama": "Sorgum",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "sorgum",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jewawut",
+  "nama": "Jewawut",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "jewawut",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-tanah",
+  "nama": "Kacang tanah",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-tanah",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kedelai",
+  "nama": "Kedelai",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kedelai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "edamame",
+  "nama": "Edamame",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kedelai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-hijau",
+  "nama": "Kacang hijau",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-hijau",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-merah",
+  "nama": "Kacang merah",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-merah",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-tunggak",
+  "nama": "Kacang tunggak",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-tunggak",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "wijen",
+  "nama": "Wijen",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "wijen",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "porang",
+  "nama": "Porang",
+  "kelompok": "Pangan ladang",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "porang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "semangka",
+  "nama": "Semangka",
+  "kelompok": "Buah semusim",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "semangka",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "melon",
+  "nama": "Melon",
+  "kelompok": "Buah semusim",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "melon",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "blewah",
+  "nama": "Blewah",
+  "kelompok": "Buah semusim",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "blewah",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "timun-suri",
+  "nama": "Timun suri",
+  "kelompok": "Buah semusim",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "timun-suri",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "stroberi",
+  "nama": "Stroberi",
+  "kelompok": "Buah kebun sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "stroberi",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "markisa",
+  "nama": "Markisa",
+  "kelompok": "Buah kebun sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "markisa",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "avokad",
+  "nama": "Avokad",
+  "kelompok": "Buah kebun sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "avokad",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "apel",
+  "nama": "Apel",
+  "kelompok": "Buah kebun sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "apel",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kesemek",
+  "nama": "Kesemek",
+  "kelompok": "Buah kebun sejuk",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kesemek",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "pisang-ambon",
+  "nama": "Pisang ambon",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pisang-kepok",
+  "nama": "Pisang kepok",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pisang-raja",
+  "nama": "Pisang raja",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jantung-pisang",
+  "nama": "Jantung pisang",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pepaya",
+  "nama": "Pepaya",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pepaya",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "mangga",
+  "nama": "Mangga",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "mangga",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jambu-biji",
+  "nama": "Jambu biji",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jambu-biji",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jambu-air",
+  "nama": "Jambu air",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jambu-air",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jeruk-siam",
+  "nama": "Jeruk siam",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jeruk-siam",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jeruk-keprok",
+  "nama": "Jeruk keprok",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jeruk-keprok",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jeruk-bali",
+  "nama": "Jeruk bali",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jeruk-bali",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jeruk-nipis",
+  "nama": "Jeruk nipis",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jeruk-nipis",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "lemon",
+  "nama": "Lemon",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "lemon",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "durian",
+  "nama": "Durian",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "durian",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "rambutan",
+  "nama": "Rambutan",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "rambutan",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "manggis",
+  "nama": "Manggis",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "manggis",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "duku",
+  "nama": "Duku",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "duku",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "langsat",
+  "nama": "Langsat",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "langsat",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "salak",
+  "nama": "Salak",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "salak",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "nanas",
+  "nama": "Nanas",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "nanas",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "nangka",
+  "nama": "Nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "nangka",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "cempedak",
+  "nama": "Cempedak",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "cempedak",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "sukun",
+  "nama": "Sukun",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "sukun",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "sirsak",
+  "nama": "Sirsak",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "sirsak",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "srikaya",
+  "nama": "Srikaya",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "srikaya",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "sawo",
+  "nama": "Sawo",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "sawo",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "belimbing",
+  "nama": "Belimbing",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "belimbing",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "buah-naga",
+  "nama": "Buah naga",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "buah-naga",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "delima",
+  "nama": "Delima",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "delima",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kelengkeng",
+  "nama": "Kelengkeng",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "kelengkeng",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kedondong",
+  "nama": "Kedondong",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "kedondong",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "matoa",
+  "nama": "Matoa",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "matoa",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kecapi",
+  "nama": "Kecapi",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "kecapi",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jamblang",
+  "nama": "Jamblang",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jamblang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "petai",
+  "nama": "Petai",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "petai",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jengkol",
+  "nama": "Jengkol",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jengkol",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "melinjo",
+  "nama": "Melinjo",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "melinjo",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daun-melinjo",
+  "nama": "Daun melinjo",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "melinjo",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "buah-kopi",
+  "nama": "Buah kopi",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kopi",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "biji-kakao",
+  "nama": "Biji kakao",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kakao",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kelapa",
+  "nama": "Kelapa",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kelapa",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kelapa-muda",
+  "nama": "Kelapa muda",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kelapa",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "pucuk-teh",
+  "nama": "Pucuk teh",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "teh",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "cengkeh",
+  "nama": "Cengkeh",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "cengkeh",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "biji-pala",
+  "nama": "Biji pala",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "pala",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "fuli",
+  "nama": "Fuli",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "pala",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "lada",
+  "nama": "Lada",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "lada",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kayu-manis",
+  "nama": "Kayu manis",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kayu-manis",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "vanili",
+  "nama": "Vanili",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "vanili",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kapulaga",
+  "nama": "Kapulaga",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kapulaga",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kemiri",
+  "nama": "Kemiri",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kemiri",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "asam-jawa",
+  "nama": "Asam jawa",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "asam-jawa",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "kluwek",
+  "nama": "Kluwek",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kluwek",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "pinang",
+  "nama": "Pinang",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "pinang",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "biji-jambu-mete",
+  "nama": "Biji jambu mete",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "jambu-mete",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "nira-aren",
+  "nama": "Nira aren",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "aren",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "tebu",
+  "nama": "Tebu",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "tebu",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "tandan-sawit",
+  "nama": "Tandan sawit",
+  "kelompok": "Perkebunan dan rempah",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": "kelapa-sawit",
+  "bab_dikenal": 4
+ },
+ {
+  "id": "batang-sagu",
+  "nama": "Batang sagu",
+  "kelompok": "Pangan rawa",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "rawa",
+  "tanaman": "sagu",
+  "bab_dikenal": 5
+ },
+ {
+  "id": "mawar-potong",
+  "nama": "Mawar potong",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "mawar",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "krisan-potong",
+  "nama": "Krisan potong",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "krisan",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "sedap-malam",
+  "nama": "Sedap malam",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "sedap-malam",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "gladiol",
+  "nama": "Gladiol",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "gladiol",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "gerbera",
+  "nama": "Gerbera",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "gerbera",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bunga-melati",
+  "nama": "Bunga melati",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "melati",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "anggrek-potong",
+  "nama": "Anggrek potong",
+  "kelompok": "Bunga pasar",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "anggrek",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-tiram",
+  "nama": "Jamur tiram",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-kuping",
+  "nama": "Jamur kuping",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-merang",
+  "nama": "Jamur merang",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-kancing",
+  "nama": "Jamur kancing",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-shiitake",
+  "nama": "Jamur shiitake",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "lele",
+  "nama": "Lele",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "nila",
+  "nama": "Nila",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gurami",
+  "nama": "Gurami",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "patin",
+  "nama": "Patin",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-mas",
+  "nama": "Ikan mas",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "mujair",
+  "nama": "Mujair",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-bawal-air-tawar",
+  "nama": "Ikan bawal air tawar",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-gabus",
+  "nama": "Ikan gabus",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bandeng",
+  "nama": "Bandeng",
+  "kelompok": "Hasil tambak",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "tambak",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "udang-vaname",
+  "nama": "Udang vaname",
+  "kelompok": "Hasil tambak",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "tambak",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "udang-windu",
+  "nama": "Udang windu",
+  "kelompok": "Hasil tambak",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "tambak",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kepiting-bakau",
+  "nama": "Kepiting bakau",
+  "kelompok": "Hasil tambak",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "tambak",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "tongkol",
+  "nama": "Tongkol",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "tuna",
+  "nama": "Tuna",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "cakalang",
+  "nama": "Cakalang",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kembung",
+  "nama": "Kembung",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "teri",
+  "nama": "Teri",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "tenggiri",
+  "nama": "Tenggiri",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kakap-merah",
+  "nama": "Kakap merah",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kerapu",
+  "nama": "Kerapu",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "selar",
+  "nama": "Selar",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "bawal-laut",
+  "nama": "Bawal laut",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "cumi-cumi",
+  "nama": "Cumi-cumi",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "sotong",
+  "nama": "Sotong",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "gurita",
+  "nama": "Gurita",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "rajungan",
+  "nama": "Rajungan",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kerang-darah",
+  "nama": "Kerang darah",
+  "kelompok": "Hasil perairan",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "rumput-laut",
+  "nama": "Rumput laut",
+  "kelompok": "Budidaya laut",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kerang-hijau",
+  "nama": "Kerang hijau",
+  "kelompok": "Budidaya laut",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "daging-sapi",
+  "nama": "Daging sapi",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daging-kambing",
+  "nama": "Daging kambing",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daging-domba",
+  "nama": "Daging domba",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daging-kerbau",
+  "nama": "Daging kerbau",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "ayam-ras",
+  "nama": "Ayam ras",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "ayam-kampung",
+  "nama": "Ayam kampung",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daging-bebek",
+  "nama": "Daging bebek",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "hati-ayam",
+  "nama": "Hati ayam",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "ampela-ayam",
+  "nama": "Ampela ayam",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "ceker-ayam",
+  "nama": "Ceker ayam",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "daging-puyuh",
+  "nama": "Daging puyuh",
+  "kelompok": "Hasil ternak",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "telur-ayam-ras",
+  "nama": "Telur ayam ras",
+  "kelompok": "Telur",
+  "satuan": "butir",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "telur-ayam-kampung",
+  "nama": "Telur ayam kampung",
+  "kelompok": "Telur",
+  "satuan": "butir",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "telur-bebek",
+  "nama": "Telur bebek",
+  "kelompok": "Telur",
+  "satuan": "butir",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "telur-puyuh",
+  "nama": "Telur puyuh",
+  "kelompok": "Telur",
+  "satuan": "butir",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "susu-sapi",
+  "nama": "Susu sapi",
+  "kelompok": "Susu",
+  "satuan": "liter",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "susu-kambing",
+  "nama": "Susu kambing",
+  "kelompok": "Susu",
+  "satuan": "liter",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "garam-krosok",
+  "nama": "Garam krosok",
+  "kelompok": "Bahan mineral",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "garam",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "bawang-bombai",
+  "nama": "Bawang bombai",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gandum",
+  "nama": "Gandum",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-almond",
+  "nama": "Kacang almond",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pistachio",
+  "nama": "Pistachio",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kurma",
+  "nama": "Kurma",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pir",
+  "nama": "Pir",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kiwi",
+  "nama": "Kiwi",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "anggur",
+  "nama": "Anggur",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ketumbar-biji",
+  "nama": "Ketumbar biji",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jintan",
+  "nama": "Jintan",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bunga-lawang",
+  "nama": "Bunga lawang",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-polong-kering",
+  "nama": "Kacang polong kering",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "salmon",
+  "nama": "Salmon",
+  "kelompok": "Pasokan antardaerah atau impor",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-putih",
+  "nama": "Beras putih",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-ketan-putih",
+  "nama": "Beras ketan putih",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-ketan-hitam",
+  "nama": "Beras ketan hitam",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-beras",
+  "nama": "Tepung beras",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-ketan",
+  "nama": "Tepung ketan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-terigu",
+  "nama": "Tepung terigu",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-tapioka",
+  "nama": "Tepung tapioka",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-sagu",
+  "nama": "Tepung sagu",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-maizena",
+  "nama": "Tepung maizena",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tempe",
+  "nama": "Tempe",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tahu-putih",
+  "nama": "Tahu putih",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kecap-manis",
+  "nama": "Kecap manis",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "susu-kedelai",
+  "nama": "Susu kedelai",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gula-pasir",
+  "nama": "Gula pasir",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gula-aren",
+  "nama": "Gula aren",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "santan",
+  "nama": "Santan",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "minyak-kelapa",
+  "nama": "Minyak kelapa",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "minyak-goreng-sawit",
+  "nama": "Minyak goreng sawit",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kopi-bubuk",
+  "nama": "Kopi bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "teh-kering",
+  "nama": "Teh kering",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kakao-bubuk",
+  "nama": "Kakao bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-teri-kering",
+  "nama": "Ikan teri kering",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-asin-kembung",
+  "nama": "Ikan asin kembung",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "telur-asin",
+  "nama": "Telur asin",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kerupuk-udang",
+  "nama": "Kerupuk udang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "emping",
+  "nama": "Emping",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tape-singkong",
+  "nama": "Tape singkong",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "sale-pisang",
+  "nama": "Sale pisang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keripik-pisang",
+  "nama": "Keripik pisang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "acar-timun",
+  "nama": "Acar timun",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bawang-goreng",
+  "nama": "Bawang goreng",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "garam-konsumsi",
+  "nama": "Garam konsumsi",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "mentega",
+  "nama": "Mentega",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keju",
+  "nama": "Keju",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "yoghurt",
+  "nama": "Yoghurt",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bihun-beras",
+  "nama": "Bihun beras",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "mi-telur",
+  "nama": "Mi telur",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pohpohan",
+  "nama": "Pohpohan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "pohpohan",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tespong",
+  "nama": "Tespong",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "tespong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kedondong",
+  "nama": "Daun kedondong",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kedondong",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-mangkokan",
+  "nama": "Daun mangkokan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "mangkokan",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-ketumbar",
+  "nama": "Daun ketumbar",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "ketumbar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kucai",
+  "nama": "Daun kucai",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kucai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-bawang-lokio",
+  "nama": "Daun bawang lokio",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "lokio",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-pegagan",
+  "nama": "Daun pegagan",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "pegagan",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-cincau-hijau",
+  "nama": "Daun cincau hijau",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "cincau-hijau",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-suji",
+  "nama": "Daun suji",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "suji",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-kecombrang",
+  "nama": "Daun kecombrang",
+  "kelompok": "Lalapan dan bumbu pekarangan",
+  "satuan": "ikat",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kecombrang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bunga-kecombrang",
+  "nama": "Bunga kecombrang",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "kecombrang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "temu-hitam",
+  "nama": "Temu hitam",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "temu-hitam",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "temu-putih",
+  "nama": "Temu putih",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "temu-putih",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bangle",
+  "nama": "Bangle",
+  "kelompok": "Bunga dan rimpang bumbu",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "rumah",
+  "tanaman": "bangle",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "krai",
+  "nama": "Krai",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "krai",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tomat-ceri",
+  "nama": "Tomat ceri",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "tomat",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "terung-bulat",
+  "nama": "Terung bulat",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "terung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "terung-putih",
+  "nama": "Terung putih",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "terung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-gendot",
+  "nama": "Cabai gendot",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "cabai-gendot",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-panjang-ungu",
+  "nama": "Kacang panjang ungu",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kacang-panjang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-koro-pedang",
+  "nama": "Kacang koro pedang",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "kacang-koro-pedang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-ubi-jalar",
+  "nama": "Daun ubi jalar",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "ubi-jalar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pucuk-labu-siam",
+  "nama": "Pucuk labu siam",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "labu-siam",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "buah-pepaya-muda",
+  "nama": "Buah pepaya muda",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "pepaya",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bunga-pepaya",
+  "nama": "Bunga pepaya",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "pepaya",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "daun-pepaya",
+  "nama": "Daun pepaya",
+  "kelompok": "Sayur buah dan daun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "kebun",
+  "tanaman": "pepaya",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "wortel-mini",
+  "nama": "Wortel mini",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "wortel",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kentang-merah",
+  "nama": "Kentang merah",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kentang",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "radis",
+  "nama": "Radis",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "radis",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "selada-romaine",
+  "nama": "Selada romaine",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "selada",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "selada-keriting",
+  "nama": "Selada keriting",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "selada",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "selada-merah",
+  "nama": "Selada merah",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "selada",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kale",
+  "nama": "Kale",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kale",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "swiss-chard",
+  "nama": "Swiss chard",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "swiss-chard",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "adas",
+  "nama": "Adas",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "adas",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "daun-bawang-prei",
+  "nama": "Daun bawang prei",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "bawang-prei",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kohlrabi",
+  "nama": "Kohlrabi",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kohlrabi",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "kubis-brussel",
+  "nama": "Kubis brussel",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "kubis-brussel",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "parsnip",
+  "nama": "Parsnip",
+  "kelompok": "Sayur lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "parsnip",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "terung-belanda",
+  "nama": "Terung belanda",
+  "kelompok": "Buah lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "terung-belanda",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "murbei",
+  "nama": "Murbei",
+  "kelompok": "Buah lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "murbei",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "rasberi",
+  "nama": "Rasberi",
+  "kelompok": "Buah lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "rasberi",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "ciplukan",
+  "nama": "Ciplukan",
+  "kelompok": "Buah lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "ciplukan",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "labu-kabocha",
+  "nama": "Labu kabocha",
+  "kelompok": "Buah lereng",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "lereng",
+  "tanaman": "labu-kuning",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "ubi-cilembu",
+  "nama": "Ubi Cilembu",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "ubi-jalar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ubi-putih",
+  "nama": "Ubi putih",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "ubi-jalar",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gembili",
+  "nama": "Gembili",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "gembili",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gadung",
+  "nama": "Gadung",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "gadung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "suweg",
+  "nama": "Suweg",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "suweg",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bengkuang",
+  "nama": "Bengkuang",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "bengkuang",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "hanjeli",
+  "nama": "Hanjeli",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "hanjeli",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-bogor",
+  "nama": "Kacang bogor",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-bogor",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-gude",
+  "nama": "Kacang gude",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-gude",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-komak",
+  "nama": "Kacang komak",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "kacang-komak",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "biji-bunga-matahari",
+  "nama": "Biji bunga matahari",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "bunga-matahari",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jagung-pulut",
+  "nama": "Jagung pulut",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "jagung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jagung-muda",
+  "nama": "Jagung muda",
+  "kelompok": "Umbi dan biji",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "ladang",
+  "tanaman": "jagung",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gabah-beras-merah",
+  "nama": "Gabah beras merah",
+  "kelompok": "Hasil sawah",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "sawah",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gabah-beras-hitam-nonketan",
+  "nama": "Gabah beras hitam nonketan",
+  "kelompok": "Hasil sawah",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "sawah",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pisang-tanduk",
+  "nama": "Pisang tanduk",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pisang-nangka",
+  "nama": "Pisang nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pisang-susu",
+  "nama": "Pisang susu",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "pisang-mas",
+  "nama": "Pisang mas",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "pisang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "mangga-gedong-gincu",
+  "nama": "Mangga gedong gincu",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "mangga",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "mangga-arumanis",
+  "nama": "Mangga arumanis",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "mangga",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "mangga-indramayu",
+  "nama": "Mangga indramayu",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "mangga",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jambu-kristal",
+  "nama": "Jambu kristal",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jambu-biji",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jambu-bol",
+  "nama": "Jambu bol",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jambu-bol",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "jambu-mawar",
+  "nama": "Jambu mawar",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "jambu-mawar",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "nangka-muda",
+  "nama": "Nangka muda",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "nangka",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "biji-nangka",
+  "nama": "Biji nangka",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "nangka",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kawista",
+  "nama": "Kawista",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "kawista",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "buah-mentega",
+  "nama": "Buah mentega",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "buah-mentega",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "gandaria",
+  "nama": "Gandaria",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "gandaria",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "bacang",
+  "nama": "Bacang",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "bacang",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kweni",
+  "nama": "Kweni",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "kweni",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "rukam",
+  "nama": "Rukam",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "rukam",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "cermai",
+  "nama": "Cermai",
+  "kelompok": "Buah dan hasil kebun",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "buah",
+  "tanaman": "cermai",
+  "bab_dikenal": 3
+ },
+ {
+  "id": "helikonia",
+  "nama": "Helikonia",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "helikonia",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "anthurium-potong",
+  "nama": "Anthurium potong",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "anthurium",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "anyelir",
+  "nama": "Anyelir",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "anyelir",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bunga-matahari-potong",
+  "nama": "Bunga matahari potong",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "bunga-matahari",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "lili-potong",
+  "nama": "Lili potong",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "lili",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "aster-potong",
+  "nama": "Aster potong",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "aster",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "bunga-telang",
+  "nama": "Bunga telang",
+  "kelompok": "Florikultura",
+  "satuan": "tangkai",
+  "jalur": "Tanam",
+  "zona": "bunga",
+  "tanaman": "telang",
+  "bab_dikenal": 2
+ },
+ {
+  "id": "gabah-padi-rawa",
+  "nama": "Gabah padi rawa",
+  "kelompok": "Hasil petak rawa",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "cekungan-air-tawar",
+  "tanaman": "padi",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kangkung-air",
+  "nama": "Kangkung air",
+  "kelompok": "Hasil petak rawa",
+  "satuan": "kg",
+  "jalur": "Tanam",
+  "zona": "cekungan-air-tawar",
+  "tanaman": "kangkung-air",
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jamur-tiram-merah-muda",
+  "nama": "Jamur tiram merah muda",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-tiram-kuning",
+  "nama": "Jamur tiram kuning",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-kuping-putih",
+  "nama": "Jamur kuping putih",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "jamur-tiram-raja",
+  "nama": "Jamur tiram raja",
+  "kelompok": "Jamur",
+  "satuan": "kg",
+  "jalur": "Budidaya jamur",
+  "zona": "kumbung",
+  "tanaman": null,
+  "bab_dikenal": 2
+ },
+ {
+  "id": "nilem",
+  "nama": "Nilem",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tawes",
+  "nama": "Tawes",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "sepat-siam",
+  "nama": "Sepat siam",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "belut-sawah",
+  "nama": "Belut sawah",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "udang-galah",
+  "nama": "Udang galah",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-betok",
+  "nama": "Ikan betok",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tambakan",
+  "nama": "Tambakan",
+  "kelompok": "Ikan air tawar",
+  "satuan": "kg",
+  "jalur": "Budidaya air tawar",
+  "zona": "kolam",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "layang",
+  "nama": "Layang",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "layur",
+  "nama": "Layur",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "belanak",
+  "nama": "Belanak",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "ikan-sebelah",
+  "nama": "Ikan sebelah",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kuwe",
+  "nama": "Kuwe",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "barakuda",
+  "nama": "Barakuda",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "julung-julung",
+  "nama": "Julung-julung",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "ikan-ekor-kuning",
+  "nama": "Ikan ekor kuning",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "lemuru",
+  "nama": "Lemuru",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "ikan-baronang",
+  "nama": "Ikan baronang",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kakap-putih",
+  "nama": "Kakap putih",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "gulamah",
+  "nama": "Gulamah",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kuro",
+  "nama": "Kuro",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "manyung",
+  "nama": "Manyung",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kerang-bambu",
+  "nama": "Kerang bambu",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "kerang-simping",
+  "nama": "Kerang simping",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "lobster-laut",
+  "nama": "Lobster laut",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "dada-ayam",
+  "nama": "Dada ayam",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "paha-ayam",
+  "nama": "Paha ayam",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "sayap-ayam",
+  "nama": "Sayap ayam",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "tulang-ayam",
+  "nama": "Tulang ayam",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "iga-sapi",
+  "nama": "Iga sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "buntut-sapi",
+  "nama": "Buntut sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "babat-sapi",
+  "nama": "Babat sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kikil-sapi",
+  "nama": "Kikil sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "hati-sapi",
+  "nama": "Hati sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "lidah-sapi",
+  "nama": "Lidah sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "sumsum-sapi",
+  "nama": "Sumsum sapi",
+  "kelompok": "Hasil peternakan",
+  "satuan": "kg",
+  "jalur": "Pasokan peternak",
+  "zona": "ternak",
+  "tanaman": null,
+  "bab_dikenal": 3
+ },
+ {
+  "id": "kacang-kenari",
+  "nama": "Kacang kenari",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-hazel",
+  "nama": "Kacang hazel",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-arab",
+  "nama": "Kacang arab",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-lentil-merah",
+  "nama": "Kacang lentil merah",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kacang-walnut",
+  "nama": "Kacang walnut",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kismis-hitam",
+  "nama": "Kismis hitam",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "biji-chia",
+  "nama": "Biji chia",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "oat",
+  "nama": "Oat",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jelai",
+  "nama": "Jelai",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "biji-labu-kupas",
+  "nama": "Biji labu kupas",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kapulaga-hijau-impor",
+  "nama": "Kapulaga hijau impor",
+  "kelompok": "Pasokan pedagang",
+  "satuan": "kg",
+  "jalur": "Pasokan pedagang",
+  "zona": "pasar",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "buah-aren",
+  "nama": "Buah aren",
+  "kelompok": "Hasil kebun kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "kebun-rakyat",
+  "tanaman": null,
+  "bab_dikenal": 4
+ },
+ {
+  "id": "udang-rebon",
+  "nama": "Udang rebon",
+  "kelompok": "Hasil perikanan kiriman",
+  "satuan": "kg",
+  "jalur": "Pasokan mitra luar daerah",
+  "zona": "laut",
+  "tanaman": null,
+  "bab_dikenal": 5
+ },
+ {
+  "id": "beras-merah",
+  "nama": "Beras merah",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-hitam-nonketan",
+  "nama": "Beras hitam nonketan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-pecah-kulit",
+  "nama": "Beras pecah kulit",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bekatul-beras",
+  "nama": "Bekatul beras",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "menir-beras",
+  "nama": "Menir beras",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-jagung",
+  "nama": "Beras jagung",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "popcorn-tawar",
+  "nama": "Popcorn tawar",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "mocaf",
+  "nama": "Mocaf",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gaplek",
+  "nama": "Gaplek",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tiwul",
+  "nama": "Tiwul",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-ubi-jalar",
+  "nama": "Tepung ubi jalar",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-garut",
+  "nama": "Tepung garut",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-sorgum",
+  "nama": "Tepung sorgum",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-kacang-hijau",
+  "nama": "Tepung kacang hijau",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-hunkwe",
+  "nama": "Tepung hunkwe",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-kedelai",
+  "nama": "Tepung kedelai",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tepung-pisang",
+  "nama": "Tepung pisang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ampas-tahu",
+  "nama": "Ampas tahu",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bungkil-kacang-tanah",
+  "nama": "Bungkil kacang tanah",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "oncom-merah",
+  "nama": "Oncom merah",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "oncom-hitam",
+  "nama": "Oncom hitam",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tauge-kacang-hijau",
+  "nama": "Tauge kacang hijau",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kecambah-kedelai",
+  "nama": "Kecambah kedelai",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tahu-kuning",
+  "nama": "Tahu kuning",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tempe-gembus",
+  "nama": "Tempe gembus",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tauco",
+  "nama": "Tauco",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kembang-tahu-kering",
+  "nama": "Kembang tahu kering",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "gula-semut-aren",
+  "nama": "Gula semut aren",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kolang-kaling",
+  "nama": "Kolang-kaling",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kelapa-parut",
+  "nama": "Kelapa parut",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kopra",
+  "nama": "Kopra",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kopi-beras",
+  "nama": "Kopi beras",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kopi-sangrai",
+  "nama": "Kopi sangrai",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kopi-jahe",
+  "nama": "Kopi jahe",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "teh-melati",
+  "nama": "Teh melati",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "teh-serai",
+  "nama": "Teh serai",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "lada-bubuk",
+  "nama": "Lada bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-bubuk",
+  "nama": "Cabai bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cabai-kering",
+  "nama": "Cabai kering",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "jahe-bubuk",
+  "nama": "Jahe bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kunyit-bubuk",
+  "nama": "Kunyit bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ketumbar-bubuk",
+  "nama": "Ketumbar bubuk",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "pindang-tongkol",
+  "nama": "Pindang tongkol",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bandeng-presto",
+  "nama": "Bandeng presto",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bandeng-asap",
+  "nama": "Bandeng asap",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "abon-ikan",
+  "nama": "Abon ikan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "abon-sapi",
+  "nama": "Abon sapi",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ebi",
+  "nama": "Ebi",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "terasi-udang",
+  "nama": "Terasi udang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "ikan-asin-gabus",
+  "nama": "Ikan asin gabus",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keripik-tempe",
+  "nama": "Keripik tempe",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keripik-singkong",
+  "nama": "Keripik singkong",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keripik-sukun",
+  "nama": "Keripik sukun",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "keripik-talas",
+  "nama": "Keripik talas",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "dodol-ketan",
+  "nama": "Dodol ketan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "wajit-ketan",
+  "nama": "Wajit ketan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "rengginang",
+  "nama": "Rengginang",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "opak-ketan",
+  "nama": "Opak ketan",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "combro",
+  "nama": "Combro",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "misro",
+  "nama": "Misro",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "cireng",
+  "nama": "Cireng",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "colenak",
+  "nama": "Colenak",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "lotek",
+  "nama": "Lotek",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "karedok",
+  "nama": "Karedok",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "sambal-oncom",
+  "nama": "Sambal oncom",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "tutug-oncom",
+  "nama": "Tutug oncom",
+  "kelompok": "Produk olahan",
+  "satuan": "kg",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bandrek",
+  "nama": "Bandrek",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "bajigur",
+  "nama": "Bajigur",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "beras-kencur",
+  "nama": "Beras kencur",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ },
+ {
+  "id": "kunyit-asam",
+  "nama": "Kunyit asam",
+  "kelompok": "Produk olahan",
+  "satuan": "liter",
+  "jalur": "Pengolahan mitra",
+  "zona": "dapur",
+  "tanaman": null,
+  "bab_dikenal": 1
+ }
+]

@@ -13,5 +13,14 @@ coverage/
 *.tsbuildinfo
 supabase/.temp/
 
-# Docker runtime data, character identities and editorial reports (private)
+# The canonical NPC roster and manual legacy approvals are private, not versioned.
 deploy/private/
+**/residents.json
+**/approved-legacy.json
+
+# Private canonical/Character Bible exports must not be added from any folder.
+**/*_PRIVATE.json
+**/*_PRIVATE.json.*
+**/character-bibles.json
+**/character-bibles.json.backup-*
+**/*_ENRICHED_DRAFT_PRIVATE.json

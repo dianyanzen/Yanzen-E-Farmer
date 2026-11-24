@@ -36,7 +36,8 @@ export async function proxy(request: NextRequest) {
 
   if (isNavigation && (isEntry || isInternal)) {
     const { data } = await supabase.auth.getUser();
-    const destination = data.user ? (isEntry ? '/home' : null) : (isInternal ? '/' : null);
+    const landingForUser = process.env.NEXT_PUBLIC_YZ_GAME_PLAYTEST==='1' ? '/game' : '/home';
+    const destination = data.user ? (isEntry ? landingForUser : null) : (isInternal ? '/' : null);
     if (destination) {
       const redirect = NextResponse.redirect(new URL(destination, request.url));
       for (const cookie of response.cookies.getAll()) redirect.cookies.set(cookie);

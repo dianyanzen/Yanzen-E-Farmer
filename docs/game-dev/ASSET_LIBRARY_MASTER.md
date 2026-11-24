@@ -1,4 +1,7 @@
 # YZ Farm Life — Perpustakaan Aset, Konsistensi Potret, dan Experience Hooks v1.0
+
+> **ATURAN MUTLAK TERBARU — 24 November 2026:** Semua aset game termasuk setiap frame animasi, setiap ekspresi NPC, tile, furnitur, bangunan, dan efek **wajib berupa file individual milik satu entitas**, tanpa spritesheet, atlas, sumber gambar gabungan, teknik cutting/cropping dari sheet, atau penggunaan file bersama lintas entitas/instance. Tidak boleh mengemas ulang ke atlas pada runtime. Baca [Atomic Assets & Yanzen Scale Standard](./ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md) dan skill [yz-farm-atomic-assets](../../.agents/skills/yz-farm-atomic-assets/SKILL.md). Kunci skala tubuh dan titik kaki Yanzen di semua animasi. Instruksi historis dalam dokumen ini yang menyarankan atlas, sheet, shared asset, atau cutting **tidak berlaku lagi**. Aset lama dimigrasikan bertahap dan tidak boleh dihapus sebelum QA/rollback.
+
 **Audit berbasis GitHub `main` SHA `3330580b90a75f194f7f96b5e48326b7e1945c4e` (21 Nov 2026)**
 
 > Instruksi pemilik: **aset boleh jauh lebih banyak daripada isi peta awal.** Perpustakaan aset disiapkan untuk perkembangan Pasirluyu → Regol → Bandung tanpa redraw massal setiap ekspansi. Yang harus kecil adalah **aset yang dimuat runtime dan konten aktif per zona**, bukan seluruh vault. Fokus pengalaman bermain, bukan sekadar jumlah gambar.

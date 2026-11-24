@@ -1,0 +1,12 @@
+{
+ "type": "tileset",
+ "version": "1.10",
+ "name": "Bandung",
+ "tilewidth": 16,
+ "tileheight": 16,
+ "tilecount": 17,
+ "columns": 17,
+ "image": "ubin.png",
+ "imagewidth": 272,
+ "imageheight": 16
+}

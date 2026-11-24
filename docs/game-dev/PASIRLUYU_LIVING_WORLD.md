@@ -1,4 +1,4 @@
-# YZ Farm Life — Living Pasirluyu World Blueprint
+> **CATATAN STATUS (22 November 2026):** Dokumen ini menyimpan hasil penelitian/perencanaan sebelumnya, bukan aturan runtime terbaru. Roster 248 canonical ada di `game-assets/catalog/npc-public-roster.json`; presentasi Warga mengikuti `src/lib/game/public-wargapedia.ts`. Baca `AGENTS.md` dan `docs/game-dev/README.md` sebelum memakai bagian lama sebagai instruksi.\n\n# YZ Farm Life — Living Pasirluyu World Blueprint
 Version: v0.2 (prototype, 19 November 2026). Location: Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung. All world layouts and stories are fictionalized game designs, not a GIS-accurate representation of real homes or citizens.
 
 ## Product vision

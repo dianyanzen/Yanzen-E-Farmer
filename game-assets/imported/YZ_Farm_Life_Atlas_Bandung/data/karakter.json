@@ -1,0 +1,632 @@
+[
+ {
+  "id": "A01",
+  "nama": "Yanzen",
+  "peran": "main-character",
+  "pekerjaan": "Petani dan pengelola kebun",
+  "alasan_desain": "Rompi kerja dan pakaian lapangan menjadi arah desain petani utama yang aktif menjelajah.",
+  "properti_usulan": "Gembor",
+  "prioritas_berikut": "Empat animasi kerja tani"
+ },
+ {
+  "id": "A02",
+  "nama": "Nabila",
+  "peran": "npc",
+  "pekerjaan": "Perawat kebun bunga",
+  "alasan_desain": "Tunik sage memberi arah palet untuk kebun bunga; sifat dan minat merupakan pilihan cerita.",
+  "properti_usulan": "Gunting bunga",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A03",
+  "nama": "Ryan",
+  "peran": "npc",
+  "pekerjaan": "Pengelola irigasi",
+  "alasan_desain": "Ciri visual lebih matang dan baju kerja ochre cocok untuk rancangan mentor pekerjaan lapangan.",
+  "properti_usulan": "Pintu air",
+  "prioritas_berikut": "Tiga ekspresi dialog dan interaksi cerita"
+ },
+ {
+  "id": "A04",
+  "nama": "Ayu",
+  "peran": "npc",
+  "pekerjaan": "Penjual benih",
+  "alasan_desain": "Palet biru lembut dipakai untuk karakter toko benih yang mudah dikenali.",
+  "properti_usulan": "Rak benih",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A05",
+  "nama": "Vicky",
+  "peran": "npc",
+  "pekerjaan": "Teknisi alat pertanian",
+  "alasan_desain": "Kacamata dan kemeja teal menjadi ciri desain teknisi; kemampuan teknis ditetapkan untuk cerita.",
+  "properti_usulan": "Kotak perkakas",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A06",
+  "nama": "Asep",
+  "peran": "npc",
+  "pekerjaan": "Kurir hasil kebun",
+  "alasan_desain": "Kemeja jingga dan siluet muda memberi arah karakter kurir yang dinamis.",
+  "properti_usulan": "Peti kiriman",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A07",
+  "nama": "Dewi",
+  "peran": "npc",
+  "pekerjaan": "Pengelola persemaian",
+  "alasan_desain": "Kesan visual dewasa dan palet taupe-olive dipakai untuk rancangan pembimbing persemaian.",
+  "properti_usulan": "Baki semai",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A08",
+  "nama": "Astri",
+  "peran": "npc",
+  "pekerjaan": "Perajin keranjang",
+  "alasan_desain": "Sanggul dan pakaian terracotta menjadi identitas visual perajin di pasar desa.",
+  "properti_usulan": "Keranjang bambu",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A09",
+  "nama": "Fajar",
+  "peran": "npc",
+  "pekerjaan": "Fotografer desa",
+  "alasan_desain": "Kacamata dan palet plum membedakannya sebagai karakter dokumentasi alam dalam cerita.",
+  "properti_usulan": "Kamera",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A10",
+  "nama": "Dadan",
+  "peran": "npc",
+  "pekerjaan": "Penjaga kebun bersama",
+  "alasan_desain": "Alis tegas dan kemeja hijau menjadi arah desain penjaga kebun; sifat merupakan rancangan fiktif.",
+  "properti_usulan": "Kunci gerbang",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A11",
+  "nama": "Anggi",
+  "peran": "npc",
+  "pekerjaan": "Pengelola pasar desa",
+  "alasan_desain": "Palet mauve-mustard dipakai sebagai penanda visual penghubung para pedagang.",
+  "properti_usulan": "Timbangan pasar",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A12",
+  "nama": "Denden",
+  "peran": "npc",
+  "pekerjaan": "Pengemudi angkutan panen",
+  "alasan_desain": "Siluet matang dan kemeja merah bata memberi arah karakter transportasi panen.",
+  "properti_usulan": "Mobil angkut",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A13",
+  "nama": "Nida",
+  "peran": "npc",
+  "pekerjaan": "Penjaga perpustakaan benih",
+  "alasan_desain": "Palet lavender dan navy digunakan untuk rancangan penjaga arsip benih; masker hanya unsur penampilan.",
+  "properti_usulan": "Jurnal benih",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A14",
+  "nama": "Desna",
+  "peran": "npc",
+  "pekerjaan": "Teknisi radio desa",
+  "alasan_desain": "Kacamata dan kemeja slate memberi identitas visual teknisi komunikasi desa.",
+  "properti_usulan": "Radio",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A15",
+  "nama": "Heru",
+  "peran": "npc",
+  "pekerjaan": "Pengurus koperasi tani",
+  "alasan_desain": "Overshirt olive dipakai untuk rancangan karakter yang menghubungkan para petani.",
+  "properti_usulan": "Buku koperasi",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "A16",
+  "nama": "Khansa",
+  "peran": "npc",
+  "pekerjaan": "Perancang sistem kebun",
+  "alasan_desain": "Sanggul tinggi, kacamata, dan palet rose menjadi identitas perancang; keahlian adalah pilihan cerita.",
+  "properti_usulan": "Sketsa bedengan",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C01",
+  "nama": "Nani",
+  "peran": "npc",
+  "pekerjaan": "Pekebun bunga senior",
+  "alasan_desain": "Ciri lansia dan motif bunga pada baju memberi arah mentor kebun bunga.",
+  "properti_usulan": "Pot melati",
+  "prioritas_berikut": "Tiga ekspresi dialog dan interaksi cerita"
+ },
+ {
+  "id": "C02",
+  "nama": "Risky",
+  "peran": "npc",
+  "pekerjaan": "Petani kebun buah",
+  "alasan_desain": "Kemeja olive dan ciri visual matang digunakan untuk rancangan petani kebun buah.",
+  "properti_usulan": "Bibit cangkok",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C03",
+  "nama": "Tatang",
+  "peran": "npc",
+  "pekerjaan": "Perajin kayu senior",
+  "alasan_desain": "Rambut abu-abu, kumis, kacamata, dan topi datar memberi identitas mentor kerajinan.",
+  "properti_usulan": "Mainan kayu",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C04",
+  "nama": "Desi",
+  "peran": "npc",
+  "pekerjaan": "Pembuat roti desa",
+  "alasan_desain": "Kardigan krem dan sanggul dipakai sebagai arah visual karakter toko roti.",
+  "properti_usulan": "Loyang roti",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C05",
+  "nama": "Eza",
+  "peran": "npc",
+  "pekerjaan": "Pelajar dan peserta klub kebun",
+  "alasan_desain": "Siluet remaja dan kemeja lilac cocok untuk rancangan pelajar; usia cerita tidak diambil dari data pegawai.",
+  "properti_usulan": "Catatan percobaan",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C06",
+  "nama": "Yani",
+  "peran": "npc",
+  "pekerjaan": "Mahasiswi pertanian",
+  "alasan_desain": "Hoodie krem dan kacamata dipakai untuk rancangan peserta belajar pertanian.",
+  "properti_usulan": "Jurnal lapangan",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C07",
+  "nama": "Widi",
+  "peran": "npc",
+  "pekerjaan": "Pedagang hasil bumi",
+  "alasan_desain": "Kemeja charcoal dan celana beige memberi arah visual pedagang hasil bumi.",
+  "properti_usulan": "Keranjang hasil",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C08",
+  "nama": "Inggit",
+  "peran": "npc",
+  "pekerjaan": "Penjual makanan pasar",
+  "alasan_desain": "Apron pada sprite menjadi petunjuk desain paling langsung untuk usaha makanan.",
+  "properti_usulan": "Meja warung",
+  "prioritas_berikut": "Tiga ekspresi dialog dan interaksi cerita"
+ },
+ {
+  "id": "C09",
+  "nama": "Bela",
+  "peran": "npc",
+  "pekerjaan": "Ilustrator desa",
+  "alasan_desain": "Kacamata dan overshirt olive digunakan sebagai identitas karakter pekerja kreatif.",
+  "properti_usulan": "Buku sketsa",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C10",
+  "nama": "Yogi",
+  "peran": "npc",
+  "pekerjaan": "Pencatat keuangan koperasi",
+  "alasan_desain": "Kemeja biru polos menjadi arah desain petugas pencatatan koperasi, bukan jabatan pegawai asli.",
+  "properti_usulan": "Buku kas",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C11",
+  "nama": "Ray",
+  "peran": "npc",
+  "pekerjaan": "Pemagang kebun keliling",
+  "alasan_desain": "Hoodie dan celana cargo memberi arah karakter pendatang yang belajar dari kebun ke kebun.",
+  "properti_usulan": "Tas lapangan",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C12",
+  "nama": "Fatihah",
+  "peran": "npc",
+  "pekerjaan": "Penjaga toko perlengkapan kebun",
+  "alasan_desain": "Tunik plum menjadi identitas penjaga toko sipil; atribut jabatan pada referensi tidak diadopsi.",
+  "properti_usulan": "Rak perkakas",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C13",
+  "nama": "Heri",
+  "peran": "npc",
+  "pekerjaan": "Penggerak kegiatan kampung",
+  "alasan_desain": "Peci, rambut beruban, dan motif baju digunakan untuk rancangan tokoh senior kampung tanpa jabatan resmi.",
+  "properti_usulan": "Papan kegiatan",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C14",
+  "nama": "Arya",
+  "peran": "npc",
+  "pekerjaan": "Kurir kebutuhan desa",
+  "alasan_desain": "Helm polos dan jaket kerja menjadi petunjuk desain profesi kurir tanpa merek.",
+  "properti_usulan": "Tas kurir",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "C15",
+  "nama": "Malik",
+  "peran": "npc",
+  "pekerjaan": "Perancang peta desa",
+  "alasan_desain": "Perancang peta dipilih untuk variasi pekerjaan dalam cerita, bukan disimpulkan dari kursi roda; mobilitas sprite tetap dipertahankan.",
+  "properti_usulan": "Peta lipat",
+  "prioritas_berikut": "Uji dorongan roda dan rute, susun potret dan interaksi"
+ },
+ {
+  "id": "C16",
+  "nama": "Karisma",
+  "peran": "npc",
+  "pekerjaan": "Perangkai bunga",
+  "alasan_desain": "Rambut panjang dan jaket denim memberi identitas visual perangkai bunga dengan gaya kasual.",
+  "properti_usulan": "Rangkaian bunga",
+  "prioritas_berikut": "Tentukan lokasi dan interaksi, lalu ekspor sprite dan potret"
+ },
+ {
+  "id": "P01",
+  "nama": "Dedi Mulyadi",
+  "peran": "npc",
+  "pekerjaan": "Gubernur Jawa Barat",
+  "alasan_desain": "Kameo dalam peristiwa fiksi",
+  "properti_usulan": "Papan ukur air",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "P02",
+  "nama": "Muhammad Farhan",
+  "peran": "npc",
+  "pekerjaan": "Wali Kota Bandung",
+  "alasan_desain": "Kameo dalam peristiwa fiksi",
+  "properti_usulan": "Peta akses pasar",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N01",
+  "nama": "Sinta",
+  "peran": "npc",
+  "pekerjaan": "Peternak unggas",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Keranjang telur",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N02",
+  "nama": "Surya",
+  "peran": "npc",
+  "pekerjaan": "Dokter hewan keliling",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Tas periksa ternak",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N03",
+  "nama": "Ratih",
+  "peran": "npc",
+  "pekerjaan": "Pemancing dan pengamat ikan",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Pelampung tua",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N04",
+  "nama": "Jalu",
+  "peran": "npc",
+  "pekerjaan": "Pembudidaya lebah",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Kerudung lebah",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N05",
+  "nama": "Laras",
+  "peran": "npc",
+  "pekerjaan": "Dokter klinik kampung",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Kartu giliran istirahat",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "N06",
+  "nama": "Ujang",
+  "peran": "npc",
+  "pekerjaan": "Perajin batu dan pengenal mineral",
+  "alasan_desain": "Tokoh fiksi jaringan kebun Bandung",
+  "properti_usulan": "Rak sampel batu",
+  "prioritas_berikut": "Potret konsep tersedia, sprite empat arah dalam backlog"
+ },
+ {
+  "id": "K01",
+  "nama": "Euis",
+  "peran": "npc",
+  "pekerjaan": "Koordinator ronda",
+  "alasan_desain": "Euis menunggu balasan dari pos yang sudah lama kosong. Ia belum tega mencoret nama tetangganya dari buku jaga.",
+  "properti_usulan": "Kentongan",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K02",
+  "nama": "Raka",
+  "peran": "npc",
+  "pekerjaan": "Montir sepeda",
+  "alasan_desain": "Raka membetulkan sepeda ayahnya tiga kali. Roda lurus ketika kosong, tetapi miring ketika membawa roti Desi.",
+  "properti_usulan": "Kunci jari-jari",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K03",
+  "nama": "Imas",
+  "peran": "npc",
+  "pekerjaan": "Pengelola penatu bersama",
+  "alasan_desain": "Imas mengenali jahitan sapu tangan yang tertinggal. Pemiliknya tak pernah datang pada jam buka penatu.",
+  "properti_usulan": "Papan peras",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K04",
+  "nama": "Gilang",
+  "peran": "npc",
+  "pekerjaan": "Pelukis papan toko",
+  "alasan_desain": "Papan Gilang terlihat jelas pada siang hari. Menjelang petang, bayangan kisi menelan satu huruf nama toko.",
+  "properti_usulan": "Kuas huruf",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K05",
+  "nama": "Mimin",
+  "peran": "npc",
+  "pekerjaan": "Peracik soto",
+  "alasan_desain": "Mimin masih menyisakan jatah untuk satu mangkuk biru meski pemiliknya telah pindah. Suatu pagi mangkuk itu kembali dalam keadaan retak.",
+  "properti_usulan": "Sendok kuah",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K06",
+  "nama": "Darsa",
+  "peran": "npc",
+  "pekerjaan": "Penggembala itik",
+  "alasan_desain": "Seekor itik selalu tertinggal di tikungan. Darsa yang mulai lambat berjalan mengira itu salahnya.",
+  "properti_usulan": "Tongkat pengarah",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K07",
+  "nama": "Wening",
+  "peran": "npc",
+  "pekerjaan": "Teknisi pengamatan air",
+  "alasan_desain": "Tulisan pada label luntur karena gerimis. Wening menolak menebak asal botol hanya berdasarkan warnanya.",
+  "properti_usulan": "Botol sampel",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K08",
+  "nama": "Teguh",
+  "peran": "npc",
+  "pekerjaan": "Penambal ban",
+  "alasan_desain": "Teguh mendengar pompa dipakai seusai tutup. Ternyata warga mengisi ban kursi roda sebelum pasar pagi.",
+  "properti_usulan": "Bak uji ban",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K09",
+  "nama": "Lastri",
+  "peran": "npc",
+  "pekerjaan": "Perawat properti pertunjukan",
+  "alasan_desain": "Satu figur selalu ditinggal di kotak karena siku kayunya berderit. Lastri tahu justru derit itu yang dirindukan mantan pemainnya.",
+  "properti_usulan": "Kuas lembut",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K10",
+  "nama": "Aam",
+  "peran": "npc",
+  "pekerjaan": "Perajin tahu",
+  "alasan_desain": "Aam hendak membuang cetakan pertama ibunya. Pelanggan justru mencari potongan pojok yang mudah menyerap kuah.",
+  "properti_usulan": "Cetakan tahu",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K11",
+  "nama": "Sasmita",
+  "peran": "npc",
+  "pekerjaan": "Juru cerita warga",
+  "alasan_desain": "Sasmita menerima dua versi kisah pada jembatan yang sama. Satu penutur bersedia menyebut nama hanya jika tidak direkam.",
+  "properti_usulan": "Buku dengar",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K12",
+  "nama": "Manda",
+  "peran": "npc",
+  "pekerjaan": "Pengamat satwa malam",
+  "alasan_desain": "Rekaman Manda mendadak sepi. Alatnya ternyata dipasang menghadap dinding setelah jemuran tetangga dipindah.",
+  "properti_usulan": "Detektor suara satwa",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K13",
+  "nama": "Tuti",
+  "peran": "npc",
+  "pekerjaan": "Konservator kertas",
+  "alasan_desain": "Tuti menemukan nama penjaga gedung pada belakang poster pertunjukan. Memajang poster menutupi satu-satunya catatan tentang dirinya.",
+  "properti_usulan": "Kuas arsip",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K14",
+  "nama": "Iqbal",
+  "peran": "npc",
+  "pekerjaan": "Perekam suara lapangan",
+  "alasan_desain": "Iqbal selalu memotong jeda panjang. Dalam jeda itu seorang anak mendengar bunyi bel sepeda kakeknya.",
+  "properti_usulan": "Perekam stereo",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K15",
+  "nama": "Rukmi",
+  "peran": "npc",
+  "pekerjaan": "Bidan kampung",
+  "alasan_desain": "Rukmi biasa mengingat rumah dari tanamannya. Pada malam hujan satu pagar baru menyembunyikan penandanya.",
+  "properti_usulan": "Tas kunjungan",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K16",
+  "nama": "Karta",
+  "peran": "npc",
+  "pekerjaan": "Penabuh benjang",
+  "alasan_desain": "Karta menghentikan latihan sebelum ketukan penutup. Ia biasa menyerahkannya pada rekan yang kini hanya sanggup datang sebagai penonton.",
+  "properti_usulan": "Pemukul kendang",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K17",
+  "nama": "Ajeng",
+  "peran": "npc",
+  "pekerjaan": "Perajin pewarna kain",
+  "alasan_desain": "Ajeng gagal mengulang warna pesanan lama. Potongan sampel ternyata selama bertahun-tahun tersimpan di balik manset.",
+  "properti_usulan": "Bak celup",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K18",
+  "nama": "Yuda",
+  "peran": "npc",
+  "pekerjaan": "Penyetem alat musik bambu",
+  "alasan_desain": "Satu tabung hanya terdengar sumbang ketika dimainkan di belakang panggung. Yuda malu mengakui ia tak pernah berdiri di sana saat latihan.",
+  "properti_usulan": "Penala nada",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K19",
+  "nama": "Lilis",
+  "peran": "npc",
+  "pekerjaan": "Teknisi mesin rajut",
+  "alasan_desain": "Lilis membetulkan pola lama sampai rapi. Pemesan kecewa karena satu tusuk kosong adalah tanda tangan neneknya.",
+  "properti_usulan": "Kait rajut",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K20",
+  "nama": "Oman",
+  "peran": "npc",
+  "pekerjaan": "Perajin sepatu",
+  "alasan_desain": "Oman pernah membuat sepasang sepatu yang ukurannya sama persis. Pemiliknya datang lagi membawa dua sol yang aus berbeda.",
+  "properti_usulan": "Acuan sepatu",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K21",
+  "nama": "Aci",
+  "peran": "npc",
+  "pekerjaan": "Perawat perabot enamel",
+  "alasan_desain": "Aci menemukan cangkir yang dulu ia lecetkan saat magang. Pemiliknya telah memakai bekas itu untuk garis takar.",
+  "properti_usulan": "Tang bibir enamel",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K22",
+  "nama": "Bima",
+  "peran": "npc",
+  "pekerjaan": "Penyiar radio malam",
+  "alasan_desain": "Setiap Kamis sebuah kartu pos meminta suara air, bukan lagu. Bima mengira pengirimnya satu orang sampai dua kartu tiba bersamaan.",
+  "properti_usulan": "Meja siar",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K23",
+  "nama": "Nenden",
+  "peran": "npc",
+  "pekerjaan": "Pengasuh hewan titipan",
+  "alasan_desain": "Seekor kucing datang saat kios tutup dan tak pernah mau ikut pulang. Dua warga sama-sama menganggapnya milik mereka.",
+  "properti_usulan": "Pemindai identitas hewan",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K24",
+  "nama": "Tiar",
+  "peran": "npc",
+  "pekerjaan": "Penyusun label Braille",
+  "alasan_desain": "Tiar menemukan labelnya benar saat dibaca lepas tetapi terhalang bingkai rak. Ia meminta pengguna menentukan letak baru.",
+  "properti_usulan": "Papan reglet",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K25",
+  "nama": "Bagja",
+  "peran": "npc",
+  "pekerjaan": "Pengatur porter barang",
+  "alasan_desain": "Bagja menandai tiap troli lewat suara roda. Setelah semuanya diganti, seorang pekerja kehilangan cara mengenal troli bagiannya.",
+  "properti_usulan": "Troli lipat",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K26",
+  "nama": "Ningsih",
+  "peran": "npc",
+  "pekerjaan": "Pengelola gudang dingin",
+  "alasan_desain": "Ningsih membiarkan satu rak kosong saat musim kiriman ramai. Rak itu satu-satunya ruang untuk retur yang belum diketahui asalnya.",
+  "properti_usulan": "Pencatat suhu",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K27",
+  "nama": "Endah",
+  "peran": "npc",
+  "pekerjaan": "Penjahit pasar",
+  "alasan_desain": "Endah menemukan saku kedua di jaket lama kurir. Ada denah singkat jalan pasar yang tak pernah masuk peta.",
+  "properti_usulan": "Pita ukur",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K28",
+  "nama": "Ridho",
+  "peran": "npc",
+  "pekerjaan": "Kondektur angkutan fiktif",
+  "alasan_desain": "Ridho menyimpan karcis penumpang yang selalu turun sebelum ujung. Ternyata halte tujuan sulit dikenali ketika hujan.",
+  "properti_usulan": "Pelubang karcis",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K29",
+  "nama": "Empi",
+  "peran": "npc",
+  "pekerjaan": "Teknisi jam mekanis",
+  "alasan_desain": "Empi hendak membetulkan jam yang lambat tujuh menit. Pedagang menjelaskan jam itu dulu memberi kurir terakhir kesempatan ikut timbang.",
+  "properti_usulan": "Kunci pegas",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ },
+ {
+  "id": "K30",
+  "nama": "Mira",
+  "peran": "npc",
+  "pekerjaan": "Operator proyektor",
+  "alasan_desain": "Mira menemukan satu detik film yang selalu dihitamkan. Itu cara operator lama memberi aba-aba bagi penonton yang membacakan teks.",
+  "properti_usulan": "Penggulung film",
+  "prioritas_berikut": "Potret konsep dan alur tersedia; sprite gerak masih perlu dibuat"
+ }
+]

@@ -3,7 +3,7 @@
  * No state migration and no network call is required.
  */
 import {chapterJournal,NPCS,bondLevel,type GameState,type NpcId} from "./model";
-import {questObjective,tales} from "./personal-quests";
+import {questObjective,tales,followUpTales,followUpObjective} from "./personal-quests";
 
 export type ChronicleStatus="done"|"now"|"later";
 export type ChronicleBeat={id:string;title:string;description:string;status:ChronicleStatus};
@@ -30,12 +30,21 @@ export function phoneChronicle(s:GameState){
   description:m.done(s)?m.description(s):i===completed?journal.objective:"Belum sampai ke bagian ini.",
   status:m.done(s)?"done":i===completed?"now":"later"
  }));
- const missions=NPCS.map(npc=>{
+ const firstMissions=NPCS.map(npc=>{
   const q=s.personalQuests?.[npc.id];
   const status=q?.phase===4?"done":q?"active":"available";
   const step=q?.phase===1?"Mencari kabar":q?.phase===2?"Mengerjakan permintaan":q?.phase===3?"Menunggu kabar":q?.phase===4?"Selesai":"Belum dimulai";
-  return {id:npc.id as NpcId,npc:npc.name,title:tales[npc.id].title,status,step,objective:questObjective(s,npc.id)};
+  return {id:npc.id as NpcId,npcId:npc.id as NpcId,npc:npc.name,title:tales[npc.id].title,status,step,objective:questObjective(s,npc.id)};
  });
+ // Only reveal each follow-up once the player's first personal quest is finished.
+ const followUps=NPCS.filter(npc=>s.personalQuests?.[npc.id]?.phase===4).map(npc=>{
+  const q=s.followUpQuests?.[npc.id];
+  const status=q?.phase===3?"done":q?"active":"available";
+  const step=q?.phase===3?"Selesai":q?.phase===2?"Siap dilaporkan":q?"Sedang dikerjakan":"Belum dimulai";
+  return {id:npc.id+"-lanjutan",npcId:npc.id as NpcId,npc:npc.name,title:followUpTales[npc.id].title,
+    status,step,objective:followUpObjective(s,npc.id)};
+ });
+ const missions=[...firstMissions,...followUps];
  const finishedMissions=missions.filter(q=>q.status==="done").length;
  const activeMissions=missions.filter(q=>q.status==="active").length;
  const connected=NPCS.filter(n=>s.bonds[n.id]?.talks>0);

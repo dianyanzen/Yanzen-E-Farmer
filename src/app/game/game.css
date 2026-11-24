@@ -440,3 +440,245 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 .yzg-chronicle .yzg-story-photo figcaption{font-size:10px;line-height:1.4;margin-top:7px}
 @media(max-width:700px){.yzg-citizen-hero{gap:7px}.yzg-citizen-hero .yzg-portrait{width:64px;flex-basis:64px}
  .yzg-phone .yzg-citizen-choice{min-height:64px}}
+
+/* Public Wargapedia lives inside YZ Phone; relationship progress stays separate. */
+.yzg-wargapedia{display:grid;gap:8px;font-size:11px;line-height:1.55}
+.yzg-wargapedia .yzg-phone-card{margin-bottom:2px}
+.yzg-wargapedia label{display:block;font-size:10px;font-weight:800;margin:10px 0 5px;color:#365b43}
+.yzg-wargapedia input{width:100%;padding:9px;border:1px solid #b8cdb8;border-radius:8px;background:#fff;color:#24432e;font:inherit}
+.yzg-wargapedia input:focus-visible,.yzg-wargapedia button:focus-visible,.yzg-wargapedia summary:focus-visible{outline:2px solid #39734f;outline-offset:2px}
+.yzg-wargapedia-list{display:grid;gap:6px}
+.yzg-wargapedia-list>button{display:flex;align-items:center;gap:9px;width:100%;min-height:62px;padding:8px;text-align:left;background:#fff;color:#274b35;border:1px solid #d9e5d3;border-radius:10px}
+.yzg-wargapedia-list>button:hover,.yzg-wargapedia-list>button:focus-visible{background:#eaf4e8;border-color:#729b78}
+.yzg-wargapedia-list img{width:49px;height:49px;object-fit:cover;background:#dae8d4;border-radius:8px;flex:0 0 49px}
+.yzg-wargapedia-list>button>span:nth-child(2){min-width:0;flex:1}
+.yzg-wargapedia-list strong{font-size:11px;line-height:1.3;display:block;overflow-wrap:anywhere}
+.yzg-wargapedia-list small{font-size:10px;line-height:1.4;display:block;color:#697d6d;margin-top:4px}
+.yzg-wargapedia-list>button>span:last-child{font-size:20px;color:#779479}
+.yzg-phone .yzg-wargapedia-back{padding:9px 10px;border:1px solid #c3d7c0;border-radius:9px;background:#f8fcf5;color:#345b43;text-align:left;font-size:11px;font-weight:800}
+.yzg-wargapedia-profile{display:flex;align-items:center;gap:10px}
+.yzg-wargapedia-profile img{width:82px;height:82px;object-fit:cover;flex:0 0 82px;border-radius:10px;background:#e6ecdd}
+.yzg-wargapedia-profile h3{font-size:13px;line-height:1.32;margin:4px 0;overflow-wrap:anywhere}
+.yzg-wargapedia-profile p{margin:2px 0;font-size:10px}
+.yzg-wargapedia-profile small{margin:0;text-transform:uppercase;font-size:9px}
+.yzg-wargapedia-notice{margin:2px 0;padding:10px;border-radius:9px;background:#fff9e9;border:1px solid #e7d9ab;color:#6c5637;font-size:10px}
+.yzg-wargapedia-caption{margin:6px 0;color:#607a65;font-size:10px;line-height:1.5}
+.yzg-wargapedia-chapters{display:grid;gap:7px}
+.yzg-wargapedia-chapters details{background:#fff;border:1px solid #d9e5d6;border-radius:9px;overflow:hidden;min-width:0}
+.yzg-wargapedia-chapters summary{padding:10px 8px;cursor:pointer;background:#f6faf2;font-size:11px;font-weight:800;line-height:1.45}
+.yzg-wargapedia-chapters details[open] summary{background:#eaf3e5}
+.yzg-wargapedia-chapters dl{margin:0;padding:6px 10px}
+.yzg-wargapedia-chapters dl>div{border-bottom:1px solid #eff2e9;padding:7px 0}
+.yzg-wargapedia-chapters dl>div:last-child{border-bottom:0}
+.yzg-wargapedia-chapters dt{color:#647c65;font-size:10px;font-weight:800;margin:0 0 3px}
+.yzg-wargapedia-chapters dd{margin:0;color:#314c37;font-size:11px;line-height:1.58;overflow-wrap:anywhere}
+.yzg-wargapedia-chapters ul{margin:3px 0;padding-left:17px}
+.yzg-wargapedia-nested{padding:3px 0!important}
+.yzg-wargapedia-nested dt{font-size:9px}
+.yzg-wargapedia-nested dd{font-size:10px}
+
+/* IKD: readable identity rows, separated account actions and protected reset. */
+.yzg-phone .yzg-id{padding:16px;text-align:center}
+.yzg-id-eyebrow{display:block;color:#647969;font-size:11px;line-height:1.55;letter-spacing:.045em;font-weight:700}
+.yzg-id-portrait{width:88px;min-height:88px;margin:14px auto 10px;display:grid;place-items:center;border-radius:12px;background:#f6ead4;overflow:hidden}
+.yzg-id-portrait .yzg-character-preview{display:block;width:100%;height:auto;object-fit:contain}
+.yzg-phone .yzg-id>strong{display:block;margin:0;color:#264d37;font-size:20px;line-height:1.3}
+.yzg-phone .yzg-id .yzg-id-subtitle{margin:5px 0 0;color:#5d7461;font-size:14px;line-height:1.45}
+.yzg-phone .yzg-id dl{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin:17px 0 14px;text-align:left;font-size:12px}
+.yzg-id dl>div{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:12px;align-items:start;padding:9px 0;border-bottom:1px solid #e9eee5}
+.yzg-id dl>div:last-child{border-bottom:0}
+.yzg-phone .yzg-id dt{margin:0;color:#6d8372;line-height:1.5}
+.yzg-phone .yzg-id dd{margin:0;min-width:0;color:#294835;line-height:1.5;font-weight:750;overflow-wrap:break-word}
+.yzg-phone .yzg-id .yzg-id-disclaimer{margin:0;padding:11px 9px;background:#f4f7f0;border-radius:9px;font-size:11px;line-height:1.6;color:#667a6b}
+.yzg-phone .yzg-account{padding:16px;display:flex;flex-direction:column;gap:11px;min-width:0}
+.yzg-phone .yzg-account h3{margin:0;color:#284c36;font-size:16px;line-height:1.35}
+.yzg-phone .yzg-account p{margin:0;color:#677b6c;font-size:12px;line-height:1.55}
+.yzg-account-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;width:100%;margin-top:1px}
+.yzg-phone .yzg-account-actions button{margin:0;min-width:0;width:100%;min-height:46px;display:flex;align-items:center;justify-content:center;padding:11px 13px;border:1px solid transparent;border-radius:10px;font-size:14px;font-weight:800;line-height:1.35;text-align:center;white-space:normal;overflow-wrap:break-word}
+.yzg-phone .yzg-account-actions .yzg-account-logout{background:#356b4d;color:#fff}
+.yzg-phone .yzg-account-actions .yzg-account-reset{background:#fff7f4;border-color:#e7b8ac;color:#9b433b}
+.yzg-phone .yzg-account-actions .yzg-account-reset:hover{background:#ffece7}
+.yzg-reset-overlay{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:14px;background:#112a21e8;box-sizing:border-box}
+.yzg-reset-dialog{width:100%;max-height:100%;overflow-y:auto;padding:19px 16px;background:#fffdf8;border:1px solid #f0ded6;border-radius:16px;box-shadow:0 16px 36px #091e1999;box-sizing:border-box}
+.yzg-reset-dialog h3{margin:0 0 10px;color:#7d3029;font-size:18px;line-height:1.3}
+.yzg-reset-dialog p{margin:0 0 12px;color:#364c40;font-size:13px;line-height:1.6}
+.yzg-reset-dialog .yzg-reset-warning{padding:10px;background:#fff0ea;color:#883b33;border-radius:9px;font-weight:700}
+.yzg-reset-dialog .yzg-reset-error{padding:9px;border-radius:9px;background:#ffe7e2;color:#8c3029}
+.yzg-reset-actions{display:grid;gap:10px;margin-top:15px}
+.yzg-reset-actions button{width:100%;min-height:46px;margin:0;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:800;line-height:1.4}
+.yzg-reset-actions button:first-child{background:#e4eee2;color:#28513a;border:1px solid #b9d0ba}
+.yzg-reset-actions .yzg-reset-confirm{background:#a23e36;color:#fff;border:1px solid #a23e36}
+.yzg-reset-actions button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-height:460px){.yzg-reset-overlay{padding:8px}.yzg-reset-dialog{padding:12px}.yzg-reset-dialog h3{font-size:15px}.yzg-reset-dialog p{font-size:12px;margin-bottom:7px}.yzg-reset-actions{gap:6px;margin-top:8px}.yzg-reset-actions button{min-height:40px}}
+
+/* Combined staging: retain reset and quest layout while adding portrait, fishing, market and old sluice scene visuals. */
+/* Dialogue and market v2: conversational first, transactions on demand.
+   Keep the village visible and never place decorative fish art above the speaker. */
+.yzg-chapter-dialog{max-height:min(72dvh,620px);overscroll-behavior:contain;scrollbar-gutter:stable}
+.yzg-dialog-scene{align-items:center}
+.yzg-portrait{align-self:center;flex-shrink:0;isolation:isolate}
+.yzg-portrait[data-character="A03"]{--portrait-center-shift:-4px}
+.yzg-portrait[data-character="A04"]{--portrait-center-shift:-4px}
+.yzg-portrait[data-character="C01"]{--portrait-center-shift:-3px}
+.yzg-portrait[data-character="C07"]{--portrait-center-shift:-3px}
+.yzg-portrait[data-character="C08"]{--portrait-center-shift:-3px}
+.yzg-market{margin:11px 0;border:1px solid #bba16f;border-radius:9px;background:#fff8df;overflow:hidden}
+.yzg-market summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;
+ padding:12px 13px;min-height:48px;color:#315b42;list-style:none}
+.yzg-market summary::-webkit-details-marker{display:none}
+.yzg-market summary:after{content:"+";font-size:22px;line-height:1;color:#6b6d48}
+.yzg-market[open] summary:after{content:"−"}
+.yzg-market summary strong{font:800 14px/1.3 Arial,sans-serif}
+.yzg-market summary small{font:12px/1.3 Arial,sans-serif;color:#687756;text-align:right}
+.yzg-market summary:focus-visible{outline:3px solid #c5732c;outline-offset:-3px}
+.yzg-market-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px;border-top:1px solid #e1d3ad}
+.yzg-chapter-dialog .yzg-market-item{display:flex;align-items:center;gap:9px;width:100%;margin:0;min-height:64px;
+ padding:8px 10px;text-align:left;background:#f3eed9;color:#294d38;border:1px solid #b6bd91;border-radius:7px}
+.yzg-market-item:hover:not(:disabled){background:#e3ebd0;border-color:#77916b}
+.yzg-market-fish{display:block;flex:0 0 62px;width:62px;height:48px;background-color:#fafaf1;
+ background-image:url("/game/assets/tiles/fish-market.png");background-repeat:no-repeat;
+ background-size:300% 100%;image-rendering:pixelated;border-radius:5px}
+.yzg-market-supply{flex:0 0 62px;width:62px;height:48px;display:grid;place-items:center;
+ font:900 24px/1 ui-monospace,monospace;border-radius:5px;background:#e1e4c9;color:#697246}
+.yzg-market-item-text{display:flex;flex-direction:column;gap:5px;min-width:0}
+.yzg-market-item-text strong{font:800 13px/1.3 Arial,sans-serif}
+.yzg-market-item-text small{font:11px/1.4 Arial,sans-serif;color:#556c53}
+.yzg-market-empty{padding:0 12px 11px;margin:0!important;color:#556b54;font:12px/1.5 Arial,sans-serif!important}
+@media(max-width:580px){
+ .yzg-chapter-dialog{width:min(96vw,560px);padding:12px;max-height:68dvh}
+ .yzg-chapter-dialog .yzg-spoken{min-height:0;font-size:14px;line-height:1.55}
+ .yzg-dialog-scene{gap:12px}
+ .yzg-market-grid{grid-template-columns:1fr}
+ .yzg-market summary small{max-width:145px;font-size:10px}
+ .yzg-market-item-text small{font-size:11px}
+}
+
+/* Pixel-accurate atlas crop. No neighboring-expression pixels or stray silhouettes. */
+.yzg-portrait{background-repeat:no-repeat;background-color:#e7dca6;background-clip:padding-box}
+.yzg-portrait img{display:none}
+.yzg-dialog-scene .yzg-portrait{margin-block:0;align-self:center}
+.yzg-dpad{place-items:center}
+.yzg-dpad button{display:grid;place-items:center;width:100%;height:100%;font-size:21px;line-height:1;padding:0}
+.yzg-tool-switch{align-items:center}
+.yzg-tool-switch button{display:grid;place-items:center;line-height:1;padding:0}
+
+/* Generated, license-owned pixel atlases: each trade action receives its own sprite. */
+.yzg-market-sprite{display:block;flex:0 0 56px;width:56px;height:56px;image-rendering:pixelated;
+ background-repeat:no-repeat;background-color:#f3ecd5;border-radius:6px}
+.yzg-market-sprite--ayu{background-image:url("/game/assets/tiles/ayu-shop-atlas.png");background-size:200% 200%}
+.yzg-market-sprite--widi{background-image:url("/game/assets/tiles/widi-shop-atlas.png");background-size:300% 200%}
+.yzg-market-item .yzg-market-item-text{flex:1}
+
+/* The cinematic stays inside the playable world viewport, not the browser screen.
+   JavaScript fits its original 910:512 ratio into the space above local controls. */
+.yzg-cutscene{
+ position:absolute;inset:0;z-index:20;width:100%;height:100%;box-sizing:border-box;overflow:hidden;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:clamp(4px,1.1vmin,9px);padding:clamp(5px,1.1vmin,12px);
+ background:radial-gradient(ellipse at center,#1a342bbf 0%,#07120ef5 90%);color:#fff5dd;isolation:isolate;
+}
+.yzg-cutscene-stage{
+ flex:0 1 auto;min-width:0;min-height:0;width:min(100%,960px);
+ aspect-ratio:910 / 512;max-width:100%;max-height:100%;box-sizing:border-box;
+ background:#0e201c;border:2px solid #bfa378;border-radius:7px;
+ box-shadow:0 0 0 2px #081a13,0 5px 14px #0007;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
+}
+.yzg-cutscene-video{display:block;width:100%;height:100%;aspect-ratio:910 / 512;
+ object-fit:contain;object-position:center;background:#0e201c;image-rendering:auto}
+/* Honest animated two-frame continuity when the original approved MP4 is missing.
+   Both images remain in their native frame, uncropped, inside the game canvas. */
+.yzg-cutscene-storyboard{position:relative;width:100%;height:100%;aspect-ratio:910 / 512;
+ overflow:hidden;background:#0e201c;isolation:isolate}
+.yzg-cutscene-still{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+ object-position:center;image-rendering:auto;pointer-events:none}
+.yzg-cutscene-still--start{animation:yzg-sluice-lumen 3s ease-in-out infinite alternate}
+.yzg-cutscene-still--end{transition:opacity .15s linear}
+@keyframes yzg-sluice-lumen{from{filter:brightness(.96)}to{filter:brightness(1.04)}}
+.yzg-cutscene-readalong{
+ width:min(100%,780px);min-height:0;max-height:35%;flex:0 0 auto;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+ text-align:center;color:#fff6df;line-height:1.25;padding:0 4px;overflow:hidden;
+}
+.yzg-cutscene-readalong small{font:800 clamp(9px,1.9vw,11px)/1.2 system-ui,sans-serif;
+ letter-spacing:.12em;color:#f2d291}
+.yzg-cutscene-readalong strong{font:700 clamp(14px,2.8vw,19px)/1.23 Georgia,serif;
+ text-shadow:0 2px 5px #091911;max-width:100%;text-wrap:balance}
+.yzg-cutscene-actions{
+ width:min(100%,800px);min-height:0;flex:0 0 auto;
+ display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;
+}
+.yzg-cutscene-actions button{
+ min-width:0;min-height:38px;padding:6px 11px;border:1px solid #b9a16b;
+ border-radius:7px;background:#f6ebd0;color:#2b4c39;
+ font:700 clamp(11px,2.1vw,13px)/1.2 system-ui,sans-serif;cursor:pointer;
+}
+.yzg-cutscene-actions .yzg-cutscene-skip{font-weight:800;background:#ffe4b5;color:#234331;border-color:#c39b58}
+.yzg-cutscene-actions button:focus-visible,.yzg-cutscene-unavailable button:focus-visible{
+ outline:3px solid #ffdc86;outline-offset:2px}
+.yzg-phone .yzg-memory-entry{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;
+ padding:12px 0;border-top:1px solid #d7e3d3;margin-top:12px;align-items:start}
+.yzg-memory-cover{height:75px;display:grid;place-items:center;border-radius:10px;
+ background:linear-gradient(145deg,#6b896d,#244f4a);color:#ffebaf;font:700 30px Georgia,serif}
+.yzg-memory-cover.locked{background:#e7e9df;color:#a3b0a4}
+.yzg-memory-entry strong{display:block;color:#315d41;font-size:13px;line-height:1.35}
+.yzg-phone .yzg-memory-entry small{margin:5px 0 2px;font-size:11px;line-height:1.4}
+.yzg-phone .yzg-memory-entry button{display:block;margin-top:8px;width:100%;max-width:170px;text-align:center}
+.yzg-portrait[data-character="C07"]{--portrait-center-shift:0px}
+/* Kenangan uses a frame from the actual user-supplied video. */
+.yzg-memory-cover.unlocked{background-image:linear-gradient(#10271c15,#10271c20),url("/game/assets/cutscenes/sluice-poster.jpg");
+ background-repeat:no-repeat;background-position:center;background-size:cover;border:1px solid #a4b4a3}
+
+.yzg-cutscene-unavailable{
+ min-height:0;width:100%;height:100%;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;gap:5px;padding:5px;
+ text-align:center;color:#fff4da;overflow:auto
+}
+.yzg-cutscene-unavailable img{display:block;width:min(100%,360px);height:auto;max-height:58%;
+ object-fit:contain;border-radius:4px}
+.yzg-cutscene-unavailable p{font:clamp(10px,1.8vw,12px)/1.35 system-ui,sans-serif;max-width:350px;margin:0}
+.yzg-cutscene-unavailable button{min-height:30px;background:#f8edd0;border:1px solid #bd9c68;
+ border-radius:6px;padding:5px 10px;color:#34523b;font:700 11px system-ui,sans-serif}
+.yzg-cutscene-buffering{color:#f1dda2;font:10px/1.2 system-ui,sans-serif}
+@media(max-height:520px){
+ .yzg-cutscene{padding:3px;gap:3px}
+ .yzg-cutscene-readalong small{display:none}
+ .yzg-cutscene-readalong strong{font-size:11px;line-height:1.15}
+ .yzg-cutscene-actions button{min-height:30px;padding:4px 8px;font-size:10px}
+}
+
+/* On short landscape phones, temporarily collapse unused game controls.
+   The world viewport expands; the cutscene never overlaps the control area.
+   All controls return immediately when the cinematic closes. */
+@media (max-height:520px) and (orientation:landscape){
+ .yzg-shell:has(.yzg-cutscene) > .yzg-controls,
+ .yzg-shell:has(.yzg-cutscene) > .yzg-touch{display:none}
+}
+
+/* Fishing V2: animated rod, moving line and reactive bobber inside the world.
+   This visual layer never intercepts the existing mobile A / movement controls. */
+.yzg-fishing-scene{position:absolute;inset:0;z-index:4;pointer-events:none;color:#fff4d7}
+.yzg-fishing-cancel{position:absolute;top:8px;right:8px;z-index:5;
+ pointer-events:auto;min-height:34px;padding:5px 11px;background:#f7f0d9ed;
+ border:1px solid #bd9f68;border-radius:7px;color:#2c573e;
+ font:700 12px system-ui,sans-serif;cursor:pointer}
+.yzg-fishing-cancel:focus-visible{outline:3px solid #f0ba58;outline-offset:2px}
+.yzg-fishing-message{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);
+ width:min(84%,310px);padding:5px 8px;background:#153c34e8;
+ border:1px solid #d6bd83;border-radius:9px;text-align:center;
+ box-shadow:0 3px 12px #062d28aa;display:flex;flex-direction:column;gap:3px}
+.yzg-fishing-message strong{font:800 clamp(11px,1.6vw,14px)/1.25 system-ui,sans-serif}
+.yzg-fishing-message small{font:500 clamp(9px,1.4vw,11px)/1.2 system-ui,sans-serif;color:#e4f0d8}
+.yzg-fishing-bite .yzg-fishing-message{background:#694322f2;border-color:#ffe59b;animation:yzg-fish-alert .35s ease-in-out infinite alternate}
+.yzg-fishing-species-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.yzg-fishing-species-grid>div{display:flex;align-items:center;flex-direction:column;text-align:center;
+ border:1px solid #cadfc6;border-radius:8px;padding:8px 5px;min-width:0;background:#f8f8e9}
+.yzg-fishing-species-grid img{width:68px;height:55px;object-fit:contain;image-rendering:pixelated}
+.yzg-fishing-species-grid strong{color:#315d41;font-size:12px}
+.yzg-fishing-species-grid small{font-size:10px;line-height:1.4;color:#5e6c58}
+.yzg-market-freshwater{flex:0 0 56px;width:56px;height:56px;object-fit:contain;
+ image-rendering:pixelated;border-radius:6px;background:#f3ecd5}
+@keyframes yzg-fish-alert{from{box-shadow:0 0 3px #f6b351aa}to{box-shadow:0 0 14px #f9d879}}
+@media(max-height:480px){.yzg-fishing-message{bottom:3px;padding:4px 8px}
+ .yzg-fishing-message small{display:none}}
+@media(prefers-reduced-motion:reduce){.yzg-fishing-scene *{animation:none!important}}

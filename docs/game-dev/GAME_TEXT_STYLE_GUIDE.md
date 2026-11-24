@@ -1,50 +1,46 @@
-# YZ Farm Life — Humanizer untuk seluruh teks game
+# Gaya bahasa pemain — YZ Farm Life
 
-**Sasaran:** setiap kalimat yang pemain lihat atau dengar terasa seperti bagian dari kehidupan Pasirluyu. Ini standar editorial yang diterapkan saat penulisan dan code review, **bukan API yang memproses teks saat game berjalan**.
+**Aturan aktif, 22 November 2026.** Semua teks yang pemain baca/dengar harus terasa seperti dunia Pasirluyu dan mudah dipahami di layar ponsel. Humanizer adalah proses editorial saat development, **bukan pemanggilan AI saat game berjalan**.
 
-## Cakupan wajib
+## Kompas editorial
 
-| Media | Sasaran gaya | Contoh pemeriksaan |
-| --- | --- | --- |
-| Dialog dan reaksi NPC | Suara individu, tindakan dan jeda yang alami | Ryan merujuk pengamatan air; Nani pada benda dan ingatan; Inggit pada stok warung |
-| Quest dan keputusan | Apa yang dilakukan dan akibat yang terasa | Jangan memajang hadiah/poin kedekatan sebagai ucapan tokoh |
-| HUD, toast dan kontrol | Pendek dan jelas | Sebut tindakan, tempat dan dampaknya; jangan membacakan data internal |
-| Menu Warga, Kedekatan, YZ Phone | Tampak seperti catatan yang dimiliki pemain | Pisahkan informasi diketahui, belum kenal, dan cerita yang belum terbuka |
-| Kronik / ringkasan cerita | Berdasarkan flag, quest, statistik dan keputusan di save | Tidak mengarang tanggal lama, perasaan warga atau kejadian belum dimainkan |
-| Papan, peta, warung, interior | Kontekstual dengan benda yang disentuh | Plang menjelaskan jalan; lemari menggambarkan pakaian, bukan rencana fitur |
-| Tutorial, status & error | Instruksi yang dapat ditindaklanjuti, tetap manusiawi | Jangan menyebut PostgreSQL, proses build, atau renderer kecuali untuk support teknis |
-| Potret, pilihan ekspresi, aksesibilitas | Label ringkas yang menjelaskan orang/aksi | Jangan menggandakan nama pembicara di setiap baris dialog |
+1. **Konteks dulu, baru kalimat.** Identifikasi siapa bicara, tempat, kondisi cuaca/waktu, suasana, tindakan yang dapat dilakukan dan apa yang diketahui tokoh.
+2. **Suara tokoh berbeda.** Setiap NPC boleh punya kebiasaan, keberatan, dan tujuan sendiri. Hindari sapaan seragam, metafora mengambang, kalimat bantuan generik, dan penutup bermoral di setiap percakapan.
+3. **UI bukan narator teknis.** Tulis "Belum tersimpan", bukan "Gagal save". "Catatan perjalananmu belum bisa dibuka", bukan "Error 500 / JSON". Tidak perlu menjelaskan sesuatu sedang draf, belum ada backend, atau terbuka Lv. 0.
+4. **Satu label cukup.** Nama/pekerjaan berada di header profil; jangan ulangi dengan kode NPC, bab teknis, dan level pada bubble percakapan.
+5. **Ada ruang diam.** Pemain tidak harus menerima tutorial atau pujian dari tiap warga. Dialog boleh pendek, ragu, bercanda, atau menyimpan informasi.
+6. **Yang diketahui berbeda dari yang sudah terjadi.** Profil Warga boleh menampilkan kisah dunia game yang sudah layak disajikan. Kronik hanya menampilkan pilihan, hari, misi dan kejadian dari `GameState`.
+7. **Aksesibilitas tetap jelas.** Jangan menyembunyikan petunjuk penting demi estetika. Gunakan YZ Phone → Panduan untuk kontrol; status aksi tetap terlihat singkat.
+8. **Jangan salin materi game lain.** Semua dialog harus orisinal; Bandung yang nyata membutuhkan sumber untuk klaim sejarah/geografi, sedangkan kisah warga tetap fiksi.
 
-## Kriteria bahasa
+## Bagaimana setiap layar terdengar
 
-- Tulis **Bahasa Indonesia percakapan yang tepat konteks**; nuansa Sunda hanya saat wajar dan tidak dibuat-buat.
-- Hindari satu suara untuk semua NPC, sapaan generik, metafora besar tanpa fungsi, penutup moral setelah setiap adegan, dan pola “bukan X melainkan Y” yang tidak menambah informasi.
-- Gunakan kalimat pendek di bubble, tetapi izinkan jeda, ketidaksetujuan, gugup, humor kecil, subteks, dan kalimat panjang saat emosi membutuhkan.
-- UI ringkas bukan berarti istilah teknis dihapus dari dokumen developer. Stack, error kode, SQL dan informasi support tetap ada di log/dokumentasi; **jangan menaruhnya di mulut NPC**.
-- Jangan memotong petunjuk mekanik yang penting hanya demi estetika. Tempatkan cara bermain di Panduan YZ Phone, dan status aksi langsung di layar.
-- Hubungan antartokoh, identitas warga, usia dan rahasia pribadi baru dari Character Bible yang masih `narrative-proposal` **tidak otomatis canon**. Kronik hanya menampilkan fakta dari save.
-- Ucapan NPC harus orisinal; tidak mengambil dialog berhak cipta dari Harvest Moon.
-- Semua pemain memahami konsekuensi pilihan tanpa harus membaca lore debug.
+| Lokasi | Prioritas isi | Hindari |
+|---|---|---|
+| Dialog | Ucapan tokoh sesuai konteks | Level, perintah quest dalam mulut NPC |
+| Warga | Nama, potret, profesi, hal yang relevan tentang tokoh | 12 kategori raw, ID, "draft", status implementasi |
+| Kedekatan | Percakapan dan rasa hubungan yang tercatat | Rasio poin, status legacy, jadwal yang dikarang |
+| Kronik | Kejadian yang tersimpan di save | Cerita proposal disajikan sebagai pengalaman |
+| Gudang/inventaris | Benda yang ada, bisa dipakai dan dipindah | Katalog alat pengembangan yang belum ada |
+| Peta/plang | Arah dan akses yang benar-benar tersedia | Daftar seluruh ekspansi yang belum hidup |
+| HUD | Waktu, lahan, uang, panen, tindakan | Keterangan internal engine |
+| Error/login/save | Dampak yang jelas dan langkah pemulihan | Exception, token, stack trace, SQL atau dump save |
+| IKD fiksi | Identitas karakter dalam semesta game | Data adminduk/NIK/PIN pemerintah nyata |
 
-## Alur kerja reviewer dan Codex
+## Alur kerja seluruh game
 
-1. Tandai **semua** string baru atau berubah yang tampil ke pemain (di komponen React, model, quest, peta, toast, objek).
-2. Baca konteks sumber, aksi yang memicu teks, ID tokoh, lokasi, jam, cuaca, level kedekatan, dan state-save yang berkaitan.
-3. Jalankan Humanizer sebagai tahap editorial; ubah prosa, bukan ID quest, kondisi, hadiah, angka, pilihan, atau jenis tool.
-4. Uji konsistensi dengan `game-assets/characters/profiles/index.json`; hal pribadi belum boleh terbuka sebelum jalur naratifnya tersedia.
-5. Baca secara keras seperti NPC berbicara di lokasi itu; coba pada layar 255–286px YZ Phone serta 393px mobile.
-6. Jalankan `npm run test:game:copy`, `npm run test:game:phone`, `npm run test:game`, typecheck, dan uji UI saat runtime disentuh. Pemeriksaan pola otomatis adalah pagar minimum; **mutu bahasa tetap harus direview manusia**.
+- Daftarkan string aktif dari `src/app/game/`, `src/lib/game/model.ts`, `src/lib/game/personal-quests.ts`, `src/lib/game/phone-story.ts`, `src/lib/game/signposts.ts` dan komponen YZ Phone.
+- Kelompokkan **dialog tokoh / UI dunia / sistem / developer**. Jangan paksa satu gaya ke semua jenis teks.
+- Pilih teks yang melemahkan pengalaman: pesan panjang, generik, jargon, salah janji fitur, pengulangan, dan informasi yang bocor dari developer.
+- Perbaiki naskah dengan Humanizer `.agents/skills/humanizer/SKILL.md` serta skill `yz-farm-dialogue`. Jika Warga, gunakan `yz-farm-encyclopedia`.
+- Jangan ganti ID, perhitungan, rewards, pilihan, prasyarat quest, timers atau skema save sebagai efek samping copy edit.
+- Jalankan `npm run test:game:copy`, `npm run test:game:humanizer`, `npm run test:game:phone`, `npm run test:game`, `npm run typecheck`, dan lihat hasilnya pada viewport kecil. Tes otomatis tidak dapat menjamin seluruh prosa sudah natural.
 
-## Contoh revisi yang sudah diterapkan
+## Contoh
 
-| Sebelum | Sesudah | Alasan |
-| --- | --- | --- |
-| “Ayu: ...” di setiap halaman potret Ayu | Ucapan saja, nama berada di header dialog | Tidak mengulang label pembicara seperti naskah mentah |
-| “Hari sudah sore. Harapanku tetap sama: ...” untuk semua NPC | Ucapan sore yang berbeda per tokoh | Mempertahankan karakter, bukan template seragam |
-| “Fitur mengganti pakaian belum tersedia” pada lemari | “Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang.” | Benda terasa hadir di dunia |
-| “PostgreSQL lokal ...” dalam panduan bermain | “Perjalananmu akan tersimpan” | UI tidak terasa seperti panel developer |
-| “Kedekatan +20” sebagai ucapan NPC | Reaksi NPC alami; poin ada di menu Kedekatan/Warga | Angka dan emosi berada pada tempatnya |
+- Pengalaman rumah: "Pakaian kebunmu tersusun di lemari." Bukan pesan bahwa fitur kostum belum diimplementasikan.
+- Kesalahan memuat: "Catatan perjalananmu belum bisa dibuka. Progres lama tetap aman; coba masuk lagi." Log exception terpisah untuk developer.
+- Warga: "Ryan Andryana Achadiat — Pengelola irigasi." Tidak memajang "A03 · 12 kategori · status draft".
+- Misi: tokoh menyampaikan apa yang ia butuhkan; tombol pilihan, catatan, dan tujuan teknis berada di UI yang sesuai.
 
-## Batas penerapan
-
-Perubahan ini meliputi editorial pass untuk teks inti Pasirluyu/YZ Phone dan linter regresi. Sistem ini **tidak menyunting otomatis semua dokumen/ratusan aset ekspansi yang belum masuk runtime**. Setiap teks baru harus melalui gate yang sama. Linter mendeteksi frasa yang diketahui buruk, bukan membuktikan tulisan “100% bukan AI”.
+**Batas:** Audit ini harus berulang saat ada konten baru. Belum seluruh prosa generasi massal Character Bible menjadi kalimat yang disetujui penulis; jangan memasukkannya ke layar pemain dengan loop `Object.entries`.

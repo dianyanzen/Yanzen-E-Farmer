@@ -36,16 +36,28 @@ assert.equal(moves.totalMoved,268);
 for(const {from,to,sha} of moves.renames){
  assert.ok(!existsSync(from),"Flat concept asset still exists: "+from);
  assert.ok(existsSync(to),"Concept moved target missing: "+to);
- assert.equal(source.rows.find(r=>r[0]===to)?.[1],sha);
+ const currentSha=source.rows.find(r=>r[0]===to)?.[1];
+ // 2026-11-21 migration SHA is historical and must remain unchanged even after
+ // owner-authorized portrait replacement. The current asset must match the new QA ledger.
+ if(to==="public/game/assets/portraits/bandung/professions/work-C07.png"){
+  assert.equal(sha,"e5523827c9ae815516883e6805cf582c42218232","Preserve original Widi migration SHA");
+  const ledger=read("docs/game-dev/characters/PORTRAIT_ASSET_AUDIT.json");
+  assert.equal(currentSha,ledger.portraits.find(p=>p.id==="C07")?.gitBlobSha,"Widi replacement must match current portrait audit");
+ }else assert.equal(currentSha,sha);
 }
 const code=readFileSync("src/lib/game/bandung-concept-portrait.ts","utf8");
 assert.ok(code.includes("bandungConceptPortraitPath"));
-for(const path of ["src/app/game/character-gallery.tsx","src/app/game/dialogue-panel.tsx"])
- assert.ok(readFileSync(path,"utf8").includes("bandungConceptPortraitPath"));
+assert.ok(readFileSync("src/app/game/dialogue-panel.tsx","utf8").includes("bandungConceptPortraitPath"),
+ "ResidentPortrait must map the canonical portrait key through category-aware paths");
+const gallery=readFileSync("src/app/game/character-gallery.tsx","utf8");
+const warga=readFileSync("src/app/game/phone-wargapedia.tsx","utf8");
+assert.ok(gallery.includes("<PhoneWargapedia")&&warga.includes("src={known.portraitUrl}")&&
+ warga.includes("/game/data/npc/index.json")&&warga.includes("approvedLegacyId(currentResident)"),
+ "Warga must use canonical indexed portrait URL; legacy ResidentPortrait is reserved for approved dialogue");
 const registry=read("game-assets/catalog/npc-portrait-register.json");
 for(const person of registry.characters)assert.ok(existsSync("public"+person.variant.workConcept));
 if(existsSync(".git")){
  const report=execFileSync(process.execPath,["scripts/game-assets/build-asset-categories.mjs","--check"],{encoding:"utf8"});
  assert.match(report,/PASS:/);
 }
-console.log("PASS: 2487 media categorized once, concept portrait paths migrated, no missing targets.");
+console.log(`PASS: ${source.rows.length} media categorized once, concept portrait paths migrated, no missing targets.`);

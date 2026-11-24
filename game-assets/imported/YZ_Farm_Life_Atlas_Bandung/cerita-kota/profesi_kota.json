@@ -1,0 +1,302 @@
+[
+ {
+  "npc": "K01",
+  "jabatan": "Koordinator ronda",
+  "markas": "kel-pasirluyu",
+  "alat": "Kentongan",
+  "tugas": "Cocokkan pola ketukan dengan catatan pos",
+  "mitra": "C08",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K02",
+  "jabatan": "Montir sepeda",
+  "markas": "kel-antapani-tengah",
+  "alat": "Kunci jari-jari",
+  "tugas": "Setel tegangan roda kurir",
+  "mitra": "A07",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K03",
+  "jabatan": "Pengelola penatu bersama",
+  "markas": "kel-mengger",
+  "alat": "Papan peras",
+  "tugas": "Atur urutan cuci kain dan tiriskan",
+  "mitra": "A10",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K04",
+  "jabatan": "Pelukis papan toko",
+  "markas": "kel-jatisari",
+  "alat": "Kuas huruf",
+  "tugas": "Cat huruf yang terbaca dari dua arah",
+  "mitra": "A04",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K05",
+  "jabatan": "Peracik soto",
+  "markas": "kel-lingkar-selatan",
+  "alat": "Sendok kuah",
+  "tugas": "Uji ukuran satu porsi pada mangkuk berbeda",
+  "mitra": "C04",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K06",
+  "jabatan": "Penggembala itik",
+  "markas": "kel-cimincrang",
+  "alat": "Tongkat pengarah",
+  "tugas": "Giring kawanan melewati jalur kering",
+  "mitra": "A03",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K07",
+  "jabatan": "Teknisi pengamatan air",
+  "markas": "kel-derwati",
+  "alat": "Botol sampel",
+  "tugas": "Bandingkan kejernihan dua sampel air dalam simulasi",
+  "mitra": "C11",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K08",
+  "jabatan": "Penambal ban",
+  "markas": "kel-sukamiskin",
+  "alat": "Bak uji ban",
+  "tugas": "Temukan gelembung dan tandai letak bocor",
+  "mitra": "A05",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K09",
+  "jabatan": "Perawat properti pertunjukan",
+  "markas": "kel-mekarmulya",
+  "alat": "Kuas lembut",
+  "tugas": "Bersihkan sambungan figur panggung",
+  "mitra": "C03",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K10",
+  "jabatan": "Perajin tahu",
+  "markas": "kel-cibuntu",
+  "alat": "Cetakan tahu",
+  "tugas": "Atur tekanan dan waktu cetak",
+  "mitra": "C07",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K11",
+  "jabatan": "Juru cerita warga",
+  "markas": "kel-cisurupan",
+  "alat": "Buku dengar",
+  "tugas": "Catat kesaksian dengan izin penutur",
+  "mitra": "C15",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K12",
+  "jabatan": "Pengamat satwa malam",
+  "markas": "kel-ciumbuleuit",
+  "alat": "Detektor suara satwa",
+  "tugas": "Tandai lintasan terbang tanpa menyorot satwa",
+  "mitra": "C06",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K13",
+  "jabatan": "Konservator kertas",
+  "markas": "kel-isola",
+  "alat": "Kuas arsip",
+  "tugas": "Pisahkan dan salin lembar rapuh dalam simulasi",
+  "mitra": "A13",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K14",
+  "jabatan": "Perekam suara lapangan",
+  "markas": "kel-sadang-serang",
+  "alat": "Perekam stereo",
+  "tugas": "Ambil dua arah suara dari titik diam",
+  "mitra": "C05",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K15",
+  "jabatan": "Bidan kampung",
+  "markas": "kel-karang-pamulang",
+  "alat": "Tas kunjungan",
+  "tugas": "Susun rute kunjungan dan waktu istirahat fiktif",
+  "mitra": "A16",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K16",
+  "jabatan": "Penabuh benjang",
+  "markas": "kel-pasirjati",
+  "alat": "Pemukul kendang",
+  "tugas": "Ulang pola panggil dan jawab saat latihan",
+  "mitra": "C02",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K17",
+  "jabatan": "Perajin pewarna kain",
+  "markas": "kel-neglasari",
+  "alat": "Bak celup",
+  "tugas": "Bandingkan contoh warna pada dua jenis serat",
+  "mitra": "A02",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K18",
+  "jabatan": "Penyetem alat musik bambu",
+  "markas": "kel-padasuka",
+  "alat": "Penala nada",
+  "tugas": "Pasangkan dua tabung berdasar telinga dan getaran",
+  "mitra": "C13",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K19",
+  "jabatan": "Teknisi mesin rajut",
+  "markas": "kel-binong",
+  "alat": "Kait rajut",
+  "tugas": "Telusuri satu baris benang yang melompat",
+  "mitra": "A08",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K20",
+  "jabatan": "Perajin sepatu",
+  "markas": "kel-cibaduyut",
+  "alat": "Acuan sepatu",
+  "tugas": "Cocokkan acuan dengan jejak langkah",
+  "mitra": "C12",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K21",
+  "jabatan": "Perawat perabot enamel",
+  "markas": "kel-karasak",
+  "alat": "Tang bibir enamel",
+  "tugas": "Ratakan tepi benda pajangan dalam simulasi",
+  "mitra": "C07",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K22",
+  "jabatan": "Penyiar radio malam",
+  "markas": "kel-tamansari",
+  "alat": "Meja siar",
+  "tugas": "Susun urutan siaran dan tandai sumber rekaman",
+  "mitra": "A14",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K23",
+  "jabatan": "Pengasuh hewan titipan",
+  "markas": "kel-sukagalih",
+  "alat": "Pemindai identitas hewan",
+  "tugas": "Cocokkan catatan ciri dan buku penitipan",
+  "mitra": "C16",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K24",
+  "jabatan": "Penyusun label Braille",
+  "markas": "kel-babakan-penghulu",
+  "alat": "Papan reglet",
+  "tugas": "Susun label inventaris dan minta pembaca mengujinya",
+  "mitra": "C09",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K25",
+  "jabatan": "Pengatur porter barang",
+  "markas": "kel-babakan-sari",
+  "alat": "Troli lipat",
+  "tugas": "Seimbangkan peti sebelum berangkat",
+  "mitra": "C14",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K26",
+  "jabatan": "Pengelola gudang dingin",
+  "markas": "kel-babakan-ciparay",
+  "alat": "Pencatat suhu",
+  "tugas": "Baca urutan penyimpanan kiriman dalam simulasi",
+  "mitra": "A12",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K27",
+  "jabatan": "Penjahit pasar",
+  "markas": "kel-kebon-jeruk",
+  "alat": "Pita ukur",
+  "tugas": "Pindahkan ukuran pada pola kertas",
+  "mitra": "A11",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ },
+ {
+  "npc": "K28",
+  "jabatan": "Kondektur angkutan fiktif",
+  "markas": "kel-arjuna",
+  "alat": "Pelubang karcis",
+  "tugas": "Cocokkan karcis sambungan dengan jadwal",
+  "mitra": "A06",
+  "biaya_menit": 30,
+  "upah_koin": 55
+ },
+ {
+  "npc": "K29",
+  "jabatan": "Teknisi jam mekanis",
+  "markas": "kel-jamika",
+  "alat": "Kunci pegas",
+  "tugas": "Bandingkan selisih dua jam dalam simulasi",
+  "mitra": "C10",
+  "biaya_menit": 45,
+  "upah_koin": 70
+ },
+ {
+  "npc": "K30",
+  "jabatan": "Operator proyektor",
+  "markas": "kel-braga",
+  "alat": "Penggulung film",
+  "tugas": "Cocokkan urutan gulungan latihan",
+  "mitra": "A09",
+  "biaya_menit": 60,
+  "upah_koin": 85
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "nama": "Ayam kampung",
+  "jenis": "Ternak",
+  "mentor": "N01",
+  "lokasi": "kel-pasirjati",
+  "habitat": "Kandang kering dan halaman umbar",
+  "aksi": "Isi wadah pakan dan air; periksa sarang pagi",
+  "hasil": "Telur atau catatan induk mengeram",
+  "alat": "Kotak eram"
+ },
+ {
+  "nama": "Itik",
+  "jenis": "Ternak",
+  "mentor": "K06",
+  "lokasi": "kel-cimincrang",
+  "habitat": "Kandang malam dan lintasan air dangkal",
+  "aksi": "Giring kawanan sebelum senja dan hitung kembali",
+  "hasil": "Telur itik serta pembukaan jalur kawanan",
+  "alat": "Tongkat pengarah"
+ },
+ {
+  "nama": "Domba",
+  "jenis": "Ternak",
+  "mentor": "N02",
+  "lokasi": "kel-pasirjati",
+  "habitat": "Kandang mitra berventilasi",
+  "aksi": "Bersihkan alas lalu catat kondisi kawanan dalam game",
+  "hasil": "Jadwal perawatan kelompok",
+  "alat": "Sisir ternak"
+ },
+ {
+  "nama": "Kambing perah",
+  "jenis": "Ternak",
+  "mentor": "N02",
+  "lokasi": "kel-pasirjati",
+  "habitat": "Kandang mitra dan petak hijauan fiktif",
+  "aksi": "Isi palung dan ikuti jadwal pemerahan dalam game",
+  "hasil": "Susu kambing",
+  "alat": "Ember perah"
+ },
+ {
+  "nama": "Sapi perah",
+  "jenis": "Ternak mitra",
+  "mentor": "N02",
+  "lokasi": "kel-cisurupan",
+  "habitat": "Kandang edukasi mitra dalam cerita",
+  "aksi": "Kunjungi kandang pagi dan dinginkan hasil di gudang Ningsih",
+  "hasil": "Susu dalam rantai dingin",
+  "alat": "Pencatat suhu"
+ },
+ {
+  "nama": "Burung puyuh",
+  "jenis": "Ternak",
+  "mentor": "N01",
+  "lokasi": "kel-pasirjati",
+  "habitat": "Kandang mitra tenang",
+  "aksi": "Bersihkan baki dan catat telur pecah",
+  "hasil": "Telur puyuh dan catatan produksi",
+  "alat": "Baki telur"
+ },
+ {
+  "nama": "Lebah madu",
+  "jenis": "Budidaya",
+  "mentor": "N04",
+  "lokasi": "kel-cisurupan",
+  "habitat": "Glodok di kebun bunga fiktif",
+  "aksi": "Amati aktivitas dari jalur dan sisakan cadangan koloni",
+  "hasil": "Madu saat koloni siap dalam simulasi",
+  "alat": "Buku dengar"
+ },
+ {
+  "nama": "Lele",
+  "jenis": "Budidaya kolam",
+  "mentor": "N03",
+  "lokasi": "kel-cimincrang",
+  "habitat": "Kolam mitra",
+  "aksi": "Catat respons pakan dan bandingkan dua sampel air",
+  "hasil": "Panen kolam",
+  "alat": "Botol sampel"
+ },
+ {
+  "nama": "Nila",
+  "jenis": "Budidaya kolam",
+  "mentor": "N03",
+  "lokasi": "kel-cimincrang",
+  "habitat": "Kolam air tawar mitra",
+  "aksi": "Amati gerak ikan dan jadwal pakan kelompok",
+  "hasil": "Pesanan ikan konsumsi",
+  "alat": "Serok"
+ },
+ {
+  "nama": "Kucing kampung",
+  "jenis": "Pendamping",
+  "mentor": "K23",
+  "lokasi": "kel-sukagalih",
+  "habitat": "Teras rumah dan penitipan",
+  "aksi": "Biarkan mendekat lalu cocokkan ciri dengan buku penitipan",
+  "hasil": "Kepercayaan dan kebiasaan berkunjung",
+  "alat": "Buku dengar"
+ },
+ {
+  "nama": "Anjing titipan",
+  "jenis": "Pendamping",
+  "mentor": "K23",
+  "lokasi": "kel-sukagalih",
+  "habitat": "Halaman penitipan berpagar",
+  "aksi": "Temani berjalan bersama pengasuh sesuai jadwal",
+  "hasil": "Pertemuan pemilik serta rutinitas baru",
+  "alat": "Tali tuntun"
+ },
+ {
+  "nama": "Kelelawar",
+  "jenis": "Satwa pengamatan",
+  "mentor": "K12",
+  "lokasi": "kel-ciumbuleuit",
+  "habitat": "Langit serambi senja fiktif",
+  "aksi": "Dengarkan lintasan tanpa menyinari sarang",
+  "hasil": "Entri jurnal malam",
+  "alat": "Detektor suara satwa"
+ },
+ {
+  "nama": "Burung gereja",
+  "jenis": "Satwa pengamatan",
+  "mentor": "K12",
+  "lokasi": "kel-jatisari",
+  "habitat": "Teritis kios dan pohon sekitar",
+  "aksi": "Hitung siluet yang hinggap sebelum kios dibuka",
+  "hasil": "Entri jurnal pagi",
+  "alat": "Teropong"
+ },
+ {
+  "nama": "Katak",
+  "jenis": "Satwa pengamatan",
+  "mentor": "K07",
+  "lokasi": "kel-derwati",
+  "habitat": "Tepi kolam fiktif setelah hujan",
+  "aksi": "Bandingkan dua bunyi dari jalan setapak",
+  "hasil": "Entri jurnal hujan",
+  "alat": "Perekam stereo"
+ },
+ {
+  "nama": "Kunang-kunang",
+  "jenis": "Satwa dalam cerita",
+  "mentor": "K14",
+  "lokasi": "kel-cisurupan",
+  "habitat": "Petak lembap gelap rekaan",
+  "aksi": "Tunggu di tepi petak dan hitung sela cahaya",
+  "hasil": "Entri jurnal cahaya",
+  "alat": "Buku dengar"
+ },
+ {
+  "nama": "Capung",
+  "jenis": "Satwa pengamatan",
+  "mentor": "K07",
+  "lokasi": "kel-cimincrang",
+  "habitat": "Titian kolam fiktif",
+  "aksi": "Gambar bentuk sayap dari tempat diam",
+  "hasil": "Kartu pengamatan air",
+  "alat": "Teropong"
+ }
+]

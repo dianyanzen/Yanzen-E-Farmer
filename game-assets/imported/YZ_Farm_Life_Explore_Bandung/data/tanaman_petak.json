@@ -1,0 +1,937 @@
+[
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "timun",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "terung",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "tomat",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "cabai",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kacang-panjang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "oyong",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "pare",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "labu-air",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "labu-kuning",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kecipir",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "okra",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "leunca",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "gambas-ular",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "bayam-cabut",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kangkung-darat",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "caisim",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "pakcoy",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "katuk",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kelor",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kenikir",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kemangi",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "genjer",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "wortel",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kentang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kubis",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "buncis",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kapri",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "brokoli",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kembang-kol",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "lobak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "bit",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "paprika",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "zukini",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "labu-siam",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "selada",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "sawi-putih",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "seledri",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "bawang-daun",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kailan",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "peterseli",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "selada-air",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "bawang-putih",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "bawang-merah",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "jahe",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "jahe-karasak",
+  "komoditas_id": "jahe",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "kunyit",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "kencur",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "temulawak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "lengkuas",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "temu-kunci",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "lempuyang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "serai-dapur",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "pandan-wangi",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "salam",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "jeruk-purut",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "mint",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "salam-koja",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "jeruk-limau",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "belimbing-wuluh",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "sawah",
+  "komoditas_id": "padi",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "jagung",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "singkong",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "ubi-jalar",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "talas",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "garut",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "ganyong",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "sorgum",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "jewawut",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-tanah",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kedelai",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-hijau",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-merah",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-tunggak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "wijen",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "porang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "semangka",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "melon",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "blewah",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "timun-suri",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "stroberi",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "markisa",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "avokad",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "apel",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kesemek",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "pisang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "pepaya",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "mangga",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jambu-biji",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jambu-air",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jeruk-siam",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jeruk-keprok",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jeruk-bali",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jeruk-nipis",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "lemon",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "durian",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "rambutan",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "manggis",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "duku",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "langsat",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "salak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "nanas",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "nangka",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "cempedak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "sukun",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "sirsak",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "srikaya",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "sawo",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "belimbing",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "buah-naga",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "delima",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "kelengkeng",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "kedondong",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "matoa",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "kecapi",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jamblang",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "petai",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jengkol",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "melinjo",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "mawar",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "krisan",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "sedap-malam",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "gladiol",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "gerbera",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "melati",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "anggrek",
+  "profil": "Komoditas katalog awal petak"
+ },
+ {
+  "zona_id": "teras-kopi",
+  "komoditas_id": "kopi",
+  "profil": "Kopi sebagai tanaman utama"
+ },
+ {
+  "zona_id": "cekungan-air-tawar",
+  "komoditas_id": "padi",
+  "profil": "Padi rawa pada petak genangan terkendali"
+ },
+ {
+  "zona_id": "cekungan-air-tawar",
+  "komoditas_id": "sagu",
+  "profil": "Petak percobaan sagu air tawar dalam cerita, tanaman jangka panjang"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "pohpohan",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "tespong",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "kedondong",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "mangkokan",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "ketumbar",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "kucai",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "lokio",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "pegagan",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "cincau-hijau",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "suji",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "kecombrang",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "temu-hitam",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "temu-putih",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "rumah",
+  "komoditas_id": "bangle",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "krai",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "cabai-gendot",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "kacang-koro-pedang",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "ubi-jalar",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "labu-siam",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "kebun",
+  "komoditas_id": "pepaya",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "radis",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kale",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "swiss-chard",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "adas",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "bawang-prei",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kohlrabi",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "kubis-brussel",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "parsnip",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "terung-belanda",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "murbei",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "rasberi",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "ciplukan",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "lereng",
+  "komoditas_id": "labu-kuning",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "gembili",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "gadung",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "suweg",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "bengkuang",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "hanjeli",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-bogor",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-gude",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "kacang-komak",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "ladang",
+  "komoditas_id": "bunga-matahari",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jambu-bol",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "jambu-mawar",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "kawista",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "buah-mentega",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "gandaria",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "bacang",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "kweni",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "rukam",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "buah",
+  "komoditas_id": "cermai",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "helikonia",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "anthurium",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "anyelir",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "bunga-matahari",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "lili",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "aster",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "bunga",
+  "komoditas_id": "telang",
+  "profil": "Kandidat budidaya pada petak cerita"
+ },
+ {
+  "zona_id": "cekungan-air-tawar",
+  "komoditas_id": "kangkung-air",
+  "profil": "Kandidat budidaya pada petak cerita"
+ }
+]

@@ -1,0 +1,982 @@
+[
+ {
+  "id": "padi",
+  "nama": "Padi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "timun",
+  "nama": "Timun",
+  "status_game": "Aktif"
+ },
+ {
+  "id": "kacang-panjang",
+  "nama": "Kacang panjang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kangkung-darat",
+  "nama": "Kangkung darat",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bayam-cabut",
+  "nama": "Bayam cabut",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "terung",
+  "nama": "Terung",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "tomat",
+  "nama": "Tomat",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "oyong",
+  "nama": "Oyong",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jagung",
+  "nama": "Jagung",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-tanah",
+  "nama": "Kacang tanah",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kedelai",
+  "nama": "Kedelai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-hijau",
+  "nama": "Kacang hijau",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jahe",
+  "nama": "Jahe",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kunyit",
+  "nama": "Kunyit",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kencur",
+  "nama": "Kencur",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "temulawak",
+  "nama": "Temulawak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pisang",
+  "nama": "Pisang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pepaya",
+  "nama": "Pepaya",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "mangga",
+  "nama": "Mangga",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jambu-biji",
+  "nama": "Jambu biji",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kopi",
+  "nama": "Kopi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kakao",
+  "nama": "Kakao",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kelapa",
+  "nama": "Kelapa",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "teh",
+  "nama": "Teh",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cengkeh",
+  "nama": "Cengkeh",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pala",
+  "nama": "Pala",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sagu",
+  "nama": "Sagu",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "wortel",
+  "nama": "Wortel",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kentang",
+  "nama": "Kentang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kubis",
+  "nama": "Kubis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "buncis",
+  "nama": "Buncis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cabai",
+  "nama": "Cabai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pare",
+  "nama": "Pare",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "labu-air",
+  "nama": "Labu air",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "labu-kuning",
+  "nama": "Labu kuning",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kecipir",
+  "nama": "Kecipir",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "okra",
+  "nama": "Okra",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "leunca",
+  "nama": "Leunca",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gambas-ular",
+  "nama": "Gambas ular",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "caisim",
+  "nama": "Caisim",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pakcoy",
+  "nama": "Pakcoy",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "katuk",
+  "nama": "Katuk",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kelor",
+  "nama": "Kelor",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kenikir",
+  "nama": "Kenikir",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kemangi",
+  "nama": "Kemangi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "genjer",
+  "nama": "Genjer",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kapri",
+  "nama": "Kapri",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "brokoli",
+  "nama": "Brokoli",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kembang-kol",
+  "nama": "Kembang kol",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lobak",
+  "nama": "Lobak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bit",
+  "nama": "Bit",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "paprika",
+  "nama": "Paprika",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "zukini",
+  "nama": "Zukini",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "labu-siam",
+  "nama": "Labu siam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "selada",
+  "nama": "Selada",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sawi-putih",
+  "nama": "Sawi putih",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "seledri",
+  "nama": "Seledri",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bawang-daun",
+  "nama": "Bawang daun",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kailan",
+  "nama": "Kailan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "peterseli",
+  "nama": "Peterseli",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "selada-air",
+  "nama": "Selada air",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bawang-putih",
+  "nama": "Bawang putih",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bawang-merah",
+  "nama": "Bawang merah",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lengkuas",
+  "nama": "Lengkuas",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "temu-kunci",
+  "nama": "Temu kunci",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lempuyang",
+  "nama": "Lempuyang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "serai-dapur",
+  "nama": "Serai dapur",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pandan-wangi",
+  "nama": "Pandan wangi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "salam",
+  "nama": "Salam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-purut",
+  "nama": "Jeruk purut",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "mint",
+  "nama": "Mint",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "salam-koja",
+  "nama": "Salam koja",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-limau",
+  "nama": "Jeruk limau",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "belimbing-wuluh",
+  "nama": "Belimbing wuluh",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "singkong",
+  "nama": "Singkong",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "ubi-jalar",
+  "nama": "Ubi jalar",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "talas",
+  "nama": "Talas",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "garut",
+  "nama": "Garut",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "ganyong",
+  "nama": "Ganyong",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sorgum",
+  "nama": "Sorgum",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jewawut",
+  "nama": "Jewawut",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-merah",
+  "nama": "Kacang merah",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-tunggak",
+  "nama": "Kacang tunggak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "wijen",
+  "nama": "Wijen",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "porang",
+  "nama": "Porang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "semangka",
+  "nama": "Semangka",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "melon",
+  "nama": "Melon",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "blewah",
+  "nama": "Blewah",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "timun-suri",
+  "nama": "Timun suri",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "stroberi",
+  "nama": "Stroberi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "markisa",
+  "nama": "Markisa",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "avokad",
+  "nama": "Avokad",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "apel",
+  "nama": "Apel",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kesemek",
+  "nama": "Kesemek",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jambu-air",
+  "nama": "Jambu air",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-siam",
+  "nama": "Jeruk siam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-keprok",
+  "nama": "Jeruk keprok",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-bali",
+  "nama": "Jeruk bali",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jeruk-nipis",
+  "nama": "Jeruk nipis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lemon",
+  "nama": "Lemon",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "durian",
+  "nama": "Durian",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "rambutan",
+  "nama": "Rambutan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "manggis",
+  "nama": "Manggis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "duku",
+  "nama": "Duku",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "langsat",
+  "nama": "Langsat",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "salak",
+  "nama": "Salak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "nanas",
+  "nama": "Nanas",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "nangka",
+  "nama": "Nangka",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cempedak",
+  "nama": "Cempedak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sukun",
+  "nama": "Sukun",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sirsak",
+  "nama": "Sirsak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "srikaya",
+  "nama": "Srikaya",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sawo",
+  "nama": "Sawo",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "belimbing",
+  "nama": "Belimbing",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "buah-naga",
+  "nama": "Buah naga",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "delima",
+  "nama": "Delima",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kelengkeng",
+  "nama": "Kelengkeng",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kedondong",
+  "nama": "Kedondong",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "matoa",
+  "nama": "Matoa",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kecapi",
+  "nama": "Kecapi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jamblang",
+  "nama": "Jamblang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "petai",
+  "nama": "Petai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jengkol",
+  "nama": "Jengkol",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "melinjo",
+  "nama": "Melinjo",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lada",
+  "nama": "Lada",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kayu-manis",
+  "nama": "Kayu manis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "vanili",
+  "nama": "Vanili",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kapulaga",
+  "nama": "Kapulaga",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kemiri",
+  "nama": "Kemiri",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "asam-jawa",
+  "nama": "Asam jawa",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kluwek",
+  "nama": "Kluwek",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pinang",
+  "nama": "Pinang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jambu-mete",
+  "nama": "Jambu mete",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "aren",
+  "nama": "Aren",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "tebu",
+  "nama": "Tebu",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kelapa-sawit",
+  "nama": "Kelapa sawit",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "mawar",
+  "nama": "Mawar",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "krisan",
+  "nama": "Krisan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "sedap-malam",
+  "nama": "Sedap malam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gladiol",
+  "nama": "Gladiol",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gerbera",
+  "nama": "Gerbera",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "melati",
+  "nama": "Melati",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "anggrek",
+  "nama": "Anggrek",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pohpohan",
+  "nama": "Pohpohan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "tespong",
+  "nama": "Tespong",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "mangkokan",
+  "nama": "Mangkokan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "ketumbar",
+  "nama": "Ketumbar",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kucai",
+  "nama": "Kucai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lokio",
+  "nama": "Lokio",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "pegagan",
+  "nama": "Pegagan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cincau-hijau",
+  "nama": "Cincau hijau",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "suji",
+  "nama": "Suji",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kecombrang",
+  "nama": "Kecombrang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "temu-hitam",
+  "nama": "Temu hitam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "temu-putih",
+  "nama": "Temu putih",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bangle",
+  "nama": "Bangle",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "krai",
+  "nama": "Krai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cabai-gendot",
+  "nama": "Cabai gendot",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-koro-pedang",
+  "nama": "Kacang koro pedang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "radis",
+  "nama": "Radis",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kale",
+  "nama": "Kale",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "swiss-chard",
+  "nama": "Swiss chard",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "adas",
+  "nama": "Adas",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bawang-prei",
+  "nama": "Bawang prei",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kohlrabi",
+  "nama": "Kohlrabi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kubis-brussel",
+  "nama": "Kubis brussel",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "parsnip",
+  "nama": "Parsnip",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "terung-belanda",
+  "nama": "Terung belanda",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "murbei",
+  "nama": "Murbei",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "rasberi",
+  "nama": "Rasberi",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "ciplukan",
+  "nama": "Ciplukan",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gembili",
+  "nama": "Gembili",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gadung",
+  "nama": "Gadung",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "suweg",
+  "nama": "Suweg",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bengkuang",
+  "nama": "Bengkuang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "hanjeli",
+  "nama": "Hanjeli",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-bogor",
+  "nama": "Kacang bogor",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-gude",
+  "nama": "Kacang gude",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kacang-komak",
+  "nama": "Kacang komak",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bunga-matahari",
+  "nama": "Bunga matahari",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jambu-bol",
+  "nama": "Jambu bol",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "jambu-mawar",
+  "nama": "Jambu mawar",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kawista",
+  "nama": "Kawista",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "buah-mentega",
+  "nama": "Buah mentega",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "gandaria",
+  "nama": "Gandaria",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "bacang",
+  "nama": "Bacang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kweni",
+  "nama": "Kweni",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "rukam",
+  "nama": "Rukam",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "cermai",
+  "nama": "Cermai",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "helikonia",
+  "nama": "Helikonia",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "anthurium",
+  "nama": "Anthurium",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "anyelir",
+  "nama": "Anyelir",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "lili",
+  "nama": "Lili",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "aster",
+  "nama": "Aster",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "telang",
+  "nama": "Telang",
+  "status_game": "Kandidat"
+ },
+ {
+  "id": "kangkung-air",
+  "nama": "Kangkung air",
+  "status_game": "Kandidat"
+ }
+]

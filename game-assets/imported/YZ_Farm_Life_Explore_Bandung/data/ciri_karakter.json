@@ -1,0 +1,802 @@
+[
+ {
+  "karakter_id": "A01",
+  "jenis": "hobi",
+  "isi": "Berkebun"
+ },
+ {
+  "karakter_id": "A01",
+  "jenis": "hobi",
+  "isi": "Menjelajah desa"
+ },
+ {
+  "karakter_id": "A01",
+  "jenis": "kepribadian",
+  "isi": "Penasaran"
+ },
+ {
+  "karakter_id": "A01",
+  "jenis": "kepribadian",
+  "isi": "Tekun"
+ },
+ {
+  "karakter_id": "A01",
+  "jenis": "kepribadian",
+  "isi": "Suka membantu"
+ },
+ {
+  "karakter_id": "A02",
+  "jenis": "hobi",
+  "isi": "Merangkai bunga"
+ },
+ {
+  "karakter_id": "A02",
+  "jenis": "hobi",
+  "isi": "Membuat teh herbal"
+ },
+ {
+  "karakter_id": "A02",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "A02",
+  "jenis": "kepribadian",
+  "isi": "Telaten"
+ },
+ {
+  "karakter_id": "A02",
+  "jenis": "kepribadian",
+  "isi": "Optimistis"
+ },
+ {
+  "karakter_id": "A03",
+  "jenis": "hobi",
+  "isi": "Memancing"
+ },
+ {
+  "karakter_id": "A03",
+  "jenis": "hobi",
+  "isi": "Merakit saluran air mini"
+ },
+ {
+  "karakter_id": "A03",
+  "jenis": "kepribadian",
+  "isi": "Tenang"
+ },
+ {
+  "karakter_id": "A03",
+  "jenis": "kepribadian",
+  "isi": "Praktis"
+ },
+ {
+  "karakter_id": "A03",
+  "jenis": "kepribadian",
+  "isi": "Tegas"
+ },
+ {
+  "karakter_id": "A04",
+  "jenis": "hobi",
+  "isi": "Mengoleksi benih"
+ },
+ {
+  "karakter_id": "A04",
+  "jenis": "hobi",
+  "isi": "Menggambar tanaman"
+ },
+ {
+  "karakter_id": "A04",
+  "jenis": "kepribadian",
+  "isi": "Ceria"
+ },
+ {
+  "karakter_id": "A04",
+  "jenis": "kepribadian",
+  "isi": "Komunikatif"
+ },
+ {
+  "karakter_id": "A04",
+  "jenis": "kepribadian",
+  "isi": "Antusias"
+ },
+ {
+  "karakter_id": "A05",
+  "jenis": "hobi",
+  "isi": "Merakit perkakas"
+ },
+ {
+  "karakter_id": "A05",
+  "jenis": "hobi",
+  "isi": "Bermain catur"
+ },
+ {
+  "karakter_id": "A05",
+  "jenis": "kepribadian",
+  "isi": "Analitis"
+ },
+ {
+  "karakter_id": "A05",
+  "jenis": "kepribadian",
+  "isi": "Teliti"
+ },
+ {
+  "karakter_id": "A05",
+  "jenis": "kepribadian",
+  "isi": "Pendiam"
+ },
+ {
+  "karakter_id": "A06",
+  "jenis": "hobi",
+  "isi": "Bersepeda"
+ },
+ {
+  "karakter_id": "A06",
+  "jenis": "hobi",
+  "isi": "Bermain sepak bola"
+ },
+ {
+  "karakter_id": "A06",
+  "jenis": "kepribadian",
+  "isi": "Energik"
+ },
+ {
+  "karakter_id": "A06",
+  "jenis": "kepribadian",
+  "isi": "Spontan"
+ },
+ {
+  "karakter_id": "A06",
+  "jenis": "kepribadian",
+  "isi": "Setia kawan"
+ },
+ {
+  "karakter_id": "A07",
+  "jenis": "hobi",
+  "isi": "Merawat anggrek"
+ },
+ {
+  "karakter_id": "A07",
+  "jenis": "hobi",
+  "isi": "Memasak sayur"
+ },
+ {
+  "karakter_id": "A07",
+  "jenis": "kepribadian",
+  "isi": "Sabar"
+ },
+ {
+  "karakter_id": "A07",
+  "jenis": "kepribadian",
+  "isi": "Penyayang"
+ },
+ {
+  "karakter_id": "A07",
+  "jenis": "kepribadian",
+  "isi": "Teratur"
+ },
+ {
+  "karakter_id": "A08",
+  "jenis": "hobi",
+  "isi": "Menganyam bambu"
+ },
+ {
+  "karakter_id": "A08",
+  "jenis": "hobi",
+  "isi": "Membuat hiasan rumah"
+ },
+ {
+  "karakter_id": "A08",
+  "jenis": "kepribadian",
+  "isi": "Kreatif"
+ },
+ {
+  "karakter_id": "A08",
+  "jenis": "kepribadian",
+  "isi": "Mandiri"
+ },
+ {
+  "karakter_id": "A08",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "A09",
+  "jenis": "hobi",
+  "isi": "Fotografi alam"
+ },
+ {
+  "karakter_id": "A09",
+  "jenis": "hobi",
+  "isi": "Mengamati burung"
+ },
+ {
+  "karakter_id": "A09",
+  "jenis": "kepribadian",
+  "isi": "Observatif"
+ },
+ {
+  "karakter_id": "A09",
+  "jenis": "kepribadian",
+  "isi": "Santai"
+ },
+ {
+  "karakter_id": "A09",
+  "jenis": "kepribadian",
+  "isi": "Ingin tahu"
+ },
+ {
+  "karakter_id": "A10",
+  "jenis": "hobi",
+  "isi": "Latihan kebugaran"
+ },
+ {
+  "karakter_id": "A10",
+  "jenis": "hobi",
+  "isi": "Merawat bonsai"
+ },
+ {
+  "karakter_id": "A10",
+  "jenis": "kepribadian",
+  "isi": "Disiplin"
+ },
+ {
+  "karakter_id": "A10",
+  "jenis": "kepribadian",
+  "isi": "Dapat diandalkan"
+ },
+ {
+  "karakter_id": "A10",
+  "jenis": "kepribadian",
+  "isi": "Lugas"
+ },
+ {
+  "karakter_id": "A11",
+  "jenis": "hobi",
+  "isi": "Memasak bersama"
+ },
+ {
+  "karakter_id": "A11",
+  "jenis": "hobi",
+  "isi": "Mengoleksi resep"
+ },
+ {
+  "karakter_id": "A11",
+  "jenis": "kepribadian",
+  "isi": "Supel"
+ },
+ {
+  "karakter_id": "A11",
+  "jenis": "kepribadian",
+  "isi": "Adil"
+ },
+ {
+  "karakter_id": "A11",
+  "jenis": "kepribadian",
+  "isi": "Suka berinisiatif"
+ },
+ {
+  "karakter_id": "A12",
+  "jenis": "hobi",
+  "isi": "Merawat kendaraan"
+ },
+ {
+  "karakter_id": "A12",
+  "jenis": "hobi",
+  "isi": "Berkemah"
+ },
+ {
+  "karakter_id": "A12",
+  "jenis": "kepribadian",
+  "isi": "Tangguh"
+ },
+ {
+  "karakter_id": "A12",
+  "jenis": "kepribadian",
+  "isi": "Humoris"
+ },
+ {
+  "karakter_id": "A12",
+  "jenis": "kepribadian",
+  "isi": "Praktis"
+ },
+ {
+  "karakter_id": "A13",
+  "jenis": "hobi",
+  "isi": "Membaca"
+ },
+ {
+  "karakter_id": "A13",
+  "jenis": "hobi",
+  "isi": "Menyusun jurnal tanaman"
+ },
+ {
+  "karakter_id": "A13",
+  "jenis": "kepribadian",
+  "isi": "Tenang"
+ },
+ {
+  "karakter_id": "A13",
+  "jenis": "kepribadian",
+  "isi": "Cermat"
+ },
+ {
+  "karakter_id": "A13",
+  "jenis": "kepribadian",
+  "isi": "Penuh pertimbangan"
+ },
+ {
+  "karakter_id": "A14",
+  "jenis": "hobi",
+  "isi": "Merakit radio"
+ },
+ {
+  "karakter_id": "A14",
+  "jenis": "hobi",
+  "isi": "Mendengarkan musik"
+ },
+ {
+  "karakter_id": "A14",
+  "jenis": "kepribadian",
+  "isi": "Logis"
+ },
+ {
+  "karakter_id": "A14",
+  "jenis": "kepribadian",
+  "isi": "Sabar"
+ },
+ {
+  "karakter_id": "A14",
+  "jenis": "kepribadian",
+  "isi": "Suka memecahkan masalah"
+ },
+ {
+  "karakter_id": "A15",
+  "jenis": "hobi",
+  "isi": "Bermain bulu tangkis"
+ },
+ {
+  "karakter_id": "A15",
+  "jenis": "hobi",
+  "isi": "Merencanakan kegiatan desa"
+ },
+ {
+  "karakter_id": "A15",
+  "jenis": "kepribadian",
+  "isi": "Percaya diri"
+ },
+ {
+  "karakter_id": "A15",
+  "jenis": "kepribadian",
+  "isi": "Kooperatif"
+ },
+ {
+  "karakter_id": "A15",
+  "jenis": "kepribadian",
+  "isi": "Bertanggung jawab"
+ },
+ {
+  "karakter_id": "A16",
+  "jenis": "hobi",
+  "isi": "Membuat sketsa tata kebun"
+ },
+ {
+  "karakter_id": "A16",
+  "jenis": "hobi",
+  "isi": "Mengerjakan teka-teki"
+ },
+ {
+  "karakter_id": "A16",
+  "jenis": "kepribadian",
+  "isi": "Fokus"
+ },
+ {
+  "karakter_id": "A16",
+  "jenis": "kepribadian",
+  "isi": "Kreatif"
+ },
+ {
+  "karakter_id": "A16",
+  "jenis": "kepribadian",
+  "isi": "Terstruktur"
+ },
+ {
+  "karakter_id": "C01",
+  "jenis": "hobi",
+  "isi": "Menanam melati"
+ },
+ {
+  "karakter_id": "C01",
+  "jenis": "hobi",
+  "isi": "Membuat kue tradisional"
+ },
+ {
+  "karakter_id": "C01",
+  "jenis": "kepribadian",
+  "isi": "Hangat"
+ },
+ {
+  "karakter_id": "C01",
+  "jenis": "kepribadian",
+  "isi": "Sabar"
+ },
+ {
+  "karakter_id": "C01",
+  "jenis": "kepribadian",
+  "isi": "Gemar bercerita"
+ },
+ {
+  "karakter_id": "C02",
+  "jenis": "hobi",
+  "isi": "Mencangkok tanaman"
+ },
+ {
+  "karakter_id": "C02",
+  "jenis": "hobi",
+  "isi": "Memancing"
+ },
+ {
+  "karakter_id": "C02",
+  "jenis": "kepribadian",
+  "isi": "Pekerja keras"
+ },
+ {
+  "karakter_id": "C02",
+  "jenis": "kepribadian",
+  "isi": "Peduli"
+ },
+ {
+  "karakter_id": "C02",
+  "jenis": "kepribadian",
+  "isi": "Bersahaja"
+ },
+ {
+  "karakter_id": "C03",
+  "jenis": "hobi",
+  "isi": "Membuat mainan kayu"
+ },
+ {
+  "karakter_id": "C03",
+  "jenis": "hobi",
+  "isi": "Bermain catur"
+ },
+ {
+  "karakter_id": "C03",
+  "jenis": "kepribadian",
+  "isi": "Bijaksana"
+ },
+ {
+  "karakter_id": "C03",
+  "jenis": "kepribadian",
+  "isi": "Humoris"
+ },
+ {
+  "karakter_id": "C03",
+  "jenis": "kepribadian",
+  "isi": "Telaten"
+ },
+ {
+  "karakter_id": "C04",
+  "jenis": "hobi",
+  "isi": "Mencoba resep roti"
+ },
+ {
+  "karakter_id": "C04",
+  "jenis": "hobi",
+  "isi": "Merawat tanaman dapur"
+ },
+ {
+  "karakter_id": "C04",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "C04",
+  "jenis": "kepribadian",
+  "isi": "Cekatan"
+ },
+ {
+  "karakter_id": "C04",
+  "jenis": "kepribadian",
+  "isi": "Perhatian"
+ },
+ {
+  "karakter_id": "C05",
+  "jenis": "hobi",
+  "isi": "Bermain sepak bola"
+ },
+ {
+  "karakter_id": "C05",
+  "jenis": "hobi",
+  "isi": "Menanam sayur percobaan"
+ },
+ {
+  "karakter_id": "C05",
+  "jenis": "kepribadian",
+  "isi": "Antusias"
+ },
+ {
+  "karakter_id": "C05",
+  "jenis": "kepribadian",
+  "isi": "Mudah penasaran"
+ },
+ {
+  "karakter_id": "C05",
+  "jenis": "kepribadian",
+  "isi": "Kadang terburu-buru"
+ },
+ {
+  "karakter_id": "C06",
+  "jenis": "hobi",
+  "isi": "Membaca buku tanaman"
+ },
+ {
+  "karakter_id": "C06",
+  "jenis": "hobi",
+  "isi": "Menggambar jurnal lapangan"
+ },
+ {
+  "karakter_id": "C06",
+  "jenis": "kepribadian",
+  "isi": "Ingin tahu"
+ },
+ {
+  "karakter_id": "C06",
+  "jenis": "kepribadian",
+  "isi": "Rajin"
+ },
+ {
+  "karakter_id": "C06",
+  "jenis": "kepribadian",
+  "isi": "Sedikit pemalu"
+ },
+ {
+  "karakter_id": "C07",
+  "jenis": "hobi",
+  "isi": "Mencoba masakan lokal"
+ },
+ {
+  "karakter_id": "C07",
+  "jenis": "hobi",
+  "isi": "Bermain bulu tangkis"
+ },
+ {
+  "karakter_id": "C07",
+  "jenis": "kepribadian",
+  "isi": "Luwes"
+ },
+ {
+  "karakter_id": "C07",
+  "jenis": "kepribadian",
+  "isi": "Percaya diri"
+ },
+ {
+  "karakter_id": "C07",
+  "jenis": "kepribadian",
+  "isi": "Pandai bernegosiasi"
+ },
+ {
+  "karakter_id": "C08",
+  "jenis": "hobi",
+  "isi": "Bereksperimen dengan resep"
+ },
+ {
+  "karakter_id": "C08",
+  "jenis": "hobi",
+  "isi": "Berkebun cabai"
+ },
+ {
+  "karakter_id": "C08",
+  "jenis": "kepribadian",
+  "isi": "Ceria"
+ },
+ {
+  "karakter_id": "C08",
+  "jenis": "kepribadian",
+  "isi": "Cekatan"
+ },
+ {
+  "karakter_id": "C08",
+  "jenis": "kepribadian",
+  "isi": "Kreatif"
+ },
+ {
+  "karakter_id": "C09",
+  "jenis": "hobi",
+  "isi": "Menggambar lanskap"
+ },
+ {
+  "karakter_id": "C09",
+  "jenis": "hobi",
+  "isi": "Fotografi"
+ },
+ {
+  "karakter_id": "C09",
+  "jenis": "kepribadian",
+  "isi": "Imajinatif"
+ },
+ {
+  "karakter_id": "C09",
+  "jenis": "kepribadian",
+  "isi": "Mandiri"
+ },
+ {
+  "karakter_id": "C09",
+  "jenis": "kepribadian",
+  "isi": "Santai"
+ },
+ {
+  "karakter_id": "C10",
+  "jenis": "hobi",
+  "isi": "Mengerjakan teka-teki angka"
+ },
+ {
+  "karakter_id": "C10",
+  "jenis": "hobi",
+  "isi": "Menyeduh kopi"
+ },
+ {
+  "karakter_id": "C10",
+  "jenis": "kepribadian",
+  "isi": "Rapi"
+ },
+ {
+  "karakter_id": "C10",
+  "jenis": "kepribadian",
+  "isi": "Teliti"
+ },
+ {
+  "karakter_id": "C10",
+  "jenis": "kepribadian",
+  "isi": "Dapat dipercaya"
+ },
+ {
+  "karakter_id": "C11",
+  "jenis": "hobi",
+  "isi": "Menjelajah jalur desa"
+ },
+ {
+  "karakter_id": "C11",
+  "jenis": "hobi",
+  "isi": "Membuat jurnal perjalanan"
+ },
+ {
+  "karakter_id": "C11",
+  "jenis": "kepribadian",
+  "isi": "Adaptif"
+ },
+ {
+  "karakter_id": "C11",
+  "jenis": "kepribadian",
+  "isi": "Berani mencoba"
+ },
+ {
+  "karakter_id": "C11",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "C12",
+  "jenis": "hobi",
+  "isi": "Merawat tanaman pot"
+ },
+ {
+  "karakter_id": "C12",
+  "jenis": "hobi",
+  "isi": "Menyusun dekorasi etalase"
+ },
+ {
+  "karakter_id": "C12",
+  "jenis": "kepribadian",
+  "isi": "Teratur"
+ },
+ {
+  "karakter_id": "C12",
+  "jenis": "kepribadian",
+  "isi": "Sopan"
+ },
+ {
+  "karakter_id": "C12",
+  "jenis": "kepribadian",
+  "isi": "Teguh pendirian"
+ },
+ {
+  "karakter_id": "C13",
+  "jenis": "hobi",
+  "isi": "Bermain catur"
+ },
+ {
+  "karakter_id": "C13",
+  "jenis": "hobi",
+  "isi": "Mengoleksi cerita rakyat"
+ },
+ {
+  "karakter_id": "C13",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "C13",
+  "jenis": "kepribadian",
+  "isi": "Bijaksana"
+ },
+ {
+  "karakter_id": "C13",
+  "jenis": "kepribadian",
+  "isi": "Suka bermusyawarah"
+ },
+ {
+  "karakter_id": "C14",
+  "jenis": "hobi",
+  "isi": "Merawat sepeda motor"
+ },
+ {
+  "karakter_id": "C14",
+  "jenis": "hobi",
+  "isi": "Mencari jalur baru"
+ },
+ {
+  "karakter_id": "C14",
+  "jenis": "kepribadian",
+  "isi": "Gesit"
+ },
+ {
+  "karakter_id": "C14",
+  "jenis": "kepribadian",
+  "isi": "Suka membantu"
+ },
+ {
+  "karakter_id": "C14",
+  "jenis": "kepribadian",
+  "isi": "Optimistis"
+ },
+ {
+  "karakter_id": "C15",
+  "jenis": "hobi",
+  "isi": "Menggambar peta"
+ },
+ {
+  "karakter_id": "C15",
+  "jenis": "hobi",
+  "isi": "Bermain permainan strategi"
+ },
+ {
+  "karakter_id": "C15",
+  "jenis": "kepribadian",
+  "isi": "Mandiri"
+ },
+ {
+  "karakter_id": "C15",
+  "jenis": "kepribadian",
+  "isi": "Kreatif"
+ },
+ {
+  "karakter_id": "C15",
+  "jenis": "kepribadian",
+  "isi": "Terbuka untuk kerja sama"
+ },
+ {
+  "karakter_id": "C16",
+  "jenis": "hobi",
+  "isi": "Merangkai bunga liar"
+ },
+ {
+  "karakter_id": "C16",
+  "jenis": "hobi",
+  "isi": "Melukis"
+ },
+ {
+  "karakter_id": "C16",
+  "jenis": "kepribadian",
+  "isi": "Ekspresif"
+ },
+ {
+  "karakter_id": "C16",
+  "jenis": "kepribadian",
+  "isi": "Ramah"
+ },
+ {
+  "karakter_id": "C16",
+  "jenis": "kepribadian",
+  "isi": "Penuh ide"
+ }
+]

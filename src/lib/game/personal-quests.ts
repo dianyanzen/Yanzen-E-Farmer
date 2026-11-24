@@ -1,5 +1,6 @@
 ﻿import type { GameState, Dialogue, NpcId } from "./model";
-import { sellableCucumbers } from "./model";
+import { sellableCucumbers, questPropActive } from "./model";
+import { questPropById, type QuestPropId } from "./quest-props";
 
 export type QuestStep = { phase:1|2|3|4; day:number; baseline:number };
 export type QuestBook = Partial<Record<NpcId,QuestStep>>;
@@ -54,7 +55,7 @@ export const tales:Record<NpcId,Tale> = {
       "Kuberi tanda kecil di bungkus pertama untuk mengingat kebun asal catatan ini. Ini upahmu membantu percobaan."]
   },
   C07:{
-    title:"Buku tangkapan dermaga",contact:"A03",errand:"Tanyakan kepada Ryan bagaimana mengenali arus yang tenang.",work:"Dapatkan dua tangkapan baru di lokasi pancing setelah mendengar penjelasan Ryan.",fee:120,
+    title:"Buku tangkapan tepi sungai",contact:"A03",errand:"Tanyakan kepada Ryan bagaimana mengenali arus yang tenang.",work:"Dapatkan dua tangkapan baru di lokasi pancing setelah mendengar penjelasan Ryan.",fee:120,
     offer:["Hargaku tertulis rapi di papan, tapi asal ikan masih sering hilang ketika orang pulang dari pasar. Aku mulai mencatatnya di buku kecil ini.",
       "Sebelum melempar kail, tanya Ryan bagaimana ia melihat arus dari tepi. Bawa pelet dan simpan ikanmu di keranjang."],
     reply:["Lihat permukaan di balik batu, bukan hanya buih putih dekat pintu air. Pelampung jauh lebih mudah terlihat di air yang tenang.",
@@ -109,4 +110,95 @@ export function questTalk(s:GameState,person:NpcId,id:NpcId):Dialogue & {state:G
   }else{return {...base,state:s,lines:[questObjective(s,id)]};}
   state={...state,personalQuests:{...s.personalQuests,[id]:{phase,day:s.day,baseline:tally(s,id)}}};
   return {...base,state,lines};
+}
+
+
+/** Second authored request per active legacy NPC.
+ * This additive save field intentionally never changes the existing first quest.
+ * A later full quest-book migration can use stable quest IDs, not NPC ids.
+ */
+export type FollowUpStep = { phase:1|2|3; day:number; baseline:number };
+export type FollowUpBook = Partial<Record<NpcId,FollowUpStep>>;
+export const followUpTales:Record<NpcId,{title:string;prop:QuestPropId;fee:number;offer:string;found:string;ending:string}> = {
+  A03:{
+    title:"Jejak Dua Garis",prop:"water-marks",fee:65,
+    offer:"Aku membawa contoh batu penanda dari dekat pintu air ke rumah. Ada dua garis yang perlu kucocokkan. Bisa periksa penandanya di meja rumahku?",
+    found:"Batu penanda yang disimpan Ryan memiliki dua guratan. Yang atas memudar, sedangkan garis bawah masih berbekas lembap.",
+    ending:"Nah, garis bawahnya memang masih basah. Aku catat tanggalnya dulu. Besok kalau berubah, kita punya pembanding."
+  },
+  C01:{
+    title:"Pot yang Terlupa",prop:"nani-pots",fee:55,
+    offer:"Ada dua pot di depan gang. Satu daunnya turun, satunya lagi tampak segar. Tolong periksa tanahnya, jangan langsung disiram dua-duanya.",
+    found:"Pot kiri terasa kering pada permukaan; pot kanan masih menyimpan lembap di bawah daun.",
+    ending:"Yang kanan memang belum perlu air. Bagus kamu memeriksa dulu, bukan asal menyiram. Bunga juga perlu bernapas."
+  },
+  A04:{
+    title:"Menunggu Kecambah",prop:"ayu-seeds",fee:70,
+    offer:"Nampan semaiku kusimpan di rumah agar tidak terkena angin pasar. Tunggu sampai besok, lalu mampir dan lihat apakah tunasnya mulai tampak.",
+    found:"Beberapa ujung hijau kecil muncul di nampan. Tanahnya masih cukup lembap.",
+    ending:"Tunas pertama biasanya kecil sekali. Catatanmu cukup untuk percobaan hari ini. Aku akan menyimpan amplopnya."
+  },
+  C07:{
+    title:"Tiga Tanda di Air",prop:"widi-ledger",fee:85,
+    offer:"Buku tangkapanku ada di meja rumah. Dapatkan dua ikan lagi setelah obrolan ini, lalu mampir ke rumah untuk mencatatnya.",
+    found:"Dua tangkapan baru dicatat. Widi menyisakan tempat untuk mencatat ikan yang lepas pada kesempatan berikutnya.",
+    ending:"Buku ini mulai terisi dari pengalamanmu sendiri. Tidak apa kalau tiap lemparan tidak berhasil; yang penting kamu tahu kapan harus menunggu."
+  },
+  C08:{
+    title:"Pagi yang Sibuk",prop:"inggit-orders",fee:80,
+    offer:"Keranjang untuk pesanan tambahan sudah kusiapkan di dapur rumah. Kalau hasil kebunmu cukup, antarkan dua timun ke sana. Jangan ganggu jatah pesanan utama.",
+    found:"Dua timun tambahan tersusun di keranjang. Catatan pesanan Inggit kini diberi tanda sudah diterima.",
+    ending:"Nah, pas. Aku bisa mulai menyiapkan bahan sebelum pembeli datang. Jangan sampai kamu sendiri lupa makan karena sibuk menolongku."
+  }
+};
+export function followUpAvailable(s:GameState,id:NpcId):boolean{
+  return s.personalQuests?.[id]?.phase===4 && s.followUpQuests?.[id]?.phase!==3;
+}
+export function followUpObjective(s:GameState,id:NpcId):string{
+  const q=s.followUpQuests?.[id],t=followUpTales[id];
+  if(!q)return "Bicaralah dengan "+(s.bonds[id]?.talks>0?"warga ini":"pemilik permintaan")+" untuk mendengar permintaannya.";
+  if(q.phase===2)return "Kembali kepada pemberi permintaan untuk menyampaikan hasilnya.";
+  if(q.phase===3)return "Selesai";
+  if(id==="A04" && s.day<=q.day)return "Tidur sampai hari berikutnya, lalu periksa nampan semai di rumah Ayu.";
+  if(id==="C07" && s.fishing.caught-q.baseline<2)return "Dapatkan dua tangkapan baru, lalu periksa buku di rumah Widi.";
+  if(id==="C08" && sellableCucumbers(s)<2)return "Siapkan dua timun tambahan, lalu antarkan ke rumah Inggit.";
+  return ({A03:"Periksa contoh batu ukur air di rumah Ryan.",C01:"Periksa pot Nani di gang.",A04:"Periksa nampan semai di rumah Ayu.",
+    C07:"Catat hasil tangkapan di buku rumah Widi.",C08:"Antarkan dua timun tambahan ke keranjang dapur rumah Inggit."} as Record<NpcId,string>)[id]??t.title;
+}
+export function followUpTalk(s:GameState,id:NpcId):Dialogue & {state:GameState}{
+  const t=followUpTales[id],q=s.followUpQuests?.[id];
+  const base={npcId:id,title:t.title};
+  if(!followUpAvailable(s,id))return {...base,state:s,lines:["Belum ada urusan baru untuk sekarang."]};
+  if(!q){
+    const next:FollowUpStep={phase:1,day:s.day,baseline:id==="C07"?s.fishing.caught:0};
+    return {...base,state:{...s,followUpQuests:{...s.followUpQuests,[id]:next}},lines:[t.offer,followUpObjective({...s,followUpQuests:{...s.followUpQuests,[id]:next}},id)]};
+  }
+  if(q.phase===1)return {...base,state:s,lines:[followUpObjective(s,id)]};
+  if(q.phase===2){
+    const bond=s.bonds[id];
+    const state:GameState={...s,
+      followUpQuests:{...s.followUpQuests,[id]:{...q,phase:3}},
+      coins:Math.min(99999999,s.coins+t.fee),
+      bonds:{...s.bonds,[id]:{...bond,points:Math.min(1000,bond.points+35)}}};
+    return {...base,state,lines:[t.ending,"Ini bagianmu, "+t.fee+" G."]};
+  }
+  return {...base,state:s,lines:["Urusan itu sudah selesai. Terima kasih."]};
+}
+/** Quest props only become inspectable after the right request is accepted,
+ * and only in their real location. Neither proximity to other props nor an old
+ * save can complete a mission before it is active.
+ */
+export function inspectFollowUpProp(s:GameState,propId:QuestPropId):{state:GameState;message:string}{
+  const prop=questPropById(propId),id=prop.owner as NpcId,t=followUpTales[id];
+  const q=s.followUpQuests?.[id];
+  if(!q || s.location!==prop.location || !questPropActive(s,prop))
+    return {state:s,message:"Belum ada permintaan yang bisa dikerjakan di sini."};
+  if(q.phase!==1)return {state:s,message:q.phase===2?"Catatanmu sudah siap. Sekarang laporkan kepada pemiliknya.":"Permintaan ini sudah selesai."};
+  if(id==="A04"&&s.day<=q.day)return {state:s,message:"Tanah nampan masih tenang. Ayu memintamu memeriksanya lagi besok."};
+  if(id==="C07"&&s.fishing.caught-q.baseline<2)return {state:s,message:"Belum ada dua tangkapan baru yang bisa dicatat. Coba memancing lagi."};
+  if(id==="C08"&&sellableCucumbers(s)<2)return {state:s,message:"Keranjang membutuhkan dua timun tambahan. Simpan dulu jatah pesanan utama."};
+  const state:GameState={...s,
+    ...(id==="C08"?{harvested:s.harvested-2}:{}),
+    followUpQuests:{...s.followUpQuests,[id]:{...q,phase:2}}};
+  return {state,message:t.found+" Kembali dan ceritakan kepada "+({A03:"Ryan",C01:"Nani",A04:"Ayu",C07:"Widi",C08:"Inggit"} as Record<NpcId,string>)[id]+"."};
 }

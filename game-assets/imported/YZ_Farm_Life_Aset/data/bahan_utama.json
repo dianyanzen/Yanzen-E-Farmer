@@ -1,0 +1,554 @@
+[
+ {
+  "produk": "beras-putih",
+  "bahan": "gabah-padi"
+ },
+ {
+  "produk": "beras-ketan-putih",
+  "bahan": "gabah-ketan-putih"
+ },
+ {
+  "produk": "beras-ketan-hitam",
+  "bahan": "gabah-ketan-hitam"
+ },
+ {
+  "produk": "tepung-beras",
+  "bahan": "beras-putih"
+ },
+ {
+  "produk": "tepung-ketan",
+  "bahan": "beras-ketan-putih"
+ },
+ {
+  "produk": "tepung-terigu",
+  "bahan": "gandum"
+ },
+ {
+  "produk": "tepung-tapioka",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "tepung-sagu",
+  "bahan": "batang-sagu"
+ },
+ {
+  "produk": "tepung-maizena",
+  "bahan": "jagung-pipilan"
+ },
+ {
+  "produk": "tempe",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "tahu-putih",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "kecap-manis",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "susu-kedelai",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "gula-pasir",
+  "bahan": "tebu"
+ },
+ {
+  "produk": "gula-aren",
+  "bahan": "nira-aren"
+ },
+ {
+  "produk": "santan",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "minyak-kelapa",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "minyak-goreng-sawit",
+  "bahan": "tandan-sawit"
+ },
+ {
+  "produk": "kopi-bubuk",
+  "bahan": "buah-kopi"
+ },
+ {
+  "produk": "teh-kering",
+  "bahan": "pucuk-teh"
+ },
+ {
+  "produk": "kakao-bubuk",
+  "bahan": "biji-kakao"
+ },
+ {
+  "produk": "ikan-teri-kering",
+  "bahan": "teri"
+ },
+ {
+  "produk": "ikan-asin-kembung",
+  "bahan": "kembung"
+ },
+ {
+  "produk": "telur-asin",
+  "bahan": "telur-bebek"
+ },
+ {
+  "produk": "kerupuk-udang",
+  "bahan": "udang-vaname"
+ },
+ {
+  "produk": "emping",
+  "bahan": "melinjo"
+ },
+ {
+  "produk": "tape-singkong",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "sale-pisang",
+  "bahan": "pisang-ambon"
+ },
+ {
+  "produk": "keripik-pisang",
+  "bahan": "pisang-kepok"
+ },
+ {
+  "produk": "acar-timun",
+  "bahan": "timun"
+ },
+ {
+  "produk": "bawang-goreng",
+  "bahan": "bawang-merah"
+ },
+ {
+  "produk": "garam-konsumsi",
+  "bahan": "garam-krosok"
+ },
+ {
+  "produk": "mentega",
+  "bahan": "susu-sapi"
+ },
+ {
+  "produk": "keju",
+  "bahan": "susu-sapi"
+ },
+ {
+  "produk": "yoghurt",
+  "bahan": "susu-sapi"
+ },
+ {
+  "produk": "bihun-beras",
+  "bahan": "beras-putih"
+ },
+ {
+  "produk": "mi-telur",
+  "bahan": "tepung-terigu"
+ },
+ {
+  "produk": "mi-telur",
+  "bahan": "telur-ayam-ras"
+ },
+ {
+  "produk": "kerupuk-udang",
+  "bahan": "tepung-tapioka"
+ },
+ {
+  "produk": "telur-asin",
+  "bahan": "garam-krosok"
+ },
+ {
+  "produk": "kecap-manis",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "beras-merah",
+  "bahan": "gabah-beras-merah"
+ },
+ {
+  "produk": "beras-hitam-nonketan",
+  "bahan": "gabah-beras-hitam-nonketan"
+ },
+ {
+  "produk": "beras-pecah-kulit",
+  "bahan": "gabah-padi"
+ },
+ {
+  "produk": "bekatul-beras",
+  "bahan": "gabah-padi"
+ },
+ {
+  "produk": "menir-beras",
+  "bahan": "gabah-padi"
+ },
+ {
+  "produk": "beras-jagung",
+  "bahan": "jagung-pipilan"
+ },
+ {
+  "produk": "popcorn-tawar",
+  "bahan": "jagung-pipilan"
+ },
+ {
+  "produk": "mocaf",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "gaplek",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "tiwul",
+  "bahan": "gaplek"
+ },
+ {
+  "produk": "tepung-ubi-jalar",
+  "bahan": "ubi-jalar"
+ },
+ {
+  "produk": "tepung-garut",
+  "bahan": "garut"
+ },
+ {
+  "produk": "tepung-sorgum",
+  "bahan": "sorgum"
+ },
+ {
+  "produk": "tepung-kacang-hijau",
+  "bahan": "kacang-hijau"
+ },
+ {
+  "produk": "tepung-hunkwe",
+  "bahan": "kacang-hijau"
+ },
+ {
+  "produk": "tepung-kedelai",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "tepung-pisang",
+  "bahan": "pisang-kepok"
+ },
+ {
+  "produk": "ampas-tahu",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "bungkil-kacang-tanah",
+  "bahan": "kacang-tanah"
+ },
+ {
+  "produk": "oncom-merah",
+  "bahan": "ampas-tahu"
+ },
+ {
+  "produk": "oncom-hitam",
+  "bahan": "bungkil-kacang-tanah"
+ },
+ {
+  "produk": "tauge-kacang-hijau",
+  "bahan": "kacang-hijau"
+ },
+ {
+  "produk": "kecambah-kedelai",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "tahu-kuning",
+  "bahan": "tahu-putih"
+ },
+ {
+  "produk": "tahu-kuning",
+  "bahan": "kunyit"
+ },
+ {
+  "produk": "tempe-gembus",
+  "bahan": "ampas-tahu"
+ },
+ {
+  "produk": "tauco",
+  "bahan": "kedelai"
+ },
+ {
+  "produk": "kembang-tahu-kering",
+  "bahan": "susu-kedelai"
+ },
+ {
+  "produk": "gula-semut-aren",
+  "bahan": "nira-aren"
+ },
+ {
+  "produk": "kolang-kaling",
+  "bahan": "buah-aren"
+ },
+ {
+  "produk": "kelapa-parut",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "kopra",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "kopi-beras",
+  "bahan": "buah-kopi"
+ },
+ {
+  "produk": "kopi-sangrai",
+  "bahan": "kopi-beras"
+ },
+ {
+  "produk": "kopi-jahe",
+  "bahan": "kopi-bubuk"
+ },
+ {
+  "produk": "kopi-jahe",
+  "bahan": "jahe-merah"
+ },
+ {
+  "produk": "teh-melati",
+  "bahan": "teh-kering"
+ },
+ {
+  "produk": "teh-melati",
+  "bahan": "bunga-melati"
+ },
+ {
+  "produk": "teh-serai",
+  "bahan": "teh-kering"
+ },
+ {
+  "produk": "teh-serai",
+  "bahan": "serai-dapur"
+ },
+ {
+  "produk": "lada-bubuk",
+  "bahan": "lada"
+ },
+ {
+  "produk": "cabai-bubuk",
+  "bahan": "cabai-merah-besar"
+ },
+ {
+  "produk": "cabai-kering",
+  "bahan": "cabai-keriting"
+ },
+ {
+  "produk": "jahe-bubuk",
+  "bahan": "jahe"
+ },
+ {
+  "produk": "kunyit-bubuk",
+  "bahan": "kunyit"
+ },
+ {
+  "produk": "ketumbar-bubuk",
+  "bahan": "ketumbar-biji"
+ },
+ {
+  "produk": "pindang-tongkol",
+  "bahan": "tongkol"
+ },
+ {
+  "produk": "pindang-tongkol",
+  "bahan": "garam-konsumsi"
+ },
+ {
+  "produk": "bandeng-presto",
+  "bahan": "bandeng"
+ },
+ {
+  "produk": "bandeng-asap",
+  "bahan": "bandeng"
+ },
+ {
+  "produk": "abon-ikan",
+  "bahan": "tuna"
+ },
+ {
+  "produk": "abon-sapi",
+  "bahan": "daging-sapi"
+ },
+ {
+  "produk": "ebi",
+  "bahan": "udang-vaname"
+ },
+ {
+  "produk": "terasi-udang",
+  "bahan": "udang-rebon"
+ },
+ {
+  "produk": "terasi-udang",
+  "bahan": "garam-konsumsi"
+ },
+ {
+  "produk": "ikan-asin-gabus",
+  "bahan": "ikan-gabus"
+ },
+ {
+  "produk": "ikan-asin-gabus",
+  "bahan": "garam-konsumsi"
+ },
+ {
+  "produk": "keripik-tempe",
+  "bahan": "tempe"
+ },
+ {
+  "produk": "keripik-singkong",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "keripik-sukun",
+  "bahan": "sukun"
+ },
+ {
+  "produk": "keripik-talas",
+  "bahan": "talas"
+ },
+ {
+  "produk": "dodol-ketan",
+  "bahan": "tepung-ketan"
+ },
+ {
+  "produk": "dodol-ketan",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "dodol-ketan",
+  "bahan": "santan"
+ },
+ {
+  "produk": "wajit-ketan",
+  "bahan": "beras-ketan-putih"
+ },
+ {
+  "produk": "wajit-ketan",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "wajit-ketan",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "rengginang",
+  "bahan": "beras-ketan-putih"
+ },
+ {
+  "produk": "opak-ketan",
+  "bahan": "beras-ketan-putih"
+ },
+ {
+  "produk": "opak-ketan",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "combro",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "combro",
+  "bahan": "oncom-merah"
+ },
+ {
+  "produk": "misro",
+  "bahan": "singkong"
+ },
+ {
+  "produk": "misro",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "cireng",
+  "bahan": "tepung-tapioka"
+ },
+ {
+  "produk": "colenak",
+  "bahan": "tape-singkong"
+ },
+ {
+  "produk": "colenak",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "colenak",
+  "bahan": "kelapa"
+ },
+ {
+  "produk": "lotek",
+  "bahan": "kangkung-darat"
+ },
+ {
+  "produk": "lotek",
+  "bahan": "kacang-panjang"
+ },
+ {
+  "produk": "lotek",
+  "bahan": "kacang-tanah"
+ },
+ {
+  "produk": "karedok",
+  "bahan": "timun"
+ },
+ {
+  "produk": "karedok",
+  "bahan": "kacang-panjang"
+ },
+ {
+  "produk": "karedok",
+  "bahan": "kacang-tanah"
+ },
+ {
+  "produk": "karedok",
+  "bahan": "kencur"
+ },
+ {
+  "produk": "sambal-oncom",
+  "bahan": "oncom-merah"
+ },
+ {
+  "produk": "sambal-oncom",
+  "bahan": "cabai-rawit"
+ },
+ {
+  "produk": "tutug-oncom",
+  "bahan": "beras-putih"
+ },
+ {
+  "produk": "tutug-oncom",
+  "bahan": "oncom-hitam"
+ },
+ {
+  "produk": "bandrek",
+  "bahan": "jahe"
+ },
+ {
+  "produk": "bandrek",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "bajigur",
+  "bahan": "santan"
+ },
+ {
+  "produk": "bajigur",
+  "bahan": "gula-aren"
+ },
+ {
+  "produk": "beras-kencur",
+  "bahan": "beras-putih"
+ },
+ {
+  "produk": "beras-kencur",
+  "bahan": "kencur"
+ },
+ {
+  "produk": "kunyit-asam",
+  "bahan": "kunyit"
+ },
+ {
+  "produk": "kunyit-asam",
+  "bahan": "asam-jawa"
+ }
+]

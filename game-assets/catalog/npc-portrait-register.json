@@ -688,7 +688,7 @@
       "id": "C07",
       "name": "Widi",
       "role": "npc",
-      "occupation": "Pedagang hasil bumi",
+      "occupation": "Spesialis ikan dan memancing",
       "active": true,
       "expressionSheet": "/game/assets/portraits/C07.png",
       "styleFamily": "dialogue-expression-pixel-v1",
@@ -711,8 +711,10 @@
         "workConcept": "/game/assets/portraits/bandung/professions/work-C07.png",
         "characterSource": "game-assets/characters/gba-v2-c/manifest.json"
       },
-      "styleReview": "needs-human-side-by-side",
-      "usedInDialogue": true
+      "styleReview": "owner-requested-Widi-HQ-Ayu-parity-20261122-pending-Safari-review",
+      "usedInDialogue": true,
+      "visualReviewNote": "Pemilik memilih revisi potret profesi Widi (256×256): wajah muda tanpa kumis/janggut, rambut gelap acak, baju charcoal, joran dan kotak pancing. Gaya serta latar krem mengikuti empat potret profesi aktif lain. Identitas wajah dan delapan ekspresi tidak diubah. Review di viewport mobile dan sprite dunia masih diperlukan.",
+      "ownerSelectedOn": "2026-11-22"
     },
     {
       "id": "C08",

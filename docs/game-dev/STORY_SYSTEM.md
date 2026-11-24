@@ -1,10 +1,12 @@
+> **Pembaruan:** 248 NPC fiksi dan Character Bible 12 kategori tersedia sebagai dokumentasi publik. Contoh 32 karakter dan scene lama di bawah bersifat **legacy runtime**; 248 profil baru adalah **konsep cerita**, bukan 248 schedule atau quest aktif. Lihat `NPC_PUBLICATION_POLICY.md` dan `characters/README.md`.
+
 # Living Stories — Narrative Engine Specification v0.1
 
 ## Story design target
 Keep the game emotionally engaging over years of in-game time **without claiming infinite hand-authored story**. Players should revisit a location because events, characters and consequences have changed, not because a quest icon forces a daily chore.
 
 ## NPC world model
-Each of 32 reference IDs eventually maps to one fictional character with:
+The 32 legacy runtime reference IDs are an authored story system, not the identity table for all 248 canonical NPCs. A playable character may eventually have:
 - **Public identity:** name, livelihood, house district, favorite places, social graph, speaking style.
 - **Private motivation:** goals, insecurity, secret and tension, not always player-centered.
 - **Time schedule:** work, commute, dinner, festival, rain-specific behavior.
@@ -56,8 +58,10 @@ Example only. This is **not deployed** as a real content schema. The engine late
 
 Untuk revisi dialog, quest, jurnal, dan pesan YZ Phone, ikuti [alur editorial Humanizer](HUMANIZER_DIALOGUE_PIPELINE.md), `AGENTS.md`, serta skill `.agents/skills/yz-farm-dialogue/SKILL.md`. Humanizer upstream tersedia secara project-local dengan versi dan lisensi terkunci pada `.agents/skills/humanizer/`. **Ini proses authoring**, bukan penyunting dialog otomatis saat pemain menjalankan game. Validasi perubahan teks tidak boleh mengubah ID, kondisi, flag, hadiah, jadwal, atau state-save.
 
-## 12-dimension Character Bible (proposal 2026-11-21)
+## Character Bible dan sumber setelah migrasi 248 (22 November 2026)
 
-Semua 32 tokoh canonical dari `cast.json` serta 38 karakter konsep bernama telah mendapat 12 kategori di [Character Bible](../../game-assets/characters/profiles/README.md). Sebanyak 179 potret penduduk seri R masih belum memiliki karakter bernama dan tetap dikelola sebagai artwork unassigned. Rujuk ID profil saat membuat dialog, potret, heart event, dan quest bercabang. **Riwayat, usia, tujuan privat, dan relasi baru adalah rancangan**, bukan status game atau biografi orang asli. Kedua cameo figur publik hanya boleh menjadi tokoh tamu pada naskah fiksi dan tidak mendapatkan biografi pribadi yang diada-adakan.
+Semua 248 NPC canonical memiliki 12 kategori Character Bible di `public/game/data/npc/{ID}.json`. Namun **12 kategori itu adalah sumber penulis**, bukan 12 bab yang wajib ditampilkan ke pemain; layar Warga memakai presenter `wargaPlayerView`. Sebanyak 246 cerita asal/keluarga adalah usulan lore yang harus dikurasi, sedangkan dua kameo memiliki biografi publik tersumber dan pembatasan psikologi.
 
-Setelah mengedit profil, jalankan `npm run chars:index:check && npm run test:game:characters`. Pengujian ini menegakkan struktur, ID, dan referensi; bukan pengganti ulasan penulis maupun QA visual.
+`game-assets/catalog/cast.json` (32) dan `game-assets/characters/profiles/` (70) **hanya legacy** untuk interaksi yang memang masih berjalan; ilustrasi seri R dalam roster baru telah dipetakan ke identitas canonical Wxxx dan tidak boleh dikembalikan menjadi "belum bernama" secara otomatis. Quest, hubungan, jadwal, dan save tidak otomatis dipindah ke 248 dossier.
+
+Untuk penulisan dan QA baca [Humanizer](HUMANIZER_DIALOGUE_PIPELINE.md), [Pemisahan Konten](PLAYER_DEVELOPER_CONTENT_BOUNDARY.md), dan [Warga & Kronik](YZ_PHONE_WARGA_KRONIK.md). Jalankan `npm run chars:public:check`, `npm run test:game` dan `npm run typecheck`. `npm run chars:index:check` tetap untuk arsip/proposal legacy, bukan validasi utama roster baru.

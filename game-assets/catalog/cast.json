@@ -406,17 +406,18 @@
       "role": "npc",
       "packManifest": "game-assets/characters/gba-v2-c/manifest.json",
       "name": "Widi",
-      "occupation": "Pedagang hasil bumi",
+      "occupation": "Spesialis ikan dan memancing",
       "hobby": [
-        "Mencoba masakan lokal",
-        "Bermain bulu tangkis"
+        "Memancing di tepian sungai",
+        "Merawat peralatan pancing",
+        "Mencatat jenis ikan yang tertangkap"
       ],
       "personality": [
-        "Luwes",
-        "Percaya diri",
-        "Pandai bernegosiasi"
+        "Teliti",
+        "Tenang",
+        "Tegas soal kualitas ikan"
       ],
-      "designRationale": "Kemeja charcoal dan celana beige memberi arah visual pedagang hasil bumi.",
+      "designRationale": "Kemeja gelap tetap menjadi ciri Widi. Joran, kotak umpan, dan pelampung menggantikan keranjang sayur agar perannya sebagai ahli memancing mudah dikenali.",
       "profileKind": "fictional-game-design"
     },
     {

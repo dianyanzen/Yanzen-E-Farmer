@@ -1,5 +1,5 @@
 import { fishingWaterAt, areaBlocked, WORLD, SHED, facesInteractionHitbox, interactionHitboxAt, isOutdoorLocation, isFarm, mapExit, npcHere, routeBarrierAt,
-  type Direction,type GameState, signpostAt } from "./model";
+  type Direction,type GameState, signpostAt, questPropAt, questPropActive } from "./model";
 
 export type TapRoute={steps:Direction[];face:Direction|null;interact:boolean;exit:Direction|null};
 const dirs:{dir:Direction;dx:number;dy:number}[]=[
@@ -11,12 +11,14 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
   if(!Number.isInteger(tx)||!Number.isInteger(ty)||tx<0||tx>=WORLD.width||ty<0||ty>=WORLD.height)return null;
   const people=npcHere(s);
   const occupied=(x:number,y:number)=>people.some(n=>n.x===x&&n.y===y);
-  const traversable=(x:number,y:number)=>!areaBlocked(s.location,x,y)&&!occupied(x,y);
+  const traversable=(x:number,y:number)=>!areaBlocked(s.location,x,y,s)&&!occupied(x,y);
   const isLocked=isOutdoorLocation(s.location)&&!!routeBarrierAt(s.location,tx,ty);
   const isSign = isOutdoorLocation(s.location) && !!signpostAt(s.location,tx,ty);
   const hitbox = interactionHitboxAt(s.location, point?.x ?? (tx + .5) * WORLD.tile,
     point?.y ?? (ty + .5) * WORLD.tile);
-  const clickable=(s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
+  const questProp=questPropAt(s.location,tx,ty);
+  const clickable=(!!questProp && questPropActive(s,questProp)) ||
+    (s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
     (s.location==="field" && isFarm(tx,ty)) ||
     (s.location==="shed" && tx===SHED.rack.x && ty===SHED.rack.y);
   const origin=k(s.player.x,s.player.y),queue=[{x:s.player.x,y:s.player.y}];

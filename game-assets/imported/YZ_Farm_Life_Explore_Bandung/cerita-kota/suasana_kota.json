@@ -1,0 +1,42 @@
+[
+ {
+  "id": "ketuk",
+  "berkas": "malam/audio/ketuk.wav",
+  "subtitel": "Dua ketukan bambu, jeda, lalu satu ketukan lebih jauh."
+ },
+ {
+  "id": "air",
+  "berkas": "malam/audio/air.wav",
+  "subtitel": "Air mengalir pelan di bawah titian."
+ },
+ {
+  "id": "angin",
+  "berkas": "malam/audio/angin.wav",
+  "subtitel": "Angin melewati celah bambu."
+ },
+ {
+  "id": "gang",
+  "berkas": "malam/audio/gang.wav",
+  "subtitel": "Roda lewat dan bunyi langkah mereda."
+ },
+ {
+  "id": "serangga",
+  "berkas": "malam/audio/serangga.wav",
+  "subtitel": "Dua lapis derik bersahutan."
+ },
+ {
+  "id": "proyektor",
+  "berkas": "malam/audio/proyektor.wav",
+  "subtitel": "Motor proyektor berputar dengan bunyi susul teratur."
+ },
+ {
+  "id": "radio",
+  "berkas": "malam/audio/radio.wav",
+  "subtitel": "Desis radio, lalu klik pada meja siar."
+ },
+ {
+  "id": "serambi",
+  "berkas": "malam/audio/serambi.wav",
+  "subtitel": "Daun bergesek di serambi yang tenang."
+ }
+]

@@ -1,6 +1,8 @@
-# YZ Farm Life — Character Bible, 12 kategori
+# YZ Farm Life — Arsip Character Bible legacy, 12 kategori
 
-**70 karakter bernama = 32 inti (1 karakter utama + 31 NPC) + 36 NPC konsep ekspansi + 2 cameo figur publik**. Masing-masing memiliki 12 bagian informasi terstruktur. Selain itu, tersedia **179 ilustrasi Rxxx** yang sengaja **belum menjadi karakter** sampai mendapat nama, motivasi dan desain cerita yang disetujui.
+> **PENTING (22 November 2026):** Berkas profil lama pada direktori ini adalah **referensi visual dan konten naratif legacy**, bukan roster warga canonical. Sumber resmi nama, pekerjaan, ID warga, dan kunci potret sekarang adalah **248 NPC canonical** pada `GAME_RESIDENT_ROSTER_JSON` atau `deploy/private/residents.json`, dengan dokumentasi di [NPC_ROSTER_PRIVATE_SYNC.md](../../../docs/game-dev/NPC_ROSTER_PRIVATE_SYNC.md). A01/Yanzen adalah karakter pemain terpisah dari 248 NPC. Nama dan pekerjaan legacy yang tidak cocok **tidak boleh** muncul di YZ Phone, atau ditransfer sebagai kerabat, cerita, misi, kedekatan, dan riwayat warga baru. Potret Rxxx telah terpasang ke ID canonical menurut roster owner; tidak boleh diasumsikan identitas Rxxx berdasarkan angka.
+
+**Arsip lama mencakup 70 karakter bernama = 32 inti (1 karakter utama + 31 NPC) + 36 NPC konsep ekspansi + 2 cameo figur publik**. Masing-masing memiliki 12 bagian informasi terstruktur. Selain itu, tersedia **179 ilustrasi Rxxx** yang **sebelumnya belum dipasangkan**; sekarang acuan pemasangan adalah roster canonical privat 248, bukan inferensi visual/urutan.
 
 ## Indeks
 
@@ -8,7 +10,7 @@
 - [Profil inti A01–A16 dan C01–C16](core/)
 - [Profil ekspansi N01–N06, K01–K30 dan cameo P01–P02](expansion/)
 - [Inventaris 179 potret R yang belum dipasangkan](unassigned-artwork.json)
-- [Cast canon yang sudah ada](../../catalog/cast.json)
+- [Cast legacy, bukan roster canonical](../../catalog/cast.json)
 - [Register visual dan status QC](../../catalog/npc-portrait-register.json)
 
 ## Struktur wajib setiap karakter
@@ -32,13 +34,13 @@ Semua kategori memiliki rincian yang sesuai; contoh [Ryan A03](core/A03.json), [
 
 ## Perbedaan sumber, rancangan dan gameplay
 
-**Data canon awal:** ID, nama, pekerjaan, hobi, sifat, alasan rancangan visual pada `cast.json`; potret dan manifest pada `npc-portrait-register.json`; beberapa lokasi/jadwal dan dialog pada `src/lib/game/model.ts` dan `personal-quests.ts`.
+**Data lama/prototipe (bukan canonical identitas saat ini):** ID, nama, pekerjaan, hobi, sifat, alasan rancangan visual pada `cast.json`; potret dan manifest pada `npc-portrait-register.json`; beberapa lokasi/jadwal dan dialog pada `src/lib/game/model.ts` dan `personal-quests.ts`.
 
 **Rancangan baru:** usia fiktif, asal, pendidikan, latar keluarga, keterbatasan, motivasi, hubungan tambahan, sample dialog, serta alur tiga babak. Seluruhnya berstatus `narrative-proposal` atau `planned-fictional`. Belum otomatis menjadi canon tersetujui, event game, atau lore yang sudah dilalui pemain.
 
 **Status saat bermain:** hubungan, trust, mood, flag quest, pilihan pemain, waktu dan lokasi aktual tetap menjadi tanggung jawab runtime/save. `12_continuity_current_state` merekam baseline desain, bukan menyimpan state satu pemain. Perubahan story flag perlu migrasi dan tes save terpisah.
 
-**Ilustrasi Rxxx:** 179 PNG ini belum punya data karakter yang disahkan. Jangan membuat 179 tokoh identik hanya untuk mengisi tabel. Setiap R yang akan digunakan harus mendapat satu ID identitas unik, 12 dimensi bermakna, hubungan dan fungsi cerita serta audit art style; baru pindahkan dari inventaris `unassigned` ke index bernama.
+**Ilustrasi Rxxx:** 179 PNG telah memiliki mapping portrait pada roster 248 milik owner (Rxxx adalah *asset key*, bukan ID orang). Jangan mengambil identitas dari indeks `unassigned`, urutan file, profil lama, atau asumsi ekspresi wajah. Audit visual dan 12 dimensi cerita tetap memerlukan QA serta izin narasi.
 
 **Cameo P01/P02:** figur publik dipakai sebagai latar kejadian fiksi sesuai premis sumber. Tidak mengarang usia, keluarga, keyakinan, ciri kesehatan atau pikiran pribadi; hanya mendeskripsikan peran dalam naskah yang jelas fiksi. Validasi role aktual/sumber bila kelak dipakai untuk rilis komersial.
 
@@ -47,7 +49,7 @@ Semua kategori memiliki rincian yang sesuai; contoh [Ryan A03](core/A03.json), [
 1. Temukan profil dari `index.json` melalui ID. Baca ke-12 bagian dan sumber `cast.json`.
 2. Catat mana canon dan mana proposal. Dalam cerita, gunakan `09_dialogue_behavior`, `06_psychological_profile` dan `08_relationship_dynamics`; periksa `12_continuity_current_state` serta save runtime sebelum mengungkap spoiler.
 3. Jalankan `$yz-farm-dialogue` + `$humanizer` pada naskah, tetapi jangan menyunting kode game / hadiah / flags berdasarkan proposal tanpa persetujuan.
-4. Tambahan karakter baru wajib memiliki 12 kategori dan relasi ID valid. Perbarui `cast.json` atau `bandung-character-previews.json`, buat profil file baru, lalu indeks ulang.
+4. Tambahan karakter baru wajib memiliki 12 kategori dan relasi ID valid. Perbarui roster privat 248 yang telah di-review, verifikasi hash baru, buat Character Bible privat draft, review lalu approve secara individual. `cast.json` atau `bandung-character-previews.json` hanya untuk menjaga kompatibilitas aset/cerita lama, bukan canonical nama warga.
 5. Gunakan `npm run chars:index`, `npm run chars:index:check`, dan `npm run test:game:characters` untuk memeriksa kelengkapan dan referensi.
 
 ## Catatan QA

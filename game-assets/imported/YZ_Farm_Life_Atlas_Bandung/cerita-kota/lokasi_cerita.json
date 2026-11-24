@@ -1,0 +1,1361 @@
+[
+ {
+  "id": "kel-pasirluyu",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Kebun awal dan warung · Pasirluyu",
+  "misi": "Tanam lalu antar empat timun ke Inggit",
+  "temuan": "Pesanan warung pertama",
+  "peta": "kelurahan/kel-pasirluyu.tmj"
+ },
+ {
+  "id": "kel-ancol",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Serambi penutur · Ancol",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-ancol.tmj"
+ },
+ {
+  "id": "kel-balonggede",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Lorong kiriman · Balonggede",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-balonggede.tmj"
+ },
+ {
+  "id": "kel-ciateul",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Dapur uji · Ciateul",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-ciateul.tmj"
+ },
+ {
+  "id": "kel-cigereleng",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Rak pinjam · Cigereleng",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-cigereleng.tmj"
+ },
+ {
+  "id": "kel-ciseureuh",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Halte pasar · Ciseureuh",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-ciseureuh.tmj"
+ },
+ {
+  "id": "kel-pungkur",
+  "bab": 1,
+  "npc": "C08",
+  "tempat": "Pendopo warga · Pungkur",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Kebun awal dan warung» di Pasirluyu.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-pungkur.tmj"
+ },
+ {
+  "id": "kel-antapani-tengah",
+  "bab": 1,
+  "npc": "A07",
+  "tempat": "Persemaian warga · Antapani Tengah",
+  "misi": "Bandingkan dua baki semai dan pilih bibit untuk kebun",
+  "temuan": "Titip semai bibit",
+  "peta": "kelurahan/kel-antapani-tengah.tmj"
+ },
+ {
+  "id": "kel-antapani-kidul",
+  "bab": 1,
+  "npc": "A07",
+  "tempat": "Lorong kiriman · Antapani Kidul",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-antapani-kidul.tmj"
+ },
+ {
+  "id": "kel-antapani-kulon",
+  "bab": 1,
+  "npc": "A07",
+  "tempat": "Dapur uji · Antapani Kulon",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-antapani-kulon.tmj"
+ },
+ {
+  "id": "kel-antapani-wetan",
+  "bab": 1,
+  "npc": "A07",
+  "tempat": "Rak pinjam · Antapani Wetan",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Persemaian warga» di Antapani Tengah.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-antapani-wetan.tmj"
+ },
+ {
+  "id": "kel-mengger",
+  "bab": 1,
+  "npc": "A10",
+  "tempat": "Pengumpulan bahan kompos · Mengger",
+  "misi": "Pisahkan sisa daun dari hasil layak jual",
+  "temuan": "Pasokan kompos kampung",
+  "peta": "kelurahan/kel-mengger.tmj"
+ },
+ {
+  "id": "kel-batununggal",
+  "bab": 1,
+  "npc": "A10",
+  "tempat": "Lorong kiriman · Batununggal",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-batununggal.tmj"
+ },
+ {
+  "id": "kel-kujangsari",
+  "bab": 1,
+  "npc": "A10",
+  "tempat": "Rak pinjam · Kujangsari",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-kujangsari.tmj"
+ },
+ {
+  "id": "kel-wates",
+  "bab": 1,
+  "npc": "A10",
+  "tempat": "Halte pasar · Wates",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengumpulan bahan kompos» di Mengger.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-wates.tmj"
+ },
+ {
+  "id": "kel-jatisari",
+  "bab": 1,
+  "npc": "A04",
+  "tempat": "Benih sayur dan polong · Jatisari",
+  "misi": "Rawat satu baris tanaman untuk menghasilkan benih",
+  "temuan": "Pemesanan benih polong",
+  "peta": "kelurahan/kel-jatisari.tmj"
+ },
+ {
+  "id": "kel-cijawura",
+  "bab": 1,
+  "npc": "A04",
+  "tempat": "Dapur uji · Cijawura",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-cijawura.tmj"
+ },
+ {
+  "id": "kel-margasari",
+  "bab": 1,
+  "npc": "A04",
+  "tempat": "Rak pinjam · Margasari",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-margasari.tmj"
+ },
+ {
+  "id": "kel-sekejati",
+  "bab": 1,
+  "npc": "A04",
+  "tempat": "Halte pasar · Sekejati",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Benih sayur dan polong» di Jatisari.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-sekejati.tmj"
+ },
+ {
+  "id": "kel-lingkar-selatan",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Dapur pesanan lalapan · Lingkar Selatan",
+  "misi": "Rakit paket bahan karedok sesuai pesanan dapur",
+  "temuan": "Kontrak bahan segar",
+  "peta": "kelurahan/kel-lingkar-selatan.tmj"
+ },
+ {
+  "id": "kel-burangrang",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Rak pinjam · Burangrang",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-burangrang.tmj"
+ },
+ {
+  "id": "kel-cijagra",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Halte pasar · Cijagra",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cijagra.tmj"
+ },
+ {
+  "id": "kel-cikawao",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Bengkel gang · Cikawao",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-cikawao.tmj"
+ },
+ {
+  "id": "kel-malabar",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Pendopo warga · Malabar",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-malabar.tmj"
+ },
+ {
+  "id": "kel-paledang",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Meja timbang · Paledang",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-paledang.tmj"
+ },
+ {
+  "id": "kel-turangga",
+  "bab": 1,
+  "npc": "C04",
+  "tempat": "Serambi penutur · Turangga",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Dapur pesanan lalapan» di Lingkar Selatan.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-turangga.tmj"
+ },
+ {
+  "id": "kel-cimincrang",
+  "bab": 2,
+  "npc": "A03",
+  "tempat": "Sawah, tegalan dan tata air · Cimincrang",
+  "misi": "Buka petak bersama Heru dan atur pintu air bersama Ryan",
+  "temuan": "Petak sawah dan ladang, lalu akses rawa pada Bab 6",
+  "peta": "kelurahan/kel-cimincrang.tmj"
+ },
+ {
+  "id": "kel-cisaranten-kidul",
+  "bab": 2,
+  "npc": "A03",
+  "tempat": "Halte pasar · Cisaranten Kidul",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cisaranten-kidul.tmj"
+ },
+ {
+  "id": "kel-rancabolang",
+  "bab": 2,
+  "npc": "A03",
+  "tempat": "Bengkel gang · Rancabolang",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-rancabolang.tmj"
+ },
+ {
+  "id": "kel-rancanumpang",
+  "bab": 2,
+  "npc": "A03",
+  "tempat": "Pendopo warga · Rancanumpang",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Sawah, tegalan dan tata air» di Cimincrang.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-rancanumpang.tmj"
+ },
+ {
+  "id": "kel-derwati",
+  "bab": 2,
+  "npc": "C11",
+  "tempat": "Pembesaran ikan air tawar · Derwati",
+  "misi": "Catat pertumbuhan satu kelompok ikan sampai ukuran pesanan",
+  "temuan": "Pasokan ikan kolam",
+  "peta": "kelurahan/kel-derwati.tmj"
+ },
+ {
+  "id": "kel-cipamokolan",
+  "bab": 2,
+  "npc": "C11",
+  "tempat": "Halte pasar · Cipamokolan",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cipamokolan.tmj"
+ },
+ {
+  "id": "kel-manjahlega",
+  "bab": 2,
+  "npc": "C11",
+  "tempat": "Bengkel gang · Manjahlega",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-manjahlega.tmj"
+ },
+ {
+  "id": "kel-mekarjaya",
+  "bab": 2,
+  "npc": "C11",
+  "tempat": "Pendopo warga · Mekarjaya",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembesaran ikan air tawar» di Derwati.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-mekarjaya.tmj"
+ },
+ {
+  "id": "kel-sukamiskin",
+  "bab": 2,
+  "npc": "A05",
+  "tempat": "Bengkel perkakas dan pompa · Sukamiskin",
+  "misi": "Perbaiki pompa untuk giliran siram ladang jagung",
+  "temuan": "Layanan perawatan alat",
+  "peta": "kelurahan/kel-sukamiskin.tmj"
+ },
+ {
+  "id": "kel-cisaranten-bina-harapan",
+  "bab": 2,
+  "npc": "A05",
+  "tempat": "Bengkel gang · Cisaranten Bina Harapan",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-cisaranten-bina-harapan.tmj"
+ },
+ {
+  "id": "kel-cisaranten-endah",
+  "bab": 2,
+  "npc": "A05",
+  "tempat": "Pendopo warga · Cisaranten Endah",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-cisaranten-endah.tmj"
+ },
+ {
+  "id": "kel-cisaranten-kulon",
+  "bab": 2,
+  "npc": "A05",
+  "tempat": "Meja timbang · Cisaranten Kulon",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Bengkel perkakas dan pompa» di Sukamiskin.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-cisaranten-kulon.tmj"
+ },
+ {
+  "id": "kel-mekarmulya",
+  "bab": 2,
+  "npc": "C03",
+  "tempat": "Pengeringan hasil sawah · Mekarmulya",
+  "misi": "Rakit rak pengering dan kelola dua kiriman gabah",
+  "temuan": "Jasa pengeringan gabah",
+  "peta": "kelurahan/kel-mekarmulya.tmj"
+ },
+ {
+  "id": "kel-cipadung-kidul",
+  "bab": 2,
+  "npc": "C03",
+  "tempat": "Bengkel gang · Cipadung Kidul",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-cipadung-kidul.tmj"
+ },
+ {
+  "id": "kel-cipadung-kulon",
+  "bab": 2,
+  "npc": "C03",
+  "tempat": "Pendopo warga · Cipadung Kulon",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-cipadung-kulon.tmj"
+ },
+ {
+  "id": "kel-cipadung-wetan",
+  "bab": 2,
+  "npc": "C03",
+  "tempat": "Serambi penutur · Cipadung Wetan",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengeringan hasil sawah» di Mekarmulya.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-cipadung-wetan.tmj"
+ },
+ {
+  "id": "kel-cibuntu",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Pengolahan kedelai · Cibuntu",
+  "misi": "Kirim kedelai dan pilih pesanan tahu atau tempe",
+  "temuan": "Pesanan rutin perajin kedelai",
+  "peta": "kelurahan/kel-cibuntu.tmj"
+ },
+ {
+  "id": "kel-caringin",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Pendopo warga · Caringin",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-caringin.tmj"
+ },
+ {
+  "id": "kel-cigondewah-kaler",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Meja timbang · Cigondewah Kaler",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-cigondewah-kaler.tmj"
+ },
+ {
+  "id": "kel-cigondewah-kidul",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Serambi penutur · Cigondewah Kidul",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-cigondewah-kidul.tmj"
+ },
+ {
+  "id": "kel-cigondewah-rahayu",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Lorong kiriman · Cigondewah Rahayu",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-cigondewah-rahayu.tmj"
+ },
+ {
+  "id": "kel-cijerah",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Dapur uji · Cijerah",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-cijerah.tmj"
+ },
+ {
+  "id": "kel-gempolsari",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Halte pasar · Gempolsari",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-gempolsari.tmj"
+ },
+ {
+  "id": "kel-warung-muncang",
+  "bab": 2,
+  "npc": "C07",
+  "tempat": "Bengkel gang · Warung Muncang",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pengolahan kedelai» di Cibuntu.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-warung-muncang.tmj"
+ },
+ {
+  "id": "kel-cisurupan",
+  "bab": 3,
+  "npc": "C15",
+  "tempat": "Kebun lereng dan kumbung · Cisurupan",
+  "misi": "Petakan akses panen tanpa tangga bersama Malik",
+  "temuan": "Bedengan sejuk dan kumbung, lalu teras kopi pada Bab 5",
+  "peta": "kelurahan/kel-cisurupan.tmj"
+ },
+ {
+  "id": "kel-cipadung",
+  "bab": 3,
+  "npc": "C15",
+  "tempat": "Meja timbang · Cipadung",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-cipadung.tmj"
+ },
+ {
+  "id": "kel-palasari",
+  "bab": 3,
+  "npc": "C15",
+  "tempat": "Serambi penutur · Palasari",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-palasari.tmj"
+ },
+ {
+  "id": "kel-pasirbiru",
+  "bab": 3,
+  "npc": "C15",
+  "tempat": "Lorong kiriman · Pasirbiru",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Kebun lereng dan kumbung» di Cisurupan.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-pasirbiru.tmj"
+ },
+ {
+  "id": "kel-ciumbuleuit",
+  "bab": 3,
+  "npc": "C06",
+  "tempat": "Uji petak sayuran sejuk · Ciumbuleuit",
+  "misi": "Bandingkan hasil selada dari petak dengan naungan berbeda",
+  "temuan": "Catatan perlakuan tiap varietas",
+  "peta": "kelurahan/kel-ciumbuleuit.tmj"
+ },
+ {
+  "id": "kel-hegarmanah",
+  "bab": 3,
+  "npc": "C06",
+  "tempat": "Serambi penutur · Hegarmanah",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-hegarmanah.tmj"
+ },
+ {
+  "id": "kel-ledeng",
+  "bab": 3,
+  "npc": "C06",
+  "tempat": "Lorong kiriman · Ledeng",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Uji petak sayuran sejuk» di Ciumbuleuit.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-ledeng.tmj"
+ },
+ {
+  "id": "kel-isola",
+  "bab": 3,
+  "npc": "A13",
+  "tempat": "Bank benih dan pertukaran varietas · Isola",
+  "misi": "Catat asal benih buncis lalu tukar dengan penanam lain",
+  "temuan": "Akses koleksi varietas",
+  "peta": "kelurahan/kel-isola.tmj"
+ },
+ {
+  "id": "kel-gegerkalong",
+  "bab": 3,
+  "npc": "A13",
+  "tempat": "Serambi penutur · Gegerkalong",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-gegerkalong.tmj"
+ },
+ {
+  "id": "kel-sarijadi",
+  "bab": 3,
+  "npc": "A13",
+  "tempat": "Lorong kiriman · Sarijadi",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-sarijadi.tmj"
+ },
+ {
+  "id": "kel-sukarasa",
+  "bab": 3,
+  "npc": "A13",
+  "tempat": "Dapur uji · Sukarasa",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bank benih dan pertukaran varietas» di Isola.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-sukarasa.tmj"
+ },
+ {
+  "id": "kel-sadang-serang",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Sekolah kebun · Sadang Serang",
+  "misi": "Dampingi klub kebun menanam hingga panen pertama",
+  "temuan": "Kelas dan petak demonstrasi",
+  "peta": "kelurahan/kel-sadang-serang.tmj"
+ },
+ {
+  "id": "kel-cipaganti",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Lorong kiriman · Cipaganti",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-cipaganti.tmj"
+ },
+ {
+  "id": "kel-dago",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Dapur uji · Dago",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-dago.tmj"
+ },
+ {
+  "id": "kel-lebakgede",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Rak pinjam · Lebakgede",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-lebakgede.tmj"
+ },
+ {
+  "id": "kel-lebak-siliwangi",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Halte pasar · Lebak Siliwangi",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-lebak-siliwangi.tmj"
+ },
+ {
+  "id": "kel-sekeloa",
+  "bab": 3,
+  "npc": "C05",
+  "tempat": "Bengkel gang · Sekeloa",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Sekolah kebun» di Sadang Serang.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-sekeloa.tmj"
+ },
+ {
+  "id": "kel-karang-pamulang",
+  "bab": 3,
+  "npc": "A16",
+  "tempat": "Konservasi tanah kebun · Karang Pamulang",
+  "misi": "Susun jalur limpasan agar petak jahe tidak tergerus",
+  "temuan": "Rancangan petak berkontur",
+  "peta": "kelurahan/kel-karang-pamulang.tmj"
+ },
+ {
+  "id": "kel-jatihandap",
+  "bab": 3,
+  "npc": "A16",
+  "tempat": "Lorong kiriman · Jatihandap",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-jatihandap.tmj"
+ },
+ {
+  "id": "kel-pasir-impun",
+  "bab": 3,
+  "npc": "A16",
+  "tempat": "Rak pinjam · Pasir Impun",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-pasir-impun.tmj"
+ },
+ {
+  "id": "kel-sindang-jaya",
+  "bab": 3,
+  "npc": "A16",
+  "tempat": "Halte pasar · Sindang Jaya",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Konservasi tanah kebun» di Karang Pamulang.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-sindang-jaya.tmj"
+ },
+ {
+  "id": "kel-pasirjati",
+  "bab": 4,
+  "npc": "C02",
+  "tempat": "Kebun buah dan mitra ternak · Pasirjati",
+  "misi": "Pilih tingkat kematangan jambu untuk kiriman Anggi",
+  "temuan": "Kebun buah dan kontrak peternak",
+  "peta": "kelurahan/kel-pasirjati.tmj"
+ },
+ {
+  "id": "kel-cigending",
+  "bab": 4,
+  "npc": "C02",
+  "tempat": "Dapur uji · Cigending",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-cigending.tmj"
+ },
+ {
+  "id": "kel-pasanggrahan",
+  "bab": 4,
+  "npc": "C02",
+  "tempat": "Rak pinjam · Pasanggrahan",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-pasanggrahan.tmj"
+ },
+ {
+  "id": "kel-pasir-endah",
+  "bab": 4,
+  "npc": "C02",
+  "tempat": "Halte pasar · Pasir Endah",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-pasir-endah.tmj"
+ },
+ {
+  "id": "kel-pasir-wangi",
+  "bab": 4,
+  "npc": "C02",
+  "tempat": "Bengkel gang · Pasir Wangi",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Kebun buah dan mitra ternak» di Pasirjati.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-pasir-wangi.tmj"
+ },
+ {
+  "id": "kel-neglasari",
+  "bab": 4,
+  "npc": "A02",
+  "tempat": "Pembibitan bunga potong · Neglasari",
+  "misi": "Atur giliran tanam agar bunga siap menjelang acara",
+  "temuan": "Pesanan bunga potong",
+  "peta": "kelurahan/kel-neglasari.tmj"
+ },
+ {
+  "id": "kel-cigadung",
+  "bab": 4,
+  "npc": "A02",
+  "tempat": "Rak pinjam · Cigadung",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-cigadung.tmj"
+ },
+ {
+  "id": "kel-cihargeulis",
+  "bab": 4,
+  "npc": "A02",
+  "tempat": "Halte pasar · Cihargeulis",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cihargeulis.tmj"
+ },
+ {
+  "id": "kel-sukaluyu",
+  "bab": 4,
+  "npc": "A02",
+  "tempat": "Bengkel gang · Sukaluyu",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembibitan bunga potong» di Neglasari.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-sukaluyu.tmj"
+ },
+ {
+  "id": "kel-padasuka",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Pentas warga dan pesanan hajatan · Padasuka",
+  "misi": "Koordinasikan konsumsi bagi kelompok pertunjukan",
+  "temuan": "Pesanan acara kampung",
+  "peta": "kelurahan/kel-padasuka.tmj"
+ },
+ {
+  "id": "kel-cicadas",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Rak pinjam · Cicadas",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-cicadas.tmj"
+ },
+ {
+  "id": "kel-cikutra",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Halte pasar · Cikutra",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cikutra.tmj"
+ },
+ {
+  "id": "kel-pasirlayung",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Pendopo warga · Pasirlayung",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-pasirlayung.tmj"
+ },
+ {
+  "id": "kel-sukamaju",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Meja timbang · Sukamaju",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-sukamaju.tmj"
+ },
+ {
+  "id": "kel-sukapada",
+  "bab": 4,
+  "npc": "C13",
+  "tempat": "Serambi penutur · Sukapada",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pentas warga dan pesanan hajatan» di Padasuka.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-sukapada.tmj"
+ },
+ {
+  "id": "kel-binong",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Rajut dan tas belanja guna ulang · Binong",
+  "misi": "Uji tas rajut agar pesanan buah tiba utuh",
+  "temuan": "Kemasan pakai ulang",
+  "peta": "kelurahan/kel-binong.tmj"
+ },
+ {
+  "id": "kel-cibangkong",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Halte pasar · Cibangkong",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-cibangkong.tmj"
+ },
+ {
+  "id": "kel-gumuruh",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Bengkel gang · Gumuruh",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-gumuruh.tmj"
+ },
+ {
+  "id": "kel-kacapiring",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Pendopo warga · Kacapiring",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-kacapiring.tmj"
+ },
+ {
+  "id": "kel-kebon-gedang",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Serambi penutur · Kebon Gedang",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-kebon-gedang.tmj"
+ },
+ {
+  "id": "kel-kebonwaru",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Lorong kiriman · Kebonwaru",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-kebonwaru.tmj"
+ },
+ {
+  "id": "kel-maleer",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Dapur uji · Maleer",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-maleer.tmj"
+ },
+ {
+  "id": "kel-samoja",
+  "bab": 4,
+  "npc": "A08",
+  "tempat": "Rak pinjam · Samoja",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Rajut dan tas belanja guna ulang» di Binong.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-samoja.tmj"
+ },
+ {
+  "id": "kel-cibaduyut",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Alas kaki untuk kerja kebun · Cibaduyut",
+  "misi": "Uji alas kaki kerja saat membawa hasil dari petak berlumpur",
+  "temuan": "Perlengkapan kerja untuk rute basah",
+  "peta": "kelurahan/kel-cibaduyut.tmj"
+ },
+ {
+  "id": "kel-cibaduyut-kidul",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Bengkel gang · Cibaduyut Kidul",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-cibaduyut-kidul.tmj"
+ },
+ {
+  "id": "kel-cibaduyut-wetan",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Pendopo warga · Cibaduyut Wetan",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-cibaduyut-wetan.tmj"
+ },
+ {
+  "id": "kel-kebon-lega",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Serambi penutur · Kebon Lega",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-kebon-lega.tmj"
+ },
+ {
+  "id": "kel-mekarwangi",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Lorong kiriman · Mekarwangi",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-mekarwangi.tmj"
+ },
+ {
+  "id": "kel-situsaeur",
+  "bab": 4,
+  "npc": "C12",
+  "tempat": "Dapur uji · Situsaeur",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Alas kaki untuk kerja kebun» di Cibaduyut.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-situsaeur.tmj"
+ },
+ {
+  "id": "kel-karasak",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Jahe dan perdagangan rempah · Karasak",
+  "misi": "Bawa contoh jahe ke Widi dan temui mitra kebun kopi",
+  "temuan": "Petak jahe dan kontrak rempah",
+  "peta": "kelurahan/kel-karasak.tmj"
+ },
+ {
+  "id": "kel-cibadak",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Pendopo warga · Cibadak",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-cibadak.tmj"
+ },
+ {
+  "id": "kel-karanganyar",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Meja timbang · Karanganyar",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-karanganyar.tmj"
+ },
+ {
+  "id": "kel-nyengseret",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Serambi penutur · Nyengseret",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-nyengseret.tmj"
+ },
+ {
+  "id": "kel-panjunan",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Dapur uji · Panjunan",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-panjunan.tmj"
+ },
+ {
+  "id": "kel-pelindung-hewan",
+  "bab": 5,
+  "npc": "C07",
+  "tempat": "Rak pinjam · Pelindung Hewan",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Jahe dan perdagangan rempah» di Karasak.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-pelindung-hewan.tmj"
+ },
+ {
+  "id": "kel-tamansari",
+  "bab": 5,
+  "npc": "A14",
+  "tempat": "Radio informasi panen · Tamansari",
+  "misi": "Konfirmasi kabar panen sebelum mengumumkan pesanan lewat radio",
+  "temuan": "Siaran permintaan barang",
+  "peta": "kelurahan/kel-tamansari.tmj"
+ },
+ {
+  "id": "kel-cihapit",
+  "bab": 5,
+  "npc": "A14",
+  "tempat": "Meja timbang · Cihapit",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-cihapit.tmj"
+ },
+ {
+  "id": "kel-citarum",
+  "bab": 5,
+  "npc": "A14",
+  "tempat": "Serambi penutur · Citarum",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Radio informasi panen» di Tamansari.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-citarum.tmj"
+ },
+ {
+  "id": "kel-sukagalih",
+  "bab": 5,
+  "npc": "C16",
+  "tempat": "Perangkai bunga pesanan · Sukagalih",
+  "misi": "Gabungkan bunga kiriman menjadi rangkaian pesanan warga",
+  "temuan": "Katalog rangkaian acara",
+  "peta": "kelurahan/kel-sukagalih.tmj"
+ },
+ {
+  "id": "kel-cipedes",
+  "bab": 5,
+  "npc": "C16",
+  "tempat": "Meja timbang · Cipedes",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-cipedes.tmj"
+ },
+ {
+  "id": "kel-pasteur",
+  "bab": 5,
+  "npc": "C16",
+  "tempat": "Lorong kiriman · Pasteur",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-pasteur.tmj"
+ },
+ {
+  "id": "kel-sukabungah",
+  "bab": 5,
+  "npc": "C16",
+  "tempat": "Dapur uji · Sukabungah",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-sukabungah.tmj"
+ },
+ {
+  "id": "kel-sukawarna",
+  "bab": 5,
+  "npc": "C16",
+  "tempat": "Rak pinjam · Sukawarna",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Perangkai bunga pesanan» di Sukagalih.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-sukawarna.tmj"
+ },
+ {
+  "id": "kel-babakan-penghulu",
+  "bab": 5,
+  "npc": "C09",
+  "tempat": "Rumah kemas hasil kebun · Babakan Penghulu",
+  "misi": "Buat label asal dan cocokkan dengan kelompok panen",
+  "temuan": "Kemasan berlabel asal kebun",
+  "peta": "kelurahan/kel-babakan-penghulu.tmj"
+ },
+ {
+  "id": "kel-cisaranten-wetan",
+  "bab": 5,
+  "npc": "C09",
+  "tempat": "Serambi penutur · Cisaranten Wetan",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-cisaranten-wetan.tmj"
+ },
+ {
+  "id": "kel-pakemitan",
+  "bab": 5,
+  "npc": "C09",
+  "tempat": "Lorong kiriman · Pakemitan",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-pakemitan.tmj"
+ },
+ {
+  "id": "kel-sukamulya",
+  "bab": 5,
+  "npc": "C09",
+  "tempat": "Dapur uji · Sukamulya",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Rumah kemas hasil kebun» di Babakan Penghulu.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-sukamulya.tmj"
+ },
+ {
+  "id": "kel-babakan-sari",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Bursa muatan antarkebun · Babakan Sari",
+  "misi": "Gabungkan dua kiriman kecil agar satu perjalanan cukup",
+  "temuan": "Pengiriman gabungan",
+  "peta": "kelurahan/kel-babakan-sari.tmj"
+ },
+ {
+  "id": "kel-babakan-surabaya",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Lorong kiriman · Babakan Surabaya",
+  "misi": "Bandingkan dua jalur gerobak dan pasang tanda pada belokan yang terlewat. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "temuan": "Patok kiriman tahan hujan",
+  "peta": "kelurahan/kel-babakan-surabaya.tmj"
+ },
+ {
+  "id": "kel-cicaheum",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Dapur uji · Cicaheum",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-cicaheum.tmj"
+ },
+ {
+  "id": "kel-kebon-kangkung",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Rak pinjam · Kebon Kangkung",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-kebon-kangkung.tmj"
+ },
+ {
+  "id": "kel-kebon-jayanti",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Halte pasar · Kebon Jayanti",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-kebon-jayanti.tmj"
+ },
+ {
+  "id": "kel-sukapura",
+  "bab": 5,
+  "npc": "C14",
+  "tempat": "Bengkel gang · Sukapura",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Bursa muatan antarkebun» di Babakan Sari.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-sukapura.tmj"
+ },
+ {
+  "id": "kel-babakan-ciparay",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Pasar induk dan pesanan grosir · Babakan Ciparay",
+  "misi": "Temui Denden untuk mencocokkan pasokan ikan dengan pesanan",
+  "temuan": "Kontrak grosir dan penghubung ke kebun rawa",
+  "peta": "kelurahan/kel-babakan-ciparay.tmj"
+ },
+ {
+  "id": "kel-babakan",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Dapur uji · Babakan",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-babakan.tmj"
+ },
+ {
+  "id": "kel-cirangrang",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Rak pinjam · Cirangrang",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-cirangrang.tmj"
+ },
+ {
+  "id": "kel-margahayu-utara",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Halte pasar · Margahayu Utara",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-margahayu-utara.tmj"
+ },
+ {
+  "id": "kel-margasuka",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Bengkel gang · Margasuka",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-margasuka.tmj"
+ },
+ {
+  "id": "kel-sukahaji",
+  "bab": 6,
+  "npc": "A12",
+  "tempat": "Pendopo warga · Sukahaji",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pasar induk dan pesanan grosir» di Babakan Ciparay.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-sukahaji.tmj"
+ },
+ {
+  "id": "kel-kebon-jeruk",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Perdagangan eceran dan titip jual · Kebon Jeruk",
+  "misi": "Titipkan satu kelompok barang dan bandingkan hasilnya dengan jual putus",
+  "temuan": "Lapak konsinyasi",
+  "peta": "kelurahan/kel-kebon-jeruk.tmj"
+ },
+ {
+  "id": "kel-campaka",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Dapur uji · Campaka",
+  "misi": "Coba dua takaran dari satu panen dan minta penjaga dapur memilih hasilnya. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "temuan": "Resep dalam ukuran cangkir warung",
+  "peta": "kelurahan/kel-campaka.tmj"
+ },
+ {
+  "id": "kel-ciroyom",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Halte pasar · Ciroyom",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-ciroyom.tmj"
+ },
+ {
+  "id": "kel-dunguscariang",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Bengkel gang · Dunguscariang",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-dunguscariang.tmj"
+ },
+ {
+  "id": "kel-garuda",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Pendopo warga · Garuda",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-garuda.tmj"
+ },
+ {
+  "id": "kel-maleber",
+  "bab": 6,
+  "npc": "A11",
+  "tempat": "Meja timbang · Maleber",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Perdagangan eceran dan titip jual» di Kebon Jeruk.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-maleber.tmj"
+ },
+ {
+  "id": "kel-arjuna",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Pengiriman pesanan mendesak · Arjuna",
+  "misi": "Pilih rute yang menjaga stroberi tiba sebelum batas terima",
+  "temuan": "Layanan kurir cepat",
+  "peta": "kelurahan/kel-arjuna.tmj"
+ },
+ {
+  "id": "kel-husein-sastranegara",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Rak pinjam · Husein Sastranegara",
+  "misi": "Pasangkan barang titipan dengan pemilik melalui cap yang tertinggal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "temuan": "Kartu titipan yang sudah kembali",
+  "peta": "kelurahan/kel-husein-sastranegara.tmj"
+ },
+ {
+  "id": "kel-pajajaran",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Halte pasar · Pajajaran",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-pajajaran.tmj"
+ },
+ {
+  "id": "kel-pamoyanan",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Pendopo warga · Pamoyanan",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-pamoyanan.tmj"
+ },
+ {
+  "id": "kel-pasirkaliki",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Meja timbang · Pasirkaliki",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-pasirkaliki.tmj"
+ },
+ {
+  "id": "kel-sukaraja",
+  "bab": 6,
+  "npc": "A06",
+  "tempat": "Serambi penutur · Sukaraja",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pengiriman pesanan mendesak» di Arjuna.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-sukaraja.tmj"
+ },
+ {
+  "id": "kel-jamika",
+  "bab": 6,
+  "npc": "C10",
+  "tempat": "Pembukuan dan kliring koperasi · Jamika",
+  "misi": "Cocokkan jumlah kiriman, retur dan pembayaran pedagang",
+  "temuan": "Rekap margin pesanan",
+  "peta": "kelurahan/kel-jamika.tmj"
+ },
+ {
+  "id": "kel-babakan-asih",
+  "bab": 6,
+  "npc": "C10",
+  "tempat": "Halte pasar · Babakan Asih",
+  "misi": "Catat jeda dua angkutan dan tentukan jam berangkat agar kiriman tiba utuh. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "temuan": "Jadwal sambungan angkutan",
+  "peta": "kelurahan/kel-babakan-asih.tmj"
+ },
+ {
+  "id": "kel-babakan-tarogong",
+  "bab": 6,
+  "npc": "C10",
+  "tempat": "Bengkel gang · Babakan Tarogong",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-babakan-tarogong.tmj"
+ },
+ {
+  "id": "kel-kopo",
+  "bab": 6,
+  "npc": "C10",
+  "tempat": "Pendopo warga · Kopo",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-kopo.tmj"
+ },
+ {
+  "id": "kel-suka-asih",
+  "bab": 6,
+  "npc": "C10",
+  "tempat": "Serambi penutur · Suka Asih",
+  "misi": "Dengarkan dua ingatan warga dan tandai bagian yang berbeda pada kartu asal. Catat hasil untuk kegiatan «Pembukuan dan kliring koperasi» di Jamika.",
+  "temuan": "Kartu kesaksian dengan dua versi",
+  "peta": "kelurahan/kel-suka-asih.tmj"
+ },
+ {
+  "id": "kel-braga",
+  "bab": 6,
+  "npc": "A09",
+  "tempat": "Arsip panen dan pameran kota · Braga",
+  "misi": "Kumpulkan foto dan cerita asal hasil kebun untuk pameran",
+  "temuan": "Pameran akhir musim pemain",
+  "peta": "kelurahan/kel-braga.tmj"
+ },
+ {
+  "id": "kel-babakan-ciamis",
+  "bab": 6,
+  "npc": "A09",
+  "tempat": "Bengkel gang · Babakan Ciamis",
+  "misi": "Bandingkan dua pengikat dan uji satu peti saat melewati bibir jalan. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "temuan": "Pola pengikat peti",
+  "peta": "kelurahan/kel-babakan-ciamis.tmj"
+ },
+ {
+  "id": "kel-kebon-pisang",
+  "bab": 6,
+  "npc": "A09",
+  "tempat": "Pendopo warga · Kebon Pisang",
+  "misi": "Susun giliran penggunaan meja agar penjaja kecil mendapat waktu sebelum siang. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "temuan": "Papan giliran warga",
+  "peta": "kelurahan/kel-kebon-pisang.tmj"
+ },
+ {
+  "id": "kel-merdeka",
+  "bab": 6,
+  "npc": "A09",
+  "tempat": "Meja timbang · Merdeka",
+  "misi": "Timbang wadah kosong dan kiriman; tunjukkan selisih tara pada nota. Catat hasil untuk kegiatan «Arsip panen dan pameran kota» di Braga.",
+  "temuan": "Cap tara pada peti",
+  "peta": "kelurahan/kel-merdeka.tmj"
+ }
+]

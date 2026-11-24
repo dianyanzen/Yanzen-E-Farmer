@@ -3,8 +3,8 @@
   "category": "props",
   "label": "Properti lingkungan",
   "description": "Perabot, objek kecil dan dekorasi",
-  "mediaCount": 60,
-  "bytes": 16028,
+  "mediaCount": 65,
+  "bytes": 18895,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -85,6 +85,16 @@
         "game-assets/yz-farm-life/explore-bandung/properti/rumah.png",
         "game-assets/yz-farm-life/explore-bandung/properti/umbul-umbul.png",
         "game-assets/yz-farm-life/explore-bandung/properti/warung.png"
+      ]
+    },
+    {
+      "id": "quests",
+      "files": [
+        "public/game/assets/quests/quest-ayu-seeds.svg",
+        "public/game/assets/quests/quest-inggit-orders.svg",
+        "public/game/assets/quests/quest-nani-pots.svg",
+        "public/game/assets/quests/quest-water-marks.svg",
+        "public/game/assets/quests/quest-widi-ledger.svg"
       ]
     }
   ]

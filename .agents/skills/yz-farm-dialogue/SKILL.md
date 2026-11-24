@@ -1,48 +1,40 @@
 ---
 name: yz-farm-dialogue
-description: Menulis atau menyunting dialog NPC, quest, jurnal, cerita, dan pesan YZ Phone YZ Farm Life dalam Bahasa Indonesia yang alami, sesuai cast, progres, pilihan, dan kontinuitas Pasirluyu.
+description: Editorial Humanizer untuk seluruh teks yang dilihat pemain YZ Farm Life, termasuk dialog, quest, YZ Phone, HUD, papan, inventaris, kronik, tutorial, dan pesan error. Melindungi kontrak gameplay dan suara unik NPC.
 ---
 
-# YZ Farm Life — Humanized narrative authoring
+# YZ Farm Life — narasi yang terasa hidup
 
-Aktifkan skill ini pada pekerjaan *naratif game*; untuk penyuntingan gaya baca juga `../humanizer/SKILL.md`. Ikuti aturan Humanizer sebagai **editor, bukan generator fakta atau mesin perubahan gameplay**. Jika pengguna hanya meminta bugfix, rendering, database, atau optimasi aset, jangan mengubah narasi.
+Skill ini khusus **proses penulisan atau review developer**, bukan filter AI pada browser. Untuk aturan gaya baca `../humanizer/SKILL.md`, ikuti `docs/game-dev/GAME_TEXT_STYLE_GUIDE.md` serta `docs/game-dev/PLAYER_DEVELOPER_CONTENT_BOUNDARY.md`.
 
-## Referensi wajib
+## Sumber yang benar saat ini
 
-- `game-assets/catalog/cast.json` — 32 ID, nama, peran, pekerjaan, sifat/hobi.
-- `game-assets/characters/profiles/index.json` — direktori semua 70 karakter bernama dan 12 dimensi masing-masing; baca profil karakter target sebelum membuat dialog; gunakan konteks psikologis, relasi dan kontinuitas tanpa mengubah proposal menjadi fakta runtime.
-- `docs/game-dev/STORY_SYSTEM.md` — suara, memori, konsekuensi, kecocokan kondisi cerita.
-- `docs/game-dev/PASIRLUYU_LIVING_WORLD.md` — jadwal dan motivasi Ryan (A03), Nani (C01), Inggit (C08).
-- `src/lib/game/personal-quests.ts` dan `src/lib/game/model.ts` — kebenaran runtime, urutan cerita, reward, flag dan state.
-- `docs/game-dev/HUMANIZER_DIALOGUE_PIPELINE.md` — checklist keputusan/editorial.
+1. Cek adegan/komponen **aktif** di `src/app/game/`, `src/lib/game/model.ts`, `src/lib/game/personal-quests.ts`, `src/lib/game/phone-story.ts` dan kondisi save. Struktur cerita yang hanya ditulis di dokumen belum tentu ada di engine.
+2. Kunci identitas tokoh pada `game-assets/catalog/npc-public-roster.json` dan `public/game/data/npc/{ID}.json`. Dari 248 Character Bible, banyak sifat/asal/keluarga masih usulan cerita; jangan mengaku sebagai memori pemain yang telah terjadi.
+3. `game-assets/catalog/cast.json`, `game-assets/characters/profiles/index.json`, dan contoh Ryan (A03), Nani (C01), Inggit (C08), Ayu (A04) berlaku untuk alur **legacy yang masih aktif**. Cocokkan sebelum mengadopsi; asosiasi lama ke identitas 248 harus disahkan via `approvedLegacyId`.
+4. `docs/game-dev/STORY_SYSTEM.md` dan `docs/game-dev/PASIRLUYU_LIVING_WORLD.md` menjadi latar perancangan; `docs/game-dev/YZ_PHONE_WARGA_KRONIK.md` menjelaskan runtime ponsel yang sebenarnya.
 
-## Proses penulisan
+## Tiga suara yang jangan tertukar
 
-1. **Konteks.** Identifikasi siapa bicara, lokasi, jam/cuaca, tingkat kedekatan, informasi yang diketahui NPC, dan tujuan percakapan. Pahami percabangan sebelum mengedit kalimat.
-2. **Draf karakter.** Gunakan kata dan ritme khas karakter. Ryan praktis dan mengamati saluran; Nani peka pada kebiasaan tetangga; Inggit menghitung kebutuhan warung dan menghindari pemborosan; Ayu antusias dan memahami benih. Periksa tokoh lain dari `cast.json`, jangan menggeneralisasikan sifat seluruh NPC.
-3. **Humanizer.** Baca `../humanizer/SKILL.md`; hilangkan penjelasan berlebihan, kalimat generik, triad/punchline buatan, dan dialog yang terdengar seperti panduan aplikasi. Hindari penyederhanaan yang menghilangkan konflik, emosi implisit, atau informasi yang dibutuhkan player.
-4. **Kontrak.** Pertahankan seluruh nilai nonprosa dan token teknis: `NpcId`, `storyId`, `questId`, `setFlags`, `requires`, `excludes`, `fee`, `coins`, `day`, nama objek, placeholder, JSON key, dan urutan efek. Hanya ubah field teks yang memang diminta.
-5. **Baca di UI.** Usahakan satu bubble menyampaikan satu gagasan yang bisa dipahami pada layar portrait. Pecah sesuai jeda emosional dan alur dialog, bukan batas kata kaku. Tidak semua NPC harus selalu berbaik hati, dan tidak semua baris memuat tutorial.
-6. **Audit.** Bandingkan fakta, relasi, suara, humor, pilihan dan akibat dengan versi semula. Jika substansi berubah, hentikan edit dan tandai untuk persetujuan. Jalankan tes dan review manual scene terkait.
+- **Tokoh berbicara**: kalimat punya tujuan, informasi terbatas dan kebiasaan khas; mereka boleh menolak, ragu atau tidak tahu. Tidak membaca tugas seperti petunjuk sistem.
+- **UI pemain**: ringkas, jelas, ramah, bernuansa dunia; beritahu apa yang bisa dilakukan sekarang dan dampaknya. Jangan memakai kosakata pengembangan, menyebut kode NPC atau status approval.
+- **Developer/QA**: boleh teknis, eksplisit, dapat diaudit; di skill, dokumen, console/error server dan alat debug terotorisasi — tidak dicampur ke layar bermain.
 
-## Larangan / keamanan
+## Pemeriksaan sebelum menulis ulang
 
-- Jangan menyatakan 30 kecamatan/151 kelurahan playable jika belum dibangun; Pasirluyu masih area prototipe.
-- Jangan menjadikan figur publik atau peristiwa sejarah sebagai fakta game tanpa sumber yang valid. Tokoh fiksi harus konsisten.
-- Jangan menyalin dialog berhak cipta dari Harvest Moon atau game lain.
-- Jangan mendekati proses ini sebagai cara “lolos AI detector”, dan jangan memasang AI di browser game.
-- Saat diminta menyunting file game, berikan hasil final dan ringkasan perubahan narasi, bukan dua versi semua dialog dalam file runtime.
+- Tentukan penutur, tempat, waktu/cuaca, apa yang diketahui, tujuan percakapan, pilihan dan dampak nyata.
+- Catat kontrak `NpcId`, `storyId`, `questId`, `phase`, `requires`, `excludes`, `setFlags`, `reward`, `price`, `coins`, `day`, placeholder dan bentuk save. **Jangan mengganti angka atau mekanik diam-diam**.
+- Cari ciri suara lewat tindakan: Ryan teliti soal aliran air; Nani mengingat benda dan kebun; Inggit memperhatikan stok; Ayu memahami persemaian. Jangan menempelkan satu template tutur pada semua orang.
+- Tulis ulang *hanya* player-facing copy yang bermasalah. Kurangi pengulangan, frasa kebijakan, penutup moral, pujian tanpa alasan, dan teks panjang yang menghalangi kontrol.
+- **Jangan** menambah urusan pribadi ke figur publik atau menyalin dialog dari Harvest Moon. Catatan fakta Kota Bandung memerlukan sumber bila digunakan sebagai sejarah nyata.
+- Setelah itu, baca pada layar ponsel dan desktop, dengarkan percakapan seolah berlangsung di tempatnya, lalu cek variasi pilihan, NPC yang menolak, dan jalan cerita sesudah aksi pemain.
 
-## Contoh perbedaan suara (contoh baru; bukan dialog live)
+## Area wajib
 
-Ryan (A03): “Pintu airnya terbuka, tapi tanda di batu kedua belum naik. Kalau kamu lewat hilir nanti, lihat apa Nani juga memperhatikan itu.”
+Dialog/ekspresi, reaksi pilihan, pesan, quest, Kronik, Warga, inventaris, gudang, HUD, plang, peta, panduan, toko, rumah, bangun tidur, sistem panen, notifikasi, kesalahan save dan state kosong. Utamakan perbaikan teks yang **aktif** di permainan sebelum menulis ratusan dialog ekspansi yang belum dipakai.
 
-Nani (C01): “Sejak pagi ada daun kecil nyangkut di pagar. Biasanya baru terbawa sejauh ini setelah air datang. Aku ingin tahu dari mana asalnya.”
+Jika tugas melibatkan penyajian Character Bible atau ensiklopedia, gunakan pula skill `../yz-farm-encyclopedia/SKILL.md`. UI Warga memakai proyeksi `wargaPlayerView`, bukan semua 12 kategori raw.
 
-Inggit (C08): “Timunnya bagus. Ambil yang dua itu saja dulu, ya. Kalau besok masih ada yang segar, kubeli lagi supaya tak banyak terbuang.”
+## QA sebelum selesai
 
-Ayu (A04): “Kalau tanahnya masih lembap, jangan buru-buru menyiram. Aku juga pernah terlalu rajin; dua pot jadi layu gara-gara itu.”
-
-## Teks sistem dan YZ Phone
-
-Saat menulis pesan layar, status alat, papan arah, error, tutorial, daftar Warga atau kronologi, pakai Humanizer juga. Referensi `docs/game-dev/GAME_TEXT_STYLE_GUIDE.md` dan `docs/game-dev/YZ_PHONE_WARGA_KRONIK.md`. Jangan mengubah data `sourceFacts`, hadiah/flag, atau lore yang belum dikonfirmasi. Rangkuman harus membaca state permainan, bukan mengarang hari kejadian. Periksa penggunaan bahasa dalam konteks layar portrait, suara karakter, dan tindakan sesungguhnya.
+Jalankan `npm run test:game:humanizer`, `npm run test:game:copy`, `npm run test:game:phone`, `npm run typecheck`, `npm run test:game` dan tes UI yang relevan. Linter hanya menemukan pola mekanis; **penilaian kualitas dialog tetap editorial manusia**. Jangan menandai game "sepenuhnya humanized" hanya karena build lulus.

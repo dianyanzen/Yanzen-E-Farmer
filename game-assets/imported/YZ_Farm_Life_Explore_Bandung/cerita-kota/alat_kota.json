@@ -1,0 +1,261 @@
+[
+ {
+  "nama": "Kentongan",
+  "pemilik": "K01",
+  "fungsi": "Cocokkan pola ketukan dengan catatan pos",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Kunci jari-jari",
+  "pemilik": "K02",
+  "fungsi": "Setel tegangan roda kurir",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Papan peras",
+  "pemilik": "K03",
+  "fungsi": "Atur urutan cuci kain dan tiriskan",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Kuas huruf",
+  "pemilik": "K04",
+  "fungsi": "Cat huruf yang terbaca dari dua arah",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Sendok kuah",
+  "pemilik": "K05",
+  "fungsi": "Uji ukuran satu porsi pada mangkuk berbeda",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Tongkat pengarah",
+  "pemilik": "K06",
+  "fungsi": "Giring kawanan melewati jalur kering",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Botol sampel",
+  "pemilik": "K07",
+  "fungsi": "Bandingkan kejernihan dua sampel air dalam simulasi",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Bak uji ban",
+  "pemilik": "K08",
+  "fungsi": "Temukan gelembung dan tandai letak bocor",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Kuas lembut",
+  "pemilik": "K09",
+  "fungsi": "Bersihkan sambungan figur panggung",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Cetakan tahu",
+  "pemilik": "K10",
+  "fungsi": "Atur tekanan dan waktu cetak",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Buku dengar",
+  "pemilik": "K11",
+  "fungsi": "Catat kesaksian dengan izin penutur",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Detektor suara satwa",
+  "pemilik": "K12",
+  "fungsi": "Tandai lintasan terbang tanpa menyorot satwa",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Kuas arsip",
+  "pemilik": "K13",
+  "fungsi": "Pisahkan dan salin lembar rapuh dalam simulasi",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Perekam stereo",
+  "pemilik": "K14",
+  "fungsi": "Ambil dua arah suara dari titik diam",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Tas kunjungan",
+  "pemilik": "K15",
+  "fungsi": "Susun rute kunjungan dan waktu istirahat fiktif",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Pemukul kendang",
+  "pemilik": "K16",
+  "fungsi": "Ulang pola panggil dan jawab saat latihan",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Bak celup",
+  "pemilik": "K17",
+  "fungsi": "Bandingkan contoh warna pada dua jenis serat",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Penala nada",
+  "pemilik": "K18",
+  "fungsi": "Pasangkan dua tabung berdasar telinga dan getaran",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Kait rajut",
+  "pemilik": "K19",
+  "fungsi": "Telusuri satu baris benang yang melompat",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Acuan sepatu",
+  "pemilik": "K20",
+  "fungsi": "Cocokkan acuan dengan jejak langkah",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Tang bibir enamel",
+  "pemilik": "K21",
+  "fungsi": "Ratakan tepi benda pajangan dalam simulasi",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Meja siar",
+  "pemilik": "K22",
+  "fungsi": "Susun urutan siaran dan tandai sumber rekaman",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Pemindai identitas hewan",
+  "pemilik": "K23",
+  "fungsi": "Cocokkan catatan ciri dan buku penitipan",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Papan reglet",
+  "pemilik": "K24",
+  "fungsi": "Susun label inventaris dan minta pembaca mengujinya",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Troli lipat",
+  "pemilik": "K25",
+  "fungsi": "Seimbangkan peti sebelum berangkat",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Pencatat suhu",
+  "pemilik": "K26",
+  "fungsi": "Baca urutan penyimpanan kiriman dalam simulasi",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Pita ukur",
+  "pemilik": "K27",
+  "fungsi": "Pindahkan ukuran pada pola kertas",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Pelubang karcis",
+  "pemilik": "K28",
+  "fungsi": "Cocokkan karcis sambungan dengan jadwal",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Simpan di rak bengkel setelah kerja"
+ },
+ {
+  "nama": "Kunci pegas",
+  "pemilik": "K29",
+  "fungsi": "Bandingkan selisih dua jam dalam simulasi",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Bersihkan dan keringkan sebelum dikembalikan"
+ },
+ {
+  "nama": "Penggulung film",
+  "pemilik": "K30",
+  "fungsi": "Cocokkan urutan gulungan latihan",
+  "akses": "Pinjam gratis pada giliran pertama; kembali ke meja mentor",
+  "perawatan": "Periksa kondisi bersama mentor sebelum giliran baru"
+ },
+ {
+  "nama": "Kotak eram",
+  "pemilik": "N01",
+  "fungsi": "Isi wadah pakan dan air; periksa sarang pagi",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Sisir ternak",
+  "pemilik": "N02",
+  "fungsi": "Bersihkan alas lalu catat kondisi kawanan dalam game",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Ember perah",
+  "pemilik": "N02",
+  "fungsi": "Isi palung dan ikuti jadwal pemerahan dalam game",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Baki telur",
+  "pemilik": "N01",
+  "fungsi": "Bersihkan baki dan catat telur pecah",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Serok",
+  "pemilik": "N03",
+  "fungsi": "Amati gerak ikan dan jadwal pakan kelompok",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Tali tuntun",
+  "pemilik": "K23",
+  "fungsi": "Temani berjalan bersama pengasuh sesuai jadwal",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ },
+ {
+  "nama": "Teropong",
+  "pemilik": "K12",
+  "fungsi": "Hitung siluet yang hinggap sebelum kios dibuka",
+  "akses": "Pinjam dari mentor fauna pada kunjungan pertama",
+  "perawatan": "Kembalikan bersih ke tempat penyimpanan"
+ }
+]

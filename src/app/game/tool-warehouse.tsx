@@ -1,6 +1,6 @@
 "use client";
 import GameDialog from "./game-dialog";
-import { BAG_UNLOCK_LEVELS,BAG_UPGRADE_COSTS,TOOL_CATALOG,TOOL_IDS,
+import { BAG_UNLOCK_LEVELS,BAG_UPGRADE_COSTS,TOOL_CATALOG,
   bagCapacity,playerLevel,toolName, type GameState, type ToolId } from "@/lib/game/model";
 export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrade}:{
   game:GameState;disabled:boolean;onClose:()=>void;
@@ -21,22 +21,17 @@ export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrad
         {!game.carriedTools.length&&<p>Tas kosong.</p>}
         {game.carriedTools.map(id=><div className="yzg-storage-item" key={id}>
           <div><b>{toolName(id)}</b><small>{TOOL_CATALOG[id].function}</small>
-            <small>{TOOL_CATALOG[id].status==="active"?"Dapat digunakan":"Fungsi direncanakan"}</small></div>
+            <small>{TOOL_CATALOG[id].status==="active"?"Dapat digunakan":"Belum bisa digunakan"}</small></div>
           <button onClick={()=>onTransfer(id,"store")} disabled={disabled}>Simpan</button></div>)}
       </section>
       <section><h3>Rak gudang</h3>
         {!game.storedTools.length&&<p>Gudang kosong.</p>}
         {game.storedTools.map(id=><div className="yzg-storage-item" key={id}>
           <div><b>{toolName(id)}</b><small>{TOOL_CATALOG[id].function}</small>
-            <small>{TOOL_CATALOG[id].status==="active"?"Dapat digunakan":"Fungsi direncanakan"}</small></div>
+            <small>{TOOL_CATALOG[id].status==="active"?"Dapat digunakan":"Belum bisa digunakan"}</small></div>
           <button onClick={()=>onTransfer(id,"take")} disabled={disabled||game.carriedTools.length>=bagCapacity(game.bagTier)}>Ambil</button></div>)}
       </section>
     </div>
-    <details className="yzg-tool-catalog"><summary>Katalog pengembangan · {TOOL_IDS.length} alat</summary>
-      <div>{TOOL_IDS.map(id=><div className="yzg-catalog-item" key={id}>
-        <b>{toolName(id)}</b> · {TOOL_CATALOG[id].category}
-        <small>{TOOL_CATALOG[id].function} Target: {TOOL_CATALOG[id].target}.
-          {TOOL_CATALOG[id].status==="active"?" Sudah berfungsi.":" Direncanakan, belum bisa digunakan."}</small></div>)}</div>
-    </details>
+
   </GameDialog>;
 }

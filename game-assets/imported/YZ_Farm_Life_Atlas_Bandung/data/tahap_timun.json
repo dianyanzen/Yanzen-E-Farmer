@@ -1,0 +1,30 @@
+[
+ {
+  "tahap": 0,
+  "nama": "Benih ditanam",
+  "atlas_id": "timun",
+  "kolom_atlas": 0,
+  "aturan": "Naik satu tahap setelah disiram dan berganti hari"
+ },
+ {
+  "tahap": 1,
+  "nama": "Kecambah",
+  "atlas_id": "timun",
+  "kolom_atlas": 1,
+  "aturan": "Naik satu tahap setelah disiram dan berganti hari"
+ },
+ {
+  "tahap": 2,
+  "nama": "Sulur berbunga",
+  "atlas_id": "timun",
+  "kolom_atlas": 2,
+  "aturan": "Naik satu tahap setelah disiram dan berganti hari"
+ },
+ {
+  "tahap": 3,
+  "nama": "Timun siap petik",
+  "atlas_id": "timun",
+  "kolom_atlas": 3,
+  "aturan": "Siap dipanen, tahap maksimum"
+ }
+]

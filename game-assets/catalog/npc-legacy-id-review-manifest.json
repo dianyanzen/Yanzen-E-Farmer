@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 1,
+  "title": "NPC identity collision review — ID-only manifest",
+  "date": "2026-11-22",
+  "guard": "This is an ID-only index; identity, occupation and story must be read from private roster and separately reviewed before approving any association.",
+  "count": 69,
+  "legacyStoryCandidateCount": 39,
+  "legacyExpansionConceptCount": 30,
+  "review": [
+    {
+      "legacyId": "A02",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A03",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A04",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A05",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A06",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A07",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A08",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A09",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A10",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A11",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A12",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A13",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A14",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A15",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "A16",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C01",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C02",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C03",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C04",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C05",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C06",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C07",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C08",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C09",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C10",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C11",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C12",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C13",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C14",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C15",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "C16",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K01",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K02",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K03",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K04",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K05",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K06",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K07",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K08",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K09",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K10",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K11",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K12",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K13",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K14",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K15",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K16",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K17",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K18",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K19",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K20",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K21",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K22",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K23",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K24",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K25",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K26",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K27",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K28",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K29",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "K30",
+      "source": "expansion-concept",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N01",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N02",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N03",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N04",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N05",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "N06",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "P01",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    },
+    {
+      "legacyId": "P02",
+      "source": "legacy-story",
+      "associationStatus": "manual-review-required",
+      "approved": false
+    }
+  ],
+  "otherNotes": [
+    "Legacy NPC saves, quests, dialogue and relationship flags remain unchanged; their meanings are not automatically migrated.",
+    "Other 179 NPCs receive identity through the private roster, not the Rxxx asset key.",
+    "Approvals must be separately stored in GAME_APPROVED_LEGACY_ASSOCIATIONS private server file."
+  ]
+}

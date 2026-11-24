@@ -1,7 +1,12 @@
 # YZ Farm Life — Visual and Pixel Art Standard
 
+> **ATURAN MUTLAK TERBARU — 24 November 2026:** Semua aset game termasuk setiap frame animasi, setiap ekspresi NPC, tile, furnitur, bangunan, dan efek **wajib berupa file individual milik satu entitas**, tanpa spritesheet, atlas, sumber gambar gabungan, teknik cutting/cropping dari sheet, atau penggunaan file bersama lintas entitas/instance. Tidak boleh mengemas ulang ke atlas pada runtime. Baca [Atomic Assets & Yanzen Scale Standard](./ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md) dan skill [yz-farm-atomic-assets](../../.agents/skills/yz-farm-atomic-assets/SKILL.md). Kunci skala tubuh dan titik kaki Yanzen di semua animasi. Instruksi historis dalam dokumen ini yang menyarankan atlas, sheet, shared asset, atau cutting **tidak berlaku lagi**. Aset lama dimigrasikan bertahap dan tidak boleh dihapus sebelum QA/rollback.
+
+
 ## Creative brief
 **Familiar GBA-era warmth; an original Bandung identity.** The player begins on a fictional farm in **Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung**. Visual motifs: shallow irrigation channels, cucumber trellises, wet/dry paddy plots, compact kampung gang, modest rooftops, fruit crates, market food stalls and urban building silhouettes. Never duplicate Harvest Moon's copyrighted characters, map layouts, sprites or UI.
+
+**Potret dan ekspresi NPC yang sudah aktif:** gunakan [ACTIVE_NPC_PORTRAIT_STANDARD.md](./ACTIVE_NPC_PORTRAIT_STANDARD.md) sebagai quality gate identitas dan tampilan, khususnya pasangan potret profesi, strip dialog delapan emosi, dan sprite dunia. Jangan merilis ulang wajah Widi dari PR #43 sebelum diselaraskan dengan ekspresi aslinya.
 
 ## Mandatory art rules
 - **Portrait mobile target:** internal viewport **288 × 512** (target, not yet implemented); keep current 480 × 320 Canvas prototype unchanged until renderer/movement redesign is reviewed.

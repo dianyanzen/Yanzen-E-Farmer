@@ -63,12 +63,12 @@ for(const e of experience.events){
  assert.ok(e.lines.length>=2&&e.lines.every(x=>x.length>=10));
  assert.ok(e.timeWindow[0]<e.timeWindow[1]&&e.timeWindow[1]<=1320);
 }
-const ui=readFileSync("src/app/game/character-gallery.tsx","utf8");
-assert.ok(
- ui.includes("<details")&&ui.includes('kind:"expansion"')&&
- ui.includes('c.kind==="core"')&&ui.includes("aria-expanded={archive}"),
- "Concept-only characters must remain behind the Warga archive and must not auto-spawn"
-);
+const gallery=readFileSync("src/app/game/character-gallery.tsx","utf8");
+const warga=readFileSync("src/app/game/phone-wargapedia.tsx","utf8");
+assert.ok(gallery.includes("<PhoneWargapedia")&&warga.includes("catalog?.characters.filter")&&
+ warga.includes("src={known.portraitUrl}")&&warga.includes("approvedLegacyId(currentResident)")&&
+ !gallery.includes("fromExpansion")&&!warga.includes("fromExpansion"),
+ "Canonical Warga must use public 248 roster portraits and never silently mix legacy concept artwork");
 if(existsSync(".git")){
  const git=execFileSync(process.execPath,["scripts/game-assets/build-asset-database.mjs","--check"],{encoding:"utf8"});
  assert.match(git,/PASS: asset database/);

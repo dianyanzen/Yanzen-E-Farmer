@@ -1,0 +1,132 @@
+[
+ {
+  "id": "cerita-1",
+  "judul": "Jejak di pintu air",
+  "npc": "A03",
+  "prasyarat": null,
+  "adegan": "Lumpur menutup separuh angka pada batu saluran. Ryan menyodorkan sikat.",
+  "pilihan": [
+   "Bersihkan angka",
+   "Salin bentuknya"
+  ],
+  "penutup": "Ryan menyimpan tanda batas air di jurnal.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-2",
+  "judul": "Foto dari saku Nani",
+  "npc": "C01",
+  "prasyarat": "cerita-1",
+  "adegan": "Nani membuka lipatan foto. Di belakangnya ada tanggal dan gambar dua garis sejajar.",
+  "pilihan": [
+   "Tanya tanggal",
+   "Tanya garis air"
+  ],
+  "penutup": "Nani menandai gang lama di peta.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-3",
+  "judul": "Empat timun pertama",
+  "npc": "C08",
+  "prasyarat": null,
+  "adegan": "Inggit menyisakan satu keranjang kosong di warung. Empat timun pas untuk acar hari ini.",
+  "pilihan": [
+   "Terima lewat telepon",
+   "Lihat kebun dahulu"
+  ],
+  "penutup": "Pesanan dapat dituntaskan lewat transaksi empat timun.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-4",
+  "judul": "Gagang yang longgar",
+  "npc": "A05",
+  "prasyarat": "cerita-1",
+  "adegan": "Mata cangkul bergeser saat Yanzen mengangkat tanah. Di bangku ada pasak dan sepotong kayu.",
+  "pilihan": [
+   "Pasang pasak",
+   "Ganti gagang"
+  ],
+  "penutup": "Catatan perawatan alat masuk jurnal.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-5",
+  "judul": "Keranjang untuk warung",
+  "npc": "A08",
+  "prasyarat": "cerita-3",
+  "adegan": "Ujung anyaman mencuat tepat di bawah timun. Sebuah buah mulai tergores.",
+  "pilihan": [
+   "Lipat ujungnya",
+   "Tambahkan alas"
+  ],
+  "penutup": "Keranjang aman dipakai untuk kiriman berikutnya.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-6",
+  "judul": "Dua tinggi air",
+  "npc": "A09",
+  "prasyarat": "cerita-2",
+  "adegan": "Bekas air di batu lebih tinggi dari garis pada foto pagi tadi.",
+  "pilihan": [
+   "Potret dari jembatan",
+   "Ukur dari batu"
+  ],
+  "penutup": "Dua catatan air kini dapat dibandingkan.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-7",
+  "judul": "Giliran air Cimincrang",
+  "npc": "A03",
+  "prasyarat": "cerita-6",
+  "adegan": "Dua petak menunggu air dari pintu yang sama.",
+  "pilihan": [
+   "Dahulukan petak hulu",
+   "Uji aliran ke hilir"
+  ],
+  "penutup": "Jurnal mencatat urutan giliran air.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-8",
+  "judul": "Kartu bibit Cisurupan",
+  "npc": "A07",
+  "prasyarat": "cerita-5",
+  "adegan": "Hujan semalam melunturkan satu label di baki semai.",
+  "pilihan": [
+   "Cocokkan jurnal",
+   "Tanya pemilik baki"
+  ],
+  "penutup": "Baki mendapat label dan tanggal baru.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-9",
+  "judul": "Kiriman rempah Karasak",
+  "npc": "C10",
+  "prasyarat": "cerita-8",
+  "adegan": "Berat bersih rempah berbeda dari angka pada nota.",
+  "pilihan": [
+   "Timbang ulang",
+   "Periksa tara wadah"
+  ],
+  "penutup": "Nota kiriman mencantumkan tara.",
+  "status": "Draf cerita"
+ },
+ {
+  "id": "cerita-10",
+  "judul": "Meja panen bersama",
+  "npc": "C16",
+  "prasyarat": "cerita-9",
+  "adegan": "Satu meja di festival masih kosong. Warga membawa panen dan kisah kebun mereka.",
+  "pilihan": [
+   "Susun menurut lahan",
+   "Susun menurut bab"
+  ],
+  "penutup": "Warga memasang kartu asal untuk setiap hasil panen.",
+  "status": "Draf cerita"
+ }
+]
