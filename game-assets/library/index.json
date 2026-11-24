@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4932,
-  "uniqueContents": 1220,
-  "totalBytes": 336048735,
+  "totalMedia": 4664,
+  "uniqueContents": 1219,
+  "totalBytes": 312469947,
   "categories": [
     {
       "id": "characters",
@@ -126,8 +126,8 @@
       "id": "portraits",
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-      "mediaCount": 736,
-      "bytes": 77650030,
+      "mediaCount": 468,
+      "bytes": 54071242,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
@@ -152,10 +152,6 @@
         {
           "id": "portraits",
           "count": 32
-        },
-        {
-          "id": "portraits/bandung",
-          "count": 268
         },
         {
           "id": "portraits/bandung/civic",
