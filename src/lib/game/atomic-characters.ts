@@ -1,4 +1,4 @@
-/** One independent PNG per character pose; no sheet/atlas runtime references.
+/** One independent SVG per character pose; no sheet/atlas runtime references.
  * Both Canvas and Phaser use identical world foot anchors across frame sizes.
  * Extraction of legacy animation art still requires later artistic review.
  */
@@ -18,7 +18,7 @@ export type AtomicFrame = {
 
 export const PLAYER_WORLD_FOOT_OFFSET = 18;
 export const PLAYER_BODY_REFERENCE_HEIGHT = 30;
-export const ATOMIC_FRAMES = index.frames as readonly AtomicFrame[];
+export const ATOMIC_FRAMES = index.frames as unknown as readonly AtomicFrame[];
 const frameByKey:ReadonlyMap<string,AtomicFrame> = new Map(ATOMIC_FRAMES.map(frame=>[frame.key,frame]));
 
 export function atomicKey(id:string,motion:Motion,lane:string,frame:number):string{
