@@ -3,8 +3,8 @@
   "category": "stories",
   "label": "Cerita dan misi",
   "description": "Gambar jurnal dan adegan cerita",
-  "mediaCount": 12,
-  "bytes": 16395290,
+  "mediaCount": 20,
+  "bytes": 29546274,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -52,6 +52,34 @@
       "id": "story",
       "files": [
         "public/game/assets/story/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/cerita",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/cerita/foto-saluran-jurnal.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/cerita",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cerita/foto-saluran-jurnal.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/cerita",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cerita/foto-saluran-jurnal.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cerita/foto-saluran.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/cerita",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cerita/foto-saluran-jurnal.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cerita/foto-saluran.png"
       ]
     }
   ]
