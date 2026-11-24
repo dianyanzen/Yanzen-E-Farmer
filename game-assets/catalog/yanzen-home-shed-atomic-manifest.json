@@ -4,35 +4,6 @@
   "createdAt": "2026-11-24",
   "assets": [
     {
-      "assetId": "home.floor.base",
-      "ownerId": "building:yanzen-home",
-      "objectId": "floor",
-      "instanceId": "home-floor",
-      "variant": "primary",
-      "direction": "front-three-quarter",
-      "frameIndex": null,
-      "sourceFile": "public/game/assets/locations/yanzen/home/floor.svg",
-      "runtimeFile": "public/game/assets/locations/yanzen/home/floor.svg",
-      "sourceSha256": null,
-      "runtimeSha256": null,
-      "canvasW": 480,
-      "canvasH": 320,
-      "visibleAlphaBounds": "0,0,480,320",
-      "footPivot": null,
-      "worldOffset": {
-        "x": 0,
-        "y": 0
-      },
-      "displayW": 480,
-      "displayH": 320,
-      "collisionFootprint": [],
-      "interactionHotspot": null,
-      "zDepth": "individual-layer",
-      "provenance": "Authored for YZ Farm Life as a unique architectural layer, 2026-11-24.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
-      "notes": "floor layer; door threshold at x228–284 y258–286"
-    },
-    {
       "assetId": "home.backwall.base",
       "ownerId": "building:yanzen-home",
       "objectId": "backwall",
@@ -58,7 +29,7 @@
       "interactionHotspot": null,
       "zDepth": "individual-layer",
       "provenance": "Authored for YZ Farm Life as a unique architectural layer, 2026-11-24.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "woven wall and two separate architectural window openings"
     },
     {
@@ -75,14 +46,14 @@
       "runtimeSha256": "9df6919c23039ecd0e123fd32d5baffe849ffed86c10f7a826e616f54cf0e5f8",
       "canvasW": 1536,
       "canvasH": 1024,
-      "visibleAlphaBounds": "requires pixel edge QA",
+      "visibleAlphaBounds": "needs final rendered alpha-edge visual check",
       "footPivot": {
         "x": 0.5,
         "y": 0.96
       },
       "worldOffset": {
-        "x": 0,
-        "y": 0
+        "x": 143,
+        "y": 104
       },
       "displayW": 106,
       "displayH": 74,
@@ -94,40 +65,8 @@
       },
       "zDepth": "individual-layer",
       "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "individual bed, no other props"
-    },
-    {
-      "assetId": "home.worktable.01",
-      "ownerId": "building:yanzen-home",
-      "objectId": "worktable",
-      "instanceId": "worktable-01",
-      "variant": "primary",
-      "direction": "front-three-quarter",
-      "frameIndex": null,
-      "sourceFile": "public/game/assets/locations/yanzen/home/worktable-01.png",
-      "runtimeFile": "public/game/assets/locations/yanzen/home/worktable-01.png",
-      "sourceSha256": "a9e34787e5613e52fe689e42d42bb5ff48a2a6fa53fef6e44072ef1d06927120",
-      "runtimeSha256": "a9e34787e5613e52fe689e42d42bb5ff48a2a6fa53fef6e44072ef1d06927120",
-      "canvasW": 1536,
-      "canvasH": 1024,
-      "visibleAlphaBounds": "requires pixel edge QA",
-      "footPivot": {
-        "x": 0.5,
-        "y": 0.96
-      },
-      "worldOffset": {
-        "x": 0,
-        "y": 0
-      },
-      "displayW": 70,
-      "displayH": 54,
-      "collisionFootprint": [],
-      "interactionHotspot": null,
-      "zDepth": "individual-layer",
-      "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
-      "notes": "individual low wooden table"
     },
     {
       "assetId": "home.cabinet.01",
@@ -143,34 +82,34 @@
       "runtimeSha256": "ce3a9d517b71817f24654946ddf0cf117b54d8a30d2ea5e4d46a3c3b428c9b74",
       "canvasW": 1312,
       "canvasH": 1199,
-      "visibleAlphaBounds": "requires pixel edge QA",
+      "visibleAlphaBounds": "needs final rendered alpha-edge visual check",
       "footPivot": {
         "x": 0.5,
         "y": 0.96
       },
       "worldOffset": {
-        "x": 0,
-        "y": 0
+        "x": 370,
+        "y": 120
       },
-      "displayW": 54,
+      "displayW": 58,
       "displayH": 58,
       "collisionFootprint": [],
       "interactionHotspot": null,
       "zDepth": "individual-layer",
       "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "single bamboo woven-door cabinet"
     },
     {
-      "assetId": "shed.floor.base",
-      "ownerId": "building:yanzen-shed",
+      "assetId": "home.floor.base",
+      "ownerId": "building:yanzen-home",
       "objectId": "floor",
-      "instanceId": "shed-floor",
+      "instanceId": "home-floor",
       "variant": "primary",
       "direction": "front-three-quarter",
       "frameIndex": null,
-      "sourceFile": "public/game/assets/locations/yanzen/shed/floor.svg",
-      "runtimeFile": "public/game/assets/locations/yanzen/shed/floor.svg",
+      "sourceFile": "public/game/assets/locations/yanzen/home/floor.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/home/floor.svg",
       "sourceSha256": null,
       "runtimeSha256": null,
       "canvasW": 480,
@@ -187,8 +126,40 @@
       "interactionHotspot": null,
       "zDepth": "individual-layer",
       "provenance": "Authored for YZ Farm Life as a unique architectural layer, 2026-11-24.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
-      "notes": "floor layer; clear approach to exit"
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
+      "notes": "floor layer; door threshold at x228–284 y258–286"
+    },
+    {
+      "assetId": "home.worktable.01",
+      "ownerId": "building:yanzen-home",
+      "objectId": "worktable",
+      "instanceId": "worktable-01",
+      "variant": "primary",
+      "direction": "front-three-quarter",
+      "frameIndex": null,
+      "sourceFile": "public/game/assets/locations/yanzen/home/worktable-01.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/home/worktable-01.png",
+      "sourceSha256": "a9e34787e5613e52fe689e42d42bb5ff48a2a6fa53fef6e44072ef1d06927120",
+      "runtimeSha256": "a9e34787e5613e52fe689e42d42bb5ff48a2a6fa53fef6e44072ef1d06927120",
+      "canvasW": 1536,
+      "canvasH": 1024,
+      "visibleAlphaBounds": "needs final rendered alpha-edge visual check",
+      "footPivot": {
+        "x": 0.5,
+        "y": 0.96
+      },
+      "worldOffset": {
+        "x": 28,
+        "y": 117
+      },
+      "displayW": 70,
+      "displayH": 54,
+      "collisionFootprint": [],
+      "interactionHotspot": null,
+      "zDepth": "individual-layer",
+      "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
+      "notes": "individual low wooden table"
     },
     {
       "assetId": "shed.backwall.base",
@@ -216,8 +187,37 @@
       "interactionHotspot": null,
       "zDepth": "individual-layer",
       "provenance": "Authored for YZ Farm Life as a unique architectural layer, 2026-11-24.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "bamboo wall layer"
+    },
+    {
+      "assetId": "shed.floor.base",
+      "ownerId": "building:yanzen-shed",
+      "objectId": "floor",
+      "instanceId": "shed-floor",
+      "variant": "primary",
+      "direction": "front-three-quarter",
+      "frameIndex": null,
+      "sourceFile": "public/game/assets/locations/yanzen/shed/floor.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/shed/floor.svg",
+      "sourceSha256": null,
+      "runtimeSha256": null,
+      "canvasW": 480,
+      "canvasH": 320,
+      "visibleAlphaBounds": "0,0,480,320",
+      "footPivot": null,
+      "worldOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "displayW": 480,
+      "displayH": 320,
+      "collisionFootprint": [],
+      "interactionHotspot": null,
+      "zDepth": "individual-layer",
+      "provenance": "Authored for YZ Farm Life as a unique architectural layer, 2026-11-24.",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
+      "notes": "floor layer; clear approach to exit"
     },
     {
       "assetId": "shed.workbench.01",
@@ -233,14 +233,14 @@
       "runtimeSha256": "84f3274757e8512228f8a0db160690fbd2071b74b3335ab0e6f583ea8a26abec",
       "canvasW": 1536,
       "canvasH": 1024,
-      "visibleAlphaBounds": "requires pixel edge QA",
+      "visibleAlphaBounds": "needs final rendered alpha-edge visual check",
       "footPivot": {
         "x": 0.5,
         "y": 0.96
       },
       "worldOffset": {
-        "x": 0,
-        "y": 0
+        "x": 342,
+        "y": 121
       },
       "displayW": 90,
       "displayH": 65,
@@ -248,7 +248,7 @@
       "interactionHotspot": null,
       "zDepth": "individual-layer",
       "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "single empty workbench"
     },
     {
@@ -265,14 +265,14 @@
       "runtimeSha256": "be90b76b1eee9554cad7c8b1a0c970fb4f46e21d9e950cbe68e124a612b2836e",
       "canvasW": 1220,
       "canvasH": 1289,
-      "visibleAlphaBounds": "requires pixel edge QA",
+      "visibleAlphaBounds": "needs final rendered alpha-edge visual check",
       "footPivot": {
         "x": 0.5,
         "y": 0.96
       },
       "worldOffset": {
-        "x": 0,
-        "y": 0
+        "x": 148,
+        "y": 91
       },
       "displayW": 60,
       "displayH": 67,
@@ -284,7 +284,7 @@
       },
       "zDepth": "individual-layer",
       "provenance": "Generated for YZ Farm Life with OpenAI image generation, 2026-11-24; original single-object transparent PNG.",
-      "qaStatus": "CANDIDATE_NOT_INTEGRATED",
+      "qaStatus": "INTEGRATED_PENDING_VISUAL_QA",
       "notes": "woven storage shelves; empty structure"
     }
   ]
