@@ -2,7 +2,7 @@
 
 **Date:** 24 November 2026  
 **Branch:** `feat/yanzen-home-shed-kdm-redesign-20261124`  
-**State:** audit and blockout brief; no runtime assets or gameplay code changed yet.
+**State:** first modular interior pass integrated in Canvas and Phaser; pending in-game visual and interaction QA.
 
 ## Scope
 
@@ -80,3 +80,20 @@ Evidence: `docs/game-dev/ASSET_VISUAL_AUDIT_20261123.md`, `src/lib/game/model.ts
 - Canvas/Phaser parity and mobile/desktop visual checks.
 - Asset manifest validation and a complete old-path → replacement-path dependency list.
 - Report distinguishes automated checks from visual review. No claim of production readiness until evidence exists.
+
+
+## Implemented on the feature branch
+
+- Added unique architecture layers for the Rumah Yanzen floor/wall and Gudang floor/wall.
+- Added separate PNGs for the bed, worktable, woven cabinet, tool rack, and shed workbench. Added the independent asset manifest at `game-assets/catalog/yanzen-home-shed-atomic-manifest.json`.
+- Added `src/lib/game/yanzen-interior-art.ts` as the shared placement map. Both Canvas and Phaser load each item as an individual file; no sprite sheet or crop is used for this room set.
+- The shed layout leaves the middle approach open. The bed and rack retain their existing hotspot tiles `(9,7)`.
+- Kept existing day/evening house and shed composites as fallback. They remain in use until the new rooms are visually verified and the fallback/dependency checks are complete.
+- NPC data/art, dialogue, language, and gameplay interactions were not intentionally changed.
+
+## Remaining before cleanup or merge
+
+- Run the game in Canvas and Phaser, capture the same-view before/after, and check entry/exit, bed sleep, rack access, room scale, transparent edges, and phone/desktop layouts.
+- Verify the generated PNG alpha edges at runtime scale and adjust object bounds/placement if needed.
+- Update asset lifecycle/catalog references after QA.
+- Do not delete the legacy composites until every runtime and validation consumer has migrated; make cleanup its own reversible change.
