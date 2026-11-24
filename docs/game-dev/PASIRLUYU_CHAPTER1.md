@@ -9,7 +9,7 @@ This change does not release the game to production or open Cimincrang.
 1. Open YZ Phone → Pesan and accept Inggit's four-cucumber order.
 2. Face farm plots, till, plant and water. Sleep and water across three growth
    days, then harvest four cucumbers.
-3. Face Inggit at (19,7): four cucumbers consumed, 160 G paid exactly once.
+3. Face Inggit at (19,7): four cucumbers consumed, Rp16.000 paid exactly once.
 4. Face Ryan at (13,8): compare the two canal marks.
 5. Face Nani at (16,11): view the photo and learn the name Cimincrang.
 6. Defer the choice, or entrust the original to Nani / leave a copy at the warung.
