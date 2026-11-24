@@ -29,14 +29,13 @@ export const outdoorSources: Record<string,string> = {
   road: kit + "jalan-utama.png",
   fence: kit + "pagar.png",
   petak: kit + "petak.png",
-  ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
+  // Stage 3's original PNG is incomplete; the renderers use the existing
+  // mature-crop fallback until an individual replacement is verified.
+  ...Object.fromEntries([0,1,2].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
   ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage+"-alt",kit+"kebun/cucumber-stage-"+stage+"-alt.png"])),
   "plot-dry": kit+"kebun/petak-kering.svg",
   "plot-wet": kit+"kebun/petak-basah.svg",
   "garden-trellis": kit+"kebun/ajir-bambu-01.png",
-  "garden-basket": kit+"kebun/keranjang-panen-01.png",
-  "garden-caping": kit+"kebun/caping-01.png",
-  "garden-butterfly": kit+"kebun/kupu-kupu-01.png",
   "garden-hoe": kit+"objek/cangkul.png",
   "garden-watering-can": kit+"objek/gembor.png",
   ...Object.fromEntries(everyday.map(name => [name, kit + "objek/" + name + ".png"])),
@@ -172,11 +171,10 @@ props.field.push(
 );
 props.field.push(
   {asset:"garden-trellis",x:221,y:252,displayW:33,displayH:54},
-  {asset:"garden-basket",x:154,y:150,displayW:30,displayH:23},
   {asset:"garden-hoe",x:93,y:150,displayW:22,displayH:24},
   {asset:"garden-watering-can",x:122,y:150,displayW:23,displayH:22},
-  {asset:"garden-caping",x:61,y:150,displayW:22,displayH:18},
-  {asset:"garden-butterfly",x:276,y:181,displayW:12,displayH:12}
+  // Basket, caping and butterfly remain in the catalog for repair; their PNGs
+  // currently fail image decoding and must not be requested by the renderer.
 );
 props.gang.push(
   {asset:"pohon-pisang",x:69,y:87,scale:.81},{asset:"kelompok-pot",x:137,y:157,scale:.64},

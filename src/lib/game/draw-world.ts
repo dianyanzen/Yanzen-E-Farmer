@@ -4,7 +4,7 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
-import { yanzenInteriorLayout } from "./yanzen-interior-art";
+import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -74,7 +74,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.roomAssets?.shedFloor && art.roomAssets?.shedWall) {
+    if (YANZEN_MODULAR_INTERIORS_ENABLED && art.roomAssets?.shedFloor && art.roomAssets?.shedWall &&
+        yanzenInteriorLayout.shed.every(item=>art.roomAssets?.[item.key])) {
       ctx.drawImage(art.roomAssets.shedFloor,0,0,W*T,H*T);
       for (const item of yanzenInteriorLayout.shed) {
         const image=art.roomAssets[item.key];
@@ -104,7 +105,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if (state.location === "home") {
-    if (art.roomAssets?.homeFloor && art.roomAssets?.homeWall) {
+    if (YANZEN_MODULAR_INTERIORS_ENABLED && art.roomAssets?.homeFloor && art.roomAssets?.homeWall &&
+        yanzenInteriorLayout.home.every(item=>art.roomAssets?.[item.key])) {
       ctx.drawImage(art.roomAssets.homeFloor,0,0,W*T,H*T);
       for (const item of yanzenInteriorLayout.home) {
         const image=art.roomAssets[item.key];
