@@ -139,7 +139,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if (soil) ctx.drawImage(soil,px,py,T,T);
     else if (legacySoil) ctx.drawImage(legacySoil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
     else box(ctx,px,py,T,T,plot.watered?"#927256":"#b48b61");
-    const cropStage=art.outdoor?.["cucumber-stage-"+Math.min(3,plot.stage)];
+    const stageId=Math.min(3,plot.stage);
+    const variant=(x+2*y)%3===0?"-alt":"";
+    const cropStage=art.outdoor?.["cucumber-stage-"+stageId+variant] ?? art.outdoor?.["cucumber-stage-"+stageId];
     if(plot.stage>=0 && cropStage) {
       ctx.drawImage(cropStage,px+2,py+1,16,18);
     } else if(plot.stage>=0 && art.cucumber){
