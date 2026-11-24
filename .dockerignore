@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.vscode
+game-assets/imported
+*.zip
+*.sqlite
+*.html
+*.log
+deploy/private
+public/game/assets/portraits/bandung/*.png
