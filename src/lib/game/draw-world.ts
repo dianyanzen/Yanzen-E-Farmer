@@ -8,6 +8,7 @@ import {drawHousingInterior,drawHousingFrame,exteriorHousingSprite} from "./hous
 import {drawHDInterior,drawHDInteriorProps,drawHDSprite,exteriorHDSprite} from "./housing-hd";
 import {residentFacadeSpec} from "./world-layout";
 import {FARMHOUSE_EXTERIOR,type FarmhouseNativeArt} from "./farmhouse-native";
+import {SHED_EXTERIOR,type ShedNativeArt} from "./shed-native";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -32,6 +33,7 @@ export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & 
   outdoor?: Record<string,HTMLImageElement>; housingAtlas?: HTMLImageElement;
   housingHDExteriors?: HTMLImageElement;housingHDInteriors?: HTMLImageElement;
   farmhouseNative?:FarmhouseNativeArt;
+  shedNative?:ShedNativeArt;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
@@ -86,8 +88,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   if(state.location==="shed"){
     if (art.housingHDInteriors){
-      drawHDInterior(ctx,art.housingHDInteriors,"shed",state.minutes>=18*60,"base");
-      drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"behind");
+      drawHDInterior(ctx,art.housingHDInteriors,"shed",state.minutes>=18*60,"base",art.farmhouseNative,art.shedNative);
+      drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"behind",art.farmhouseNative,art.shedNative);
     }
     else if (art.housingAtlas) drawHousingInterior(ctx,art.housingAtlas,"shed");
     else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
@@ -111,7 +113,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
       Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
     else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
-    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"front");
+    if(art.housingHDInteriors)drawHDInteriorProps(ctx,art.housingHDInteriors,"shed",(position.y+1)*T,"front",art.farmhouseNative,art.shedNative);
     return;
   }
   if (state.location === "home") {
@@ -208,14 +210,15 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ];
   for (const prop of physicalProps) {
     const nativeHouse=prop.asset==="rumah-yanzen"?art.farmhouseNative?.exterior:null;
+    const nativeShed=prop.asset==="gudang-kayu"?art.shedNative?.exterior:null;
     const hd = art.housingHDExteriors ? exteriorHDSprite(prop.asset) : null;
     const custom = hd ? null : art.housingAtlas ? exteriorHousingSprite(prop.asset) : null;
     const resident=residentFacadeSpec(prop.asset);
-    const image = nativeHouse??(hd ? art.housingHDExteriors : custom ? art.housingAtlas : art.outdoor?.[prop.asset]);
+    const image = nativeHouse??nativeShed??(hd ? art.housingHDExteriors : custom ? art.housingAtlas : art.outdoor?.[prop.asset]);
     if (!image) continue;
-    const scale = (nativeHouse || hd || custom || resident) ? 1 : (prop.scale ?? 1);
-    const width = Math.round((nativeHouse?FARMHOUSE_EXTERIOR.width:hd?.width ?? custom?.width ?? resident?.width ?? image.width)*scale),
-      height = Math.round((nativeHouse?FARMHOUSE_EXTERIOR.height:hd?.height ?? custom?.height ?? resident?.height ?? image.height)*scale);
+    const scale = (nativeHouse || nativeShed || hd || custom || resident) ? 1 : (prop.scale ?? 1);
+    const width = Math.round((nativeHouse?FARMHOUSE_EXTERIOR.width:nativeShed?SHED_EXTERIOR.width:hd?.width ?? custom?.width ?? resident?.width ?? image.width)*scale),
+      height = Math.round((nativeHouse?FARMHOUSE_EXTERIOR.height:nativeShed?SHED_EXTERIOR.height:hd?.height ?? custom?.height ?? resident?.height ?? image.height)*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
@@ -224,6 +227,10 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
         ctx.imageSmoothingEnabled=true;
         ctx.drawImage(nativeHouse,Math.round(prop.x-width/2),
           prop.y-height+FARMHOUSE_EXTERIOR.footOffset,width,height);
+      }else if(nativeShed){
+        ctx.imageSmoothingEnabled=true;
+        ctx.drawImage(nativeShed,Math.round(prop.x-width/2),
+          prop.y-height+SHED_EXTERIOR.footOffset,width,height);
       }else if(hd)drawHDSprite(ctx,image,hd.frame,
         Math.round(prop.x-width/2),prop.y-height+hd.footOffset,width,height);
       else if(custom) drawHousingFrame(ctx,image,custom.frame,Math.round(prop.x-width/2),prop.y-height,width,height);
