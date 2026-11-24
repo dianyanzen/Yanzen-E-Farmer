@@ -29,12 +29,21 @@ export const outdoorSources: Record<string,string> = {
   road: kit + "jalan-utama.png",
   fence: kit + "pagar.png",
   petak: kit + "petak.png",
+  ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
+  "plot-dry": kit+"kebun/petak-kering.svg",
+  "plot-wet": kit+"kebun/petak-basah.svg",
+  "garden-trellis": kit+"kebun/ajir-bambu-01.png",
+  "garden-basket": kit+"kebun/keranjang-panen-01.png",
+  "garden-caping": kit+"kebun/caping-01.png",
+  "garden-butterfly": kit+"kebun/kupu-kupu-01.png",
+  "garden-hoe": kit+"objek/cangkul.png",
+  "garden-watering-can": kit+"objek/gembor.png",
   ...Object.fromEntries(everyday.map(name => [name, kit + "objek/" + name + ".png"])),
   ...Object.fromEntries(fieldDetails.map(name => [name, kit + "detail-kebun/" + name + ".png"])),
   ...Object.fromEntries(landmarks.map(name => [name, kit + "landmark/" + name + ".png"])),
 };
 type Point = readonly [number,number];
-type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string };
+type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
 type Route = readonly [number,readonly Point[]];
 const paths: Record<OutdoorLocation,Route[]> = {
@@ -159,6 +168,14 @@ props.field.push(
   ...([[530,139],[590,139],[550,199],[610,199]] as Point[]).map(([x,y],i)=>({asset:i%2?"tajuk-terang":"tajuk-kebun",x,y,scale:.69})),
   {asset:"tong-dan-papan",x:210,y:97,scale:.57},{asset:"kelompok-pot",x:357,y:98,scale:.57},
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
+);
+props.field.push(
+  {asset:"garden-trellis",x:221,y:258,displayW:33,displayH:54},
+  {asset:"garden-basket",x:234,y:276,displayW:30,displayH:23},
+  {asset:"garden-hoe",x:51,y:279,displayW:22,displayH:24},
+  {asset:"garden-watering-can",x:237,y:278,displayW:23,displayH:22},
+  {asset:"garden-caping",x:61,y:150,displayW:22,displayH:18},
+  {asset:"garden-butterfly",x:276,y:181,displayW:12,displayH:12}
 );
 props.gang.push(
   {asset:"pohon-pisang",x:69,y:87,scale:.81},{asset:"kelompok-pot",x:137,y:157,scale:.64},
