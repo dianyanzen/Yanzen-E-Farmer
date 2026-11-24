@@ -13,6 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import { yanzenInteriorAssets, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -99,6 +100,11 @@ class YZWorldScene extends Phaser.Scene {
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-warung", "/game/assets/pasirluyu/warung-interior.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-shed", "/game/assets/pasirluyu/gudang-interior.svg", { width: 480, height: HEIGHT });
+    for (const [id,path] of Object.entries(yanzenInteriorAssets)) {
+      const key="yz-room-"+id, url="/game/assets/"+path;
+      if(path.endsWith(".svg")) this.load.svg(key,url,{width:480,height:HEIGHT});
+      else this.load.image(key,url);
+    }
   }
 
   create() {
@@ -223,9 +229,14 @@ class YZWorldScene extends Phaser.Scene {
         else image.setScale(prop.scale ?? 1);
         return image.setDepth(1000 + prop.y - TILE);
       });
+    } else if (location === "home" || location === "shed") {
+      const room = location;
+      this.background.setTexture("yz-room-"+room+"Floor").setDisplaySize(480, HEIGHT);
+      this.mapProps = yanzenInteriorLayout[room].map(item =>
+        this.add.image(item.x,item.y,"yz-room-"+item.key)
+          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(20+item.depth));
     } else {
-      const key=isResidentHome(location) ? location : location==="home" ? (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") :
-        location==="warung" ? "yz-warung" : "yz-shed";
+      const key=isResidentHome(location) ? location : location==="warung" ? "yz-warung" : "yz-shed";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
     }
   }
@@ -351,7 +362,8 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.changeLocation(location, frame.state.minutes);
     }
-    if (location === "home") this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
+    if (location === "home" && !this.textures.exists("yz-room-homeFloor"))
+      this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
     this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);
