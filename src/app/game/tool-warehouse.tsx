@@ -1,7 +1,7 @@
 "use client";
 import GameDialog from "./game-dialog";
 import { BAG_UNLOCK_LEVELS,BAG_UPGRADE_COSTS,TOOL_CATALOG,
-  bagCapacity,playerLevel,toolName, type GameState, type ToolId } from "@/lib/game/model";
+  bagCapacity,playerLevel,toolName,formatGameRupiah, type GameState, type ToolId } from "@/lib/game/model";
 export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrade}:{
   game:GameState;disabled:boolean;onClose:()=>void;
   onTransfer:(id:ToolId,action:"store"|"take")=>void;onUpgrade:()=>void;
@@ -12,9 +12,9 @@ export default function ToolWarehouse({game,disabled,onClose,onTransfer,onUpgrad
       <button onClick={onClose}>Tutup</button></div>
     <div className="yzg-storage-meta"><span>Tas Lv. {game.bagTier}</span>
       <strong>{game.carriedTools.length}/{bagCapacity(game.bagTier)} slot</strong>
-      <span>Saldo {game.coins} G · Pemain Lv. {playerLevel(game)}</span></div>
+      <span>Saldo {formatGameRupiah(game.coins)} · Pemain Lv. {playerLevel(game)}</span></div>
     <div className="yzg-storage-upgrade"><div><b>Upgrade tas</b><small>
-      {next===null?"Kapasitas maksimal.":"Lv. "+next+" · "+BAG_UPGRADE_COSTS[next]+" G · "+BAG_UNLOCK_LEVELS[next]+" level pemain"}
+      {next===null?"Kapasitas maksimal.":"Lv. "+next+" · "+formatGameRupiah(BAG_UPGRADE_COSTS[next])+" · "+BAG_UNLOCK_LEVELS[next]+" level pemain"}
       </small></div><button onClick={onUpgrade} disabled={disabled||next===null}>Upgrade</button></div>
     <div className="yzg-storage-columns">
       <section><h3>Alat dibawa</h3>
