@@ -3,8 +3,8 @@
   "category": "commerce",
   "label": "Pasar dan perdagangan",
   "description": "Aset pasar, barang dan ikon toko",
-  "mediaCount": 6,
-  "bytes": 128176,
+  "mediaCount": 10,
+  "bytes": 249520,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -36,6 +36,30 @@
       "files": [
         "public/game/assets/tiles/ayu-shop-atlas.png",
         "public/game/assets/tiles/widi-shop-atlas.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/pasar",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/pasar",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/pasar",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/pasar",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/pasar/atlas.png"
       ]
     }
   ]
