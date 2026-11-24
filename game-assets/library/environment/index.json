@@ -3,8 +3,8 @@
   "category": "environment",
   "label": "Cuaca dan efek",
   "description": "Cuaca, partikel dan efek visual",
-  "mediaCount": 32,
-  "bytes": 8156,
+  "mediaCount": 64,
+  "bytes": 16312,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -77,6 +77,78 @@
         "game-assets/yz-farm-life/explore-bandung/efek/hoe.png",
         "game-assets/yz-farm-life/explore-bandung/efek/seed.png",
         "game-assets/yz-farm-life/explore-bandung/efek/water.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/cuaca",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/cuaca/hujan-0.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/cuaca/hujan-1.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/cuaca/hujan-2.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/cuaca/hujan-3.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/efek",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/efek/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/efek/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/efek/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/efek/water.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/cuaca",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cuaca/hujan-0.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cuaca/hujan-1.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cuaca/hujan-2.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/cuaca/hujan-3.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/efek",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/efek/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/efek/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/efek/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/efek/water.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/cuaca",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cuaca/hujan-0.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cuaca/hujan-1.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cuaca/hujan-2.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/cuaca/hujan-3.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/efek",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/efek/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/efek/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/efek/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/efek/water.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/cuaca",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cuaca/hujan-0.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cuaca/hujan-1.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cuaca/hujan-2.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/cuaca/hujan-3.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/efek",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/efek/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/efek/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/efek/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/efek/water.png"
       ]
     }
   ]
