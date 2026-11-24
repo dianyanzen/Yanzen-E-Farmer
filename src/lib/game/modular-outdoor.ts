@@ -30,6 +30,7 @@ export const outdoorSources: Record<string,string> = {
   fence: kit + "pagar.png",
   petak: kit + "petak.png",
   ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
+  ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage+"-alt",kit+"kebun/cucumber-stage-"+stage+"-alt.png"])),
   "plot-dry": kit+"kebun/petak-kering.svg",
   "plot-wet": kit+"kebun/petak-basah.svg",
   "garden-trellis": kit+"kebun/ajir-bambu-01.png",
