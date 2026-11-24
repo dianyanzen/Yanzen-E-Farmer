@@ -1,58 +1,39 @@
-name: YZ Farm Life - One-time atomic character migration
+name: YZ Farm Life - Atomic Character Quality
 on:
-  push:
-    branches: [feat/yz-atomic-character-frames-20261124]
-    paths:
-      - scripts/game-assets/migrate-atomic-characters.py
-      - .github/workflows/atomic-character-migration.yml
   pull_request:
     branches: [main]
     paths:
-      - scripts/game-assets/migrate-atomic-characters.py
-      - .github/workflows/atomic-character-migration.yml
-  workflow_dispatch:
+      - "src/lib/game/atomic-characters.ts"
+      - "src/lib/game/atomic-frame-metrics.json"
+      - "src/lib/game/phaser-world.ts"
+      - "src/lib/game/draw-world.ts"
+      - "src/app/game/game-client.tsx"
+      - "public/game/assets/characters/atomic/**"
+      - "game-assets/catalog/atomic-characters.json"
+      - "tests/game-atomic-character-frames.mjs"
+      - "package.json"
+      - ".github/workflows/atomic-character-migration.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  split-legacy-character-art:
+  validate-atomic-character-assets:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Checkout feature branch
+      - name: Checkout PR revision
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          persist-credentials: true
-          ref: feat/yz-atomic-character-frames-20261124
-      - name: Set up Python
-        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          python-version: '3.12'
-      - name: Install asset migration dependency
-        run: python -m pip install 'Pillow>=11.0,<13.0'
-      - name: Export individual frame files
-        run: python scripts/game-assets/migrate-atomic-characters.py
-      - name: Check exported frame count
-        run: |
-          python - <<'PY'
-          import json, pathlib
-          root=pathlib.Path('.')
-          metrics=json.loads((root/'src/lib/game/atomic-frame-metrics.json').read_text())
-          files=list((root/'public/game/assets/characters/atomic').rglob('*.png'))
-          assert len(files)==len(set(f.as_posix() for f in files))==192
-          assert len(metrics['frames'])==192
-          assert len(set(f['key'] for f in metrics['frames']))==192
-          print('192 unique files with metadata')
-          PY
-      - name: Commit individual frames and manifests
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/game/assets/characters/atomic src/lib/game/atomic-frame-metrics.json game-assets/catalog/atomic-characters.json
-          if git diff --cached --quiet; then
-            echo 'Already generated; no changes to commit.'
-          else
-            git commit -m 'assets(game): add 192 individual character PNG frames (legacy migration)'
-            git push origin HEAD:feat/yz-atomic-character-frames-20261124
-          fi
+          node-version: "24"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      - name: Validate 192 individual frames and foot anchors
+        run: npm run test:game:atomic
+      - name: Typecheck the game
+        run: npm run typecheck
