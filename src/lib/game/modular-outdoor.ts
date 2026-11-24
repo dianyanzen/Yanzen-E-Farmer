@@ -170,10 +170,10 @@ props.field.push(
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
 );
 props.field.push(
-  {asset:"garden-trellis",x:221,y:258,displayW:33,displayH:54},
-  {asset:"garden-basket",x:234,y:276,displayW:30,displayH:23},
-  {asset:"garden-hoe",x:51,y:279,displayW:22,displayH:24},
-  {asset:"garden-watering-can",x:237,y:278,displayW:23,displayH:22},
+  {asset:"garden-trellis",x:221,y:252,displayW:33,displayH:54},
+  {asset:"garden-basket",x:154,y:150,displayW:30,displayH:23},
+  {asset:"garden-hoe",x:93,y:150,displayW:22,displayH:24},
+  {asset:"garden-watering-can",x:122,y:150,displayW:23,displayH:22},
   {asset:"garden-caping",x:61,y:150,displayW:22,displayH:18},
   {asset:"garden-butterfly",x:276,y:181,displayW:12,displayH:12}
 );
