@@ -30,14 +30,16 @@ export const ROOM_FURNITURE:Record<RoomKind,readonly FurnitureCrop[]>={
       display:{x:290,y:139,width:54,height:58}}
   ],
   shed:[
-    {id:"tools-shelves",x:8,y:22,width:155,height:91,footY:113,
-      display:{x:147,y:84,width:97,height:57}},
-    {id:"workbench",x:163,y:23,width:157,height:95,footY:118,
-      display:{x:268,y:86,width:86,height:52}},
-    {id:"produce-crates",x:8,y:113,width:108,height:105,footY:218,
-      display:{x:151,y:160,width:55,height:53}},
-    {id:"irrigation-rack",x:8,y:218,width:110,height:99,footY:317,
-      display:{x:151,y:232,width:61,height:55}}
+    // Dedicated self-contained sprites, no cutting from the old 2x2 atlas.
+    // Full display rectangles preserve the exported image aspect ratios.
+    {id:"tools-shelves",source:"native",x:0,y:0,width:320,height:283,footY:211,
+      display:{x:150,y:151,width:68,height:60}},
+    {id:"workbench",source:"native",x:0,y:0,width:320,height:297,footY:214,
+      display:{x:284,y:151,width:68,height:63}},
+    {id:"produce-crates",source:"native",x:0,y:0,width:320,height:296,footY:285,
+      display:{x:151,y:232,width:57,height:53}},
+    {id:"irrigation-rack",source:"native",x:0,y:0,width:320,height:316,footY:287,
+      display:{x:288,y:230,width:58,height:57}}
   ]
 } as const;
 
@@ -57,9 +59,9 @@ export function furnitureScreenRect(piece:FurnitureCrop){
  */
 const ROOM_TILE_SOLIDS=roomSolids;
 export function interiorTileBlocked(room:RoomKind,x:number,y:number):boolean{
-  // y=6..7 is illustrated wall: only rows 8..13 in home are floor.
-  // Keep exact visual footprint separate from furniture collisions.
-  if(x<8||x>16||y<(room==="home"?8:6)||y>13)return true;
+  // Both native rooms have a drawn back wall above y=8.
+  // Walking on that illustrated wall would look like a collision bug.
+  if(x<8||x>16||y<8||y>13)return true;
   return ROOM_TILE_SOLIDS[room].some(([l,t,r,b])=>x>=l&&x<=r&&y>=t&&y<=b);
 }
 
