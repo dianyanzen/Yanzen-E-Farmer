@@ -13,6 +13,7 @@ function familyOf(path){
  if(/^public\/game\/assets\/cutscenes\/frames\/sluice-(start|end)\.jpg$/.test(path))return"cinematic-owner-video-frame-v2";
  if(/^public\/game\/assets\/fish\/(lele|nila)\.png$/.test(path))return"freshwater-fishing-pixel-runtime";
  if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return"market-ui-pixel-runtime";
+ if(path.startsWith("public/game/assets/characters/atomic/"))return"character-atomic-migrated-v1";
  if(path.startsWith("public/game/assets/quests/"))return"quest-prop-pixel-v1";
  if(/^public\/game\/assets\/portraits\/[AC]\d\d\.png$/.test(path))return"dialogue-expression-pixel-v1";
  if(path.startsWith("public/game/assets/portraits/bandung/"))return"bandung-concept-illustration-v1";
@@ -23,7 +24,7 @@ function familyOf(path){
  return"unclassified-needs-art-review";
 }
 function useOf(path){if(path.startsWith("public/game/assets/fish/"))return"fishing";if(path.startsWith("public/game/assets/cutscenes/"))return"story";if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return"commerce";if(path.startsWith("public/game/assets/quests/"))return"prop";if(path.startsWith("public/game/assets/portraits/"))return"portrait";if(path.includes("/tanaman/"))return"plant";if(path.includes("/pasar/")||path.includes("/market/"))return"commerce";if(path.includes("/audio/"))return"ambience-or-sfx";if(path.includes("/karakter/")||path.includes("/characters/"))return"character";if(path.includes("/peta/")||path.includes("/tiles/"))return"world";if(path.includes("/properti/")||path.includes("/objek/"))return"prop";if(path.includes("/antarmuka/")||path.includes("/ui/"))return"interface";return"unclassified"}
-function licenseOf(path){if(path.startsWith("public/game/assets/cutscenes/sluice-") || /^public\/game\/assets\/cutscenes\/frames\/sluice-/.test(path))return"owner-provided-Google-Flow-video";if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return"project-imagegen-production";if(path.startsWith("public/game/assets/quests/"))return"project-original-vector-art";if(path.includes("/kenney-"))return"CC0-1.0-verified-source";if(/^public\/game\/assets\/portraits\/[AC]\d\d\.png$/.test(path))return"project-imagegen-production";if(path.startsWith("game-assets/characters/gba-"))return"project-generated-character";return"origin-needs-record"}
+function licenseOf(path){if(path.startsWith("public/game/assets/cutscenes/sluice-") || /^public\/game\/assets\/cutscenes\/frames\/sluice-/.test(path))return"owner-provided-Google-Flow-video";if(/^public\/game\/assets\/tiles\/(ayu|widi)-shop-atlas\.png$/.test(path))return"project-imagegen-production";if(path.startsWith("public/game/assets/characters/atomic/"))return"project-generated-legacy-revector";if(path.startsWith("public/game/assets/quests/"))return"project-original-vector-art";if(path.includes("/kenney-"))return"CC0-1.0-verified-source";if(/^public\/game\/assets\/portraits\/[AC]\d\d\.png$/.test(path))return"project-imagegen-production";if(path.startsWith("game-assets/characters/gba-"))return"project-generated-character";return"origin-needs-record"}
 function buildAssetIndex(e){
  const arr=e.filter(x=>x.path&&x.sha&&x.size!==undefined).sort((a,b)=>a.path.localeCompare(b.path,"en"));
  const bySha=new Map();for(const x of arr){let a=bySha.get(x.sha)||[];a.push(x);bySha.set(x.sha,a)}
@@ -31,7 +32,7 @@ function buildAssetIndex(e){
  const plants=new Map();for(const x of arr.filter(x=>x.path.startsWith("game-assets/yz-farm-life/aset/tanaman/"))){plants.set(x.sha,(plants.get(x.sha)||0)+1)}
  const rows=arr.map(x=>{const family=familyOf(x.path),duplicateOf=canonical.get(x.sha)===x.path?null:canonical.get(x.sha),sharedPlant=x.path.startsWith("game-assets/yz-farm-life/aset/tanaman/")&&(plants.get(x.sha)||0)>1;return[
  x.path,x.sha,x.size,kindOf(x.path),stageOf(x.path),useOf(x.path),family,licenseOf(x.path),duplicateOf,
- sharedPlant?"shared-template-sprite":family==="bandung-concept-illustration-v1"?"concept-art-not-dialogue":family==="unclassified-needs-art-review"?"visual-review-required":null
+ sharedPlant?"shared-template-sprite":family==="bandung-concept-illustration-v1"?"concept-art-not-dialogue":family==="character-atomic-migrated-v1"?"independent-redraw-required":family==="unclassified-needs-art-review"?"visual-review-required":null
  ]});
  const formats={};let bytes=0;for(const x of rows){formats[x[3]]=(formats[x[3]]||0)+1;bytes+=x[2]}
  const duplicates=rows.filter(x=>x[8]).length,sharedPlant=rows.filter(x=>x[9]==="shared-template-sprite").length;
