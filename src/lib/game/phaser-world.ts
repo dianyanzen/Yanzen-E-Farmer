@@ -13,7 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
-import { ATOMIC_FRAMES, atomicCharacterFrame, atomicFramePosition } from "./atomic-characters";
+import { ATOMIC_FRAMES, atomicCharacterFrame, atomicFramePosition, type AtomicFrame } from "./atomic-characters";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -53,7 +53,7 @@ class YZWorldScene extends Phaser.Scene {
   private highlight!: Phaser.GameObjects.Graphics;
   private dust!: Phaser.GameObjects.Graphics;
   private readonly npcTargets = new Map<string, {
-    idle:string; path:{x:number;y:number}[]; leaving:boolean;
+    idle:AtomicFrame; path:{x:number;y:number}[]; leaving:boolean;
   }>();
   private npcClock?: {day:number;minutes:number;location:GameLocation};
   private propState = "";
@@ -86,8 +86,8 @@ class YZWorldScene extends Phaser.Scene {
       else this.load.image("yz-map-"+id,"/game/assets/"+path);
     }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
-    // One independently-addressable PNG per actor/animation/direction/frame.
-    for (const atomic of ATOMIC_FRAMES) this.load.image(atomic.key,atomic.url);
+    // Each frame is a standalone pixel SVG. Phaser must use the SVG loader.
+    for (const atomic of ATOMIC_FRAMES) this.load.svg(atomic.key,atomic.url,{width:atomic.width,height:atomic.height});
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
@@ -132,7 +132,7 @@ class YZWorldScene extends Phaser.Scene {
         if (target.leaving) {
           sprite.setVisible(false);
           this.npcTargets.delete(id);
-        } else sprite.setTexture(target.idle);
+        } else sprite.setTexture(target.idle.key).setOrigin(target.idle.footX/target.idle.width,target.idle.footY/target.idle.height);
         continue;
       }
       const dx = next.x-sprite.x, dy = next.y-sprite.y;
@@ -147,11 +147,9 @@ class YZWorldScene extends Phaser.Scene {
       }
       const direction=Math.abs(dx)>Math.abs(dy) ? (dx>0?"right":"left") : (dy>0?"down":"up");
       const visual=atomicCharacterFrame(id,"idle",direction,Math.floor(time/90)%3);
-      // Adjust sprite top-left to preserve the world foot despite differing
-      // transparent padding between animation files.
-      const oldFrame=this.textures.get(sprite.texture.key).getSourceImage() as HTMLImageElement;
-      void oldFrame;
-      sprite.setDepth(characterDepth((sprite.y+12)/TILE)).setTexture(visual.key);
+      // Sprite position stores the world foot. Changing PNG/SVG padding cannot shift feet.
+      sprite.setDepth(characterDepth((sprite.y-18)/TILE)).setTexture(visual.key)
+        .setOrigin(visual.footX/visual.width,visual.footY/visual.height);
     }
     if (!this.frame) return;
     const camera = this.cameras.main;
@@ -296,21 +294,20 @@ class YZWorldScene extends Phaser.Scene {
       const seen=new Set<string>();
       for(const npc of npcHere(minute===state.minutes?state:{...state,minutes:minute})){
         seen.add(npc.id);
-        const idleCandidate=atomicCharacterFrame(npc.id,"idle","down",1);
-        const initialPosition=atomicFramePosition(idleCandidate,npc.x,npc.y);
-        const x=initialPosition.x, y=initialPosition.y;
+        const x=npc.x*TILE+10, y=npc.y*TILE+18;
         const dx=frame.position.x-npc.x, dy=frame.position.y-npc.y;
         const dir=Math.abs(dx)+Math.abs(dy)>2 ? "down" : Math.abs(dx)>Math.abs(dy) ?
           (dx<0?"left":"right") : (dy<0?"up":"down");
-        const idle=atomicCharacterFrame(npc.id,"idle",dir,1).key;
+        const idle=atomicCharacterFrame(npc.id,"idle",dir,1);
         let sprite=this.npcSprites.get(npc.id);
         if(!sprite){
-          sprite=this.add.sprite(x,y,idle).setOrigin(0);
+          sprite=this.add.sprite(x,y,idle.key).setOrigin(idle.footX/idle.width,idle.footY/idle.height);
           this.npcSprites.set(npc.id,sprite);
         }
         let target=this.npcTargets.get(npc.id);
         if(!target || target.leaving || frame.reducedMotion){
-          sprite.setPosition(x,y).setDepth(characterDepth(npc.y)).setTexture(idle).setVisible(true);
+          sprite.setPosition(x,y).setDepth(characterDepth(npc.y)).setTexture(idle.key)
+            .setOrigin(idle.footX/idle.width,idle.footY/idle.height).setVisible(true);
           target={idle,path:[],leaving:false};
           this.npcTargets.set(npc.id,target);
         }else{
@@ -385,7 +382,7 @@ class YZWorldScene extends Phaser.Scene {
         );
       }
     }
-    // A01's physical height is never derived from the PNG canvas.
+    // A01's physical height is never derived from the individual SVG canvas.
     // Every frame resolves to one file, then receives the same foot baseline.
     let playerVisual=atomicCharacterFrame("A01","idle",frame.position.dir,1);
     let shiftX=0,shiftY=0;
@@ -405,7 +402,6 @@ class YZWorldScene extends Phaser.Scene {
         frame.position.dir,frame.pose);
     }
     const playerScreen=atomicFramePosition(playerVisual,frame.position.x,frame.position.y,shiftX,shiftY);
-    const x=playerScreen.x,y=playerScreen.y;
     const footX=frame.position.x*TILE+TILE/2;
     const footY=(frame.position.y+1)*TILE;
     this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(frame.position.y));
@@ -417,7 +413,8 @@ class YZWorldScene extends Phaser.Scene {
       prop.setAlpha(obscured?.65:1);
     }
     this.actor.setTexture(playerVisual.key)
-      .setPosition(x, y)
+      .setOrigin(playerVisual.footX/playerVisual.width,playerVisual.footY/playerVisual.height)
+      .setPosition(Math.round(playerScreen.footX+shiftX),Math.round(playerScreen.footY+shiftY))
       .setDepth(characterDepth(frame.position.y) + 1);
     this.fishingInk.clear();
     this.fishingText.setVisible(false);
