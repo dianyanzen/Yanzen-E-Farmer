@@ -15,11 +15,11 @@ Research references:
 
 ## Runtime changes
 
-- Four cucumber growth stages now load as individual files, with one alternate silhouette per stage. A stable tile-coordinate rule alternates variants so same-age plants do not form a repeated checkerboard.
+- Four cucumber growth stages now load as individual files, with one alternate silhouette per stage. A stable tile-coordinate rule places alternate silhouettes among same-age plants to reduce uniform repetition.
 - Dry and watered tilled ground use separate single-tile SVGs. The prior soil atlas remains as a fallback.
 - Individual decorative assets for a bamboo crop support, woven harvest basket, caping, and butterfly are registered in the field placement list.
 - Existing cangkul and gembor art is placed as scenery only.
-- New props carry explicit display bounds and are positioned outside the main approach lane.
+- New props carry explicit display bounds and sit along the garden edge; their spacing from the main route still needs runtime visual review.
 - Canvas and Phaser use the same crop-stage and plot-moisture state. Gameplay progression, harvest rules, collisions, NPCs, dialogue, and player-facing wording are unchanged.
 
 ## Asset inventory
