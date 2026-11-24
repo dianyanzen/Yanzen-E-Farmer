@@ -3,8 +3,8 @@
   "category": "interface",
   "label": "Antarmuka dan HUD",
   "description": "Tombol, ikon, sampul dan menu",
-  "mediaCount": 64,
-  "bytes": 11757512,
+  "mediaCount": 128,
+  "bytes": 23515024,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -109,6 +109,110 @@
       "id": "explore-bandung/sampul",
       "files": [
         "game-assets/yz-farm-life/explore-bandung/sampul/Pasirluyu.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/antarmuka",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/aksi/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/aksi/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/aksi/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/aksi/water.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/atas.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/bawah.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/interaksi.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/jam.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/kanan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/kiri.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/pesan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/pulihkan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/simpan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/tas.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/antarmuka/telepon.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/sampul",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/sampul/Pasirluyu.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/antarmuka",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/aksi/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/aksi/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/aksi/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/aksi/water.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/atas.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/bawah.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/interaksi.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/jam.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/kanan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/kiri.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/pesan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/pulihkan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/simpan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/tas.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/antarmuka/telepon.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/sampul",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/sampul/Pasirluyu.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/antarmuka",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/aksi/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/aksi/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/aksi/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/aksi/water.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/atas.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/bawah.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/interaksi.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/jam.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/kanan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/kiri.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/pesan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/pulihkan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/simpan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/tas.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/antarmuka/telepon.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/sampul",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/sampul/Pasirluyu.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/antarmuka",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/aksi/harvest.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/aksi/hoe.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/aksi/seed.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/aksi/water.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/atas.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/bawah.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/interaksi.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/jam.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/kanan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/kiri.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/pesan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/pulihkan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/simpan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/tas.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/antarmuka/telepon.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/sampul",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/sampul/Pasirluyu.png"
       ]
     }
   ]
