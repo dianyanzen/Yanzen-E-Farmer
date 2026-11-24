@@ -264,7 +264,7 @@ class YZWorldScene extends Phaser.Scene {
       if (plot) {
         const soilKey=plot.watered?"yz-map-plot-wet":"yz-map-plot-dry";
         if (!this.soil[i]) {
-          this.soil[i]=this.add.sprite(px,py,this.textures.exists(soilKey)?soilKey:"yz-petak",0)
+          this.soil[i]=this.add.sprite(px,py,this.textures.exists(soilKey)?soilKey:"yz-petak")
             .setOrigin(0).setDisplaySize(TILE,TILE).setDepth(9);
         }
         if(this.textures.exists(soilKey)) this.soil[i].setTexture(soilKey).setDisplaySize(TILE,TILE).setVisible(true);
@@ -272,7 +272,7 @@ class YZWorldScene extends Phaser.Scene {
         if (plot.stage >= 0) {
           const cropKey="yz-map-cucumber-stage-"+Math.min(3,plot.stage);
           if (!this.crops[i]) {
-            this.crops[i]=this.add.sprite(0,0,this.textures.exists(cropKey)?cropKey:"yz-cucumber",0)
+            this.crops[i]=this.add.sprite(0,0,this.textures.exists(cropKey)?cropKey:"yz-cucumber")
               .setOrigin(0).setDepth(12);
           }
           if(this.textures.exists(cropKey)){
