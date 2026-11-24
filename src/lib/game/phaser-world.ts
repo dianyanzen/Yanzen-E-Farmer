@@ -270,7 +270,9 @@ class YZWorldScene extends Phaser.Scene {
         if(this.textures.exists(soilKey)) this.soil[i].setTexture(soilKey).setDisplaySize(TILE,TILE).setVisible(true);
         else this.soil[i].setTexture("yz-petak").setFrame(plotTextureFrame(x,y,plot.watered,plot.stage)).setVisible(true);
         if (plot.stage >= 0) {
-          const cropKey="yz-map-cucumber-stage-"+Math.min(3,plot.stage);
+          const stageId=Math.min(3,plot.stage);
+          const variant=(x+2*y)%3===0?"-alt":"";
+          const cropKey="yz-map-cucumber-stage-"+stageId+variant;
           if (!this.crops[i]) {
             this.crops[i]=this.add.sprite(0,0,this.textures.exists(cropKey)?cropKey:"yz-cucumber")
               .setOrigin(0).setDepth(12);
