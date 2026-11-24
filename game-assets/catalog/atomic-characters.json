@@ -1,0 +1,3854 @@
+{
+  "schemaVersion": 1,
+  "scope": "character frames only; no atlas",
+  "format": "standalone pixel SVG one-per-frame",
+  "frameCount": 192,
+  "artReview": "NOT_APPROVED",
+  "warnings": [
+    "Each runtime image is an independently addressable SVG file containing exactly one legacy animation frame.",
+    "Legacy migration retained appearance; does not equal fresh frame-by-frame concept art.",
+    "Farming frames still include tools from legacy artwork and require independent new drawing."
+  ],
+  "assets": [
+    {
+      "assetId": "character-A01-idle-down-000",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-down-001",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-down-002",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-left-000",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-left-001",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-left-002",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-right-000",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-right-001",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-right-002",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-up-000",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-up-001",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-idle-up-002",
+      "ownerId": "A01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-down-000",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-down-001",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-down-002",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-left-000",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-left-001",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-left-002",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-right-000",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-right-001",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-right-002",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-up-000",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-up-001",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A03-idle-up-002",
+      "ownerId": "A03",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A03/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-down-000",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-down-001",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-down-002",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-left-000",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-left-001",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-left-002",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-right-000",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-right-001",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-right-002",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-up-000",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        0,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-up-001",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C01-idle-up-002",
+      "ownerId": "C01",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C01/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-down-000",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        6,
+        0,
+        18,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-down-001",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        6,
+        0,
+        18,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-down-002",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        6,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-left-000",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-left-001",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-left-002",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-right-000",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-right-001",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-right-002",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-up-000",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        6,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-up-001",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        6,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C08-idle-up-002",
+      "ownerId": "C08",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C08/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-down-000",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-down-001",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-down-002",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-left-000",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-left-001",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-left-002",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footPivot": [
+        12,
+        31
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-right-000",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-right-001",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-right-002",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-up-000",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-up-001",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A04-idle-up-002",
+      "ownerId": "A04",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A04/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-down-000",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-down-001",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-down-002",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-left-000",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-left-001",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-left-002",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-right-000",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-right-001",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-right-002",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-up-000",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-up-001",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-C07-idle-up-002",
+      "ownerId": "C07",
+      "action": "idle",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/C07/idle/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footPivot": [
+        12,
+        30
+      ],
+      "legacySourceFile": "characters/stage1.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-000",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-001",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        4,
+        24,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-002",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        4,
+        25,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-003",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-003.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-004",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-004.svg",
+      "visibleAlphaBounds": [
+        9,
+        4,
+        25,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-down-005",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "down",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/down/frame-005.svg",
+      "visibleAlphaBounds": [
+        9,
+        4,
+        24,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-000",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-001",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-002",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-003",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-003.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-004",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-004.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-left-005",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "left",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/left/frame-005.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-000",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-001",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-002",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-003",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-003.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-004",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-004.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-right-005",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "right",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/right/frame-005.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-000",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-001",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        24,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-002",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        25,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-003",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-003.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-004",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-004.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        25,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-walk-up-005",
+      "ownerId": "A01",
+      "action": "walk",
+      "direction": "up",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/walk/up/frame-005.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        24,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-000",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        26,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-001",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        8,
+        4,
+        26,
+        33
+      ],
+      "footPivot": [
+        16,
+        33
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-002",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        3,
+        25,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-003",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-003.svg",
+      "visibleAlphaBounds": [
+        7,
+        5,
+        26,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-004",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-004.svg",
+      "visibleAlphaBounds": [
+        8,
+        4,
+        26,
+        33
+      ],
+      "footPivot": [
+        16,
+        33
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-down-005",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "down",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/down/frame-005.svg",
+      "visibleAlphaBounds": [
+        8,
+        4,
+        26,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-000",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        4,
+        6,
+        27,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-001",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-002",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        4,
+        26,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-003",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-003.svg",
+      "visibleAlphaBounds": [
+        4,
+        6,
+        27,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-004",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-004.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-left-005",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "left",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/left/frame-005.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        26,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-000",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        6,
+        28,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-001",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        24,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-002",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        6,
+        4,
+        24,
+        35
+      ],
+      "footPivot": [
+        16,
+        35
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-003",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-003.svg",
+      "visibleAlphaBounds": [
+        5,
+        6,
+        28,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-004",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-004.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        24,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-right-005",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "right",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/right/frame-005.svg",
+      "visibleAlphaBounds": [
+        6,
+        5,
+        24,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-000",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        8,
+        6,
+        26,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-001",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        26,
+        33
+      ],
+      "footPivot": [
+        16,
+        33
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-002",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        4,
+        25,
+        34
+      ],
+      "footPivot": [
+        16,
+        34
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-003",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 3,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-003.svg",
+      "visibleAlphaBounds": [
+        7,
+        6,
+        26,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-004",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 4,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-004.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        26,
+        33
+      ],
+      "footPivot": [
+        16,
+        33
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-run-up-005",
+      "ownerId": "A01",
+      "action": "run",
+      "direction": "up",
+      "frameIndex": 5,
+      "runtimeFile": "/game/assets/characters/atomic/A01/run/up/frame-005.svg",
+      "visibleAlphaBounds": [
+        8,
+        5,
+        26,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-gaits.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-0-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-0",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-0/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-0-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-0",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-0/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        5,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-0-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-0",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-0/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        39
+      ],
+      "footPivot": [
+        16,
+        39
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-1-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-1",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-1/frame-000.svg",
+      "visibleAlphaBounds": [
+        7,
+        5,
+        20,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-1-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-1",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-1/frame-001.svg",
+      "visibleAlphaBounds": [
+        7,
+        5,
+        20,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-1-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-1",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-1/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        6,
+        21,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-2-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-2",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-2/frame-000.svg",
+      "visibleAlphaBounds": [
+        8,
+        6,
+        22,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-2-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-2",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-2/frame-001.svg",
+      "visibleAlphaBounds": [
+        8,
+        6,
+        22,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-2-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-2",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-2/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        7,
+        25,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-3-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-3",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-3/frame-000.svg",
+      "visibleAlphaBounds": [
+        7,
+        6,
+        21,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-3-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-3",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-3/frame-001.svg",
+      "visibleAlphaBounds": [
+        7,
+        6,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-3-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-3",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-3/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        7,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-4-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-4",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-4/frame-000.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-4-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-4",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-4/frame-001.svg",
+      "visibleAlphaBounds": [
+        9,
+        6,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-4-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-4",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-4/frame-002.svg",
+      "visibleAlphaBounds": [
+        9,
+        7,
+        23,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-5-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-5",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-5/frame-000.svg",
+      "visibleAlphaBounds": [
+        12,
+        6,
+        25,
+        36
+      ],
+      "footPivot": [
+        16,
+        36
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-5-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-5",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-5/frame-001.svg",
+      "visibleAlphaBounds": [
+        12,
+        6,
+        25,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-5-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-5",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-5/frame-002.svg",
+      "visibleAlphaBounds": [
+        11,
+        7,
+        24,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-6-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-6",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-6/frame-000.svg",
+      "visibleAlphaBounds": [
+        10,
+        6,
+        24,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-6-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-6",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-6/frame-001.svg",
+      "visibleAlphaBounds": [
+        10,
+        6,
+        24,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-6-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-6",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-6/frame-002.svg",
+      "visibleAlphaBounds": [
+        7,
+        7,
+        25,
+        37
+      ],
+      "footPivot": [
+        16,
+        37
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-7-000",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-7",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-7/frame-000.svg",
+      "visibleAlphaBounds": [
+        11,
+        5,
+        25,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-7-001",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-7",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-7/frame-001.svg",
+      "visibleAlphaBounds": [
+        10,
+        5,
+        25,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-turn-angle-7-002",
+      "ownerId": "A01",
+      "action": "turn",
+      "direction": "angle-7",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/turn/angle-7/frame-002.svg",
+      "visibleAlphaBounds": [
+        10,
+        6,
+        25,
+        38
+      ],
+      "footPivot": [
+        16,
+        38
+      ],
+      "legacySourceFile": "characters/yanzen-turns.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-down-000",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-down-001",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        44,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-down-002",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-left-000",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        5,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-left-001",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        5,
+        9,
+        33,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-left-002",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        5,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-right-000",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-right-001",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        44,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-right-002",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-up-000",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        5,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-up-001",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        44,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-hoe-up-002",
+      "ownerId": "A01",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/hoe/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-down-000",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-down-001",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-down-002",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-left-000",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-left-001",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        13,
+        9,
+        33,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-left-002",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-right-000",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-right-001",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-right-002",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-up-000",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-up-001",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-seed-up-002",
+      "ownerId": "A01",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/seed/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-down-000",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-down-001",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        41,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-down-002",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-left-000",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        8,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-left-001",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        8,
+        9,
+        33,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-left-002",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        8,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-right-000",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-right-001",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        41,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-right-002",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-up-000",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-up-001",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        41,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-water-up-002",
+      "ownerId": "A01",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/water/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-down-000",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/down/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-down-001",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/down/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-down-002",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/down/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-left-000",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/left/frame-000.svg",
+      "visibleAlphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-left-001",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/left/frame-001.svg",
+      "visibleAlphaBounds": [
+        13,
+        9,
+        33,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-left-002",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/left/frame-002.svg",
+      "visibleAlphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-right-000",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/right/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-right-001",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/right/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-right-002",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/right/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-up-000",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 0,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/up/frame-000.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-up-001",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 1,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/up/frame-001.svg",
+      "visibleAlphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    },
+    {
+      "assetId": "character-A01-harvest-up-002",
+      "ownerId": "A01",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 2,
+      "runtimeFile": "/game/assets/characters/atomic/A01/harvest/up/frame-002.svg",
+      "visibleAlphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footPivot": [
+        24,
+        41
+      ],
+      "legacySourceFile": "tiles/actions.png",
+      "artReview": "NEEDS_INDIVIDUAL_REDRAW"
+    }
+  ]
+}
