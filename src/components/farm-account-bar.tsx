@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import FarmIcon from "./farm-icon";
