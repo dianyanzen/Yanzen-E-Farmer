@@ -15,6 +15,7 @@ import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
 import { FieldEngine, type ToolUse, type WorldPick } from "@/lib/game/field-engine";
 import { planTapRoute, type TapRoute } from "@/lib/game/tap-navigation";
 import {FARMHOUSE_NATIVE_PATHS,type FarmhouseAssetId} from "@/lib/game/farmhouse-native";
+import {SHED_NATIVE_PATHS,type ShedAssetId} from "@/lib/game/shed-native";
 import CharacterGallery from "./character-gallery";
 import PhoneChronicle from "./phone-chronicle";
 import GameDialog from "./game-dialog";
@@ -147,6 +148,17 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         }}));
       };
       image.onerror=()=>console.warn("Farmhouse image unavailable:",key);
+      image.src=url;
+    }
+    // Fetch standalone shed textures as six independent files, just like home.
+    for(const [key,url] of Object.entries(SHED_NATIVE_PATHS)){
+      const image=new Image();
+      image.onload=()=>{
+        if(active)setArt(previous=>({...previous,shedNative:{
+          ...previous.shedNative,[key as ShedAssetId]:image
+        }}));
+      };
+      image.onerror=()=>console.warn("Shed image unavailable:",key);
       image.src=url;
     }
     return () => { active = false; };
