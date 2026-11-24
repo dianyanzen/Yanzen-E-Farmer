@@ -1,5 +1,10 @@
 export type InteriorObject = { key: string; x: number; y: number; width: number; height: number; depth: number };
 
+// The new furniture files failed image decoding and the room layout has not yet
+// been aligned with walkable tiles. Keep the existing interiors active until
+// replacement images and their collision/interaction layout have been verified.
+export const YANZEN_MODULAR_INTERIORS_ENABLED = false;
+
 /** Unique assets for Yanzen's house and tool shed; no sprite atlas or shared prop image. */
 export const yanzenInteriorAssets: Record<string, string> = {
   homeFloor: "locations/yanzen/home/floor.svg",
