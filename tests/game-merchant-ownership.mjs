@@ -25,7 +25,7 @@ assert.equal(isMarketMerchant("A04"),true,"Ayu owns the seed and crop stall");
 assert.equal(isMarketMerchant("C07"),true,"Widi owns the fish and bait stall");
 assert.equal(isMarketMerchant("C08"),false,"Inggit is not a seed/crop counter merchant");
 
-// Buy five seeds for 40 G; seller name and prices must agree with the ledger.
+// Buy five seeds for Rp4.000; seller name and prices must agree with the ledger.
 const seedPurchase=marketTrade(atAyu,"A04","seeds");
 assert.match(seedPurchase.message,/Ayu/);
 assert.match(seedPurchase.message,/40 G/);
