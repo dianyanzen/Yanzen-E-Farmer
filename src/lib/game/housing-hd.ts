@@ -5,6 +5,7 @@
 import {ROOM_FURNITURE,ROOM_PROJECTION,furnitureScreenRect,residentFacadeSpec,type FurnitureCrop,type RoomKind} from "./world-layout";
 import {drawMinimalFarmhouseBase} from "./farmhouse-visual";
 import {drawFarmhouseRoomBase,isFarmhouseArtReady,type FarmhouseNativeArt} from "./farmhouse-native";
+import {drawShedRoomBase,isShedArtReady,type ShedNativeArt} from "./shed-native";
 export const HD_EXTERIOR_PATH="/game/assets/hd/housing-market-hd.webp";
 export const HD_INTERIOR_PATH="/game/assets/hd/housing-interiors-hd.webp";
 export const HD_FRAME_SIZE=320;
@@ -39,7 +40,7 @@ export type HDRoom=RoomKind;
  * sprites, each sorted against the PLAYER'S FEET, never as one giant overlay.
  */
 export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,evening=false,layer:"all"|"base"="all",native?:FarmhouseNativeArt){
+ room:HDRoom,evening=false,layer:"all"|"base"="all",native?:FarmhouseNativeArt,shedNative?:ShedNativeArt){
   if(room==="home"){
     // No leftover rugs or furniture baked into the base: visual floor and
     // model navigation are authored from the same minimalist room plan.
@@ -48,6 +49,12 @@ export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSou
     else drawMinimalFarmhouseBase(ctx,evening);
     if(layer==="all" && ready)for(const piece of ROOM_FURNITURE.home)
       drawHDInteriorPiece(ctx,image,"home",piece,native);
+    return;
+  }
+  if(room==="shed" && isShedArtReady(shedNative)){
+    drawShedRoomBase(ctx,shedNative.roomBase,evening);
+    if(layer==="all")for(const piece of ROOM_FURNITURE.shed)
+      drawHDInteriorPiece(ctx,image,"shed",piece,native,shedNative);
     return;
   }
   const base=2,p=ROOM_PROJECTION;
@@ -62,10 +69,12 @@ export function drawHDInterior(ctx:CanvasRenderingContext2D,image:CanvasImageSou
   ctx.restore();
 }
 export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,piece:FurnitureCrop,native?:FarmhouseNativeArt){
+ room:HDRoom,piece:FurnitureCrop,native?:FarmhouseNativeArt,shedNative?:ShedNativeArt){
   const rect=furnitureScreenRect(piece);
-  if(room==="home" && piece.source==="native"){
-    const sprite=native?.[piece.id as keyof FarmhouseNativeArt];
+  if(piece.source==="native"){
+    const sprite=room==="home"
+      ?native?.[piece.id as keyof FarmhouseNativeArt]
+      :shedNative?.[piece.id as keyof ShedNativeArt];
     if(sprite){
       ctx.save();ctx.imageSmoothingEnabled=true;
       ctx.drawImage(sprite,rect.x,rect.y,rect.width,rect.height);
@@ -81,12 +90,13 @@ export function drawHDInteriorPiece(ctx:CanvasRenderingContext2D,image:CanvasIma
  * The behind pass draws before avatar; foreground draws afterwards.
  */
 export function drawHDInteriorProps(ctx:CanvasRenderingContext2D,image:CanvasImageSource,
- room:HDRoom,avatarFeetY:number,pass:"behind"|"front",native?:FarmhouseNativeArt){
+ room:HDRoom,avatarFeetY:number,pass:"behind"|"front",native?:FarmhouseNativeArt,shedNative?:ShedNativeArt){
   if(room==="home" && !isFarmhouseArtReady(native))return;
+  if(room==="shed" && !isShedArtReady(shedNative))return;
   ctx.save();ctx.imageSmoothingEnabled=true;
   for(const piece of ROOM_FURNITURE[room]){
     const inFront=furnitureScreenRect(piece).footY>=avatarFeetY;
-    if(inFront===(pass==="front"))drawHDInteriorPiece(ctx,image,room,piece,native);
+    if(inFront===(pass==="front"))drawHDInteriorPiece(ctx,image,room,piece,native,shedNative);
   }
   ctx.restore();
 }
