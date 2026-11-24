@@ -18,7 +18,7 @@ function loadTS(path,overrides={}){
 const metrics=JSON.parse(readFileSync("src/lib/game/character-frame-bounds.json","utf8"));
 const scale=loadTS("src/lib/game/world-scale.ts");
 const layout=loadTS("src/lib/game/world-layout.ts");
-const hd=loadTS("src/lib/game/housing-hd.ts",{"./world-layout":layout,"./farmhouse-visual":{drawMinimalFarmhouseBase:()=>{}},"./farmhouse-native":{drawFarmhouseRoomBase:()=>{}}});
+const hd=loadTS("src/lib/game/housing-hd.ts",{"./world-layout":layout,"./farmhouse-visual":{drawMinimalFarmhouseBase:()=>{}},"./farmhouse-native":{drawFarmhouseRoomBase:()=>{},isFarmhouseArtReady:()=>false},"./shed-native":{drawShedRoomBase:()=>{},isShedArtReady:()=>false}});
 const model=loadTS("src/lib/game/model.ts");
 for(const name of ["idle","gait","turn"]){
  const spec=metrics.sheets[name];
@@ -63,7 +63,7 @@ assert.equal(model.areaBlocked("home",9,9),true);
 assert.equal(model.areaBlocked("home",12,10),false);
 assert.equal(model.areaBlocked("shed",9,9),true);
 assert.equal(model.areaBlocked("shed",12,10),false);
-assert.equal(model.canSleep({...model.newGame(),location:"home",player:{x:10,y:8,dir:"left"}}),true);
+assert.equal(model.canSleep({...model.newGame(),location:"home",player:{x:10,y:9,dir:"left"}}),true);
 const outdoor=readFileSync("src/lib/game/modular-outdoor.ts","utf8");
 assert.match(outdoor,/patchBudget=\{field:840,gang:660,pasar:340,sungai:760\}/);
 assert.match(outdoor,/index===0\?\.36:\.22/);
