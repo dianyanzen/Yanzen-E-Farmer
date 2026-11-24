@@ -17,7 +17,7 @@ const mod={exports:{}};
 vm.runInNewContext(compiled,{exports:mod.exports,module:mod,
   require:createRequire(new URL("../src/lib/game/model.ts",import.meta.url))});
 const {newGame,marketTrade,isMarketMerchant,applyFarmTool,farmOverview,acceptOrder,
-  sellableCucumbers,chapterJournal,npcWhere}=mod.exports;
+  sellableCucumbers,chapterJournal,npcWhere,formatGameRupiah}=mod.exports;
 const base=newGame();
 const atAyu={...base,location:"pasar",minutes:780,player:{x:6,y:10,dir:"up"}};
 assert.deepEqual([npcWhere(atAyu,"A04").x,npcWhere(atAyu,"A04").y],[6,9]);
