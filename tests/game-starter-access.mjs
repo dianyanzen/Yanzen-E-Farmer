@@ -40,7 +40,7 @@ for(const [location,kind] of [['home','sleep'],['shed','storage']]){
  assert.ok(choices.some(s=>m.getActionContext(s).kind===kind),`${location} ${kind} reachable`);
 }
 for (const room of ['home','shed']) {
- for (const [x,y] of [[8,7],[8,10],[12,8],[15,8],[16,13]]) assert.equal(m.homeBlocked(x,y,room),false,`${room} visible floor ${x},${y}`);
+ for (const [x,y] of [[8,7],[12,8],[15,8],[16,13]]) assert.equal(m.homeBlocked(x,y,room),false,`${room} visible floor ${x},${y}`);
  for (const [x,y] of [[9,7],[15,7],[16,7],[7,8],[17,8]]) assert.equal(m.homeBlocked(x,y,room),true,`${room} furniture or wall ${x},${y}`);
 }
 for(const y of [6,7,8])assert.equal(m.homeBlocked(10,y,'home'),false,'bed-side aisle remains walkable');
@@ -50,7 +50,7 @@ for(const dir of ['up','up','down','down','left'])byBed=m.movePlayer(byBed,dir);
 assert.equal(byBed.player.x,9);assert.equal(byBed.player.y,8);
 assert.equal(m.canSleep({...byBed,player:{...byBed.player,dir:'up'}}),true);
 assert.equal(m.canSleep({...byBed,player:{x:10,y:8,dir:'up'}}),false,'facing empty aisle must not trigger sleep');
-for(const [x,y] of [[8,9],[8,12],[16,9],[16,12]])assert.equal(m.homeBlocked(x,y,'shed'),true,'new floor prop footprint');
+for(const [x,y] of [[8,9],[8,10],[8,12],[16,9],[16,11],[16,12]])assert.equal(m.homeBlocked(x,y,'shed'),true,'new floor prop footprint');
 for(let x=11;x<=14;x++)for(let y=8;y<=13;y++)assert.equal(m.homeBlocked(x,y,'shed'),false,'central storage aisle free');
 assert.equal(m.homeBlocked(8,11,'home'),true,'shelf blocks its tile');
 assert.equal(m.homeBlocked(16,12,'home'),true,'plant blocks its tile');
@@ -62,7 +62,19 @@ for(const room of ['home','shed']) {
  const reachableTiles=reachable(state);
  for(let y=6;y<=13;y++)for(let x=8;x<=16;x++)if(!m.homeBlocked(x,y,room))assert.ok(reachableTiles.some(p=>p.x===x&&p.y===y),`${room} disconnected floor ${x},${y}`);
 }
-assert.equal(m.homeBlocked(15,11,'shed'),true,'basket blocks its tile');
+assert.equal(m.homeBlocked(15,12,'shed'),true,'basket blocks its tile');
+for(const [x,y] of [[8,7],[8,8],[8,11],[8,13],[15,10],[15,11],[16,13]])
+ assert.equal(m.homeBlocked(x,y,'shed'),false,'single-tile floor gap remains open');
+const layout = createRequire(file)('./yanzen-room-layout.json');
+for (const room of ['home','shed']) {
+ const mat = layout[room].find(item => item.key.endsWith('Doormat'));
+ assert.deepEqual([mat.x, mat.x+mat.width, mat.y+mat.height], [233,267,278], 'mat matches visible threshold');
+ assert.equal(m.homeBlocked(12,13,room),false,'door threshold stays walkable');
+}
+const savedShed={...field,location:'shed',player:{x:8,y:10,dir:'right'},day:7,coins:123};
+const recoveredShed=m.safeLoad(savedShed);
+assert.ok(recoveredShed&&!m.homeBlocked(recoveredShed.player.x,recoveredShed.player.y,'shed'));
+assert.equal(recoveredShed.coins,123);
 const oldRoom={...field,location:'home',player:{x:15,y:10,dir:'down'},day:13};
 const migrated=m.safeLoad(oldRoom);
 assert.ok(migrated && !m.homeBlocked(migrated.player.x,migrated.player.y,'home'),'old room save moved out of new obstruction');

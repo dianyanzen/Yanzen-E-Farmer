@@ -3,10 +3,32 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 88,
-  "bytes": 16368487,
+  "mediaCount": 107,
+  "bytes": 16374308,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
+    {
+      "id": "locations/inggit/kebun",
+      "files": [
+        "public/game/assets/locations/inggit/kebun/awning.png",
+        "public/game/assets/locations/inggit/kebun/counter.png",
+        "public/game/assets/locations/inggit/kebun/door.png",
+        "public/game/assets/locations/inggit/kebun/facade.png",
+        "public/game/assets/locations/inggit/kebun/roof.png",
+        "public/game/assets/locations/inggit/kebun/sign.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/pasar",
+      "files": [
+        "public/game/assets/locations/inggit/pasar/awning.png",
+        "public/game/assets/locations/inggit/pasar/counter.png",
+        "public/game/assets/locations/inggit/pasar/door.png",
+        "public/game/assets/locations/inggit/pasar/facade.png",
+        "public/game/assets/locations/inggit/pasar/roof.png",
+        "public/game/assets/locations/inggit/pasar/sign.png"
+      ]
+    },
     {
       "id": "locations/yanzen/exterior",
       "files": [
@@ -128,6 +150,18 @@
         "public/game/assets/locations/yanzen/v7/shed-vent.png",
         "public/game/assets/locations/yanzen/v7/shed-water-barrel.png",
         "public/game/assets/locations/yanzen/v7/shed-woven-basket.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v8",
+      "files": [
+        "public/game/assets/locations/yanzen/v8/home-entry-mat.png",
+        "public/game/assets/locations/yanzen/v8/home-potted-plant.png",
+        "public/game/assets/locations/yanzen/v8/shed-entry-mat.png",
+        "public/game/assets/locations/yanzen/v8/shed-fertilizer-base.png",
+        "public/game/assets/locations/yanzen/v8/shed-fertilizer-top.png",
+        "public/game/assets/locations/yanzen/v8/shed-rake.png",
+        "public/game/assets/locations/yanzen/v8/shed-twine-bundle.png"
       ]
     },
     {

@@ -126,7 +126,7 @@ const roomAssetPaths=(await readFile('src/lib/game/yanzen-interior-art.ts','utf8
 try {
  for (const width of [1280,393]) for(const room of ['home','shed']) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
-  const state={...seed,location:room,player:{x:9,y:8,dir:'up'}};
+  const state={...seed,location:room,player:room==='shed'?{...model.SHED.spawn,dir:'up'}:{x:9,y:8,dir:'up'}};
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
@@ -145,6 +145,10 @@ try {
    await page.getByRole('button',{name:'Tidur sampai pagi',exact:true}).click();
    await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.day===2);
   }else{
+   await go(page,'ArrowUp',4);
+   await go(page,'ArrowLeft',3);
+   await go(page,'ArrowUp');
+   await saved(page,()=>{const p=JSON.parse(localStorage.getItem('yz-test-save')).data.player;return p.x===9&&p.y===8&&p.dir==='up';});
    await go(page,'e');
    const dialog=page.getByRole('dialog',{name:'Gudang peralatan'});await dialog.waitFor();
    await dialog.locator('.yzg-storage-item').filter({hasText:'Gembor Penyiram'}).getByRole('button',{name:'Simpan'}).click();
@@ -200,6 +204,21 @@ try {
    }, exitX);
    await page.close();
   }
+ }
+ for (const width of [1280,393]) {
+  const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
+  const state={...seed,minutes:15*60,location:'pasar',player:{x:19,y:9,dir:'up'},phoneRead:true};
+  await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
+  await start(page);
+  if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1');
+  await page.waitForTimeout(800);
+  await page.screenshot({path:path.join(output,'warung-'+width+'.png')});
+  await go(page,'e');
+  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.location==='warung');
+  await go(page,'ArrowDown');
+  await go(page,'e');
+  await saved(page,()=>{const {location,player}=JSON.parse(localStorage.getItem('yz-test-save')).data;return location==='pasar'&&player.x===19&&player.y===9;});
+  await page.close();
  }
  assert.deepEqual(errors,[]);
  console.log('PASS: desktop/mobile room assets decode, bed sleep, shed tool transfer, exterior doors, save and layout');

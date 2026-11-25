@@ -636,7 +636,7 @@ export const RIVER_RICE_BEDS = [
 ] as const;
 const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
   field:[
-    [3,2,7,4],[10,2,12,4],[17,2,21,4], // house, shed and shop
+    [3,2,7,4],[10,2,12,4],[16,2,20,4], // house, shed and shop
     [14,4,14,4],[19,13,21,14], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
@@ -972,6 +972,15 @@ export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0
 export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
 export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "Mulai dekat", "Teman", "Teman baik", "Akrab", "Dipercaya", "Sahabat", "Sahabat dekat", "Seperti keluarga", "Ikatan istimewa"][bondLevel(points)]; }
 export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
+export const INGGIT_WARUNG = {
+  doorX: 390,
+  doorWidth: 26,
+  doorHeight: 30,
+  fieldThreshold: 95,
+  marketThreshold: 177,
+} as const;
+const FARM_ROOM_EXIT = { left: 233, top: 267, right: 267, bottom: 290 } as const;
+
 export function fieldCanalBank(y: number) {
   return Math.round(39 - 22 * Math.exp(-((y - 139) ** 2) / 640) + 1.3 * Math.sin(y / 11));
 }
@@ -980,15 +989,15 @@ export function fieldCanalBank(y: number) {
 const INTERACTION_HITBOXES = [
   { id: "home-door", location: "field", left: (HOME.door.x + .5) * WORLD.tile - 13, top: 69, right: (HOME.door.x + .5) * WORLD.tile + 14, bottom: 100 },
   { id: "shed-door", location: "field", left: (SHED.door.x + .5) * WORLD.tile - 10, top: 70, right: (SHED.door.x + .5) * WORLD.tile + 10, bottom: 100 },
-  { id: "home-exit", location: "home", left: 240, top: 270, right: 280, bottom: 289 },
-  { id: "shed-exit", location: "shed", left: 236, top: 270, right: 286, bottom: 289 },
-  { id: "warung-pintu", location: "field", left: 379, top: 69, right: 395, bottom: 99 },
+  { id: "home-exit", location: "home", ...FARM_ROOM_EXIT },
+  { id: "shed-exit", location: "shed", ...FARM_ROOM_EXIT },
+  { id: "warung-pintu", location: "field", left: INGGIT_WARUNG.doorX - INGGIT_WARUNG.doorWidth / 2, top: INGGIT_WARUNG.fieldThreshold - INGGIT_WARUNG.doorHeight, right: INGGIT_WARUNG.doorX + INGGIT_WARUNG.doorWidth / 2, bottom: INGGIT_WARUNG.fieldThreshold },
   ...RESIDENT_HOMES.flatMap(home=>[
     {id:home.location,location:"gang" as const,left:home.doorX-12,top:home.y*20-30,right:home.doorX+13,bottom:home.y*20-1},
     {id:"guest-exit",location:home.location,left:236,top:270,right:264,bottom:289},
     {id:"guest-keepsake",location:home.location,left:280,top:138,right:335,bottom:171},
   ]),
-  { id: "lapak-pintu", location: "pasar", left: 345, top: 147, right: 414, bottom: 180 },
+  { id: "lapak-pintu", location: "pasar", left: INGGIT_WARUNG.doorX - INGGIT_WARUNG.doorWidth / 2, top: INGGIT_WARUNG.marketThreshold - INGGIT_WARUNG.doorHeight, right: INGGIT_WARUNG.doorX + INGGIT_WARUNG.doorWidth / 2, bottom: INGGIT_WARUNG.marketThreshold },
   { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
   { id: "bed", location: "home", left: 180, top: 108, right: 204, bottom: 160 },
 ] as const;
@@ -1004,10 +1013,7 @@ export function facesInteractionHitbox(player: GameState["player"], box: Interac
   const front = facing(player);
   const x = (front.x + .5) * WORLD.tile;
   const y = (front.y + .5) * WORLD.tile;
-  // Allow a tile-aligned approach along the edge of artwork between tile centers.
-  const vertical = player.dir === "up" || player.dir === "down";
-  const horizontalMargin = vertical && box.id === "shed-exit" ? 6 : 0;
-  return x >= box.left - horizontalMargin && x < box.right + horizontalMargin &&
+  return x >= box.left && x < box.right &&
     y >= box.top && y < box.bottom;
 }
 
@@ -1059,7 +1065,7 @@ export function interactDoor(s: GameState): GameState {
     case "lapak-pintu":
       return warungOpen(s) ? {...s,location:"warung",player:{...HOME.spawn,dir:"up"}} : s;
     case "warung-exit":
-      return {...s,location:"pasar",player:{x:20,y:9,dir:"down"}};
+      return {...s,location:"pasar",player:{x:Math.floor(INGGIT_WARUNG.doorX / WORLD.tile),y:9,dir:"down"}};
     case "home-door":
       return { ...s, location: "home", player: { ...HOME.spawn, dir: "up" } };
     case "shed-door":

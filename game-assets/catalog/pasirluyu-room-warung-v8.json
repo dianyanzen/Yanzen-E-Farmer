@@ -1,0 +1,670 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "homePlant",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/home-potted-plant.png",
+      "runtimeSHA256": "15dc85df5dee7ec4b00a5be11d2820be519860d5d6ad594f7afb97f7e3f3d5e3",
+      "canvasSize": [
+        30,
+        31
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        30,
+        31
+      ],
+      "displaySize": [
+        30,
+        31
+      ],
+      "footAnchor": [
+        325.0,
+        258
+      ],
+      "footprint": [
+        [
+          16,
+          12
+        ]
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeDoormat",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/home-entry-mat.png",
+      "runtimeSHA256": "4908a3c54519e506c46d7abff4e1c28b0e64d633e64dc9567e789e736887ff48",
+      "canvasSize": [
+        34,
+        11
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        34,
+        11
+      ],
+      "displaySize": [
+        34,
+        11
+      ],
+      "footAnchor": [
+        250.0,
+        278
+      ],
+      "footprint": [],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedDoormat",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/shed-entry-mat.png",
+      "runtimeSHA256": "1f1468033399fb6ed6a27234c74180a8c192c842f12df954807f92bc3a02154c",
+      "canvasSize": [
+        34,
+        11
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        34,
+        11
+      ],
+      "displaySize": [
+        34,
+        11
+      ],
+      "footAnchor": [
+        250.0,
+        278
+      ],
+      "footprint": [],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedFertilizerBase",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/shed-fertilizer-base.png",
+      "runtimeSHA256": "17db685b6b60ee51e9622572979c2b5bae053f7cd6c8f8c1f992e65e5fe9ce6b",
+      "canvasSize": [
+        19,
+        17
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        19,
+        17
+      ],
+      "displaySize": [
+        19,
+        17
+      ],
+      "footAnchor": [
+        169.5,
+        215
+      ],
+      "footprint": [
+        [
+          8,
+          10
+        ]
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedFertilizerTop",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/shed-fertilizer-top.png",
+      "runtimeSHA256": "08e7403e2d699e05ef135f875f02d68019b229982377b357463992945f433176",
+      "canvasSize": [
+        16,
+        16
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        16,
+        16
+      ],
+      "displaySize": [
+        16,
+        16
+      ],
+      "footAnchor": [
+        170.0,
+        216
+      ],
+      "footprint": [],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedRake",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/shed-rake.png",
+      "runtimeSHA256": "d3011112f631a6353fdbdc9aebdfb6f3883455dd13056dfefc34e9cc19503f17",
+      "canvasSize": [
+        17,
+        43
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        17,
+        43
+      ],
+      "displaySize": [
+        17,
+        43
+      ],
+      "footAnchor": [
+        331.5,
+        232
+      ],
+      "footprint": [
+        [
+          16,
+          11
+        ]
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedTwineBundle",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v8/shed-twine-bundle.png",
+      "runtimeSHA256": "27fbaa78f720d50690d7345dfc462a37078a41840b9942f53829ee3f4f3fdde3",
+      "canvasSize": [
+        18,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        2,
+        18,
+        15
+      ],
+      "displaySize": [
+        18,
+        15
+      ],
+      "footAnchor": [
+        318.0,
+        160
+      ],
+      "footprint": [],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-awning",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/awning.png",
+      "runtimeSHA256": "8900695e41252e1de61cda2ae013e782cadf835256ec58125dc8ef0f93874e8d",
+      "canvasSize": [
+        44,
+        14
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        44,
+        13
+      ],
+      "displaySize": [
+        44,
+        14
+      ],
+      "footAnchor": [
+        349,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -22
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-counter",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/counter.png",
+      "runtimeSHA256": "ac3be3e2d417d3d34d662b18a19d521c024e991678bfc4755a159602b7fa1efc",
+      "canvasSize": [
+        38,
+        22
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        38,
+        22
+      ],
+      "displaySize": [
+        38,
+        22
+      ],
+      "footAnchor": [
+        349,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -10
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-door",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/door.png",
+      "runtimeSHA256": "66de0a1fe8ccdcbbeefe81f73970bea3efd64b82c68713fa543fd36d5bba0e07",
+      "canvasSize": [
+        26,
+        30
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        26,
+        30
+      ],
+      "displaySize": [
+        26,
+        30
+      ],
+      "footAnchor": [
+        390,
+        95
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "footprint": null,
+      "hotspot": [
+        377,
+        65,
+        403,
+        95
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-facade",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/facade.png",
+      "runtimeSHA256": "149452abcabc045b2869fd3adca625b8ff7f7dff735b8154ecf5134aa9196fdb",
+      "canvasSize": [
+        94,
+        43
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        94,
+        43
+      ],
+      "displaySize": [
+        94,
+        43
+      ],
+      "footAnchor": [
+        370,
+        95
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "footprint": [
+        16,
+        2,
+        20,
+        4
+      ],
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-roof",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/roof.png",
+      "runtimeSHA256": "1f9556a1d6f293dc2edcfcb2af9b4bbefc38065d948941f72074b64db1db9db1",
+      "canvasSize": [
+        104,
+        33
+      ],
+      "visibleAlphaBounds": [
+        0,
+        2,
+        104,
+        33
+      ],
+      "displaySize": [
+        104,
+        33
+      ],
+      "footAnchor": [
+        370,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -38
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-kebun-sign",
+      "ownerId": "inggit-kebun",
+      "runtimeFile": "public/game/assets/locations/inggit/kebun/sign.png",
+      "runtimeSHA256": "79e940a54af03e1b9083a4bea10ec692048c62509518c533e7d0b065fd2c7d38",
+      "canvasSize": [
+        26,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        26,
+        12
+      ],
+      "displaySize": [
+        26,
+        12
+      ],
+      "footAnchor": [
+        390,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -32
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-awning",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/awning.png",
+      "runtimeSHA256": "e147a5222390da9ea57f43bff7f5ce01ea81e6ac73c3694e708f20b4796721be",
+      "canvasSize": [
+        44,
+        14
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        44,
+        13
+      ],
+      "displaySize": [
+        44,
+        14
+      ],
+      "footAnchor": [
+        349,
+        177
+      ],
+      "drawOffset": [
+        0,
+        -22
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-counter",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/counter.png",
+      "runtimeSHA256": "49953a0d1bcec28cac9a7fef0c892b8506d80edd020f6510cb059dde13e6213f",
+      "canvasSize": [
+        38,
+        22
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        38,
+        22
+      ],
+      "displaySize": [
+        38,
+        22
+      ],
+      "footAnchor": [
+        349,
+        177
+      ],
+      "drawOffset": [
+        0,
+        -10
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-door",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/door.png",
+      "runtimeSHA256": "8ca9d4b3ef54a5771a2d58dc606c24c126b18c089fef53bd897e06934261c13a",
+      "canvasSize": [
+        26,
+        30
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        26,
+        30
+      ],
+      "displaySize": [
+        26,
+        30
+      ],
+      "footAnchor": [
+        390,
+        177
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "footprint": null,
+      "hotspot": [
+        377,
+        147,
+        403,
+        177
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-facade",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/facade.png",
+      "runtimeSHA256": "c94f2d77c18c9c06578a3a212e54682bcaed15c689f4a750b67065a50d5d753c",
+      "canvasSize": [
+        94,
+        43
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        94,
+        43
+      ],
+      "displaySize": [
+        94,
+        43
+      ],
+      "footAnchor": [
+        370,
+        177
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "footprint": [
+        16,
+        6,
+        20,
+        8
+      ],
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-roof",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/roof.png",
+      "runtimeSHA256": "7c6696aacd0df8f9c96be29b9091fe6dc0f6edd41c0cdb27ce2455e8853c7821",
+      "canvasSize": [
+        104,
+        33
+      ],
+      "visibleAlphaBounds": [
+        0,
+        2,
+        104,
+        33
+      ],
+      "displaySize": [
+        104,
+        33
+      ],
+      "footAnchor": [
+        370,
+        177
+      ],
+      "drawOffset": [
+        0,
+        -38
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-pasar-sign",
+      "ownerId": "inggit-pasar",
+      "runtimeFile": "public/game/assets/locations/inggit/pasar/sign.png",
+      "runtimeSHA256": "aee5866048f18147e62688ed0e27e65b044b695ce3980301115a26214633924e",
+      "canvasSize": [
+        26,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        26,
+        12
+      ],
+      "displaySize": [
+        26,
+        12
+      ],
+      "footAnchor": [
+        390,
+        177
+      ],
+      "drawOffset": [
+        0,
+        -32
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    }
+  ]
+}

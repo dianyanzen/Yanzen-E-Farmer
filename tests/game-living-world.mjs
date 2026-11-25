@@ -25,7 +25,7 @@ const leaving = npcWhere({...s,minutes:1081},"A03");
 assert.equal(leaving.location,"sungai");
 assert.equal(Math.abs(leaving.x-8)+Math.abs(leaving.y-8),1);
 assert.match(getActionContext({...s,location:"gang",player:{x:8,y:8,dir:"up"}}).text,/Rumah Nani terkunci/);
-const marketDoor = {...s,minutes:780,location:"pasar",player:{x:20,y:9,dir:"up"}};
+const marketDoor = {...s,minutes:780,location:"pasar",player:{x:Math.floor(model.INGGIT_WARUNG.doorX / model.WORLD.tile),y:9,dir:"up"}};
 assert.equal(getActionContext(marketDoor).kind,"door");
 const shop = model.interactDoor(marketDoor);
 assert.equal(shop.location,"warung");

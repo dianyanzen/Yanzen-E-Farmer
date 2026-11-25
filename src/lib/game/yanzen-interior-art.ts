@@ -2,7 +2,7 @@ import layout from "./yanzen-room-layout.json";
 export type InteriorObject = { key: string; x:number; y:number; width:number; height:number; depth:number; layer:"architecture"|"floor"|"furniture"|"foreground"; tiles:number[][]; phase?:"day"|"night" };
 export const YANZEN_MODULAR_INTERIORS_ENABLED = true;
 export const yanzenInteriorAssets: Record<string,string> = {
-  "homePlant": "locations/yanzen/v3/home-plant.png",
+  "homePlant": "locations/yanzen/v8/home-potted-plant.png",
   "shedBasket": "locations/yanzen/v7/shed-woven-basket.png",
   "shedClayJar": "locations/yanzen/v7/shed-clay-jar.png",
   "homeLamp": "locations/yanzen/v3/home-lamp.png",
@@ -21,7 +21,7 @@ export const yanzenInteriorAssets: Record<string,string> = {
   "homeLeftWall": "locations/yanzen/v7/home-left-trim.png",
   "homeRightWall": "locations/yanzen/v7/home-right-trim.png",
   "homeFrontWall": "locations/yanzen/v7/home-front-trim.png",
-  "homeDoormat": "locations/yanzen/v7/home-entry-mat.png",
+  "homeDoormat": "locations/yanzen/v8/home-entry-mat.png",
   "homeShelf": "locations/yanzen/v7/home-low-shelf.png",
   "homeBench": "locations/yanzen/v7/home-teak-bench.png",
   "shedHoe": "locations/yanzen/v6/hoe.svg",
@@ -44,7 +44,11 @@ export const yanzenInteriorAssets: Record<string,string> = {
   "shedVent": "locations/yanzen/v7/shed-vent.png",
   "shedWindowLight": "locations/yanzen/v7/shed-vent-light.png",
   "shedLampLight": "locations/yanzen/v7/shed-lantern-light.png",
-  "shedDoormat": "locations/yanzen/v7/shed-entry-mat.png",
+  "shedDoormat": "locations/yanzen/v8/shed-entry-mat.png",
+  "shedFertilizerBase": "locations/yanzen/v8/shed-fertilizer-base.png",
+  "shedFertilizerTop": "locations/yanzen/v8/shed-fertilizer-top.png",
+  "shedRake": "locations/yanzen/v8/shed-rake.png",
+  "shedTwineBundle": "locations/yanzen/v8/shed-twine-bundle.png",
   "shedSupplyCubby": "locations/yanzen/v7/shed-supply-cubby.png",
 };
 /** Shared room blueprint; the model reads the same JSON for collision. */
