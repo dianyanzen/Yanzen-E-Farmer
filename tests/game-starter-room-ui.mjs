@@ -86,13 +86,13 @@ async function start(page) {
   await page.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
 }
 
-// The exterior fixture starts at tile (5,5), the center of the path between
+// The exterior fixture starts at tile (8,6), the center of the path between
 // both buildings. Project the actual door pixels into each renderer's viewport.
 async function tapExteriorDoor(page, x, y, touch) {
   const canvas = page.locator(engine === 'phaser' ? '.yzg-phaser-host canvas' : '.yzg-viewport > canvas');
   const point = await canvas.evaluate((element, { engine, x, y }) => {
     const { width, height } = element.getBoundingClientRect();
-    const center = { x: 110, y: 110 };
+    const center = { x: 170, y: 130 };
     const world = { width: 640, height: 320 };
     if (engine === 'phaser') {
       const zoom = Math.max(3, element.width / world.width, element.height / world.height);
@@ -119,7 +119,10 @@ const {createRequire}=await import('node:module');
 const modelPath=path.resolve('src/lib/game/model.ts');
 const module2={exports:{}};
 vm2.runInNewContext(ts2.transpileModule(await readFile(modelPath,'utf8'),{compilerOptions:{esModuleInterop:true,module:ts2.ModuleKind.CommonJS,target:ts2.ScriptTarget.ES2022}}).outputText,{exports:module2.exports,module:module2,require:createRequire(modelPath)});
-const seed=JSON.parse(JSON.stringify(module2.exports.newGame()));
+const model=module2.exports;
+const seed=JSON.parse(JSON.stringify(model.newGame()));
+const roomAssetPaths=(await readFile('src/lib/game/yanzen-interior-art.ts','utf8'))
+  .match(/locations\/yanzen\/[^"]+\.(?:png|svg)/g);
 try {
  for (const width of [1280,393]) for(const room of ['home','shed']) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
@@ -127,8 +130,7 @@ try {
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
-  const files=room==='home'?['v5/floor.svg','v5/back-wall.svg','v5/left-wall.svg','v5/right-wall.svg','v5/front-wall.svg','v5/woven-rug.svg','v5/door-mat.svg','v5/storage-shelf.svg','v5/bench.svg','v2/home-bed.png','v2/home-cabinet.png','v2/home-table.png','v2/home-window.png','v3/home-lamp.png','v3/home-plant.png']:['v2/shed-floor.svg','v2/shed-wall.svg','v2/shed-rack.png','v2/shed-workbench.png','v3/shed-wall-shelf.png','v3/shed-basket.png','v6/hoe.svg','v6/sickle.svg','v6/shovel.svg','v6/toolbox.svg','v6/watering-can.svg','v6/seed-sack.svg','v6/harvest-crate.svg','v6/fertilizer-sack.svg','v6/bucket.svg','v6/rope-coil.svg','v6/shelf-jar.svg','v6/wall-lantern.svg'];
-  const ok=await page.evaluate(async files=>Promise.all(files.map(file=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(img.naturalWidth>0);img.onerror=()=>resolve(false);img.src='/game/assets/locations/yanzen/'+file;}))),files);
+  const ok=await page.evaluate(async files=>Promise.all(files.map(file=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(img.naturalWidth>0);img.onerror=()=>resolve(false);img.src='/game/assets/'+file;}))),roomAssetPaths);
   assert.ok(ok.every(Boolean),'room images decode in browser');
   await page.waitForTimeout(1000);
   await page.screenshot({path:path.join(output,room+'-'+width+'.png'),fullPage:true});
@@ -170,17 +172,18 @@ try {
   await page.close();
  }
  for (const width of [1280, 393]) {
-  for (const [room, x, exitX] of [['home', 78, 3], ['shed', 191, 9]]) {
+  for (const [room, building] of [['home', model.HOME], ['shed', model.SHED]]) {
    const touch = width === 393;
    const page = await browser.newPage({viewport:{width,height:touch?852:900},hasTouch:touch,reducedMotion:'reduce'});
-   const state = {...seed, location:'field', player:{x:5,y:5,dir:'left'}, phoneRead:true};
+   const state = {...seed, location:'field', player:{x:8,y:6,dir:'left'}, phoneRead:true};
    await page.addInitScript(data => {
     if (!localStorage.getItem('yz-test-save')) localStorage.setItem('yz-test-save', JSON.stringify({data}));
    }, state);
    await start(page);
    if (engine === 'phaser') await page.waitForFunction(() => document.querySelector('.yzg-phaser-host')?.style.opacity === '1');
    if (room === 'home') await page.screenshot({path:path.join(output,'exterior-'+width+'.png'),fullPage:true});
-   await tapExteriorDoor(page, x, 83, touch);
+   const exitX = building.door.x;
+   await tapExteriorDoor(page, (exitX+.5)*model.WORLD.tile, 83, touch);
    await page.waitForFunction(expectedRoom => {
     const { location, player } = JSON.parse(localStorage.getItem('yz-test-save')).data;
     return location === expectedRoom && player.x === 12 && player.y === 12;

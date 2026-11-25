@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 60,
-  "bytes": 16347603,
+  "mediaCount": 88,
+  "bytes": 16368487,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -95,6 +95,39 @@
         "public/game/assets/locations/yanzen/v6/toolbox.svg",
         "public/game/assets/locations/yanzen/v6/wall-lantern.svg",
         "public/game/assets/locations/yanzen/v6/watering-can.svg"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v7",
+      "files": [
+        "public/game/assets/locations/yanzen/v7/home-back-wall.png",
+        "public/game/assets/locations/yanzen/v7/home-entry-mat.png",
+        "public/game/assets/locations/yanzen/v7/home-farm-journal.png",
+        "public/game/assets/locations/yanzen/v7/home-floor.png",
+        "public/game/assets/locations/yanzen/v7/home-front-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-hillside-frame.png",
+        "public/game/assets/locations/yanzen/v7/home-lamp-light.png",
+        "public/game/assets/locations/yanzen/v7/home-left-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-low-shelf.png",
+        "public/game/assets/locations/yanzen/v7/home-right-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-teak-bench.png",
+        "public/game/assets/locations/yanzen/v7/home-window-light.png",
+        "public/game/assets/locations/yanzen/v7/home-woven-rug.png",
+        "public/game/assets/locations/yanzen/v7/shed-back-wall.png",
+        "public/game/assets/locations/yanzen/v7/shed-clay-jar.png",
+        "public/game/assets/locations/yanzen/v7/shed-entry-mat.png",
+        "public/game/assets/locations/yanzen/v7/shed-floor.png",
+        "public/game/assets/locations/yanzen/v7/shed-front-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-harvest-crate.png",
+        "public/game/assets/locations/yanzen/v7/shed-lantern-light.png",
+        "public/game/assets/locations/yanzen/v7/shed-left-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-right-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-seed-sacks.png",
+        "public/game/assets/locations/yanzen/v7/shed-supply-cubby.png",
+        "public/game/assets/locations/yanzen/v7/shed-vent-light.png",
+        "public/game/assets/locations/yanzen/v7/shed-vent.png",
+        "public/game/assets/locations/yanzen/v7/shed-water-barrel.png",
+        "public/game/assets/locations/yanzen/v7/shed-woven-basket.png"
       ]
     },
     {

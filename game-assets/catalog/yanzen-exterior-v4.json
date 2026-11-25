@@ -22,7 +22,7 @@
         120
       ],
       "footAnchor": [
-        78,
+        110,
         96
       ],
       "drawOffset": [
@@ -35,9 +35,9 @@
       ],
       "footprint": null,
       "hotspot": [
-        65,
+        97,
         69,
-        92,
+        124,
         100
       ],
       "zDepth": 96,
@@ -66,7 +66,7 @@
         60
       ],
       "footAnchor": [
-        46.5,
+        78.5,
         96
       ],
       "drawOffset": [
@@ -105,7 +105,7 @@
         60
       ],
       "footAnchor": [
-        109.5,
+        141.5,
         96
       ],
       "drawOffset": [
@@ -144,7 +144,7 @@
         148
       ],
       "footAnchor": [
-        78,
+        110,
         96
       ],
       "drawOffset": [
@@ -156,9 +156,9 @@
         37
       ],
       "footprint": [
+        3,
         2,
-        2,
-        5,
+        7,
         4
       ],
       "hotspot": null,
@@ -188,7 +188,7 @@
         112
       ],
       "footAnchor": [
-        78,
+        110,
         96
       ],
       "drawOffset": [
@@ -227,7 +227,7 @@
         108
       ],
       "footAnchor": [
-        191,
+        230,
         95
       ],
       "drawOffset": [
@@ -240,9 +240,9 @@
       ],
       "footprint": null,
       "hotspot": [
-        181,
+        220,
         70,
-        201,
+        240,
         100
       ],
       "zDepth": 95,
@@ -271,7 +271,7 @@
         136
       ],
       "footAnchor": [
-        191,
+        230,
         95
       ],
       "drawOffset": [
@@ -283,9 +283,9 @@
         34
       ],
       "footprint": [
-        8,
-        2,
         10,
+        2,
+        12,
         4
       ],
       "hotspot": null,
@@ -315,7 +315,7 @@
         105
       ],
       "footAnchor": [
-        191,
+        230,
         95
       ],
       "drawOffset": [

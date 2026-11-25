@@ -18,6 +18,22 @@ function loadTs(path, overrides = {}) {
   return mod.exports;
 }
 const model = loadTs("src/lib/game/model.ts");
+const { outdoorObjects } = loadTs("src/lib/game/modular-outdoor.ts", {
+  "./connected-edges": { connectsAt: () => false, sharedBorderProps: () => [] },
+  "./model": model,
+  "./pasirluyu-master-map": {},
+  "./signposts": {},
+  "./quest-props": { QUEST_PROPS: [] },
+});
+const fieldObjects = outdoorObjects("field", 12 * 60);
+const homeRoof = fieldObjects.find(prop => prop.asset === "yanzen-home-roof");
+const shedRoof = fieldObjects.find(prop => prop.asset === "yanzen-shed-roof");
+for (let y = homeRoof.y - homeRoof.displayH; y <= homeRoof.y; y++) {
+  assert.ok(homeRoof.x - homeRoof.displayW / 2 - model.fieldCanalBank(y) >= 12,
+    "house roof clears the river and bank decorations at every row");
+}
+assert.ok(homeRoof.x + homeRoof.displayW / 2 < shedRoof.x - shedRoof.displayW / 2,
+  "house and shed roof silhouettes must remain separate");
 const navigation = loadTs("src/lib/game/tap-navigation.ts", {"./model":model});
 const { WalkPath, STEP_MS } = loadTs("src/lib/game/walking.ts");
 
@@ -71,8 +87,8 @@ for (let frame = 1; frame <= 22; frame++) {
 }
 continuous.advance(20, false, STEP_MS, () => route.shift());
 assert.deepEqual([continuous.x, continuous.y, continuous.dir, continuous.moving], [3, 2, "down", false]);
-const outdoor = { ...model.newGame(), player: { x: 4, y: 5, dir: "up" } };
-assert.equal(model.interactDoor(outdoor).location, "home", "the right side of the entrance must open");
+const outdoor = { ...model.newGame(), player: { x: model.HOME.door.x, y: 5, dir: "up" } };
+assert.equal(model.interactDoor(outdoor).location, "home", "the stairs must lead to the home");
 const home = model.interactDoor(outdoor);
 for (const x of [8, 9, 10, 11]) {
   assert.equal(model.canSleep({ ...home, player: { x, y: 8, dir: "up" } }), x===9);
@@ -87,8 +103,8 @@ assert.equal(aisleWalk.player.x,10);assert.equal(aisleWalk.player.y,7);
 assert.equal(model.canSleep({ ...home, player: { x: 9, y: 9, dir: "up" } }), false);
 assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" } }).location, "field");
 for (const [state, id, points] of [
-  [outdoor, "home-door", [[65, 69], [91, 99]]],
-  [outdoor, "shed-door", [[181, 70], [200, 99]]],
+  [outdoor, "home-door", [[97, 69], [123, 99]]],
+  [outdoor, "shed-door", [[220, 70], [239, 99]]],
   [home, "bed", [[180, 108], [203, 159]]],
   [home, "home-exit", [[240, 270], [279, 288]]],
   [{ ...home, location: "shed" }, "shed-exit", [[236, 270], [285, 288]]],

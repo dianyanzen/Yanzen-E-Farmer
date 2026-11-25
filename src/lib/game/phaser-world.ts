@@ -13,7 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, drawIrrigationChannel, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
-import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout, interiorDepth } from "./yanzen-interior-art";
+import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout, interiorDepth, interiorOpacity } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -512,8 +512,14 @@ class YZWorldScene extends Phaser.Scene {
     const dusk=Math.max(0,Math.min(1,(frame.state.minutes-960)/120));
     this.dusk.setAlpha(!isOutdoorLocation(location) ? 0 : dusk);
     this.roomShade.clear();
-    if(location==="home" && frame.state.minutes>=18*60 && this.textures.exists("yz-room-homeFloor") && yanzenInteriorLayout.home.every(item=>this.textures.exists("yz-room-"+item.key))) {
-      this.roomShade.fillStyle(0x1b202b,.19).fillRect(150,92,200,198);
+    if ((location === "home" || location === "shed") && this.mapProps.length) {
+      yanzenInteriorLayout[location].forEach((item, index) => {
+        if (item.phase) this.mapProps[index].setAlpha(interiorOpacity(item, frame.state.minutes));
+      });
+      if (evening) {
+        this.roomShade.fillStyle(0x1b202b,.12)
+          .fillRect(150,location === "home" ? 92 : 102,200,location === "home" ? 198 : 188);
+      }
     }
     const rainFrame = isOutdoorLocation(location) &&
       weatherForDay(frame.state.day) === "hujan" ? frame.ambient : null;

@@ -16,8 +16,15 @@ function reachable(state){
  return queue;
 }
 const field=m.newGame(), area=reachable(field);
-for(const [name,x,y] of [['house',3,4],['shed',9,4],['warung',19,4]]){
+for(const [name,x,y] of [['house',m.HOME.door.x,m.HOME.door.y],['shed',m.SHED.door.x,m.SHED.door.y],['warung',19,4]]){
  assert.ok(area.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1),`${name} entrance reachable`);
+}
+for (const [room, building] of [['home',m.HOME],['shed',m.SHED]]) {
+ const {x,y}=building.door;
+ const atDoor={...field,player:{x,y:y+1,dir:'up'}};
+ assert.equal(m.areaBlocked('field',x,y+1),false,`${room} steps are clear`);
+ assert.equal(m.interactDoor(atDoor).location,room);
+ assert.ok(m.interactionHitboxAt('field',(x+.5)*m.WORLD.tile,83),`${room} visual door hotspot`);
 }
 for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
  assert.ok(area.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1),`farm plot ${x},${y} reachable`);

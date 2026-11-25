@@ -4,7 +4,7 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, drawIrrigationChannel, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
-import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorLayout } from "./yanzen-interior-art";
+import { YANZEN_MODULAR_INTERIORS_ENABLED, interiorOpacity, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -81,9 +81,14 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   if ((state.location==="home"||state.location==="shed") && YANZEN_MODULAR_INTERIORS_ENABLED) {
     const room=state.location, items=yanzenInteriorLayout[room], floor=art.roomAssets?.[room+"Floor"];
     if (floor && items.every(item=>art.roomAssets?.[item.key])) {
+      box(ctx,0,0,W*T,H*T,"#24282a");
       ctx.drawImage(floor,0,0,W*T,H*T);
       const paint=(item:typeof items[number])=> {
-        const image=art.roomAssets?.[item.key]; if(image)ctx.drawImage(image,item.x,item.y,item.width,item.height);
+        const image = art.roomAssets?.[item.key];
+        if (!image) return;
+        ctx.globalAlpha = interiorOpacity(item, state.minutes);
+        ctx.drawImage(image,item.x,item.y,item.width,item.height);
+        ctx.globalAlpha = 1;
       };
       items.filter(item=>item.layer==="architecture"||item.layer==="floor").forEach(paint);
       const furniture=items.filter(item=>item.layer==="furniture").sort((a,b)=>a.depth-b.depth);
@@ -92,8 +97,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
       furniture.filter(item=>item.depth>footY).forEach(paint);
       items.filter(item=>item.layer==="foreground").forEach(paint);
-      if(room==="home" && state.minutes>=18*60) {
-        ctx.fillStyle="rgba(27,32,43,.19)";ctx.fillRect(150,92,200,198);
+      if (state.minutes >= 18*60) {
+        ctx.fillStyle = "rgba(27,32,43,.12)";
+        ctx.fillRect(150,room === "home" ? 92 : 102,200,room === "home" ? 198 : 188);
       }
       return;
     }

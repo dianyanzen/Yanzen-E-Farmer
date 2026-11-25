@@ -1,5 +1,5 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { fieldCanalBank, HOME, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
@@ -57,14 +57,17 @@ type Point = readonly [number,number];
 type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
 type Route = readonly [number,readonly Point[]];
+const homeX = (HOME.door.x + .5) * WORLD.tile;
+const shedX = (SHED.door.x + .5) * WORLD.tile;
+const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
 const paths: Record<OutdoorLocation,Route[]> = {
   field: [
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
-    [15,[[78,94],[78,116],[106,130],[192,130],[224,142],[253,183],[279,222]]],
-    [14,[[191,93],[190,112],[191,132]]],
+    [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
+    [14,[[shedX,94],[shedX,113],[shedX,130]]],
     [16,[[387,93],[387,132],[368,169],[348,216]]],
     [14,[[314,215],[320,253],[350,273],[366,285]]],
-    [13,[[82,117],[55,128],[35,141],[24,141]]],
+    [13,[[homeX,117],[78,125],[49,139],[28,142]]],
     [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
   ],
   gang: [
@@ -98,16 +101,16 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
     // Inserts sit behind the transparent openings. Every layer sorts from
     // its building's threshold, even when the image ends at the eaves.
-    {asset:"yanzen-home-door",x:78,y:95,displayW:19,displayH:30,groundY:96},
-    {asset:"yanzen-home-west-window",x:46.5,y:81,displayW:16,displayH:15,groundY:96},
-    {asset:"yanzen-home-east-window",x:109.5,y:81,displayW:16,displayH:15,groundY:96},
-    {asset:"yanzen-home-facade",x:78,y:96,displayW:104,displayH:37,groundY:96},
-    {asset:"yanzen-home-roof",x:78,y:64,displayW:112,displayH:28,groundY:96},
-    {asset:"yanzen-shed-entry",x:191,y:94,displayW:26,displayH:27,groundY:95},
-    {asset:"yanzen-shed-facade",x:191,y:95,displayW:68,displayH:34,groundY:95},
-    {asset:"yanzen-shed-roof",x:191,y:67,displayW:80,displayH:26,groundY:95},
-    {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
-    {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
+    {asset:"yanzen-home-door",x:homeX,y:95,displayW:19,displayH:30,groundY:96},
+    {asset:"yanzen-home-west-window",x:homeX-31.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-east-window",x:homeX+31.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-facade",x:homeX,y:96,displayW:104,displayH:37,groundY:96},
+    {asset:"yanzen-home-roof",x:homeX,y:64,displayW:112,displayH:28,groundY:96},
+    {asset:"yanzen-shed-entry",x:shedX,y:94,displayW:26,displayH:27,groundY:95},
+    {asset:"yanzen-shed-facade",x:shedX,y:95,displayW:68,displayH:34,groundY:95},
+    {asset:"yanzen-shed-roof",x:shedX,y:67,displayW:80,displayH:26,groundY:95},
+    {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:nurseryX,y:103},
+    {asset:"pohon-pisang",x:288,y:100,scale:.67},{asset:"bunga-melati",x:306,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
     {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
     {asset:"bunga-pinggir",x:224,y:200,scale:.76},{asset:"semak-rimbun",x:299,y:185,scale:.79},
@@ -453,7 +456,7 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     }
   }
   if (location==="field") {
-    for (const x of [78,191,387]) {
+    for (const x of [homeX,shedX,387]) {
       ctx.fillStyle="rgba(88,76,49,.27)";
       ctx.beginPath();ctx.ellipse(x,98,21,4,0,0,Math.PI*2);ctx.fill();
       for(let row=0;row<3;row++){
@@ -474,10 +477,10 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
   }
   if(location==="field"){
     // Low nursery bench between the farmhouse and the tool shed.
-    ctx.fillStyle="#6b4b33";ctx.fillRect(118,106,3,12);ctx.fillRect(139,106,3,12);
-    ctx.fillStyle="#976c43";ctx.fillRect(116,101,28,8);
-    ctx.fillStyle="#d6a66c";ctx.fillRect(116,101,28,2);
-    for(const x of [119,127,135]){
+    ctx.fillStyle="#6b4b33";ctx.fillRect(nurseryX-13,106,3,12);ctx.fillRect(nurseryX+8,106,3,12);
+    ctx.fillStyle="#976c43";ctx.fillRect(nurseryX-15,101,28,8);
+    ctx.fillStyle="#d6a66c";ctx.fillRect(nurseryX-15,101,28,2);
+    for(const x of [nurseryX-12,nurseryX-4,nurseryX+4]){
       ctx.fillStyle="#aa6440";ctx.fillRect(x,98,6,5);
       ctx.fillStyle="#5c793b";ctx.fillRect(x+2,94,2,5);
       ctx.fillStyle="#a6be60";ctx.fillRect(x,94,3,2);ctx.fillRect(x+3,92,3,3);
@@ -489,14 +492,13 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
 }
 
 function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
-  const shore=(y:number)=>Math.round(39-22*Math.exp(-((y-139)**2)/640)+1.3*Math.sin(y/11));
   ctx.save();
   ctx.beginPath();
-  for(let y=0;y<320;y++)ctx.rect(0,y,shore(y),1);
+  for(let y=0;y<320;y++)ctx.rect(0,y,fieldCanalBank(y),1);
   ctx.clip();
   const current=randomFrom(818);
   for(let y=0;y<320;y++){
-    const bank=shore(y);
+    const bank=fieldCanalBank(y);
     for(let x=0;x<bank;x++){
       const depth=Math.min(1,(bank-x)/27);
       const light=2*Math.sin(y*.14+x*.24)+1.5*Math.sin(y*.27-x*.16);
@@ -505,12 +507,12 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
     }
   }
   for(let i=0;i<190;i++){
-    const y=Math.floor(current()*320),x=Math.floor(current()*shore(y));
+    const y=Math.floor(current()*320),x=Math.floor(current()*fieldCanalBank(y));
     ctx.fillStyle=i%4?"rgba(184,216,190,.19)":"rgba(34,81,84,.3)";
     ctx.fillRect(x,y,2+Math.floor(current()*5),1);
   }
   for(const y of [36,82,102,174,217,259,298]){
-    const x=shore(y)-5;
+    const x=fieldCanalBank(y)-5;
     for(const [dx,dy] of [[0,0],[-4,2],[1,4]]){
       ctx.fillStyle="#567c52";ctx.fillRect(x+dx,y+dy,4,2);
       ctx.fillStyle="#a0b468";ctx.fillRect(x+dx,y+dy,2,1);
@@ -521,12 +523,12 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
   if(ripple)for(const y of [29,67,115,161,205,243,284,314])ctx.drawImage(ripple,4,y,15,7);
   ctx.restore();
   for(let y=0;y<320;y++){
-    const x=shore(y);
+    const x=fieldCanalBank(y);
     ctx.fillStyle="#63897b";ctx.fillRect(x-1,y,2,1);
     ctx.fillStyle="#8a915f";ctx.fillRect(x+1,y,2,1);
   }
   for(let y=12;y<320;y+=17){
-    const x=shore(y);
+    const x=fieldCanalBank(y);
     const rock=art[y%2?"batu-kembar":"tebing-batu"];
     if(rock)ctx.drawImage(rock,x-5,y-4,10,7);
     const reeds=art["ilalang-kanal"];

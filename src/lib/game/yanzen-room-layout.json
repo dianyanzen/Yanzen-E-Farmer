@@ -57,43 +57,56 @@
       "tiles": []
     },
     {
+      "key": "homeHillsideFrame",
+      "x": 277,
+      "y": 98,
+      "width": 22,
+      "height": 19,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeWindowLight",
+      "x": 236,
+      "y": 120,
+      "width": 66,
+      "height": 65,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "day"
+    },
+    {
+      "key": "homeLampLight",
+      "x": 150,
+      "y": 120,
+      "width": 82,
+      "height": 61,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "night"
+    },
+    {
       "key": "homeMat",
-      "x": 221,
-      "y": 185,
+      "x": 215,
+      "y": 188,
       "width": 64,
-      "height": 38,
+      "height": 40,
       "depth": 2,
       "layer": "floor",
       "tiles": []
     },
     {
       "key": "homeDoormat",
-      "x": 250,
-      "y": 260,
-      "width": 20,
-      "height": 11,
+      "x": 246,
+      "y": 270,
+      "width": 28,
+      "height": 10,
       "depth": 2,
       "layer": "floor",
       "tiles": []
-    },
-    {
-      "key": "homeBed",
-      "x": 176,
-      "y": 96,
-      "width": 36,
-      "height": 72,
-      "depth": 168,
-      "layer": "furniture",
-      "tiles": [
-        [
-          9,
-          6
-        ],
-        [
-          9,
-          7
-        ]
-      ]
     },
     {
       "key": "homeCabinet",
@@ -123,12 +136,31 @@
       ]
     },
     {
+      "key": "homeBed",
+      "x": 176,
+      "y": 96,
+      "width": 36,
+      "height": 72,
+      "depth": 168,
+      "layer": "furniture",
+      "tiles": [
+        [
+          9,
+          6
+        ],
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
       "key": "homeTable",
       "x": 292,
-      "y": 178,
+      "y": 179,
       "width": 48,
       "height": 32,
-      "depth": 210,
+      "depth": 211,
       "layer": "furniture",
       "tiles": [
         [
@@ -142,12 +174,22 @@
       ]
     },
     {
+      "key": "homeJournal",
+      "x": 306,
+      "y": 185,
+      "width": 20,
+      "height": 10,
+      "depth": 212,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
       "key": "homeBench",
       "x": 300,
-      "y": 218,
+      "y": 217,
       "width": 34,
-      "height": 14,
-      "depth": 232,
+      "height": 16,
+      "depth": 233,
       "layer": "furniture",
       "tiles": [
         [
@@ -163,10 +205,10 @@
     {
       "key": "homeShelf",
       "x": 160,
-      "y": 201,
-      "width": 28,
-      "height": 37,
-      "depth": 238,
+      "y": 213,
+      "width": 22,
+      "height": 24,
+      "depth": 237,
       "layer": "furniture",
       "tiles": [
         [
@@ -204,18 +246,38 @@
   "shed": [
     {
       "key": "shedWall",
-      "x": 0,
-      "y": 0,
-      "width": 480,
-      "height": 320,
+      "x": 160,
+      "y": 102,
+      "width": 180,
+      "height": 18,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedLeftWall",
+      "x": 150,
+      "y": 102,
+      "width": 10,
+      "height": 188,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedRightWall",
+      "x": 340,
+      "y": 102,
+      "width": 10,
+      "height": 188,
       "depth": 0,
       "layer": "architecture",
       "tiles": []
     },
     {
       "key": "shedWallShelf",
-      "x": 253,
-      "y": 105,
+      "x": 261,
+      "y": 106,
       "width": 40,
       "height": 13.33,
       "depth": 1,
@@ -223,46 +285,76 @@
       "tiles": []
     },
     {
-      "key": "shedBasket",
-      "x": 294,
-      "y": 211,
-      "width": 32,
-      "height": 21.33,
-      "depth": 232.33,
-      "layer": "furniture",
-      "tiles": [
-        [
-          15,
-          11
-        ]
-      ]
+      "key": "shedVent",
+      "x": 311,
+      "y": 103,
+      "width": 23,
+      "height": 16,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
     },
     {
-      "key": "shedRack",
-      "x": 165,
-      "y": 104,
-      "width": 64,
-      "height": 58.49,
-      "depth": 162.49,
-      "layer": "furniture",
-      "tiles": [
-        [
-          9,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          10,
-          7
-        ]
-      ]
+      "key": "shedRope",
+      "x": 242,
+      "y": 103,
+      "width": 13,
+      "height": 17,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedClayJar",
+      "x": 274,
+      "y": 100,
+      "width": 10,
+      "height": 13,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedLantern",
+      "x": 162,
+      "y": 116,
+      "width": 10,
+      "height": 16,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedWindowLight",
+      "x": 300,
+      "y": 120,
+      "width": 40,
+      "height": 50,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "day"
+    },
+    {
+      "key": "shedLampLight",
+      "x": 160,
+      "y": 120,
+      "width": 69,
+      "height": 53,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "night"
+    },
+    {
+      "key": "shedDoormat",
+      "x": 248,
+      "y": 270,
+      "width": 24,
+      "height": 9,
+      "depth": 2,
+      "layer": "floor",
+      "tiles": []
     },
     {
       "key": "shedWorkbench",
@@ -287,6 +379,53 @@
         ],
         [
           16,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "shedToolbox",
+      "x": 300,
+      "y": 119,
+      "width": 15,
+      "height": 9,
+      "depth": 152,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedWateringCan",
+      "x": 322,
+      "y": 116,
+      "width": 13,
+      "height": 14,
+      "depth": 152,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedRack",
+      "x": 165,
+      "y": 104,
+      "width": 64,
+      "height": 58.49,
+      "depth": 162.49,
+      "layer": "furniture",
+      "tiles": [
+        [
+          9,
+          6
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          10,
           7
         ]
       ]
@@ -322,46 +461,56 @@
       "tiles": []
     },
     {
-      "key": "shedToolbox",
-      "x": 301,
-      "y": 116,
-      "width": 15,
-      "height": 9,
-      "depth": 152,
-      "layer": "furniture",
-      "tiles": []
-    },
-    {
-      "key": "shedWateringCan",
-      "x": 323,
-      "y": 113,
-      "width": 13,
-      "height": 14,
-      "depth": 152,
-      "layer": "furniture",
-      "tiles": []
-    },
-    {
       "key": "shedSeedSack",
       "x": 160,
-      "y": 165,
+      "y": 173,
       "width": 20,
-      "height": 30,
-      "depth": 195,
+      "height": 23,
+      "depth": 196,
       "layer": "furniture",
       "tiles": [
         [
           8,
           9
+        ]
+      ]
+    },
+    {
+      "key": "shedSupplyCubby",
+      "x": 314,
+      "y": 153,
+      "width": 26,
+      "height": 43,
+      "depth": 196,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "key": "shedBasket",
+      "x": 297,
+      "y": 217,
+      "width": 25,
+      "height": 16,
+      "depth": 233,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          11
         ]
       ]
     },
     {
       "key": "shedHarvestCrate",
       "x": 160,
-      "y": 239,
-      "width": 20,
-      "height": 20,
+      "y": 236,
+      "width": 24,
+      "height": 23,
       "depth": 259,
       "layer": "furniture",
       "tiles": [
@@ -372,26 +521,11 @@
       ]
     },
     {
-      "key": "shedFertilizerSack",
-      "x": 320,
-      "y": 165,
-      "width": 20,
-      "height": 30,
-      "depth": 195,
-      "layer": "furniture",
-      "tiles": [
-        [
-          16,
-          9
-        ]
-      ]
-    },
-    {
       "key": "shedBucket",
       "x": 320,
-      "y": 239,
+      "y": 233,
       "width": 20,
-      "height": 20,
+      "height": 26,
       "depth": 259,
       "layer": "furniture",
       "tiles": [
@@ -402,33 +536,13 @@
       ]
     },
     {
-      "key": "shedRope",
-      "x": 237,
-      "y": 102,
-      "width": 13,
-      "height": 17,
-      "depth": 2,
-      "layer": "architecture",
-      "tiles": []
-    },
-    {
-      "key": "shedShelfJar",
-      "x": 273,
-      "y": 96,
-      "width": 9,
+      "key": "shedFrontWall",
+      "x": 150,
+      "y": 278,
+      "width": 200,
       "height": 12,
-      "depth": 2,
-      "layer": "architecture",
-      "tiles": []
-    },
-    {
-      "key": "shedLantern",
-      "x": 160,
-      "y": 103,
-      "width": 9,
-      "height": 14,
-      "depth": 2,
-      "layer": "architecture",
+      "depth": 290,
+      "layer": "foreground",
       "tiles": []
     }
   ]

@@ -636,8 +636,8 @@ export const RIVER_RICE_BEDS = [
 ] as const;
 const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
   field:[
-    [2,2,5,4],[8,2,10,4],[17,2,21,4], // house, shed and shop
-    [12,4,12,4],[19,13,21,14], // banana trunk and coop
+    [3,2,7,4],[10,2,12,4],[17,2,21,4], // house, shed and shop
+    [14,4,14,4],[19,13,21,14], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
@@ -685,7 +685,7 @@ export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState
     return px>=left && px<left+w && py>=top && py<top+h;
   }))return true;
   if(location==="field" && x<=1 && (y<5||y>=9))return true;
-  if(location==="field" && x===6 && y===5)return true;
+  if(location==="field" && x===NURSERY_BENCH.x && y===NURSERY_BENCH.y)return true;
   return !!signpostAt(location,x,y) || outdoorFootprints[location].some(
     ([left,top,right,bottom])=>x>=left && x<=right && y>=top && y<=bottom
   );
@@ -962,8 +962,9 @@ export type Bond = { points: number; lastTalkDay: number; talks: number; mood: E
 /** stamina is a deprecated v1-save field: ignored by gameplay, kept only for backward compatibility. */
 export type LifeStats = { stamina: number; xp: number; actions: number; harvests: number; conversations: number; nights: number };
 export const EMOTIONS: readonly Emotion[] = ["neutral", "happy", "sad", "worried", "surprised", "annoyed", "shy", "laughing"];
-export const HOME = { door: { x: 3, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
-export const SHED = { door:{x:9,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
+export const HOME = { door: { x: 5, y: 4 }, spawn: { x: 12, y: 12 }, exit: { x: 12, y: 13 }, bed: { x: 9, y: 7 } } as const;
+export const NURSERY_BENCH = { x: 8, y: 5 } as const;
+export const SHED = { door:{x:11,y:4},spawn:{x:12,y:12},exit:{x:12,y:13},rack:{x:9,y:7} } as const;
 export function newBonds(): Record<NpcId, Bond> {
   return Object.fromEntries(NPCS.map(n => [n.id, { points: 0, lastTalkDay: 0, talks: 0, mood: "neutral", lastChoice: null }])) as Record<NpcId, Bond>;
 }
@@ -971,10 +972,14 @@ export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0
 export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
 export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "Mulai dekat", "Teman", "Teman baik", "Akrab", "Dipercaya", "Sahabat", "Sahabat dekat", "Seperti keluarga", "Ikatan istimewa"][bondLevel(points)]; }
 export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
+export function fieldCanalBank(y: number) {
+  return Math.round(39 - 22 * Math.exp(-((y - 139) ** 2) / 640) + 1.3 * Math.sin(y / 11));
+}
+
 // Bounds in world pixels, matching the day/evening interiors, facade and shed artwork.
 const INTERACTION_HITBOXES = [
-  { id: "home-door", location: "field", left: 65, top: 69, right: 92, bottom: 100 },
-  { id: "shed-door", location: "field", left: 181, top: 70, right: 201, bottom: 100 },
+  { id: "home-door", location: "field", left: (HOME.door.x + .5) * WORLD.tile - 13, top: 69, right: (HOME.door.x + .5) * WORLD.tile + 14, bottom: 100 },
+  { id: "shed-door", location: "field", left: (SHED.door.x + .5) * WORLD.tile - 10, top: 70, right: (SHED.door.x + .5) * WORLD.tile + 10, bottom: 100 },
   { id: "home-exit", location: "home", left: 240, top: 270, right: 280, bottom: 289 },
   { id: "shed-exit", location: "shed", left: 236, top: 270, right: 286, bottom: 289 },
   { id: "warung-pintu", location: "field", left: 379, top: 69, right: 395, bottom: 99 },
@@ -1075,7 +1080,7 @@ export type ActionContext =
 /** One action key resolves the object in front before ever considering a farm tool. */
 export function getActionContext(s:GameState):ActionContext {
   const front=facing(s.player);
-  if(s.location==="field" && front.x===6 && front.y===5)return {kind:"nursery",label:"Periksa meja semai"};
+  if(s.location==="field" && front.x===NURSERY_BENCH.x && front.y===NURSERY_BENCH.y)return {kind:"nursery",label:"Periksa meja semai"};
   if(s.location==="shed"){
     if(interactDoor(s)!==s)return {kind:"door",label:"Keluar gudang"};
     if(canManageTools(s))return {kind:"storage",label:"Buka gudang peralatan"};
