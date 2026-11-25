@@ -1,6 +1,10 @@
 # Pedoman agen — YZ Farm Life / Yanzen E-Farmer
 
-**Berlaku untuk pekerjaan game, diperbarui 23 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
+**Berlaku untuk pekerjaan game, diperbarui 25 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
+
+## KEBIJAKAN DEPLOYMENT AKTIF — 25 NOVEMBER 2026 (WAJIB)
+
+Baca `docs/DEPLOYMENT_POLICY.md` dan `.agents/skills/yz-farm-deployment/SKILL.md` sebelum perubahan GitHub/Vercel, build, rilis, rollback atau cleanup. Satu repo, dua project permanen: E-Farmer web-only pada `yanzen-e-farmer.vercel.app` dari main; YZ Farm Life game-only pada `yanzen-e-farmer-staging.vercel.app/game` dari branch game aktif yang tercatat di policy. **Semua perubahan game hanya ke project game, tanpa preview rutin atau merge game ke main.** Pemain online bukan blocker rilis selama save kompatibel; game belum dirilis publik. Testing lokal/CI tetap wajib. Dokumentasi-only tidak memerlukan deploy. Verifikasi project/SHA/READY/alias, jangan klaim selesai bila build gagal. Retensi target satu live + maksimal dua rollback; jangan hapus alias aktif, source, data atau save. Policy ini mengalahkan instruksi deployment/preview historis di bawah dan dokumen lainnya, tanpa mengubah aturan atomic assets dan canonical NPC.
 
 ## Prioritas sumber (wajib)
 
@@ -54,5 +58,5 @@ Bedakan biografi publik yang memiliki URL sumber (riwayat jabatan/pendidikan) da
 2. Ubah **player presentation** dan narasi dengan perubahan minimal; jangan mengedit 248 JSON massal untuk menyembunyikan sebuah field di UI.
 3. Jaga tautan aksesibel, navigasi sentuh/keyboard, potret, dan kemampuan pencarian. Informasi teknis untuk reviewer tetap ada di docs/tes/log yang sesuai izin.
 4. Jalankan `npm run test:game:humanizer`, `npm run test:game:copy`, `npm run chars:public:check`, `npm run typecheck`, `npm run test:game` dan tes UI terkait. Periksa `tests/game-portraits-ui.mjs` untuk alur Warga.
-5. Build di staging khusus game; cek URL/commit, endpoint, interaksi mobile, dan browser error sebelum merge/release. Konfigurasi staging memangkas route di Vercel Hobby; itu **bukan** izin menghapus kode web pertanian dari repository.
+5. Uji lokal/Docker/CI, lalu rilis paket perubahan game ke production project staging yang sama; cek URL/commit, endpoint, interaksi mobile, dan browser error sesuai kebijakan deployment aktif. Konfigurasi staging memangkas route di Vercel Hobby; itu **bukan** izin menghapus kode web pertanian dari repository.
 6. Jangan memodifikasi lisensi atau berkas upstream `humanizer` yang checksum-nya dikunci. Perbarui adapter proyek dan dokumen aktif; tandai materi lama sebagai **historis**, bukan membuat aturan yang saling bertentangan.

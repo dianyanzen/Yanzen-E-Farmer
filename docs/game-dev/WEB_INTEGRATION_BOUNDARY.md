@@ -1,17 +1,12 @@
-# Batas integrasi web dan game (status aktif, 22 November 2026)
+# Batas integrasi web dan game — aktif 25 November 2026
 
-Dokumen lama mengenai branch `release/yz-e-farmer-web` dan `develop/yz-farm-life` merupakan **sejarah integrasi**. Jangan menggunakan prosedur stage merge lama untuk mengubah `main` sekarang; source game dan web E-Farmer telah berada pada repository yang sama.
+Baca [Standar deployment](../DEPLOYMENT_POLICY.md) sebagai sumber tunggal kebijakan rilis dan [skill deployment](../../.agents/skills/yz-farm-deployment/SKILL.md).
 
-## Struktur yang dipakai
+- Satu repository, dua project Vercel permanen. Web pertanian hanya dari main; game dari branch aktif pada standar deployment. Game tidak dirilis publik, tetapi domain staging adalah target production playtest yang stabil.
+- Build game-only memakai scripts/deploy/vercel-game-playtest.mjs di checkout sementara. Build web-only mengecualikan tombol, route, API dan public/game; jangan hapus source di GitHub. Jangan memakai konfigurasi game untuk website.
+- Data pertanian, autentikasi, database dan save tetap terjaga. Tidak ada reset, migrasi atau perubahan RLS tanpa izin dan QA.
+- Rilis langsung ke project game yang benar sesudah tes, tidak membuat preview rutin; pemain yang sedang online tidak menghalangi rilis yang kompatibel. Verifikasi SHA, READY, alias live dan QA. 
+- Dokumen lama release/yz-e-farmer-web, develop/yz-farm-life dan prosedur integrasi game ke main adalah sejarah, bukan perintah sekarang.
+- Status web-only masih terhambat provisioning pada snapshot 25 Nov; lihat policy dan Vercel untuk status aktual. Jangan menyatakan web-only live hanya karena konfigurasi telah diterima.
 
-- `main` adalah sumber Git untuk kedua proyek Vercel yang terhubung: `yanzen-e-farmer` (web lengkap) dan `yanzen-e-farmer-staging` (game-only playtest).
-- Project staging Hobby menggunakan `scripts/deploy/vercel-game-playtest.mjs` **hanya pada build sementara Vercel** untuk menjaga jumlah route serverless di bawah kuota. Delapan route yang dibutuhkan game dipertahankan; route web lainnya tetap ada di GitHub.
-- Build web penuh **tidak** boleh memakai route pruning staging karena dapat menghilangkan halaman pertanian dan administrasi.
-- Saat rilis, cocokkan project, environment, commit SHA, domain, hasil typecheck/test, status READY, dan URL yang benar. Staging READY tidak membuktikan web lengkap READY.
-- Tetap pisahkan data/save game dari akun/operasional E-Farmer. Jangan mengubah schema save atau RLS tanpa migrasi dan regresi.
-
-## Pemeriksaan sebelum produksi
-
-Jalankan `npm run test`, `npm run typecheck`, `npm run test:game`, `npm run chars:public:check`, dan build untuk target yang benar. Cek endpoint Warga, navigasi YZ Phone, transaksi pertanian, login, simpan/muat, serta tidak ada error runtime. Jika provisioning Vercel gagal sebelum build, laporkan sebagai masalah infrastruktur; jangan menurunkan keamanan tes atau menghapus route utama untuk menyembunyikan masalah.
-
-Referensi deployment terbaru ada di hasil Vercel, bukan di SHA atau daftar fitur historis. Baca `AGENTS.md` dan `PLAYER_DEVELOPER_CONTENT_BOUNDARY.md`.
+Untuk tes dan storage, ikuti policy. Jangan menghapus aset sumber, mengurangi validasi NPC, atau menurunkan keamanan karena kuota.

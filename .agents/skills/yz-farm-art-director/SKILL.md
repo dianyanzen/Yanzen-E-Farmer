@@ -3,6 +3,9 @@ name: yz-farm-art-director
 description: Standar wajib YZ Farm Life untuk audit, konsep, desain, generate, variasi, perbaikan, penggantian, penataan, dan penghapusan aset game (bangunan, interior, market, environment, props, tiles, sprite, dunia ekspansi). Mencegah art style campur, clutter, ukuran salah, collision tidak cocok, dan penghapusan aset tanpa review.
 ---
 
+**Deployment aktif 25 November 2026:** baca `.agents/skills/yz-farm-deployment/SKILL.md` dan `docs/DEPLOYMENT_POLICY.md`. Perubahan game hanya ke project `yanzen-e-farmer-staging` pada domain tetap setelah QA lokal/CI; tanpa preview rutin, tanpa deploy web pertanian. Verifikasi READY dan alias live. Aturan ini mengalahkan petunjuk preview/promotion lama; pemain online bukan blocker, save tetap kompatibel.
+
+
 # YZ Farm Life — Art Director & Asset Lifecycle
 
 **Trigger:** gunakan untuk permintaan yang menyebut aset, gambar sprite, pixel art, rumah, gudang, interior, pasar, rumah warga, lingkungan, tile, dekorasi, props, tanaman, UI world, collision visual, asset library, artwork style, kurasi/hapus aset, atau ekspansi peta. Berlaku untuk tahap konsep maupun implementasi.
@@ -39,9 +42,9 @@ Kunci proporsi tubuh Yanzen dan pivot kaki pada idle, walk, run, turn, tanam, si
 3. **Concept brief:** jelaskan fungsi bangunan, penghuninya, gaya khas, warna material, tingkat detail, pusat perhatian, dan area kosong. Bandingkan dua pendekatan bila keputusan mendasar.
 4. **Blueprint blockout:** tetapkan tile footprint, door threshold, spawn, path, depth, collision, prop location sebelum proses generate.
 5. **Master production:** sumber resolusi tinggi dan transparent separated layers; referensi karakter/ciri rumah/original world; hindari checkerboard/watermark/text acak; jangan merusak style.
-6. **Runtime pipeline:** sprite/atlas naming, version, source hash, scaled render, shadow, variants, fallback, asset database & kategorial index.
+6. **Runtime pipeline:** individual asset naming, version, source hash, scaled render, shadow, variants, fallback, asset database & kategorial index.
 7. **QA:** dual renderer, mobile/desktop, screenshots 1:1, jalan masuk, objek aktif/quest/NPC, day/night, save lama, asset dependency graph, typecheck/test:game.
-8. **Review & promotion:** laporkan perubahan dan kekurangan, deploy preview/staging setelah tests, tunggu persetujuan pemilik sebelum mengganti aset berisiko besar atau menghapus master; jangan mengklaim READY atau visual approved sebelum diverifikasi.
+8. **Review & promotion:** laporkan perubahan dan kekurangan, rilis ke domain staging permanen setelah tes lokal/CI, tunggu persetujuan pemilik sebelum mengganti aset berisiko besar atau menghapus master; jangan mengklaim READY atau visual approved sebelum diverifikasi.
 
 ## Klasifikasi laporan untuk setiap aset yang diperiksa
 Gunakan tabel dengan \`assetId, lokasi, fungsi, ukuran master/runtime, current consumer, isu nyata, confidence, opsi (KEEP/POLISH/REDESIGN/FUTURE_KEEP/ARCHIVE/REMOVE_CANDIDATE), risiko, tindakan, QA\`. Jika audit kategori besar, buat manifest dahulu, bukan 1.000 sprite baru.

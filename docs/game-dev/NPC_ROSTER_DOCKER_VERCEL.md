@@ -27,7 +27,7 @@
    ```
 
 5. Review diff **hanya** `src/lib/game/data/published-residents.json` beserta aset portrait baru yang diperlukan. Jangan commit file privat Docker, volume, PostgreSQL dump, `.env`, token, akun, sesi, atau saves.
-6. Kirim perubahan tersebut ke branch integrasi web melalui PR; pastikan hasil validasi GitHub dan deployment Vercel Preview `READY`, uji YZ Phone → Warga, dialog, avatar, save dan halaman E-Farmer sebelum promosi.
+6. Kirim perubahan ke branch game aktif sesuai [standar deployment](../DEPLOYMENT_POLICY.md); lakukan QA lokal/CI Warga, dialog, avatar dan save, lalu rilis production hanya di project game staging. Verifikasi READY dan domain; tidak perlu preview rutin atau deploy website pertanian.
 
 ## Aturan penting
 
@@ -36,4 +36,4 @@
 - JSON publik adalah **snapshot versioned**, bukan replikasi database live. Rebuild/deploy dibutuhkan setiap perubahan; jangan menanamkan kredensial Docker di Vercel.
 - Backup/restore save PostgreSQL harus dikerjakan terpisah. Sinkronisasi akun maupun sesi Docker ke akun Supabase/Vercel **tidak dilakukan**.
 - Jika roster privat belum tersedia, `published-residents.json` tetap `[]`; Vercel memakai seluruh katalog karakter yang telah ada.
-- Selalu verifikasi alamat dan izin deployment; jangan mengubah production branch atau merge ke `main` sebelum pemeriksaan dan persetujuan rilis.
+- Selalu verifikasi alamat dan izin deployment; jangan mengubah production branch tanpa keputusan pemilik dan jangan merge perubahan game ke main.

@@ -1,11 +1,15 @@
 # Yanzen E-Farmer
 
+## Deployment aktif — 25 November 2026
+
+Satu repo, dua project: [E-Farmer web-only](https://yanzen-e-farmer.vercel.app/) dan [YZ Farm Life game-only](https://yanzen-e-farmer-staging.vercel.app/game). Game masih playtest, belum rilis publik. Semua perubahan game hanya menuju project staging yang sama. Baca [standar deployment](docs/DEPLOYMENT_POLICY.md) dan [AGENTS.md](AGENTS.md) untuk branch, isolasi, status web-only yang masih terhambat provisioning, QA dan retensi. Jangan menafsirkan bagian sejarah di bawah sebagai status runtime terbaru.
+
 ## YZ Farm Life — Pasirluyu Bab 1 (development)
 
 Alur empat timun Inggit → petunjuk Ryan → foto Nani → dua pilihan akhir kini
 tersedia pada cabang pengembangan game. Jurnal, penjualan panen, kompatibilitas save
 lama dan pengujian desktop/mobile dijelaskan dalam [catatan Bab 1](docs/game-dev/PASIRLUYU_CHAPTER1.md).
-Jalankan `npm run test:game` dan `npm run test:game:ui`. Belum dirilis ke production.
+Jalankan `npm run test:game` dan `npm run test:game:ui`. Belum dirilis ke publik; tersedia pada domain staging game.
 
 Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran rencana, pengeluaran aktual, dan bon internal. Identitas visual: **Botanical Luxury** (forest green, ivory, sage, gold).
 
@@ -14,7 +18,7 @@ Aplikasi pertanian **mobile-first** untuk mengelola proyek kebun, anggaran renca
 - GitHub: https://github.com/dianyanzen/Yanzen-E-Farmer
 - Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
 - Supabase Auth, PostgreSQL, Row Level Security (RLS)
-- Deployment otomatis ke proyek Vercel yang sama dari branch `main`.
+- Target web-only dari branch `main`; status otomatis dan alias wajib diverifikasi. Game memakai project dan branch terpisah.
 
 ## Modul lama yang dipertahankan
 1. **Beranda** — ringkasan proyek, anggaran, pengeluaran, shortcut buat bon.
@@ -64,7 +68,7 @@ Visual assets are illustrative, not real expense records or a replacement for th
 
 ## YZ Farm Life — Pustaka Pengembangan (Draft)
 
-Proyek game 2D pixel-art `/game` pada branch prototipe terpisah. Basis cerita: **Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung**, dengan daftar 30 kecamatan dan YZ Phone fiktif. **Belum dirilis ke production.**
+Proyek game 2D pixel-art `/game` pada branch prototipe terpisah. Basis cerita: **Kelurahan Pasirluyu, Kecamatan Regol, Kota Bandung**, dengan daftar 30 kecamatan dan YZ Phone fiktif. **Belum dirilis ke publik; tersedia pada domain staging game.**
 
 - [Game Development Library](docs/game-dev/README.md) — titik masuk semua acuan.
 - [Asset catalog & licenses](game-assets/catalog/sources.json) — 8 pack kandidat (5 CC0 + 3 gratis komersial, dengan aturan redistribusi).
@@ -73,4 +77,4 @@ Proyek game 2D pixel-art `/game` pada branch prototipe terpisah. Basis cerita: *
 - [Panduan mendapatkan aset CC0](docs/game-dev/ASSET_PIPELINE.md) — koleksi yang aman, bukti lisensi dan optimasi.
 - [Desain cerita, portrait dan peta Bandung](docs/game-dev/GAME_DESIGN_DOCUMENT.md) — sasaran implementasi bertahap.
 
-**Status aset:** katalog dan dokumentasi sudah masuk GitHub; **dua pack tilesheet Kenney berlisensi CC0 telah diimpor sebagai sumber ke folder `game-assets/vendor`** beserta lisensinya. Belum ada aset pihak ketiga yang digunakan di runtime; tahap berikutnya adalah audit visual, atlas dan penggantian gambar game. Pengembangan aman melalui branch/PR tanpa mengubah data panen atau keuangan pertanian.
+**Status aset:** katalog dan dokumentasi sudah masuk GitHub; **dua pack tilesheet Kenney berlisensi CC0 telah diimpor sebagai sumber ke folder `game-assets/vendor`** beserta lisensinya. Belum ada aset pihak ketiga yang digunakan di runtime; catatan historis; produksi baru mengikuti standar individual asset, tanpa atlas atau cutting. Pengembangan aman melalui branch/PR tanpa mengubah data panen atau keuangan pertanian.

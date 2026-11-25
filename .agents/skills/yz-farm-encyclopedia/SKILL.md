@@ -3,6 +3,9 @@ name: yz-farm-encyclopedia
 description: Merancang dan mengaudit menu Warga/ensiklopedia YZ Farm Life yang terasa natural, memisahkan teks pemain dari Character Bible 12 kategori untuk developer, melindungi identitas canonical dan progres save.
 ---
 
+**Deployment aktif 25 November 2026:** baca `.agents/skills/yz-farm-deployment/SKILL.md` dan `docs/DEPLOYMENT_POLICY.md`. Perubahan game hanya ke project `yanzen-e-farmer-staging` pada domain tetap setelah QA lokal/CI; tanpa preview rutin, tanpa deploy web pertanian. Verifikasi READY dan alias live. Aturan ini mengalahkan petunjuk preview/promotion lama; pemain online bukan blocker, save tetap kompatibel.
+
+
 # Warga dan Ensiklopedia YZ Farm Life
 
 Skill ini digunakan saat mengedit daftar warga, profil, potret, identitas, biodata, lore publik, panel pertemanan dan tautan ke Kronik. Baca juga `../yz-farm-dialogue/SKILL.md`, `../humanizer/SKILL.md` dan `docs/game-dev/PLAYER_DEVELOPER_CONTENT_BOUNDARY.md`.
