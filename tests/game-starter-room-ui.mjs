@@ -100,8 +100,8 @@ try {
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
-  const files=room==='home'?['home-floor.svg','home-wall.svg','home-bed.png','home-cabinet.png','home-table.png','home-window.png','home-mat.png']:['shed-floor.svg','shed-wall.svg','shed-rack.png','shed-workbench.png'];
-  const ok=await page.evaluate(async files=>Promise.all(files.map(file=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(img.naturalWidth>0);img.onerror=()=>resolve(false);img.src='/game/assets/locations/yanzen/v2/'+file;}))),files);
+  const files=room==='home'?['v5/floor.svg','v5/back-wall.svg','v5/left-wall.svg','v5/right-wall.svg','v5/front-wall.svg','v5/woven-rug.svg','v5/door-mat.svg','v5/storage-shelf.svg','v5/bench.svg','v2/home-bed.png','v2/home-cabinet.png','v2/home-table.png','v2/home-window.png','v3/home-lamp.png','v3/home-plant.png']:['v2/shed-floor.svg','v2/shed-wall.svg','v2/shed-rack.png','v2/shed-workbench.png','v3/shed-wall-shelf.png','v3/shed-basket.png'];
+  const ok=await page.evaluate(async files=>Promise.all(files.map(file=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(img.naturalWidth>0);img.onerror=()=>resolve(false);img.src='/game/assets/locations/yanzen/'+file;}))),files);
   assert.ok(ok.every(Boolean),'room images decode in browser');
   await page.waitForTimeout(1000);
   await page.screenshot({path:path.join(output,room+'-'+width+'.png'),fullPage:true});

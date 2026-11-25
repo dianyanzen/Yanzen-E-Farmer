@@ -77,15 +77,29 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
     return;
   }
-  if(state.location==="shed"){
-    if (YANZEN_MODULAR_INTERIORS_ENABLED && art.roomAssets?.shedFloor && art.roomAssets?.shedWall &&
-        yanzenInteriorLayout.shed.every(item=>art.roomAssets?.[item.key])) {
-      ctx.drawImage(art.roomAssets.shedFloor,0,0,W*T,H*T);
-      for (const item of yanzenInteriorLayout.shed) {
-        const image=art.roomAssets[item.key];
-        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
+  // Modular rooms: architecture/floor, then furniture interleaved by feet, then foreground.
+  if ((state.location==="home"||state.location==="shed") && YANZEN_MODULAR_INTERIORS_ENABLED) {
+    const room=state.location, items=yanzenInteriorLayout[room], floor=art.roomAssets?.[room+"Floor"];
+    if (floor && items.every(item=>art.roomAssets?.[item.key])) {
+      ctx.drawImage(floor,0,0,W*T,H*T);
+      const paint=(item:typeof items[number])=> {
+        const image=art.roomAssets?.[item.key]; if(image)ctx.drawImage(image,item.x,item.y,item.width,item.height);
+      };
+      items.filter(item=>item.layer==="architecture"||item.layer==="floor").forEach(paint);
+      const furniture=items.filter(item=>item.layer==="furniture").sort((a,b)=>a.depth-b.depth);
+      const footY=(position.y+1)*T;
+      furniture.filter(item=>item.depth<=footY).forEach(paint);
+      actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+      furniture.filter(item=>item.depth>footY).forEach(paint);
+      items.filter(item=>item.layer==="foreground").forEach(paint);
+      if(room==="home" && state.minutes>=18*60) {
+        ctx.fillStyle="rgba(27,32,43,.19)";ctx.fillRect(150,92,200,198);
       }
-    } else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
+      return;
+    }
+  }
+  if(state.location==="shed"){
+    if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
     box(ctx,7*T,5*T,11*T,10*T,"#53402f");
@@ -109,15 +123,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if (state.location === "home") {
-    if (YANZEN_MODULAR_INTERIORS_ENABLED && art.roomAssets?.homeFloor && art.roomAssets?.homeWall &&
-        yanzenInteriorLayout.home.every(item=>art.roomAssets?.[item.key])) {
-      ctx.drawImage(art.roomAssets.homeFloor,0,0,W*T,H*T);
-      for (const item of yanzenInteriorLayout.home) {
-        const image=art.roomAssets[item.key];
-        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
-      }
-      if(state.minutes>=18*60) { ctx.fillStyle="rgba(27,32,43,.24)"; ctx.fillRect(0,0,W*T,H*T); }
-    } else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
+    if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");

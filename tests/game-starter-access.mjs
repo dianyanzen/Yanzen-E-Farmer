@@ -36,9 +36,18 @@ for (const room of ['home','shed']) {
  for (const [x,y] of [[8,7],[8,10],[12,8],[15,8],[16,13]]) assert.equal(m.homeBlocked(x,y,room),false,`${room} visible floor ${x},${y}`);
  for (const [x,y] of [[9,7],[10,7],[15,7],[16,7],[7,8],[17,8]]) assert.equal(m.homeBlocked(x,y,room),true,`${room} furniture or wall ${x},${y}`);
 }
-assert.equal(m.homeBlocked(8,11,'home'),true,'plant blocks its tile');
+assert.equal(m.homeBlocked(8,11,'home'),true,'shelf blocks its tile');
+assert.equal(m.homeBlocked(16,12,'home'),true,'plant blocks its tile');
+assert.equal(m.homeBlocked(15,10,'home'),true,'desk blocks its tile');
+assert.equal(m.homeBlocked(15,11,'home'),true,'bench blocks its tile');
+assert.equal(m.homeBlocked(12,10,'home'),false,'rug is walkable');
+for(const room of ['home','shed']) {
+ const state={...field,location:room,player:{x:12,y:12,dir:'up'}};
+ const reachableTiles=reachable(state);
+ for(let y=6;y<=13;y++)for(let x=8;x<=16;x++)if(!m.homeBlocked(x,y,room))assert.ok(reachableTiles.some(p=>p.x===x&&p.y===y),`${room} disconnected floor ${x},${y}`);
+}
 assert.equal(m.homeBlocked(15,11,'shed'),true,'basket blocks its tile');
-const oldRoom={...field,location:'home',player:{x:12,y:6,dir:'down'},day:13};
+const oldRoom={...field,location:'home',player:{x:15,y:10,dir:'down'},day:13};
 const migrated=m.safeLoad(oldRoom);
 assert.ok(migrated && !m.homeBlocked(migrated.player.x,migrated.player.y,'home'),'old room save moved out of new obstruction');
 assert.equal(migrated.day,13,'migration preserves progress');

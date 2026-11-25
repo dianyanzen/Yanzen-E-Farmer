@@ -7,6 +7,7 @@ export function formatGameRupiah(amount: number): string {
 import type { QuestBook, FollowUpBook } from "./personal-quests";
 
 import cast from "../../../game-assets/catalog/cast.json";
+import yanzenRoomLayout from "./yanzen-room-layout.json";
 /** YZ Farm Life tool registry. Entries marked planned are design data, not playable mechanics. */
 export const TOOL_CATALOG = {
   hoe: {name:"Cangkul",category:"Bertani",function:"Mengolah petak tanah kosong untuk ditanami.",target:"Petak tanah",status:"active"},
@@ -1019,11 +1020,9 @@ export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
 export function homeBlocked(x: number, y: number, room:"home"|"shed"="home") {
-  if(x<8||x>16||y<6||y>13)return true;
-  if(x>=9&&x<=10&&y<=7)return true; // bed or tool rack
-  if(x>=15&&x<=16&&y<=7)return true; // cabinet or workbench
-  if(room==="home" && ((x===12 && y===6) || (x===8 && y===11)))return true; // desk and plant
-  return room==="shed" && x===15 && y===11; // basket
+  const {minX,maxX,minY,maxY}=yanzenRoomLayout.bounds;
+  return x<minX||x>maxX||y<minY||y>maxY ||
+    yanzenRoomLayout[room].some(item=>item.tiles.some(([tx,ty])=>tx===x&&ty===y));
 }
 function warungOpen(s: GameState) {
   const inggit = npcWhere(s,"C08");

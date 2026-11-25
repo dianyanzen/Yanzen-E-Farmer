@@ -1,0 +1,5 @@
+# Rumah Yanzen cozy V5 — implementasi tahap pertama
+
+Acuan konsep pemilik 25 November 2026: rumah Sunda hangat dengan lantai kayu, dinding anyaman, kasur kiri, kabinet kanan, meja kerja, tikar rata dan pot. Tidak menggunakan gambar konsep komposit sebagai runtime. V5 adalah pendekatan berbasis sembilan SVG individual original dan PNG furnitur V2/V3 yang telah ada; bukan salinan HD persis. Tidak ada cutting atau atlas baru. Legacy tetap sebagai fallback. Rumah dan gudang berbagi kontrak layout JSON (bukan gambar), collision dari tiles setiap furnitur, dan depth berdasarkan kaki. Gudang tidak didesain ulang. Skema save dan hotspot tidur/pintu/rak tetap; migrasi posisi memakai safeLoad existing.
+
+QA wajib: npm run test:game:starter, npm run typecheck, npm run test:game, npm run test:game:starter:ui, npm run test:game:starter:ui:phaser. Cek visual day/night, floor walkability, collision, depth, fallback dan alias READY. SVG baru masih perlu review artistik pada ukuran runtime; PNG HD baru yang sama persis dengan konsep belum masuk. Tidak mengubah web E-Farmer, NPC atau data pemain.

@@ -13,7 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, drawIrrigationChannel, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
-import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout } from "./yanzen-interior-art";
+import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout, interiorDepth } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -66,6 +66,7 @@ class YZWorldScene extends Phaser.Scene {
   private waterKey = "";
   private weather!: Phaser.GameObjects.Graphics;
   private dusk!: Phaser.GameObjects.Image;
+  private roomShade!: Phaser.GameObjects.Graphics;
   private actor!: Phaser.GameObjects.Sprite;
   private actorShadow!: Phaser.GameObjects.Ellipse;
   private effect!: Phaser.GameObjects.Sprite;
@@ -103,7 +104,7 @@ class YZWorldScene extends Phaser.Scene {
     this.load.svg("yz-shed", "/game/assets/pasirluyu/gudang-interior.svg", { width: 480, height: HEIGHT });
     for (const [id,path] of Object.entries(YANZEN_MODULAR_INTERIORS_ENABLED ? yanzenInteriorAssets : {})) {
       const key="yz-room-"+id, url="/game/assets/"+path;
-      if(path.endsWith(".svg")) this.load.svg(key,url,{width:480,height:HEIGHT});
+      if(path.endsWith(".svg")) this.load.svg(key,url);
       else this.load.image(key,url);
     }
   }
@@ -128,6 +129,7 @@ class YZWorldScene extends Phaser.Scene {
       this.water = this.add.graphics().setDepth(9);
       this.weather = this.add.graphics().setDepth(4000);
       this.dusk = this.add.image(0,0,"yz-map-night-field").setOrigin(0).setDepth(5000).setAlpha(0);
+      this.roomShade = this.add.graphics().setDepth(4900);
       this.actorShadow=this.add.ellipse(0,0,12,4,0x3b3725,.25);
       this.actor = this.add.sprite(0, 0, "yz-people", 1).setOrigin(0).setDepth(1000);
       this.cameras.main.setBounds(0, 0, WIDTH, HEIGHT);
@@ -242,7 +244,7 @@ class YZWorldScene extends Phaser.Scene {
       this.background.setTexture("yz-room-"+room+"Floor").setDisplaySize(480, HEIGHT);
       this.mapProps = yanzenInteriorLayout[room].map(item =>
         this.add.image(item.x,item.y,"yz-room-"+item.key)
-          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(20+item.depth));
+          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(interiorDepth(item)));
     } else {
       const key=isResidentHome(location) ? location : location==="home" ?
         (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") : location==="warung" ? "yz-warung" : "yz-shed";
@@ -447,6 +449,7 @@ class YZWorldScene extends Phaser.Scene {
     this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(frame.position.y));
     // Fade only tall scenery that would cover the avatar from head to feet.
     for(const prop of this.mapProps){
+      if(!isOutdoorLocation(location))continue;
       if(prop.displayHeight<39)continue;
       const obscured = footY<prop.y && footY>prop.y-prop.displayHeight+10 &&
         Math.abs(footX-prop.x)<prop.displayWidth*.34;
@@ -508,6 +511,10 @@ class YZWorldScene extends Phaser.Scene {
     }
     const dusk=Math.max(0,Math.min(1,(frame.state.minutes-960)/120));
     this.dusk.setAlpha(!isOutdoorLocation(location) ? 0 : dusk);
+    this.roomShade.clear();
+    if(location==="home" && frame.state.minutes>=18*60 && this.textures.exists("yz-room-homeFloor") && yanzenInteriorLayout.home.every(item=>this.textures.exists("yz-room-"+item.key))) {
+      this.roomShade.fillStyle(0x1b202b,.19).fillRect(150,92,200,198);
+    }
     const rainFrame = isOutdoorLocation(location) &&
       weatherForDay(frame.state.day) === "hujan" ? frame.ambient : null;
     if (this.lastRainFrame !== rainFrame) {
