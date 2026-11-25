@@ -22,7 +22,7 @@ assert.equal(initial.coins, 280);
 assert.equal(initial.plots.length, 0);
 assert.equal(movePlayer(initial, 'up').player.y, 9);
 assert.equal(movePlayer({ ...initial, player: {x: 12, y: 5, dir:'up'} }, 'up').player.y, 5, 'building collision');
-assert.equal(movePlayer({ ...initial, player: {x: 12, y: 8, dir:'up'} }, 'right').player.x, 12, 'NPC collision');
+assert.equal(movePlayer({ ...initial, player: {x: 17, y: 8, dir:'up'} }, 'right').player.x, 17, 'NPC collision');
 
 let state = { ...newGame(), player: { x: 11, y: 8, dir: 'left' }};
 let r = applyFarmTool(state, 'hoe');state = r.state;

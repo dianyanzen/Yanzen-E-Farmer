@@ -234,7 +234,7 @@ class YZWorldScene extends Phaser.Scene {
         const image=this.add.image(prop.x,prop.y,"yz-map-"+prop.asset).setOrigin(.5,1);
         if(prop.displayW && prop.displayH) image.setDisplaySize(prop.displayW,prop.displayH);
         else image.setScale(prop.scale ?? 1);
-        return image.setDepth(1000 + (prop.groundY ?? prop.y) - TILE);
+        return image.setDepth(1000 + (prop.groundY ?? prop.y) - TILE).setVisible(prop.visible !== false);
       });
     } else if (YANZEN_MODULAR_INTERIORS_ENABLED && (location === "home" || location === "shed") &&
                this.textures.exists("yz-room-"+location+"Floor") &&
@@ -387,11 +387,13 @@ class YZWorldScene extends Phaser.Scene {
         this.highlight.strokeRect(tx*TILE+1,ty*TILE+1,TILE-2,TILE-2);
       }
     } else this.irrigation.setVisible(false);
-    const propState=location+":"+Number(frame.state.minutes>=720 && frame.state.minutes<1140)+":"+Number(!!frame.state.sluiceOpen);
-    if ((location === "pasar" || location === "sungai") && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
+    const propState=location+":"+frame.state.minutes+":"+Number(!!frame.state.sluiceOpen);
+    if (isOutdoorLocation(location) && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
       const sprite = this.mapProps[index];
 
-      if (sprite && sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
+      if (!sprite) return;
+      sprite.setVisible(prop.visible !== false);
+      if (sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
     });
     this.propState=propState;
     const route = frame.route ?? [];

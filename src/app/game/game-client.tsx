@@ -5,7 +5,7 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
-  INGGIT_WARUNG, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  atMarketCounter, warungCounterStaffed, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, interactionHitboxAt, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
@@ -660,7 +660,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     if (movementLocked || crossing.current || !tile) return;
     const route = planTapRoute(game, tile.x, tile.y, tile.world);
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
-    const counter = game.location==="field" && game.minutes<INGGIT_WARUNG.closesAt &&
+    const counter = game.location==="field" && warungCounterStaffed(game.minutes) &&
       interactionHitboxAt("field",tile.world.x,tile.world.y)?.id==="warung-counter";
     tapRoute.current = route ? {...route,resident:resident?.id ?? (counter ? "C08" : undefined)} : null;
     if (!route) {
@@ -893,7 +893,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
-          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && game.location==="pasar" && (
+          {dialogue.npcId && isMarketMerchant(dialogue.npcId) && atMarketCounter(game,dialogue.npcId) && (
             <details className="yzg-market" open={dialogue.title==="Lapak pasar"}>
               <summary>
                 <strong>{dialogue.npcId==="C07"?"Lapak pancing Widi":"Lapak benih Ayu"}</strong>

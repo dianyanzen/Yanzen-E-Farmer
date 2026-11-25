@@ -219,9 +219,10 @@ function loadFishing(raw:unknown):FishingInventory|null{
 }
 export type MarketMerchant="A04"|"C07";
 export function isMarketMerchant(id:NpcId):id is MarketMerchant{return id==="A04"||id==="C07";}
-function closingTime(id:NpcId){return id==="A04"?1020:id==="C07"?1050:id==="C08"?INGGIT_WARUNG.closesAt:1080;}
+function closingTime(id:NpcId){return id==="A04"?1020:id==="C07"?1050:1080;}
 export function atMarketCounter(s:GameState,merchant:MarketMerchant){
-  if(s.location!=="pasar" || s.minutes>=closingTime(merchant))return false;
+  if(s.location!=="pasar" || s.minutes>=closingTime(merchant) ||
+    (merchant==="C07" && s.minutes<WIDI_OPENS_AT))return false;
   const shopkeeper=npcWhere(s,merchant),front=facing(s.player);
   return shopkeeper.location==="pasar" && front.x===shopkeeper.x && front.y===shopkeeper.y;
 }
@@ -286,11 +287,15 @@ export function finishFishingAttempt(s:GameState,outcome:FishingOutcome,species?
 
 export const WORLD = { width: 32, height: 16, tile: 20 } as const;
 export const INGGIT_WARUNG = {
-  x: 19, y: 5, staffExitX: 21, closesAt: 19 * 60,
+  x: 19, y: 5, staffExitX: 21, opensAt: 6 * 60, closesAt: 15 * 60, cleanupAt: 14 * 60 + 47,
   westBench: { x: 16, y: 7 },
   table: { x: 18, y: 7 },
   eastBench: { x: 20, y: 7 },
 } as const;
+export const WIDI_OPENS_AT = 9 * 60;
+const RYAN_LAST_COFFEE_MINUTE = 7 * 60 + 14;
+const NANI_LEAVES_WARUNG = 10 * 60;
+const INGGIT_HOME_AT = 20 * 60;
 // The approach tile is shared by the door, its return point, and the resident's evening route.
 export const RESIDENT_HOMES = [
   { location:"rumah-nani", owner:"C01", name:"Nani", x:8, y:8, doorX:160,
@@ -469,10 +474,10 @@ type OutdoorPoint = { location: OutdoorLocation; x: number; y: number };
 const point = (location: OutdoorLocation, x: number, y: number): OutdoorPoint => ({ location, x, y });
 const dailyStops = {
   A04: [point("pasar",6,9),point("pasar",6,9),point("gang",15,14)],
-  C07: [point("pasar",27,8),point("pasar",27,8),point("gang",26,8)],
-  A03: [point("field",13,8), point("sungai",8,8), point("gang",20,8)],
-  C01: [point("field",16,11), point("gang",5,8), point("gang",8,8)],
-  C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("gang",4,14)],
+  C07: [point("field",18,8),point("pasar",27,8),point("gang",26,8)],
+  A03: [point("field",18,6), point("sungai",8,8), point("gang",20,8)],
+  C01: [point("field",16,8), point("gang",5,8), point("gang",8,8)],
+  C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("pasar",19,8), point("gang",4,14)],
 } satisfies Record<NpcId, OutdoorPoint[]>;
 const residentRoutes = new Map<string, OutdoorPoint[]>();
 function residentRoute(from: OutdoorPoint, to: OutdoorPoint) {
@@ -502,36 +507,76 @@ function residentRoute(from: OutdoorPoint, to: OutdoorPoint) {
   }
   return [from];
 }
+const staffLane = [
+  point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y),
+  point("field",INGGIT_WARUNG.x+1,INGGIT_WARUNG.y),
+  point("field",INGGIT_WARUNG.staffExitX,INGGIT_WARUNG.y),
+];
+const cleaningPath = [
+  ...staffLane,
+  point("field",21,6), point("field",20,6), point("field",19,6),
+  point("field",19,7),
+  point("field",19,6), point("field",20,6), point("field",21,6),
+  ...staffLane.slice().reverse(),
+];
+const cupsClearedAt = INGGIT_WARUNG.cleanupAt + 6;
+const stepAlong = (route: OutdoorPoint[], elapsed: number) => route[Math.min(route.length-1,elapsed)];
+
+function sameStop(a: OutdoorPoint, b: OutdoorPoint) {
+  return a.location === b.location && a.x === b.x && a.y === b.y;
+}
+
+function widiLeavesWarung() {
+  const [morning,work] = dailyStops.C07;
+  return WIDI_OPENS_AT - (residentRoute(morning,work).length - 1);
+}
+
+export function warungCounterStaffed(minutes: number) {
+  return minutes >= INGGIT_WARUNG.opensAt && minutes < INGGIT_WARUNG.closesAt &&
+    (minutes < INGGIT_WARUNG.cleanupAt || cleaningPath[minutes-INGGIT_WARUNG.cleanupAt] === staffLane[0]);
+}
+
+export function warungCoffee(minutes: number, owner: "ryan" | "widi"): "full" | "empty" | "cleared" {
+  if(minutes < INGGIT_WARUNG.opensAt || minutes >= cupsClearedAt)return "cleared";
+  const departure = owner === "ryan" ? RYAN_LAST_COFFEE_MINUTE : widiLeavesWarung();
+  return minutes > departure ? "empty" : "full";
+}
+
 export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] {
+  const {minutes} = s;
   return NPCS.map(npc => {
     const [morning, work, home] = dailyStops[npc.id];
-    const close=closingTime(npc.id);
-    const returning=s.minutes>=close;
-    if(isMarketMerchant(npc.id) && !returning)return {...npc,...work,activity:npc.id==="A04"?"Menjaga lapak benih":"Melayani pemancing di lapak ikan"};
     if (npc.id === "C08") {
-      if (!returning) return {...npc,...work,activity:"Melayani dari balik konter"};
-      // Inggit alone can use the staff lane behind the counter.
-      const staffLane = [
-        work,
-        point("field",work.x+1,work.y),
-        point("field",INGGIT_WARUNG.staffExitX,work.y),
-      ];
-      const route = [...staffLane.slice(0,-1),...residentRoute(staffLane[2],home)];
-      const index = Math.min(route.length-1,s.minutes-close);
-      const indoors = s.minutes-close >= route.length;
-      return {...npc,...route[index],indoors,activity:indoors?"Beristirahat di rumah":"Berjalan pulang"};
+      const {opensAt,closesAt,cleanupAt} = INGGIT_WARUNG;
+      if(minutes < opensAt){
+        const toWarung = [...residentRoute(staffLane[2],home).slice().reverse(),...staffLane.slice(0,-1).reverse()];
+        const start = opensAt - toWarung.length + 1;
+        if(minutes < start)return {...npc,...home,indoors:true,activity:"Beristirahat di rumah"};
+        return {...npc,...stepAlong(toWarung,minutes-start),activity:"Berjalan ke warung"};
+      }
+      if(minutes < cleanupAt)return {...npc,...morning,activity:"Melayani dari balik konter"};
+      if(minutes < closesAt)return {...npc,...stepAlong(cleaningPath,minutes-cleanupAt),activity:"Merapikan warung"};
+      const toHome = residentRoute(work,home);
+      const homeDeparture = INGGIT_HOME_AT - toHome.length + 1;
+      if(minutes >= homeDeparture)return {...npc,...stepAlong(toHome,minutes-homeDeparture),
+        indoors:minutes>=INGGIT_HOME_AT,activity:minutes>=INGGIT_HOME_AT?"Beristirahat di rumah":"Berjalan pulang"};
+      const toMarket = [...staffLane.slice(0,-1),...residentRoute(staffLane[2],work)];
+      const step = stepAlong(toMarket,minutes-closesAt);
+      return {...npc,...step,activity:sameStop(step,work)?"Belanja keperluan warung":"Berjalan ke pasar"};
     }
-    const departed = s.minutes >= 720;
-    if (!departed) return {...npc,...morning,activity:"Beraktivitas di kebun"};
-    const start = returning ? close : 720;
-    const route = returning ? residentRoute(work,home) : residentRoute(morning,work);
-    const index = Math.min(route.length-1,Math.floor(s.minutes-start));
-    const indoors = returning && index === route.length-1 && s.minutes > start + index;
-    const activity = indoors ? "Beristirahat di rumah" : returning ? "Berjalan pulang" :
-      index < route.length-1 ? "Berjalan ke tempat kerja" :
-      npc.id === "A03" ? "Mengukur debit sungai" : npc.id === "C01" ?
-        "Menyapa tetangga di depan rumah" : "Menjaga lapak pasar";
-    return {...npc,...route[index],activity,indoors};
+    const close = closingTime(npc.id);
+    if(minutes >= close){
+      const route = residentRoute(work,home);
+      const elapsed = minutes-close;
+      const indoors = elapsed >= route.length;
+      return {...npc,...stepAlong(route,elapsed),indoors,activity:indoors?"Beristirahat di rumah":"Berjalan pulang"};
+    }
+    if(npc.id === "A04")return {...npc,...work,activity:"Menjaga lapak benih"};
+    const departure = npc.id === "C07" ? widiLeavesWarung() : npc.id === "A03" ? RYAN_LAST_COFFEE_MINUTE : NANI_LEAVES_WARUNG;
+    if(minutes <= departure)return {...npc,...morning,activity:npc.id==="C01"?"Mengobrol di depan warung":"Ngopi di Warung Inggit"};
+    const step = stepAlong(residentRoute(morning,work),minutes-departure);
+    return {...npc,...step,activity:!sameStop(step,work)?"Berjalan ke tempat kerja":npc.id==="C07"?
+      "Melayani pemancing di lapak ikan":npc.id==="A03"?"Mengukur debit sungai":"Menyapa tetangga di depan rumah"};
   });
 }
 export function npcHere(s:GameState):NpcPlacement[]{
@@ -547,10 +592,14 @@ export function npcWhere(s:GameState,id:NpcId):NpcPlacement{
 }
 export function npcAmbient(s:GameState,id:NpcId):string{
   const bond=s.bonds[id],place=npcWhere(s,id),soul=NPC_SOULS[id];
+  if(id==="C08" && place.activity==="Belanja keperluan warung")
+    return "Aku lagi cari bahan buat besok. Kalau mau mampir ke warung, besok buka lagi jam enam.";
   if(isMarketMerchant(id)){
     if(place.indoors)return "Hari ini lapaknya sudah tutup. Besok pagi kita bertemu lagi di pasar.";
     if(place.activity==="Berjalan pulang")return "Mari berjalan bersama sampai gang. Gerobaknya sudah kutitipkan pada penjaga pasar.";
     if(id==="C07"){
+      if(s.minutes<WIDI_OPENS_AT)return place.location==="field"&&s.minutes<=widiLeavesWarung()?
+        "Kopi dulu sebelum buka lapak. Jam sembilan aku sudah di pasar.":"Aku mau pasang lapak dulu. Nanti mampir jam sembilan, ya.";
       if(FISH_IDS.some(fish=>s.fishing.fish[fish]>0))
         return "Ada ikan di tasmu? Sini, kita timbang satu per satu. Ukurannya jangan sampai tertukar.";
       if(s.fishing.bait===0)return "Peletmu habis, ya? Di kotak sebelah timbangan masih ada beberapa bungkus.";
@@ -581,6 +630,8 @@ export function npcAmbient(s:GameState,id:NpcId):string{
     return id==="A03"?"Catatan hari ini sudah kita cocokkan. Besok kita lihat lagi.":
       id==="C01"?"Melatiku sudah kusiram. Kamu boleh mampir lagi besok.":
         "Masih ada yang harus kusiapkan untuk warung. Nanti kita sambung, ya.";
+  if(id==="A03" && place.activity==="Ngopi di Warung Inggit")
+    return "Kopi hitam dulu. Sebentar lagi aku mau cek aliran air di sungai.";
   if(s.minutes>=1080)return id==="A03"?"Sebentar lagi gelap. Aku mesti menyelesaikan catatan air sebelum pulang.":
     id==="C01"?"Sore ini bunga melatiku sudah menutup. Besok pagi kita lihat lagi.":
       "Warung hampir tutup. Aku mau merapikan panci dulu sebelum pulang.";
@@ -781,6 +832,8 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
     "Satu bungkus berisi lima bibit timun. Kalau hasilmu berlebih, bawa lagi ke sini. Timun yang sudah dijanjikan kepada Inggit kita sisihkan dahulu.",
     "Kadang aku menyelipkan catatan dari kebun asalnya. Orang suka menanyakan siapa penanam benih yang akhirnya tumbuh di pekarangan mereka."
   ]};
+  if(npc==="C07" && s.minutes<WIDI_OPENS_AT)
+    return {state:s,title:"Widi",lines:[npcAmbient(s,npc)]};
   if(npc==="C07")return {state:s,title:"Widi · Lapak pancing",lines:[
     "Sebentar, kusimpan joran ini dulu. Mau cari pelet atau jual ikan? Biar kutimbang kalau sudah ada hasil."
   ]};
@@ -1125,7 +1178,9 @@ export function getActionContext(s:GameState):ActionContext {
     return {kind:"inspect",label:home.object,text:home.note};
   }
   if(privateDoor==="warung-counter"){
-    if(s.minutes<INGGIT_WARUNG.closesAt)return {kind:"npc",label:"Bicara dengan Inggit",npcId:"C08"};
+    if(warungCounterStaffed(s.minutes))return {kind:"npc",label:"Bicara dengan Inggit",npcId:"C08"};
+    if(s.minutes>=INGGIT_WARUNG.cleanupAt && s.minutes<INGGIT_WARUNG.closesAt)
+      return {kind:"inspect",label:"Warung Inggit",text:"Inggit sedang merapikan meja sebelum berangkat ke pasar."};
     return {kind:"inspect",label:"Warung Inggit",text:"Warung sudah tutup. Besok pagi Inggit menyeduh kopi lagi."};
   }
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);

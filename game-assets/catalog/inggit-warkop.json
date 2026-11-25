@@ -126,6 +126,111 @@
         "Canvas",
         "Phaser"
       ]
+    },
+    {
+      "assetId": "inggit-closed-sign",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/closed-sign.png",
+      "runtimeSHA256": "3d37b4c5cd3add1f181be5271ba8584d1debfc4da2fb5538e69a7d29eea73cb7",
+      "canvasSize": [
+        26,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        26,
+        12
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-ryan-coffee-empty",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/ryan-coffee-empty.png",
+      "runtimeSHA256": "59295bd90fc63af89b4dbdb7a57d75caeaf097370a245fc06c226f92b4af8726",
+      "canvasSize": [
+        12,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        12,
+        10
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-ryan-coffee-full",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/ryan-coffee-full.png",
+      "runtimeSHA256": "95ac6cedaabaafc242353f119d8e051ab11e82956325e1af3622d6a15c8131e4",
+      "canvasSize": [
+        12,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        12,
+        10
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-widi-coffee-empty",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/widi-coffee-empty.png",
+      "runtimeSHA256": "ef37524c04c354bdae83433cf0ba7cd963d4787e796af87a5935126d243e542a",
+      "canvasSize": [
+        12,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        12,
+        10
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-widi-coffee-full",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/widi-coffee-full.png",
+      "runtimeSHA256": "27760f4c85a9b0b50fc2d2f753d780f9ad86c9c39bbecf2454105be8f67abc95",
+      "canvasSize": [
+        12,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        12,
+        10
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
     }
   ]
 }

@@ -53,7 +53,7 @@ assert.equal(unrestricted.stats.stamina,0,"legacy stamina field never changes");
 const beginning=newGame();
 assert.equal(getActionContext(beginning).kind,"none");
 assert.equal(getActionContext({...beginning,player:{x:HOME.door.x,y:5,dir:"up"}}).kind,"door");
-assert.equal(getActionContext({...beginning,player:{x:12,y:8,dir:"right"}}).kind,"npc");
+assert.equal(getActionContext({...beginning,player:{x:17,y:8,dir:"right"}}).kind,"npc");
 assert.equal(getActionContext({...beginning,player:{x:11,y:8,dir:"left"}}).kind,"farm");
 assert.equal(getActionContext({...beginning,player:{x:3,y:8,dir:"left"}}).kind,"irrigate");
 const room={...beginning,location:"home",player:{x:9,y:8,dir:"up"}};

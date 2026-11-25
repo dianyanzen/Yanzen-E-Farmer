@@ -208,7 +208,7 @@ try {
   const touch=width===393;
   const page=await browser.newPage({viewport:{width,height:touch?852:900},hasTouch:touch,reducedMotion:'reduce'});
   const {x,y}=model.INGGIT_WARUNG;
-  const state={...seed,minutes:15*60,location:'field',player:{x,y:y+1,dir:'up'},phoneRead:true};
+  const state={...seed,minutes:14*60,location:'field',player:{x,y:y+1,dir:'up'},phoneRead:true};
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1');

@@ -1,5 +1,5 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
@@ -27,8 +27,10 @@ export const outdoorSources: Record<string,string> = {
   "inggit-window": "locations/inggit/kebun/counter.png",
   "inggit-awning": "locations/inggit/kebun/awning.png",
   "inggit-sign": "locations/inggit/kebun/sign.png",
-  ...Object.fromEntries(["open-front","service-counter","west-bench","east-bench","coffee-table","enamel-kettle"]
+  ...Object.fromEntries(["open-front","service-counter","west-bench","east-bench","coffee-table","enamel-kettle","closed-sign"]
     .map(part => [`inggit-${part}`, `locations/inggit/warkop/${part}.png`])),
+  ...Object.fromEntries((["ryan","widi"] as const).flatMap(owner => ["full","empty"].map(phase =>
+    [`inggit-${owner}-coffee-${phase}`, `locations/inggit/warkop/${owner}-coffee-${phase}.png`]))),
   ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
@@ -60,7 +62,7 @@ export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries(landmarks.map(name => [name, kit + "landmark/" + name + ".png"])),
 };
 type Point = readonly [number,number];
-type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number };
+type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number; visible?:boolean };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
 type Route = readonly [number,readonly Point[]];
 const homeX = (HOME.door.x + .5) * WORLD.tile;
@@ -291,9 +293,22 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
   return (watered?12:0)+(stage===0?6:3)+((x+2*y)%3);
 }
 
-export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false) {
-  return props[location].map(p => p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p.closedAsset && (minutes<720 || minutes>=1140) ?
+export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false): Placement[] {
+  const scenery = props[location].map(p => p.asset==="inggit-sign" &&
+    (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p.closedAsset && (minutes<720 || minutes>=1140) ?
     {...p,asset:p.closedAsset} : p);
+  if(location!=="field")return scenery;
+  const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
+  const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile;
+  const cups = (["ryan","widi"] as const).map((owner,index): Placement => {
+    const phase = warungCoffee(minutes,owner);
+    return {
+      asset:`inggit-${owner}-coffee-${phase==="full"?"full":"empty"}`,
+      x:tableX+(index===0?-7:7),y:tableY-13,displayW:12,displayH:10,
+      groundY:tableY,visible:phase!=="cleared",
+    };
+  });
+  return [...scenery,...cups];
 }
 
 function tile(ctx:CanvasRenderingContext2D, image:CanvasImageSource|undefined, id:number, x:number,y:number, size=20) {

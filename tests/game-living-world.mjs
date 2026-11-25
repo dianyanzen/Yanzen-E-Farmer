@@ -15,7 +15,7 @@ const {newGame,movePlayer,npcSchedule,npcHere,npcAmbient,npcWhere,areaTitle,
   getActionContext,chooseSocial,safeLoad,weatherForDay,nextDay,areaBlocked,mapExit,
   PASIRLUYU_MASTER,PASIRLUYU_CHUNKS,ROUTE_BARRIERS,toWorldTile,isMasterRoad,routeBarrierAt}=model;
 let s=newGame();
-assert.equal(npcHere(s).length,3,"intro NPCs all visible on early morning");
+assert.equal(npcHere(s).length,4,"intro NPCs all visible on early morning");
 assert.equal(npcWhere(s,"A03").location,"field");
 assert.equal(npcWhere({...s,minutes:13*60},"A03").location,"sungai");
 assert.equal(npcWhere({...s,minutes:13*60},"C01").location,"gang");
@@ -36,6 +36,22 @@ const restored=safeLoad({...s,location:"warung",day:3,coins:742});
 assert.equal(restored.location,"field");
 assert.deepEqual([restored.player.x,restored.player.y,restored.player.dir,restored.day,restored.coins],[counter.x,counter.y+1,"up",3,742]);
 assert.match(getActionContext({...customer,minutes:1200}).text,/sudah tutup/i);
+const at = (id,minutes) => npcWhere({...s,minutes},id);
+assert.equal(at("C08",360).activity,"Melayani dari balik konter");
+assert.equal(at("C08",900).activity,"Berjalan ke pasar");
+assert.equal(at("C08",960).location,"pasar");
+assert.equal(at("C08",1199).indoors,false);
+assert.equal(at("C08",1200).indoors,true);
+assert.equal(npcHere({...s,location:"rumah-inggit",minutes:1200})[0].id,"C08");
+for(const id of ["A03","C07","C01"])assert.equal(at(id,380).location,"field");
+assert.equal(at("C07",model.WIDI_OPENS_AT).activity,"Melayani pemancing di lapak ikan");
+assert.equal(model.atMarketCounter({...s,location:"pasar",minutes:539,player:{x:27,y:9,dir:"up"}},"C07"),false);
+assert.equal(model.atMarketCounter({...s,location:"pasar",minutes:540,player:{x:27,y:9,dir:"up"}},"C07"),true);
+for(const [minutes,ryan,widi] of [[380,"full","full"],[434,"full","full"],[435,"empty","full"],[480,"empty","empty"],[892,"empty","empty"],[893,"cleared","cleared"]]){
+ assert.deepEqual([model.warungCoffee(minutes,"ryan"),model.warungCoffee(minutes,"widi")],[ryan,widi]);
+}
+assert.equal(at("C08",893).activity,"Merapikan warung");
+assert.deepEqual([at("C08",893).x,at("C08",893).y],[19,7]);
 const locations=[counter.closesAt-1,counter.closesAt,counter.closesAt+1,counter.closesAt+2,counter.closesAt+3]
  .map(minutes=>npcWhere({...s,minutes},"C08"));
 for(let i=1;i<locations.length;i++){
@@ -100,7 +116,7 @@ assert.ok(till && till.interact && till.face,"tap farm plot plans interaction");
 assert.ok(till.steps.length>=1);
 const portal=planTapRoute(s,31,10);
 assert.equal(portal.exit,"right");
-const talk=planTapRoute(s,13,8);
+const talk=planTapRoute(s,18,6);
 assert.ok(talk?.interact,"tap NPC plans approach and talk");
 assert.equal(planTapRoute(s,-1,8),null,"cannot tap outside world");
 assert.equal(planTapRoute({...s,location:"sungai",player:{x:12,y:8,dir:"left"}},3,8),null,
@@ -171,9 +187,9 @@ for(const [zone,x,y] of [["field",26,6],["gang",26,7],["pasar",27,7],["sungai",1
   assert.equal(standing.coins,345);
   assert.equal(areaBlocked(zone,standing.player.x,standing.player.y),false,"reload beside new footprint");
 }
-let prior=npcSchedule({...s,minutes:719});
+let prior=npcSchedule({...s,minutes:299});
 let blockedCrossings=0;
-for(let minutes=720;minutes<=1210;minutes++){
+for(let minutes=300;minutes<=1210;minutes++){
   const placements=npcSchedule({...s,minutes});
   const occupied=new Set();
   for(const [i,placement] of placements.entries()){

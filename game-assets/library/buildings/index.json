@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 113,
-  "bytes": 16376370,
+  "mediaCount": 118,
+  "bytes": 16377429,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -32,12 +32,17 @@
     {
       "id": "locations/inggit/warkop",
       "files": [
+        "public/game/assets/locations/inggit/warkop/closed-sign.png",
         "public/game/assets/locations/inggit/warkop/coffee-table.png",
         "public/game/assets/locations/inggit/warkop/east-bench.png",
         "public/game/assets/locations/inggit/warkop/enamel-kettle.png",
         "public/game/assets/locations/inggit/warkop/open-front.png",
+        "public/game/assets/locations/inggit/warkop/ryan-coffee-empty.png",
+        "public/game/assets/locations/inggit/warkop/ryan-coffee-full.png",
         "public/game/assets/locations/inggit/warkop/service-counter.png",
-        "public/game/assets/locations/inggit/warkop/west-bench.png"
+        "public/game/assets/locations/inggit/warkop/west-bench.png",
+        "public/game/assets/locations/inggit/warkop/widi-coffee-empty.png",
+        "public/game/assets/locations/inggit/warkop/widi-coffee-full.png"
       ]
     },
     {

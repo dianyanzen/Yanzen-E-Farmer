@@ -121,7 +121,7 @@ for (const [state, id, points] of [
 }
 assert.equal(outdoorObjects("pasar",15*60).some(item=>item.asset.startsWith("inggit-")),false);
 const counter=fieldObjects.find(item=>item.asset==="inggit-service-counter");
-const customer={...model.newGame(),minutes:15*60,player:{x:15,y:8,dir:"right"}};
+const customer={...model.newGame(),minutes:14*60,player:{x:15,y:8,dir:"right"}};
 const tap=navigation.planTapRoute(customer,19,5,{x:counter.x,y:counter.y-11});
 assert.ok(tap?.interact);
 let approaching=customer;
@@ -129,6 +129,13 @@ for(const step of tap.steps)approaching=model.movePlayer(approaching,step);
 approaching={...approaching,player:{...approaching.player,dir:tap.face}};
 assert.equal(model.getActionContext(approaching).npcId,"C08");
 assert.equal(model.interactDoor(approaching),approaching);
+const coffeeAssets = minutes => outdoorObjects("field",minutes)
+  .filter(item=>item.asset.includes("-coffee-")&&item.asset!=="inggit-coffee-table"&&item.visible)
+  .map(item=>item.asset);
+assert.deepEqual(Array.from(coffeeAssets(380)),["inggit-ryan-coffee-full","inggit-widi-coffee-full"]);
+assert.deepEqual(Array.from(coffeeAssets(435)),["inggit-ryan-coffee-empty","inggit-widi-coffee-full"]);
+assert.deepEqual(Array.from(coffeeAssets(480)),["inggit-ryan-coffee-empty","inggit-widi-coffee-empty"]);
+assert.equal(coffeeAssets(893).length,0);
 const nursery=model.NURSERY_BENCH;
 assert.ok(navigation.planTapRoute(outdoor,nursery.x,nursery.y)?.interact);
 assert.equal(model.interactionHitboxAt("home", 210, 150), undefined, "the adjacent aisle is outside the bed");

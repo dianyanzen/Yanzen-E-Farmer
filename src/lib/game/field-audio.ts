@@ -47,7 +47,7 @@ export class FieldAudio {
     const outdoors=isOutdoorLocation(location);
     const bank=location==="field"?1:6;
     const canal=location==="sungai" || location==="field" ? Math.max(0,1-Math.max(0,x-bank)/9) : 0;
-    const stall=location==="field" && minutes<INGGIT_WARUNG.closesAt ?
+    const stall=location==="field" && minutes>=INGGIT_WARUNG.opensAt && minutes<INGGIT_WARUNG.closesAt ?
       Math.max(0,1-Math.hypot(x-INGGIT_WARUNG.x,y-INGGIT_WARUNG.y)/6) : 0;
     const levels = [(outdoors ? .15 : .02)*(1-.65*canal)*(1-stall), .3*canal, .22*stall];
     this.loops.forEach((gain,i) => gain.gain.setTargetAtTime(levels[i], this.ctx!.currentTime, .25));
