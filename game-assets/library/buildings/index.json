@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 118,
-  "bytes": 16377429,
+  "mediaCount": 134,
+  "bytes": 16382704,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -27,6 +27,27 @@
         "public/game/assets/locations/inggit/pasar/facade.png",
         "public/game/assets/locations/inggit/pasar/roof.png",
         "public/game/assets/locations/inggit/pasar/sign.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/sunda",
+      "files": [
+        "public/game/assets/locations/inggit/sunda/bamboo-basket.png",
+        "public/game/assets/locations/inggit/sunda/closed-sign.png",
+        "public/game/assets/locations/inggit/sunda/coffee-table.png",
+        "public/game/assets/locations/inggit/sunda/counter-apron.png",
+        "public/game/assets/locations/inggit/sunda/enamel-kettle.png",
+        "public/game/assets/locations/inggit/sunda/facade.png",
+        "public/game/assets/locations/inggit/sunda/fern.png",
+        "public/game/assets/locations/inggit/sunda/jasmine-pot.png",
+        "public/game/assets/locations/inggit/sunda/north-bench.png",
+        "public/game/assets/locations/inggit/sunda/river-stones.png",
+        "public/game/assets/locations/inggit/sunda/roof.png",
+        "public/game/assets/locations/inggit/sunda/service-counter.png",
+        "public/game/assets/locations/inggit/sunda/side-apron.png",
+        "public/game/assets/locations/inggit/sunda/side-door.png",
+        "public/game/assets/locations/inggit/sunda/sign.png",
+        "public/game/assets/locations/inggit/sunda/south-bench.png"
       ]
     },
     {

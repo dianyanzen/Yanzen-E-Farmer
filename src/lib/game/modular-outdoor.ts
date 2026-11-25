@@ -23,12 +23,8 @@ export const outdoorSources: Record<string,string> = {
   "yanzen-shed-entry": yanzenExteriorFolder + "shed-entry-shadow.png",
   "yanzen-shed-facade": yanzenExteriorFolder + "shed-facade.png",
   "yanzen-shed-roof": yanzenExteriorFolder + "shed-roof.png",
-  "inggit-roof": "locations/inggit/kebun/roof.png",
-  "inggit-window": "locations/inggit/kebun/counter.png",
-  "inggit-awning": "locations/inggit/kebun/awning.png",
-  "inggit-sign": "locations/inggit/kebun/sign.png",
-  ...Object.fromEntries(["open-front","service-counter","west-bench","east-bench","coffee-table","enamel-kettle","closed-sign"]
-    .map(part => [`inggit-${part}`, `locations/inggit/warkop/${part}.png`])),
+  ...Object.fromEntries(["roof","facade","side-door","service-counter","north-bench","south-bench","coffee-table","enamel-kettle","sign","closed-sign","jasmine-pot","bamboo-basket","fern","river-stones","counter-apron","side-apron"]
+    .map(part => [`inggit-${part}`, `locations/inggit/sunda/${part}.png`])),
   ...Object.fromEntries((["ryan","widi"] as const).flatMap(owner => ["full","empty"].map(phase =>
     [`inggit-${owner}-coffee-${phase}`, `locations/inggit/warkop/${owner}-coffee-${phase}.png`]))),
   ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
@@ -69,20 +65,24 @@ const homeX = (HOME.door.x + .5) * WORLD.tile;
 const shedX = (SHED.door.x + .5) * WORLD.tile;
 const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
 const warungX = (INGGIT_WARUNG.x + .5) * WORLD.tile;
+const staffX = (INGGIT_WARUNG.staffExitX + .5) * WORLD.tile;
 const warkop: Placement[] = [
-  {asset:"inggit-window",x:warungX-41,y:85,displayW:38,displayH:22,groundY:88},
-  {asset:"inggit-open-front",x:warungX-20,y:95,displayW:94,displayH:43,groundY:88},
-  {asset:"inggit-awning",x:warungX-41,y:73,displayW:44,displayH:14,groundY:88},
-  {asset:"inggit-roof",x:warungX-20,y:57,displayW:104,displayH:33,groundY:88},
-  {asset:"inggit-sign",x:warungX,y:63,displayW:26,displayH:12,groundY:88},
-  {asset:"inggit-service-counter",x:warungX,y:120,displayW:64,displayH:17,groundY:122},
-  {asset:"inggit-enamel-kettle",x:warungX+19,y:106,displayW:13,displayH:15,groundY:122},
+  {asset:"inggit-facade",x:warungX-11,y:116,displayW:104,displayH:54,groundY:98},
+  {asset:"inggit-side-door",x:staffX-4,y:116,displayW:15,displayH:29,groundY:102},
+  {asset:"inggit-roof",x:warungX-11,y:74,displayW:116,displayH:37,groundY:100},
+  {asset:"inggit-sign",x:warungX-6,y:79,displayW:26,displayH:12,groundY:101},
+  {asset:"inggit-service-counter",x:warungX-4,y:120,displayW:68,displayH:19,groundY:122},
+  {asset:"inggit-enamel-kettle",x:warungX+15,y:105,displayW:13,displayH:15,groundY:122},
+  {asset:"inggit-jasmine-pot",x:330,y:105,displayW:16,displayH:21},
+  {asset:"inggit-bamboo-basket",x:330,y:119,displayW:15,displayH:13},
+  {asset:"inggit-fern",x:311,y:144,displayW:18,displayH:15},
+  {asset:"inggit-river-stones",x:319,y:183,displayW:19,displayH:10},
   ...([
-    ["west-bench",INGGIT_WARUNG.westBench,38,21],
+    ["north-bench",INGGIT_WARUNG.northBench,34,15],
     ["coffee-table",INGGIT_WARUNG.table,29,24],
-    ["east-bench",INGGIT_WARUNG.eastBench,38,21],
+    ["south-bench",INGGIT_WARUNG.southBench,34,15],
   ] as const).map(([part,tile,displayW,displayH])=>({
-    asset:`inggit-${part}`,x:(tile.x+.5)*WORLD.tile,y:(tile.y+1)*WORLD.tile,displayW,displayH,
+    asset:`inggit-${part}`,x:(tile.x+.5)*WORLD.tile,y:(tile.y+1)*WORLD.tile-2,displayW,displayH,
   })),
 ];
 
@@ -91,7 +91,9 @@ const paths: Record<OutdoorLocation,Route[]> = {
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
     [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
     [14,[[shedX,94],[shedX,113],[shedX,130]]],
-    [18,[[warungX,118],[warungX,158],[382,180],[348,216]]],
+    [25,[[warungX,122],[warungX,151],[392,173],[382,192],[366,207],[349,218]]],
+    [13,[[268,171],[291,167],[310,162]]],
+    [11,[[staffX,119],[staffX+5,133],[staffX+4,151],[422,175],[392,183]]],
     [14,[[314,215],[320,253],[350,273],[366,285]]],
     [13,[[homeX,117],[78,125],[49,139],[28,142]]],
     [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
@@ -137,11 +139,11 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"yanzen-shed-roof",x:shedX,y:67,displayW:80,displayH:26,groundY:95},
     ...warkop,{asset:"pot-berbunga",x:nurseryX,y:103},
     {asset:"pohon-pisang",x:288,y:100,scale:.67},{asset:"bunga-melati",x:306,y:101},
-    {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
+    {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:451,y:122},
     {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
     {asset:"bunga-pinggir",x:224,y:200,scale:.76},{asset:"semak-rimbun",x:299,y:185,scale:.79},
     {asset:"tajuk-kebun",x:473,y:173,scale:.85},{asset:"daun-tropis",x:448,y:187,scale:.76},
-    {asset:"bunga-pinggir",x:398,y:188,scale:.9},{asset:"semak-rimbun",x:466,y:266,scale:.82},
+    {asset:"bunga-pinggir",x:416,y:199,scale:.9},{asset:"semak-rimbun",x:466,y:266,scale:.82},
     {asset:"kandang-ayam",x:410,y:301,scale:.75},{asset:"palung",x:444,y:279,scale:.79},
     {asset:"ayam-putih",x:383,y:295},{asset:"anak-ayam",x:435,y:298},
     {asset:"pot-berbunga",x:389,y:258,scale:.71},{asset:"bunga-pinggir",x:466,y:304},
@@ -200,7 +202,7 @@ for(const location of Object.keys(props) as OutdoorLocation[]){
 }
 
 const gardens:Record<OutdoorLocation,Point[]>={
-  field:[[181,90],[240,91],[291,110],[458,119],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
+  field:[[181,90],[240,91],[291,110],[470,119],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
   gang:[[51,127],[79,159],[20,190],[117,169],[200,99],[304,108],[344,125],[448,171],[381,273],[154,280],[93,275],[488,143],[562,155],[600,277]],
   pasar:[[44,135],[32,185],[58,252],[111,299],[314,105],[444,137],[465,165],[422,290],[485,110],[593,128],[601,281]],
   sungai:[[156,79],[161,104],[183,122],[292,102],[334,133],[411,150],[272,237],[158,217],[460,257],[594,128],[609,275]],
@@ -214,7 +216,7 @@ for(const location of Object.keys(gardens) as OutdoorLocation[]){
 }
 props.field.push(
   ...([[530,139],[590,139],[550,199],[610,199]] as Point[]).map(([x,y],i)=>({asset:i%2?"tajuk-terang":"tajuk-kebun",x,y,scale:.69})),
-  {asset:"tong-dan-papan",x:210,y:97,scale:.57},{asset:"kelompok-pot",x:357,y:98,scale:.57},
+  {asset:"tong-dan-papan",x:210,y:97,scale:.57},
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
 );
 props.field.push(
@@ -299,7 +301,7 @@ export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpe
     {...p,asset:p.closedAsset} : p);
   if(location!=="field")return scenery;
   const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
-  const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile;
+  const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;
   const cups = (["ryan","widi"] as const).map((owner,index): Placement => {
     const phase = warungCoffee(minutes,owner);
     return {
@@ -492,6 +494,11 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     for(let x=0;x<WORLD.width;x++) {
       if(x!==18 && x!==19) tile(ctx,art.fence,10,x*20,300);
     }
+  }
+  if (location==="field") {
+    const counterApron=art["inggit-counter-apron"], sideApron=art["inggit-side-apron"];
+    if(counterApron)ctx.drawImage(counterApron,warungX-12,119,24,17);
+    if(sideApron)ctx.drawImage(sideApron,staffX-7,115,15,15);
   }
   if (location==="field") {
     for (const x of [homeX,shedX]) {

@@ -121,7 +121,15 @@ for (const [state, id, points] of [
 }
 assert.equal(outdoorObjects("pasar",15*60).some(item=>item.asset.startsWith("inggit-")),false);
 const counter=fieldObjects.find(item=>item.asset==="inggit-service-counter");
-const customer={...model.newGame(),minutes:14*60,player:{x:15,y:8,dir:"right"}};
+const morning={...model.newGame(),minutes:380,player:{x:18,y:10,dir:"up"}};
+const customer={...morning,minutes:14*60,player:{x:15,y:8,dir:"right"}};
+const morningTap=navigation.planTapRoute(morning,19,5,{x:counter.x,y:counter.y-11});
+assert.ok(morningTap?.interact,"morning guests and furniture leave the front path clear");
+const morningArrival=morningTap.steps.reduce((state,step)=>model.movePlayer(state,step),morning);
+assert.deepEqual([morningArrival.player.x,morningArrival.player.y,morningTap.face],[19,6,"up"]);
+const sideDoor=fieldObjects.find(item=>item.asset==="inggit-side-door");
+assert.equal(navigation.planTapRoute(morning,21,5,{x:sideDoor.x,y:sideDoor.y-8}),null,
+  "staff entrance stays off the player interaction map");
 const tap=navigation.planTapRoute(customer,19,5,{x:counter.x,y:counter.y-11});
 assert.ok(tap?.interact);
 let approaching=customer;

@@ -287,10 +287,10 @@ export function finishFishingAttempt(s:GameState,outcome:FishingOutcome,species?
 
 export const WORLD = { width: 32, height: 16, tile: 20 } as const;
 export const INGGIT_WARUNG = {
-  x: 19, y: 5, staffExitX: 21, opensAt: 6 * 60, closesAt: 15 * 60, cleanupAt: 14 * 60 + 47,
-  westBench: { x: 16, y: 7 },
-  table: { x: 18, y: 7 },
-  eastBench: { x: 20, y: 7 },
+  x: 19, y: 5, staffExitX: 21, opensAt: 6 * 60, closesAt: 15 * 60, cleanupAt: 14 * 60 + 46,
+  northBench: { x: 17, y: 6 },
+  table: { x: 17, y: 7 },
+  southBench: { x: 17, y: 8 },
 } as const;
 export const WIDI_OPENS_AT = 9 * 60;
 const RYAN_LAST_COFFEE_MINUTE = 12 * 60 - 1;
@@ -475,7 +475,7 @@ const point = (location: OutdoorLocation, x: number, y: number): OutdoorPoint =>
 const dailyStops = {
   A04: [point("pasar",6,9),point("pasar",6,9),point("gang",15,14)],
   C07: [point("field",18,8),point("pasar",27,8),point("gang",26,8)],
-  A03: [point("field",18,6), point("sungai",8,8), point("gang",20,8)],
+  A03: [point("field",16,7), point("sungai",8,8), point("gang",20,8)],
   C01: [point("field",16,8), point("gang",5,8), point("gang",8,8)],
   C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("pasar",19,8), point("gang",4,14)],
 } satisfies Record<NpcId, OutdoorPoint[]>;
@@ -512,14 +512,13 @@ const staffLane = [
   point("field",INGGIT_WARUNG.x+1,INGGIT_WARUNG.y),
   point("field",INGGIT_WARUNG.staffExitX,INGGIT_WARUNG.y),
 ];
-const cleaningPath = [
-  ...staffLane,
-  point("field",21,6), point("field",20,6), point("field",19,6),
-  point("field",19,7),
-  point("field",19,6), point("field",20,6), point("field",21,6),
-  ...staffLane.slice().reverse(),
-];
-const cupsClearedAt = INGGIT_WARUNG.cleanupAt + 6;
+// The last tile is the public side landing outside the staff-only doorway.
+const staffLanding = point("field",INGGIT_WARUNG.staffExitX,INGGIT_WARUNG.y+1);
+const staffEntrance = [...staffLane,staffLanding];
+const coffeeTableApproach = point("field",INGGIT_WARUNG.table.x+1,INGGIT_WARUNG.table.y);
+const serviceWalk = [staffLanding,point("field",20,6),point("field",19,6),point("field",18,6),coffeeTableApproach];
+const cleaningPath = [...staffLane,...serviceWalk,...serviceWalk.slice(0,-1).reverse()];
+const cupsClearedAt = INGGIT_WARUNG.cleanupAt + staffLane.length + serviceWalk.length - 1;
 const stepAlong = (route: OutdoorPoint[], elapsed: number) => route[Math.min(route.length-1,elapsed)];
 
 function sameStop(a: OutdoorPoint, b: OutdoorPoint) {
@@ -549,7 +548,7 @@ export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] 
     if (npc.id === "C08") {
       const {opensAt,closesAt,cleanupAt} = INGGIT_WARUNG;
       if(minutes < opensAt){
-        const toWarung = [...residentRoute(staffLane[2],home).slice().reverse(),...staffLane.slice(0,-1).reverse()];
+        const toWarung = [...residentRoute(staffLanding,home).slice().reverse(),...staffEntrance.slice(0,-1).reverse()];
         const start = opensAt - toWarung.length + 1;
         if(minutes < start)return {...npc,...home,indoors:true,activity:"Beristirahat di rumah"};
         return {...npc,...stepAlong(toWarung,minutes-start),activity:"Berjalan ke warung"};
@@ -560,7 +559,7 @@ export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] 
       const homeDeparture = INGGIT_HOME_AT - toHome.length + 1;
       if(minutes >= homeDeparture)return {...npc,...stepAlong(toHome,minutes-homeDeparture),
         indoors:minutes>=INGGIT_HOME_AT,activity:minutes>=INGGIT_HOME_AT?"Beristirahat di rumah":"Berjalan pulang"};
-      const toMarket = [...staffLane.slice(0,-1),...residentRoute(staffLane[2],work)];
+      const toMarket = residentRoute(staffLanding,work);
       const step = stepAlong(toMarket,minutes-closesAt);
       return {...npc,...step,activity:sameStop(step,work)?"Belanja keperluan warung":"Berjalan ke pasar"};
     }
@@ -704,8 +703,9 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
   field:[
     [3,2,7,4],[10,2,12,4],[16,2,20,4], // house, shed and shop
     [17,5,21,5], // staff side of the counter
-    ...[INGGIT_WARUNG.westBench,INGGIT_WARUNG.table,INGGIT_WARUNG.eastBench]
+    ...[INGGIT_WARUNG.northBench,INGGIT_WARUNG.table,INGGIT_WARUNG.southBench]
       .map(({x,y}):TileFootprint=>[x,y,x,y]),
+    [16,5,16,5], // basket at the west wall
     [14,4,14,4],[19,13,21,14], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],

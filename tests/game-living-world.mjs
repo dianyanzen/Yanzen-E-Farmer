@@ -53,12 +53,31 @@ for(const [minutes,ryan,widi] of [[380,"full","full"],[479,"full","full"],[480,"
 assert.equal(at("A03",719).activity,"Ngopi di Warung Inggit");
 assert.equal(at("A03",720).activity,"Berjalan ke tempat kerja");
 assert.equal(at("C08",893).activity,"Merapikan warung");
-assert.deepEqual([at("C08",893).x,at("C08",893).y],[19,7]);
+assert.deepEqual([at("C08",893).x,at("C08",893).y],[18,7]);
 const locations=[counter.closesAt-1,counter.closesAt,counter.closesAt+1,counter.closesAt+2,counter.closesAt+3]
  .map(minutes=>npcWhere({...s,minutes},"C08"));
 for(let i=1;i<locations.length;i++){
  assert.equal(locations[i].location,"field");
  assert.ok(Math.abs(locations[i].x-locations[i-1].x)+Math.abs(locations[i].y-locations[i-1].y)<=1);
+}
+const coords = minutes => {
+ const {x,y}=at("C08",minutes);
+ return [x,y];
+};
+const door = [counter.staffExitX,counter.y];
+const landing = [counter.staffExitX,counter.y+1];
+assert.deepEqual(coords(counter.opensAt-3),landing);
+assert.deepEqual(coords(counter.opensAt-2),door);
+assert.deepEqual(coords(counter.cleanupAt+2),door);
+assert.deepEqual(coords(counter.cleanupAt+3),landing);
+assert.deepEqual(coords(counter.closesAt),landing);
+assert.equal(areaBlocked("field",...door),true,"side doorway only admits the staff route");
+assert.equal(areaBlocked("field",...landing),false,"the side landing lies outside the building");
+for(const id of ["A03","C07","C01"]){
+ const standing=at(id,380);
+ const gap=Math.abs(standing.x-counter.table.x)+Math.abs(standing.y-counter.table.y);
+ assert.ok(gap<=2,"morning guests stand around the table");
+ assert.equal(areaBlocked("field",standing.x,standing.y),false);
 }
 assert.equal(areaTitle("sungai"),"Bantaran Sungai");
 assert.equal(mapExit("field",22,10,"up"),null);
@@ -118,7 +137,7 @@ assert.ok(till && till.interact && till.face,"tap farm plot plans interaction");
 assert.ok(till.steps.length>=1);
 const portal=planTapRoute(s,31,10);
 assert.equal(portal.exit,"right");
-const talk=planTapRoute(s,18,6);
+const talk=planTapRoute(s,16,7);
 assert.ok(talk?.interact,"tap NPC plans approach and talk");
 assert.equal(planTapRoute(s,-1,8),null,"cannot tap outside world");
 assert.equal(planTapRoute({...s,location:"sungai",player:{x:12,y:8,dir:"left"}},3,8),null,

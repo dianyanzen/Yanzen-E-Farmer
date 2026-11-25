@@ -29,7 +29,7 @@ for (const [room, building] of [['home',m.HOME],['shed',m.SHED]]) {
 for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
  assert.ok(area.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1),`farm plot ${x},${y} reachable`);
 }
-for (const seat of [m.INGGIT_WARUNG.westBench,m.INGGIT_WARUNG.table,m.INGGIT_WARUNG.eastBench])
+for (const seat of [m.INGGIT_WARUNG.northBench,m.INGGIT_WARUNG.table,m.INGGIT_WARUNG.southBench])
  assert.ok(area.some(p=>Math.abs(p.x-seat.x)+Math.abs(p.y-seat.y)===1),'seating area remains accessible');
 assert.ok(area.some(p=>p.x===m.INGGIT_WARUNG.x&&p.y===m.INGGIT_WARUNG.y+1),'counter reachable from the yard');
 assert.ok(area.some(p=>p.x===31&&(p.y===10||p.y===11)),'east exit reachable');

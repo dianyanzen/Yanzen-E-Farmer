@@ -2,153 +2,6 @@
   "schemaVersion": 1,
   "assets": [
     {
-      "assetId": "inggit-coffee-table",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/coffee-table.png",
-      "runtimeSHA256": "53ca4e48e03f65793bf5ccc8cff1e238ffe607dd08cc04531f510e4c6b92fe0c",
-      "canvasSize": [
-        29,
-        24
-      ],
-      "visibleAlphaBounds": [
-        0,
-        3,
-        29,
-        24
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-east-bench",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/east-bench.png",
-      "runtimeSHA256": "d0f3860daf005ebb0654af880ed4e5aabc2cd125dd655521d5f8d1638a5a2316",
-      "canvasSize": [
-        38,
-        21
-      ],
-      "visibleAlphaBounds": [
-        0,
-        6,
-        38,
-        21
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-enamel-kettle",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/enamel-kettle.png",
-      "runtimeSHA256": "074af57c05b928670bbab31e19845e028191ab2d91b21d3235c652a961bc2596",
-      "canvasSize": [
-        13,
-        15
-      ],
-      "visibleAlphaBounds": [
-        1,
-        1,
-        13,
-        15
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-open-front",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/open-front.png",
-      "runtimeSHA256": "da094fd1efddd390a52fd27a2704d95cc9b8b650a0d35e51bd0667ac0c092a9e",
-      "canvasSize": [
-        94,
-        43
-      ],
-      "visibleAlphaBounds": [
-        0,
-        0,
-        94,
-        43
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-service-counter",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/service-counter.png",
-      "runtimeSHA256": "f8b874a3b2c85dbdc6a87d0f04699f2431e2bc60e40f231151a8da4d0fd9a7c4",
-      "canvasSize": [
-        64,
-        24
-      ],
-      "visibleAlphaBounds": [
-        0,
-        1,
-        64,
-        24
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-west-bench",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/west-bench.png",
-      "runtimeSHA256": "22887847a21df5252ea9a38c82b205f42465224393b194a18838bf3e141b7ec8",
-      "canvasSize": [
-        38,
-        21
-      ],
-      "visibleAlphaBounds": [
-        0,
-        6,
-        38,
-        21
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-closed-sign",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/warkop/closed-sign.png",
-      "runtimeSHA256": "3d37b4c5cd3add1f181be5271ba8584d1debfc4da2fb5538e69a7d29eea73cb7",
-      "canvasSize": [
-        26,
-        12
-      ],
-      "visibleAlphaBounds": [
-        0,
-        1,
-        26,
-        12
-      ],
-      "provenance": "Original project pixel art",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
       "assetId": "inggit-ryan-coffee-empty",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/warkop/ryan-coffee-empty.png",
@@ -227,6 +80,342 @@
         10
       ],
       "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-bamboo-basket",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/bamboo-basket.png",
+      "runtimeSHA256": "e4c82677e161215da953cd23de8eda03cf3d56826cdbd1e1e5851e960cee4e64",
+      "canvasSize": [
+        15,
+        13
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        15,
+        13
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-closed-sign",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/closed-sign.png",
+      "runtimeSHA256": "1d7bcd54dd959f708bf4766045693206a0e5488852c2334f5a71fe9266ab8a82",
+      "canvasSize": [
+        26,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        26,
+        12
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-coffee-table",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/coffee-table.png",
+      "runtimeSHA256": "b8b1d8e4f5b52dadbb1c1b5cfe0dfb408da15fe063b9869cb74e513fd2016db2",
+      "canvasSize": [
+        29,
+        24
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        29,
+        24
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-counter-apron",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/counter-apron.png",
+      "runtimeSHA256": "10eee2b0dabd8362ce803bfeb747fe2d6bcb632a8ac886ac9aae4161fc2655c1",
+      "canvasSize": [
+        24,
+        17
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        24,
+        17
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-enamel-kettle",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/enamel-kettle.png",
+      "runtimeSHA256": "f15cadf699c25533cc6bffe9ba1e189521b366efb2b51f9c3ded9fc66c6022bd",
+      "canvasSize": [
+        13,
+        15
+      ],
+      "visibleAlphaBounds": [
+        1,
+        1,
+        13,
+        14
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-facade",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/facade.png",
+      "runtimeSHA256": "988e4a76d42499b53c14df369a78a97c1593d3abd9c31a3bff84dfbe2f0387f5",
+      "canvasSize": [
+        104,
+        54
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        104,
+        54
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-fern",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/fern.png",
+      "runtimeSHA256": "4f9006949f73f2b769c6cd927f45e6770e3a95e62aee9bd8c2e22d42671439d9",
+      "canvasSize": [
+        18,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        18,
+        15
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-jasmine-pot",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/jasmine-pot.png",
+      "runtimeSHA256": "5174692aece5ba0b27f87d1708ed2f996ad2b7ebf52e7b4f1bfc5037cb584fec",
+      "canvasSize": [
+        16,
+        21
+      ],
+      "visibleAlphaBounds": [
+        1,
+        2,
+        16,
+        21
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-north-bench",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/north-bench.png",
+      "runtimeSHA256": "e1fab9577f55365a16136c547194cdc98fbbcf331e9c26d97a39019342c614ce",
+      "canvasSize": [
+        34,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        34,
+        15
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-river-stones",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/river-stones.png",
+      "runtimeSHA256": "b0947958217bea4521c6d64f087fb0b3808c04608ac7d155290154ce2dbefd5a",
+      "canvasSize": [
+        19,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        19,
+        10
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-roof",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/roof.png",
+      "runtimeSHA256": "15d579e75be314f4895c6a06afe63035792d86b02ff45df9c0644ed909970e78",
+      "canvasSize": [
+        116,
+        37
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        116,
+        37
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-service-counter",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/service-counter.png",
+      "runtimeSHA256": "13bc82ebbf234127a184d55d4fb8f0363eb227582f604f57e11b6a6272f5e1f5",
+      "canvasSize": [
+        68,
+        19
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        68,
+        19
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-side-apron",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/side-apron.png",
+      "runtimeSHA256": "824fc6c574da67821b6af4892e8b113a62bfc16f6d5b294a6c8b27e575f167df",
+      "canvasSize": [
+        15,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        15,
+        15
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-side-door",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/side-door.png",
+      "runtimeSHA256": "3ab3583ab65ca8d7d686ba85aa46b71796e6cc7d2f0b40e6260927c9db3770a2",
+      "canvasSize": [
+        15,
+        29
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        15,
+        29
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-sign",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/sign.png",
+      "runtimeSHA256": "d7fbc7c6815e9104280b64c504f2039fb7e930bf65c98e1d127afed33a2825a9",
+      "canvasSize": [
+        26,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        26,
+        12
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-south-bench",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/south-bench.png",
+      "runtimeSHA256": "66bd972f77073d1f944fd4a9e30c1c6c59b58174ff5e41384863cb638a381d13",
+      "canvasSize": [
+        34,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        34,
+        15
+      ],
+      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
       "consumers": [
         "Canvas",
         "Phaser"
