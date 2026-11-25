@@ -3,6 +3,9 @@ name: yz-farm-cutscene
 description: Alur wajib pembuatan cutscene sinematik YZ Farm Life, dari dua frame canonical (awal dan akhir), pembuatan video eksternal oleh pemilik, QA, import MP4, hingga unlock dan replay YZ Phone.
 ---
 
+**Deployment aktif 25 November 2026:** baca `.agents/skills/yz-farm-deployment/SKILL.md` dan `docs/DEPLOYMENT_POLICY.md`. Perubahan game hanya ke project `yanzen-e-farmer-staging` pada domain tetap setelah QA lokal/CI; tanpa preview rutin, tanpa deploy web pertanian. Verifikasi READY dan alias live. Aturan ini mengalahkan petunjuk preview/promotion lama; pemain online bukan blocker, save tetap kompatibel.
+
+
 # YZ Farm Life — Cinematic Cutscene Production
 
 Gunakan skill ini setiap kali ada permintaan **buat/revisi frame awal, frame akhir, video cutscene, replay Kenangan, atau integrasi cutscene ke gameplay**. Ini adalah aturan produksi developer, bukan teks yang muncul di permainan. Baca `AGENTS.md`, `docs/game-dev/CUTSCENE_PRODUCTION_STANDARD.md`, `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md`, serta skill Humanizer untuk narasi.
@@ -60,7 +63,7 @@ Template siap pakai untuk tiga generasi terpisah (frame awal, frame akhir, dan v
 3. **Serahkan prompt video:** tulis prompt 8–12 detik atau sesuai batas Google Flow/Veo, gerak dari start → end, kamera/gerak tokoh/lingkungan, audio dan larangan morphing. Berikan file frame ke pengguna.
 4. **Terima file video dari pemilik:** jangan gunakan file lain sebagai pengganti, kecuali pengguna menyetujui. Audit visual + metadata + SHA.
 5. **Implementasi:** upload file ke GitHub, register manifest, poster dan frame asli, kaitkan ID cutscene yang stabil dengan event misi + replay, hindari hardcoded unlock hanya dari playback.
-6. **Quality gate:** cek metadata, checksum, semua sumber aset, `npm run test:game`, `npm run typecheck`, QA smartphone Safari/Android dan preview Vercel. Jangan mengklaim uji perangkat nyata jika hanya tes CI.
+6. **Quality gate:** cek metadata, checksum, semua sumber aset, `npm run test:game`, `npm run typecheck`, QA smartphone Safari/Android dan verifikasi domain staging Vercel. Jangan mengklaim uji perangkat nyata jika hanya tes CI.
 7. **Penggantian:** hapus artefak runtime lama yang tidak terpakai dan build automation usang **setelah** memverifikasi tidak ada pemanggil lain; katalog/manifest harus tetap akurat.
 
 ## Standar area tayang: game world, bukan browser (revisi 22 November 2026)
@@ -79,4 +82,4 @@ Template siap pakai untuk tiga generasi terpisah (frame awal, frame akhir, dan v
 - Video final pemilik utuh di GitHub dan benar-benar digunakan saat gameplay maupun replay.
 - Tidak ada MP4 lama, proses restore otomatis lama, atau fallback scene lama yang diam-diam mengambil alih video baru.
 - Poster, Kenangan, skip, audio, fullscreen, save lama, quest, dan UI mobile diuji.
-- Tes game + katalog lulus; tautan preview memakai commit yang tepat.
+- Tes game + katalog lulus; domain staging memakai commit yang tepat.
