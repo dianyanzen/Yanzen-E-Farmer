@@ -121,7 +121,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [swing, setSwing] = useState<ToolUse | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png",
+    const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", effects: "tiles/field-effects.png",
       rumahDay: "pasirluyu/rumah-yanzen-interior-day.svg", rumahEvening: "pasirluyu/rumah-yanzen-interior-evening.svg",
       gudangInterior: "pasirluyu/gudang-interior.svg" };
     for (const [key, path] of Object.entries(sources)) {

@@ -10,17 +10,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/bala-bala-1.png",
       "runtimeFile": "public/game/assets/characters/activities/bala-bala-1.png",
-      "sourceSHA256": "e32d45b9091b71aa86756492a5600aeb73f8014e81de0dd0d91d5779cad5db94",
-      "runtimeSHA256": "e32d45b9091b71aa86756492a5600aeb73f8014e81de0dd0d91d5779cad5db94",
+      "sourceSHA256": "6a8353c7965e78aa942de66a7eb574f739531abd6110e750e26a5739189f10af",
+      "runtimeSHA256": "6a8353c7965e78aa942de66a7eb574f739531abd6110e750e26a5739189f10af",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -39,7 +39,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-bala-bala-2-prop",
@@ -90,17 +90,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/bala-bala-2.png",
       "runtimeFile": "public/game/assets/characters/activities/bala-bala-2.png",
-      "sourceSHA256": "7ca6085251e83d316b050e55b1843763a20e4165ec8ccbad072cd928d9e3837c",
-      "runtimeSHA256": "7ca6085251e83d316b050e55b1843763a20e4165ec8ccbad072cd928d9e3837c",
+      "sourceSHA256": "902b4a4858406851ba469e2cb2b821cb8d13e455d8507b9ffe3a2bf451024aeb",
+      "runtimeSHA256": "902b4a4858406851ba469e2cb2b821cb8d13e455d8507b9ffe3a2bf451024aeb",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -119,7 +119,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-bala-bala-3-prop",
@@ -170,17 +170,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/bala-bala-3.png",
       "runtimeFile": "public/game/assets/characters/activities/bala-bala-3.png",
-      "sourceSHA256": "3d2624d6da2fa4712503f79e073277a31bd02f19279694df0ef6fe8e3fd8495d",
-      "runtimeSHA256": "3d2624d6da2fa4712503f79e073277a31bd02f19279694df0ef6fe8e3fd8495d",
+      "sourceSHA256": "851c8cd55d6eddc3027ef8234520ccbd5e60e77e83a4c652b0ea7a01781293d5",
+      "runtimeSHA256": "851c8cd55d6eddc3027ef8234520ccbd5e60e77e83a4c652b0ea7a01781293d5",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -199,7 +199,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-bala-bala-4-prop",
@@ -250,17 +250,17 @@
       "frameIndex": 4,
       "sourceFile": "public/game/assets/characters/activities/bala-bala-4.png",
       "runtimeFile": "public/game/assets/characters/activities/bala-bala-4.png",
-      "sourceSHA256": "653988bfe2f2265975447f398b5d78e3f86881ca209ad8780222d74b2f65a468",
-      "runtimeSHA256": "653988bfe2f2265975447f398b5d78e3f86881ca209ad8780222d74b2f65a468",
+      "sourceSHA256": "70687c019386c61a94e8aa7bdac6e13eb210b1b9838f95b1f2d23311ab81e3ca",
+      "runtimeSHA256": "70687c019386c61a94e8aa7bdac6e13eb210b1b9838f95b1f2d23311ab81e3ca",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -279,7 +279,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-bala-bala-5",
@@ -290,17 +290,17 @@
       "frameIndex": 5,
       "sourceFile": "public/game/assets/characters/activities/bala-bala-5.png",
       "runtimeFile": "public/game/assets/characters/activities/bala-bala-5.png",
-      "sourceSHA256": "eb655299866f763c851d378b4a52de2ce00d48ed18943c1785a29d24b52bf6df",
-      "runtimeSHA256": "eb655299866f763c851d378b4a52de2ce00d48ed18943c1785a29d24b52bf6df",
+      "sourceSHA256": "0636fd5008844b37fd469c6f4fba37b13d4caf2948fad17e2b6bd499790a0a47",
+      "runtimeSHA256": "0636fd5008844b37fd469c6f4fba37b13d4caf2948fad17e2b6bd499790a0a47",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -319,7 +319,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-faucet-1",
@@ -330,17 +330,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/faucet-1.png",
       "runtimeFile": "public/game/assets/characters/activities/faucet-1.png",
-      "sourceSHA256": "6ce57527ce1fa922efdcad8e501b7e01418e564b7d9f91def58c2bcb9cf02577",
-      "runtimeSHA256": "6ce57527ce1fa922efdcad8e501b7e01418e564b7d9f91def58c2bcb9cf02577",
+      "sourceSHA256": "e7327cf5fa8a13cbefe5d93b933d98a7276d866ab64d2ca3fe047d734fb17e7d",
+      "runtimeSHA256": "e7327cf5fa8a13cbefe5d93b933d98a7276d866ab64d2ca3fe047d734fb17e7d",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        23,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -359,7 +359,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-faucet-2",
@@ -370,17 +370,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/faucet-2.png",
       "runtimeFile": "public/game/assets/characters/activities/faucet-2.png",
-      "sourceSHA256": "ebd4e37330ff8524b97c9558a9fab75196816bfd0d00c0d4368c9f5b3741b87f",
-      "runtimeSHA256": "ebd4e37330ff8524b97c9558a9fab75196816bfd0d00c0d4368c9f5b3741b87f",
+      "sourceSHA256": "7a3ab193eddfd69055950f21a4ede939aa581458b51666eb564d44a77674ba8f",
+      "runtimeSHA256": "7a3ab193eddfd69055950f21a4ede939aa581458b51666eb564d44a77674ba8f",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        3,
-        23,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -399,7 +399,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-faucet-3",
@@ -410,17 +410,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/faucet-3.png",
       "runtimeFile": "public/game/assets/characters/activities/faucet-3.png",
-      "sourceSHA256": "c17b3a2d441c613bb1ec8131a19df3ec22e14037d9add8b287aed8ffd2ca09b9",
-      "runtimeSHA256": "c17b3a2d441c613bb1ec8131a19df3ec22e14037d9add8b287aed8ffd2ca09b9",
+      "sourceSHA256": "bc4eb6df300ce9eea496a5bc0176b321d40d7c36691b3f82c57f0369870633a1",
+      "runtimeSHA256": "bc4eb6df300ce9eea496a5bc0176b321d40d7c36691b3f82c57f0369870633a1",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        23,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -439,7 +439,1955 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/faucet-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-left-1.png",
+      "sourceSHA256": "6182265a2b30248b7a6373db482496b264137829b6df2282c149a8d07de6aece",
+      "runtimeSHA256": "6182265a2b30248b7a6373db482496b264137829b6df2282c149a8d07de6aece",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/faucet-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-left-2.png",
+      "sourceSHA256": "721494256f2279f354bd854ef4908afa3b02656bec4685a906ed0733b09a8492",
+      "runtimeSHA256": "721494256f2279f354bd854ef4908afa3b02656bec4685a906ed0733b09a8492",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/faucet-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-left-3.png",
+      "sourceSHA256": "a3e5ec1fb52b4cc2d6d95ebaeaa3bd46a8652caf18becf6b8263825a0ae087f4",
+      "runtimeSHA256": "a3e5ec1fb52b4cc2d6d95ebaeaa3bd46a8652caf18becf6b8263825a0ae087f4",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/faucet-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-right-1.png",
+      "sourceSHA256": "f8fbce311f754ca3c4b48c907ff6ad827cef1445ad97e91cc627767cb427977b",
+      "runtimeSHA256": "f8fbce311f754ca3c4b48c907ff6ad827cef1445ad97e91cc627767cb427977b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/faucet-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-right-2.png",
+      "sourceSHA256": "4f1e552a13074b35c28b9e31e2f1b97585724208aa818072dc81dd4a16fbbf30",
+      "runtimeSHA256": "4f1e552a13074b35c28b9e31e2f1b97585724208aa818072dc81dd4a16fbbf30",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/faucet-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-right-3.png",
+      "sourceSHA256": "08727dab6f475e4fe2a2d2c77c95e7a50e576766c36bcaf6291a4b6baaa8cadf",
+      "runtimeSHA256": "08727dab6f475e4fe2a2d2c77c95e7a50e576766c36bcaf6291a4b6baaa8cadf",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/faucet-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-up-1.png",
+      "sourceSHA256": "bde2f3ccbd2722e03692a0d6dcd14ef527dfabdc86f0225a444f38ec20fadcc0",
+      "runtimeSHA256": "bde2f3ccbd2722e03692a0d6dcd14ef527dfabdc86f0225a444f38ec20fadcc0",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/faucet-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-up-2.png",
+      "sourceSHA256": "6961a09655f5a903d7f8cff5349c905d5c9d5e30fa49633f7ec74fcc28eb2ace",
+      "runtimeSHA256": "6961a09655f5a903d7f8cff5349c905d5c9d5e30fa49633f7ec74fcc28eb2ace",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-faucet-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/faucet-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-up-3.png",
+      "sourceSHA256": "bf3575059e20db67e35bc1083d0f2e11c1b4bfca05a06233a691d4e6f9cc955b",
+      "runtimeSHA256": "bf3575059e20db67e35bc1083d0f2e11c1b4bfca05a06233a691d4e6f9cc955b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-down-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/fish-down-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-down-1.png",
+      "sourceSHA256": "acdaae1b0e328ed7022623be4ddd75cf3284d190395052b4d591d47f83415d1e",
+      "runtimeSHA256": "acdaae1b0e328ed7022623be4ddd75cf3284d190395052b4d591d47f83415d1e",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-down-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/fish-down-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-down-2.png",
+      "sourceSHA256": "8f9a4c59d63392a9476ee2610114a6ec2de69fd715d09e6be0ff3b4361a4b6e1",
+      "runtimeSHA256": "8f9a4c59d63392a9476ee2610114a6ec2de69fd715d09e6be0ff3b4361a4b6e1",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-down-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/fish-down-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-down-3.png",
+      "sourceSHA256": "ba2cf45cf9e40ad1d629c63216108539cd12dba660473a8b5c4b19fb358ef2eb",
+      "runtimeSHA256": "ba2cf45cf9e40ad1d629c63216108539cd12dba660473a8b5c4b19fb358ef2eb",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/fish-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-left-1.png",
+      "sourceSHA256": "43eed992dd9be6a66f4cd33afc316499c5e80f8189226d72bac36f1844b9af2c",
+      "runtimeSHA256": "43eed992dd9be6a66f4cd33afc316499c5e80f8189226d72bac36f1844b9af2c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/fish-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-left-2.png",
+      "sourceSHA256": "c6f8633629b804ee1e7ff8c5ce1ed52a45011879ec38813ea0dcfb25421f5d0e",
+      "runtimeSHA256": "c6f8633629b804ee1e7ff8c5ce1ed52a45011879ec38813ea0dcfb25421f5d0e",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/fish-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-left-3.png",
+      "sourceSHA256": "7b994539a9a7afba99add53d3e32d6716902e8babf8bdab149407b70393cc3cd",
+      "runtimeSHA256": "7b994539a9a7afba99add53d3e32d6716902e8babf8bdab149407b70393cc3cd",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/fish-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-right-1.png",
+      "sourceSHA256": "9e2d53fcf127bff16047bf2cc4225645d48f2190f64c0173aebafe81f0677818",
+      "runtimeSHA256": "9e2d53fcf127bff16047bf2cc4225645d48f2190f64c0173aebafe81f0677818",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/fish-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-right-2.png",
+      "sourceSHA256": "bc00423d57c581cbbc5e70b98c0882fa4f16c1012abb22c1382396b7b8c6731f",
+      "runtimeSHA256": "bc00423d57c581cbbc5e70b98c0882fa4f16c1012abb22c1382396b7b8c6731f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/fish-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-right-3.png",
+      "sourceSHA256": "ea5c1124126547f111dd5e02c80d5449204b15f02a441c43449020554c90850e",
+      "runtimeSHA256": "ea5c1124126547f111dd5e02c80d5449204b15f02a441c43449020554c90850e",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/fish-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-up-1.png",
+      "sourceSHA256": "ecb30d38efc30610ce493492a1da7084cffe0dcfdf21b60c79447583a313976b",
+      "runtimeSHA256": "ecb30d38efc30610ce493492a1da7084cffe0dcfdf21b60c79447583a313976b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/fish-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-up-2.png",
+      "sourceSHA256": "e4d98e82a9fde633a85b359d6a897b4ad1004ef4eb69e36727bded3f0d698191",
+      "runtimeSHA256": "e4d98e82a9fde633a85b359d6a897b4ad1004ef4eb69e36727bded3f0d698191",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-fish-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "fish",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/fish-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/fish-up-3.png",
+      "sourceSHA256": "94dc73f73a76a5ad8da7fe55982757551d3fe1aed29d67cd66993a64f0c285b9",
+      "runtimeSHA256": "94dc73f73a76a5ad8da7fe55982757551d3fe1aed29d67cd66993a64f0c285b9",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-down-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/harvest-down-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-down-1.png",
+      "sourceSHA256": "230901ff1571b4babca95feb0011aeaa94549563cc5e816de8c9dee50fbae2fe",
+      "runtimeSHA256": "230901ff1571b4babca95feb0011aeaa94549563cc5e816de8c9dee50fbae2fe",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-down-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/harvest-down-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-down-2.png",
+      "sourceSHA256": "6dce09ffcbf9340eda28c8a7532fbcaa029818c6478e246eb7c45e3070b21319",
+      "runtimeSHA256": "6dce09ffcbf9340eda28c8a7532fbcaa029818c6478e246eb7c45e3070b21319",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-down-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/harvest-down-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-down-3.png",
+      "sourceSHA256": "98821fea5cd6860ee423176e104e6b507e311df4a50f440429609a55764cc229",
+      "runtimeSHA256": "98821fea5cd6860ee423176e104e6b507e311df4a50f440429609a55764cc229",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/harvest-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-left-1.png",
+      "sourceSHA256": "bbad1c15d87890aff3179c9c36b6a5c2e4533f4cbbda49bdf11cb06a89039d8c",
+      "runtimeSHA256": "bbad1c15d87890aff3179c9c36b6a5c2e4533f4cbbda49bdf11cb06a89039d8c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/harvest-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-left-2.png",
+      "sourceSHA256": "59411fe884d820af788c9de5f2a2f29d7537abc52ec944feffa3708d8f78bde6",
+      "runtimeSHA256": "59411fe884d820af788c9de5f2a2f29d7537abc52ec944feffa3708d8f78bde6",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/harvest-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-left-3.png",
+      "sourceSHA256": "a7c111789b210e5f1259529694d132ab22fd137400b03ac8b3ddb26445ca1c48",
+      "runtimeSHA256": "a7c111789b210e5f1259529694d132ab22fd137400b03ac8b3ddb26445ca1c48",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/harvest-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-right-1.png",
+      "sourceSHA256": "2be147dd862c48e33b2abdbaf463da194603f22269ba43d70dba767a090217bd",
+      "runtimeSHA256": "2be147dd862c48e33b2abdbaf463da194603f22269ba43d70dba767a090217bd",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/harvest-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-right-2.png",
+      "sourceSHA256": "a055d2a92c930221f1e8a44cc59978b4dbc5de4570fe83546b8db1a107f1275c",
+      "runtimeSHA256": "a055d2a92c930221f1e8a44cc59978b4dbc5de4570fe83546b8db1a107f1275c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/harvest-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-right-3.png",
+      "sourceSHA256": "85c953335d84447139fb2bb2fb0b78ed730df035c4efbbe40200dbb1bf6b9931",
+      "runtimeSHA256": "85c953335d84447139fb2bb2fb0b78ed730df035c4efbbe40200dbb1bf6b9931",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/harvest-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-up-1.png",
+      "sourceSHA256": "4421a5eb41a01bbc120a0d26b26b863667050ac82f0adb341c6e74b1b82245be",
+      "runtimeSHA256": "4421a5eb41a01bbc120a0d26b26b863667050ac82f0adb341c6e74b1b82245be",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/harvest-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-up-2.png",
+      "sourceSHA256": "570b201df9e4b59a7c817d83448631069d1c3600cd2c941b5ca945cd24a16096",
+      "runtimeSHA256": "570b201df9e4b59a7c817d83448631069d1c3600cd2c941b5ca945cd24a16096",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-harvest-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "harvest",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/harvest-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/harvest-up-3.png",
+      "sourceSHA256": "5ca2bc93a7695001a5b5d9b30ad838d4777abefd36a008b79daafb037ef94947",
+      "runtimeSHA256": "5ca2bc93a7695001a5b5d9b30ad838d4777abefd36a008b79daafb037ef94947",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-held-harvest",
+      "ownerId": "A01",
+      "objectId": "harvest-held-prop",
+      "action": "harvest",
+      "direction": "any",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/held-harvest.png",
+      "runtimeFile": "public/game/assets/characters/activities/held-harvest.png",
+      "sourceSHA256": "543a0c07e65fd7b249e5fc78afb610011527d76fd5933480eb4d4107d3b6da83",
+      "runtimeSHA256": "543a0c07e65fd7b249e5fc78afb610011527d76fd5933480eb4d4107d3b6da83",
+      "canvasSize": [
+        15,
+        15
+      ],
+      "visibleAlphaBounds": [
+        2,
+        3,
+        14,
+        13
+      ],
+      "footAnchor": null,
+      "drawOffset": [
+        -7,
+        -9
+      ],
+      "displaySize": [
+        15,
+        15
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual held prop"
+    },
+    {
+      "assetId": "A01-held-hoe",
+      "ownerId": "A01",
+      "objectId": "hoe-held-prop",
+      "action": "hoe",
+      "direction": "any",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/held-hoe.png",
+      "runtimeFile": "public/game/assets/characters/activities/held-hoe.png",
+      "sourceSHA256": "b2a436ea80e14baeed68fa0c73bb1c8129295821a34d35fc0eeee2740ab6dc0c",
+      "runtimeSHA256": "b2a436ea80e14baeed68fa0c73bb1c8129295821a34d35fc0eeee2740ab6dc0c",
+      "canvasSize": [
+        15,
+        15
+      ],
+      "visibleAlphaBounds": [
+        2,
+        1,
+        15,
+        14
+      ],
+      "footAnchor": null,
+      "drawOffset": [
+        -7,
+        -9
+      ],
+      "displaySize": [
+        15,
+        15
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual held prop"
+    },
+    {
+      "assetId": "A01-held-seed",
+      "ownerId": "A01",
+      "objectId": "seed-held-prop",
+      "action": "seed",
+      "direction": "any",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/held-seed.png",
+      "runtimeFile": "public/game/assets/characters/activities/held-seed.png",
+      "sourceSHA256": "00920bd7ca9cddb450f11b4f654ee3c738301d0fc5d875d209097392f24a0173",
+      "runtimeSHA256": "00920bd7ca9cddb450f11b4f654ee3c738301d0fc5d875d209097392f24a0173",
+      "canvasSize": [
+        15,
+        15
+      ],
+      "visibleAlphaBounds": [
+        3,
+        2,
+        13,
+        14
+      ],
+      "footAnchor": null,
+      "drawOffset": [
+        -7,
+        -9
+      ],
+      "displaySize": [
+        15,
+        15
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual held prop"
+    },
+    {
+      "assetId": "A01-held-water",
+      "ownerId": "A01",
+      "objectId": "water-held-prop",
+      "action": "water",
+      "direction": "any",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/held-water.png",
+      "runtimeFile": "public/game/assets/characters/activities/held-water.png",
+      "sourceSHA256": "b64cddf2507b010b7525c2a12d534a2a9bd3242871a6c4c3a9776f0c3ca8f1af",
+      "runtimeSHA256": "b64cddf2507b010b7525c2a12d534a2a9bd3242871a6c4c3a9776f0c3ca8f1af",
+      "canvasSize": [
+        15,
+        15
+      ],
+      "visibleAlphaBounds": [
+        0,
+        4,
+        15,
+        13
+      ],
+      "footAnchor": null,
+      "drawOffset": [
+        -7,
+        -9
+      ],
+      "displaySize": [
+        15,
+        15
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual held prop"
+    },
+    {
+      "assetId": "A01-hoe-down-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/hoe-down-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-down-1.png",
+      "sourceSHA256": "e8655efb239198f2654dcb3ac563078a52a55688c21aca0f7f6a708ae2a998c0",
+      "runtimeSHA256": "e8655efb239198f2654dcb3ac563078a52a55688c21aca0f7f6a708ae2a998c0",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-down-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/hoe-down-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-down-2.png",
+      "sourceSHA256": "1d44502932d91fcb7076912c62c7f92c13ae8da2960b2d2296cba71d3edac46a",
+      "runtimeSHA256": "1d44502932d91fcb7076912c62c7f92c13ae8da2960b2d2296cba71d3edac46a",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        23,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-down-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/hoe-down-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-down-3.png",
+      "sourceSHA256": "fc3c45d5539bd0c82b039b776c31ef95ebb02c12eb8274bcfe05a5ce7892a6ad",
+      "runtimeSHA256": "fc3c45d5539bd0c82b039b776c31ef95ebb02c12eb8274bcfe05a5ce7892a6ad",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/hoe-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-left-1.png",
+      "sourceSHA256": "0493e80a75f000f688a25a8867da8bb38e3e38b06c1478d7f9a237ca5cf9b021",
+      "runtimeSHA256": "0493e80a75f000f688a25a8867da8bb38e3e38b06c1478d7f9a237ca5cf9b021",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/hoe-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-left-2.png",
+      "sourceSHA256": "73ca2f2d332d1b7e4ff61f6c958964a91170e09843128a48fbad8c8b2b1fd248",
+      "runtimeSHA256": "73ca2f2d332d1b7e4ff61f6c958964a91170e09843128a48fbad8c8b2b1fd248",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/hoe-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-left-3.png",
+      "sourceSHA256": "3ae124989a9094ae8d06a633059bf4b7f6eb5b9d61c67b2e746771004a2e5fbb",
+      "runtimeSHA256": "3ae124989a9094ae8d06a633059bf4b7f6eb5b9d61c67b2e746771004a2e5fbb",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/hoe-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-right-1.png",
+      "sourceSHA256": "f66ad44bf6ba9dfd6183b51dec9a7c1ecab761c624efb80ee79cbc5811d3df97",
+      "runtimeSHA256": "f66ad44bf6ba9dfd6183b51dec9a7c1ecab761c624efb80ee79cbc5811d3df97",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/hoe-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-right-2.png",
+      "sourceSHA256": "46ce7c90060a6893839de14c1a00a7108d4ac685588e4e039f67177353d3af68",
+      "runtimeSHA256": "46ce7c90060a6893839de14c1a00a7108d4ac685588e4e039f67177353d3af68",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        22,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/hoe-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-right-3.png",
+      "sourceSHA256": "5ebe86bd5b8c2f0c4d75e4c094bf1eb938ccc518a4cef2d1fe15644fef61b675",
+      "runtimeSHA256": "5ebe86bd5b8c2f0c4d75e4c094bf1eb938ccc518a4cef2d1fe15644fef61b675",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/hoe-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-up-1.png",
+      "sourceSHA256": "7adccec01515572df1cbf50c815e6b3b4d116db16d992d3a9a6d4e27b360eacb",
+      "runtimeSHA256": "7adccec01515572df1cbf50c815e6b3b4d116db16d992d3a9a6d4e27b360eacb",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/hoe-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-up-2.png",
+      "sourceSHA256": "e64e28f00efe3c8e64d287ba742063cf6120b4ab4aee5d9bd54820d31637db0c",
+      "runtimeSHA256": "e64e28f00efe3c8e64d287ba742063cf6120b4ab4aee5d9bd54820d31637db0c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        22,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-hoe-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "hoe",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/hoe-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/hoe-up-3.png",
+      "sourceSHA256": "bf5d39bf733cecb31c5687a9bae8660d63630e0c0977e6b7e5421a1b255fbfd3",
+      "runtimeSHA256": "bf5d39bf733cecb31c5687a9bae8660d63630e0c0977e6b7e5421a1b255fbfd3",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-kopi-hitam-1",
@@ -450,17 +2398,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/kopi-hitam-1.png",
       "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-1.png",
-      "sourceSHA256": "ed4b6590f89f31b89131834f4016ebc94f7594a44d90b4bf03b866ebf830fddc",
-      "runtimeSHA256": "ed4b6590f89f31b89131834f4016ebc94f7594a44d90b4bf03b866ebf830fddc",
+      "sourceSHA256": "d752e6a61e3c020aeb14f7ca5db85971895b280d843bb4510452bf45bc5a0161",
+      "runtimeSHA256": "d752e6a61e3c020aeb14f7ca5db85971895b280d843bb4510452bf45bc5a0161",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -479,7 +2427,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-kopi-hitam-2-prop",
@@ -530,17 +2478,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/kopi-hitam-2.png",
       "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-2.png",
-      "sourceSHA256": "61b1bef0c5e157420ade627db1ea18652213c258088a244d2b3ed1929c332144",
-      "runtimeSHA256": "61b1bef0c5e157420ade627db1ea18652213c258088a244d2b3ed1929c332144",
+      "sourceSHA256": "e30b62d812775a25edf6d65d153db6bd0d3da0f37f13bb12efcf13d59298d1a6",
+      "runtimeSHA256": "e30b62d812775a25edf6d65d153db6bd0d3da0f37f13bb12efcf13d59298d1a6",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -559,7 +2507,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-kopi-hitam-3-prop",
@@ -610,17 +2558,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/kopi-hitam-3.png",
       "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-3.png",
-      "sourceSHA256": "fd77a1b39a7237252d96ea94e6c1e9cffd66ffa0bdc5a9f0956c9dcea103cc20",
-      "runtimeSHA256": "fd77a1b39a7237252d96ea94e6c1e9cffd66ffa0bdc5a9f0956c9dcea103cc20",
+      "sourceSHA256": "fa6c04be53c8cf1e41b024bdb2ee29fb6ad46573daed8cf39b5e4bf567cae0f7",
+      "runtimeSHA256": "fa6c04be53c8cf1e41b024bdb2ee29fb6ad46573daed8cf39b5e4bf567cae0f7",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -639,7 +2587,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-kopi-hitam-4-prop",
@@ -690,17 +2638,17 @@
       "frameIndex": 4,
       "sourceFile": "public/game/assets/characters/activities/kopi-hitam-4.png",
       "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-4.png",
-      "sourceSHA256": "48fa1b2d59d170c061fba0a167c8c186f4a87f5cf49a46b2bbe87a8f4d2181fb",
-      "runtimeSHA256": "48fa1b2d59d170c061fba0a167c8c186f4a87f5cf49a46b2bbe87a8f4d2181fb",
+      "sourceSHA256": "91c356ecf44269e53fbba4e19baabaef50a7ad6aba7c8be9f1f14e103d6f7d00",
+      "runtimeSHA256": "91c356ecf44269e53fbba4e19baabaef50a7ad6aba7c8be9f1f14e103d6f7d00",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -719,7 +2667,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-kopi-hitam-5",
@@ -730,17 +2678,17 @@
       "frameIndex": 5,
       "sourceFile": "public/game/assets/characters/activities/kopi-hitam-5.png",
       "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-5.png",
-      "sourceSHA256": "ee43c2585172f3a1af8f28ef08b9ccfbec4fe01a5c026544b52c8df35285ba0f",
-      "runtimeSHA256": "ee43c2585172f3a1af8f28ef08b9ccfbec4fe01a5c026544b52c8df35285ba0f",
+      "sourceSHA256": "b09996e2aa393e44df4b069fc9abb36b9f22a64d3a6f8699af98b37e19a1cb17",
+      "runtimeSHA256": "b09996e2aa393e44df4b069fc9abb36b9f22a64d3a6f8699af98b37e19a1cb17",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -759,7 +2707,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-nasi-tutug-1",
@@ -770,17 +2718,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/nasi-tutug-1.png",
       "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-1.png",
-      "sourceSHA256": "8283530f80bf681cd0a79ab0cde3fe249ec65e65e2cfe1a5c6862887c83499bd",
-      "runtimeSHA256": "8283530f80bf681cd0a79ab0cde3fe249ec65e65e2cfe1a5c6862887c83499bd",
+      "sourceSHA256": "a6a36091693823339a07383ce64ec6fbdc7469a4ee5d7029c2778f88c2315027",
+      "runtimeSHA256": "a6a36091693823339a07383ce64ec6fbdc7469a4ee5d7029c2778f88c2315027",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -799,7 +2747,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-nasi-tutug-2-prop",
@@ -850,17 +2798,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/nasi-tutug-2.png",
       "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-2.png",
-      "sourceSHA256": "797f9dc905259dbe830bde43a3e14a06435c7a22000a12456d3603a47d32f4c0",
-      "runtimeSHA256": "797f9dc905259dbe830bde43a3e14a06435c7a22000a12456d3603a47d32f4c0",
+      "sourceSHA256": "a4a576eaa93b04dc40d6ac8af600cdf4a92e625f8c60cda604d19481255b6662",
+      "runtimeSHA256": "a4a576eaa93b04dc40d6ac8af600cdf4a92e625f8c60cda604d19481255b6662",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -879,7 +2827,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-nasi-tutug-3-prop",
@@ -930,17 +2878,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/nasi-tutug-3.png",
       "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-3.png",
-      "sourceSHA256": "874a425b485f0de76a2f986c96a753b56bd3352f81f71d88ca3fc511d3aab646",
-      "runtimeSHA256": "874a425b485f0de76a2f986c96a753b56bd3352f81f71d88ca3fc511d3aab646",
+      "sourceSHA256": "9d5e5b878d682387082d806de3d20b9da1bca27c60d9444ca50c151a8e34ed77",
+      "runtimeSHA256": "9d5e5b878d682387082d806de3d20b9da1bca27c60d9444ca50c151a8e34ed77",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -959,7 +2907,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-nasi-tutug-4-prop",
@@ -1010,17 +2958,17 @@
       "frameIndex": 4,
       "sourceFile": "public/game/assets/characters/activities/nasi-tutug-4.png",
       "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-4.png",
-      "sourceSHA256": "ddc4d6c4fd76c9b11f5c53f355a10f147321f92a8e38102f2400f9a397ea2ee9",
-      "runtimeSHA256": "ddc4d6c4fd76c9b11f5c53f355a10f147321f92a8e38102f2400f9a397ea2ee9",
+      "sourceSHA256": "0fc56315b89d543653195acb81538e595346eee9e1d26ba6a8d8677fd5be33db",
+      "runtimeSHA256": "0fc56315b89d543653195acb81538e595346eee9e1d26ba6a8d8677fd5be33db",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1039,7 +2987,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-nasi-tutug-5",
@@ -1050,17 +2998,17 @@
       "frameIndex": 5,
       "sourceFile": "public/game/assets/characters/activities/nasi-tutug-5.png",
       "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-5.png",
-      "sourceSHA256": "604aebc205dd96948c750d115b345224f057467816e538cae61b01d3d67c1698",
-      "runtimeSHA256": "604aebc205dd96948c750d115b345224f057467816e538cae61b01d3d67c1698",
+      "sourceSHA256": "322ce4dfaedaaf0d38884074a5e943a8111a31dc0a39e5bc17483ced90864be9",
+      "runtimeSHA256": "322ce4dfaedaaf0d38884074a5e943a8111a31dc0a39e5bc17483ced90864be9",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1079,7 +3027,487 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-down-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/seed-down-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-down-1.png",
+      "sourceSHA256": "484f0f960bab283793b1e9727ad5b403825be7a541d6c2f98aaa25851ab0a084",
+      "runtimeSHA256": "484f0f960bab283793b1e9727ad5b403825be7a541d6c2f98aaa25851ab0a084",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-down-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/seed-down-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-down-2.png",
+      "sourceSHA256": "f5616bd12108538231ce4fa5a65ff286b99d8b7c0178f75d74c817a591f483a3",
+      "runtimeSHA256": "f5616bd12108538231ce4fa5a65ff286b99d8b7c0178f75d74c817a591f483a3",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        22,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-down-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/seed-down-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-down-3.png",
+      "sourceSHA256": "d1be54f67cc4c8009fb8c1b57529f1bfaf6aeaa869babfb80988c33bdd7ce071",
+      "runtimeSHA256": "d1be54f67cc4c8009fb8c1b57529f1bfaf6aeaa869babfb80988c33bdd7ce071",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/seed-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-left-1.png",
+      "sourceSHA256": "b976b94abc4a72950d7ec6ba825d47eefc3215d7daae47f800edcbe64ed7495b",
+      "runtimeSHA256": "b976b94abc4a72950d7ec6ba825d47eefc3215d7daae47f800edcbe64ed7495b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/seed-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-left-2.png",
+      "sourceSHA256": "a7072d9b92a117ff79fe3d46e85951037795db10a81332e70ed5f71a444219fa",
+      "runtimeSHA256": "a7072d9b92a117ff79fe3d46e85951037795db10a81332e70ed5f71a444219fa",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/seed-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-left-3.png",
+      "sourceSHA256": "642a9bdd4274e7e334a8a8d6203e2cd6da7f7c89b6822bcc8f41876a8e0c1489",
+      "runtimeSHA256": "642a9bdd4274e7e334a8a8d6203e2cd6da7f7c89b6822bcc8f41876a8e0c1489",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/seed-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-right-1.png",
+      "sourceSHA256": "f2898200b26af2f0cc939aab0e3d6a306ab8d7082e0f7edc4c54082ff073f8c6",
+      "runtimeSHA256": "f2898200b26af2f0cc939aab0e3d6a306ab8d7082e0f7edc4c54082ff073f8c6",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/seed-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-right-2.png",
+      "sourceSHA256": "c6f79fd6d8fc2059a35c391b25bfd1e93dcbda1d78304b23b5765b79f110a297",
+      "runtimeSHA256": "c6f79fd6d8fc2059a35c391b25bfd1e93dcbda1d78304b23b5765b79f110a297",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/seed-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-right-3.png",
+      "sourceSHA256": "da1b5965a85320a1a5eeb1d201414329c0655330b6a601d9db4a8da84bec50ce",
+      "runtimeSHA256": "da1b5965a85320a1a5eeb1d201414329c0655330b6a601d9db4a8da84bec50ce",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/seed-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-up-1.png",
+      "sourceSHA256": "00c80b2d919247e9f8db26375c503660303501f05107ff7dac2d0100f126fffb",
+      "runtimeSHA256": "00c80b2d919247e9f8db26375c503660303501f05107ff7dac2d0100f126fffb",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/seed-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-up-2.png",
+      "sourceSHA256": "5593c961b26a1ffe5cdf9a567cb57afd71c1df0a7deb3b472ef95b38eb816c0c",
+      "runtimeSHA256": "5593c961b26a1ffe5cdf9a567cb57afd71c1df0a7deb3b472ef95b38eb816c0c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        22,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-seed-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "seed",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/seed-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/seed-up-3.png",
+      "sourceSHA256": "c484d09b976591bfa0a22c59159940670e3593cf00a79c4299bf8878350614db",
+      "runtimeSHA256": "c484d09b976591bfa0a22c59159940670e3593cf00a79c4299bf8878350614db",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sit-1",
@@ -1090,17 +3518,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/sit-1.png",
       "runtimeFile": "public/game/assets/characters/activities/sit-1.png",
-      "sourceSHA256": "7ebecf4e8055ee400a6d0cd5c762524b719008770133a6c1d5be62fdb059bc4b",
-      "runtimeSHA256": "7ebecf4e8055ee400a6d0cd5c762524b719008770133a6c1d5be62fdb059bc4b",
+      "sourceSHA256": "ffd7192924ad6e26bafc8415a2368d4255dc5fb00acbce2f33c8a1d4ca70757d",
+      "runtimeSHA256": "ffd7192924ad6e26bafc8415a2368d4255dc5fb00acbce2f33c8a1d4ca70757d",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1119,7 +3547,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sit-2",
@@ -1130,8 +3558,8 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/sit-2.png",
       "runtimeFile": "public/game/assets/characters/activities/sit-2.png",
-      "sourceSHA256": "6616fc54951724f6627327940967e8cf3b7ca5c9d19d54df4b4ac75bcfb459cd",
-      "runtimeSHA256": "6616fc54951724f6627327940967e8cf3b7ca5c9d19d54df4b4ac75bcfb459cd",
+      "sourceSHA256": "b7f63799d6f73b8667693625d1e875bbc05c6f772ac471ed28a4a0f770844f33",
+      "runtimeSHA256": "b7f63799d6f73b8667693625d1e875bbc05c6f772ac471ed28a4a0f770844f33",
       "canvasSize": [
         24,
         32
@@ -1139,8 +3567,8 @@
       "visibleAlphaBounds": [
         5,
         4,
-        20,
-        31
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1159,7 +3587,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sit-3",
@@ -1170,17 +3598,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/sit-3.png",
       "runtimeFile": "public/game/assets/characters/activities/sit-3.png",
-      "sourceSHA256": "1cebcf1b946d914c4bd3d7072e15fdaee074b1952aa2cbab3d1dda95632a0352",
-      "runtimeSHA256": "1cebcf1b946d914c4bd3d7072e15fdaee074b1952aa2cbab3d1dda95632a0352",
+      "sourceSHA256": "65386a19ca4df2fb625704bf2061daaefa514760835923ede69feea24a86df8f",
+      "runtimeSHA256": "65386a19ca4df2fb625704bf2061daaefa514760835923ede69feea24a86df8f",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        7,
-        20,
-        31
+        6,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1199,7 +3627,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sit-4",
@@ -1210,17 +3638,17 @@
       "frameIndex": 4,
       "sourceFile": "public/game/assets/characters/activities/sit-4.png",
       "runtimeFile": "public/game/assets/characters/activities/sit-4.png",
-      "sourceSHA256": "98c2357013521dbedb835dc1aca46019e4980f6f1b91a8b888cc1caedfde8d99",
-      "runtimeSHA256": "98c2357013521dbedb835dc1aca46019e4980f6f1b91a8b888cc1caedfde8d99",
+      "sourceSHA256": "d9dd031bea358f32af25dfaaca5f1d8fb7cfa13e644be0eb90037a7edf85837d",
+      "runtimeSHA256": "d9dd031bea358f32af25dfaaca5f1d8fb7cfa13e644be0eb90037a7edf85837d",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        3,
-        20,
-        31
+        2,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1239,7 +3667,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sleep-1",
@@ -1250,8 +3678,8 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/sleep-1.png",
       "runtimeFile": "public/game/assets/characters/activities/sleep-1.png",
-      "sourceSHA256": "29e7c909b07f5f8db19e834c38b7316f8a0688b4e642dec47bbb46e55d72671e",
-      "runtimeSHA256": "29e7c909b07f5f8db19e834c38b7316f8a0688b4e642dec47bbb46e55d72671e",
+      "sourceSHA256": "0dbdce47004ac86645e4ca42876196d854bdd7d23cd304ca41acfa1b5768f746",
+      "runtimeSHA256": "0dbdce47004ac86645e4ca42876196d854bdd7d23cd304ca41acfa1b5768f746",
       "canvasSize": [
         24,
         32
@@ -1259,8 +3687,8 @@
       "visibleAlphaBounds": [
         5,
         1,
-        20,
-        31
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1279,7 +3707,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sleep-2",
@@ -1290,17 +3718,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/sleep-2.png",
       "runtimeFile": "public/game/assets/characters/activities/sleep-2.png",
-      "sourceSHA256": "e340790f0f7a0138baa8110dc9a3dc41df3e4bd47e3bd03a1b4a605f3120911f",
-      "runtimeSHA256": "e340790f0f7a0138baa8110dc9a3dc41df3e4bd47e3bd03a1b4a605f3120911f",
+      "sourceSHA256": "24bb3dbaf5a9a50a138723d6ceadcbb2705f61ab80ff4a8c8bd46fc13fe3d26f",
+      "runtimeSHA256": "24bb3dbaf5a9a50a138723d6ceadcbb2705f61ab80ff4a8c8bd46fc13fe3d26f",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
-        6,
-        7,
+        5,
+        1,
         19,
-        31
+        29
       ],
       "footAnchor": [
         12,
@@ -1319,7 +3747,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-sleep-3",
@@ -1330,17 +3758,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/sleep-3.png",
       "runtimeFile": "public/game/assets/characters/activities/sleep-3.png",
-      "sourceSHA256": "61b51d86742707bef20210267102547fdf27a1c2b58a85e1b90acefa013ec85f",
-      "runtimeSHA256": "61b51d86742707bef20210267102547fdf27a1c2b58a85e1b90acefa013ec85f",
+      "sourceSHA256": "a071fbffec6255b01f0a22f2265584ecc32ffdf5f07e32be3446b1c6d0cf573a",
+      "runtimeSHA256": "a071fbffec6255b01f0a22f2265584ecc32ffdf5f07e32be3446b1c6d0cf573a",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
-        6,
-        7,
+        5,
+        1,
         19,
-        31
+        28
       ],
       "footAnchor": [
         12,
@@ -1359,7 +3787,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-take-1",
@@ -1370,17 +3798,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/take-1.png",
       "runtimeFile": "public/game/assets/characters/activities/take-1.png",
-      "sourceSHA256": "545a4595587376bb8462faab2ff69a6d143534433cf418cd83c8922001214219",
-      "runtimeSHA256": "545a4595587376bb8462faab2ff69a6d143534433cf418cd83c8922001214219",
+      "sourceSHA256": "ab6f5e650a70a30f5dff26a1d82e434d060dae3b85ff27ec84fb518fd341063e",
+      "runtimeSHA256": "ab6f5e650a70a30f5dff26a1d82e434d060dae3b85ff27ec84fb518fd341063e",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1399,7 +3827,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-take-2",
@@ -1410,17 +3838,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/take-2.png",
       "runtimeFile": "public/game/assets/characters/activities/take-2.png",
-      "sourceSHA256": "96891f1375bd71fc2bba0fc9978c00d1ce4dc0b8bfa74937180e5cfa6c7a8037",
-      "runtimeSHA256": "96891f1375bd71fc2bba0fc9978c00d1ce4dc0b8bfa74937180e5cfa6c7a8037",
+      "sourceSHA256": "717a457f0ac408cf12eca0e5941286378d11ecdf1232081bdccae763f80caf9c",
+      "runtimeSHA256": "717a457f0ac408cf12eca0e5941286378d11ecdf1232081bdccae763f80caf9c",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        5,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1439,7 +3867,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-take-3",
@@ -1450,17 +3878,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/take-3.png",
       "runtimeFile": "public/game/assets/characters/activities/take-3.png",
-      "sourceSHA256": "c3ddf9aa9743ffd4d642bba8ff55e843e4c315cafde89dcc25f919a02f89f215",
-      "runtimeSHA256": "c3ddf9aa9743ffd4d642bba8ff55e843e4c315cafde89dcc25f919a02f89f215",
+      "sourceSHA256": "645ac5d2d0bc56438720af1ad831fde7f256787b6fcfb02b4352520a6f43ce81",
+      "runtimeSHA256": "645ac5d2d0bc56438720af1ad831fde7f256787b6fcfb02b4352520a6f43ce81",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        3,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1479,7 +3907,367 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/take-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-left-1.png",
+      "sourceSHA256": "6c7e1072a1cdce652edec5fbb42f7e1fede09239528ac735a29f09dec867aeb6",
+      "runtimeSHA256": "6c7e1072a1cdce652edec5fbb42f7e1fede09239528ac735a29f09dec867aeb6",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/take-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-left-2.png",
+      "sourceSHA256": "6fac716eafc5f0140534b277dbbc27340dc7e545c392d8922db3fe3d37effc1c",
+      "runtimeSHA256": "6fac716eafc5f0140534b277dbbc27340dc7e545c392d8922db3fe3d37effc1c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/take-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-left-3.png",
+      "sourceSHA256": "abf753185d90f191ec81215dcdf8b5d803ed04155f225a97924f356eb9e3c4e9",
+      "runtimeSHA256": "abf753185d90f191ec81215dcdf8b5d803ed04155f225a97924f356eb9e3c4e9",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/take-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-right-1.png",
+      "sourceSHA256": "add4f5ebc4ac108ea46877643dc3c7edd8aa5cd2e4b64e744303a6a03f78238f",
+      "runtimeSHA256": "add4f5ebc4ac108ea46877643dc3c7edd8aa5cd2e4b64e744303a6a03f78238f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/take-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-right-2.png",
+      "sourceSHA256": "0564d210410067f3f33ae557dea9bf97ab60c4024ee7f497dc4bce30244da3d2",
+      "runtimeSHA256": "0564d210410067f3f33ae557dea9bf97ab60c4024ee7f497dc4bce30244da3d2",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/take-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-right-3.png",
+      "sourceSHA256": "8870b552f13e8339faceead4d90bd8f079d00eb4c4980e88d4e93f0fd4d2a7b2",
+      "runtimeSHA256": "8870b552f13e8339faceead4d90bd8f079d00eb4c4980e88d4e93f0fd4d2a7b2",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/take-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-up-1.png",
+      "sourceSHA256": "9308a7a0e0812f8e659baf81755a46fecb6dc9fd845ea1488cdf58d7a8bb526c",
+      "runtimeSHA256": "9308a7a0e0812f8e659baf81755a46fecb6dc9fd845ea1488cdf58d7a8bb526c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/take-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-up-2.png",
+      "sourceSHA256": "783c40268174254cca2d7fefa764c867a5a9abe29269ddc06c76247ea28807cf",
+      "runtimeSHA256": "783c40268174254cca2d7fefa764c867a5a9abe29269ddc06c76247ea28807cf",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-take-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/take-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-up-3.png",
+      "sourceSHA256": "e106fd74e7dd18fa98b422d5599b905ec2932d7684ddc416bef45380da1fe2dd",
+      "runtimeSHA256": "e106fd74e7dd18fa98b422d5599b905ec2932d7684ddc416bef45380da1fe2dd",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-teh-hangat-1",
@@ -1490,17 +4278,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/teh-hangat-1.png",
       "runtimeFile": "public/game/assets/characters/activities/teh-hangat-1.png",
-      "sourceSHA256": "beef68a6e7df6df42fa8841ad182bd5ce216b33b08e839d8d265f44fc87f3d92",
-      "runtimeSHA256": "beef68a6e7df6df42fa8841ad182bd5ce216b33b08e839d8d265f44fc87f3d92",
+      "sourceSHA256": "4397877dc884d2bec0af62fc58cb00b30acf10c9315c0b712ef45047c5ff4b08",
+      "runtimeSHA256": "4397877dc884d2bec0af62fc58cb00b30acf10c9315c0b712ef45047c5ff4b08",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1519,7 +4307,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-teh-hangat-2-prop",
@@ -1570,17 +4358,17 @@
       "frameIndex": 2,
       "sourceFile": "public/game/assets/characters/activities/teh-hangat-2.png",
       "runtimeFile": "public/game/assets/characters/activities/teh-hangat-2.png",
-      "sourceSHA256": "ccdeb28dc1dae70e95be9a498bc927592e1b728601cc7bf86ee0a45001190ed4",
-      "runtimeSHA256": "ccdeb28dc1dae70e95be9a498bc927592e1b728601cc7bf86ee0a45001190ed4",
+      "sourceSHA256": "ee7e9f408f5ed3a306b68a4e376be5bc23773badc5556d6541a5e7f8c06fe946",
+      "runtimeSHA256": "ee7e9f408f5ed3a306b68a4e376be5bc23773badc5556d6541a5e7f8c06fe946",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1599,7 +4387,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-teh-hangat-3-prop",
@@ -1650,17 +4438,17 @@
       "frameIndex": 3,
       "sourceFile": "public/game/assets/characters/activities/teh-hangat-3.png",
       "runtimeFile": "public/game/assets/characters/activities/teh-hangat-3.png",
-      "sourceSHA256": "b5d98558b4f312fe8cca020ccf8aa880583b8027bccb9d171a2b6bcc168ac263",
-      "runtimeSHA256": "b5d98558b4f312fe8cca020ccf8aa880583b8027bccb9d171a2b6bcc168ac263",
+      "sourceSHA256": "3cddafa9bc3b64202ce219ebdb4f9d52cf1f3ac6b5b52e75c2db7d2129b7dde6",
+      "runtimeSHA256": "3cddafa9bc3b64202ce219ebdb4f9d52cf1f3ac6b5b52e75c2db7d2129b7dde6",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1679,7 +4467,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-teh-hangat-4-prop",
@@ -1730,17 +4518,17 @@
       "frameIndex": 4,
       "sourceFile": "public/game/assets/characters/activities/teh-hangat-4.png",
       "runtimeFile": "public/game/assets/characters/activities/teh-hangat-4.png",
-      "sourceSHA256": "4c5960a36150e044a1d493b8fad881ac4821aa7e93bcff7eb07ecff0674f4901",
-      "runtimeSHA256": "4c5960a36150e044a1d493b8fad881ac4821aa7e93bcff7eb07ecff0674f4901",
+      "sourceSHA256": "ede6be064606ec201638727d19016a1aeff9974a11e06ce64e67d01689e95f93",
+      "runtimeSHA256": "ede6be064606ec201638727d19016a1aeff9974a11e06ce64e67d01689e95f93",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        1,
-        20,
-        31
+        0,
+        21,
+        30
       ],
       "footAnchor": [
         12,
@@ -1759,7 +4547,7 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     },
     {
       "assetId": "A01-teh-hangat-5",
@@ -1770,17 +4558,17 @@
       "frameIndex": 5,
       "sourceFile": "public/game/assets/characters/activities/teh-hangat-5.png",
       "runtimeFile": "public/game/assets/characters/activities/teh-hangat-5.png",
-      "sourceSHA256": "9abdce857c0b54806650b66302e4bead4fff5f267d8843c27f4cfcc199bba370",
-      "runtimeSHA256": "9abdce857c0b54806650b66302e4bead4fff5f267d8843c27f4cfcc199bba370",
+      "sourceSHA256": "1cb9c2cdb202b9f78e976c49edf30c0c463ad5b3931ebcd31cfb1accdba5f582",
+      "runtimeSHA256": "1cb9c2cdb202b9f78e976c49edf30c0c463ad5b3931ebcd31cfb1accdba5f582",
       "canvasSize": [
         24,
         32
       ],
       "visibleAlphaBounds": [
         5,
-        2,
-        20,
-        31
+        0,
+        19,
+        30
       ],
       "footAnchor": [
         12,
@@ -1799,7 +4587,487 @@
         "Phaser"
       ],
       "status": "runtime",
-      "provenance": "Original per-frame pixel art"
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-down-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/water-down-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-down-1.png",
+      "sourceSHA256": "4d5cd98ffc541f0168037b24eb8992e29ae337ba171a9b8059ebc679eaec0f03",
+      "runtimeSHA256": "4d5cd98ffc541f0168037b24eb8992e29ae337ba171a9b8059ebc679eaec0f03",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-down-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/water-down-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-down-2.png",
+      "sourceSHA256": "e995e9bbed294093653643d1fb812fecd1cd8c81be789773c2f085e640e61d6b",
+      "runtimeSHA256": "e995e9bbed294093653643d1fb812fecd1cd8c81be789773c2f085e640e61d6b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        22,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-down-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/water-down-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-down-3.png",
+      "sourceSHA256": "8681c56dcd0c8e622480e89cd8601935f888a95062bac431ecafd2e64ce8d6ba",
+      "runtimeSHA256": "8681c56dcd0c8e622480e89cd8601935f888a95062bac431ecafd2e64ce8d6ba",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        0,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-left-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/water-left-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-left-1.png",
+      "sourceSHA256": "69b227c78b2d53e19d00dc0aeb6697e7bc98d537ee17b38a117b273bd06f8d65",
+      "runtimeSHA256": "69b227c78b2d53e19d00dc0aeb6697e7bc98d537ee17b38a117b273bd06f8d65",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-left-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/water-left-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-left-2.png",
+      "sourceSHA256": "95fcd8e1036d8fdabc971595f4ec0baf1e166d38f87935b7d9fa58fb02269a6f",
+      "runtimeSHA256": "95fcd8e1036d8fdabc971595f4ec0baf1e166d38f87935b7d9fa58fb02269a6f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-left-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "left",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/water-left-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-left-3.png",
+      "sourceSHA256": "02d4cc52f0d4b229c56f364821adf430cbb5e4a252ef491c3815fd32eb5bb5fc",
+      "runtimeSHA256": "02d4cc52f0d4b229c56f364821adf430cbb5e4a252ef491c3815fd32eb5bb5fc",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-right-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/water-right-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-right-1.png",
+      "sourceSHA256": "22c9dc6c49ece5da68557b751cc0a99e568a3787b47eb762b900583f98e1d79c",
+      "runtimeSHA256": "22c9dc6c49ece5da68557b751cc0a99e568a3787b47eb762b900583f98e1d79c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-right-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/water-right-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-right-2.png",
+      "sourceSHA256": "79e04e95a11edf66f23af1315aaf9f0385f2dbbe94437c58e8a0869cda46ff65",
+      "runtimeSHA256": "79e04e95a11edf66f23af1315aaf9f0385f2dbbe94437c58e8a0869cda46ff65",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-right-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "right",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/water-right-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-right-3.png",
+      "sourceSHA256": "c1113a464a7e97e4291f7386f2ff1085c88c67c036dc57c55dc510ae58803e41",
+      "runtimeSHA256": "c1113a464a7e97e4291f7386f2ff1085c88c67c036dc57c55dc510ae58803e41",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-up-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/water-up-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-up-1.png",
+      "sourceSHA256": "eb3bd844fc2c9f3b7a69da5dd2a4f98c1436cd5a06e88dfcf0c467efad3d077d",
+      "runtimeSHA256": "eb3bd844fc2c9f3b7a69da5dd2a4f98c1436cd5a06e88dfcf0c467efad3d077d",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-up-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/water-up-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-up-2.png",
+      "sourceSHA256": "b72598bae456b400c00d02ada18b5fce2cd05f46e2e022c9086f37508371da03",
+      "runtimeSHA256": "b72598bae456b400c00d02ada18b5fce2cd05f46e2e022c9086f37508371da03",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
+    },
+    {
+      "assetId": "A01-water-up-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "water",
+      "direction": "up",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/water-up-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/water-up-3.png",
+      "sourceSHA256": "f01194d75ad7093b2d26c1b1efd4deb9d2b44f6d115db1bff3f3bf4d4794b922",
+      "runtimeSHA256": "f01194d75ad7093b2d26c1b1efd4deb9d2b44f6d115db1bff3f3bf4d4794b922",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        21,
+        30
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Individual pose painted from approved Yanzen gait reference"
     }
   ]
 }

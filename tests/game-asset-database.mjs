@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {readFileSync,existsSync} from "node:fs";
+import {createHash} from "node:crypto";
 import {execFileSync} from "node:child_process";
 import {resolve,dirname} from "node:path";
 const load=p=>JSON.parse(readFileSync(p,"utf8"));
@@ -69,6 +70,33 @@ assert.ok(gallery.includes("<PhoneWargapedia")&&warga.includes("catalog?.charact
  warga.includes("src={known.portraitUrl}")&&warga.includes("approvedLegacyId(currentResident)")&&
  !gallery.includes("fromExpansion")&&!warga.includes("fromExpansion"),
  "Canonical Warga must use public 248 roster portraits and never silently mix legacy concept artwork");
+const yanzen = load("game-assets/catalog/yanzen-activities.json").assets;
+const byId = new Map(yanzen.map(asset => [asset.assetId, asset]));
+assert.equal(byId.size, yanzen.length);
+assert.equal(new Set(yanzen.map(asset => asset.runtimeSHA256)).size, yanzen.length,
+  "Each Yanzen pose and handheld prop must have individual artwork");
+for (const asset of yanzen) {
+  const png = readFileSync(asset.runtimeFile);
+  assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], asset.canvasSize);
+  assert.equal(createHash("sha256").update(png).digest("hex"), asset.runtimeSHA256);
+  if (asset.objectId !== "yanzen") continue;
+  assert.deepEqual(asset.canvasSize, [24, 32]);
+  assert.deepEqual(asset.footAnchor, [12, 30]);
+  assert.deepEqual(asset.drawOffset, [-2, -12]);
+  if (asset.action !== "sit" && asset.action !== "sleep") {
+    assert.equal(asset.visibleAlphaBounds[3], 30, asset.assetId);
+    assert.equal(asset.visibleAlphaBounds[1], asset.direction === "down" ? 0 : 1, asset.assetId);
+  }
+}
+for (const action of ["hoe","seed","water","harvest","fish","faucet","take"]) {
+  for (const dir of ["down","left","right","up"]) {
+    for (const frame of [1,2,3]) {
+      const direction = dir === "down" && ["faucet","take"].includes(action) ? "" : "-"+dir;
+      const id = `A01-${action}${direction}-${frame}`;
+      assert.ok(byId.has(id), id);
+    }
+  }
+}
 if(existsSync(".git")){
  const git=execFileSync(process.execPath,["scripts/game-assets/build-asset-database.mjs","--check"],{encoding:"utf8"});
  assert.match(git,/PASS: asset database/);

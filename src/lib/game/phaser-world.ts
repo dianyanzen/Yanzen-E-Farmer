@@ -8,6 +8,7 @@
  * visible canvas, sprite layers, native camera and scene graphics.
  */
 import * as Phaser from "phaser";
+import { yanzenSprite } from "./yanzen-sprite";
 import { activityAssets } from "./character-activities";
 import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, activeQuestProps, weatherForDay, type GameLocation, type GameState } from "./model";
 import type { FieldFrame, WorldPick } from "./field-engine";
@@ -96,7 +97,6 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-people", "/game/assets/characters/stage1.png", { frameWidth: 24, frameHeight: 32 });
     this.load.spritesheet("yz-gaits", "/game/assets/characters/yanzen-gaits.png", { frameWidth: 32, frameHeight: 40 });
     this.load.spritesheet("yz-turns", "/game/assets/characters/yanzen-turns.png", { frameWidth: 32, frameHeight: 40 });
-    this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
     for(const [key,path] of Object.entries(activityAssets))this.load.image("yz-activity-"+key,"/game/assets/"+path);
@@ -430,32 +430,14 @@ class YZWorldScene extends Phaser.Scene {
         );
       }
     }
-    const actorRow = dirs[frame.position.dir];
-    let texture="yz-people", spriteFrame=actorRow*3+1, x=frame.position.x*TILE-2, y=frame.position.y*TILE-12;
     const actorPoint=frame.activity?.anchor??frame.position;
-    const activityTexture=frame.activity && "yz-activity-"+frame.activity.key;
-    if(activityTexture && this.textures.exists(activityTexture)){
-      texture=activityTexture;
-      spriteFrame=0;
-      x=actorPoint.x*TILE-2;
-      y=actorPoint.y*TILE-12;
-    } else if (location==="sungai" && frame.fishing?.session) {
-      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
-      texture="yz-people";spriteFrame=actorRow*3+pose.spriteFrame;
-      x=frame.position.x*TILE-2;
-      y=frame.position.y*TILE-12+pose.bodyShift;
-    } else if (frame.action && frame.action.use.origin.x === frame.state.player.x &&
-        frame.action.use.origin.y === frame.state.player.y) {
-      const actionRow = { hoe:0, seed:1, water:2, harvest:3 }[frame.action.use.tool];
-      texture="yz-actions";spriteFrame=(actionRow*4 + actorRow)*3+frame.action.frame;
-      x=frame.position.x*TILE-14;y=frame.position.y*TILE-23;
-    } else if (frame.weight) {
-      texture="yz-turns";spriteFrame=frame.weight.row*3+frame.weight.column;
-      x=frame.position.x*TILE-6+frame.weight.shiftX;y=frame.position.y*TILE-20+frame.weight.shiftY;
-    } else if (frame.pose !== null) {
-      texture="yz-gaits";spriteFrame=(actorRow+(frame.running ? 4:0))*6+frame.pose;
-      x=frame.position.x*TILE-6;y=frame.position.y*TILE-18;
-    }
+    const fishPose = location==="sungai" && frame.fishing?.session ?
+      fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed) : undefined;
+    const sprite = yanzenSprite(frame, frame.activity, fishPose);
+    const texture = sprite.source === "asset" ? "yz-activity-"+sprite.key : "yz-"+sprite.source;
+    const sheetColumns = { people: 3, gaits: 6, turns: 3 };
+    const spriteFrame = sprite.source === "asset" ? undefined :
+      sprite.row*sheetColumns[sprite.source]+sprite.column;
     const footX=actorPoint.x*TILE+TILE/2;
     const footY=(actorPoint.y+1)*TILE;
     this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(actorPoint.y));
@@ -469,17 +451,22 @@ class YZWorldScene extends Phaser.Scene {
     }
     const bed=frame.activity?.key.startsWith("sleep-") ? yanzenInteriorLayout.home.find(item=>item.key==="homeBed") : undefined;
     const actorDepth=bed ? interiorDepth(bed)+1 : characterDepth(actorPoint.y)+1;
-    this.actor.setTexture(texture, Math.max(0,spriteFrame))
-      .setPosition(x, y)
+    this.actor.setTexture(texture, spriteFrame)
+      .setPosition(sprite.x, sprite.y)
       .setDepth(actorDepth);
-    const propTexture=frame.activity?.propKey && "yz-activity-"+frame.activity.propKey;
-    this.activityProp.setVisible(!!propTexture && this.textures.exists(propTexture));
-    if(propTexture && this.textures.exists(propTexture))
-      this.activityProp.setTexture(propTexture).setPosition(x,y).setDepth(characterDepth(actorPoint.y)+1.1);
+    const prop = sprite.prop;
+    this.activityProp.setVisible(!!prop);
+    if (prop) {
+      this.activityProp.setTexture("yz-activity-"+prop.key)
+        .setOrigin(prop.angle === undefined ? 0 : 7/15, prop.angle === undefined ? 0 : 9/15)
+        .setRotation(prop.angle ?? 0)
+        .setPosition(prop.x,prop.y)
+        .setDepth(characterDepth(actorPoint.y)+1.1);
+    }
     this.fishingInk.clear();
     this.fishingText.setVisible(false);
-    if (location==="sungai" && frame.fishing?.session) {
-      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
+    if (fishPose) {
+      const pose=fishPose;
       const p=(v:number)=>Math.round(v);
       // A two-pixel pixel-arm swings with the pole, not beside the camera.
       this.fishingInk.lineStyle(2,0xdfb58d,1).lineBetween(

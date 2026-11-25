@@ -1,3 +1,4 @@
+import { yanzenSprite } from "./yanzen-sprite";
 import type { WeightPose } from "./footwork";
 import type { ActivityFrame } from "./character-activities";
 import type { ToolUse } from "./field-engine";
@@ -16,7 +17,7 @@ function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number
   ctx.fillStyle = color; ctx.fillText(text, x, y);
 }
 function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
-                    coat: string, head: string, hair: string, hat = false) {
+                    coat: string, head: string, hair: string) {
   const x = tx*T, y = ty*T;
   box(ctx,x+5,y+9,11,9,"#25342d");
   box(ctx,x+6,y+8,9,8,coat);
@@ -24,9 +25,8 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
   box(ctx,x+6,y+4,9,7,head);
   box(ctx,x+5,y+3,11,3,hair);
   box(ctx,x+6,y+6,1,1,"#283c35");box(ctx,x+12,y+6,1,1,"#283c35");
-  if(hat){box(ctx,x+3,y+2,15,3,"#d2b16b");box(ctx,x+7,y,8,3,"#e6d69c");}
 }
-export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
+export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
   activityAssets?: Record<string,HTMLImageElement>;
   roomAssets?: Record<string, HTMLImageElement>;
@@ -53,16 +53,38 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
-  const activityArt=activity && art.activityAssets?.[activity.key];
   const actorPoint=activity?.anchor??position;
-  const drawActivity=()=>{
-    if(!activityArt)return false;
-    const x=Math.round(actorPoint.x*T)-2,y=Math.round(actorPoint.y*T)-12;
-    ctx.drawImage(activityArt,x,y);
-    const prop=activity?.propKey && art.activityAssets?.[activity.propKey];
-    if(prop)ctx.drawImage(prop,x,y);
-    return true;
-  };
+  const fishPose=state.location==="sungai" && fishing?.session ?
+    fishingGeometry(position,fishing.session.phase,fishing.session.elapsed) : undefined;
+  function drawPlayer() {
+    const sprite = yanzenSprite({ state, position, pose, running, weight, action }, activity, fishPose);
+    if (sprite.source === "asset") {
+      const image = art.activityAssets?.[sprite.key];
+      if (!image) {
+        actor("A01",position.x,position.y,position.dir,1,"#295d4d");
+        return;
+      }
+      ctx!.drawImage(image,sprite.x,sprite.y);
+      const prop = sprite.prop && art.activityAssets?.[sprite.prop.key];
+      if (prop && sprite.prop) {
+        const { x, y, angle } = sprite.prop;
+        if (angle === undefined) ctx!.drawImage(prop,x,y);
+        else {
+          ctx!.save();
+          ctx!.translate(x,y);
+          ctx!.rotate(angle);
+          ctx!.drawImage(prop,-7,-9);
+          ctx!.restore();
+        }
+      }
+      return;
+    }
+    const image = art[sprite.source];
+    if (image) {
+      const { width, height, row, column, x, y } = sprite;
+      ctx!.drawImage(image,column*width,row*height,width,height,x,y,width,height);
+    } else actor("A01",position.x,position.y,position.dir,1,"#295d4d");
+  }
   if(isResidentHome(state.location)){
     box(ctx,0,0,W*T,H*T,"#29272a");
     const room=art[state.location];
@@ -74,7 +96,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }
     const residents=npcHere(state);
     for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
-    if(!drawActivity())actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+    drawPlayer();
     for(const npc of residents)if(npc.y>position.y)drawNpc(npc);
     return;
   }
@@ -94,9 +116,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       items.filter(item=>item.layer==="architecture"||item.layer==="floor").forEach(paint);
       const furniture=items.filter(item=>item.layer==="furniture").sort((a,b)=>a.depth-b.depth);
       const footY=(actorPoint.y+1)*T;
-      const inFrontOf=(item:typeof furniture[number])=>item.depth<=footY || (activityArt && activity?.key.startsWith("sleep-") && item.key==="homeBed");
+      const inFrontOf=(item:typeof furniture[number])=>item.depth<=footY || (activity?.key.startsWith("sleep-") && item.key==="homeBed");
       furniture.filter(inFrontOf).forEach(paint);
-      if(!drawActivity())actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+      drawPlayer();
       furniture.filter(item=>!inFrontOf(item)).forEach(paint);
       items.filter(item=>item.layer==="foreground").forEach(paint);
       if (state.minutes >= 18*60) {
@@ -125,9 +147,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"GUDANG ALAT",9*T,5*T-4);
     label(ctx,"Rak: dekati + Aksi",8*T,14*T+14);
     }
-    if(art.people){const row=facingRows[position.dir];ctx.drawImage(art.people,24,row*32,24,32,
-      Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);}
-    else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    drawPlayer();
     return;
   }
   if (state.location === "home") {
@@ -154,10 +174,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     label(ctx,"RUMAH YANZEN",9*T,5*T-4);
     label(ctx,"Tidur: dekati ranjang + Aksi",8*T,14*T+14);
     }
-    if(art.people) {
-      const row=facingRows[position.dir];
-      ctx.drawImage(art.people,24,row*32,24,32,Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
-    } else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
+    drawPlayer();
     return;
   }
   // Keep farm art and terrain separate from other real, connected neighborhoods.
@@ -205,8 +222,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     if (art.people) {
       const row = actorRows[id] * 4 + facingRows[dir];
       ctx!.drawImage(art.people, frame*24, row*32, 24, 32, Math.round(x*T)-2, Math.round(y*T)-12, 24, 32);
-    } else {
-      drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c", id === "A01");
+    } else if (id !== "A01") {
+      drawPerson(ctx!, x, y, color, "#e4b48b", "#553a2c");
     }
   }
   function drawNpc(npc: NpcPlacement) {
@@ -261,29 +278,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
         dust.y*T+17+trailY*drift-drift*.65,1+(i===1?1:0),1,`rgba(222,195,135,${.8*(1-dust.phase)})`);
     }
   }
-  const fishPose=state.location==="sungai" && fishing?.session?
-    fishingGeometry(position,fishing.session.phase,fishing.session.elapsed):undefined;
-  if (drawActivity()) {
-    // The shared activity frame supplies the whole actor pose.
-  } else if (fishPose) {
-    ctx.save();ctx.translate(0,fishPose.bodyShift);
-    actor("A01",position.x,position.y,position.dir,fishPose.spriteFrame,"#295d4d");
-    ctx.restore();
-  } else if (action && art.actions && action.use.origin.x===state.player.x && action.use.origin.y===state.player.y) {
-    const index = { hoe: 0, seed: 1, water: 2, harvest: 3 }[action.use.tool];
-    const row = index*4 + facingRows[action.use.origin.dir];
-    ctx.drawImage(art.actions, action.frame*48, row*48, 48, 48,
-      Math.round(position.x*T)-14, Math.round(position.y*T)-23, 48, 48);
-  } else if (weight && art.turns) {
-    ctx.drawImage(art.turns,weight.column*32,weight.row*40,32,40,
-      Math.round(position.x*T)-6+weight.shiftX,Math.round(position.y*T)-18+weight.shiftY,32,40);
-  } else if (pose !== null && art.gaits) {
-    const row = facingRows[position.dir] + (running ? 4 : 0);
-    ctx.drawImage(art.gaits, pose*32, row*40, 32, 40,
-      Math.round(position.x*T)-6, Math.round(position.y*T)-18, 32, 40);
-  } else {
-    actor("A01", position.x, position.y, position.dir, pose === null ? 1 : (pose < 3 ? 0 : 2), "#295d4d");
-  }
+  drawPlayer();
   if (action && art.effects && action.effect>=0) {
     const row={hoe:0,seed:1,water:2,harvest:3}[action.use.tool];
     const {x,y}=action.use.target;

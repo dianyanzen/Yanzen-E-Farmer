@@ -1,4 +1,4 @@
-import type { WarungItem } from "./model";
+import type { Direction, WarungItem } from "./model";
 
 export type CharacterActivityId = WarungItem | "sit" | "faucet" | "sleep" | "take";
 export type ActivityAnchor = { x:number; y:number };
@@ -18,22 +18,32 @@ const timeline: Record<CharacterActivityId,readonly number[]> = {
 
 const mealIds = new Set<string>(["kopi-hitam","teh-hangat","bala-bala","nasi-tutug"]);
 const hasProp=(id:string,index:number)=>mealIds.has(id) && index>=2 && index<=4;
-export const activityAssets = Object.fromEntries(Object.entries(timeline).flatMap(([id,frames])=>
+const directions = ["down", "left", "right", "up"] as const;
+const directional = (id: string) => id === "take" || id === "faucet";
+const farmTools = ["hoe", "seed", "water", "harvest"] as const;
+const actionKeys = ["fish", ...farmTools].flatMap(action => directions.flatMap(dir =>
+  [1, 2, 3].map(frame => `${action}-${dir}-${frame}`)));
+const activityKeys = Object.entries(timeline).flatMap(([id,frames])=>
   frames.flatMap((_,index)=>{
     const key=`${id}-${index+1}`;
     const keys=hasProp(id,index+1)?[key,key+"-prop"]:[key];
-    return keys.map(name=>[name,`characters/activities/${name}.png`]);
-  })));
+    return directional(id) ? [...keys, ...directions.slice(1).map(dir => `${id}-${dir}-${index+1}`)] : keys;
+  }));
+export const activityAssets = Object.fromEntries(
+  [...activityKeys, ...actionKeys, ...farmTools.map(tool => `held-${tool}`)].map(key =>
+    [key, `characters/activities/${key}.png`]),
+);
 
 export function activityDuration(id:CharacterActivityId) {
   return timeline[id].at(-1)!;
 }
 
-export function activityFrame(activity:CharacterActivity, now:number, reduced:boolean): ActivityFrame|undefined {
+export function activityFrame(activity:CharacterActivity, now:number, reduced:boolean, direction:Direction): ActivityFrame|undefined {
   const index=timeline[activity.id].findIndex(end=>now-activity.started<end);
   if(index<0)return;
   const frame=reduced ? Math.min(2,timeline[activity.id].length) : index+1;
-  const key=`${activity.id}-${frame}`;
+  const suffix = directional(activity.id) && direction !== "down" ? `-${direction}` : "";
+  const key=`${activity.id}${suffix}-${frame}`;
   let anchor=activity.anchor;
   if(anchor && activity.origin && !reduced){
     const travel=Math.min(1,Math.max(0,(now-activity.started)/timeline[activity.id][1]));

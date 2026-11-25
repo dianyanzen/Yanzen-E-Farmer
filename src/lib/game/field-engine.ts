@@ -143,7 +143,7 @@ export class FieldEngine {
       popup:scene.fishingNotice?{outcome:scene.fishingNotice.outcome,species:scene.fishingNotice.species,
         elapsed:now-scene.fishingNotice.startedAt}:undefined
     }:undefined;
-    const activity=scene.activity ? activityFrame(scene.activity,now,reduced) : undefined;
+    const activity=scene.activity ? activityFrame(scene.activity,now,reduced,game.player.dir) : undefined;
     const active=!!activity || wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan || !!fishing;
     const position = { x: walk.x, y: walk.y, dir: walk.dir };
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {

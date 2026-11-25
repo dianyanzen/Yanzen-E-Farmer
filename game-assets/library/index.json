@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4842,
-  "uniqueContents": 1396,
-  "totalBytes": 328247797,
+  "totalMedia": 4924,
+  "uniqueContents": 1478,
+  "totalBytes": 328312468,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
-      "mediaCount": 725,
-      "bytes": 155044654,
+      "mediaCount": 807,
+      "bytes": 155109325,
       "sections": [
         {
           "id": "aset/avatar",
@@ -46,7 +46,7 @@
         },
         {
           "id": "characters/activities",
-          "count": 45
+          "count": 127
         },
         {
           "id": "explore-bandung/avatar",
