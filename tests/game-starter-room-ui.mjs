@@ -97,7 +97,7 @@ try {
  for (const width of [1280,393]) for(const room of ['home','shed']) {
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
   const state={...seed,location:room,player:{x:9,y:8,dir:'up'}};
-  await page.addInitScript(data=>localStorage.setItem('yz-test-save',JSON.stringify({data})),state);
+  await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
   const files=room==='home'?['home-floor.svg','home-wall.svg','home-bed.png','home-cabinet.png','home-table.png','home-window.png','home-mat.png']:['shed-floor.svg','shed-wall.svg','shed-rack.png','shed-workbench.png'];
@@ -118,6 +118,18 @@ try {
    await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.carriedTools.includes('water'));
   }
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'no horizontal overflow');
+  await page.close();
+ }
+ for(const width of [1280,393]){
+  const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
+  const state={...seed,location:'field',player:{x:3,y:9,dir:'left'},plots:[{x:3,y:8,stage:0,watered:false}]};
+  await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
+  await start(page);
+  if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
+  await go(page,'e');
+  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.plots[0].watered===true);
+  await page.reload();await start(page);
+  assert.equal(JSON.parse(await page.evaluate(()=>localStorage.getItem('yz-test-save'))).data.plots[0].watered,true);
   await page.close();
  }
  assert.deepEqual(errors,[]);
