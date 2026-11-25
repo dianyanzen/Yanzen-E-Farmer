@@ -170,9 +170,8 @@ props.field.push(
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
 );
 props.field.push(
-  {asset:"garden-trellis",x:221,y:252,displayW:33,displayH:54},
-  {asset:"garden-hoe",x:93,y:150,displayW:22,displayH:24},
-  {asset:"garden-watering-can",x:122,y:150,displayW:23,displayH:22},
+  // Keep the working path and planting tiles free from decorative tools and
+  // trellises: carried tools and farm actions remain controlled by game state.
   // Basket, caping and butterfly remain in the catalog for repair; their PNGs
   // currently fail image decoding and must not be requested by the renderer.
 );
@@ -513,6 +512,17 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
     const reeds=art["ilalang-kanal"];
     if(reeds && y%3===0)ctx.drawImage(reeds,x+1,y-8,8,10);
   }
+  // A narrow surface channel branches from the creek beside the existing
+  // plot. The little crossing at the top keeps the visible walking route clear.
+  // It is scenery: watering still follows the existing gembor/rain rules.
+  ctx.save();
+  ctx.lineJoin="round";ctx.lineCap="round";
+  ctx.beginPath();ctx.moveTo(shore(155)-2,155);ctx.lineTo(55,155);ctx.lineTo(55,276);
+  ctx.strokeStyle="#7b7050";ctx.lineWidth=7;ctx.stroke();
+  ctx.strokeStyle="#6ca8a1";ctx.lineWidth=4;ctx.stroke();
+  ctx.fillStyle="#b18a5d";ctx.fillRect(50,155,10,9);
+  ctx.fillStyle="#d2ac77";ctx.fillRect(51,156,8,2);ctx.fillRect(51,160,8,2);
+  ctx.restore();
 }
 
 const roadPatterns = new WeakMap<object,HTMLCanvasElement>();
