@@ -337,7 +337,7 @@ class YZWorldScene extends Phaser.Scene {
         const x=npc.x*TILE-2, y=npc.y*TILE-12;
         const row=npcRows[npc.id]??0;
         const dx=frame.position.x-npc.x, dy=frame.position.y-npc.y;
-        const dir=Math.abs(dx)+Math.abs(dy)>2 ? "down" : Math.abs(dx)>Math.abs(dy) ?
+        const dir=Math.abs(dx)+Math.abs(dy)>2 ? npc.idleFacing ?? "down" : Math.abs(dx)>Math.abs(dy) ?
           (dx<0?"left":"right") : (dy<0?"up":"down");
         const idle=(row*4+dirs[dir])*3+1;
         let sprite=this.npcSprites.get(npc.id);

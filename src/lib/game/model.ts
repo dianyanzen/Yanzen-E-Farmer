@@ -469,14 +469,14 @@ export const NPC_SOULS:Record<NpcId,{
     habit:"Menyeduh kopi pagi, merapikan bangku sore",
     connection:"Menunggu panen Yanzen; memberi kabar tentang Ryan dan Nani"}
 };
-export type NpcPlacement = Omit<typeof NPCS[number], "x" | "y"> & OutdoorPoint & {activity:string; indoors?:boolean};
+export type NpcPlacement = Omit<typeof NPCS[number], "x" | "y"> & OutdoorPoint & {activity:string; indoors?:boolean; idleFacing?:Direction};
 type OutdoorPoint = { location: OutdoorLocation; x: number; y: number };
 const point = (location: OutdoorLocation, x: number, y: number): OutdoorPoint => ({ location, x, y });
 const dailyStops = {
   A04: [point("pasar",6,9),point("pasar",6,9),point("gang",15,14)],
   C07: [point("field",18,8),point("pasar",27,8),point("gang",26,8)],
   A03: [point("field",16,7), point("sungai",8,8), point("gang",20,8)],
-  C01: [point("field",16,8), point("gang",5,8), point("gang",8,8)],
+  C01: [point("field",18,6), point("gang",5,8), point("gang",8,8)],
   C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("pasar",19,8), point("gang",4,14)],
 } satisfies Record<NpcId, OutdoorPoint[]>;
 const residentRoutes = new Map<string, OutdoorPoint[]>();
@@ -572,7 +572,9 @@ export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] 
     }
     if(npc.id === "A04")return {...npc,...work,activity:"Menjaga lapak benih"};
     const departure = npc.id === "C07" ? widiLeavesWarung() : npc.id === "A03" ? RYAN_LAST_COFFEE_MINUTE : NANI_LEAVES_WARUNG;
-    if(minutes <= departure)return {...npc,...morning,activity:npc.id==="C01"?"Mengobrol di depan warung":"Ngopi di Warung Inggit"};
+    if(minutes <= departure)return {...npc,...morning,
+      idleFacing:npc.id==="A03"?"right":"up",
+      activity:npc.id==="C01"?"Mengobrol dengan Inggit di ujung konter":"Ngopi di Warung Inggit"};
     const step = stepAlong(residentRoute(morning,work),minutes-departure);
     return {...npc,...step,activity:!sameStop(step,work)?"Berjalan ke tempat kerja":npc.id==="C07"?
       "Melayani pemancing di lapak ikan":npc.id==="A03"?"Mengukur debit sungai":"Menyapa tetangga di depan rumah"};

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4793,
-  "uniqueContents": 1347,
-  "totalBytes": 328230538,
+  "totalMedia": 4797,
+  "uniqueContents": 1351,
+  "totalBytes": 328231190,
   "categories": [
     {
       "id": "characters",
@@ -414,8 +414,8 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 134,
-      "bytes": 16382704,
+      "mediaCount": 138,
+      "bytes": 16383356,
       "sections": [
         {
           "id": "locations/inggit/kebun",
@@ -427,7 +427,7 @@
         },
         {
           "id": "locations/inggit/sunda",
-          "count": 16
+          "count": 20
         },
         {
           "id": "locations/inggit/warkop",

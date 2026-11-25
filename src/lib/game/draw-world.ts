@@ -199,7 +199,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   function drawNpc(npc: NpcPlacement) {
     const dx=position.x-npc.x,dy=position.y-npc.y;
     const near=Math.abs(dx)+Math.abs(dy)<=2;
-    let dir: Direction="down";
+    let dir: Direction=npc.idleFacing??"down";
     if (near) dir=Math.abs(dx)>Math.abs(dy)?(dx<0?"left":"right"):(dy<0?"up":"down");
     actor(npc.id,npc.x,npc.y,dir,1,npc.color);
     if (near) label(ctx!,npc.name,npc.x*T-2,npc.y*T-15);

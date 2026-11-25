@@ -23,7 +23,7 @@ export const outdoorSources: Record<string,string> = {
   "yanzen-shed-entry": yanzenExteriorFolder + "shed-entry-shadow.png",
   "yanzen-shed-facade": yanzenExteriorFolder + "shed-facade.png",
   "yanzen-shed-roof": yanzenExteriorFolder + "shed-roof.png",
-  ...Object.fromEntries(["roof","facade","side-door","service-counter","north-bench","south-bench","coffee-table","enamel-kettle","sign","closed-sign","jasmine-pot","bamboo-basket","fern","river-stones","counter-apron","side-apron"]
+  ...Object.fromEntries(["roof","facade","wall-shelf","coffee-jar","tea-jar","hanging-cloth","service-counter","north-bench","south-bench","coffee-table","enamel-kettle","sign","closed-sign","jasmine-pot","bamboo-basket","fern","river-stones","counter-apron"]
     .map(part => [`inggit-${part}`, `locations/inggit/sunda/${part}.png`])),
   ...Object.fromEntries((["ryan","widi"] as const).flatMap(owner => ["full","empty"].map(phase =>
     [`inggit-${owner}-coffee-${phase}`, `locations/inggit/warkop/${owner}-coffee-${phase}.png`]))),
@@ -65,10 +65,12 @@ const homeX = (HOME.door.x + .5) * WORLD.tile;
 const shedX = (SHED.door.x + .5) * WORLD.tile;
 const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
 const warungX = (INGGIT_WARUNG.x + .5) * WORLD.tile;
-const staffX = (INGGIT_WARUNG.staffExitX + .5) * WORLD.tile;
 const warkop: Placement[] = [
   {asset:"inggit-facade",x:warungX-11,y:116,displayW:104,displayH:54,groundY:98},
-  {asset:"inggit-side-door",x:staffX-4,y:116,displayW:15,displayH:29,groundY:102},
+  {asset:"inggit-wall-shelf",x:warungX-23,y:97,displayW:27,displayH:8,groundY:99},
+  {asset:"inggit-coffee-jar",x:warungX-29,y:91,displayW:10,displayH:11,groundY:100},
+  {asset:"inggit-tea-jar",x:warungX-18,y:91,displayW:10,displayH:11,groundY:100},
+  {asset:"inggit-hanging-cloth",x:warungX+19,y:92,displayW:10,displayH:13,groundY:100},
   {asset:"inggit-roof",x:warungX-11,y:74,displayW:116,displayH:37,groundY:100},
   {asset:"inggit-sign",x:warungX-6,y:79,displayW:26,displayH:12,groundY:101},
   {asset:"inggit-service-counter",x:warungX-4,y:120,displayW:68,displayH:19,groundY:122},
@@ -91,12 +93,8 @@ const paths: Record<OutdoorLocation,Route[]> = {
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
     [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
     [14,[[shedX,94],[shedX,113],[shedX,130]]],
-    [25,[[warungX,122],[warungX,151],[392,173],[382,192],[366,207],[349,218]]],
-    [13,[[268,171],[291,167],[310,162]]],
-    [11,[[staffX,119],[staffX+5,133],[staffX+4,151],[422,175],[392,183]]],
-    [14,[[314,215],[320,253],[350,273],[366,285]]],
+    [21,[[warungX,128],[warungX,174],[warungX,218]]],
     [13,[[homeX,117],[78,125],[49,139],[28,142]]],
-    [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
   ],
   gang: [
     [34,[[-14,220],[90,218],[174,226],[240,220],[323,212],[413,219],[483,226],[565,220],[652,220]]],
@@ -496,9 +494,8 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     }
   }
   if (location==="field") {
-    const counterApron=art["inggit-counter-apron"], sideApron=art["inggit-side-apron"];
+    const counterApron=art["inggit-counter-apron"];
     if(counterApron)ctx.drawImage(counterApron,warungX-12,119,24,17);
-    if(sideApron)ctx.drawImage(sideApron,staffX-7,115,15,15);
   }
   if (location==="field") {
     for (const x of [homeX,shedX]) {

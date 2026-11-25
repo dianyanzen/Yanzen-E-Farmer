@@ -127,8 +127,8 @@ const morningTap=navigation.planTapRoute(morning,19,5,{x:counter.x,y:counter.y-1
 assert.ok(morningTap?.interact,"morning guests and furniture leave the front path clear");
 const morningArrival=morningTap.steps.reduce((state,step)=>model.movePlayer(state,step),morning);
 assert.deepEqual([morningArrival.player.x,morningArrival.player.y,morningTap.face],[19,6,"up"]);
-const sideDoor=fieldObjects.find(item=>item.asset==="inggit-side-door");
-assert.equal(navigation.planTapRoute(morning,21,5,{x:sideDoor.x,y:sideDoor.y-8}),null,
+assert.ok(!fieldObjects.some(item=>item.asset==="inggit-side-door"),"staff door is hidden in the player view");
+assert.equal(navigation.planTapRoute(morning,21,5,{x:430,y:108}),null,
   "staff entrance stays off the player interaction map");
 const tap=navigation.planTapRoute(customer,19,5,{x:counter.x,y:counter.y-11});
 assert.ok(tap?.interact);

@@ -73,7 +73,9 @@ assert.deepEqual(coords(counter.cleanupAt+3),landing);
 assert.deepEqual(coords(counter.closesAt),landing);
 assert.equal(areaBlocked("field",...door),true,"side doorway only admits the staff route");
 assert.equal(areaBlocked("field",...landing),false,"the side landing lies outside the building");
-for(const id of ["A03","C07","C01"]){
+const nani = at("C01",380);
+assert.deepEqual([nani.x,nani.y],[counter.x-1,counter.y+1],"Nani chats at the end of the counter");
+for(const id of ["A03","C07"]){
  const standing=at(id,380);
  const gap=Math.abs(standing.x-counter.table.x)+Math.abs(standing.y-counter.table.y);
  assert.ok(gap<=2,"morning guests stand around the table");

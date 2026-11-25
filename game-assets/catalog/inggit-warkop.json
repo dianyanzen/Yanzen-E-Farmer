@@ -338,48 +338,6 @@
       ]
     },
     {
-      "assetId": "inggit-side-apron",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/sunda/side-apron.png",
-      "runtimeSHA256": "824fc6c574da67821b6af4892e8b113a62bfc16f6d5b294a6c8b27e575f167df",
-      "canvasSize": [
-        15,
-        15
-      ],
-      "visibleAlphaBounds": [
-        0,
-        0,
-        15,
-        15
-      ],
-      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
-      "assetId": "inggit-side-door",
-      "ownerId": "inggit-warkop",
-      "runtimeFile": "public/game/assets/locations/inggit/sunda/side-door.png",
-      "runtimeSHA256": "3ab3583ab65ca8d7d686ba85aa46b71796e6cc7d2f0b40e6260927c9db3770a2",
-      "canvasSize": [
-        15,
-        29
-      ],
-      "visibleAlphaBounds": [
-        0,
-        0,
-        15,
-        29
-      ],
-      "provenance": "Original project pixel art based on approved Sundanese warkop concept",
-      "consumers": [
-        "Canvas",
-        "Phaser"
-      ]
-    },
-    {
       "assetId": "inggit-sign",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/sign.png",
@@ -416,6 +374,90 @@
         15
       ],
       "provenance": "Original project pixel art based on approved Sundanese warkop concept",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-coffee-jar",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/coffee-jar.png",
+      "runtimeSHA256": "fdf678000c34727afce73049fe68157a0694817bb5e99ddef9c3cc2f9eb9ae68",
+      "canvasSize": [
+        10,
+        11
+      ],
+      "visibleAlphaBounds": [
+        1,
+        1,
+        9,
+        11
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-hanging-cloth",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/hanging-cloth.png",
+      "runtimeSHA256": "014384f1cd97e31b21b5e0e4650f65aa2ceedded526c2bf1404d54c7079894f3",
+      "canvasSize": [
+        10,
+        13
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        10,
+        13
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-tea-jar",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/tea-jar.png",
+      "runtimeSHA256": "b9ff67c0f5c0861cb8e6b9adeed626b67f0f8777a15a04b5f6a0a4ec1ef1b42b",
+      "canvasSize": [
+        10,
+        11
+      ],
+      "visibleAlphaBounds": [
+        1,
+        1,
+        9,
+        11
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-wall-shelf",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/sunda/wall-shelf.png",
+      "runtimeSHA256": "444f0d6cff5b049fefccb52a214cbd1951b6620d8d6d9b654a709c0bf02d0ac9",
+      "canvasSize": [
+        27,
+        8
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        27,
+        8
+      ],
+      "provenance": "Original project pixel art",
       "consumers": [
         "Canvas",
         "Phaser"
