@@ -1,4 +1,3 @@
-import { activityAssets } from "./character-activities";
 "use client";
 
 /**
@@ -9,6 +8,7 @@ import { activityAssets } from "./character-activities";
  * visible canvas, sprite layers, native camera and scene graphics.
  */
 import * as Phaser from "phaser";
+import { activityAssets } from "./character-activities";
 import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, activeQuestProps, weatherForDay, type GameLocation, type GameState } from "./model";
 import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
