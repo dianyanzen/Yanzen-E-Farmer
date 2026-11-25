@@ -18,6 +18,7 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
     point?.y ?? (ty + .5) * WORLD.tile);
   const questProp=questPropAt(s.location,tx,ty);
   const clickable=(!!questProp && questPropActive(s,questProp)) ||
+    (s.location==="field" && tx===2 && ty>=8 && ty<=13) ||
     (s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
     (s.location==="field" && isFarm(tx,ty)) ||
     (s.location==="shed" && tx===SHED.rack.x && ty===SHED.rack.y);

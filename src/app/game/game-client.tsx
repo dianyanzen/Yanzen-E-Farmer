@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, getActionContext, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets } from "@/lib/game/yanzen-interior-art";
@@ -623,6 +623,10 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         void persist(next);
         setToast("");
       }
+    }else if(context.kind==="irrigate"){
+      const result=irrigateGarden(game);
+      if(result.state!==game){setGame(result.state);void persist(result.state);}
+      setToast(result.message);
     }else if(context.kind==="sluice"){
       const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !hasSluiceMemory(game);
       const next:GameState={...game,sluiceOpen:!game.sluiceOpen,...(firstOpen?{sluiceCutsceneSeen:true}:{})};
@@ -828,7 +832,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":
     context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
-    context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
+    context.kind==="irrigate"?"ALIRI":context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main ref={screenRef} className={engine === "phaser" ? "yzg-page yzg-page--phaser" : "yzg-page"}>

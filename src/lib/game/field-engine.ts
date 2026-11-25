@@ -76,10 +76,10 @@ export class FieldEngine {
     if (u < 0 || u >= 1 || v < 0 || v >= 1) return null;
     /* WORLD is the same immutable grid used by the renderer. */
     const camera=this.camera??{x:this.walk?.x??12,y:this.walk?.y??10};
-    const dx=Math.round(Math.min((isOutdoorLocation(location)?WORLD.width:24)*WORLD.tile-canvas.width,
-      Math.max(0,(camera.x+.5)*WORLD.tile-canvas.width/2)));
-    const dy=Math.round(Math.min(WORLD.height*WORLD.tile-canvas.height,
-      Math.max(0,(camera.y+.5)*WORLD.tile-canvas.height/2)));
+    const dx=isOutdoorLocation(location)?Math.round(Math.min(WORLD.width*WORLD.tile-canvas.width,
+      Math.max(0,(camera.x+.5)*WORLD.tile-canvas.width/2))):250-canvas.width/2;
+    const dy=isOutdoorLocation(location)?Math.round(Math.min(WORLD.height*WORLD.tile-canvas.height,
+      Math.max(0,(camera.y+.5)*WORLD.tile-canvas.height/2))):200-canvas.height/2;
     const world = { x: dx + u * canvas.width, y: dy + v * canvas.height };
     return { x: Math.floor(world.x / WORLD.tile), y: Math.floor(world.y / WORLD.tile), world };
   }

@@ -595,6 +595,18 @@ export function newGame(): GameState {
 export function isFarm(x: number, y: number): boolean {
   return x >= 3 && x <= 10 && y >= 8 && y <= 13;
 }
+
+/** Saluran berada di sisi barat bedeng; satu aksi mengairi tanaman yang ada. */
+export function irrigateGarden(s:GameState):{state:GameState;message:string}{
+  const front=facing(s.player);
+  if(s.location!=="field" || front.x!==2 || front.y<8 || front.y>13)
+    return {state:s,message:"Dekati saluran di sisi kebun."};
+  const count=s.plots.filter(p=>p.stage>=0 && p.stage<3 && !p.watered).length;
+  if(!count)return {state:s,message:"Belum ada tanaman yang perlu dialiri."};
+  return {state:addMinutes({...s,plots:s.plots.map(p=>
+    p.stage>=0 && p.stage<3 && !p.watered ? {...p,watered:true}:p)},10),
+    message:`Air mengalir. ${count} tanaman sudah disiram.`};
+}
 /** The persisted plot array (not scenery art) is the source of farm truth. */
 export const FARM_PLOT_COUNT=48;
 export function farmOverview(s:GameState){
@@ -1051,7 +1063,7 @@ export function interactDoor(s: GameState): GameState {
   }
 }
 export type ActionContext =
-  | {kind:"nursery"|"fish"|"sluice"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
+  | {kind:"nursery"|"fish"|"sluice"|"irrigate"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string}
   | {kind:"quest-prop";label:string;propId:QuestPropId};
@@ -1125,6 +1137,7 @@ export function getActionContext(s:GameState):ActionContext {
   if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
   const fieldBarrier=routeBarrierAt("field",front.x,front.y);
   if(fieldBarrier)return {kind:"inspect",label:fieldBarrier.label,text:fieldBarrier.message};
+  if(front.x===2 && front.y>=8 && front.y<=13)return {kind:"irrigate",label:"Aliri kebun"};
   if(isFarm(front.x,front.y)){
     const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};
