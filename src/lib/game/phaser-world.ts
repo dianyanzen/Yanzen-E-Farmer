@@ -1,3 +1,4 @@
+import { activityAssets } from "./character-activities";
 "use client";
 
 /**
@@ -67,6 +68,7 @@ class YZWorldScene extends Phaser.Scene {
   private weather!: Phaser.GameObjects.Graphics;
   private dusk!: Phaser.GameObjects.Image;
   private roomShade!: Phaser.GameObjects.Graphics;
+  private activityProp!: Phaser.GameObjects.Image;
   private actor!: Phaser.GameObjects.Sprite;
   private actorShadow!: Phaser.GameObjects.Ellipse;
   private effect!: Phaser.GameObjects.Sprite;
@@ -97,6 +99,7 @@ class YZWorldScene extends Phaser.Scene {
     this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
+    for(const [key,path] of Object.entries(activityAssets))this.load.image("yz-activity-"+key,"/game/assets/"+path);
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
@@ -130,6 +133,7 @@ class YZWorldScene extends Phaser.Scene {
       this.dusk = this.add.image(0,0,"yz-map-night-field").setOrigin(0).setDepth(5000).setAlpha(0);
       this.roomShade = this.add.graphics().setDepth(4900);
       this.actorShadow=this.add.ellipse(0,0,12,4,0x3b3725,.25);
+      this.activityProp=this.add.image(0,0,"yz-activity-kopi-hitam-2-prop").setOrigin(0).setVisible(false);
       this.actor = this.add.sprite(0, 0, "yz-people", 1).setOrigin(0).setDepth(1000);
       this.cameras.main.setBounds(0, 0, WIDTH, HEIGHT);
       this.ready = true;
@@ -428,7 +432,14 @@ class YZWorldScene extends Phaser.Scene {
     }
     const actorRow = dirs[frame.position.dir];
     let texture="yz-people", spriteFrame=actorRow*3+1, x=frame.position.x*TILE-2, y=frame.position.y*TILE-12;
-    if (location==="sungai" && frame.fishing?.session) {
+    const actorPoint=frame.activity?.anchor??frame.position;
+    const activityTexture=frame.activity && "yz-activity-"+frame.activity.key;
+    if(activityTexture && this.textures.exists(activityTexture)){
+      texture=activityTexture;
+      spriteFrame=0;
+      x=actorPoint.x*TILE-2;
+      y=actorPoint.y*TILE-12;
+    } else if (location==="sungai" && frame.fishing?.session) {
       const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
       texture="yz-people";spriteFrame=actorRow*3+pose.spriteFrame;
       x=frame.position.x*TILE-2;
@@ -445,9 +456,9 @@ class YZWorldScene extends Phaser.Scene {
       texture="yz-gaits";spriteFrame=(actorRow+(frame.running ? 4:0))*6+frame.pose;
       x=frame.position.x*TILE-6;y=frame.position.y*TILE-18;
     }
-    const footX=frame.position.x*TILE+TILE/2;
-    const footY=(frame.position.y+1)*TILE;
-    this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(frame.position.y));
+    const footX=actorPoint.x*TILE+TILE/2;
+    const footY=(actorPoint.y+1)*TILE;
+    this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(actorPoint.y));
     // Fade only tall scenery that would cover the avatar from head to feet.
     for(const prop of this.mapProps){
       if(!isOutdoorLocation(location))continue;
@@ -456,9 +467,15 @@ class YZWorldScene extends Phaser.Scene {
         Math.abs(footX-prop.x)<prop.displayWidth*.34;
       prop.setAlpha(obscured?.65:1);
     }
+    const bed=frame.activity?.key.startsWith("sleep-") ? yanzenInteriorLayout.home.find(item=>item.key==="homeBed") : undefined;
+    const actorDepth=bed ? interiorDepth(bed)+1 : characterDepth(actorPoint.y)+1;
     this.actor.setTexture(texture, Math.max(0,spriteFrame))
       .setPosition(x, y)
-      .setDepth(characterDepth(frame.position.y) + 1);
+      .setDepth(actorDepth);
+    const propTexture=frame.activity?.propKey && "yz-activity-"+frame.activity.propKey;
+    this.activityProp.setVisible(!!propTexture && this.textures.exists(propTexture));
+    if(propTexture && this.textures.exists(propTexture))
+      this.activityProp.setTexture(propTexture).setPosition(x,y).setDepth(characterDepth(actorPoint.y)+1.1);
     this.fishingInk.clear();
     this.fishingText.setVisible(false);
     if (location==="sungai" && frame.fishing?.session) {

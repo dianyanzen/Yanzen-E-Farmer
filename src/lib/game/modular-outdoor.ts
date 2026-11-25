@@ -1,5 +1,5 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
@@ -60,7 +60,6 @@ export const outdoorSources: Record<string,string> = {
 type Point = readonly [number,number];
 type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number; visible?:boolean };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
-type Route = readonly [number,readonly Point[]];
 const homeX = (HOME.door.x + .5) * WORLD.tile;
 const shedX = (SHED.door.x + .5) * WORLD.tile;
 const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
@@ -88,38 +87,6 @@ const warkop: Placement[] = [
   })),
 ];
 
-const paths: Record<OutdoorLocation,Route[]> = {
-  field: [
-    [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
-    [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
-    [14,[[shedX,94],[shedX,113],[shedX,130]]],
-    [21,[[warungX,128],[warungX,174],[warungX,218]]],
-    [13,[[homeX,117],[78,125],[49,139],[28,142]]],
-  ],
-  gang: [
-    [34,[[-14,220],[90,218],[174,226],[240,220],[323,212],[413,219],[483,226],[565,220],[652,220]]],
-    [32,[[240,-14],[235,69],[247,149],[240,219],[230,263],[240,334]]],
-    [15,[[160,153],[158,183],[178,206],[186,222]]],
-    [15,[[403,153],[405,184],[389,218]]],
-    [12,[[90,276],[89,292],[143,294],[158,275],[156,240],[145,222]]],
-    [13,[[309,276],[310,297],[369,296],[376,270],[378,240],[390,218]]],
-    [13,[[530,154],[530,175],[511,191],[510,218]]],
-    [13,[[488,225],[505,198],[536,189],[570,187],[588,202],[600,220]]],
-  ],
-  pasar: [
-    [32,[[240,-14],[236,85],[247,165],[240,221],[235,275],[240,334]]],
-    [30,[[239,220],[339,222],[423,217],[486,222],[558,225],[653,220]]],
-    [15,[[490,222],[510,187],[532,166],[570,159]]],
-  ],
-  sungai: [
-    [29,[[240,-14],[237,79],[250,154],[240,217],[225,269],[239,334]]],
-    [17,[[247,155],[204,160],[177,175],[145,168]]],
-    [14,[[27,270],[22,250],[25,230],[31,211],[32,184],[23,172]]],
-    [19,[[229,269],[200,275],[166,270],[142,270]]],
-    [17,[[243,213],[293,198],[347,180],[409,174],[478,188],[541,204],[566,222],[596,240]]],
-    [12,[[231,268],[282,269],[329,248],[348,213],[350,180]]],
-  ],
-};
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
@@ -317,11 +284,10 @@ function tile(ctx:CanvasRenderingContext2D, image:CanvasImageSource|undefined, i
 function trace(ctx:CanvasRenderingContext2D,points:readonly Point[]) {
   ctx.beginPath();
   ctx.moveTo(...points[0]);
-  for(let i=1;i<points.length-1;i++){
-    const [x,y]=points[i], [nx,ny]=points[i+1];
-    ctx.quadraticCurveTo(x,y,(x+nx)/2,(y+ny)/2);
+  for (const {control,end} of roadSegments(points)) {
+    if(control)ctx.quadraticCurveTo(...control,...end);
+    else ctx.lineTo(...end);
   }
-  ctx.lineTo(...points[points.length-1]);
 }
 const groundCache = new WeakMap<OutdoorImages,Partial<Record<OutdoorLocation,HTMLCanvasElement>>>();
 export function drawModularGround(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:OutdoorImages) {
@@ -452,16 +418,16 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
   meadow(ctx,location);
   ctx.lineCap="round";
   ctx.lineJoin="round";
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);
     ctx.lineWidth=width+5;ctx.strokeStyle="#a6a167";ctx.stroke();
   }
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);ctx.lineWidth=width+2;ctx.strokeStyle="#baa276";ctx.stroke();
   }
   const pattern=art.road ? ctx.createPattern(roadTexture(art.road),"repeat") : null;
   ctx.strokeStyle=pattern ?? "#dbc28c";
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);
     ctx.lineWidth=width;ctx.stroke();
   }

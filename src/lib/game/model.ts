@@ -292,6 +292,28 @@ export const INGGIT_WARUNG = {
   table: { x: 17, y: 7 },
   southBench: { x: 17, y: 8 },
 } as const;
+export const WARUNG_MENU = {
+  "kopi-hitam": { name:"Kopi hitam", price:12, kind:"drink" },
+  "teh-hangat": { name:"Teh hangat", price:10, kind:"drink" },
+  "bala-bala": { name:"Bala-bala", price:15, kind:"eat" },
+  "nasi-tutug": { name:"Nasi tutug oncom", price:40, kind:"eat" },
+} as const;
+export type WarungItem = keyof typeof WARUNG_MENU;
+export function atWarungCounter(s:GameState){
+  return s.location==="field" && warungCounterStaffed(s.minutes) &&
+    facingInteraction(s)?.id==="warung-counter";
+}
+export function buyWarungItem(s:GameState,item:WarungItem){
+  const product=WARUNG_MENU[item];
+  if(!product || !Object.hasOwn(WARUNG_MENU,item) || !atWarungCounter(s))
+    return {state:s,message:"Pesan langsung ke Inggit saat warung buka."};
+  if(s.coins<product.price)return {state:s,message:"Uangmu belum cukup untuk "+product.name.toLowerCase()+"."};
+  return {state:{...s,coins:s.coins-product.price},
+    message:product.kind==="drink"?"Yanzen menikmati "+product.name.toLowerCase()+".":"Yanzen makan "+product.name.toLowerCase()+"."};
+}
+export function warungBenchAt(x:number,y:number){
+  return [INGGIT_WARUNG.northBench,INGGIT_WARUNG.southBench].find(bench=>bench.x===x && bench.y===y);
+}
 export const WIDI_OPENS_AT = 9 * 60;
 const RYAN_LAST_COFFEE_MINUTE = 12 * 60 - 1;
 const NANI_LEAVES_WARUNG = 10 * 60;
@@ -485,24 +507,33 @@ function residentRoute(from: OutdoorPoint, to: OutdoorPoint) {
   const origin = key(from), goal = key(to), id = origin + ">" + goal;
   const cached = residentRoutes.get(id);
   if (cached) return cached;
-  const queue = [from];
-  const previous = new Map<string, OutdoorPoint | null>([[origin, null]]);
+  // Bounded integer costs allow road preference without forcing long detours.
+  const frontier: OutdoorPoint[][] = [[from]];
+  const distances = new Map([[origin,0]]);
+  const previous = new Map<string, OutdoorPoint | null>([[origin,null]]);
   const directions = [["up",0,-1],["right",1,0],["down",0,1],["left",-1,0]] as const;
-  for (let i = 0; i < queue.length; i++) {
-    const current = queue[i], currentKey = key(current);
-    if (currentKey === goal) {
-      const route = [current];
-      for (let last = previous.get(currentKey); last; last = previous.get(key(last))) route.push(last);
-      route.reverse();
-      residentRoutes.set(id, route);
-      return route;
-    }
-    for (const [dir, dx, dy] of directions) {
-      const next = mapExit(current.location,current.x,current.y,dir) ??
-        point(current.location,current.x + dx,current.y + dy);
-      if (previous.has(key(next)) || areaBlocked(next.location,next.x,next.y)) continue;
-      previous.set(key(next),current);
-      queue.push(next);
+  for(let cost=0;cost<frontier.length;cost++){
+    for(const current of frontier[cost]??[]){
+      const currentKey=key(current);
+      if(distances.get(currentKey)!==cost)continue;
+      if(currentKey===goal){
+        const route=[current];
+        for(let last=previous.get(currentKey);last;last=previous.get(key(last)))route.push(last);
+        route.reverse();
+        residentRoutes.set(id,route);
+        return route;
+      }
+      for(const [dir,dx,dy] of directions){
+        const next=mapExit(current.location,current.x,current.y,dir) ??
+          point(current.location,current.x+dx,current.y+dy);
+        if(areaBlocked(next.location,next.x,next.y))continue;
+        const nextKey=key(next);
+        const nextCost=cost+(isRenderedRoad(next.location,next.x,next.y)?3:5);
+        if(nextCost>=(distances.get(nextKey)??Infinity))continue;
+        distances.set(nextKey,nextCost);
+        previous.set(nextKey,current);
+        (frontier[nextCost]??=[]).push(next);
+      }
     }
   }
   return [from];
@@ -1047,6 +1078,81 @@ export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "M
 export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
 const FARM_ROOM_EXIT = { left: 233, top: 267, right: 267, bottom: 290 } as const;
 
+type RoadPoint=readonly [number,number];
+type RoadPath=readonly [number,readonly RoadPoint[]];
+const homeX=(HOME.door.x+.5)*WORLD.tile;
+const shedX=(SHED.door.x+.5)*WORLD.tile;
+const warungX=(INGGIT_WARUNG.x+.5)*WORLD.tile;
+export const ROAD_PATHS: Record<OutdoorLocation,RoadPath[]> = {
+  field: [
+    [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
+    [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
+    [14,[[shedX,94],[shedX,113],[shedX,130]]],
+    [21,[[warungX,128],[warungX,174],[warungX,218]]],
+    [13,[[homeX,117],[78,125],[49,139],[28,142]]],
+  ],
+  gang: [
+    [34,[[-14,220],[90,218],[174,226],[240,220],[323,212],[413,219],[483,226],[565,220],[652,220]]],
+    [32,[[240,-14],[235,69],[247,149],[240,219],[230,263],[240,334]]],
+    [15,[[160,153],[158,183],[178,206],[186,222]]],
+    [15,[[403,153],[405,184],[389,218]]],
+    [12,[[90,276],[89,292],[143,294],[158,275],[156,240],[145,222]]],
+    [13,[[309,276],[310,297],[369,296],[376,270],[378,240],[390,218]]],
+    [13,[[530,154],[530,175],[511,191],[510,218]]],
+    [13,[[488,225],[505,198],[536,189],[570,187],[588,202],[600,220]]],
+  ],
+  pasar: [
+    [32,[[240,-14],[236,85],[247,165],[240,221],[235,275],[240,334]]],
+    [30,[[239,220],[339,222],[423,217],[486,222],[558,225],[653,220]]],
+    [15,[[490,222],[510,187],[532,166],[570,159]]],
+  ],
+  sungai: [
+    [29,[[240,-14],[237,79],[250,154],[240,217],[225,269],[239,334]]],
+    [17,[[247,155],[204,160],[177,175],[145,168]]],
+    [14,[[27,270],[22,250],[25,230],[31,211],[32,184],[23,172]]],
+    [19,[[229,269],[200,275],[166,270],[142,270]]],
+    [17,[[243,213],[293,198],[347,180],[409,174],[478,188],[541,204],[566,222],[596,240]]],
+    [12,[[231,268],[282,269],[329,248],[348,213],[350,180]]],
+  ],
+};
+
+// Rendering and NPC movement sample the same quadratic curves.
+export function* roadSegments(points:readonly RoadPoint[]){
+  let start=points[0];
+  for(let i=1;i<points.length-1;i++){
+    const control=points[i],next=points[i+1];
+    const end:RoadPoint=[(control[0]+next[0])/2,(control[1]+next[1])/2];
+    yield {start,control,end};
+    start=end;
+  }
+  yield {start,control:null,end:points[points.length-1]};
+}
+const routeRoadTiles=new Map<OutdoorLocation,Set<number>>();
+export function isRenderedRoad(location:OutdoorLocation,x:number,y:number){
+  let cells=routeRoadTiles.get(location);
+  if(!cells){
+    cells=new Set();
+    const step=WORLD.tile;
+    for(const [width,points] of ROAD_PATHS[location]){
+      const radius=width/2;
+      for(const {start,control,end} of roadSegments(points)){
+        const middle=control??[(start[0]+end[0])/2,(start[1]+end[1])/2];
+        const samples=Math.ceil((Math.hypot(middle[0]-start[0],middle[1]-start[1])+
+          Math.hypot(end[0]-middle[0],end[1]-middle[1]))/2);
+        for(let n=0;n<=samples;n++){
+          const t=n/Math.max(1,samples),u=1-t;
+          const px=u*u*start[0]+2*u*t*middle[0]+t*t*end[0];
+          const py=u*u*start[1]+2*u*t*middle[1]+t*t*end[1];
+          for(let ty=Math.max(0,Math.floor((py-radius)/step));ty<Math.min(WORLD.height,Math.ceil((py+radius)/step));ty++)
+            for(let tx=Math.max(0,Math.floor((px-radius)/step));tx<Math.min(WORLD.width,Math.ceil((px+radius)/step));tx++)
+              if(Math.hypot((tx+.5)*step-px,(ty+.5)*step-py)<=radius)cells.add(ty*WORLD.width+tx);
+        }
+      }
+    }
+    routeRoadTiles.set(location,cells);
+  }
+  return cells.has(y*WORLD.width+x);
+}
 export function fieldCanalBank(y: number) {
   return Math.round(39 - 22 * Math.exp(-((y - 139) ** 2) / 640) + 1.3 * Math.sin(y / 11));
 }
@@ -1135,7 +1241,7 @@ export function interactDoor(s: GameState): GameState {
   }
 }
 export type ActionContext =
-  | {kind:"nursery"|"fish"|"sluice"|"irrigate"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"travel"|"none"|"wait"|"need-tool";label:string}
+  | {kind:"nursery"|"fish"|"sluice"|"irrigate"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"sit"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string}
   | {kind:"quest-prop";label:string;propId:QuestPropId};
@@ -1161,6 +1267,7 @@ export function getActionContext(s:GameState):ActionContext {
     const door = facingInteraction(s)?.id;
     if (door === "home-door") return {kind:"door",label:"Masuk rumah"};
     if (door === "shed-door") return {kind:"door",label:"Masuk gudang"};
+    if (warungBenchAt(front.x,front.y))return {kind:"sit",label:"Duduk di bangku"};
   }
   const privateDoor = facingInteraction(s)?.id;
   if(privateDoor && isResidentHome(privateDoor)){
@@ -1274,10 +1381,21 @@ export function chooseSocial(s: GameState, npc: NpcId, choice: SocialChoice): { 
   return { state, npcId: npc, emotion: reaction.emotion, title: NPCS.find(n => n.id === npc)!.name + " · Jawabanmu",
     lines: [reaction.line] };
 }
+function greeting(s:GameState,npc:NpcId):string{
+  const familiar=s.bonds[npc].talks>0;
+  switch(npc){
+    case "A03": return familiar?"Eh, Yanzen. Gimana kebunnya hari ini?":"Punten. Yanzen, ya? Aku Ryan. Biasanya aku ngurus aliran air di sini.";
+    case "C01": return familiar?"Eh, Yanzen. Sini dulu, Ibu mau ngobrol sebentar.":"Punten, Nak. Kamu yang ngurus kebun sebelah sana, ya? Panggil saja Bu Nani.";
+    case "C08": return s.location==="field" && warungCounterStaffed(s.minutes)?
+      "Eh, Yanzen. Mampir dulu. Mau pesan apa?":"Eh, Yanzen. Baru selesai dari kebun?";
+    case "A04": return familiar?"Hai, Yanzen. Timunnya sudah mulai berbuah?":"Hai! Aku Ayu. Kalau lagi cari bibit, mampir ke sini saja.";
+    case "C07": return s.minutes<WIDI_OPENS_AT?"Pagi, Yanzen. Kopiku masih panas.":"Eh, Yanzen. Hari ini sempat mancing?";
+  }
+}
 export function meetNpc(s: GameState, npc: NpcId): { state: GameState } & Dialogue {
   const result = storyDialogue(s, npc);
   return { ...result,
-    lines:[...result.lines,npcAmbient(s,npc)],
+    lines:[greeting(s,npc),...result.lines,npcAmbient(s,npc)],
     npcId: npc, emotion: npc === "C01" && result.photo ? "worried" : s.bonds[npc].mood,
     choices: [
       { id: "listen", label: "Aku ingin mendengar ceritamu." },

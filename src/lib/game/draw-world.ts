@@ -1,4 +1,5 @@
 import type { WeightPose } from "./footwork";
+import type { ActivityFrame } from "./character-activities";
 import type { ToolUse } from "./field-engine";
 import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisual} from "./fishing-visuals";
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
@@ -27,6 +28,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
 }
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
+  activityAssets?: Record<string,HTMLImageElement>;
   roomAssets?: Record<string, HTMLImageElement>;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement;
 };
@@ -38,7 +40,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
                           position: { x: number; y: number; dir: Direction }, pose: number | null, running: boolean, action: FarmAnimation | undefined, camera: {x:number;y:number},
                           ambient: number, plots: GameState["plots"], weight?: WeightPose,
                           dust?: {x:number;y:number;dir:Direction;phase:number},
-                          fishing?:FishingVisual) {
+                          fishing?:FishingVisual, activity?:ActivityFrame) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const W = isOutdoorLocation(state.location) ? WORLD.width : 24;
@@ -51,6 +53,16 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";
+  const activityArt=activity && art.activityAssets?.[activity.key];
+  const actorPoint=activity?.anchor??position;
+  const drawActivity=()=>{
+    if(!activityArt)return false;
+    const x=Math.round(actorPoint.x*T)-2,y=Math.round(actorPoint.y*T)-12;
+    ctx.drawImage(activityArt,x,y);
+    const prop=activity?.propKey && art.activityAssets?.[activity.propKey];
+    if(prop)ctx.drawImage(prop,x,y);
+    return true;
+  };
   if(isResidentHome(state.location)){
     box(ctx,0,0,W*T,H*T,"#29272a");
     const room=art[state.location];
@@ -62,7 +74,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }
     const residents=npcHere(state);
     for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
-    actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+    if(!drawActivity())actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
     for(const npc of residents)if(npc.y>position.y)drawNpc(npc);
     return;
   }
@@ -81,10 +93,11 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       };
       items.filter(item=>item.layer==="architecture"||item.layer==="floor").forEach(paint);
       const furniture=items.filter(item=>item.layer==="furniture").sort((a,b)=>a.depth-b.depth);
-      const footY=(position.y+1)*T;
-      furniture.filter(item=>item.depth<=footY).forEach(paint);
-      actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
-      furniture.filter(item=>item.depth>footY).forEach(paint);
+      const footY=(actorPoint.y+1)*T;
+      const inFrontOf=(item:typeof furniture[number])=>item.depth<=footY || (activityArt && activity?.key.startsWith("sleep-") && item.key==="homeBed");
+      furniture.filter(inFrontOf).forEach(paint);
+      if(!drawActivity())actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
+      furniture.filter(item=>!inFrontOf(item)).forEach(paint);
       items.filter(item=>item.layer==="foreground").forEach(paint);
       if (state.minutes >= 18*60) {
         ctx.fillStyle = "rgba(27,32,43,.12)";
@@ -227,7 +240,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     }});
   }
   ordered.sort((a,b)=>a.y-b.y);
-  for (const item of ordered) if (item.y<=position.y) item.draw();
+  for (const item of ordered) if (item.y<=actorPoint.y) item.draw();
   // Player and their current tile target.
   const target=facing(state.player);
   if(state.location==="field" && isFarm(target.x,target.y)){
@@ -236,7 +249,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     ctx.lineWidth=1;
     ctx.strokeRect(target.x*T+1,target.y*T+1,T-2,T-2);
   }
-  const footX=Math.round(position.x*T)+10, footY=Math.round(position.y*T)+17;
+  const footX=Math.round(actorPoint.x*T)+10, footY=Math.round(actorPoint.y*T)+17;
   box(ctx,footX-5,footY-1,10,2,"rgba(55,54,33,.24)");
   box(ctx,footX-3,footY+1,6,1,"rgba(55,54,33,.16)");
   if (dust) {
@@ -250,7 +263,9 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   const fishPose=state.location==="sungai" && fishing?.session?
     fishingGeometry(position,fishing.session.phase,fishing.session.elapsed):undefined;
-  if (fishPose) {
+  if (drawActivity()) {
+    // The shared activity frame supplies the whole actor pose.
+  } else if (fishPose) {
     ctx.save();ctx.translate(0,fishPose.bodyShift);
     actor("A01",position.x,position.y,position.dir,fishPose.spriteFrame,"#295d4d");
     ctx.restore();
@@ -274,7 +289,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const {x,y}=action.use.target;
     ctx.drawImage(art.effects,action.effect*16,row*16,16,16,x*T+2,y*T+1,16,16);
   }
-  for (const item of ordered) if (item.y>position.y) item.draw();
+  for (const item of ordered) if (item.y>actorPoint.y) item.draw();
   // Held rod, hand swing, line and small water bobber use the very same
   // 20px world-tile coordinates as the character, even while the camera moves.
   if (fishPose) {

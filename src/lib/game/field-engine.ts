@@ -4,6 +4,7 @@ import { Footwork } from "./footwork";
 import { FieldAudio } from "./field-audio";
 import { type Direction, type FarmTool, type GameState } from "./model";
 import { WalkPath, STEP_MS, RUN_STEP_MS } from "./walking";
+import { activityFrame, type ActivityFrame, type CharacterActivity } from "./character-activities";
 import type {FishingVisual} from "./fishing-visuals";
 import type {FishingPhase} from "./fishing-session";
 import type {FishingOutcome,RiverFishId} from "./model";
@@ -24,6 +25,7 @@ export type FieldFrame = {
   weight: import("./footwork").WeightPose | undefined;
   dust: { x: number; y: number; dir: Direction; phase: number } | undefined;
   fishing: FishingVisual | undefined;
+  activity?: ActivityFrame;
 };
 export type FieldRendererAdapter = { draw(frame: FieldFrame): void };
 
@@ -32,6 +34,7 @@ export type ToolUse = {
   origin: GameState["player"]; target: { x: number; y: number };
 };
 type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: boolean;
+  activity?:CharacterActivity|null;
   fishingSession?:{phase:FishingPhase;phaseAt:number}|null;
   fishingNotice?:{outcome:FishingOutcome;species?:RiverFishId;startedAt:number}|null;
 };
@@ -140,17 +143,18 @@ export class FieldEngine {
       popup:scene.fishingNotice?{outcome:scene.fishingNotice.outcome,species:scene.fishingNotice.species,
         elapsed:now-scene.fishingNotice.startedAt}:undefined
     }:undefined;
-    const active=wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan || !!fishing;
+    const activity=scene.activity ? activityFrame(scene.activity,now,reduced) : undefined;
+    const active=!!activity || wasMoving || walk.moving || travelled > 0 || !!action || !!weight || !!dust || pan || !!fishing;
     const position = { x: walk.x, y: walk.y, dir: walk.dir };
     if (active || this.active || scene!==this.lastScene || ambient!==this.lastAmbient) {
       const plots = swing && age<impact && !reduced ? swing.before : game.plots;
       if (this.renderer) {
         this.renderer.draw({
           state: game, position,
-          pose, running, action, camera: { ...camera }, reducedMotion: reduced, ambient, route, plots, weight, dust, fishing
+          pose, running, action, camera: { ...camera }, reducedMotion: reduced, ambient, route, plots, weight, dust, fishing, activity
         });
       } else {
-        drawWorld(canvas,game,scene.art,position,pose,running,action,camera,ambient,plots,weight,dust,fishing);
+        drawWorld(canvas,game,scene.art,position,pose,running,action,camera,ambient,plots,weight,dust,fishing,activity);
       }
       if (ambient!==this.lastAmbient || scene!==this.lastScene) this.audio.mix(walk.x,walk.y,game);
     }

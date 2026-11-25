@@ -5,8 +5,9 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
-  atMarketCounter, warungCounterStaffed, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  atMarketCounter, atWarungCounter, buyWarungItem, WARUNG_MENU, type WarungItem, HOME, warungCounterStaffed, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, interactionHitboxAt, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+import { activityAssets, activityDuration, type ActivityAnchor, type CharacterActivity, type CharacterActivityId } from "@/lib/game/character-activities";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets } from "@/lib/game/yanzen-interior-art";
@@ -134,6 +135,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         if (active) setArt(previous => ({...previous,roomAssets:{...previous.roomAssets,[key]:image}}));
       };
       image.src = "/game/assets/" + path;
+    }
+    for (const [key,path] of Object.entries(activityAssets)) {
+      const image = new Image();
+      image.onload = () => { if(active)setArt(previous=>({...previous,activityAssets:{...previous.activityAssets,[key]:image}})); };
+      image.src = "/game/assets/"+path;
     }
     for (const [key,path] of Object.entries(outdoorSources)) {
       const image = new Image();
@@ -418,7 +424,20 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     const id=window.setTimeout(()=>setWakingDay(null),1800);
     return ()=>window.clearTimeout(id);
   },[wakingDay]);
-  const controlsLocked = wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || !!cutscene || saveStatus === "loading" || saveStatus === "error";
+  const [activity,setActivity]=useState<CharacterActivity|null>(null);
+  const activityTimer=useRef<number|null>(null);
+  useEffect(()=>()=>{if(activityTimer.current!==null)window.clearTimeout(activityTimer.current);},[]);
+  const playActivity=useCallback((id:CharacterActivityId, anchor?:ActivityAnchor, onEnd?:()=>void, origin?:ActivityAnchor)=>{
+    if(activityTimer.current!==null)return false;
+    setActivity({id,anchor,origin,started:performance.now()});
+    activityTimer.current=window.setTimeout(()=>{
+      activityTimer.current=null;
+      setActivity(null);
+      onEnd?.();
+    },activityDuration(id));
+    return true;
+  },[]);
+  const controlsLocked = !!activity || wakingDay!==null || !worldPresented || storageOpen || phoneOpen || !!dialogue || !!cutscene || saveStatus === "loading" || saveStatus === "error";
   const movementLocked=controlsLocked || !!fishingSession;
   const step = useCallback((direction: Direction) => {
     if (movementLocked) return;
@@ -444,11 +463,11 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     setShowHelp(false);
   }, [movementLocked, field]);
   const release = useCallback((id: string) => { field.held.delete(id); }, [field]);
-  const scene = useRef({ game, art, swing, runMode, fishingSession, fishingNotice });
+  const scene = useRef({ game, art, swing, runMode, fishingSession, fishingNotice, activity });
   const lastArea = useRef(game.location);
   const portalArrival = useRef(false);
   useLayoutEffect(() => {
-    scene.current = { game, art, swing, runMode, fishingSession, fishingNotice };
+    scene.current = { game, art, swing, runMode, fishingSession, fishingNotice, activity };
     if(lastArea.current!==game.location){
       field.clear();
       const {x, y, dir} = game.player;
@@ -465,7 +484,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       queuedKeys.current.length = 0;
       tapRoute.current = null;
     }
-  }, [game, art, swing, controlsLocked, runMode, field, fishingSession, fishingNotice]);
+  }, [game, art, swing, controlsLocked, runMode, field, fishingSession, fishingNotice, activity]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -594,6 +613,8 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const result=meetNpc(game,context.npcId);
       setGame(result.state);setDialogue(result);
       if(result.state!==game) void persist(result.state);
+    }else if(context.kind==="sit"){
+      playActivity("sit",facing(game.player),undefined,game.player);
     }else if(context.kind==="storage"){
       setStorageOpen(true);
     }else if(context.kind==="nursery"){
@@ -602,7 +623,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       if(wet && game.personalQuests?.C01?.phase===2){const next={...game,nurseryChecked:true};setGame(next);void persist(next);}
     }else if(context.kind==="quest-prop"){
       const result=inspectFollowUpProp(game,context.propId);
-      if(result.state!==game){setGame(result.state);void persist(result.state);}
+      if(result.state!==game){playActivity("take");setGame(result.state);void persist(result.state);}
       setToast(result.message);
     }else if(context.kind==="fish"){
       const next=castRod(game);
@@ -624,7 +645,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       }
     }else if(context.kind==="irrigate"){
       const result=irrigateGarden(game);
-      if(result.state!==game){setGame(result.state);void persist(result.state);}
+      if(result.state!==game){playActivity("faucet");setGame(result.state);void persist(result.state);}
       setToast(result.message);
     }else if(context.kind==="sluice"){
       const firstOpen=!game.sluiceOpen && game.personalQuests?.A03?.phase===2 && !hasSluiceMemory(game);
@@ -654,7 +675,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         : "Hadapkan karakter ke objek yang bisa digunakan.");
     }
     setShowHelp(false);
-  },[game,controlsLocked,persist,field,queueCrossing,finishFishing,setFishingPhase]);
+  },[game,controlsLocked,persist,field,queueCrossing,finishFishing,setFishingPhase,playActivity]);
 
   const selectWorldTile = useCallback((tile: WorldPick | null) => {
     if (movementLocked || crossing.current || !tile) return;
@@ -721,9 +742,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   }, [game, movementLocked, action, queueCrossing]);
 
   const togglePhone = useCallback(() => {
-    if (wakingDay!==null || dialogue || storageOpen || fishingRef.current || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
+    if (activity || wakingDay!==null || dialogue || storageOpen || fishingRef.current || crossing.current || saveStatus === "loading" || saveStatus === "error") return;
     setPhoneOpen(o => !o); setPhoneTab("apps"); setSelectedCitizen(null); setShowHelp(false);
-  }, [dialogue, storageOpen, saveStatus,wakingDay]);
+  }, [dialogue, storageOpen, saveStatus,wakingDay,activity]);
 
   useEffect(() => {
     const handle = (e: KeyboardEvent) => {
@@ -773,10 +794,25 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     if (phoneOpen || saveStatus === "loading" || saveStatus === "error" || !canSleep(game)) return;
     if(wakingDay!==null)return;
     const next = nextDay(game);
-    setWakingDay(next.day);
+    if(!playActivity("sleep",{x:HOME.bed.x,y:HOME.bed.y-.45},()=>{
+      setWakingDay(next.day);
+      setGame(next); void persist(next);
+      setToast("Pagi di Pasirluyu. Cuaca "+weatherForDay(next.day)+". Tanaman yang kemarin disiram mulai tumbuh.");
+    },game.player))return;
     setDialogue(null);
-    setGame(next); void persist(next);
-    setToast("Pagi di Pasirluyu. Cuaca "+weatherForDay(next.day)+". Tanaman yang kemarin disiram mulai tumbuh.");
+  };
+  const orderAtWarung = (item:WarungItem) => {
+    if(saveStatus==="loading"||saveStatus==="error"||activityTimer.current!==null)return;
+    const result=buyWarungItem(game,item);
+    if(result.state===game){
+      setDialogue(current=>current?{...current,lines:[result.message]}:null);
+      return;
+    }
+    if(!playActivity(item))return;
+    setDialogue(null);
+    const next:GameState={...result.state,player:{...result.state.player,dir:"down"}};
+    setGame(next);void persist(next);
+    setToast(result.message);
   };
   const respond = (choice: SocialChoice) => {
     if (saveStatus === "loading" || saveStatus === "error" || !dialogue?.npcId) return;
@@ -831,7 +867,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const actionVerb = fishingSession ? (fishingSession.phase==="bite"?"TARIK":fishingSession.phase==="waiting"?"TUNGGU":fishingSession.phase==="reeling"?"MENARIK":"LEMPAR") : context.kind==="plant"?"TANAM":
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
-    context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":
+    context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":context.kind==="sit"?"DUDUK":
     context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
     context.kind==="irrigate"?(game.irrigationOpen?"TUTUP":"BUKA"):context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
@@ -893,6 +929,19 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
+          {dialogue.npcId==="C08" && atWarungCounter(game) && (
+            <details className="yzg-market">
+              <summary><strong>Menu Warung Inggit</strong><small>Pesan untuk dinikmati di sini</small></summary>
+              <div className="yzg-market-grid">
+                {(Object.entries(WARUNG_MENU) as [WarungItem,(typeof WARUNG_MENU)[WarungItem]][]).map(([id,item])=>
+                  <button key={id} className="yzg-market-item" type="button" disabled={unavailable}
+                    onClick={()=>orderAtWarung(id)}>
+                    <span className="yzg-market-item-text"><strong>{item.name}</strong><small>{formatGameRupiah(item.price)}</small></span>
+                  </button>
+                )}
+              </div>
+            </details>
+          )}
           {dialogue.npcId && isMarketMerchant(dialogue.npcId) && atMarketCounter(game,dialogue.npcId) && (
             <details className="yzg-market" open={dialogue.title==="Lapak pasar"}>
               <summary>

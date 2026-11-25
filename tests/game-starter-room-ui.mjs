@@ -217,8 +217,33 @@ try {
   await page.screenshot({path:path.join(output,'warkop-'+width+'.png')});
   if(touch) await tapExteriorDoor(page,(x+.5)*model.WORLD.tile,111,true,{x:390,y:130});
   else await go(page,'e');
-  await page.getByRole('dialog',{name:/Inggit/}).waitFor();
-  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.location==='field');
+  const warung=page.getByRole('dialog',{name:/Inggit/});
+  await warung.waitFor();
+  await warung.getByText(/Mampir dulu/).first().waitFor();
+  for(let line=0;line<5;line++){
+   const next=warung.getByRole('button',{name:'Lanjut ›',exact:true});
+   if(!await next.isVisible())break;
+   await next.click();
+  }
+  await warung.getByText('Menu Warung Inggit',{exact:true}).click();
+  await warung.getByRole('button',{name:/Kopi hitam/}).click();
+  await saved(page,()=>{
+   const state=JSON.parse(localStorage.getItem('yz-test-save')).data;
+   return state.location==='field'&&state.coins===268&&state.player.dir==='down';
+  });
+  await page.getByText('Yanzen menikmati kopi hitam.',{exact:true}).first().waitFor();
+  await page.waitForTimeout(1500);
+  await go(page,'ArrowUp');
+  await go(page,'e');
+  await warung.waitFor();
+  for(let line=0;line<5;line++){
+   const next=warung.getByRole('button',{name:'Lanjut ›',exact:true});
+   if(!await next.isVisible())break;
+   await next.click();
+  }
+  await warung.getByText('Menu Warung Inggit',{exact:true}).click();
+  await warung.getByRole('button',{name:/Bala-bala/}).click();
+  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.coins===253);
   await page.close();
  }
  assert.deepEqual(errors,[]);

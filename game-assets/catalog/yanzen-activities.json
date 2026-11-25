@@ -1,0 +1,1805 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "A01-bala-bala-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-1.png",
+      "sourceSHA256": "e32d45b9091b71aa86756492a5600aeb73f8014e81de0dd0d91d5779cad5db94",
+      "runtimeSHA256": "e32d45b9091b71aa86756492a5600aeb73f8014e81de0dd0d91d5779cad5db94",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-2-prop",
+      "ownerId": "A01",
+      "objectId": "bala-bala-held-prop",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-2-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-2-prop.png",
+      "sourceSHA256": "1063bfbeab669dacc69877915ef114f9ac27a5fb120ed3d7306c15fade160b2c",
+      "runtimeSHA256": "1063bfbeab669dacc69877915ef114f9ac27a5fb120ed3d7306c15fade160b2c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        13,
+        18,
+        18,
+        22
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-2.png",
+      "sourceSHA256": "7ca6085251e83d316b050e55b1843763a20e4165ec8ccbad072cd928d9e3837c",
+      "runtimeSHA256": "7ca6085251e83d316b050e55b1843763a20e4165ec8ccbad072cd928d9e3837c",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-3-prop",
+      "ownerId": "A01",
+      "objectId": "bala-bala-held-prop",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-3-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-3-prop.png",
+      "sourceSHA256": "991206c194ead8f793abf5ea3a67c40c8b5f32cdf866b34e57c16842c8d58128",
+      "runtimeSHA256": "991206c194ead8f793abf5ea3a67c40c8b5f32cdf866b34e57c16842c8d58128",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        13,
+        12,
+        18,
+        16
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-3.png",
+      "sourceSHA256": "3d2624d6da2fa4712503f79e073277a31bd02f19279694df0ef6fe8e3fd8495d",
+      "runtimeSHA256": "3d2624d6da2fa4712503f79e073277a31bd02f19279694df0ef6fe8e3fd8495d",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-4-prop",
+      "ownerId": "A01",
+      "objectId": "bala-bala-held-prop",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-4-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-4-prop.png",
+      "sourceSHA256": "4ef56e77d97a939ab9a301b5d299fd2c0a3ea02cad9564fd70ba75d9e63d7357",
+      "runtimeSHA256": "4ef56e77d97a939ab9a301b5d299fd2c0a3ea02cad9564fd70ba75d9e63d7357",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        13,
+        16,
+        17,
+        20
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-4",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-4.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-4.png",
+      "sourceSHA256": "653988bfe2f2265975447f398b5d78e3f86881ca209ad8780222d74b2f65a468",
+      "runtimeSHA256": "653988bfe2f2265975447f398b5d78e3f86881ca209ad8780222d74b2f65a468",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-bala-bala-5",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "bala-bala",
+      "direction": "down",
+      "frameIndex": 5,
+      "sourceFile": "public/game/assets/characters/activities/bala-bala-5.png",
+      "runtimeFile": "public/game/assets/characters/activities/bala-bala-5.png",
+      "sourceSHA256": "eb655299866f763c851d378b4a52de2ce00d48ed18943c1785a29d24b52bf6df",
+      "runtimeSHA256": "eb655299866f763c851d378b4a52de2ce00d48ed18943c1785a29d24b52bf6df",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-faucet-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/faucet-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-1.png",
+      "sourceSHA256": "6ce57527ce1fa922efdcad8e501b7e01418e564b7d9f91def58c2bcb9cf02577",
+      "runtimeSHA256": "6ce57527ce1fa922efdcad8e501b7e01418e564b7d9f91def58c2bcb9cf02577",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        23,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-faucet-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/faucet-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-2.png",
+      "sourceSHA256": "ebd4e37330ff8524b97c9558a9fab75196816bfd0d00c0d4368c9f5b3741b87f",
+      "runtimeSHA256": "ebd4e37330ff8524b97c9558a9fab75196816bfd0d00c0d4368c9f5b3741b87f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        3,
+        23,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-faucet-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "faucet",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/faucet-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/faucet-3.png",
+      "sourceSHA256": "c17b3a2d441c613bb1ec8131a19df3ec22e14037d9add8b287aed8ffd2ca09b9",
+      "runtimeSHA256": "c17b3a2d441c613bb1ec8131a19df3ec22e14037d9add8b287aed8ffd2ca09b9",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        23,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-1.png",
+      "sourceSHA256": "ed4b6590f89f31b89131834f4016ebc94f7594a44d90b4bf03b866ebf830fddc",
+      "runtimeSHA256": "ed4b6590f89f31b89131834f4016ebc94f7594a44d90b4bf03b866ebf830fddc",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-2-prop",
+      "ownerId": "A01",
+      "objectId": "kopi-hitam-held-prop",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-2-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-2-prop.png",
+      "sourceSHA256": "53fba0a25efcf0b4f96ce0835274767c3c43d2351bf468dcdb511cfeb9ddb59d",
+      "runtimeSHA256": "53fba0a25efcf0b4f96ce0835274767c3c43d2351bf468dcdb511cfeb9ddb59d",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        18,
+        18,
+        23
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-2.png",
+      "sourceSHA256": "61b1bef0c5e157420ade627db1ea18652213c258088a244d2b3ed1929c332144",
+      "runtimeSHA256": "61b1bef0c5e157420ade627db1ea18652213c258088a244d2b3ed1929c332144",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-3-prop",
+      "ownerId": "A01",
+      "objectId": "kopi-hitam-held-prop",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-3-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-3-prop.png",
+      "sourceSHA256": "f679d8676f62974ecf722432d195936efd7efb709e84185e947bfd1771b382d2",
+      "runtimeSHA256": "f679d8676f62974ecf722432d195936efd7efb709e84185e947bfd1771b382d2",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        12,
+        18,
+        17
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-3.png",
+      "sourceSHA256": "fd77a1b39a7237252d96ea94e6c1e9cffd66ffa0bdc5a9f0956c9dcea103cc20",
+      "runtimeSHA256": "fd77a1b39a7237252d96ea94e6c1e9cffd66ffa0bdc5a9f0956c9dcea103cc20",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-4-prop",
+      "ownerId": "A01",
+      "objectId": "kopi-hitam-held-prop",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-4-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-4-prop.png",
+      "sourceSHA256": "dbaa7f1565caeff2f49946649e9e5b2dcb64d7d58275ae00f46db5d73b4cd968",
+      "runtimeSHA256": "dbaa7f1565caeff2f49946649e9e5b2dcb64d7d58275ae00f46db5d73b4cd968",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        16,
+        18,
+        21
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-4",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-4.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-4.png",
+      "sourceSHA256": "48fa1b2d59d170c061fba0a167c8c186f4a87f5cf49a46b2bbe87a8f4d2181fb",
+      "runtimeSHA256": "48fa1b2d59d170c061fba0a167c8c186f4a87f5cf49a46b2bbe87a8f4d2181fb",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-kopi-hitam-5",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "kopi-hitam",
+      "direction": "down",
+      "frameIndex": 5,
+      "sourceFile": "public/game/assets/characters/activities/kopi-hitam-5.png",
+      "runtimeFile": "public/game/assets/characters/activities/kopi-hitam-5.png",
+      "sourceSHA256": "ee43c2585172f3a1af8f28ef08b9ccfbec4fe01a5c026544b52c8df35285ba0f",
+      "runtimeSHA256": "ee43c2585172f3a1af8f28ef08b9ccfbec4fe01a5c026544b52c8df35285ba0f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-1.png",
+      "sourceSHA256": "8283530f80bf681cd0a79ab0cde3fe249ec65e65e2cfe1a5c6862887c83499bd",
+      "runtimeSHA256": "8283530f80bf681cd0a79ab0cde3fe249ec65e65e2cfe1a5c6862887c83499bd",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-2-prop",
+      "ownerId": "A01",
+      "objectId": "nasi-tutug-held-prop",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-2-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-2-prop.png",
+      "sourceSHA256": "ae456b7f568b34c70cdb83433cd5933420549a51a329e61506b8d62395415a27",
+      "runtimeSHA256": "ae456b7f568b34c70cdb83433cd5933420549a51a329e61506b8d62395415a27",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        7,
+        18,
+        17,
+        23
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-2.png",
+      "sourceSHA256": "797f9dc905259dbe830bde43a3e14a06435c7a22000a12456d3603a47d32f4c0",
+      "runtimeSHA256": "797f9dc905259dbe830bde43a3e14a06435c7a22000a12456d3603a47d32f4c0",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-3-prop",
+      "ownerId": "A01",
+      "objectId": "nasi-tutug-held-prop",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-3-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-3-prop.png",
+      "sourceSHA256": "2129583b87b86a801526ae697f1b603dda5fc4af76bf93fc9077e3c4b31b65c0",
+      "runtimeSHA256": "2129583b87b86a801526ae697f1b603dda5fc4af76bf93fc9077e3c4b31b65c0",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        7,
+        12,
+        17,
+        23
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-3.png",
+      "sourceSHA256": "874a425b485f0de76a2f986c96a753b56bd3352f81f71d88ca3fc511d3aab646",
+      "runtimeSHA256": "874a425b485f0de76a2f986c96a753b56bd3352f81f71d88ca3fc511d3aab646",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-4-prop",
+      "ownerId": "A01",
+      "objectId": "nasi-tutug-held-prop",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-4-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-4-prop.png",
+      "sourceSHA256": "a556f2676e0ae0833cf5cc12e0fbb3186f887c98f2852775e7c7cd3a495989ef",
+      "runtimeSHA256": "a556f2676e0ae0833cf5cc12e0fbb3186f887c98f2852775e7c7cd3a495989ef",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        7,
+        16,
+        17,
+        23
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-4",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-4.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-4.png",
+      "sourceSHA256": "ddc4d6c4fd76c9b11f5c53f355a10f147321f92a8e38102f2400f9a397ea2ee9",
+      "runtimeSHA256": "ddc4d6c4fd76c9b11f5c53f355a10f147321f92a8e38102f2400f9a397ea2ee9",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-nasi-tutug-5",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "nasi-tutug",
+      "direction": "down",
+      "frameIndex": 5,
+      "sourceFile": "public/game/assets/characters/activities/nasi-tutug-5.png",
+      "runtimeFile": "public/game/assets/characters/activities/nasi-tutug-5.png",
+      "sourceSHA256": "604aebc205dd96948c750d115b345224f057467816e538cae61b01d3d67c1698",
+      "runtimeSHA256": "604aebc205dd96948c750d115b345224f057467816e538cae61b01d3d67c1698",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sit-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sit",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/sit-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/sit-1.png",
+      "sourceSHA256": "7ebecf4e8055ee400a6d0cd5c762524b719008770133a6c1d5be62fdb059bc4b",
+      "runtimeSHA256": "7ebecf4e8055ee400a6d0cd5c762524b719008770133a6c1d5be62fdb059bc4b",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sit-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sit",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/sit-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/sit-2.png",
+      "sourceSHA256": "6616fc54951724f6627327940967e8cf3b7ca5c9d19d54df4b4ac75bcfb459cd",
+      "runtimeSHA256": "6616fc54951724f6627327940967e8cf3b7ca5c9d19d54df4b4ac75bcfb459cd",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        4,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sit-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sit",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/sit-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/sit-3.png",
+      "sourceSHA256": "1cebcf1b946d914c4bd3d7072e15fdaee074b1952aa2cbab3d1dda95632a0352",
+      "runtimeSHA256": "1cebcf1b946d914c4bd3d7072e15fdaee074b1952aa2cbab3d1dda95632a0352",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        7,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sit-4",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sit",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/sit-4.png",
+      "runtimeFile": "public/game/assets/characters/activities/sit-4.png",
+      "sourceSHA256": "98c2357013521dbedb835dc1aca46019e4980f6f1b91a8b888cc1caedfde8d99",
+      "runtimeSHA256": "98c2357013521dbedb835dc1aca46019e4980f6f1b91a8b888cc1caedfde8d99",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        3,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sleep-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sleep",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/sleep-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/sleep-1.png",
+      "sourceSHA256": "29e7c909b07f5f8db19e834c38b7316f8a0688b4e642dec47bbb46e55d72671e",
+      "runtimeSHA256": "29e7c909b07f5f8db19e834c38b7316f8a0688b4e642dec47bbb46e55d72671e",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sleep-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sleep",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/sleep-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/sleep-2.png",
+      "sourceSHA256": "e340790f0f7a0138baa8110dc9a3dc41df3e4bd47e3bd03a1b4a605f3120911f",
+      "runtimeSHA256": "e340790f0f7a0138baa8110dc9a3dc41df3e4bd47e3bd03a1b4a605f3120911f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        6,
+        7,
+        19,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-sleep-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "sleep",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/sleep-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/sleep-3.png",
+      "sourceSHA256": "61b51d86742707bef20210267102547fdf27a1c2b58a85e1b90acefa013ec85f",
+      "runtimeSHA256": "61b51d86742707bef20210267102547fdf27a1c2b58a85e1b90acefa013ec85f",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        6,
+        7,
+        19,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-take-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/take-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-1.png",
+      "sourceSHA256": "545a4595587376bb8462faab2ff69a6d143534433cf418cd83c8922001214219",
+      "runtimeSHA256": "545a4595587376bb8462faab2ff69a6d143534433cf418cd83c8922001214219",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-take-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/take-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-2.png",
+      "sourceSHA256": "96891f1375bd71fc2bba0fc9978c00d1ce4dc0b8bfa74937180e5cfa6c7a8037",
+      "runtimeSHA256": "96891f1375bd71fc2bba0fc9978c00d1ce4dc0b8bfa74937180e5cfa6c7a8037",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        5,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-take-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "take",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/take-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/take-3.png",
+      "sourceSHA256": "c3ddf9aa9743ffd4d642bba8ff55e843e4c315cafde89dcc25f919a02f89f215",
+      "runtimeSHA256": "c3ddf9aa9743ffd4d642bba8ff55e843e4c315cafde89dcc25f919a02f89f215",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        3,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-1",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 1,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-1.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-1.png",
+      "sourceSHA256": "beef68a6e7df6df42fa8841ad182bd5ce216b33b08e839d8d265f44fc87f3d92",
+      "runtimeSHA256": "beef68a6e7df6df42fa8841ad182bd5ce216b33b08e839d8d265f44fc87f3d92",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-2-prop",
+      "ownerId": "A01",
+      "objectId": "teh-hangat-held-prop",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-2-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-2-prop.png",
+      "sourceSHA256": "995d66c2d99a8467793b54e1d6e895b56064d84a0cafc187a9de9b5e96681f2e",
+      "runtimeSHA256": "995d66c2d99a8467793b54e1d6e895b56064d84a0cafc187a9de9b5e96681f2e",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        18,
+        18,
+        23
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-2",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 2,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-2.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-2.png",
+      "sourceSHA256": "ccdeb28dc1dae70e95be9a498bc927592e1b728601cc7bf86ee0a45001190ed4",
+      "runtimeSHA256": "ccdeb28dc1dae70e95be9a498bc927592e1b728601cc7bf86ee0a45001190ed4",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-3-prop",
+      "ownerId": "A01",
+      "objectId": "teh-hangat-held-prop",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-3-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-3-prop.png",
+      "sourceSHA256": "8b368155a207ebbebf460a6cab2dc459114ea00065c20a52b8da21e089bb8bf2",
+      "runtimeSHA256": "8b368155a207ebbebf460a6cab2dc459114ea00065c20a52b8da21e089bb8bf2",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        12,
+        18,
+        17
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-3",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 3,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-3.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-3.png",
+      "sourceSHA256": "b5d98558b4f312fe8cca020ccf8aa880583b8027bccb9d171a2b6bcc168ac263",
+      "runtimeSHA256": "b5d98558b4f312fe8cca020ccf8aa880583b8027bccb9d171a2b6bcc168ac263",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-4-prop",
+      "ownerId": "A01",
+      "objectId": "teh-hangat-held-prop",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-4-prop.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-4-prop.png",
+      "sourceSHA256": "ece9a34020422ce01ae6b54829fc14f85398381c3969f879b6aa02c6d239d716",
+      "runtimeSHA256": "ece9a34020422ce01ae6b54829fc14f85398381c3969f879b6aa02c6d239d716",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        9,
+        16,
+        18,
+        21
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-4",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 4,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-4.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-4.png",
+      "sourceSHA256": "4c5960a36150e044a1d493b8fad881ac4821aa7e93bcff7eb07ecff0674f4901",
+      "runtimeSHA256": "4c5960a36150e044a1d493b8fad881ac4821aa7e93bcff7eb07ecff0674f4901",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    },
+    {
+      "assetId": "A01-teh-hangat-5",
+      "ownerId": "A01",
+      "objectId": "yanzen",
+      "action": "teh-hangat",
+      "direction": "down",
+      "frameIndex": 5,
+      "sourceFile": "public/game/assets/characters/activities/teh-hangat-5.png",
+      "runtimeFile": "public/game/assets/characters/activities/teh-hangat-5.png",
+      "sourceSHA256": "9abdce857c0b54806650b66302e4bead4fff5f267d8843c27f4cfcc199bba370",
+      "runtimeSHA256": "9abdce857c0b54806650b66302e4bead4fff5f267d8843c27f4cfcc199bba370",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        5,
+        2,
+        20,
+        31
+      ],
+      "footAnchor": [
+        12,
+        30
+      ],
+      "drawOffset": [
+        -2,
+        -12
+      ],
+      "displaySize": [
+        24,
+        32
+      ],
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "status": "runtime",
+      "provenance": "Original per-frame pixel art"
+    }
+  ]
+}
