@@ -42,8 +42,12 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const W = isOutdoorLocation(state.location) ? WORLD.width : 24;
-  const cameraX = Math.round(Math.min(W*T - canvas.width, Math.max(0, (camera.x + .5)*T - canvas.width/2)));
-  const cameraY = Math.round(Math.min(H*T - canvas.height, Math.max(0, (camera.y + .5)*T - canvas.height/2)));
+  // Interiors use the same stable center as Phaser so the complete room is
+  // visible when entering or restoring an old save.
+  const cameraX = isOutdoorLocation(state.location) ?
+    Math.round(Math.min(W*T-canvas.width,Math.max(0,(camera.x+.5)*T-canvas.width/2))) : 250-canvas.width/2;
+  const cameraY = isOutdoorLocation(state.location) ?
+    Math.round(Math.min(H*T-canvas.height,Math.max(0,(camera.y+.5)*T-canvas.height/2))) : 200-canvas.height/2;
   ctx.setTransform(1, 0, 0, 1, -cameraX, -cameraY);
   ctx.imageSmoothingEnabled = false;
   ctx.font = "bold 8px monospace";

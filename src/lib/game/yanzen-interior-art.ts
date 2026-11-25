@@ -1,33 +1,35 @@
 export type InteriorObject = { key: string; x: number; y: number; width: number; height: number; depth: number };
 
-// The new furniture files failed image decoding and the room layout has not yet
-// been aligned with walkable tiles. Keep the existing interiors active until
-// replacement images and their collision/interaction layout have been verified.
-export const YANZEN_MODULAR_INTERIORS_ENABLED = false;
-
-/** Unique assets for Yanzen's house and tool shed; no sprite atlas or shared prop image. */
+/** Each furnishing is a standalone file. Dimensions preserve its source aspect ratio. */
+export const YANZEN_MODULAR_INTERIORS_ENABLED = true;
 export const yanzenInteriorAssets: Record<string, string> = {
-  homeFloor: "locations/yanzen/home/floor.svg",
-  homeWall: "locations/yanzen/home/backwall.svg",
-  homeBed: "locations/yanzen/home/bed-01.png",
-  homeTable: "locations/yanzen/home/worktable-01.png",
-  homeCabinet: "locations/yanzen/home/woven-cabinet-01.png",
-  shedFloor: "locations/yanzen/shed/floor.svg",
-  shedWall: "locations/yanzen/shed/backwall.svg",
-  shedRack: "locations/yanzen/shed/tool-rack-01.png",
-  shedWorkbench: "locations/yanzen/shed/workbench-01.png",
+  homeFloor: "locations/yanzen/v2/home-floor.svg",
+  homeWall: "locations/yanzen/v2/home-wall.svg",
+  homeBed: "locations/yanzen/v2/home-bed.png",
+  homeWindow: "locations/yanzen/v2/home-window.png",
+  homeMat: "locations/yanzen/v2/home-mat.png",
+  homeTable: "locations/yanzen/v2/home-table.png",
+  homeCabinet: "locations/yanzen/v2/home-cabinet.png",
+  shedFloor: "locations/yanzen/v2/shed-floor.svg",
+  shedWall: "locations/yanzen/v2/shed-wall.svg",
+  shedRack: "locations/yanzen/v2/shed-rack.png",
+  shedWorkbench: "locations/yanzen/v2/shed-workbench.png",
 };
 
+// Alpha bounds fit the existing blocked tiles and bed/rack interaction targets.
+// See tests/game-starter-access.mjs for reachable approach positions.
 export const yanzenInteriorLayout: Record<"home" | "shed", InteriorObject[]> = {
   home: [
     { key: "homeWall", x: 0, y: 0, width: 480, height: 320, depth: 10 },
-    { key: "homeTable", x: 28, y: 117, width: 70, height: 54, depth: 240 },
-    { key: "homeCabinet", x: 370, y: 120, width: 58, height: 58, depth: 246 },
-    { key: "homeBed", x: 143, y: 104, width: 106, height: 74, depth: 251 },
+    { key: "homeWindow", x: 226, y: 98, width: 36, height: 24, depth: 11 },
+    { key: "homeMat", x: 210, y: 185, width: 80, height: 53.33, depth: 12 },
+    { key: "homeBed", x: 176, y: 107, width: 36, height: 72, depth: 160 },
+    { key: "homeTable", x: 228, y: 112, width: 52, height: 34.67, depth: 140 },
+    { key: "homeCabinet", x: 300, y: 112, width: 40, height: 60, depth: 165 },
   ],
   shed: [
     { key: "shedWall", x: 0, y: 0, width: 480, height: 320, depth: 10 },
-    { key: "shedRack", x: 148, y: 91, width: 60, height: 67, depth: 225 },
-    { key: "shedWorkbench", x: 342, y: 121, width: 90, height: 65, depth: 253 },
+    { key: "shedRack", x: 165, y: 104, width: 64, height: 58.49, depth: 160 },
+    { key: "shedWorkbench", x: 292, y: 119, width: 48, height: 32, depth: 151 },
   ],
 };

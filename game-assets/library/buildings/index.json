@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 14,
-  "bytes": 4558048,
+  "mediaCount": 25,
+  "bytes": 13500867,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -24,6 +24,22 @@
         "public/game/assets/locations/yanzen/shed/floor.svg",
         "public/game/assets/locations/yanzen/shed/tool-rack-01.png",
         "public/game/assets/locations/yanzen/shed/workbench-01.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v2",
+      "files": [
+        "public/game/assets/locations/yanzen/v2/home-bed.png",
+        "public/game/assets/locations/yanzen/v2/home-cabinet.png",
+        "public/game/assets/locations/yanzen/v2/home-floor.svg",
+        "public/game/assets/locations/yanzen/v2/home-mat.png",
+        "public/game/assets/locations/yanzen/v2/home-table.png",
+        "public/game/assets/locations/yanzen/v2/home-wall.svg",
+        "public/game/assets/locations/yanzen/v2/home-window.png",
+        "public/game/assets/locations/yanzen/v2/shed-floor.svg",
+        "public/game/assets/locations/yanzen/v2/shed-rack.png",
+        "public/game/assets/locations/yanzen/v2/shed-wall.svg",
+        "public/game/assets/locations/yanzen/v2/shed-workbench.png"
       ]
     },
     {
