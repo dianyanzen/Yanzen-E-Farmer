@@ -73,8 +73,8 @@ const warkop: Placement[] = [
   {asset:"inggit-awning",x:warungX-41,y:73,displayW:44,displayH:14,groundY:88},
   {asset:"inggit-roof",x:warungX-20,y:57,displayW:104,displayH:33,groundY:88},
   {asset:"inggit-sign",x:warungX,y:63,displayW:26,displayH:12,groundY:88},
-  {asset:"inggit-service-counter",x:warungX,y:120,displayW:64,displayH:17},
-  {asset:"inggit-enamel-kettle",x:warungX+19,y:106,displayW:13,displayH:15,groundY:120},
+  {asset:"inggit-service-counter",x:warungX,y:120,displayW:64,displayH:17,groundY:122},
+  {asset:"inggit-enamel-kettle",x:warungX+19,y:106,displayW:13,displayH:15,groundY:122},
   ...([
     ["west-bench",INGGIT_WARUNG.westBench,38,21],
     ["coffee-table",INGGIT_WARUNG.table,29,24],
