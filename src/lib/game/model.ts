@@ -985,7 +985,7 @@ const INTERACTION_HITBOXES = [
   ]),
   { id: "lapak-pintu", location: "pasar", left: 345, top: 147, right: 414, bottom: 180 },
   { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
-  { id: "bed", location: "home", left: 175, top: 120, right: 227, bottom: 163 },
+  { id: "bed", location: "home", left: 180, top: 108, right: 204, bottom: 160 },
 ] as const;
 
 type InteractionHitbox = (typeof INTERACTION_HITBOXES)[number];
@@ -1001,7 +1001,7 @@ export function facesInteractionHitbox(player: GameState["player"], box: Interac
   const y = (front.y + .5) * WORLD.tile;
   // Allow a tile-aligned approach along the edge of artwork between tile centers.
   const vertical = player.dir === "up" || player.dir === "down";
-  const horizontalMargin = vertical && (box.id === "bed" || box.id === "shed-exit") ? 6 : 0;
+  const horizontalMargin = vertical && box.id === "shed-exit" ? 6 : 0;
   return x >= box.left - horizontalMargin && x < box.right + horizontalMargin &&
     y >= box.top && y < box.bottom;
 }

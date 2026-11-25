@@ -90,15 +90,7 @@
           6
         ],
         [
-          10,
-          6
-        ],
-        [
           9,
-          7
-        ],
-        [
-          10,
           7
         ]
       ]
@@ -232,11 +224,11 @@
     },
     {
       "key": "shedBasket",
-      "x": 300,
-      "y": 217,
-      "width": 20,
-      "height": 13.33,
-      "depth": 230.33,
+      "x": 294,
+      "y": 211,
+      "width": 32,
+      "height": 21.33,
+      "depth": 232.33,
       "layer": "furniture",
       "tiles": [
         [
@@ -298,6 +290,146 @@
           7
         ]
       ]
+    },
+    {
+      "key": "shedHoe",
+      "x": 181,
+      "y": 120,
+      "width": 8,
+      "height": 25,
+      "depth": 163,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedSickle",
+      "x": 193,
+      "y": 122,
+      "width": 10,
+      "height": 22,
+      "depth": 163,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedShovel",
+      "x": 205,
+      "y": 120,
+      "width": 7,
+      "height": 25,
+      "depth": 163,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedToolbox",
+      "x": 301,
+      "y": 116,
+      "width": 15,
+      "height": 9,
+      "depth": 152,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedWateringCan",
+      "x": 323,
+      "y": 113,
+      "width": 13,
+      "height": 14,
+      "depth": 152,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedSeedSack",
+      "x": 160,
+      "y": 165,
+      "width": 20,
+      "height": 30,
+      "depth": 195,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "key": "shedHarvestCrate",
+      "x": 160,
+      "y": 239,
+      "width": 20,
+      "height": 20,
+      "depth": 259,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "shedFertilizerSack",
+      "x": 320,
+      "y": 165,
+      "width": 20,
+      "height": 30,
+      "depth": 195,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "key": "shedBucket",
+      "x": 320,
+      "y": 239,
+      "width": 20,
+      "height": 20,
+      "depth": 259,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "shedRope",
+      "x": 237,
+      "y": 102,
+      "width": 13,
+      "height": 17,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedShelfJar",
+      "x": 273,
+      "y": 96,
+      "width": 9,
+      "height": 12,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedLantern",
+      "x": 160,
+      "y": 103,
+      "width": 9,
+      "height": 14,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
     }
   ]
 }

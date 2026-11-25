@@ -22,7 +22,19 @@ export const yanzenInteriorAssets: Record<string,string> = {
   "homeFrontWall": "locations/yanzen/v5/front-wall.svg",
   "homeDoormat": "locations/yanzen/v5/door-mat.svg",
   "homeShelf": "locations/yanzen/v5/storage-shelf.svg",
-  "homeBench": "locations/yanzen/v5/bench.svg"
+  "homeBench": "locations/yanzen/v5/bench.svg",
+  "shedHoe": "locations/yanzen/v6/hoe.svg",
+  "shedSickle": "locations/yanzen/v6/sickle.svg",
+  "shedShovel": "locations/yanzen/v6/shovel.svg",
+  "shedToolbox": "locations/yanzen/v6/toolbox.svg",
+  "shedWateringCan": "locations/yanzen/v6/watering-can.svg",
+  "shedSeedSack": "locations/yanzen/v6/seed-sack.svg",
+  "shedHarvestCrate": "locations/yanzen/v6/harvest-crate.svg",
+  "shedFertilizerSack": "locations/yanzen/v6/fertilizer-sack.svg",
+  "shedBucket": "locations/yanzen/v6/bucket.svg",
+  "shedRope": "locations/yanzen/v6/rope-coil.svg",
+  "shedShelfJar": "locations/yanzen/v6/shelf-jar.svg",
+  "shedLantern": "locations/yanzen/v6/wall-lantern.svg"
 };
 /** Shared room blueprint; the model reads the same JSON for collision. */
 export const yanzenInteriorLayout = {home:layout.home,shed:layout.shed} as Record<"home"|"shed",InteriorObject[]>;

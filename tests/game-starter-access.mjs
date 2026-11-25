@@ -34,8 +34,17 @@ for(const [location,kind] of [['home','sleep'],['shed','storage']]){
 }
 for (const room of ['home','shed']) {
  for (const [x,y] of [[8,7],[8,10],[12,8],[15,8],[16,13]]) assert.equal(m.homeBlocked(x,y,room),false,`${room} visible floor ${x},${y}`);
- for (const [x,y] of [[9,7],[10,7],[15,7],[16,7],[7,8],[17,8]]) assert.equal(m.homeBlocked(x,y,room),true,`${room} furniture or wall ${x},${y}`);
+ for (const [x,y] of [[9,7],[15,7],[16,7],[7,8],[17,8]]) assert.equal(m.homeBlocked(x,y,room),true,`${room} furniture or wall ${x},${y}`);
 }
+for(const y of [6,7,8])assert.equal(m.homeBlocked(10,y,'home'),false,'bed-side aisle remains walkable');
+assert.equal(m.homeBlocked(10,7,'shed'),true,'rack footprint unchanged');
+let byBed={...field,location:'home',player:{x:10,y:8,dir:'up'}};
+for(const dir of ['up','up','down','down','left'])byBed=m.movePlayer(byBed,dir);
+assert.equal(byBed.player.x,9);assert.equal(byBed.player.y,8);
+assert.equal(m.canSleep({...byBed,player:{...byBed.player,dir:'up'}}),true);
+assert.equal(m.canSleep({...byBed,player:{x:10,y:8,dir:'up'}}),false,'facing empty aisle must not trigger sleep');
+for(const [x,y] of [[8,9],[8,12],[16,9],[16,12]])assert.equal(m.homeBlocked(x,y,'shed'),true,'new floor prop footprint');
+for(let x=11;x<=14;x++)for(let y=8;y<=13;y++)assert.equal(m.homeBlocked(x,y,'shed'),false,'central storage aisle free');
 assert.equal(m.homeBlocked(8,11,'home'),true,'shelf blocks its tile');
 assert.equal(m.homeBlocked(16,12,'home'),true,'plant blocks its tile');
 assert.equal(m.homeBlocked(15,10,'home'),true,'desk blocks its tile');

@@ -75,15 +75,21 @@ const outdoor = { ...model.newGame(), player: { x: 4, y: 5, dir: "up" } };
 assert.equal(model.interactDoor(outdoor).location, "home", "the right side of the entrance must open");
 const home = model.interactDoor(outdoor);
 for (const x of [8, 9, 10, 11]) {
-  assert.equal(model.canSleep({ ...home, player: { x, y: 8, dir: "up" } }), true);
+  assert.equal(model.canSleep({ ...home, player: { x, y: 8, dir: "up" } }), x===9);
 }
-assert.equal(model.canSleep({ ...home, player: { x: 11, y: 7, dir: "left" } }), true);
+assert.equal(model.canSleep({ ...home, player: { x: 10, y: 7, dir: "left" } }), true);
+assert.equal(model.canSleep({ ...home, player: { x: 8, y: 7, dir: "right" } }), true);
+const aisleTap=navigation.planTapRoute(home,10,7,{x:210,y:150});
+assert.ok(aisleTap && !aisleTap.interact,"empty aisle tap must walk, not sleep");
+let aisleWalk=home;
+for(const direction of aisleTap.steps) aisleWalk=model.movePlayer(aisleWalk,direction);
+assert.equal(aisleWalk.player.x,10);assert.equal(aisleWalk.player.y,7);
 assert.equal(model.canSleep({ ...home, player: { x: 9, y: 9, dir: "up" } }), false);
 assert.equal(model.interactDoor({ ...home, player: { x: 13, y: 12, dir: "down" } }).location, "field");
 for (const [state, id, points] of [
   [outdoor, "home-door", [[65, 69], [91, 99]]],
   [outdoor, "shed-door", [[181, 70], [200, 99]]],
-  [home, "bed", [[175, 120], [226, 162]]],
+  [home, "bed", [[180, 108], [203, 159]]],
   [home, "home-exit", [[240, 270], [279, 288]]],
   [{ ...home, location: "shed" }, "shed-exit", [[236, 270], [285, 288]]],
 ]) {
@@ -97,5 +103,5 @@ for (const [state, id, points] of [
     assert.equal(model.getActionContext(target).kind, id === "bed" ? "sleep" : "door");
   }
 }
-assert.equal(model.interactionHitboxAt("home", 228, 150), undefined, "the adjacent aisle is outside the bed");
+assert.equal(model.interactionHitboxAt("home", 210, 150), undefined, "the adjacent aisle is outside the bed");
 console.log("Phaser prototype movement and four interactive signposts: PASS");

@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 40,
-  "bytes": 16008080,
+  "mediaCount": 52,
+  "bytes": 16012793,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -65,6 +65,23 @@
         "public/game/assets/locations/yanzen/v5/right-wall.svg",
         "public/game/assets/locations/yanzen/v5/storage-shelf.svg",
         "public/game/assets/locations/yanzen/v5/woven-rug.svg"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v6",
+      "files": [
+        "public/game/assets/locations/yanzen/v6/bucket.svg",
+        "public/game/assets/locations/yanzen/v6/fertilizer-sack.svg",
+        "public/game/assets/locations/yanzen/v6/harvest-crate.svg",
+        "public/game/assets/locations/yanzen/v6/hoe.svg",
+        "public/game/assets/locations/yanzen/v6/rope-coil.svg",
+        "public/game/assets/locations/yanzen/v6/seed-sack.svg",
+        "public/game/assets/locations/yanzen/v6/shelf-jar.svg",
+        "public/game/assets/locations/yanzen/v6/shovel.svg",
+        "public/game/assets/locations/yanzen/v6/sickle.svg",
+        "public/game/assets/locations/yanzen/v6/toolbox.svg",
+        "public/game/assets/locations/yanzen/v6/wall-lantern.svg",
+        "public/game/assets/locations/yanzen/v6/watering-can.svg"
       ]
     },
     {
