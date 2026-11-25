@@ -293,7 +293,7 @@ export const INGGIT_WARUNG = {
   eastBench: { x: 20, y: 7 },
 } as const;
 export const WIDI_OPENS_AT = 9 * 60;
-const RYAN_LAST_COFFEE_MINUTE = 7 * 60 + 14;
+const RYAN_LAST_COFFEE_MINUTE = 12 * 60 - 1;
 const NANI_LEAVES_WARUNG = 10 * 60;
 const INGGIT_HOME_AT = 20 * 60;
 // The approach tile is shared by the door, its return point, and the resident's evening route.

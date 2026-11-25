@@ -47,9 +47,11 @@ for(const id of ["A03","C07","C01"])assert.equal(at(id,380).location,"field");
 assert.equal(at("C07",model.WIDI_OPENS_AT).activity,"Melayani pemancing di lapak ikan");
 assert.equal(model.atMarketCounter({...s,location:"pasar",minutes:539,player:{x:27,y:9,dir:"up"}},"C07"),false);
 assert.equal(model.atMarketCounter({...s,location:"pasar",minutes:540,player:{x:27,y:9,dir:"up"}},"C07"),true);
-for(const [minutes,ryan,widi] of [[380,"full","full"],[434,"full","full"],[435,"empty","full"],[480,"empty","empty"],[892,"empty","empty"],[893,"cleared","cleared"]]){
+for(const [minutes,ryan,widi] of [[380,"full","full"],[479,"full","full"],[480,"full","empty"],[719,"full","empty"],[720,"empty","empty"],[892,"empty","empty"],[893,"cleared","cleared"]]){
  assert.deepEqual([model.warungCoffee(minutes,"ryan"),model.warungCoffee(minutes,"widi")],[ryan,widi]);
 }
+assert.equal(at("A03",719).activity,"Ngopi di Warung Inggit");
+assert.equal(at("A03",720).activity,"Berjalan ke tempat kerja");
 assert.equal(at("C08",893).activity,"Merapikan warung");
 assert.deepEqual([at("C08",893).x,at("C08",893).y],[19,7]);
 const locations=[counter.closesAt-1,counter.closesAt,counter.closesAt+1,counter.closesAt+2,counter.closesAt+3]

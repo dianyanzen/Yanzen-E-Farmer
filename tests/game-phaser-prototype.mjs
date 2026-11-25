@@ -133,8 +133,8 @@ const coffeeAssets = minutes => outdoorObjects("field",minutes)
   .filter(item=>item.asset.includes("-coffee-")&&item.asset!=="inggit-coffee-table"&&item.visible)
   .map(item=>item.asset);
 assert.deepEqual(Array.from(coffeeAssets(380)),["inggit-ryan-coffee-full","inggit-widi-coffee-full"]);
-assert.deepEqual(Array.from(coffeeAssets(435)),["inggit-ryan-coffee-empty","inggit-widi-coffee-full"]);
-assert.deepEqual(Array.from(coffeeAssets(480)),["inggit-ryan-coffee-empty","inggit-widi-coffee-empty"]);
+assert.deepEqual(Array.from(coffeeAssets(719)),["inggit-ryan-coffee-full","inggit-widi-coffee-empty"]);
+assert.deepEqual(Array.from(coffeeAssets(720)),["inggit-ryan-coffee-empty","inggit-widi-coffee-empty"]);
 assert.equal(coffeeAssets(893).length,0);
 const nursery=model.NURSERY_BENCH;
 assert.ok(navigation.planTapRoute(outdoor,nursery.x,nursery.y)?.interact);
