@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 107,
-  "bytes": 16374308,
+  "mediaCount": 113,
+  "bytes": 16376370,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -27,6 +27,17 @@
         "public/game/assets/locations/inggit/pasar/facade.png",
         "public/game/assets/locations/inggit/pasar/roof.png",
         "public/game/assets/locations/inggit/pasar/sign.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/warkop",
+      "files": [
+        "public/game/assets/locations/inggit/warkop/coffee-table.png",
+        "public/game/assets/locations/inggit/warkop/east-bench.png",
+        "public/game/assets/locations/inggit/warkop/enamel-kettle.png",
+        "public/game/assets/locations/inggit/warkop/open-front.png",
+        "public/game/assets/locations/inggit/warkop/service-counter.png",
+        "public/game/assets/locations/inggit/warkop/west-bench.png"
       ]
     },
     {

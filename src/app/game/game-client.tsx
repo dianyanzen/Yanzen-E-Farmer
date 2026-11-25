@@ -5,8 +5,8 @@ import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
-  RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, getActionContext, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  INGGIT_WARUNG, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  choosePhoto, getActionContext, interactionHitboxAt, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets } from "@/lib/game/yanzen-interior-art";
@@ -122,7 +122,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     let active = true;
     const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png",
       rumahDay: "pasirluyu/rumah-yanzen-interior-day.svg", rumahEvening: "pasirluyu/rumah-yanzen-interior-evening.svg",
-      warungInterior: "pasirluyu/warung-interior.svg", gudangInterior: "pasirluyu/gudang-interior.svg" };
+      gudangInterior: "pasirluyu/gudang-interior.svg" };
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
@@ -583,8 +583,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const next=interactDoor(game);
       const message=next.location==="home"?"Masuk rumah. Hadapkan karakter ke kasur untuk tidur.":
         next.location==="shed"?"Selamat datang di gudang. Dekati rak untuk menyimpan alat.":
-        next.location==="warung"?"Masuk Warung Inggit.":
-        next.location==="pasar"?"Kembali ke pasar.":"Kembali ke Kebun Yanzen.";
+        next.location==="field"?"Kembali ke Kebun Yanzen.":"Tiba di "+areaTitle(next.location)+".";
       queueCrossing(game,next,game.player.dir,message);
     }else if(context.kind==="travel"){
       const next=movePlayer(game,game.player.dir);
@@ -661,7 +660,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     if (movementLocked || crossing.current || !tile) return;
     const route = planTapRoute(game, tile.x, tile.y, tile.world);
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
-    tapRoute.current = route ? {...route,resident:resident?.id} : null;
+    const counter = game.location==="field" && game.minutes<INGGIT_WARUNG.closesAt &&
+      interactionHitboxAt("field",tile.world.x,tile.world.y)?.id==="warung-counter";
+    tapRoute.current = route ? {...route,resident:resident?.id ?? (counter ? "C08" : undefined)} : null;
     if (!route) {
       setToast("Belum ada jalan ke sana. Ketuk tanah atau benda yang bisa kamu jangkau.");
       return;
@@ -1130,7 +1131,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <div className="yzg-phone-card"><b>Lokasi kamu sekarang</b>
                   <p>{areaTitle(game.location)} · {START_LOCATION.village}, {START_LOCATION.district}<br/>{START_LOCATION.city}</p>
                   <div className="yzg-local-map yzg-master-minimap" aria-label="Denah jalur empat kawasan">
-                    <div className={game.location==="pasar" || game.location==="warung" ? "current" : ""}>Pasar Warga</div>
+                    <div className={game.location==="pasar" ? "current" : ""}>Pasar Warga</div>
                     <div className={["field","home","shed"].includes(game.location) ? "current" : ""}>Kebun Yanzen</div>
                     <div className={game.location==="gang" ? "current" : ""}>Gang Pasirluyu</div>
                     <div className={game.location==="sungai" ? "current" : ""}>Bantaran Sungai</div>

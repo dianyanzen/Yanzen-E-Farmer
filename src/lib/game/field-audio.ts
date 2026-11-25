@@ -1,4 +1,4 @@
-import { isOutdoorLocation, type GameState } from "./model";
+import { INGGIT_WARUNG, isOutdoorLocation, type GameState } from "./model";
 import clips from "./audio-clips.json";
 
 type Clip = keyof typeof clips;
@@ -47,8 +47,8 @@ export class FieldAudio {
     const outdoors=isOutdoorLocation(location);
     const bank=location==="field"?1:6;
     const canal=location==="sungai" || location==="field" ? Math.max(0,1-Math.max(0,x-bank)/9) : 0;
-    const stall=location==="warung" ? .8 : location==="pasar" && minutes>=720 && minutes<1140 ?
-      Math.max(0,1-Math.hypot(x-16,y-9)/12) : 0;
+    const stall=location==="field" && minutes<INGGIT_WARUNG.closesAt ?
+      Math.max(0,1-Math.hypot(x-INGGIT_WARUNG.x,y-INGGIT_WARUNG.y)/6) : 0;
     const levels = [(outdoors ? .15 : .02)*(1-.65*canal)*(1-stall), .3*canal, .22*stall];
     this.loops.forEach((gain,i) => gain.gain.setTargetAtTime(levels[i], this.ctx!.currentTime, .25));
   }

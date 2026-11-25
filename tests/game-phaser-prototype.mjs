@@ -119,17 +119,16 @@ for (const [state, id, points] of [
     assert.equal(model.getActionContext(target).kind, id === "bed" ? "sleep" : "door");
   }
 }
-for (const [location,variant,id] of [['field','kebun','warung-pintu'],['pasar','pasar','lapak-pintu']]) {
-  const { x, y, displayW, displayH } = outdoorObjects(location, 15*60)
-    .find(item => item.asset === `inggit-${variant}-door`);
-  const doorTile = Math.floor(x/20);
-  const state = {...model.newGame(),location,minutes:15*60,player:{x:doorTile,y:Math.ceil(y/20),dir:'up'}};
-  assert.equal(model.areaBlocked(location,state.player.x,state.player.y),false);
-  assert.equal(model.interactionHitboxAt(location,x,y-displayH+1)?.id,id);
-  assert.equal(model.interactionHitboxAt(location,x-displayW/2-1,y-displayH+1),undefined);
-  assert.ok(navigation.planTapRoute(state,doorTile,Math.floor((y-12)/20),{x,y:y-12})?.interact);
-  assert.equal(model.interactDoor(state).location,location==='pasar'?'warung':'field');
-}
+assert.equal(outdoorObjects("pasar",15*60).some(item=>item.asset.startsWith("inggit-")),false);
+const counter=fieldObjects.find(item=>item.asset==="inggit-service-counter");
+const customer={...model.newGame(),minutes:15*60,player:{x:15,y:8,dir:"right"}};
+const tap=navigation.planTapRoute(customer,19,5,{x:counter.x,y:counter.y-11});
+assert.ok(tap?.interact);
+let approaching=customer;
+for(const step of tap.steps)approaching=model.movePlayer(approaching,step);
+approaching={...approaching,player:{...approaching.player,dir:tap.face}};
+assert.equal(model.getActionContext(approaching).npcId,"C08");
+assert.equal(model.interactDoor(approaching),approaching);
 const nursery=model.NURSERY_BENCH;
 assert.ok(navigation.planTapRoute(outdoor,nursery.x,nursery.y)?.interact);
 assert.equal(model.interactionHitboxAt("home", 210, 150), undefined, "the adjacent aisle is outside the bed");

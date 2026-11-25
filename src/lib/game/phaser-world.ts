@@ -100,7 +100,6 @@ class YZWorldScene extends Phaser.Scene {
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
-    this.load.svg("yz-warung", "/game/assets/pasirluyu/warung-interior.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-shed", "/game/assets/pasirluyu/gudang-interior.svg", { width: 480, height: HEIGHT });
     for (const [id,path] of Object.entries(YANZEN_MODULAR_INTERIORS_ENABLED ? yanzenInteriorAssets : {})) {
       const key="yz-room-"+id, url="/game/assets/"+path;
@@ -247,7 +246,7 @@ class YZWorldScene extends Phaser.Scene {
           .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(interiorDepth(item)));
     } else {
       const key=isResidentHome(location) ? location : location==="home" ?
-        (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") : location==="warung" ? "yz-warung" : "yz-shed";
+        (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") : "yz-shed";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
     }
   }

@@ -28,7 +28,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
   roomAssets?: Record<string, HTMLImageElement>;
-  rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
+  rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
@@ -64,17 +64,6 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     for(const npc of residents)if(npc.y<=position.y)drawNpc(npc);
     actor("A01",position.x,position.y,position.dir,pose===null?1:Math.floor(pose/2)%3,"#295d4d");
     for(const npc of residents)if(npc.y>position.y)drawNpc(npc);
-    return;
-  }
-  if(state.location==="warung"){
-    box(ctx,0,0,W*T,H*T,"#24282a");
-    if (art.warungInterior) ctx.drawImage(art.warungInterior,0,0,W*T,H*T);
-    else box(ctx,160,120,180,160,"#b49970");
-    for (const npc of npcHere(state)) drawPerson(ctx,npc.x,npc.y,npc.color,"#e4b48b","#553a2c",false);
-    if(art.people){
-      ctx.drawImage(art.people,24,facingRows[position.dir]*32,24,32,
-        Math.round(position.x*T)-2,Math.round(position.y*T)-12,24,32);
-    }else drawPerson(ctx,position.x,position.y,"#295d4d","#e4b48b","#553a2c",true);
     return;
   }
   // Modular rooms: architecture/floor, then furniture interleaved by feet, then foreground.

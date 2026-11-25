@@ -88,11 +88,10 @@ async function start(page) {
 
 // The exterior fixture starts at tile (8,6), the center of the path between
 // both buildings. Project the actual door pixels into each renderer's viewport.
-async function tapExteriorDoor(page, x, y, touch) {
+async function tapExteriorDoor(page, x, y, touch, center = { x: 170, y: 130 }) {
   const canvas = page.locator(engine === 'phaser' ? '.yzg-phaser-host canvas' : '.yzg-viewport > canvas');
-  const point = await canvas.evaluate((element, { engine, x, y }) => {
+  const point = await canvas.evaluate((element, { engine, x, y, center }) => {
     const { width, height } = element.getBoundingClientRect();
-    const center = { x: 170, y: 130 };
     const world = { width: 640, height: 320 };
     if (engine === 'phaser') {
       const zoom = Math.max(3, element.width / world.width, element.height / world.height);
@@ -108,7 +107,7 @@ async function tapExteriorDoor(page, x, y, touch) {
       x: (width - element.width * scale) / 2 + (x - left) * scale,
       y: (height - element.height * scale) / 2 + (y - top) * scale,
     };
-  }, { engine, x, y });
+  }, { engine, x, y, center });
   if (touch) await canvas.tap({ position: point });
   else await canvas.click({ position: point });
 }
@@ -206,18 +205,20 @@ try {
   }
  }
  for (const width of [1280,393]) {
-  const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
-  const state={...seed,minutes:15*60,location:'pasar',player:{x:19,y:9,dir:'up'},phoneRead:true};
+  const touch=width===393;
+  const page=await browser.newPage({viewport:{width,height:touch?852:900},hasTouch:touch,reducedMotion:'reduce'});
+  const {x,y}=model.INGGIT_WARUNG;
+  const state={...seed,minutes:15*60,location:'field',player:{x,y:y+1,dir:'up'},phoneRead:true};
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1');
+  await page.getByText('Bicara dengan Inggit',{exact:true}).first().waitFor();
   await page.waitForTimeout(800);
-  await page.screenshot({path:path.join(output,'warung-'+width+'.png')});
-  await go(page,'e');
-  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.location==='warung');
-  await go(page,'ArrowDown');
-  await go(page,'e');
-  await saved(page,()=>{const {location,player}=JSON.parse(localStorage.getItem('yz-test-save')).data;return location==='pasar'&&player.x===19&&player.y===9;});
+  await page.screenshot({path:path.join(output,'warkop-'+width+'.png')});
+  if(touch) await tapExteriorDoor(page,(x+.5)*model.WORLD.tile,111,true,{x:390,y:130});
+  else await go(page,'e');
+  await page.getByRole('dialog',{name:/Inggit/}).waitFor();
+  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.location==='field');
   await page.close();
  }
  assert.deepEqual(errors,[]);

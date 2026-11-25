@@ -19,20 +19,29 @@ assert.equal(npcHere(s).length,3,"intro NPCs all visible on early morning");
 assert.equal(npcWhere(s,"A03").location,"field");
 assert.equal(npcWhere({...s,minutes:13*60},"A03").location,"sungai");
 assert.equal(npcWhere({...s,minutes:13*60},"C01").location,"gang");
-assert.equal(npcWhere({...s,minutes:13*60},"C08").location,"pasar");
+assert.equal(npcWhere({...s,minutes:13*60},"C08").location,"field");
 assert.ok(npcSchedule({...s,minutes:20*60}).every(npc=>npc.indoors));
 const leaving = npcWhere({...s,minutes:1081},"A03");
 assert.equal(leaving.location,"sungai");
 assert.equal(Math.abs(leaving.x-8)+Math.abs(leaving.y-8),1);
 assert.match(getActionContext({...s,location:"gang",player:{x:8,y:8,dir:"up"}}).text,/Rumah Nani terkunci/);
-const marketDoor = {...s,minutes:780,location:"pasar",player:{x:Math.floor(model.INGGIT_WARUNG.doorX / model.WORLD.tile),y:9,dir:"up"}};
-assert.equal(getActionContext(marketDoor).kind,"door");
-const shop = model.interactDoor(marketDoor);
-assert.equal(shop.location,"warung");
-assert.equal(safeLoad(shop).location,"warung");
-assert.equal(npcHere(shop)[0].id,"C08");
-assert.equal(model.interactDoor({...shop,player:{x:12,y:12,dir:"down"}}).location,"pasar");
-assert.match(getActionContext({...marketDoor,minutes:1200}).text,/terkunci/i);
+const {INGGIT_WARUNG: counter}=model;
+const customer={...s,minutes:780,player:{x:counter.x,y:counter.y+1,dir:"up"}};
+assert.equal(getActionContext(customer).npcId,"C08");
+assert.equal(model.interactDoor(customer),customer,"players cannot enter a warung interior");
+assert.equal(movePlayer(customer,"up").player.y,counter.y+1,"staff lane is inaccessible to players");
+assert.equal(npcHere({...customer,location:"pasar"}).some(npc=>npc.id==="C08"),false);
+assert.equal(areaBlocked("pasar",19,8),false,"the old building footprint is walkable");
+const restored=safeLoad({...s,location:"warung",day:3,coins:742});
+assert.equal(restored.location,"field");
+assert.deepEqual([restored.player.x,restored.player.y,restored.player.dir,restored.day,restored.coins],[counter.x,counter.y+1,"up",3,742]);
+assert.match(getActionContext({...customer,minutes:1200}).text,/sudah tutup/i);
+const locations=[counter.closesAt-1,counter.closesAt,counter.closesAt+1,counter.closesAt+2,counter.closesAt+3]
+ .map(minutes=>npcWhere({...s,minutes},"C08"));
+for(let i=1;i<locations.length;i++){
+ assert.equal(locations[i].location,"field");
+ assert.ok(Math.abs(locations[i].x-locations[i-1].x)+Math.abs(locations[i].y-locations[i-1].y)<=1);
+}
 assert.equal(areaTitle("sungai"),"Bantaran Sungai");
 assert.equal(mapExit("field",22,10,"up"),null);
 assert.equal(mapExit("field",31,10,"right").location,"gang");
@@ -59,8 +68,8 @@ assert.equal(river.location,"sungai");assert.equal(river.player.y,0);
 const riverBack=movePlayer({...river,player:{x:11,y:0,dir:"up"}},"up");
 assert.equal(riverBack.location,"gang");assert.equal(riverBack.player.y,15);
 
-const afternoon={...s,minutes:780,location:"pasar",player:{x:15,y:11,dir:"up"}};
-assert.equal(getActionContext(afternoon).kind,"npc","Inggit is interactable at market");
+const afternoon={...customer,minutes:780};
+assert.equal(getActionContext(afternoon).kind,"npc","Inggit is interactable from the customer side");
 assert.equal(getActionContext(afternoon).npcId,"C08");
 assert.equal(getActionContext({...s,location:"field",minutes:780,player:{x:12,y:8,dir:"right"}}).kind,"none",
   "Ryan does not secretly interact while working by the river");
@@ -169,7 +178,8 @@ for(let minutes=720;minutes<=1210;minutes++){
   const occupied=new Set();
   for(const [i,placement] of placements.entries()){
     const {location,x,y,indoors}=placement;
-    assert.equal(areaBlocked(location,x,y),false,placement.id+" route must be traversable");
+    const staffLane=placement.id==="C08" && location==="field" && y===counter.y && x>=counter.x && x<=counter.staffExitX;
+    assert.equal(areaBlocked(location,x,y),staffLane,placement.id+" route must be traversable for its role");
     const last=toWorldTile(prior[i].location,prior[i].x,prior[i].y);
     const next=toWorldTile(location,x,y);
     assert.ok(Math.abs(next.x-last.x)+Math.abs(next.y-last.y)<=1,"NPC takes consecutive steps across seams");

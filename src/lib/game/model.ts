@@ -219,7 +219,7 @@ function loadFishing(raw:unknown):FishingInventory|null{
 }
 export type MarketMerchant="A04"|"C07";
 export function isMarketMerchant(id:NpcId):id is MarketMerchant{return id==="A04"||id==="C07";}
-function closingTime(id:NpcId){return id==="A04"?1020:id==="C07"?1050:id==="C08"?1140:1080;}
+function closingTime(id:NpcId){return id==="A04"?1020:id==="C07"?1050:id==="C08"?INGGIT_WARUNG.closesAt:1080;}
 export function atMarketCounter(s:GameState,merchant:MarketMerchant){
   if(s.location!=="pasar" || s.minutes>=closingTime(merchant))return false;
   const shopkeeper=npcWhere(s,merchant),front=facing(s.player);
@@ -285,6 +285,12 @@ export function finishFishingAttempt(s:GameState,outcome:FishingOutcome,species?
 }
 
 export const WORLD = { width: 32, height: 16, tile: 20 } as const;
+export const INGGIT_WARUNG = {
+  x: 19, y: 5, staffExitX: 21, closesAt: 19 * 60,
+  westBench: { x: 16, y: 7 },
+  table: { x: 18, y: 7 },
+  eastBench: { x: 20, y: 7 },
+} as const;
 // The approach tile is shared by the door, its return point, and the resident's evening route.
 export const RESIDENT_HOMES = [
   { location:"rumah-nani", owner:"C01", name:"Nani", x:8, y:8, doorX:160,
@@ -303,7 +309,7 @@ export const VISIT_ANYTIME_LEVEL=4;
 export function isResidentHome(location:string):location is ResidentHomeLocation {
   return RESIDENT_HOMES.some(home=>home.location===location);
 }
-export type GameLocation = ResidentHomeLocation|"field"|"home"|"shed"|"warung"|"gang"|"pasar"|"sungai";
+export type GameLocation = ResidentHomeLocation|"field"|"home"|"shed"|"gang"|"pasar"|"sungai";
 export type OutdoorLocation = "field"|"gang"|"pasar"|"sungai";
 export function isOutdoorLocation(location: GameLocation): location is OutdoorLocation {
   return location==="field" || location==="gang" || location==="pasar" || location==="sungai";
@@ -311,7 +317,7 @@ export function isOutdoorLocation(location: GameLocation): location is OutdoorLo
 export const AREAS:Record<OutdoorLocation,{name:string;description:string;landmark:string}> = {
   field:{name:"Kebun Yanzen",description:"Rumah, gudang, petak timun, dan saluran irigasi",landmark:"Jalan kampung ke timur"},
   gang:{name:"Gang Pasirluyu",description:"Rumah tetangga, bangku warga, dan jalan utama",landmark:"Jalan menuju pasar dan sungai"},
-  pasar:{name:"Pasar Warga",description:"Lapak benih Ayu, lapak pancing Widi, dan Warung Inggit",landmark:"Kembali ke gang di selatan"},
+  pasar:{name:"Pasar Warga",description:"Lapak benih Ayu dan lapak pancing Widi",landmark:"Kembali ke gang di selatan"},
   sungai:{name:"Bantaran Sungai",description:"Jembatan kecil, pintu air, dan kebun hilir",landmark:"Kembali ke gang di utara"}
 };
 export type Signpost = {
@@ -326,7 +332,7 @@ export const SIGNPOSTS: readonly Signpost[] = [
     message:"Jalan di sebelah timur kebun menuju Gang Pasirluyu. Ikuti jalur tanah lalu berjalan ke kanan."},
   {location:"gang", x:10, y:4, symbol:"↑",
     title:"Plang Pasar Warga",
-    message:"Lewat gang ke utara untuk ke Pasar Warga. Ayu menjual bibit dan membeli hasil timun, Widi melayani pemancing, dan Inggit menerima pesanan warung."},
+    message:"Lewat gang ke utara untuk ke Pasar Warga. Ayu menjual bibit dan membeli timun. Widi melayani pemancing. Warung Inggit ada di kebun, dekat rumah Yanzen."},
   {location:"pasar", x:10, y:4, symbol:"↓",
     title:"Plang Kembali ke Gang",
     message:"Ikuti jalan ke selatan untuk kembali ke Gang Pasirluyu, lalu pilih jalur menuju kebun atau sungai."},
@@ -407,7 +413,7 @@ export function isMasterRoad(location:OutdoorLocation,x:number,y:number):boolean
 }
 export function areaTitle(location:GameLocation):string {
   if(isResidentHome(location))return "Rumah "+RESIDENT_HOMES.find(h=>h.location===location)!.name;
-  return location==="home"?"Rumah Yanzen":location==="shed"?"Gudang Peralatan":location==="warung"?"Warung Inggit":AREAS[location].name;
+  return location==="home"?"Rumah Yanzen":location==="shed"?"Gudang Peralatan":AREAS[location].name;
 }
 export function weatherForDay(day:number):"cerah"|"berawan"|"hujan"{
   const cycle=["cerah","cerah","berawan","cerah","hujan","cerah","berawan"] as const;
@@ -429,7 +435,7 @@ export function mapExit(location:OutdoorLocation,x:number,y:number,dir:Direction
 const placements = [
   { id: "A03", x: 13, y: 8, color: "#314961" },
   { id: "C01", x: 16, y: 11, color: "#cba7a0" },
-  { id: "C08", x: 19, y: 7, color: "#bc7651" },
+  { id: "C08", x: INGGIT_WARUNG.x, y: INGGIT_WARUNG.y, color: "#bc7651" },
   { id: "A04", x: 6, y: 9, color: "#bd8d42" },
   { id: "C07", x: 27, y: 8, color: "#517f8a" },
 ] as const;
@@ -453,9 +459,9 @@ export const NPC_SOULS:Record<NpcId,{
   C01:{home:"Gang Pasirluyu",work:"Perawat tanaman dan pengingat sejarah warga",
     desire:"Kisah masa lalu disimpan tanpa membuka luka keluarga",fear:"Foto keluarga dipakai tanpa izin",
     habit:"Merawat melati sebelum bertemu tetangga",connection:"Mempercayai Ryan menyimpan catatan pintu air"},
-  C08:{home:"Pasirluyu",work:"Pemilik warung dan penjual makanan pasar",
+  C08:{home:"Pasirluyu",work:"Pemilik warung kopi dekat kebun",
     desire:"Warungnya menjadi tempat warga saling membantu",fear:"Bahan makanan terbuang dan dagangan tidak laku",
-    habit:"Menyusun dagangan pagi, merapikan lapak sore",
+    habit:"Menyeduh kopi pagi, merapikan bangku sore",
     connection:"Menunggu panen Yanzen; memberi kabar tentang Ryan dan Nani"}
 };
 export type NpcPlacement = Omit<typeof NPCS[number], "x" | "y"> & OutdoorPoint & {activity:string; indoors?:boolean};
@@ -466,7 +472,7 @@ const dailyStops = {
   C07: [point("pasar",27,8),point("pasar",27,8),point("gang",26,8)],
   A03: [point("field",13,8), point("sungai",8,8), point("gang",20,8)],
   C01: [point("field",16,11), point("gang",5,8), point("gang",8,8)],
-  C08: [point("field",19,7), point("pasar",15,10), point("gang",4,14)],
+  C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("gang",4,14)],
 } satisfies Record<NpcId, OutdoorPoint[]>;
 const residentRoutes = new Map<string, OutdoorPoint[]>();
 function residentRoute(from: OutdoorPoint, to: OutdoorPoint) {
@@ -502,6 +508,19 @@ export function npcSchedule(s: Pick<GameState,"day"|"minutes">): NpcPlacement[] 
     const close=closingTime(npc.id);
     const returning=s.minutes>=close;
     if(isMarketMerchant(npc.id) && !returning)return {...npc,...work,activity:npc.id==="A04"?"Menjaga lapak benih":"Melayani pemancing di lapak ikan"};
+    if (npc.id === "C08") {
+      if (!returning) return {...npc,...work,activity:"Melayani dari balik konter"};
+      // Inggit alone can use the staff lane behind the counter.
+      const staffLane = [
+        work,
+        point("field",work.x+1,work.y),
+        point("field",INGGIT_WARUNG.staffExitX,work.y),
+      ];
+      const route = [...staffLane.slice(0,-1),...residentRoute(staffLane[2],home)];
+      const index = Math.min(route.length-1,s.minutes-close);
+      const indoors = s.minutes-close >= route.length;
+      return {...npc,...route[index],indoors,activity:indoors?"Beristirahat di rumah":"Berjalan pulang"};
+    }
     const departed = s.minutes >= 720;
     if (!departed) return {...npc,...morning,activity:"Beraktivitas di kebun"};
     const start = returning ? close : 720;
@@ -520,10 +539,6 @@ export function npcHere(s:GameState):NpcPlacement[]{
     const home=RESIDENT_HOMES.find(h=>h.location===s.location)!;
     const owner=npcSchedule(s).find(n=>n.id===home.owner);
     return owner?.indoors ? [{...owner,x:13,y:9,activity:"Bersantai di rumah"}] : [];
-  }
-  if (s.location === "warung" && warungOpen(s)) {
-    const inggit = npcWhere(s,"C08");
-    return [{...inggit,x:10,y:7,activity:"Melayani pembeli"}];
   }
   return npcSchedule(s).filter(n=>n.location===s.location && !n.indoors);
 }
@@ -637,11 +652,14 @@ export const RIVER_RICE_BEDS = [
 const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
   field:[
     [3,2,7,4],[10,2,12,4],[16,2,20,4], // house, shed and shop
+    [17,5,21,5], // staff side of the counter
+    ...[INGGIT_WARUNG.westBench,INGGIT_WARUNG.table,INGGIT_WARUNG.eastBench]
+      .map(({x,y}):TileFootprint=>[x,y,x,y]),
     [14,4,14,4],[19,13,21,14], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[4,6,8,8],[16,6,20,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  pasar:[[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -669,8 +687,6 @@ export function isRiverWaterTile(x:number,y:number):boolean {
   return px>=left && px<right;
 }
 export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState):boolean{
-  if(location==="warung") return x<8 || x>16 || y<6 || y>13 ||
-    (y===6 && x!==10) || (y===7 && x>=12);
   if(isResidentHome(location))return x<8 || x>16 || y<8 || y>13;
   if(!isOutdoorLocation(location))return homeBlocked(x,y,location==="shed"?"shed":"home");
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
@@ -796,14 +812,14 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
     lines: ["Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini "+formatGameRupiah(160)+"; terima kasih sudah mengantar.",
       "Inggit membalik piring kelima di meja. Di sampingnya ada cangkir retak dengan dua goresan.",
       "Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
-  return { state: s, title: "Inggit · Warung Pasar", shop: true, lines: [
+  return { state: s, title: "Inggit · Warung Kopi", shop: true, lines: [
     s.story.photoChoice === "warung" ? "Salinan foto Nani sudah di meja warung. Warga boleh menambahkan nama di baliknya; foto asli tetap bersama Nani." :
     s.story.photoChoice === "nani" ? "Foto asli tetap bersama Nani. Kalau beliau siap bercerita, meja ini selalu punya tempat untuknya." :
     s.story.orderDone ? "Pesananmu sudah lunas. Ryan menunggu di pinggir kebun untuk membandingkan tanda pintu air." :
     s.story.orderAccepted ? "Aku menunggu empat timun segar. Kalau sudah dipanen, antarkan ke sini, ya." :
     "Hai, tetangga baru! Cek pesan di YZ Phone. Aku ada pesanan kecil untuk kebunmu.",
     s.seeds <= 2 ? "Bibit hampir habis? Cari Ayu di lapak benih Pasar Warga." :
-      "Pasar paling ramai menjelang siang. Banyak cerita yang bisa kamu dengar di sini." ] };
+      "Biasanya tetangga mampir ngopi menjelang siang. Bangku depan cepat penuh kalau cuacanya cerah." ] };
 }
 export function choosePhoto(s: GameState, choice: PhotoChoice): GameState {
   if (!s.story.orderDone || !s.story.canalClue || !s.story.photoSeen || s.story.photoChoice ||
@@ -862,15 +878,17 @@ export function safeLoad(value: unknown): GameState | null {
     }
   }
   const { player, story } = value;
-  const location=value.location??"field";
-  if(!isResidentHome(String(location)) && !["field","home","shed","warung","gang","pasar","sungai"].includes(String(location)))return null;
+  const oldWarung = value.location === "warung";
+  const location = oldWarung ? "field" : value.location ?? "field";
+  if(!isResidentHome(String(location)) && !["field","home","shed","gang","pasar","sungai"].includes(String(location)))return null;
   if (!integer(value.day, 1, 100000) || !integer(value.minutes, 0, 1320) ||
       !integer(value.coins, 0, 99999999) || !integer(value.seeds, 0, 99999999) ||
       !integer(value.harvested, 0, 99999999) || typeof value.phoneRead !== "boolean" ||
       !integer(player.x, 0, WORLD.width - 1) || !integer(player.y, (value.location==="home"||value.location==="shed")?5:0, WORLD.height - 1) ||
       !["up", "down", "left", "right"].includes(String(player.dir)) ||
       !Array.isArray(value.plots) || value.plots.length > 48) return null;
-  let playerX=player.x, playerY=player.y;
+  let playerX=oldWarung ? INGGIT_WARUNG.x : player.x;
+  let playerY=oldWarung ? INGGIT_WARUNG.y+1 : player.y;
   // Older saves can stand inside an updated footprint. Recover the nearest
   // traversable outdoor tile while leaving valid positions and all progress intact.
   if(areaBlocked(location as GameLocation,playerX,playerY)){
@@ -946,10 +964,10 @@ export function safeLoad(value: unknown): GameState | null {
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
   if(value.irrigationOpen!==undefined && typeof value.irrigationOpen!=="boolean")return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.irrigationOpen===true ? {irrigationOpen:true} : {}), ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.irrigationOpen===true ? {irrigationOpen:true} : {}), ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: location as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
-    player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
+    player: { x: playerX as number, y: playerY as number, dir: oldWarung ? "up" : player.dir as Direction }, plots,
     seeds: value.seeds, harvested: value.harvested, coins: value.coins, phoneRead: value.phoneRead,
     story: { orderAccepted: Boolean(story.orderAccepted || story.orderDone), orderDone: story.orderDone as boolean,
       canalClue: story.canalClue as boolean, sarisStory: story.sarisStory as boolean,
@@ -972,13 +990,6 @@ export function newStats(): LifeStats { return { stamina: 100, xp: 0, actions: 0
 export function bondLevel(points: number) { return Math.min(10, Math.floor(points / 100)); }
 export function bondLabel(points: number) { return ["Belum akrab", "Kenalan", "Mulai dekat", "Teman", "Teman baik", "Akrab", "Dipercaya", "Sahabat", "Sahabat dekat", "Seperti keluarga", "Ikatan istimewa"][bondLevel(points)]; }
 export function playerLevel(s: GameState) { return Math.floor(Math.sqrt(s.stats.xp / 50)) + 1; }
-export const INGGIT_WARUNG = {
-  doorX: 390,
-  doorWidth: 26,
-  doorHeight: 30,
-  fieldThreshold: 95,
-  marketThreshold: 177,
-} as const;
 const FARM_ROOM_EXIT = { left: 233, top: 267, right: 267, bottom: 290 } as const;
 
 export function fieldCanalBank(y: number) {
@@ -991,14 +1002,12 @@ const INTERACTION_HITBOXES = [
   { id: "shed-door", location: "field", left: (SHED.door.x + .5) * WORLD.tile - 10, top: 70, right: (SHED.door.x + .5) * WORLD.tile + 10, bottom: 100 },
   { id: "home-exit", location: "home", ...FARM_ROOM_EXIT },
   { id: "shed-exit", location: "shed", ...FARM_ROOM_EXIT },
-  { id: "warung-pintu", location: "field", left: INGGIT_WARUNG.doorX - INGGIT_WARUNG.doorWidth / 2, top: INGGIT_WARUNG.fieldThreshold - INGGIT_WARUNG.doorHeight, right: INGGIT_WARUNG.doorX + INGGIT_WARUNG.doorWidth / 2, bottom: INGGIT_WARUNG.fieldThreshold },
   ...RESIDENT_HOMES.flatMap(home=>[
     {id:home.location,location:"gang" as const,left:home.doorX-12,top:home.y*20-30,right:home.doorX+13,bottom:home.y*20-1},
     {id:"guest-exit",location:home.location,left:236,top:270,right:264,bottom:289},
     {id:"guest-keepsake",location:home.location,left:280,top:138,right:335,bottom:171},
   ]),
-  { id: "lapak-pintu", location: "pasar", left: INGGIT_WARUNG.doorX - INGGIT_WARUNG.doorWidth / 2, top: INGGIT_WARUNG.marketThreshold - INGGIT_WARUNG.doorHeight, right: INGGIT_WARUNG.doorX + INGGIT_WARUNG.doorWidth / 2, bottom: INGGIT_WARUNG.marketThreshold },
-  { id: "warung-exit", location: "warung", left: 240, top: 270, right: 280, bottom: 290 },
+  { id: "warung-counter", location: "field", left: INGGIT_WARUNG.x * WORLD.tile, top: 88, right: (INGGIT_WARUNG.x + 1) * WORLD.tile, bottom: 120 },
   { id: "bed", location: "home", left: 180, top: 108, right: 204, bottom: 160 },
 ] as const;
 
@@ -1018,7 +1027,7 @@ export function facesInteractionHitbox(player: GameState["player"], box: Interac
 }
 
 function isOnExit(player: GameState["player"], box: InteractionHitbox) {
-  return (box.id === "guest-exit" || box.id === "home-exit" || box.id === "shed-exit" || box.id === "warung-exit") &&
+  return (box.id === "guest-exit" || box.id === "home-exit" || box.id === "shed-exit") &&
     interactionHitboxAt(box.location, (player.x + .5) * WORLD.tile, (player.y + .5) * WORLD.tile) === box;
 }
 
@@ -1034,10 +1043,6 @@ export function homeBlocked(x: number, y: number, room:"home"|"shed"="home") {
   const {minX,maxX,minY,maxY}=yanzenRoomLayout.bounds;
   return x<minX||x>maxX||y<minY||y>maxY ||
     yanzenRoomLayout[room].some(item=>item.tiles.some(([tx,ty])=>tx===x&&ty===y));
-}
-function warungOpen(s: GameState) {
-  const inggit = npcWhere(s,"C08");
-  return inggit.location === "pasar" && !inggit.indoors && s.minutes < 1140;
 }
 function visitAllowed(s:GameState,owner:NpcId) {
   const visitingHours=s.minutes>=7*60 && s.minutes<20*60+30;
@@ -1062,10 +1067,6 @@ export function interactDoor(s: GameState): GameState {
     return s;
   }
   switch (id) {
-    case "lapak-pintu":
-      return warungOpen(s) ? {...s,location:"warung",player:{...HOME.spawn,dir:"up"}} : s;
-    case "warung-exit":
-      return {...s,location:"pasar",player:{x:Math.floor(INGGIT_WARUNG.doorX / WORLD.tile),y:9,dir:"down"}};
     case "home-door":
       return { ...s, location: "home", player: { ...HOME.spawn, dir: "up" } };
     case "shed-door":
@@ -1106,8 +1107,6 @@ export function getActionContext(s:GameState):ActionContext {
     if (door === "home-door") return {kind:"door",label:"Masuk rumah"};
     if (door === "shed-door") return {kind:"door",label:"Masuk gudang"};
   }
-  if (s.location === "warung" && interactDoor(s) !== s) return {kind:"door",label:"Keluar warung"};
-  if (s.location === "pasar" && interactDoor(s) !== s) return {kind:"door",label:"Masuk Warung Inggit"};
   const privateDoor = facingInteraction(s)?.id;
   if(privateDoor && isResidentHome(privateDoor)){
     const home=RESIDENT_HOMES.find(h=>h.location===privateDoor)!;
@@ -1125,8 +1124,10 @@ export function getActionContext(s:GameState):ActionContext {
     const home=RESIDENT_HOMES.find(h=>h.location===s.location)!;
     return {kind:"inspect",label:home.object,text:home.note};
   }
-  if(privateDoor==="warung-pintu" || privateDoor==="lapak-pintu")
-    return {kind:"inspect",label:"Warung Inggit",text:"Pintu warung terkunci. Coba datang saat Inggit sudah membuka lapak."};
+  if(privateDoor==="warung-counter"){
+    if(s.minutes<INGGIT_WARUNG.closesAt)return {kind:"npc",label:"Bicara dengan Inggit",npcId:"C08"};
+    return {kind:"inspect",label:"Warung Inggit",text:"Warung sudah tutup. Besok pagi Inggit menyeduh kopi lagi."};
+  }
   const npc=npcHere(s).find(n=>n.x===front.x&&n.y===front.y);
   if(npc) return {kind:"npc",label:"Bicara dengan "+npc.name,npcId:npc.id};
   if (!isOutdoorLocation(s.location)) return {kind:"none",label:"Tidak ada objek"};

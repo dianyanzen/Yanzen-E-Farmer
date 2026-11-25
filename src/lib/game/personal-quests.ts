@@ -33,7 +33,7 @@ export const tales:Record<NpcId,Tale> = {
       "Ini untuk mengganti waktumu mengurus bedeng. Suatu hari aku ingin bertukar tanaman lagi dengan seluruh gang."]
   },
   C08:{
-    title:"Dua toples di meja pasar",contact:"C07",errand:"Cari Widi dan tanyakan kapan kiriman ikan tiba.",work:"Bawa dua timun tambahan kepada Inggit. Cadangan pesanan utama tetap disisihkan.",fee:110,
+    title:"Dua toples di warung",contact:"C07",errand:"Cari Widi dan tanyakan kapan kiriman ikan tiba.",work:"Bawa dua timun tambahan kepada Inggit. Cadangan pesanan utama tetap disisihkan.",fee:110,
     offer:["Kalau pasar mulai sepi, aku biasanya membalik toples acar supaya timunnya tetap terendam. Minggu ini ada dua toples kosong menungguku.",
       "Widi menjanjikan kiriman untuk makan siang para pedagang. Tanyakan jamnya. Aku perlu tahu apakah timun harus dipotong sekarang atau setelah pasar tutup."],
     reply:["Tadi petinya sudah sampai. Aku akan membersihkan ikan selepas lapak buka. Yang paling lama ternyata membagi es agar pedagang terakhir masih kebagian.",

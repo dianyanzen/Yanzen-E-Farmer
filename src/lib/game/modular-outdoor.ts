@@ -14,8 +14,6 @@ const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","
   "daun-tropis","bunga-pinggir","titian-kayu","pagar-kandang","gerbang-kandang","tiang-kandang",
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
 const yanzenExteriorFolder = "locations/yanzen/exterior/";
-const warungParts = ["counter","door","facade","awning","roof","sign"] as const;
-const warungVariants = ["kebun","pasar"] as const;
 export const outdoorSources: Record<string,string> = {
   "yanzen-home-door": yanzenExteriorFolder + "home-front-door.png",
   "yanzen-home-west-window": yanzenExteriorFolder + "home-west-window.png",
@@ -25,8 +23,12 @@ export const outdoorSources: Record<string,string> = {
   "yanzen-shed-entry": yanzenExteriorFolder + "shed-entry-shadow.png",
   "yanzen-shed-facade": yanzenExteriorFolder + "shed-facade.png",
   "yanzen-shed-roof": yanzenExteriorFolder + "shed-roof.png",
-  ...Object.fromEntries(warungVariants.flatMap(variant => warungParts.map(part =>
-    [`inggit-${variant}-${part}`, `locations/inggit/${variant}/${part}.png`]))),
+  "inggit-roof": "locations/inggit/kebun/roof.png",
+  "inggit-window": "locations/inggit/kebun/counter.png",
+  "inggit-awning": "locations/inggit/kebun/awning.png",
+  "inggit-sign": "locations/inggit/kebun/sign.png",
+  ...Object.fromEntries(["open-front","service-counter","west-bench","east-bench","coffee-table","enamel-kettle"]
+    .map(part => [`inggit-${part}`, `locations/inggit/warkop/${part}.png`])),
   ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
@@ -64,28 +66,30 @@ type Route = readonly [number,readonly Point[]];
 const homeX = (HOME.door.x + .5) * WORLD.tile;
 const shedX = (SHED.door.x + .5) * WORLD.tile;
 const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
-function warungExterior(variant: typeof warungVariants[number], threshold: number): Placement[] {
-  const { doorX, doorWidth, doorHeight } = INGGIT_WARUNG;
-  const art: Record<typeof warungParts[number], readonly [number,number,number,number]> = {
-    counter: [-41,-10,38,22],
-    door: [0,0,doorWidth,doorHeight],
-    facade: [-20,0,94,43],
-    awning: [-41,-22,44,14],
-    roof: [-20,-38,104,33],
-    sign: [0,-32,26,12],
-  };
-  return warungParts.map(part => {
-    const [dx,dy,displayW,displayH] = art[part];
-    return {asset:`inggit-${variant}-${part}`,x:doorX+dx,y:threshold+dy,displayW,displayH,groundY:threshold};
-  });
-}
+const warungX = (INGGIT_WARUNG.x + .5) * WORLD.tile;
+const warkop: Placement[] = [
+  {asset:"inggit-window",x:warungX-41,y:85,displayW:38,displayH:22,groundY:88},
+  {asset:"inggit-open-front",x:warungX-20,y:95,displayW:94,displayH:43,groundY:88},
+  {asset:"inggit-awning",x:warungX-41,y:73,displayW:44,displayH:14,groundY:88},
+  {asset:"inggit-roof",x:warungX-20,y:57,displayW:104,displayH:33,groundY:88},
+  {asset:"inggit-sign",x:warungX,y:63,displayW:26,displayH:12,groundY:88},
+  {asset:"inggit-service-counter",x:warungX,y:120,displayW:64,displayH:17},
+  {asset:"inggit-enamel-kettle",x:warungX+19,y:106,displayW:13,displayH:15,groundY:120},
+  ...([
+    ["west-bench",INGGIT_WARUNG.westBench,38,21],
+    ["coffee-table",INGGIT_WARUNG.table,29,24],
+    ["east-bench",INGGIT_WARUNG.eastBench,38,21],
+  ] as const).map(([part,tile,displayW,displayH])=>({
+    asset:`inggit-${part}`,x:(tile.x+.5)*WORLD.tile,y:(tile.y+1)*WORLD.tile,displayW,displayH,
+  })),
+];
 
 const paths: Record<OutdoorLocation,Route[]> = {
   field: [
     [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
     [15,[[homeX,95],[homeX,116],[132,130],[shedX,130],[249,147],[263,184],[279,222]]],
     [14,[[shedX,94],[shedX,113],[shedX,130]]],
-    [16,[[INGGIT_WARUNG.doorX,93],[INGGIT_WARUNG.doorX,132],[368,169],[348,216]]],
+    [18,[[warungX,118],[warungX,158],[382,180],[348,216]]],
     [14,[[314,215],[320,253],[350,273],[366,285]]],
     [13,[[homeX,117],[78,125],[49,139],[28,142]]],
     [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
@@ -129,7 +133,7 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"yanzen-shed-entry",x:shedX,y:94,displayW:26,displayH:27,groundY:95},
     {asset:"yanzen-shed-facade",x:shedX,y:95,displayW:68,displayH:34,groundY:95},
     {asset:"yanzen-shed-roof",x:shedX,y:67,displayW:80,displayH:26,groundY:95},
-    ...warungExterior("kebun", INGGIT_WARUNG.fieldThreshold),{asset:"pot-berbunga",x:nurseryX,y:103},
+    ...warkop,{asset:"pot-berbunga",x:nurseryX,y:103},
     {asset:"pohon-pisang",x:288,y:100,scale:.67},{asset:"bunga-melati",x:306,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
     {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
@@ -155,7 +159,6 @@ const props: Record<OutdoorLocation, Placement[]> = {
   pasar: [
     {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
-    ...warungExterior("pasar", INGGIT_WARUNG.marketThreshold),{asset:"peti-kayu",x:321,y:178},
     {asset:"papan-pasar",x:303,y:100},
     {asset:"rumpun-bunga-liar",x:68,y:278},{asset:"semak",x:425,y:285},
     {asset:"pohon-pisang",x:40,y:270,scale:.8},{asset:"rumpun-bunga-liar",x:129,y:305,scale:.82},
@@ -195,7 +198,7 @@ for(const location of Object.keys(props) as OutdoorLocation[]){
 }
 
 const gardens:Record<OutdoorLocation,Point[]>={
-  field:[[181,90],[240,91],[291,110],[449,108],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
+  field:[[181,90],[240,91],[291,110],[458,119],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
   gang:[[51,127],[79,159],[20,190],[117,169],[200,99],[304,108],[344,125],[448,171],[381,273],[154,280],[93,275],[488,143],[562,155],[600,277]],
   pasar:[[44,135],[32,185],[58,252],[111,299],[314,105],[444,137],[465,165],[422,290],[485,110],[593,128],[601,281]],
   sungai:[[156,79],[161,104],[183,122],[292,102],[334,133],[411,150],[272,237],[158,217],[460,257],[594,128],[609,275]],
@@ -476,7 +479,7 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     }
   }
   if (location==="field") {
-    for (const x of [homeX,shedX,INGGIT_WARUNG.doorX]) {
+    for (const x of [homeX,shedX]) {
       ctx.fillStyle="rgba(88,76,49,.27)";
       ctx.beginPath();ctx.ellipse(x,98,21,4,0,0,Math.PI*2);ctx.fill();
       for(let row=0;row<3;row++){

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "inggit-coffee-table",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/coffee-table.png",
+      "runtimeSHA256": "53ca4e48e03f65793bf5ccc8cff1e238ffe607dd08cc04531f510e4c6b92fe0c",
+      "canvasSize": [
+        29,
+        24
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        29,
+        24
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-east-bench",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/east-bench.png",
+      "runtimeSHA256": "d0f3860daf005ebb0654af880ed4e5aabc2cd125dd655521d5f8d1638a5a2316",
+      "canvasSize": [
+        38,
+        21
+      ],
+      "visibleAlphaBounds": [
+        0,
+        6,
+        38,
+        21
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-enamel-kettle",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/enamel-kettle.png",
+      "runtimeSHA256": "074af57c05b928670bbab31e19845e028191ab2d91b21d3235c652a961bc2596",
+      "canvasSize": [
+        13,
+        15
+      ],
+      "visibleAlphaBounds": [
+        1,
+        1,
+        13,
+        15
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-open-front",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/open-front.png",
+      "runtimeSHA256": "da094fd1efddd390a52fd27a2704d95cc9b8b650a0d35e51bd0667ac0c092a9e",
+      "canvasSize": [
+        94,
+        43
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        94,
+        43
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-service-counter",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/service-counter.png",
+      "runtimeSHA256": "f8b874a3b2c85dbdc6a87d0f04699f2431e2bc60e40f231151a8da4d0fd9a7c4",
+      "canvasSize": [
+        64,
+        24
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        64,
+        24
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "inggit-west-bench",
+      "ownerId": "inggit-warkop",
+      "runtimeFile": "public/game/assets/locations/inggit/warkop/west-bench.png",
+      "runtimeSHA256": "22887847a21df5252ea9a38c82b205f42465224393b194a18838bf3e141b7ec8",
+      "canvasSize": [
+        38,
+        21
+      ],
+      "visibleAlphaBounds": [
+        0,
+        6,
+        38,
+        21
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    }
+  ]
+}

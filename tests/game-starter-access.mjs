@@ -16,7 +16,7 @@ function reachable(state){
  return queue;
 }
 const field=m.newGame(), area=reachable(field);
-for(const [name,x,y] of [['house',m.HOME.door.x,m.HOME.door.y],['shed',m.SHED.door.x,m.SHED.door.y],['warung',19,4]]){
+for(const [name,x,y] of [['house',m.HOME.door.x,m.HOME.door.y],['shed',m.SHED.door.x,m.SHED.door.y]]){
  assert.ok(area.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1),`${name} entrance reachable`);
 }
 for (const [room, building] of [['home',m.HOME],['shed',m.SHED]]) {
@@ -29,10 +29,14 @@ for (const [room, building] of [['home',m.HOME],['shed',m.SHED]]) {
 for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
  assert.ok(area.some(p=>Math.abs(p.x-x)+Math.abs(p.y-y)===1),`farm plot ${x},${y} reachable`);
 }
+for (const seat of [m.INGGIT_WARUNG.westBench,m.INGGIT_WARUNG.table,m.INGGIT_WARUNG.eastBench])
+ assert.ok(area.some(p=>Math.abs(p.x-seat.x)+Math.abs(p.y-seat.y)===1),'seating area remains accessible');
+assert.ok(area.some(p=>p.x===m.INGGIT_WARUNG.x&&p.y===m.INGGIT_WARUNG.y+1),'counter reachable from the yard');
 assert.ok(area.some(p=>p.x===31&&(p.y===10||p.y===11)),'east exit reachable');
 for(let minutes=6*60;minutes<=21*60;minutes+=15){
  const npcs=m.npcSchedule({...field,minutes});
- for(const npc of npcs) if(!npc.indoors) assert.equal(m.areaBlocked(npc.location,npc.x,npc.y),false,`${npc.id} blocked at ${minutes}`);
+ for(const npc of npcs) if(!npc.indoors && !(npc.id==='C08' && npc.location==='field' && npc.y===m.INGGIT_WARUNG.y &&
+   npc.x>=m.INGGIT_WARUNG.x && npc.x<=m.INGGIT_WARUNG.staffExitX)) assert.equal(m.areaBlocked(npc.location,npc.x,npc.y),false,`${npc.id} blocked at ${minutes}`);
 }
 for(const [location,kind] of [['home','sleep'],['shed','storage']]){
  const room={...field,location,player:{x:12,y:12,dir:'up'}};
