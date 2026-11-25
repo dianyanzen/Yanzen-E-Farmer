@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "location": "field",
+  "tileSize": 20,
+  "assets": [
+    {
+      "assetId": "yanzen-home-door",
+      "ownerId": "yanzen-home",
+      "objectId": "front-door",
+      "sourceFile": "home-front-door.png",
+      "sourceSHA256": null,
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/home-front-door.png",
+      "runtimeSHA256": "572d7af7cc5a7cee235f4ffbf7eb9766dbda47b0a35c918d18b6a1d6b332da2f",
+      "canvasSize": [
+        76,
+        120
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        76,
+        120
+      ],
+      "footAnchor": [
+        78,
+        96
+      ],
+      "drawOffset": [
+        0,
+        -1
+      ],
+      "displaySize": [
+        19,
+        30
+      ],
+      "footprint": null,
+      "hotspot": [
+        65,
+        69,
+        92,
+        100
+      ],
+      "zDepth": 96,
+      "provenance": "Original runtime pixel-art insert",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-home-west-window",
+      "ownerId": "yanzen-home",
+      "objectId": "west-window",
+      "sourceFile": "home-west-window.png",
+      "sourceSHA256": null,
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/home-west-window.png",
+      "runtimeSHA256": "cee66a1d2c7bf3a8ce95d034d94665fce51584a0be0a9a5cfe0f7f5a943373db",
+      "canvasSize": [
+        64,
+        60
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        64,
+        60
+      ],
+      "footAnchor": [
+        46.5,
+        96
+      ],
+      "drawOffset": [
+        0,
+        -15
+      ],
+      "displaySize": [
+        16,
+        15
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "zDepth": 96,
+      "provenance": "Original runtime pixel-art insert",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-home-east-window",
+      "ownerId": "yanzen-home",
+      "objectId": "east-window",
+      "sourceFile": "home-east-window.png",
+      "sourceSHA256": null,
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/home-east-window.png",
+      "runtimeSHA256": "1ef7976f6e6353d7778a3f1439ac607af7fdf792b8d8c474fa728294ee0e2041",
+      "canvasSize": [
+        64,
+        60
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        64,
+        60
+      ],
+      "footAnchor": [
+        109.5,
+        96
+      ],
+      "drawOffset": [
+        0,
+        -15
+      ],
+      "displaySize": [
+        16,
+        15
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "zDepth": 96,
+      "provenance": "Original runtime pixel-art insert",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-home-facade",
+      "ownerId": "yanzen-home",
+      "objectId": "facade",
+      "sourceFile": "YZ_Farm_Life_Area_Awal_Assets_v4.zip/candidates/home-facade.png",
+      "sourceSHA256": "b114247355bdc9cd86ecfeca3c871b84f80f35755ef5b173d0dfe981b6d007ae",
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/home-facade.png",
+      "runtimeSHA256": "aac0a4b07e1c0155c65214f8473e8da11657a5298a4f61ae34fede2a7aa7d7d9",
+      "canvasSize": [
+        416,
+        148
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        416,
+        148
+      ],
+      "footAnchor": [
+        78,
+        96
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "displaySize": [
+        104,
+        37
+      ],
+      "footprint": [
+        2,
+        2,
+        5,
+        4
+      ],
+      "hotspot": null,
+      "zDepth": 96,
+      "provenance": "Owner-approved V4 exterior candidate, resampled as a whole image",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-home-roof",
+      "ownerId": "yanzen-home",
+      "objectId": "roof",
+      "sourceFile": "YZ_Farm_Life_Area_Awal_Assets_v4.zip/candidates/home-roof.png",
+      "sourceSHA256": "f8f7a23e3e8cd32cc6512443afa34c7683270bf722da8fcfa4b458944dfd6aaf",
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/home-roof.png",
+      "runtimeSHA256": "d9b34e6297b7fb3eb013b0a1f75375ba3f224431fac2d3a41ff88175c88130f5",
+      "canvasSize": [
+        448,
+        112
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        448,
+        112
+      ],
+      "footAnchor": [
+        78,
+        96
+      ],
+      "drawOffset": [
+        0,
+        -32
+      ],
+      "displaySize": [
+        112,
+        28
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "zDepth": 96,
+      "provenance": "Owner-approved V4 exterior candidate, resampled as a whole image",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-shed-entry",
+      "ownerId": "yanzen-shed",
+      "objectId": "entry-shadow",
+      "sourceFile": "shed-entry-shadow.png",
+      "sourceSHA256": null,
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/shed-entry-shadow.png",
+      "runtimeSHA256": "379c1514364dbdee951510fa1547b9c68af7b6010df9b57a80d71d1388087d32",
+      "canvasSize": [
+        104,
+        108
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        104,
+        108
+      ],
+      "footAnchor": [
+        191,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -1
+      ],
+      "displaySize": [
+        26,
+        27
+      ],
+      "footprint": null,
+      "hotspot": [
+        181,
+        70,
+        201,
+        100
+      ],
+      "zDepth": 95,
+      "provenance": "Original runtime pixel-art insert",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-shed-facade",
+      "ownerId": "yanzen-shed",
+      "objectId": "facade",
+      "sourceFile": "YZ_Farm_Life_Area_Awal_Assets_v4.zip/candidates/shed-facade.png",
+      "sourceSHA256": "b8c73f9f2413a3279f127f5fd69c56a9b516b2827f25e109f37c90c746716bdb",
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/shed-facade.png",
+      "runtimeSHA256": "9e26812557fc3349ddd064f8edf52e18a3bb65201c1de0fbf6d9f4bd1dc18925",
+      "canvasSize": [
+        272,
+        136
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        272,
+        136
+      ],
+      "footAnchor": [
+        191,
+        95
+      ],
+      "drawOffset": [
+        0,
+        0
+      ],
+      "displaySize": [
+        68,
+        34
+      ],
+      "footprint": [
+        8,
+        2,
+        10,
+        4
+      ],
+      "hotspot": null,
+      "zDepth": 95,
+      "provenance": "Owner-approved V4 exterior candidate, resampled as a whole image",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "yanzen-shed-roof",
+      "ownerId": "yanzen-shed",
+      "objectId": "roof",
+      "sourceFile": "YZ_Farm_Life_Area_Awal_Assets_v4.zip/candidates/shed-roof.png",
+      "sourceSHA256": "af9bc6c5443694c84caf4c1881139362fa1763ec213141544f85f9a1318f7811",
+      "runtimeFile": "public/game/assets/locations/yanzen/exterior/shed-roof.png",
+      "runtimeSHA256": "e8f7608bb5a1cbd5c59c3d6393bf749bd300fa3b3a56117655f1f5e89037ea52",
+      "canvasSize": [
+        320,
+        105
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        320,
+        105
+      ],
+      "footAnchor": [
+        191,
+        95
+      ],
+      "drawOffset": [
+        0,
+        -28
+      ],
+      "displaySize": [
+        80,
+        26
+      ],
+      "footprint": null,
+      "hotspot": null,
+      "zDepth": 95,
+      "provenance": "Owner-approved V4 exterior candidate, resampled as a whole image",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    }
+  ]
+}

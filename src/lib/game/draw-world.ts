@@ -215,7 +215,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
   const physicalProps=[
     ...outdoorObjects(state.location,state.minutes,state.sluiceOpen),
-    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1,displayW:undefined,displayH:undefined}))
+    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1,displayW:undefined,displayH:undefined,groundY:undefined}))
   ];
   for (const prop of physicalProps) {
     const image = art.outdoor?.[prop.asset];
@@ -223,7 +223,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const scale = prop.scale ?? 1;
     const width = prop.displayW ?? Math.round(image.width*scale);
     const height = prop.displayH ?? Math.round(image.height*scale);
-    ordered.push({y:prop.y/T-1,draw:() => {
+    ordered.push({y:(prop.groundY ?? prop.y)/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;
       ctx.save();ctx.globalAlpha=covered?.65:1;

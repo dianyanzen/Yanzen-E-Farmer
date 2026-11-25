@@ -86,6 +86,33 @@ async function start(page) {
   await page.waitForFunction(() => document.querySelector('.yzg-headsup').textContent.includes('Siap') || document.querySelector('.yzg-headsup').textContent.includes('Tersimpan'));
 }
 
+// The exterior fixture starts at tile (5,5), the center of the path between
+// both buildings. Project the actual door pixels into each renderer's viewport.
+async function tapExteriorDoor(page, x, y, touch) {
+  const canvas = page.locator(engine === 'phaser' ? '.yzg-phaser-host canvas' : '.yzg-viewport > canvas');
+  const point = await canvas.evaluate((element, { engine, x, y }) => {
+    const { width, height } = element.getBoundingClientRect();
+    const center = { x: 110, y: 110 };
+    const world = { width: 640, height: 320 };
+    if (engine === 'phaser') {
+      const zoom = Math.max(3, element.width / world.width, element.height / world.height);
+      const view = { width: element.width / zoom, height: element.height / zoom };
+      const left = Math.max(0, center.x - view.width / 2);
+      const top = Math.max(0, center.y - view.height / 2);
+      return { x: (x - left) * width / view.width, y: (y - top) * height / view.height };
+    }
+    const scale = Math.min(width / element.width, height / element.height);
+    const left = Math.max(0, center.x - element.width / 2);
+    const top = Math.max(0, center.y - element.height / 2);
+    return {
+      x: (width - element.width * scale) / 2 + (x - left) * scale,
+      y: (height - element.height * scale) / 2 + (y - top) * scale,
+    };
+  }, { engine, x, y });
+  if (touch) await canvas.tap({ position: point });
+  else await canvas.click({ position: point });
+}
+
 const {default:ts2}=await import('typescript');
 const {default:vm2}=await import('node:vm');
 const {createRequire}=await import('node:module');
@@ -142,6 +169,35 @@ try {
   await saved(page,()=>{const s=JSON.parse(localStorage.getItem('yz-test-save')).data;return !s.irrigationOpen && s.plots[0].watered});
   await page.close();
  }
+ for (const width of [1280, 393]) {
+  for (const [room, x, exitX] of [['home', 78, 3], ['shed', 191, 9]]) {
+   const touch = width === 393;
+   const page = await browser.newPage({viewport:{width,height:touch?852:900},hasTouch:touch,reducedMotion:'reduce'});
+   const state = {...seed, location:'field', player:{x:5,y:5,dir:'left'}, phoneRead:true};
+   await page.addInitScript(data => {
+    if (!localStorage.getItem('yz-test-save')) localStorage.setItem('yz-test-save', JSON.stringify({data}));
+   }, state);
+   await start(page);
+   if (engine === 'phaser') await page.waitForFunction(() => document.querySelector('.yzg-phaser-host')?.style.opacity === '1');
+   if (room === 'home') await page.screenshot({path:path.join(output,'exterior-'+width+'.png'),fullPage:true});
+   await tapExteriorDoor(page, x, 83, touch);
+   await page.waitForFunction(expectedRoom => {
+    const { location, player } = JSON.parse(localStorage.getItem('yz-test-save')).data;
+    return location === expectedRoom && player.x === 12 && player.y === 12;
+   }, room);
+   await go(page, 'ArrowDown');
+   await saved(page, () => {
+    const { player } = JSON.parse(localStorage.getItem('yz-test-save')).data;
+    return player.x === 12 && player.y === 13 && player.dir === 'down';
+   });
+   await go(page, 'e');
+   await page.waitForFunction(expectedX => {
+    const { location, player } = JSON.parse(localStorage.getItem('yz-test-save')).data;
+    return location === 'field' && player.x === expectedX && player.y === 5 && player.dir === 'down';
+   }, exitX);
+   await page.close();
+  }
+ }
  assert.deepEqual(errors,[]);
- console.log('PASS: desktop/mobile room assets decode, bed sleep, shed tool transfer, save and layout');
+ console.log('PASS: desktop/mobile room assets decode, bed sleep, shed tool transfer, exterior doors, save and layout');
 } finally { await browser.close(); await new Promise(resolve=>server.close(resolve)); }

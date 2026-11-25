@@ -3,10 +3,23 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 52,
-  "bytes": 16012793,
+  "mediaCount": 60,
+  "bytes": 16347603,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
+    {
+      "id": "locations/yanzen/exterior",
+      "files": [
+        "public/game/assets/locations/yanzen/exterior/home-east-window.png",
+        "public/game/assets/locations/yanzen/exterior/home-facade.png",
+        "public/game/assets/locations/yanzen/exterior/home-front-door.png",
+        "public/game/assets/locations/yanzen/exterior/home-roof.png",
+        "public/game/assets/locations/yanzen/exterior/home-west-window.png",
+        "public/game/assets/locations/yanzen/exterior/shed-entry-shadow.png",
+        "public/game/assets/locations/yanzen/exterior/shed-facade.png",
+        "public/game/assets/locations/yanzen/exterior/shed-roof.png"
+      ]
+    },
     {
       "id": "locations/yanzen/home",
       "files": [

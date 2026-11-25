@@ -235,7 +235,7 @@ class YZWorldScene extends Phaser.Scene {
         const image=this.add.image(prop.x,prop.y,"yz-map-"+prop.asset).setOrigin(.5,1);
         if(prop.displayW && prop.displayH) image.setDisplaySize(prop.displayW,prop.displayH);
         else image.setScale(prop.scale ?? 1);
-        return image.setDepth(1000 + prop.y - TILE);
+        return image.setDepth(1000 + (prop.groundY ?? prop.y) - TILE);
       });
     } else if (YANZEN_MODULAR_INTERIORS_ENABLED && (location === "home" || location === "shed") &&
                this.textures.exists("yz-room-"+location+"Floor") &&
@@ -561,6 +561,9 @@ export function mountPhaserWorld(parent: HTMLElement): Promise<PhaserFieldAdapte
         backgroundColor: "#86b07a",
         render: { smoothPixelArt: true, roundPixels: false },
         audio: { noAudio: true },
+        // The React map handler picks world tiles from DOM clicks, including
+        // those synthesized for taps. Phaser touch capture suppresses them.
+        input: { touch: false },
         scale: { mode: Phaser.Scale.EXPAND, width: VIEW_WIDTH, height: VIEW_HEIGHT },
         scene: [scene]
       });

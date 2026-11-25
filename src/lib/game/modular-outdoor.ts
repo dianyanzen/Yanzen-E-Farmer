@@ -5,7 +5,7 @@ import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
 
 const kit = "tiles/farm-kit/";
-const everyday = ["rumah-yanzen","gudang-kayu","warung-inggit","kandang-ayam","kanopi-pohon",
+const everyday = ["warung-inggit","kandang-ayam","kanopi-pohon",
   "batang-pohon","semak","bunga-melati","rumput-tinggi","pot-daun","batu-kanal","jemuran","peti-kayu"] as const;
 const landmarks = ["rumah-nani","rumah-warga","kios-sayur-buka","kios-sayur-tutup","peti-dagangan-sayur",
   "keranjang-buah","bangku-kayu","papan-pasar","pintu-air-kayu","jembatan-kayu","tangga-batu",
@@ -13,7 +13,16 @@ const landmarks = ["rumah-nani","rumah-warga","kios-sayur-buka","kios-sayur-tutu
 const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","tajuk-kebun","semak-rimbun",
   "daun-tropis","bunga-pinggir","titian-kayu","pagar-kandang","gerbang-kandang","tiang-kandang",
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
+const yanzenExteriorFolder = "locations/yanzen/exterior/";
 export const outdoorSources: Record<string,string> = {
+  "yanzen-home-door": yanzenExteriorFolder + "home-front-door.png",
+  "yanzen-home-west-window": yanzenExteriorFolder + "home-west-window.png",
+  "yanzen-home-east-window": yanzenExteriorFolder + "home-east-window.png",
+  "yanzen-home-facade": yanzenExteriorFolder + "home-facade.png",
+  "yanzen-home-roof": yanzenExteriorFolder + "home-roof.png",
+  "yanzen-shed-entry": yanzenExteriorFolder + "shed-entry-shadow.png",
+  "yanzen-shed-facade": yanzenExteriorFolder + "shed-facade.png",
+  "yanzen-shed-roof": yanzenExteriorFolder + "shed-roof.png",
   ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
@@ -45,7 +54,7 @@ export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries(landmarks.map(name => [name, kit + "landmark/" + name + ".png"])),
 };
 type Point = readonly [number,number];
-type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number };
+type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
 type Route = readonly [number,readonly Point[]];
 const paths: Record<OutdoorLocation,Route[]> = {
@@ -87,7 +96,16 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
-    {asset:"rumah-yanzen",x:78,y:96,scale:.94},{asset:"gudang-kayu",x:191,y:95},
+    // Inserts sit behind the transparent openings. Every layer sorts from
+    // its building's threshold, even when the image ends at the eaves.
+    {asset:"yanzen-home-door",x:78,y:95,displayW:19,displayH:30,groundY:96},
+    {asset:"yanzen-home-west-window",x:46.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-east-window",x:109.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-facade",x:78,y:96,displayW:104,displayH:37,groundY:96},
+    {asset:"yanzen-home-roof",x:78,y:64,displayW:112,displayH:28,groundY:96},
+    {asset:"yanzen-shed-entry",x:191,y:94,displayW:26,displayH:27,groundY:95},
+    {asset:"yanzen-shed-facade",x:191,y:95,displayW:68,displayH:34,groundY:95},
+    {asset:"yanzen-shed-roof",x:191,y:67,displayW:80,displayH:26,groundY:95},
     {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
     {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
     {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
