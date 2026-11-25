@@ -12,7 +12,7 @@ import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHe
 import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
-import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import { drawModularGround, drawIrrigationChannel, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
@@ -47,6 +47,7 @@ class YZWorldScene extends Phaser.Scene {
   private ready = false;
 
   private background!: Phaser.GameObjects.Image;
+  private irrigation!: Phaser.GameObjects.Image;
   private soil: Phaser.GameObjects.Sprite[] = [];
   private mapProps: Phaser.GameObjects.Image[] = [];
   private questSprites: Phaser.GameObjects.Image[] = [];
@@ -85,7 +86,7 @@ class YZWorldScene extends Phaser.Scene {
     this.load.on("loaderror", () => this.failed(new Error("Gagal memuat aset Phaser.")));
     for (const [id,path] of Object.entries(outdoorSources)) if (id!=="petak") {
       if (path.endsWith(".svg")) this.load.svg("yz-map-"+id,"/game/assets/"+path,
-        id.startsWith("plot-")?{width:20,height:20}:{width:24,height:28});
+        id.startsWith("plot-")||id.startsWith("faucet-")?{width:20,height:20}:{width:24,height:28});
       else this.load.image("yz-map-"+id,"/game/assets/"+path);
     }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
@@ -110,6 +111,11 @@ class YZWorldScene extends Phaser.Scene {
   create() {
     try {
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
+      for(const open of [false,true]){
+        const faucet=this.textures.get("yz-map-faucet-"+(open?"open":"closed")).getSourceImage();
+        this.textures.addCanvas("yz-irrigation-"+(open?"open":"closed"),makeCanvas(ctx=>drawIrrigationChannel(ctx,open,faucet as HTMLImageElement)));
+      }
+      this.irrigation=this.add.image(0,0,"yz-irrigation-closed").setOrigin(0).setDepth(8).setVisible(false);
       this.farm = this.add.graphics().setDepth(10);
       this.highlight = this.add.graphics().setDepth(11);
       this.effect = this.add.sprite(0, 0, "yz-effects", 0).setOrigin(0).setDepth(1700).setVisible(false);
@@ -369,6 +375,7 @@ class YZWorldScene extends Phaser.Scene {
       this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
     this.updateQuestSprites(frame.state);
     if (location === "field") {
+      this.irrigation.setVisible(true).setTexture("yz-irrigation-"+(frame.state.irrigationOpen?"open":"closed"));
       this.updatePlots(frame);
       const tile = frame.state.player;
       const facing = { up: [0,-1], down:[0,1], left:[-1,0], right:[1,0] }[tile.dir];
@@ -378,7 +385,7 @@ class YZWorldScene extends Phaser.Scene {
         this.highlight.lineStyle(1, 0xf9e5b3, 1);
         this.highlight.strokeRect(tx*TILE+1,ty*TILE+1,TILE-2,TILE-2);
       }
-    }
+    } else this.irrigation.setVisible(false);
     const propState=location+":"+Number(frame.state.minutes>=720 && frame.state.minutes<1140)+":"+Number(!!frame.state.sluiceOpen);
     if ((location === "pasar" || location === "sungai") && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
       const sprite = this.mapProps[index];

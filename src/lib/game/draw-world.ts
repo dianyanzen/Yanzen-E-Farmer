@@ -3,7 +3,7 @@ import type { ToolUse } from "./field-engine";
 import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisual} from "./fishing-visuals";
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
-import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
+import {drawModularGround, drawIrrigationChannel, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const { height: H, tile: T } = WORLD;
@@ -149,6 +149,8 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   // Keep farm art and terrain separate from other real, connected neighborhoods.
   const byTile = new Map(plots.map(crop => [crop.x + "," + crop.y, crop]));
   drawModularGround(ctx,state.location,art.outdoor ?? {});
+  if(state.location==="field")drawIrrigationChannel(ctx,!!state.irrigationOpen,
+    art.outdoor?.[state.irrigationOpen?"faucet-open":"faucet-closed"]);
   if(state.location==="field"){
   for(let y=8;y<=13;y++)for(let x=3;x<=10;x++){
     const px=x*T, py=y*T;

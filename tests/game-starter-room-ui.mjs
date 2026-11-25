@@ -122,14 +122,18 @@ try {
  }
  for(const width of [1280,393]){
   const page=await browser.newPage({viewport:{width,height:width===393?852:900},reducedMotion:'reduce'});
-  const state={...seed,location:'field',player:{x:3,y:9,dir:'left'},plots:[{x:3,y:8,stage:0,watered:false}]};
+  const state={...seed,location:'field',player:{x:3,y:8,dir:'left'},plots:[{x:4,y:8,stage:0,watered:false}]};
   await page.addInitScript(data=>{if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));},state);
   await start(page);
   if(engine==='phaser')await page.waitForFunction(()=>document.querySelector('.yzg-phaser-host')?.style.opacity==='1',null,{timeout:15000});
+  await page.getByText('Buka keran',{exact:false}).first().waitFor();
   await go(page,'e');
-  await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.plots[0].watered===true);
+  await saved(page,()=>{const s=JSON.parse(localStorage.getItem('yz-test-save')).data;return s.plots[0].watered===true && s.irrigationOpen===true});
+  await page.getByText('Tutup keran',{exact:false}).first().waitFor();
   await page.reload();await start(page);
-  assert.equal(JSON.parse(await page.evaluate(()=>localStorage.getItem('yz-test-save'))).data.plots[0].watered,true);
+  assert.equal(JSON.parse(await page.evaluate(()=>localStorage.getItem('yz-test-save'))).data.irrigationOpen,true);
+  await go(page,'e');
+  await saved(page,()=>{const s=JSON.parse(localStorage.getItem('yz-test-save')).data;return !s.irrigationOpen && s.plots[0].watered});
   await page.close();
  }
  assert.deepEqual(errors,[]);

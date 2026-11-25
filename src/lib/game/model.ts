@@ -143,7 +143,7 @@ export type GameState = {
   nurseryChecked?: boolean;
   personalQuests?: QuestBook;
   followUpQuests?: FollowUpBook;
-  fishing: FishingInventory; sluiceOpen?: boolean; sluiceCutsceneSeen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
+  fishing: FishingInventory; sluiceOpen?: boolean; sluiceCutsceneSeen?: boolean; irrigationOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
   player: { x: number; y: number; dir: Direction };
   plots: Plot[]; seeds: number; harvested: number; coins: number;
   equippedTool: ToolId|null; carriedTools: ToolId[]; storedTools: ToolId[]; bagTier:BagTier;
@@ -596,16 +596,17 @@ export function isFarm(x: number, y: number): boolean {
   return x >= 3 && x <= 10 && y >= 8 && y <= 13;
 }
 
-/** Saluran berada di sisi barat bedeng; satu aksi mengairi tanaman yang ada. */
+/** Keran kebun memiliki keadaan tersimpan sendiri, terpisah dari pintu air cerita. */
 export function irrigateGarden(s:GameState):{state:GameState;message:string}{
   const front=facing(s.player);
-  if(s.location!=="field" || front.x!==2 || front.y<8 || front.y>13)
-    return {state:s,message:"Dekati saluran di sisi kebun."};
+  if(s.location!=="field" || front.x!==2 || front.y!==8)
+    return {state:s,message:"Dekati keran di sisi kebun."};
+  if(s.irrigationOpen)return {state:{...s,irrigationOpen:false},message:"Keran ditutup. Air di saluran berhenti mengalir."};
   const count=s.plots.filter(p=>p.stage>=0 && p.stage<3 && !p.watered).length;
-  if(!count)return {state:s,message:"Belum ada tanaman yang perlu dialiri."};
-  return {state:addMinutes({...s,plots:s.plots.map(p=>
-    p.stage>=0 && p.stage<3 && !p.watered ? {...p,watered:true}:p)},10),
-    message:`Air mengalir. ${count} tanaman sudah disiram.`};
+  const state={...s,irrigationOpen:true,plots:s.plots.map(p=>
+    p.stage>=0 && p.stage<3 && !p.watered ? {...p,watered:true}:p)};
+  return {state:count?addMinutes(state,10):state,message:count?
+    `Keran dibuka. ${count} tanaman dialiri air.`:"Keran dibuka. Air mengalir di saluran kebun."};
 }
 /** The persisted plot array (not scenery art) is the source of farm truth. */
 export const FARM_PLOT_COUNT=48;
@@ -670,7 +671,7 @@ export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState
   if(location==="warung") return x<8 || x>16 || y<6 || y>13 ||
     (y===6 && x!==10) || (y===7 && x>=12);
   if(isResidentHome(location))return x<8 || x>16 || y<8 || y>13;
-  if(!isOutdoorLocation(location))return homeBlocked(x,y);
+  if(!isOutdoorLocation(location))return homeBlocked(x,y,location==="shed"?"shed":"home");
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
   const questProp=questPropAt(location,x,y);
@@ -713,7 +714,7 @@ export function nextDay(s: GameState): GameState {
   return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
-      watered: p.stage>=0 && p.stage<3 && weatherForDay(s.day+1)==="hujan" })) };
+      watered: p.stage>=0 && p.stage<3 && (weatherForDay(s.day+1)==="hujan" || !!s.irrigationOpen) })) };
 }
 export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
   if(s.location!=="field")return {state:s,message:"Alat tani hanya digunakan di kebun."};
@@ -732,8 +733,8 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
     if (!p || p.stage !== -1) return { state: s, message: "Cangkul petak kosong terlebih dahulu." };
     if (s.seeds < 1) return { state: s, message: "Bibit habis. Temui Ayu di lapak benih Pasar Warga untuk membeli bibit." };
     return { state: addMinutes({ ...s, seeds: s.seeds - 1,
-      plots: s.plots.map(q => q === p ? { ...q, stage: 0 } : q) }),
-      message: "Bibit timun ditanam. Siram dan istirahat agar tumbuh." };
+      plots: s.plots.map(q => q === p ? { ...q, stage: 0,watered:!!s.irrigationOpen } : q) }),
+      message: s.irrigationOpen ? "Bibit timun ditanam dan dialiri air." : "Bibit timun ditanam. Siram dan istirahat agar tumbuh." };
   }
   if (tool === "water") {
     if (!p || p.stage < 0) return { state: s, message: "Belum ada tanaman yang bisa disiram." };
@@ -748,7 +749,7 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
     stats:{...s.stats,harvests:Math.min(99999999,s.stats.harvests+1)},
     harvested:s.harvested+1,
     plots:exhausted?s.plots.filter(q=>q!==p):
-      s.plots.map(q=>q===p?{...q,stage:1,watered:false,harvests:cycles}:q) }),
+      s.plots.map(q=>q===p?{...q,stage:1,watered:!!s.irrigationOpen,harvests:cycles}:q) }),
     message:exhausted
       ?"Panen berhasil! +1 timun. Tanaman sudah selesai masa produktifnya; petak bisa dicangkul lagi."
       :"Panen berhasil! +1 timun. Tanaman tetap hidup dan bisa dipanen lagi setelah dirawat." };
@@ -872,11 +873,11 @@ export function safeLoad(value: unknown): GameState | null {
   // Older saves can stand inside an updated footprint. Recover the nearest
   // traversable outdoor tile while leaving valid positions and all progress intact.
   if(areaBlocked(location as GameLocation,playerX,playerY)){
-    if(!isOutdoorLocation(location as GameLocation))return null;
+    if(!isOutdoorLocation(location as GameLocation) && location!=="home" && location!=="shed")return null;
     let bestDistance=Infinity;
     for(let y=0;y<WORLD.height;y++)for(let x=0;x<WORLD.width;x++){
       const distance=Math.abs(player.x-x)+Math.abs(player.y-y);
-      if(distance<bestDistance && !areaBlocked(location as OutdoorLocation,x,y)){
+      if(distance<bestDistance && !areaBlocked(location as GameLocation,x,y)){
         playerX=x;playerY=y;bestDistance=distance;
       }
     }
@@ -943,7 +944,8 @@ export function safeLoad(value: unknown): GameState | null {
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
+  if(value.irrigationOpen!==undefined && typeof value.irrigationOpen!=="boolean")return null;
+  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.irrigationOpen===true ? {irrigationOpen:true} : {}), ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: (value.location??"field") as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: player.dir as Direction }, plots,
@@ -1016,8 +1018,12 @@ function facingInteraction(s: Pick<GameState, "location" | "player">) {
 export function canSleep(s: GameState) {
   return facingInteraction(s)?.id === "bed";
 }
-export function homeBlocked(x: number, y: number) {
-  return x < 8 || x > 16 || y < 6 || y > 13 || (x <= 10 && y <= 7) || (x >= 15 && y <= 8) || (x === 12 && y === 7);
+export function homeBlocked(x: number, y: number, room:"home"|"shed"="home") {
+  if(x<8||x>16||y<6||y>13)return true;
+  if(x>=9&&x<=10&&y<=7)return true; // bed or tool rack
+  if(x>=15&&x<=16&&y<=7)return true; // cabinet or workbench
+  if(room==="home" && ((x===12 && y===6) || (x===8 && y===11)))return true; // desk and plant
+  return room==="shed" && x===15 && y===11; // basket
 }
 function warungOpen(s: GameState) {
   const inggit = npcWhere(s,"C08");
@@ -1079,9 +1085,9 @@ export function getActionContext(s:GameState):ActionContext {
   if(s.location==="home"){
     if(interactDoor(s)!==s) return {kind:"door",label:"Keluar rumah"};
     if(canSleep(s)) return {kind:"sleep",label:"Tidur di kasur"};
-    if(front.x===12 && front.y===7) return {kind:"inspect",label:"Periksa meja",
+    if(front.x===12 && front.y===6) return {kind:"inspect",label:"Periksa meja",
       text:"Meja kerja Yanzen. Catatan kebun dan tugasmu ada di YZ Phone."};
-    if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=8)
+    if(front.x>=15 && front.x<=16 && front.y>=6 && front.y<=7)
       return {kind:"inspect",label:"Periksa lemari",text:"Pakaian kebunmu tersusun di lemari. Belum ada yang perlu diganti sekarang."};
     return {kind:"none",label:"Tidak ada objek"};
   }
@@ -1137,7 +1143,7 @@ export function getActionContext(s:GameState):ActionContext {
   if(exit)return {kind:"travel",label:"Jalan ke "+areaTitle(exit.location)};
   const fieldBarrier=routeBarrierAt("field",front.x,front.y);
   if(fieldBarrier)return {kind:"inspect",label:fieldBarrier.label,text:fieldBarrier.message};
-  if(front.x===2 && front.y>=8 && front.y<=13)return {kind:"irrigate",label:"Aliri kebun"};
+  if(front.x===2 && front.y===8)return {kind:"irrigate",label:s.irrigationOpen?"Tutup keran":"Buka keran"};
   if(isFarm(front.x,front.y)){
     const plot=s.plots.find(p=>p.x===front.x&&p.y===front.y);
     if(plot?.stage===3)return {kind:"harvest",label:"Panen dengan tangan"};

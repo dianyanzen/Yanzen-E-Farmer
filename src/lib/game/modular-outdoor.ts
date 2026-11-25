@@ -35,6 +35,8 @@ export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage+"-alt",kit+"kebun/cucumber-stage-"+stage+"-alt.png"])),
   "plot-dry": kit+"kebun/petak-kering.svg",
   "plot-wet": kit+"kebun/petak-basah.svg",
+  "faucet-closed":"locations/yanzen/v3/faucet-closed.svg",
+  "faucet-open":"locations/yanzen/v3/faucet-open.svg",
   "garden-trellis": kit+"kebun/ajir-bambu-01.png",
   "garden-hoe": kit+"objek/cangkul.png",
   "garden-watering-can": kit+"objek/gembor.png",
@@ -512,16 +514,19 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
     const reeds=art["ilalang-kanal"];
     if(reeds && y%3===0)ctx.drawImage(reeds,x+1,y-8,8,10);
   }
-  // A narrow surface channel branches from the creek beside the existing
-  // plot. The little crossing at the top keeps the visible walking route clear.
-  // It is scenery: watering still follows the existing gembor/rain rules.
-  ctx.save();
-  ctx.lineJoin="round";ctx.lineCap="round";
-  ctx.beginPath();ctx.moveTo(shore(155)-2,155);ctx.lineTo(55,155);ctx.lineTo(55,276);
-  ctx.strokeStyle="#7b7050";ctx.lineWidth=7;ctx.stroke();
-  ctx.strokeStyle="#6ca8a1";ctx.lineWidth=4;ctx.stroke();
+}
+
+/** Saluran dan keran digambar terpisah agar keadaan buka/tutup segera terlihat. */
+export function drawIrrigationChannel(ctx:CanvasRenderingContext2D,open:boolean,faucet?:CanvasImageSource){
+  ctx.save();ctx.lineJoin="round";ctx.lineCap="round";
+  ctx.beginPath();ctx.moveTo(32,155);ctx.lineTo(55,155);ctx.lineTo(55,276);
+  ctx.strokeStyle="#66583d";ctx.lineWidth=7;ctx.stroke();
+  ctx.strokeStyle=open?"#6db9bd":"#9b8058";ctx.lineWidth=4;ctx.stroke();
+  if(open){ctx.strokeStyle="#afe4da";ctx.lineWidth=1;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);}
   ctx.fillStyle="#b18a5d";ctx.fillRect(50,155,10,9);
   ctx.fillStyle="#d2ac77";ctx.fillRect(51,156,8,2);ctx.fillRect(51,160,8,2);
+  if(faucet)ctx.drawImage(faucet,40,152,20,20);
+  else {ctx.fillStyle="#c4b89c";ctx.fillRect(46,157,3,8);ctx.fillRect(46,157,7,3);ctx.fillStyle=open?"#55b4bc":"#aa5139";ctx.fillRect(44,154,7,2);}
   ctx.restore();
 }
 

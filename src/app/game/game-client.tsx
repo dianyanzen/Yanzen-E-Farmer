@@ -832,7 +832,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":
     context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
-    context.kind==="irrigate"?"ALIRI":context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
+    context.kind==="irrigate"?(game.irrigationOpen?"TUTUP":"BUKA"):context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
   return <main ref={screenRef} className={engine === "phaser" ? "yzg-page yzg-page--phaser" : "yzg-page"}>
