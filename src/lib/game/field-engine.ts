@@ -40,7 +40,7 @@ type Scene = { game: GameState; art: WorldArt; swing: ToolUse | null; runMode: b
 };
 const timings = {
   hoe: [135, 275, 420], seed: [90, 170, 290],
-  water: [130, 350, 500], harvest: [115, 225, 365],
+  water: [130, 350, 500], harvest: [115, 245, 520],
 } as const;
 
 // React supplies accepted commands and save snapshots. The field clock stages

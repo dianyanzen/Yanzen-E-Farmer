@@ -207,7 +207,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
       box(ctx,px+11,py+10-plot.stage*2,6,3,"#80ad5d");
       if(plot.stage===3){box(ctx,px+6,py+10,4,6,"#9bcf52");box(ctx,px+13,py+12,3,5,"#c2d971");}
     }
-    if(plot.watered&&plot.stage<3){
+    if(plot.watered&&plot.stage>=0){
       box(ctx,px+15,py+3,3,4,"#68bacf");
       box(ctx,px+16,py+2,1,2,"#b5e7e8");
     }

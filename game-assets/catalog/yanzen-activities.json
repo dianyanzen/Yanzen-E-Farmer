@@ -1770,17 +1770,17 @@
       "frameIndex": 1,
       "sourceFile": "public/game/assets/characters/activities/held-harvest.png",
       "runtimeFile": "public/game/assets/characters/activities/held-harvest.png",
-      "sourceSHA256": "543a0c07e65fd7b249e5fc78afb610011527d76fd5933480eb4d4107d3b6da83",
-      "runtimeSHA256": "543a0c07e65fd7b249e5fc78afb610011527d76fd5933480eb4d4107d3b6da83",
+      "sourceSHA256": "a45fc3cab25d2e1f42d58977ce2d1b1d6e2fc343a3dba22cb1f14c5fd1c09862",
+      "runtimeSHA256": "a45fc3cab25d2e1f42d58977ce2d1b1d6e2fc343a3dba22cb1f14c5fd1c09862",
       "canvasSize": [
         15,
         15
       ],
       "visibleAlphaBounds": [
         2,
-        3,
+        2,
         14,
-        13
+        11
       ],
       "footAnchor": null,
       "drawOffset": [

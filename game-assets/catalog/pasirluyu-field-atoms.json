@@ -195,7 +195,7 @@
       "interactionHotspot": "farm plot tile",
       "zDepth": "crop above soil; below actor",
       "provenance": "Generated for YZ Farm Life on 2026-11-24; one independent transparent PNG per growth stage.",
-      "qaStatus": "INTEGRATED_PENDING_RUNTIME_VISUAL_QA"
+      "qaStatus": "ARCHIVED_SUPERSEDED"
     },
     {
       "assetId": "pasirluyu.cucumber.stage.3.alt",
@@ -216,7 +216,7 @@
       "interactionHotspot": "farm plot tile",
       "zDepth": "crop above soil; below actor",
       "provenance": "Generated for YZ Farm Life on 2026-11-24; one independent transparent PNG alternate variant.",
-      "qaStatus": "INTEGRATED_PENDING_RUNTIME_VISUAL_QA",
+      "qaStatus": "ARCHIVED_SUPERSEDED",
       "notes": "alternate mature-vine silhouette"
     },
     {
@@ -306,6 +306,60 @@
       "provenance": "Generated for YZ Farm Life on 2026-11-24; independent transparent PNG.",
       "qaStatus": "INTEGRATED_PENDING_RUNTIME_VISUAL_QA",
       "notes": "Single empty bamboo A-frame support."
+    },
+    {
+      "assetId": "pasirluyu.cucumber.ripe",
+      "ownerId": "crop:cucumber:ripe",
+      "objectId": "cucumber-plant",
+      "instanceId": "cucumber-ripe",
+      "variant": "harvest-ready",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe.png",
+      "sourceSha256": "98f59eeb6936d2ed0b0a9b8f03dbbe684f3e82fc4888185679f4cba40d1ae198",
+      "runtimeSha256": "98f59eeb6936d2ed0b0a9b8f03dbbe684f3e82fc4888185679f4cba40d1ae198",
+      "canvasW": 16,
+      "canvasH": 18,
+      "visibleAlphaBounds": [
+        1,
+        1,
+        15,
+        18
+      ],
+      "displayW": 16,
+      "displayH": 18,
+      "collisionFootprint": [],
+      "interactionHotspot": "farm plot tile",
+      "zDepth": "crop above soil; below actor",
+      "provenance": "Original independent pixel art at world render size.",
+      "qaStatus": "INTEGRATED",
+      "notes": "Light fruit highlights separated from darker vine and foliage."
+    },
+    {
+      "assetId": "pasirluyu.cucumber.ripe.alt",
+      "ownerId": "crop:cucumber:ripe-alt",
+      "objectId": "cucumber-plant",
+      "instanceId": "cucumber-ripe-alt",
+      "variant": "alternate",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe-alt.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe-alt.png",
+      "sourceSha256": "133b91e35f86e7dba278dbd1a3aee093c829e37c054c0a8c1b787660abff157b",
+      "runtimeSha256": "133b91e35f86e7dba278dbd1a3aee093c829e37c054c0a8c1b787660abff157b",
+      "canvasW": 16,
+      "canvasH": 18,
+      "visibleAlphaBounds": [
+        2,
+        1,
+        15,
+        18
+      ],
+      "displayW": 16,
+      "displayH": 18,
+      "collisionFootprint": [],
+      "interactionHotspot": "farm plot tile",
+      "zDepth": "crop above soil; below actor",
+      "provenance": "Original independent pixel art at world render size.",
+      "qaStatus": "INTEGRATED",
+      "notes": "Light fruit highlights separated from darker vine and foliage."
     }
   ]
 }

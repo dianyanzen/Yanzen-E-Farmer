@@ -309,7 +309,10 @@ class YZWorldScene extends Phaser.Scene {
               .setFrame(Math.min(3,plot.stage)).setVisible(true);
           }
         }
-        if (plot.watered && plot.stage < 3) fill(px+15,py+3,3,4,0x68bacf);
+        if (plot.watered && plot.stage >= 0) {
+          fill(px+15,py+3,3,4,0x68bacf);
+          fill(px+16,py+2,1,2,0xb5e7e8);
+        }
         if (plot.stage === 3) {
           fill(px+2,py+2,5,2,0xffdb81);
           fill(px+2,py+4,2,3,0xffdb81);

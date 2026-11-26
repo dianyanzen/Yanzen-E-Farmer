@@ -42,10 +42,10 @@ export const outdoorSources: Record<string,string> = {
   road: kit + "jalan-utama.png",
   fence: kit + "pagar.png",
   petak: kit + "petak.png",
-  // Stage 3's original PNG is incomplete; the renderers use the existing
-  // mature-crop fallback until an individual replacement is verified.
-  ...Object.fromEntries([0,1,2].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
-  ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage+"-alt",kit+"kebun/cucumber-stage-"+stage+"-alt.png"])),
+  ...Object.fromEntries([0,1,2].flatMap(stage => ["","-alt"].map(variant =>
+    ["cucumber-stage-"+stage+variant,kit+"kebun/cucumber-stage-"+stage+variant+".png"]))),
+  "cucumber-stage-3":kit+"kebun/cucumber-ripe.png",
+  "cucumber-stage-3-alt":kit+"kebun/cucumber-ripe-alt.png",
   "plot-dry": kit+"kebun/petak-kering.svg",
   "plot-wet": kit+"kebun/petak-basah.svg",
   "faucet-closed":"locations/yanzen/v3/faucet-closed.svg",

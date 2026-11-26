@@ -701,9 +701,9 @@ export function irrigateGarden(s:GameState):{state:GameState;message:string}{
   if(s.location!=="field" || front.x!==2 || front.y!==8)
     return {state:s,message:"Dekati keran di sisi kebun."};
   if(s.irrigationOpen)return {state:{...s,irrigationOpen:false},message:"Keran ditutup. Air di saluran berhenti mengalir."};
-  const count=s.plots.filter(p=>p.stage>=0 && p.stage<3 && !p.watered).length;
+  const count=s.plots.filter(p=>p.stage>=0 && !p.watered).length;
   const state={...s,irrigationOpen:true,plots:s.plots.map(p=>
-    p.stage>=0 && p.stage<3 && !p.watered ? {...p,watered:true}:p)};
+    p.stage>=0 && !p.watered ? {...p,watered:true}:p)};
   return {state:count?addMinutes(state,10):state,message:count?
     `Keran dibuka. ${count} tanaman dialiri air.`:"Keran dibuka. Air mengalir di saluran kebun."};
 }
@@ -815,7 +815,7 @@ export function nextDay(s: GameState): GameState {
   return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
-      watered: p.stage>=0 && p.stage<3 && (weatherForDay(s.day+1)==="hujan" || !!s.irrigationOpen) })) };
+      watered: p.stage>=0 && (weatherForDay(s.day+1)==="hujan" || !!s.irrigationOpen) })) };
 }
 export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState; message: string } {
   if(s.location!=="field")return {state:s,message:"Alat tani hanya digunakan di kebun."};
@@ -850,7 +850,7 @@ export function applyFarmTool(s: GameState, tool: FarmTool): { state: GameState;
     stats:{...s.stats,harvests:Math.min(99999999,s.stats.harvests+1)},
     harvested:s.harvested+1,
     plots:exhausted?s.plots.filter(q=>q!==p):
-      s.plots.map(q=>q===p?{...q,stage:1,watered:!!s.irrigationOpen,harvests:cycles}:q) }),
+      s.plots.map(q=>q===p?{...q,stage:1,watered:p.watered || !!s.irrigationOpen,harvests:cycles}:q) }),
     message:exhausted
       ?"Panen berhasil! +1 timun. Tanaman sudah selesai masa produktifnya; petak bisa dicangkul lagi."
       :"Panen berhasil! +1 timun. Tanaman tetap hidup dan bisa dipanen lagi setelah dirawat." };
@@ -1045,7 +1045,7 @@ export function safeLoad(value: unknown): GameState | null {
     const key = `${p.x},${p.y}`;
     if (coordinates.has(key)) return null;
     coordinates.add(key);
-    plots.push({x:p.x,y:p.y,stage:p.stage,watered:p.watered,harvests:p.harvests??0});
+    plots.push({x:p.x,y:p.y,stage:p.stage,watered:p.watered || (p.stage>=0 && value.irrigationOpen===true),harvests:p.harvests??0});
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;

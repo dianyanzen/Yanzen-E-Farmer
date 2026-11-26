@@ -42,7 +42,8 @@ export function yanzenSprite(
     const y = handY - (origin.dir === "up" ? 2 : 0);
     const angle = (origin.dir === "left" ? -1 : 1) * (index - 1) * (tool === "hoe" ? 0.65 : 0.25);
     return { ...atom, key: `${tool}-${origin.dir}-${index + 1}`,
-      prop: { key: `held-${tool}`, x: atom.x + x, y: atom.y + y, angle } };
+      prop: tool === "harvest" && index === 0 ? undefined :
+        { key: `held-${tool}`, x: atom.x + x, y: atom.y + y, angle } };
   }
   if (weight) {
     return { source: "turns", row: weight.row, column: weight.column, width: 32, height: 40,

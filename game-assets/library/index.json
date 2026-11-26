@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4924,
-  "uniqueContents": 1478,
-  "totalBytes": 328312023,
+  "totalMedia": 4926,
+  "uniqueContents": 1480,
+  "totalBytes": 328312560,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
       "mediaCount": 807,
-      "bytes": 155109325,
+      "bytes": 155109314,
       "sections": [
         {
           "id": "aset/avatar",
@@ -277,8 +277,8 @@
       "id": "world",
       "label": "Peta, tile dan wilayah",
       "description": "Peta Pasirluyu, Kota Bandung, kelurahan, lingkungan",
-      "mediaCount": 1299,
-      "bytes": 22391514,
+      "mediaCount": 1301,
+      "bytes": 22392062,
       "sections": [
         {
           "id": "aset/peta",
@@ -346,7 +346,7 @@
         },
         {
           "id": "tiles/farm-kit/kebun",
-          "count": 14
+          "count": 16
         },
         {
           "id": "tiles/farm-kit/kebun-luas",
