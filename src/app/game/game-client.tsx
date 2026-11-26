@@ -1,12 +1,12 @@
 "use client";
 
-import { IYAN_MARKET, POULTRY, interactPoultry, poultryStock } from "@/lib/game/model";
+import { IYAN_QUEST_TITLE, POULTRY, interactPoultry, iyanDialogue, poultryStock } from "@/lib/game/model";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
-  atMarketCounter, atWarungCounter, buyWarungItem, WARUNG_MENU, type WarungItem, HOME, warungCounterStaffed, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
+  atMarketCounter, marketCounterOpen, atWarungCounter, buyWarungItem, WARUNG_MENU, type WarungItem, HOME, warungCounterStaffed, RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, interactionHitboxAt, irrigateGarden, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { activityAssets, activityDuration, type ActivityAnchor, type CharacterActivity, type CharacterActivityId } from "@/lib/game/character-activities";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
@@ -618,8 +618,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       setGame(result.state);setDialogue(result);
       if(result.state!==game) void persist(result.state);
     }else if(context.kind==="poultry-shop"){
-      setDialogue({title:IYAN_MARKET.name+" · Lapak pakan",poultryShop:true,
-        lines:["Punten, Yanzen. Butuh pakan? Cukup satu porsi sehari. Besok pagi biasanya sudah ada telur di sarang."]});
+      setDialogue(iyanDialogue(game));
     }else if(context.kind==="feed-chicken" || context.kind==="collect-eggs"){
       const result=interactPoultry(game,context.kind==="feed-chicken"?"feed":"collect");
       if(result.state!==game){playActivity("take");setGame(result.state);void persist(result.state);}
@@ -692,9 +691,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     if (movementLocked || crossing.current || !tile) return;
     const route = planTapRoute(game, tile.x, tile.y, tile.world);
     const resident = npcHere(game).find(n => n.x===tile.x && n.y===tile.y);
-    const counter = game.location==="field" && warungCounterStaffed(game.minutes) &&
-      interactionHitboxAt("field",tile.world.x,tile.world.y)?.id==="warung-counter";
-    tapRoute.current = route ? {...route,resident:resident?.id ?? (counter ? "C08" : undefined)} : null;
+    const hitbox=interactionHitboxAt(game.location,tile.world.x,tile.world.y);
+    let expectedResident=resident?.id;
+    if(hitbox?.id==="warung-counter")expectedResident=warungCounterStaffed(game.minutes)?"C08":undefined;
+    if(hitbox?.id==="A04" || hitbox?.id==="C07") {
+      expectedResident=marketCounterOpen(game.minutes,hitbox.id)?hitbox.id:undefined;
+    }
+    tapRoute.current = route ? {...route,resident:expectedResident} : null;
     if (!route) {
       setToast("Belum ada jalan ke sana. Ketuk tanah atau benda yang bisa kamu jangkau.");
       return;
@@ -940,6 +943,12 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
+          {dialogue.poultryShop && (!poultryStock(game).quest || poultryStock(game).quest==="report") &&
+            <button type="button" disabled={unavailable} onClick={()=>{
+              const result=interactPoultry(game,poultryStock(game).quest==="report"?"report-quest":"accept-quest");
+              if(result.state!==game){setGame(result.state);void persist(result.state);}
+              setDialogue({...dialogue,lines:[result.message]});
+            }}>{poultryStock(game).quest==="report"?"Kabari Iyan soal telur":"Ambil misi · "+IYAN_QUEST_TITLE}</button>}
           {dialogue.poultryShop && <button type="button" disabled={unavailable} onClick={()=>{
             const result=interactPoultry(game,"buy-feed");
             if(result.state!==game){setGame(result.state);void persist(result.state);}

@@ -221,12 +221,17 @@ function loadFishing(raw:unknown):FishingInventory|null{
 }
 export type MarketMerchant="A04"|"C07";
 export function isMarketMerchant(id:NpcId):id is MarketMerchant{return id==="A04"||id==="C07";}
+export const MARKET_COUNTERS = { A04: { x: 6, y: 9, artTop: 104 }, C07: { x: 27, y: 8, artTop: 100 } } as const;
+export const AYU_MARKET_OPENS_AT = 6 * 60;
 function closingTime(id:NpcId){return id==="A04"?1020:id==="C07"?1050:1080;}
+export function marketCounterOpen(minutes:number,merchant:MarketMerchant){
+  return minutes >= (merchant==="A04" ? AYU_MARKET_OPENS_AT : WIDI_OPENS_AT) && minutes < closingTime(merchant);
+}
 export function atMarketCounter(s:GameState,merchant:MarketMerchant){
-  if(s.location!=="pasar" || s.minutes>=closingTime(merchant) ||
-    (merchant==="C07" && s.minutes<WIDI_OPENS_AT))return false;
-  const shopkeeper=npcWhere(s,merchant),front=facing(s.player);
-  return shopkeeper.location==="pasar" && front.x===shopkeeper.x && front.y===shopkeeper.y;
+  if(s.location!=="pasar" || !marketCounterOpen(s.minutes,merchant))return false;
+  const counter=MARKET_COUNTERS[merchant],shopkeeper=npcWhere(s,merchant),front=facing(s.player);
+  return shopkeeper.location==="pasar" && shopkeeper.x===counter.x && shopkeeper.y===counter.y &&
+    front.x===counter.x && front.y===counter.y;
 }
 export type MarketItem="seeds"|"bait"|"cucumber"|FishId;
 export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem){
@@ -315,7 +320,7 @@ export function buyWarungItem(s:GameState,item:WarungItem){
 }
 export const IYAN_MARKET = {
   id: "W026", name: "Iyan Rustiana", portrait: "/game/assets/portraits/iyan-market.png",
-  x: 26, y: 8, opensAt: 9 * 60, closesAt: 17 * 60,
+  x: 17, y: 8, opensAt: 9 * 60, closesAt: 17 * 60,
 } as const;
 
 export const POULTRY = {
@@ -324,7 +329,21 @@ export const POULTRY = {
   feedPack: 5, feedPrice: 20, eggPrice: 8,
 } as const;
 
-export type PoultryStock = { feed: number; eggs: number; nest: number; fedDay: number };
+const IYAN_QUEST_OBJECTIVES = {
+  feed: "Isi palung di kandang ayam. Kalau ayam sudah makan hari ini, kembali besok.",
+  wait: "Tidur di rumah, lalu cek sarang ayam besok pagi.",
+  collect: "Ambil telur dari sarang di kandang ayam.",
+  sell: "Jual telur ke Inggit di warung dekat rumahmu sebelum Inggit mulai beres-beres sekitar pukul 14.45.",
+  report: "Kembali ke Iyan di Pasar Warga pukul 09.00–17.00.",
+  done: "Inggit membeli telur dari kandangmu. Iyan sudah memberikan upahnya.",
+} as const;
+type IyanQuest = keyof typeof IYAN_QUEST_OBJECTIVES;
+export const IYAN_QUEST_TITLE = "Telur buat Warung";
+const IYAN_QUEST_REWARD = 35;
+export type PoultryStock = { feed: number; eggs: number; nest: number; fedDay: number; quest?: IyanQuest };
+export function iyanQuestObjective(quest: IyanQuest){
+  return IYAN_QUEST_OBJECTIVES[quest];
+}
 
 const EMPTY_POULTRY: Readonly<PoultryStock> = { feed: 0, eggs: 0, nest: 0, fedDay: 0 };
 const POULTRY_LIMIT = 9999;
@@ -336,12 +355,36 @@ export function poultryStock(s: GameState): Readonly<PoultryStock> {
   return s.poultry ?? EMPTY_POULTRY;
 }
 
-export function interactPoultry(s: GameState, command: "buy-feed" | "feed" | "collect" | "sell-eggs"): {state: GameState; message: string} {
+export function iyanDialogue(s: GameState): Omit<Dialogue, "state"> {
+  const quest=poultryStock(s).quest;
+  let lines: string[];
+  if (!quest) lines=[
+    s.minutes<720 ? "Pagi, Yanzen. Sini, merapat. Karung jagungnya baru kubuka." : "Siang, Yanzen. Hati-hati, masih ada butiran jagung di depan lapak.",
+    "Inggit tadi cari telur buat warung. Coba isi palung ayammu, ambil telurnya besok, terus jual ke beliau. Nanti kabari aku, ya.",
+  ];
+  else if(quest==="report") lines=["Sudah sampai ke Inggit? Bagus. Besok-besok kalau ada lebih, bawa lagi ke warung. Ini upah yang kujanjikan."];
+  else if(quest==="done") lines=["Eh, Yanzen. Gimana ayamnya? Kalau sudah mulai berebut di palung, ratakan saja pakannya."];
+  else lines=[s.minutes<720?"Pagi, Yanzen. Gimana kabar ayam di kebun?":"Eh, Yanzen. Lagi cari pakan?", iyanQuestObjective(quest)];
+  return {title:IYAN_MARKET.name+" · Lapak pakan",poultryShop:true,lines};
+}
+
+export function interactPoultry(s: GameState, command: "buy-feed" | "feed" | "collect" | "sell-eggs" | "accept-quest" | "report-quest"): {state: GameState; message: string} {
   const stock = poultryStock(s);
   const target = facingInteraction(s)?.id;
+  if ((command==="buy-feed" || command==="accept-quest" || command==="report-quest") &&
+      (target!=="iyan-feed" || !iyanMarketOpen(s.minutes))) {
+    return {state:s,message:"Temui Iyan di lapaknya pukul 09.00–17.00."};
+  }
   switch (command) {
+    case "accept-quest":
+      if (stock.quest) return {state:s,message:iyanQuestObjective(stock.quest)};
+      return {state:{...s,poultry:{...stock,quest:"feed"}},message:"Cek palung ayam di kebun dulu. Kalau pakanmu habis, aku masih punya satu karung."};
+    case "report-quest":
+      if (stock.quest!=="report") return {state:s,message:"Kalau telurnya sudah dibeli Inggit, kabari aku."};
+      if (s.coins > 99999999-IYAN_QUEST_REWARD) return {state:s,message:"Saldo sudah mencapai batas."};
+      return {state:{...s,coins:s.coins+IYAN_QUEST_REWARD,poultry:{...stock,quest:"done"}},
+        message:"Upah dari Iyan "+formatGameRupiah(IYAN_QUEST_REWARD)+". Telur buat Warung selesai."};
     case "buy-feed":
-      if (target !== "iyan-feed" || !iyanMarketOpen(s.minutes)) return {state:s,message:"Beli pakan di lapak Iyan, pukul 09.00–17.00."};
       if (s.coins < POULTRY.feedPrice) return {state:s,message:"Uangmu belum cukup untuk beli pakan."};
       if (stock.feed > POULTRY_LIMIT - POULTRY.feedPack) return {state:s,message:"Stok pakanmu sudah penuh."};
       return {state:{...s,coins:s.coins-POULTRY.feedPrice,poultry:{...stock,feed:stock.feed+POULTRY.feedPack}},message:"Kamu membeli 5 porsi pakan ayam."};
@@ -350,18 +393,18 @@ export function interactPoultry(s: GameState, command: "buy-feed" | "feed" | "co
       if (stock.fedDay === s.day) return {state:s,message:"Ayam sudah makan. Cek sarangnya besok pagi."};
       if (!stock.feed) return {state:s,message:"Pakan habis. Iyan menjualnya di Pasar Warga."};
       if (stock.nest >= POULTRY_LIMIT) return {state:s,message:"Ambil telur dari sarang dulu."};
-      return {state:{...s,poultry:{...stock,feed:stock.feed-1,fedDay:s.day}},message:"Pakan sudah ditaruh. Besok pagi, cek sarangnya."};
+      return {state:{...s,poultry:{...stock,feed:stock.feed-1,fedDay:s.day,...(stock.quest==="feed"?{quest:"wait" as const}:{})}},message:"Pakan sudah ditaruh. Besok pagi, cek sarangnya."};
     case "collect":
       if (target !== "chicken-nest" || !stock.nest) return {state:s,message:"Belum ada telur di sarang."};
       const collected=Math.min(stock.nest,POULTRY_LIMIT-stock.eggs);
       if (!collected) return {state:s,message:"Tas telurmu sudah penuh."};
-      return {state:{...s,poultry:{...stock,eggs:stock.eggs+collected,nest:stock.nest-collected}},message:`Kamu mengambil ${collected} telur.`};
+      return {state:{...s,poultry:{...stock,eggs:stock.eggs+collected,nest:stock.nest-collected,...(stock.quest==="collect"?{quest:"sell" as const}:{})}},message:`Kamu mengambil ${collected} telur.`};
     case "sell-eggs":
       if (!atWarungCounter(s)) return {state:s,message:"Jual telur langsung ke Inggit saat warung buka."};
       if (!stock.eggs) return {state:s,message:"Belum ada telur di tasmu."};
       const amount=stock.eggs*POULTRY.eggPrice;
       if (s.coins > 99999999-amount) return {state:s,message:"Saldo sudah mencapai batas."};
-      return {state:{...s,coins:s.coins+amount,poultry:{...stock,eggs:0}},message:`${stock.eggs} telur dibeli Inggit seharga ${formatGameRupiah(amount)}.`};
+      return {state:{...s,coins:s.coins+amount,poultry:{...stock,eggs:0,...(stock.quest==="sell"?{quest:"report" as const}:{})}},message:`${stock.eggs} telur dibeli Inggit seharga ${formatGameRupiah(amount)}.`};
   }
 }
 
@@ -398,7 +441,7 @@ export function isOutdoorLocation(location: GameLocation): location is OutdoorLo
 export const AREAS:Record<OutdoorLocation,{name:string;description:string;landmark:string}> = {
   field:{name:"Kebun Yanzen",description:"Rumah, gudang, petak timun, dan saluran irigasi",landmark:"Jalan kampung ke timur"},
   gang:{name:"Gang Pasirluyu",description:"Rumah tetangga, bangku warga, dan jalan utama",landmark:"Jalan menuju pasar dan sungai"},
-  pasar:{name:"Pasar Warga",description:"Lapak benih Ayu dan lapak pancing Widi",landmark:"Kembali ke gang di selatan"},
+  pasar:{name:"Pasar Warga",description:"Lapak benih Ayu, lapak pancing Widi, dan lapak pakan Iyan",landmark:"Kembali ke gang di selatan"},
   sungai:{name:"Bantaran Sungai",description:"Jembatan kecil, pintu air, dan kebun hilir",landmark:"Kembali ke gang di utara"}
 };
 export type Signpost = {
@@ -413,7 +456,7 @@ export const SIGNPOSTS: readonly Signpost[] = [
     message:"Jalan di sebelah timur kebun menuju Gang Pasirluyu. Ikuti jalur tanah lalu berjalan ke kanan."},
   {location:"gang", x:10, y:4, symbol:"↑",
     title:"Plang Pasar Warga",
-    message:"Lewat gang ke utara untuk ke Pasar Warga. Ayu menjual bibit dan membeli timun. Widi melayani pemancing. Warung Inggit ada di kebun, dekat rumah Yanzen."},
+    message:"Lewat gang ke utara untuk ke Pasar Warga. Ayu menjual bibit dan membeli timun. Widi melayani pemancing, dan Iyan menjual pakan ayam di tengah pasar. Warung Inggit ada di kebun, dekat rumah Yanzen."},
   {location:"pasar", x:10, y:4, symbol:"↓",
     title:"Plang Kembali ke Gang",
     message:"Ikuti jalan ke selatan untuk kembali ke Gang Pasirluyu, lalu pilih jalur menuju kebun atau sungai."},
@@ -517,8 +560,8 @@ const placements = [
   { id: "A03", x: 13, y: 8, color: "#314961" },
   { id: "C01", x: 16, y: 11, color: "#cba7a0" },
   { id: "C08", x: INGGIT_WARUNG.x, y: INGGIT_WARUNG.y, color: "#bc7651" },
-  { id: "A04", x: 6, y: 9, color: "#bd8d42" },
-  { id: "C07", x: 27, y: 8, color: "#517f8a" },
+  { id: "A04", ...MARKET_COUNTERS.A04, color: "#bd8d42" },
+  { id: "C07", ...MARKET_COUNTERS.C07, color: "#517f8a" },
 ] as const;
 
 export const NPCS = placements.map(placement => {
@@ -548,9 +591,13 @@ export const NPC_SOULS:Record<NpcId,{
 export type NpcPlacement = Omit<typeof NPCS[number], "x" | "y"> & OutdoorPoint & {activity:string; indoors?:boolean; idleFacing?:Direction};
 type OutdoorPoint = { location: OutdoorLocation; x: number; y: number };
 const point = (location: OutdoorLocation, x: number, y: number): OutdoorPoint => ({ location, x, y });
+function marketWorkPoint(merchant: MarketMerchant): OutdoorPoint {
+  const {x,y}=MARKET_COUNTERS[merchant];
+  return point("pasar",x,y);
+}
 const dailyStops = {
-  A04: [point("pasar",6,9),point("pasar",6,9),point("gang",15,14)],
-  C07: [point("field",18,8),point("pasar",27,8),point("gang",26,8)],
+  A04: [marketWorkPoint("A04"),marketWorkPoint("A04"),point("gang",15,14)],
+  C07: [point("field",18,8),marketWorkPoint("C07"),point("gang",26,8)],
   A03: [point("field",16,7), point("sungai",8,8), point("gang",20,8)],
   C01: [point("field",18,6), point("gang",5,8), point("gang",8,8)],
   C08: [point("field",INGGIT_WARUNG.x,INGGIT_WARUNG.y), point("pasar",19,8), point("gang",4,14)],
@@ -797,7 +844,7 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[IYAN_MARKET.x,IYAN_MARKET.y,IYAN_MARKET.x,IYAN_MARKET.y],[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  pasar:[[IYAN_MARKET.x-1,IYAN_MARKET.y-1,IYAN_MARKET.x+1,IYAN_MARKET.y],[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -867,7 +914,8 @@ function addMinutes(s: GameState, amount = 3): GameState {
 export function nextDay(s: GameState): GameState {
   if (!canSleep(s)) return s;
   const stock=poultryStock(s);
-  const poultry=stock.fedDay===s.day ? {...stock,nest:Math.min(POULTRY_LIMIT,stock.nest+1)} : s.poultry;
+  const poultry=stock.fedDay===s.day ? {...stock,nest:Math.min(POULTRY_LIMIT,stock.nest+1),
+    ...(stock.quest==="wait" && stock.nest<POULTRY_LIMIT?{quest:"collect" as const}:{})} : s.poultry;
   return { ...s, ...(poultry ? {poultry} : {}), stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
@@ -1108,7 +1156,9 @@ export function safeLoad(value: unknown): GameState | null {
     const p=value.poultry;
     if (!record(p) || !integer(p.feed,0,POULTRY_LIMIT) || !integer(p.eggs,0,POULTRY_LIMIT) ||
         !integer(p.nest,0,POULTRY_LIMIT) || !integer(p.fedDay,0,value.day)) return null;
-    poultry={feed:p.feed,eggs:p.eggs,nest:p.nest,fedDay:p.fedDay};
+    if (p.quest!==undefined && (typeof p.quest!=="string" || !Object.hasOwn(IYAN_QUEST_OBJECTIVES,p.quest))) return null;
+    poultry={feed:p.feed,eggs:p.eggs,nest:p.nest,fedDay:p.fedDay,
+      ...(p.quest===undefined?{}:{quest:p.quest as IyanQuest})};
   }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
@@ -1232,7 +1282,13 @@ const INTERACTION_HITBOXES = [
     {id:"guest-keepsake",location:home.location,left:280,top:138,right:335,bottom:171},
   ]),
   { id: "warung-counter", location: "field", left: INGGIT_WARUNG.x * WORLD.tile, top: 88, right: (INGGIT_WARUNG.x + 1) * WORLD.tile, bottom: 120 },
-  { id: "iyan-feed", location: "pasar", left: 520, top: 145, right: 540, bottom: 180 },
+  { id: "iyan-feed", location: "pasar", left: (IYAN_MARKET.x-1)*WORLD.tile, top: 123,
+    right: (IYAN_MARKET.x+2)*WORLD.tile, bottom: (IYAN_MARKET.y+1)*WORLD.tile, counter: IYAN_MARKET },
+  ...(["A04","C07"] as const).map(id=>{
+    const counter=MARKET_COUNTERS[id];
+    return {id,location:"pasar" as const,left:(counter.x-2)*WORLD.tile,top:counter.artTop,
+      right:(counter.x+3)*WORLD.tile,bottom:(counter.y+1)*WORLD.tile,counter};
+  }),
   { id: "chicken-feeder", location: "field", left: 440, top: 260, right: 460, bottom: 280 },
   { id: "chicken-nest", location: "field", left: 400, top: 260, right: 420, bottom: 300 },
   { id: "bed", location: "home", left: 180, top: 108, right: 204, bottom: 160 },
@@ -1247,6 +1303,10 @@ export function interactionHitboxAt(location: GameLocation, x: number, y: number
 
 export function facesInteractionHitbox(player: GameState["player"], box: InteractionHitbox): boolean {
   const front = facing(player);
+  if ("counter" in box && box.counter) {
+    return front.x===box.counter.x && front.y===box.counter.y &&
+      player.dir==="up";
+  }
   const x = (front.x + .5) * WORLD.tile;
   const y = (front.y + .5) * WORLD.tile;
   return x >= box.left && x < box.right &&
@@ -1339,6 +1399,10 @@ export function getActionContext(s:GameState):ActionContext {
   if (privateDoor === "iyan-feed") return iyanMarketOpen(s.minutes)
     ? {kind:"poultry-shop",label:"Bicara dengan Iyan"}
     : {kind:"inspect",label:"Lapak pakan ayam",text:"Iyan buka pukul 09.00–17.00."};
+  if ((privateDoor==="A04" || privateDoor==="C07") && !atMarketCounter(s,privateDoor)) {
+    const name=privateDoor==="A04"?"Ayu":"Widi";
+    return {kind:"inspect",label:"Lapak "+name,text:privateDoor==="A04"?"Ayu buka pukul 06.00–17.00.":"Widi buka pukul 09.00–17.30."};
+  }
   if (privateDoor === "chicken-feeder") return {kind:"feed-chicken",label:poultryStock(s).fedDay===s.day?"Cek pakan ayam":"Beri pakan ayam"};
   if (privateDoor === "chicken-nest") return {kind:"collect-eggs",label:poultryStock(s).nest?"Ambil telur":"Cek sarang ayam"};
 
@@ -1382,8 +1446,6 @@ export function getActionContext(s:GameState):ActionContext {
     if(s.location==="sungai" && front.x===6 && front.y===7)return {kind:"sluice",label:s.sluiceOpen?"Tutup pintu air":"Buka pintu air"};
     if(s.location==="sungai"&&front.x<=7)return {kind:"inspect",
       label:"Periksa sungai",text:"Permukaan air mengalir ke hilir. Ryan mencatatnya setiap siang."};
-    if(s.location==="pasar"&&front.y<=8)return {kind:"inspect",
-      label:"Lihat lapak pasar",text:"Sayur dan rempah ditata rapi. Berbicaralah dengan pedagang yang hadir."};
     return {kind:"none",label:"Jelajahi "+areaTitle(s.location)};
   }
   const exit=mapExit("field",s.player.x,s.player.y,s.player.dir);

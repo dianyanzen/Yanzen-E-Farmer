@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {useState} from "react";
-import type {GameState} from "@/lib/game/model";
+import {IYAN_MARKET,type GameState} from "@/lib/game/model";
 import type {ResidentProfile} from "@/lib/game/resident-profile";
 import {approvedLegacyId} from "@/lib/game/legacy-identity";
 import {chronicleExport,phoneChronicle} from "@/lib/game/phone-story";
@@ -10,7 +10,7 @@ import {chronicleExport,phoneChronicle} from "@/lib/game/phone-story";
 type Pane="kisah"|"misi"|"jejak";
 export default function PhoneChronicle({game,residents,onOpenWarga,displayName}:{game:GameState;residents:readonly ResidentProfile[];onOpenWarga:(id:string)=>void;displayName:(text:string)=>string}){
  const currentCitizenForLegacy=(legacyId:string)=>residents.length?
-   residents.find(r=>approvedLegacyId(r)===legacyId)?.id:null;
+   residents.find(r=>legacyId===IYAN_MARKET.id?r.id===IYAN_MARKET.id:approvedLegacyId(r)===legacyId)?.id:null;
  // A legacy ID is never enough to link to one of the 248 public fictional citizens.
  const canLink=(legacyId:string)=>Boolean(currentCitizenForLegacy(legacyId));
  const link=(legacyId:string)=>{

@@ -1,5 +1,5 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { IYAN_MARKET, POULTRY, iyanMarketOpen, ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { IYAN_MARKET, POULTRY, iyanMarketOpen, marketCounterOpen, ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
@@ -18,6 +18,10 @@ export const outdoorSources: Record<string,string> = {
   "chicken-nest-eggs":"locations/poultry/nest-eggs.png",
   "iyan-market-sprite":"characters/iyan-market.png",
   "iyan-feed-sack":"locations/iyan/feed-sack.png",
+  "iyan-stall":"locations/iyan/stall.png",
+  "iyan-stall-counter":"locations/iyan/stall-counter.png",
+  "iyan-stall-sign":"locations/iyan/stall-sign.png",
+  "iyan-stall-shutter":"locations/iyan/stall-shutter.png",
   "yanzen-home-door": yanzenExteriorFolder + "home-front-door.png",
   "yanzen-home-west-window": yanzenExteriorFolder + "home-west-window.png",
   "yanzen-home-east-window": yanzenExteriorFolder + "home-east-window.png",
@@ -90,6 +94,9 @@ const warkop: Placement[] = [
   })),
 ];
 
+const iyanStallX=(IYAN_MARKET.x+.5)*WORLD.tile;
+const iyanStallY=(IYAN_MARKET.y+1)*WORLD.tile;
+
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
@@ -129,14 +136,18 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
-    {asset:"iyan-market-sprite",x:(IYAN_MARKET.x+.5)*WORLD.tile,y:(IYAN_MARKET.y+1)*WORLD.tile-2,displayW:24,displayH:32},
-    {asset:"iyan-feed-sack",x:(IYAN_MARKET.x+.9)*WORLD.tile,y:(IYAN_MARKET.y+1)*WORLD.tile,displayW:13,displayH:15},
-    {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
+    {asset:"iyan-stall",x:iyanStallX,y:iyanStallY-5,groundY:iyanStallY-12},
+    {asset:"iyan-market-sprite",x:iyanStallX,y:iyanStallY-10,displayW:24,displayH:32},
+    {asset:"iyan-stall-shutter",x:iyanStallX,y:iyanStallY-8,groundY:iyanStallY-7},
+    {asset:"iyan-stall-counter",x:iyanStallX,y:iyanStallY},
+    {asset:"iyan-stall-sign",x:iyanStallX,y:iyanStallY-39,groundY:iyanStallY},
+    {asset:"iyan-feed-sack",x:iyanStallX-23,y:iyanStallY+1,displayW:13,displayH:15},
+    {asset:"lapak-benih",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
     {asset:"papan-pasar",x:303,y:100},
     {asset:"rumpun-bunga-liar",x:68,y:278},{asset:"semak",x:425,y:285},
     {asset:"pohon-pisang",x:40,y:270,scale:.8},{asset:"rumpun-bunga-liar",x:129,y:305,scale:.82},
-    {asset:"semak",x:183,y:311},{asset:"semak",x:294,y:312},{asset:"peti-kayu",x:440,y:238},
+    {asset:"semak",x:183,y:311},{asset:"semak",x:294,y:312},{asset:"peti-kayu",x:451,y:266},
   ],
   sungai: [
     {asset:"bendung-dua-pintu-tutup",x:85,y:163},{asset:"tangga-batu",x:142,y:176,scale:.75},
@@ -267,10 +278,13 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
 
 export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false,eggsReady=false): Placement[] {
   const scenery = props[location].map(p => p.asset==="inggit-sign" &&
-    (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p.closedAsset && (minutes<720 || minutes>=1140) ?
-    {...p,asset:p.closedAsset} : p);
-  if(location==="pasar")return scenery.map(prop=>prop.asset==="iyan-market-sprite"
-    ? {...prop,visible:iyanMarketOpen(minutes)} : prop);
+    (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p);
+  if(location==="pasar")return scenery.map(prop=>{
+    if(prop.asset==="iyan-market-sprite")return {...prop,visible:iyanMarketOpen(minutes)};
+    if(prop.asset==="iyan-stall-shutter")return {...prop,visible:!iyanMarketOpen(minutes)};
+    if(prop.closedAsset && !marketCounterOpen(minutes,"A04"))return {...prop,asset:prop.closedAsset};
+    return prop;
+  });
   if(location!=="field")return scenery;
   const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
   const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;

@@ -42,14 +42,17 @@ assert.equal(restored.plots[0].watered,true,'repair a legacy dry mature crop in 
 assert.equal(safeLoad(JSON.parse(JSON.stringify(byCrop))).plots[0].watered,false,'closed faucet does not alter an old dry crop');
 console.log('PASS: faucet toggle, channel access, crops, day transition and save migration');
 
-const { IYAN_MARKET, POULTRY, INGGIT_WARUNG, interactPoultry, poultryStock, areaBlocked }=mod.exports;
+const { IYAN_MARKET, POULTRY, INGGIT_WARUNG, MARKET_COUNTERS, interactPoultry, poultryStock, areaBlocked, movePlayer, npcWhere }=mod.exports;
 const dayOne=newGame();
 const visit={...dayOne,location:'pasar',minutes:9*60,player:{x:IYAN_MARKET.x,y:IYAN_MARKET.y+1,dir:'up'}};
 assert.equal(getActionContext(visit).kind,'poultry-shop');
 assert.equal(areaBlocked(visit.location,visit.player.x,visit.player.y,visit),false);
 assert.equal(tapModule.exports.planTapRoute(visit,IYAN_MARKET.x,IYAN_MARKET.y)?.interact,true);
 assert.equal(interactPoultry({...visit,minutes:8*60},'buy-feed').state.poultry,undefined);
-const bought=interactPoultry(visit,'buy-feed').state;
+const accepted=interactPoultry(visit,'accept-quest').state;
+assert.equal(accepted.poultry.quest,'feed');
+assert.equal(interactPoultry(accepted,'report-quest').state,accepted);
+const bought=interactPoultry(accepted,'buy-feed').state;
 assert.equal(bought.coins,dayOne.coins-POULTRY.feedPrice);
 assert.equal(poultryStock(bought).feed,POULTRY.feedPack);
 const byFeeder={...bought,location:'field',player:{x:POULTRY.feeder.x,y:POULTRY.feeder.y-1,dir:'down'}};
@@ -60,13 +63,16 @@ const fed=interactPoultry(byFeeder,'feed').state;
 assert.equal(poultryStock(fed).feed,POULTRY.feedPack-1);
 assert.equal(interactPoultry(fed,'feed').state,fed);
 assert.equal(poultryStock(fed).nest,0);
+assert.equal(fed.poultry.quest,"wait");
 const morning=nextDay({...safeLoad(JSON.parse(JSON.stringify(fed))),location:'home',player:{x:9,y:8,dir:'up'}});
 assert.equal(poultryStock(morning).nest,1);
+assert.equal(morning.poultry.quest,"collect");
 assert.equal(poultryStock(nextDay(morning)).nest,1);
 const byNest={...morning,location:'field',player:{x:POULTRY.nest.x,y:POULTRY.nest.y-1,dir:'down'}};
 assert.equal(getActionContext(byNest).kind,'collect-eggs');
 const gathered=interactPoultry(byNest,'collect').state;
 assert.equal(poultryStock(gathered).nest,0);
+assert.equal(gathered.poultry.quest,"sell");
 const atInggit={...gathered,player:{x:INGGIT_WARUNG.x,y:INGGIT_WARUNG.y+1,dir:'up'}};
 assert.equal(interactPoultry({...atInggit,minutes:18*60},'sell-eggs').state.poultry.eggs,1);
 const sold=interactPoultry(atInggit,'sell-eggs').state;
@@ -74,3 +80,34 @@ assert.equal(sold.coins,bought.coins+POULTRY.eggPrice);
 assert.equal(poultryStock(sold).eggs,0);
 assert.equal(safeLoad({...sold,poultry:{...sold.poultry,fedDay:sold.day+1}}),null);
 console.log('PASS: Iyan’s feed counter, touch targets, one feed per day, sleep, egg collection, Inggit sale and old saves');
+
+assert.equal(sold.poultry.quest,"report");
+const ready={...safeLoad(JSON.parse(JSON.stringify(sold))),player:visit.player,location:"pasar",minutes:600};
+const paid=interactPoultry(ready,"report-quest").state;
+assert.equal(paid.coins,ready.coins+35);
+assert.equal(paid.poultry.quest,"done");
+assert.equal(interactPoultry(paid,"report-quest").state,paid,"Iyan cannot pay twice");
+assert.equal(safeLoad({...paid,poultry:{...paid.poultry,quest:"invalid"}}),null);
+assert.equal(safeLoad({...paid,poultry:{feed:4,eggs:0,nest:0,fedDay:1}}).poultry.quest,undefined);
+for (const [id, counter, whenOpen, whenClosed, tapHeight] of [
+  ["A04",MARKET_COUNTERS.A04,400,1030,123],
+  ["C07",MARKET_COUNTERS.C07,600,425,122],
+  ["iyan-feed",IYAN_MARKET,600,1050,128],
+]){
+  for (const minutes of [whenOpen,whenClosed]){
+    let player={...dayOne,location:"pasar",minutes,player:{x:11,y:15,dir:"up"}};
+    const route=tapModule.exports.planTapRoute(player,counter.x,Math.floor(tapHeight/20),{x:counter.x*20+10,y:tapHeight});
+    assert.equal(route?.interact,true,id+" shopfront is tappable from the market entrance");
+    for (const dir of route.steps) player=movePlayer(player,dir);
+    player={...player,player:{...player.player,dir:route.face}};
+    assert.equal(player.player.y,counter.y+1);
+    const action=getActionContext(player);
+    assert.equal(action.kind,minutes===whenClosed?"inspect":id==="iyan-feed"?"poultry-shop":"npc");
+    if(action.kind==="npc")assert.equal(action.npcId,id);
+    assert.equal(tapModule.exports.planTapRoute(player,11,15)?.exit,"down",id+" customer can leave the market");
+  }
+}
+const eveningVisitor=npcWhere({...dayOne,minutes:970},"C08");
+assert.equal(eveningVisitor.location,"pasar");
+assert.equal(areaBlocked(eveningVisitor.location,eveningVisitor.x,eveningVisitor.y),false);
+console.log("PASS: market tap targets, entry/exit, opening hours and quest payout");

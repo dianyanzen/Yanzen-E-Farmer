@@ -83,6 +83,90 @@
         "Canvas",
         "Phaser"
       ]
+    },
+    {
+      "assetId": "iyan-stall",
+      "ownerId": "iyan-feed-stall",
+      "runtimeFile": "public/game/assets/locations/iyan/stall.png",
+      "runtimeSHA256": "1d7dadaeefb1f963b4bc53aff810128ab99c7a1416e5a7db67b3bdc967b016a6",
+      "canvasSize": [
+        58,
+        52
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        58,
+        52
+      ],
+      "provenance": "Original pixel art for the Pasirluyu chicken feed stall.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "iyan-stall-counter",
+      "ownerId": "iyan-feed-stall",
+      "runtimeFile": "public/game/assets/locations/iyan/stall-counter.png",
+      "runtimeSHA256": "bcaf346b81284fdeb69b5d87f11d84495d4f0afb15dc4da25fcc9d69f8424176",
+      "canvasSize": [
+        46,
+        18
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        46,
+        17
+      ],
+      "provenance": "Original pixel art for the Pasirluyu chicken feed stall.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "iyan-stall-sign",
+      "ownerId": "iyan-feed-stall",
+      "runtimeFile": "public/game/assets/locations/iyan/stall-sign.png",
+      "runtimeSHA256": "7dabcc963aadcd703f9f55e77c049cb11ea87c4acf1ef916ed464a69e77c13c5",
+      "canvasSize": [
+        20,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        20,
+        10
+      ],
+      "provenance": "Original pixel art for the Pasirluyu chicken feed stall.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "iyan-stall-shutter",
+      "ownerId": "iyan-feed-stall",
+      "runtimeFile": "public/game/assets/locations/iyan/stall-shutter.png",
+      "runtimeSHA256": "f8c5ba15c69903a71c9e6370b22103ede67f92e0ee80d508220a7ec87736b20c",
+      "canvasSize": [
+        34,
+        25
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        34,
+        25
+      ],
+      "provenance": "Original pixel art for the Pasirluyu chicken feed stall.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
     }
   ]
 }

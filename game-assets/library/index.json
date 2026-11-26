@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4945,
-  "uniqueContents": 1499,
-  "totalBytes": 328765239,
+  "totalMedia": 4949,
+  "uniqueContents": 1503,
+  "totalBytes": 328766664,
   "categories": [
     {
       "id": "characters",
@@ -418,8 +418,8 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 148,
-      "bytes": 16650263,
+      "mediaCount": 152,
+      "bytes": 16651688,
       "sections": [
         {
           "id": "locations/inggit/kebun",
@@ -439,7 +439,7 @@
         },
         {
           "id": "locations/iyan",
-          "count": 1
+          "count": 5
         },
         {
           "id": "locations/poultry",

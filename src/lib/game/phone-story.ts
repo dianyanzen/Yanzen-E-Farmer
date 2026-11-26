@@ -2,7 +2,7 @@
  * Never invent completion dates, visited places, NPC memories or choices.
  * No state migration and no network call is required.
  */
-import {chapterJournal,NPCS,bondLevel,type GameState,type NpcId} from "./model";
+import {chapterJournal,NPCS,bondLevel,IYAN_MARKET,IYAN_QUEST_TITLE,iyanQuestObjective,poultryStock,type GameState,type NpcId} from "./model";
 import {questObjective,tales,followUpTales,followUpObjective} from "./personal-quests";
 
 export type ChronicleStatus="done"|"now"|"later";
@@ -44,7 +44,14 @@ export function phoneChronicle(s:GameState){
   return {id:npc.id+"-lanjutan",npcId:npc.id as NpcId,npc:npc.name,title:followUpTales[npc.id].title,
     status,step,objective:followUpObjective(s,npc.id)};
  });
- const missions=[...firstMissions,...followUps];
+ const poultryQuest=poultryStock(s).quest;
+ const iyanMission={
+  id:"iyan-eggs",npcId:IYAN_MARKET.id,npc:IYAN_MARKET.name,title:IYAN_QUEST_TITLE,
+  status:poultryQuest==="done"?"done":poultryQuest?"active":"available",
+  step:poultryQuest==="report"?"Siap dilaporkan":poultryQuest?"Sedang dikerjakan":"Belum dimulai",
+  objective:poultryQuest?iyanQuestObjective(poultryQuest):"Temui Iyan di lapak pakannya di tengah Pasar Warga.",
+ };
+ const missions=[...firstMissions,...followUps,iyanMission];
  const finishedMissions=missions.filter(q=>q.status==="done").length;
  const activeMissions=missions.filter(q=>q.status==="active").length;
  const connected=NPCS.filter(n=>s.bonds[n.id]?.talks>0);
