@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 138,
-  "bytes": 16382911,
+  "mediaCount": 146,
+  "bytes": 16649860,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -105,16 +105,22 @@
     {
       "id": "locations/yanzen/v2",
       "files": [
+        "public/game/assets/locations/yanzen/v2/home-bed-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-bed.png",
+        "public/game/assets/locations/yanzen/v2/home-cabinet-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-cabinet.png",
         "public/game/assets/locations/yanzen/v2/home-floor.svg",
         "public/game/assets/locations/yanzen/v2/home-mat.png",
+        "public/game/assets/locations/yanzen/v2/home-table-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-table.png",
         "public/game/assets/locations/yanzen/v2/home-wall.svg",
+        "public/game/assets/locations/yanzen/v2/home-window-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-window.png",
         "public/game/assets/locations/yanzen/v2/shed-floor.svg",
+        "public/game/assets/locations/yanzen/v2/shed-rack-runtime.png",
         "public/game/assets/locations/yanzen/v2/shed-rack.png",
         "public/game/assets/locations/yanzen/v2/shed-wall.svg",
+        "public/game/assets/locations/yanzen/v2/shed-workbench-runtime.png",
         "public/game/assets/locations/yanzen/v2/shed-workbench.png"
       ]
     },
@@ -123,9 +129,11 @@
       "files": [
         "public/game/assets/locations/yanzen/v3/faucet-closed.svg",
         "public/game/assets/locations/yanzen/v3/faucet-open.svg",
+        "public/game/assets/locations/yanzen/v3/home-lamp-runtime.png",
         "public/game/assets/locations/yanzen/v3/home-lamp.png",
         "public/game/assets/locations/yanzen/v3/home-plant.png",
         "public/game/assets/locations/yanzen/v3/shed-basket.png",
+        "public/game/assets/locations/yanzen/v3/shed-wall-shelf-runtime.png",
         "public/game/assets/locations/yanzen/v3/shed-wall-shelf.png"
       ]
     },
