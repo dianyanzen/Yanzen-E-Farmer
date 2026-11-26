@@ -18,6 +18,8 @@ export const outdoorSources: Record<string,string> = {
   "chicken-nest-eggs":"locations/poultry/nest-eggs.png",
   "iyan-market-sprite":"characters/iyan-market.png",
   "iyan-feed-sack":"locations/iyan/feed-sack.png",
+  "iyan-bran-sack":"locations/iyan/bran-sack.png",
+  "iyan-weighing-scale":"locations/iyan/weighing-scale.png",
   "iyan-stall":"locations/iyan/stall.png",
   "iyan-stall-counter":"locations/iyan/stall-counter.png",
   "iyan-stall-sign":"locations/iyan/stall-sign.png",
@@ -138,6 +140,8 @@ const props: Record<OutdoorLocation, Placement[]> = {
   pasar: [
     {asset:"iyan-stall",x:iyanStallX,y:iyanStallY-5,groundY:iyanStallY-12},
     {asset:"iyan-stall-shutter",x:iyanStallX,y:iyanStallY-8,groundY:iyanStallY-7},
+    {asset:"iyan-bran-sack",x:iyanStallX-13,y:iyanStallY-7,displayW:18,displayH:18,groundY:iyanStallY-5},
+    {asset:"iyan-weighing-scale",x:iyanStallX+12,y:iyanStallY-5,displayW:18,displayH:18,groundY:iyanStallY+1},
     {asset:"iyan-stall-counter",x:iyanStallX,y:iyanStallY},
     {asset:"iyan-stall-sign",x:iyanStallX,y:iyanStallY-39,groundY:iyanStallY},
     {asset:"iyan-feed-sack",x:iyanStallX-23,y:iyanStallY+1,displayW:13,displayH:15},
@@ -280,6 +284,7 @@ export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpe
     (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p);
   if(location==="pasar")return [...scenery.map(prop=>{
     if(prop.asset==="iyan-stall-shutter")return {...prop,visible:!iyanMarketOpen(minutes)};
+    if(prop.asset==="iyan-bran-sack" || prop.asset==="iyan-weighing-scale")return {...prop,visible:iyanMarketOpen(minutes)};
     if(prop.closedAsset && !marketCounterOpen(minutes,"A04"))return {...prop,asset:prop.closedAsset};
     return prop;
   }), {

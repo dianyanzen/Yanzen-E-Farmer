@@ -1,6 +1,7 @@
 "use client";
 
 import { IYAN_QUEST_TITLE, POULTRY, interactPoultry, iyanDialogue, poultryStock } from "@/lib/game/model";
+import { WARUNG_PRODUCT_ICONS } from "@/lib/game/merchant-product-assets";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
@@ -956,7 +957,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 const result=interactPoultry(game,"buy-feed");
                 if(result.state!==game){setGame(result.state);void persist(result.state);}
                 setDialogue({...dialogue,lines:[result.message]});
-              }}><span className="yzg-market-item-text"><strong>Beli {POULTRY.feedPack} porsi pakan · {formatGameRupiah(POULTRY.feedPrice)}</strong>
+              }}><img className="yzg-market-product-icon" src="/game/assets/market/iyan/pakan-ayam.png" alt="" aria-hidden="true"/><span className="yzg-market-item-text"><strong>Beli {POULTRY.feedPack} porsi pakan · {formatGameRupiah(POULTRY.feedPrice)}</strong>
                 <small>Stok di tas: {poultryStock(game).feed} porsi</small></span>
               </button>
             </div>
@@ -966,7 +967,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               const result=interactPoultry(game,"sell-eggs");
               if(result.state!==game){setGame(result.state);void persist(result.state);}
               setDialogue({...dialogue,lines:[result.message],choices:undefined,emotions:undefined});
-            }}>Jual {poultryStock(game).eggs} telur · {formatGameRupiah(POULTRY.eggPrice)}/butir</button>}
+            }} className="yzg-market-item yzg-market-egg-sale"><img className="yzg-market-product-icon" src="/game/assets/market/inggit/telur.png" alt="" aria-hidden="true"/><span className="yzg-market-item-text"><strong>Jual {poultryStock(game).eggs} telur</strong><small>{formatGameRupiah(POULTRY.eggPrice)}/butir</small></span></button>}
           {dialogue.npcId==="C08" && atWarungCounter(game) && (
             <details className="yzg-market">
               <summary><strong>Menu Warung Inggit</strong><small>Pesan untuk dinikmati di sini</small></summary>
@@ -974,7 +975,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 {(Object.entries(WARUNG_MENU) as [WarungItem,(typeof WARUNG_MENU)[WarungItem]][]).map(([id,item])=>
                   <button key={id} className="yzg-market-item" type="button" disabled={unavailable}
                     onClick={()=>orderAtWarung(id)}>
-                    <span className="yzg-market-item-text"><strong>{item.name}</strong><small>{formatGameRupiah(item.price)}</small></span>
+                    <img className="yzg-market-product-icon" src={WARUNG_PRODUCT_ICONS[id]} alt="" aria-hidden="true"/><span className="yzg-market-item-text"><strong>{item.name}</strong><small>{formatGameRupiah(item.price)}</small></span>
                   </button>
                 )}
               </div>

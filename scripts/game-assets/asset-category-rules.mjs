@@ -99,6 +99,7 @@ export const LEGACY_SECTIONS = {
 };
 export const PUBLIC_SECTIONS = {
   "characters": "characters",
+  "market": "commerce",
   "fish": "animals",
   "portraits": "portraits",
   "tiles": "world",
