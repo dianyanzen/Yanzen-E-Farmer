@@ -3,7 +3,7 @@
   "source": "game-assets/catalog/asset-database.json",
   "totalMedia": 4924,
   "uniqueContents": 1478,
-  "totalBytes": 328312468,
+  "totalBytes": 328312023,
   "categories": [
     {
       "id": "characters",
@@ -419,7 +419,7 @@
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
       "mediaCount": 138,
-      "bytes": 16383356,
+      "bytes": 16382911,
       "sections": [
         {
           "id": "locations/inggit/kebun",

@@ -110,7 +110,7 @@
       "assetId": "inggit-closed-sign",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/closed-sign.png",
-      "runtimeSHA256": "1d7bcd54dd959f708bf4766045693206a0e5488852c2334f5a71fe9266ab8a82",
+      "runtimeSHA256": "3409641e57013535e7f58fc90908e032133f2f8e5f91c361e3e979dd87e7af43",
       "canvasSize": [
         26,
         12
@@ -131,7 +131,7 @@
       "assetId": "inggit-coffee-table",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/coffee-table.png",
-      "runtimeSHA256": "b8b1d8e4f5b52dadbb1c1b5cfe0dfb408da15fe063b9869cb74e513fd2016db2",
+      "runtimeSHA256": "ef1361d8d0e4ffff2a3e0bc05c3a6aa96970063bbda6f737316ba99d27b088f2",
       "canvasSize": [
         29,
         24
@@ -194,7 +194,7 @@
       "assetId": "inggit-facade",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/facade.png",
-      "runtimeSHA256": "988e4a76d42499b53c14df369a78a97c1593d3abd9c31a3bff84dfbe2f0387f5",
+      "runtimeSHA256": "53670c94a8616d51b39f080442799d05210e69826fd4559df0633dea37860bc3",
       "canvasSize": [
         104,
         54
@@ -257,7 +257,7 @@
       "assetId": "inggit-north-bench",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/north-bench.png",
-      "runtimeSHA256": "e1fab9577f55365a16136c547194cdc98fbbcf331e9c26d97a39019342c614ce",
+      "runtimeSHA256": "f564eb9944a80414029d648673ee8e10c4cb7759c916aa6691d6fe5abacdb246",
       "canvasSize": [
         34,
         15
@@ -299,7 +299,7 @@
       "assetId": "inggit-roof",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/roof.png",
-      "runtimeSHA256": "15d579e75be314f4895c6a06afe63035792d86b02ff45df9c0644ed909970e78",
+      "runtimeSHA256": "0e8ef149f8168465487690b843ee0b91861de48df55f23b520c59874d5324f26",
       "canvasSize": [
         116,
         37
@@ -320,7 +320,7 @@
       "assetId": "inggit-service-counter",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/service-counter.png",
-      "runtimeSHA256": "13bc82ebbf234127a184d55d4fb8f0363eb227582f604f57e11b6a6272f5e1f5",
+      "runtimeSHA256": "832fabf642b88aa1481efe00fba72d0aa199555c3803dd722a93992b3adb421d",
       "canvasSize": [
         68,
         19
@@ -341,7 +341,7 @@
       "assetId": "inggit-sign",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/sign.png",
-      "runtimeSHA256": "d7fbc7c6815e9104280b64c504f2039fb7e930bf65c98e1d127afed33a2825a9",
+      "runtimeSHA256": "14b52b992384e91c1284016579105e3daece215e545df663b68550eca4b41191",
       "canvasSize": [
         26,
         12
@@ -362,7 +362,7 @@
       "assetId": "inggit-south-bench",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/south-bench.png",
-      "runtimeSHA256": "66bd972f77073d1f944fd4a9e30c1c6c59b58174ff5e41384863cb638a381d13",
+      "runtimeSHA256": "0a12806d66d4bf5a43c105fcb5c7c8fa77e42ed9b1d26930edf20fff32be6dee",
       "canvasSize": [
         34,
         15
@@ -446,7 +446,7 @@
       "assetId": "inggit-wall-shelf",
       "ownerId": "inggit-warkop",
       "runtimeFile": "public/game/assets/locations/inggit/sunda/wall-shelf.png",
-      "runtimeSHA256": "444f0d6cff5b049fefccb52a214cbd1951b6620d8d6d9b654a709c0bf02d0ac9",
+      "runtimeSHA256": "73f140f88cc16e30261c7286f6dc5c422ca841c20bd25345711c55b3a6634ccf",
       "canvasSize": [
         27,
         8
