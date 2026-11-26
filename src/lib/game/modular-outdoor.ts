@@ -95,7 +95,7 @@ const warkop: Placement[] = [
 ];
 
 const iyanStallX=(IYAN_MARKET.x+.5)*WORLD.tile;
-const iyanStallY=(IYAN_MARKET.y+1)*WORLD.tile;
+const iyanStallY=(IYAN_MARKET.stallY+1)*WORLD.tile;
 
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
@@ -137,7 +137,6 @@ const props: Record<OutdoorLocation, Placement[]> = {
   ],
   pasar: [
     {asset:"iyan-stall",x:iyanStallX,y:iyanStallY-5,groundY:iyanStallY-12},
-    {asset:"iyan-market-sprite",x:iyanStallX,y:iyanStallY-10,displayW:24,displayH:32},
     {asset:"iyan-stall-shutter",x:iyanStallX,y:iyanStallY-8,groundY:iyanStallY-7},
     {asset:"iyan-stall-counter",x:iyanStallX,y:iyanStallY},
     {asset:"iyan-stall-sign",x:iyanStallX,y:iyanStallY-39,groundY:iyanStallY},
@@ -279,12 +278,15 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
 export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false,eggsReady=false): Placement[] {
   const scenery = props[location].map(p => p.asset==="inggit-sign" &&
     (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p);
-  if(location==="pasar")return scenery.map(prop=>{
-    if(prop.asset==="iyan-market-sprite")return {...prop,visible:iyanMarketOpen(minutes)};
+  if(location==="pasar")return [...scenery.map(prop=>{
     if(prop.asset==="iyan-stall-shutter")return {...prop,visible:!iyanMarketOpen(minutes)};
     if(prop.closedAsset && !marketCounterOpen(minutes,"A04"))return {...prop,asset:prop.closedAsset};
     return prop;
-  });
+  }), {
+    asset:"iyan-market-sprite",x:(IYAN_MARKET.x+.5)*WORLD.tile,
+    y:(IYAN_MARKET.y+1)*WORLD.tile-2,displayW:24,displayH:32,
+    visible:iyanMarketOpen(minutes),groundY:(IYAN_MARKET.y+1)*WORLD.tile,
+  }];
   if(location!=="field")return scenery;
   const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
   const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;

@@ -882,7 +882,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     context.kind==="harvest"?"PANEN":context.kind==="farm"?
     (game.equippedTool==="water"?"SIRAM":"CANGKUL"):
     context.kind==="wait"?"INFO":context.kind==="quest-prop"?"PERIKSA":context.kind==="sleep"?"TIDUR":context.kind==="sit"?"DUDUK":
-    context.kind==="npc"?"BICARA":context.kind==="storage"?"GUDANG":
+    (context.kind==="npc"||context.kind==="poultry-shop")?"BICARA":context.kind==="storage"?"GUDANG":
     context.kind==="irrigate"?(game.irrigationOpen?"TUTUP":"BUKA"):context.kind==="sluice"?(game.sluiceOpen?"TUTUP":"BUKA"):context.kind==="door"?(isOutdoorLocation(game.location)?"MASUK":"KELUAR"):context.kind==="travel"?"JALAN":context.kind==="inspect"?"LIHAT":"AKSI";
   const unavailable = saveStatus === "loading" || saveStatus === "error";
 
@@ -949,13 +949,18 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               if(result.state!==game){setGame(result.state);void persist(result.state);}
               setDialogue({...dialogue,lines:[result.message]});
             }}>{poultryStock(game).quest==="report"?"Kabari Iyan soal telur":"Ambil misi · "+IYAN_QUEST_TITLE}</button>}
-          {dialogue.poultryShop && <button type="button" disabled={unavailable} onClick={()=>{
-            const result=interactPoultry(game,"buy-feed");
-            if(result.state!==game){setGame(result.state);void persist(result.state);}
-            setDialogue({...dialogue,lines:[result.message]});
-          }}><span className="yzg-market-item-text"><strong>Beli {POULTRY.feedPack} porsi pakan · {formatGameRupiah(POULTRY.feedPrice)}</strong>
-            <small>Stok pakan {poultryStock(game).feed} porsi</small></span>
-          </button>}
+          {dialogue.poultryShop && <details className="yzg-market" open>
+            <summary><strong>Lapak pakan Iyan</strong><small>Pakan dan kebutuhan ternak</small></summary>
+            <div className="yzg-market-grid">
+              <button className="yzg-market-item" type="button" disabled={unavailable} onClick={()=>{
+                const result=interactPoultry(game,"buy-feed");
+                if(result.state!==game){setGame(result.state);void persist(result.state);}
+                setDialogue({...dialogue,lines:[result.message]});
+              }}><span className="yzg-market-item-text"><strong>Beli {POULTRY.feedPack} porsi pakan · {formatGameRupiah(POULTRY.feedPrice)}</strong>
+                <small>Stok di tas: {poultryStock(game).feed} porsi</small></span>
+              </button>
+            </div>
+          </details>}
           {dialogue.npcId==="C08" && atWarungCounter(game) && poultryStock(game).eggs>0 &&
             <button type="button" disabled={unavailable} onClick={()=>{
               const result=interactPoultry(game,"sell-eggs");
