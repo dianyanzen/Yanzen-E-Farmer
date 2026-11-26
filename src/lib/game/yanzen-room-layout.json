@@ -1,0 +1,599 @@
+{
+  "bounds": {
+    "minX": 8,
+    "maxX": 16,
+    "minY": 6,
+    "maxY": 13
+  },
+  "home": [
+    {
+      "key": "homeWall",
+      "x": 160,
+      "y": 92,
+      "width": 180,
+      "height": 28,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeLeftWall",
+      "x": 150,
+      "y": 92,
+      "width": 10,
+      "height": 198,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeRightWall",
+      "x": 340,
+      "y": 92,
+      "width": 10,
+      "height": 198,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeLamp",
+      "x": 181,
+      "y": 94,
+      "width": 20,
+      "height": 18.33,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeWindow",
+      "x": 230,
+      "y": 96,
+      "width": 36,
+      "height": 24,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeHillsideFrame",
+      "x": 277,
+      "y": 98,
+      "width": 22,
+      "height": 19,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "homeWindowLight",
+      "x": 236,
+      "y": 120,
+      "width": 66,
+      "height": 65,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "day"
+    },
+    {
+      "key": "homeLampLight",
+      "x": 150,
+      "y": 120,
+      "width": 82,
+      "height": 61,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "night"
+    },
+    {
+      "key": "homeMat",
+      "x": 215,
+      "y": 188,
+      "width": 64,
+      "height": 40,
+      "depth": 2,
+      "layer": "floor",
+      "tiles": []
+    },
+    {
+      "key": "homeDoormat",
+      "x": 233,
+      "y": 267,
+      "width": 34,
+      "height": 11,
+      "depth": 2,
+      "layer": "floor",
+      "tiles": []
+    },
+    {
+      "key": "homeCabinet",
+      "x": 300,
+      "y": 102,
+      "width": 40,
+      "height": 60,
+      "depth": 162,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          6
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          15,
+          7
+        ],
+        [
+          16,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "homeBed",
+      "x": 176,
+      "y": 96,
+      "width": 36,
+      "height": 72,
+      "depth": 168,
+      "layer": "furniture",
+      "tiles": [
+        [
+          9,
+          6
+        ],
+        [
+          9,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "homeTable",
+      "x": 292,
+      "y": 179,
+      "width": 48,
+      "height": 32,
+      "depth": 211,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          10
+        ],
+        [
+          16,
+          10
+        ]
+      ]
+    },
+    {
+      "key": "homeJournal",
+      "x": 306,
+      "y": 185,
+      "width": 20,
+      "height": 10,
+      "depth": 212,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "homeBench",
+      "x": 300,
+      "y": 217,
+      "width": 34,
+      "height": 16,
+      "depth": 233,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          11
+        ],
+        [
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "key": "homeShelf",
+      "x": 160,
+      "y": 213,
+      "width": 22,
+      "height": 24,
+      "depth": 237,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "key": "homePlant",
+      "x": 310,
+      "y": 227,
+      "width": 30,
+      "height": 31,
+      "depth": 258,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "homeFrontWall",
+      "x": 150,
+      "y": 278,
+      "width": 200,
+      "height": 12,
+      "depth": 290,
+      "layer": "foreground",
+      "tiles": []
+    }
+  ],
+  "shed": [
+    {
+      "key": "shedWall",
+      "x": 160,
+      "y": 102,
+      "width": 180,
+      "height": 18,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedLeftWall",
+      "x": 150,
+      "y": 102,
+      "width": 10,
+      "height": 188,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedRightWall",
+      "x": 340,
+      "y": 102,
+      "width": 10,
+      "height": 188,
+      "depth": 0,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedWallShelf",
+      "x": 261,
+      "y": 106,
+      "width": 40,
+      "height": 13.33,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedVent",
+      "x": 311,
+      "y": 103,
+      "width": 23,
+      "height": 16,
+      "depth": 1,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedRope",
+      "x": 242,
+      "y": 103,
+      "width": 13,
+      "height": 17,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedClayJar",
+      "x": 274,
+      "y": 100,
+      "width": 10,
+      "height": 13,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedLantern",
+      "x": 162,
+      "y": 116,
+      "width": 10,
+      "height": 16,
+      "depth": 2,
+      "layer": "architecture",
+      "tiles": []
+    },
+    {
+      "key": "shedWindowLight",
+      "x": 300,
+      "y": 120,
+      "width": 40,
+      "height": 50,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "day"
+    },
+    {
+      "key": "shedLampLight",
+      "x": 160,
+      "y": 120,
+      "width": 69,
+      "height": 53,
+      "depth": 1,
+      "layer": "floor",
+      "tiles": [],
+      "phase": "night"
+    },
+    {
+      "key": "shedDoormat",
+      "x": 233,
+      "y": 267,
+      "width": 34,
+      "height": 11,
+      "depth": 2,
+      "layer": "floor",
+      "tiles": []
+    },
+    {
+      "key": "shedWorkbench",
+      "x": 292,
+      "y": 126,
+      "width": 48,
+      "height": 32,
+      "depth": 158,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          6
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          15,
+          7
+        ],
+        [
+          16,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "shedToolbox",
+      "x": 300,
+      "y": 126,
+      "width": 15,
+      "height": 9,
+      "depth": 159,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedWateringCan",
+      "x": 322,
+      "y": 123,
+      "width": 13,
+      "height": 14,
+      "depth": 159,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedTwineBundle",
+      "x": 309,
+      "y": 122,
+      "width": 18,
+      "height": 15,
+      "depth": 160,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedRack",
+      "x": 178,
+      "y": 109,
+      "width": 52,
+      "height": 48,
+      "depth": 157,
+      "layer": "furniture",
+      "tiles": [
+        [
+          9,
+          6
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          10,
+          7
+        ]
+      ]
+    },
+    {
+      "key": "shedHoe",
+      "x": 185,
+      "y": 121,
+      "width": 8,
+      "height": 25,
+      "depth": 158,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedSickle",
+      "x": 198,
+      "y": 123,
+      "width": 10,
+      "height": 22,
+      "depth": 158,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedShovel",
+      "x": 211,
+      "y": 121,
+      "width": 7,
+      "height": 25,
+      "depth": 158,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedSeedSack",
+      "x": 160,
+      "y": 173,
+      "width": 20,
+      "height": 23,
+      "depth": 196,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "key": "shedSupplyCubby",
+      "x": 314,
+      "y": 153,
+      "width": 26,
+      "height": 43,
+      "depth": 196,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          9
+        ]
+      ]
+    },
+    {
+      "key": "shedFertilizerBase",
+      "x": 160,
+      "y": 198,
+      "width": 19,
+      "height": 17,
+      "depth": 215,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "key": "shedFertilizerTop",
+      "x": 162,
+      "y": 190,
+      "width": 16,
+      "height": 16,
+      "depth": 216,
+      "layer": "furniture",
+      "tiles": []
+    },
+    {
+      "key": "shedRake",
+      "x": 323,
+      "y": 189,
+      "width": 17,
+      "height": 43,
+      "depth": 232,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          11
+        ]
+      ]
+    },
+    {
+      "key": "shedBasket",
+      "x": 292,
+      "y": 237,
+      "width": 25,
+      "height": 16,
+      "depth": 253,
+      "layer": "furniture",
+      "tiles": [
+        [
+          15,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "shedHarvestCrate",
+      "x": 160,
+      "y": 236,
+      "width": 24,
+      "height": 23,
+      "depth": 259,
+      "layer": "furniture",
+      "tiles": [
+        [
+          8,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "shedBucket",
+      "x": 320,
+      "y": 233,
+      "width": 20,
+      "height": 26,
+      "depth": 259,
+      "layer": "furniture",
+      "tiles": [
+        [
+          16,
+          12
+        ]
+      ]
+    },
+    {
+      "key": "shedFrontWall",
+      "x": 150,
+      "y": 278,
+      "width": 200,
+      "height": 12,
+      "depth": 290,
+      "layer": "foreground",
+      "tiles": []
+    }
+  ]
+}

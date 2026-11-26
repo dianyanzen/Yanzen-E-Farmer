@@ -3,10 +3,102 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 25,
-  "bytes": 13500867,
+  "mediaCount": 152,
+  "bytes": 16651688,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
+    {
+      "id": "locations/inggit/kebun",
+      "files": [
+        "public/game/assets/locations/inggit/kebun/awning.png",
+        "public/game/assets/locations/inggit/kebun/counter.png",
+        "public/game/assets/locations/inggit/kebun/door.png",
+        "public/game/assets/locations/inggit/kebun/facade.png",
+        "public/game/assets/locations/inggit/kebun/roof.png",
+        "public/game/assets/locations/inggit/kebun/sign.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/pasar",
+      "files": [
+        "public/game/assets/locations/inggit/pasar/awning.png",
+        "public/game/assets/locations/inggit/pasar/counter.png",
+        "public/game/assets/locations/inggit/pasar/door.png",
+        "public/game/assets/locations/inggit/pasar/facade.png",
+        "public/game/assets/locations/inggit/pasar/roof.png",
+        "public/game/assets/locations/inggit/pasar/sign.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/sunda",
+      "files": [
+        "public/game/assets/locations/inggit/sunda/bamboo-basket.png",
+        "public/game/assets/locations/inggit/sunda/closed-sign.png",
+        "public/game/assets/locations/inggit/sunda/coffee-jar.png",
+        "public/game/assets/locations/inggit/sunda/coffee-table.png",
+        "public/game/assets/locations/inggit/sunda/counter-apron.png",
+        "public/game/assets/locations/inggit/sunda/enamel-kettle.png",
+        "public/game/assets/locations/inggit/sunda/facade.png",
+        "public/game/assets/locations/inggit/sunda/fern.png",
+        "public/game/assets/locations/inggit/sunda/hanging-cloth.png",
+        "public/game/assets/locations/inggit/sunda/jasmine-pot.png",
+        "public/game/assets/locations/inggit/sunda/north-bench.png",
+        "public/game/assets/locations/inggit/sunda/river-stones.png",
+        "public/game/assets/locations/inggit/sunda/roof.png",
+        "public/game/assets/locations/inggit/sunda/service-counter.png",
+        "public/game/assets/locations/inggit/sunda/side-apron.png",
+        "public/game/assets/locations/inggit/sunda/side-door.png",
+        "public/game/assets/locations/inggit/sunda/sign.png",
+        "public/game/assets/locations/inggit/sunda/south-bench.png",
+        "public/game/assets/locations/inggit/sunda/tea-jar.png",
+        "public/game/assets/locations/inggit/sunda/wall-shelf.png"
+      ]
+    },
+    {
+      "id": "locations/inggit/warkop",
+      "files": [
+        "public/game/assets/locations/inggit/warkop/closed-sign.png",
+        "public/game/assets/locations/inggit/warkop/coffee-table.png",
+        "public/game/assets/locations/inggit/warkop/east-bench.png",
+        "public/game/assets/locations/inggit/warkop/enamel-kettle.png",
+        "public/game/assets/locations/inggit/warkop/open-front.png",
+        "public/game/assets/locations/inggit/warkop/ryan-coffee-empty.png",
+        "public/game/assets/locations/inggit/warkop/ryan-coffee-full.png",
+        "public/game/assets/locations/inggit/warkop/service-counter.png",
+        "public/game/assets/locations/inggit/warkop/west-bench.png",
+        "public/game/assets/locations/inggit/warkop/widi-coffee-empty.png",
+        "public/game/assets/locations/inggit/warkop/widi-coffee-full.png"
+      ]
+    },
+    {
+      "id": "locations/iyan",
+      "files": [
+        "public/game/assets/locations/iyan/feed-sack.png",
+        "public/game/assets/locations/iyan/stall-counter.png",
+        "public/game/assets/locations/iyan/stall-shutter.png",
+        "public/game/assets/locations/iyan/stall-sign.png",
+        "public/game/assets/locations/iyan/stall.png"
+      ]
+    },
+    {
+      "id": "locations/poultry",
+      "files": [
+        "public/game/assets/locations/poultry/nest-eggs.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/exterior",
+      "files": [
+        "public/game/assets/locations/yanzen/exterior/home-east-window.png",
+        "public/game/assets/locations/yanzen/exterior/home-facade.png",
+        "public/game/assets/locations/yanzen/exterior/home-front-door.png",
+        "public/game/assets/locations/yanzen/exterior/home-roof.png",
+        "public/game/assets/locations/yanzen/exterior/home-west-window.png",
+        "public/game/assets/locations/yanzen/exterior/shed-entry-shadow.png",
+        "public/game/assets/locations/yanzen/exterior/shed-facade.png",
+        "public/game/assets/locations/yanzen/exterior/shed-roof.png"
+      ]
+    },
     {
       "id": "locations/yanzen/home",
       "files": [
@@ -29,17 +121,112 @@
     {
       "id": "locations/yanzen/v2",
       "files": [
+        "public/game/assets/locations/yanzen/v2/home-bed-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-bed.png",
+        "public/game/assets/locations/yanzen/v2/home-cabinet-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-cabinet.png",
         "public/game/assets/locations/yanzen/v2/home-floor.svg",
         "public/game/assets/locations/yanzen/v2/home-mat.png",
+        "public/game/assets/locations/yanzen/v2/home-table-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-table.png",
         "public/game/assets/locations/yanzen/v2/home-wall.svg",
+        "public/game/assets/locations/yanzen/v2/home-window-runtime.png",
         "public/game/assets/locations/yanzen/v2/home-window.png",
         "public/game/assets/locations/yanzen/v2/shed-floor.svg",
+        "public/game/assets/locations/yanzen/v2/shed-rack-runtime.png",
         "public/game/assets/locations/yanzen/v2/shed-rack.png",
         "public/game/assets/locations/yanzen/v2/shed-wall.svg",
+        "public/game/assets/locations/yanzen/v2/shed-workbench-runtime.png",
         "public/game/assets/locations/yanzen/v2/shed-workbench.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v3",
+      "files": [
+        "public/game/assets/locations/yanzen/v3/faucet-closed.svg",
+        "public/game/assets/locations/yanzen/v3/faucet-open.svg",
+        "public/game/assets/locations/yanzen/v3/home-lamp-runtime.png",
+        "public/game/assets/locations/yanzen/v3/home-lamp.png",
+        "public/game/assets/locations/yanzen/v3/home-plant.png",
+        "public/game/assets/locations/yanzen/v3/shed-basket.png",
+        "public/game/assets/locations/yanzen/v3/shed-wall-shelf-runtime.png",
+        "public/game/assets/locations/yanzen/v3/shed-wall-shelf.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v5",
+      "files": [
+        "public/game/assets/locations/yanzen/v5/back-wall.svg",
+        "public/game/assets/locations/yanzen/v5/bench.svg",
+        "public/game/assets/locations/yanzen/v5/door-mat.svg",
+        "public/game/assets/locations/yanzen/v5/floor.svg",
+        "public/game/assets/locations/yanzen/v5/front-wall.svg",
+        "public/game/assets/locations/yanzen/v5/left-wall.svg",
+        "public/game/assets/locations/yanzen/v5/right-wall.svg",
+        "public/game/assets/locations/yanzen/v5/storage-shelf.svg",
+        "public/game/assets/locations/yanzen/v5/woven-rug.svg"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v6",
+      "files": [
+        "public/game/assets/locations/yanzen/v6/bucket.svg",
+        "public/game/assets/locations/yanzen/v6/fertilizer-sack.svg",
+        "public/game/assets/locations/yanzen/v6/harvest-crate.svg",
+        "public/game/assets/locations/yanzen/v6/hoe.svg",
+        "public/game/assets/locations/yanzen/v6/rope-coil.svg",
+        "public/game/assets/locations/yanzen/v6/seed-sack.svg",
+        "public/game/assets/locations/yanzen/v6/shelf-jar.svg",
+        "public/game/assets/locations/yanzen/v6/shovel.svg",
+        "public/game/assets/locations/yanzen/v6/sickle.svg",
+        "public/game/assets/locations/yanzen/v6/toolbox.svg",
+        "public/game/assets/locations/yanzen/v6/wall-lantern.svg",
+        "public/game/assets/locations/yanzen/v6/watering-can.svg"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v7",
+      "files": [
+        "public/game/assets/locations/yanzen/v7/home-back-wall.png",
+        "public/game/assets/locations/yanzen/v7/home-entry-mat.png",
+        "public/game/assets/locations/yanzen/v7/home-farm-journal.png",
+        "public/game/assets/locations/yanzen/v7/home-floor.png",
+        "public/game/assets/locations/yanzen/v7/home-front-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-hillside-frame.png",
+        "public/game/assets/locations/yanzen/v7/home-lamp-light.png",
+        "public/game/assets/locations/yanzen/v7/home-left-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-low-shelf.png",
+        "public/game/assets/locations/yanzen/v7/home-right-trim.png",
+        "public/game/assets/locations/yanzen/v7/home-teak-bench.png",
+        "public/game/assets/locations/yanzen/v7/home-window-light.png",
+        "public/game/assets/locations/yanzen/v7/home-woven-rug.png",
+        "public/game/assets/locations/yanzen/v7/shed-back-wall.png",
+        "public/game/assets/locations/yanzen/v7/shed-clay-jar.png",
+        "public/game/assets/locations/yanzen/v7/shed-entry-mat.png",
+        "public/game/assets/locations/yanzen/v7/shed-floor.png",
+        "public/game/assets/locations/yanzen/v7/shed-front-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-harvest-crate.png",
+        "public/game/assets/locations/yanzen/v7/shed-lantern-light.png",
+        "public/game/assets/locations/yanzen/v7/shed-left-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-right-trim.png",
+        "public/game/assets/locations/yanzen/v7/shed-seed-sacks.png",
+        "public/game/assets/locations/yanzen/v7/shed-supply-cubby.png",
+        "public/game/assets/locations/yanzen/v7/shed-vent-light.png",
+        "public/game/assets/locations/yanzen/v7/shed-vent.png",
+        "public/game/assets/locations/yanzen/v7/shed-water-barrel.png",
+        "public/game/assets/locations/yanzen/v7/shed-woven-basket.png"
+      ]
+    },
+    {
+      "id": "locations/yanzen/v8",
+      "files": [
+        "public/game/assets/locations/yanzen/v8/home-entry-mat.png",
+        "public/game/assets/locations/yanzen/v8/home-potted-plant.png",
+        "public/game/assets/locations/yanzen/v8/shed-entry-mat.png",
+        "public/game/assets/locations/yanzen/v8/shed-fertilizer-base.png",
+        "public/game/assets/locations/yanzen/v8/shed-fertilizer-top.png",
+        "public/game/assets/locations/yanzen/v8/shed-rake.png",
+        "public/game/assets/locations/yanzen/v8/shed-twine-bundle.png"
       ]
     },
     {

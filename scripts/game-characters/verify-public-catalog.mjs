@@ -21,7 +21,7 @@ assert.equal(index.characterCount,248);
 assert.equal(index.characters.length,248);
 const digest=createHash('sha256').update(rows.slice().sort((a,b)=>a.id.localeCompare(b.id,'en'))
  .map(({id,name,occupation,portrait})=>[id,name,occupation,portrait].join('|')+'\n').join('')).digest('hex');
-assert.equal(digest,'24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e');
+assert.equal(digest,'f914d9658d8328f36a414944fd94a8aaea1b3436f7091defafebea6ce967754c');
 assert.equal(index.rosterFingerprintSha256,digest);
 const ids=new Set(),names=new Set(),portraits=new Set();
 for(const r of rows){
@@ -77,7 +77,7 @@ for(const r of rows){
  }
  assert.equal(doc.sections['08_relationship_dynamics'].connections.length,0);
  const s=doc.sections['12_continuity_current_state'];
- assert.equal(s.playableRuntimeConfirmed,false);
+ assert.equal(s.playableRuntimeConfirmed,r.id==="W026");
  assert.equal(s.questIntegrationConfirmed,false);
  assert.equal(s.legacyAssociationApproved,false);
  assert.equal(doc.sections['11_visual_references'].portraitKey,r.portrait);

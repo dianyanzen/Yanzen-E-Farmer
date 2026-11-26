@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4684,
-  "uniqueContents": 1239,
-  "totalBytes": 325348701,
+  "totalMedia": 4949,
+  "uniqueContents": 1503,
+  "totalBytes": 328766664,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
-      "mediaCount": 680,
-      "bytes": 155028047,
+      "mediaCount": 808,
+      "bytes": 155109759,
       "sections": [
         {
           "id": "aset/avatar",
@@ -42,7 +42,11 @@
         },
         {
           "id": "characters",
-          "count": 4
+          "count": 5
+        },
+        {
+          "id": "characters/activities",
+          "count": 127
         },
         {
           "id": "explore-bandung/avatar",
@@ -126,8 +130,8 @@
       "id": "portraits",
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-      "mediaCount": 468,
-      "bytes": 54071242,
+      "mediaCount": 469,
+      "bytes": 54181653,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
@@ -151,7 +155,7 @@
         },
         {
           "id": "portraits",
-          "count": 32
+          "count": 33
         },
         {
           "id": "portraits/bandung/civic",
@@ -273,8 +277,8 @@
       "id": "world",
       "label": "Peta, tile dan wilayah",
       "description": "Peta Pasirluyu, Kota Bandung, kelurahan, lingkungan",
-      "mediaCount": 1299,
-      "bytes": 22391514,
+      "mediaCount": 1308,
+      "bytes": 22466533,
       "sections": [
         {
           "id": "aset/peta",
@@ -342,7 +346,7 @@
         },
         {
           "id": "tiles/farm-kit/kebun",
-          "count": 14
+          "count": 23
         },
         {
           "id": "tiles/farm-kit/kebun-luas",
@@ -414,9 +418,37 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 25,
-      "bytes": 13500867,
+      "mediaCount": 152,
+      "bytes": 16651688,
       "sections": [
+        {
+          "id": "locations/inggit/kebun",
+          "count": 6
+        },
+        {
+          "id": "locations/inggit/pasar",
+          "count": 6
+        },
+        {
+          "id": "locations/inggit/sunda",
+          "count": 20
+        },
+        {
+          "id": "locations/inggit/warkop",
+          "count": 11
+        },
+        {
+          "id": "locations/iyan",
+          "count": 5
+        },
+        {
+          "id": "locations/poultry",
+          "count": 1
+        },
+        {
+          "id": "locations/yanzen/exterior",
+          "count": 8
+        },
         {
           "id": "locations/yanzen/home",
           "count": 5
@@ -427,7 +459,27 @@
         },
         {
           "id": "locations/yanzen/v2",
-          "count": 11
+          "count": 17
+        },
+        {
+          "id": "locations/yanzen/v3",
+          "count": 8
+        },
+        {
+          "id": "locations/yanzen/v5",
+          "count": 9
+        },
+        {
+          "id": "locations/yanzen/v6",
+          "count": 12
+        },
+        {
+          "id": "locations/yanzen/v7",
+          "count": 28
+        },
+        {
+          "id": "locations/yanzen/v8",
+          "count": 7
         },
         {
           "id": "residences",

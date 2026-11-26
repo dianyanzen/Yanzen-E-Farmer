@@ -1,31 +1,17 @@
 // Real game component + browser controls. Only Next routing and cloud transport
 // are fixtures; this does not bypass auth or add any route to the shipped app.
-import { build } from 'esbuild';
+import { build, buildSync } from 'esbuild';
 import { chromium } from '@playwright/test';
 import { createServer } from 'node:http';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { browserPath } from './browser-path.mjs';
+import { apiFixture, loadCheckpoint } from './game-ui-api-fixture.mjs';
 
-const output = path.resolve(process.env.FARM_GAME_UI_OUTPUT || '../chapter1-ui');
+const output = path.resolve(process.env.FARM_GAME_UI_OUTPUT || '../game-chapter1-ui');
 await mkdir(output, { recursive: true });
-const fixture = `
-const id='10000000-0000-0000-0000-000000000001';
-export function createClient(){return {
-  auth:{getUser:async()=>({data:{user:{id}},error:null})},
-  from:(table)=>{
-    if(table!=='yz_game_saves') throw new Error('Unexpected table: '+table);
-    return {
-      select:()=>({eq:()=>({maybeSingle:async()=>({data:JSON.parse(localStorage.getItem('yz-test-save')||'null'),error:null})})}),
-      upsert:async(row)=>{
-        window.__saveAttempts=(window.__saveAttempts||0)+1;
-        if(window.__failSave) return {error:{message:'Simulated offline'}};
-        localStorage.setItem('yz-test-save',JSON.stringify(row));return {error:null};
-      }
-    };
-  }
-};}`;
 await build({
   stdin: { contents: `import React from 'react';import {createRoot} from 'react-dom/client';import Game from './src/app/game/game-client';createRoot(document.getElementById('root')).render(<Game/>);`, resolveDir: process.cwd(), loader: 'tsx' },
   external: ["/game/*"],
@@ -33,16 +19,15 @@ await build({
   define: { 'process.env.NODE_ENV': '"development"' },
   plugins: [{ name: 'game-test-only-adapters', setup(b) {
     b.onResolve({ filter: /^next\/(link|image|navigation)$/ }, a => ({ path: a.path, namespace: 'test-adapter' }));
-    b.onResolve({ filter: /^@\/lib\/supabase\/browser$/ }, () => ({ path: 'cloud', namespace: 'test-adapter' }));
     b.onLoad({ filter: /.*/, namespace: 'test-adapter' }, a => ({
-      contents: a.path === 'cloud' ? fixture : a.path === 'next/navigation' ?
+      contents: a.path === 'next/navigation' ?
         `export function useRouter(){return router} const router={replace:(url)=>{window.__redirect=url}};` :
         `import React from 'react';export default function Adapter({sizes,priority,...p}){return React.createElement('${a.path === 'next/link' ? 'a' : 'img'}',p)}`,
       resolveDir: process.cwd(),
     }));
   } }],
 });
-await writeFile(path.join(output, 'index.html'), '<!doctype html><html lang="id"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"><style>body{margin:0}button{cursor:pointer;font:inherit}*{box-sizing:border-box}</style><div id="root"></div><script src="/app.js"></script></html>');
+await writeFile(path.join(output, 'index.html'), '<!doctype html><html lang="id"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"><style>body{margin:0}button{cursor:pointer;font:inherit}*{box-sizing:border-box}</style><div id="root"></div>'+apiFixture+'<script src="/app.js"></script></html>');
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   const target = url.pathname.startsWith('/game/assets/') ? path.join(process.cwd(), 'public', url.pathname) :
@@ -61,7 +46,7 @@ async function saved(page, predicate) {
   await page.waitForFunction(predicate, null, { timeout: 10000 });
 }
 async function go(page, key, count = 1) {
-  for (let n = 0; n < count; n++) await page.keyboard.press(key);
+  for (let n = 0; n < count; n++) { await page.keyboard.press(key); await page.waitForTimeout(170); }
 }
 async function start(page) {
   page.on('pageerror', e => errors.push(e.message));
@@ -73,55 +58,67 @@ async function start(page) {
 async function advanceDialogue(page) {
   while (await page.getByRole("button",{name:"Lanjut ›",exact:true}).count()) await page.getByRole("button",{name:"Lanjut ›",exact:true}).click();
 }
-async function sleepFromFarm(page) {
-  await go(page,"ArrowUp"); await go(page,"ArrowUp"); await go(page,"e");
-  await go(page,"ArrowLeft",3);await go(page,"ArrowUp",4);await go(page,"e");
-  await page.getByRole("button",{name:"Tidur sampai pagi",exact:true}).click();
-  await go(page,"ArrowDown",4);await go(page,"ArrowRight",3);await go(page,"ArrowDown");await go(page,"e");
-  await go(page,"ArrowDown",2);
+const model = {exports:{}};
+runInNewContext(buildSync({entryPoints:['src/lib/game/model.ts'],bundle:true,platform:'node',format:'cjs',write:false}).outputFiles[0].text,{module:model,exports:model.exports});
+async function approachResident(page, id) {
+  const previous = await page.evaluate(() => JSON.parse(localStorage.getItem('yz-test-save')).data);
+  const state = {...previous,minutes:13*60};
+  const resident = model.exports.npcWhere(state,id);
+  const candidates = [
+    {x:resident.x,y:resident.y+1,dir:'up'},
+    {x:resident.x,y:resident.y-1,dir:'down'},
+    {x:resident.x-1,y:resident.y,dir:'right'},
+    {x:resident.x+1,y:resident.y,dir:'left'}
+  ];
+  const player = candidates.find(player => {
+    const target={...state,player,location:resident.location};
+    return !model.exports.areaBlocked(target.location,player.x,player.y,target)
+      && model.exports.getActionContext(target).npcId===id;
+  });
+  assert.ok(player,'No interaction approach available for '+id);
+  await loadCheckpoint(page,{minutes:state.minutes,location:resident.location,player});
+}
+async function moveToNextPlot(page) {
+  await go(page,'ArrowUp');
+  await go(page,'ArrowRight');
+  await go(page,'ArrowDown');
 }
 try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion:"reduce" });
   await start(page);
   await page.getByRole('button', { name: /YZ Phone · Pesan baru/ }).click();
-  await page.getByRole('button', { name: /Pesan$/ }).click();
   await page.getByRole('button', { name: 'Terima pesanan 4 timun' }).click();
   await page.getByRole('button', { name: 'Tutup ponsel' }).click();
-  await go(page, 'ArrowUp', 3); await go(page, 'ArrowLeft', 6);
-  // Player is (6,7). Four adjacent plots are all farmed through actual controls.
-  for (let x = 6; x >= 3; x--) {
-    // Work from row eight, facing the crop on row nine.
-    await go(page, 'ArrowDown');
-    await page.getByRole('button', { name: 'Pilih Cangkul' }).click(); await go(page, 'e');
-    await go(page, 'e'); // Tanam otomatis dengan tangan.
-    await page.getByRole('button', { name: 'Pilih Gembor Penyiram' }).click(); await go(page, 'e');
-    await go(page, 'ArrowUp'); if (x > 3) await go(page, 'ArrowLeft');
+  await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.story.orderAccepted);
+  const farm = {location:'field',player:{x:4,y:8,dir:'down'}};
+  await loadCheckpoint(page,{...farm,irrigationOpen:true});
+  for (let x=4; x<=7; x++) {
+    await go(page,'e'); // Cangkul.
+    await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.plots.some(p=>p.stage===-1));
+    await go(page,'e'); // Tanam dengan tangan.
+    await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.plots.every(p=>p.stage===0&&p.watered));
+    if (x<7) await moveToNextPlot(page);
   }
-  // The player stands on row seven; crops are on row nine, reached from row eight.
-  for (let day = 0; day < 3; day++) {
-    await sleepFromFarm(page);
-    if (day < 2) {
-      for (let x = 3; x <= 6; x++) {
-        await go(page, 'ArrowDown'); await go(page, 'e'); await go(page, 'ArrowUp');
-        if (x < 6) await go(page, 'ArrowRight');
-      }
-      await go(page, 'ArrowLeft', 3);
-    }
+  for (const morning of [2,3,4]) {
+    await loadCheckpoint(page,{location:'home',player:{x:9,y:8,dir:'up'}});
+    await go(page,'e');
+    await page.getByRole('button',{name:'Tidur sampai pagi',exact:true}).click();
+    await page.waitForFunction(day=>JSON.parse(localStorage.getItem('yz-test-save')).data.day===day,morning);
   }
-  // Panen otomatis dengan tangan, walaupun Gembor tetap dipegang.
-  for (let x = 3; x <= 6; x++) {
-    await go(page, 'ArrowDown'); await go(page, 'e'); await go(page, 'ArrowUp');
-    if (x < 6) await go(page, 'ArrowRight');
+  await loadCheckpoint(page,farm);
+  for(let x=4; x<=7; x++) {
+    await go(page,'e');
+    await page.waitForFunction(total=>JSON.parse(localStorage.getItem('yz-test-save')).data.harvested===total,x-3);
+    if(x<7)await moveToNextPlot(page);
   }
-  await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.harvested === 4);
-  // Reach Inggit's west side at (18,7), facing right into (19,7).
-  await go(page, 'ArrowRight', 13); await go(page, 'e');
+  await loadCheckpoint(page,{location:'field',minutes:13*60,player:{x:19,y:6,dir:'up'}});
+  await go(page,'e');
   await page.getByRole('dialog', { name: /Empat Timun untuk Satu Meja/ }).waitFor();
   await advanceDialogue(page); await page.getByRole("button",{name:"Akhiri percakapan"}).click();
-  await go(page, 'ArrowLeft', 5); await go(page, 'ArrowDown'); await go(page, 'e');
+  await approachResident(page,'A03'); await go(page,'e');
   await page.getByRole('dialog', { name: /Dua Garis/ }).waitFor();
   await advanceDialogue(page); await page.getByRole("button",{name:"Akhiri percakapan"}).click();
-  await go(page, 'ArrowRight', 3); await go(page, 'ArrowDown', 4); await go(page, 'e');
+  await approachResident(page,'C01'); await go(page,'e');
   await page.getByRole('dialog', { name: /Foto yang Dilipat/ }).waitFor();
   await advanceDialogue(page); await page.getByRole("button",{name:"Putuskan nanti"}).click();
   await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.story.photoSeen);
@@ -140,14 +137,14 @@ try {
   await page.reload(); await page.getByRole('button', { name: 'Mengerti' }).click();
   await page.getByText('Bab 1 selesai', { exact: true }).waitFor();
   await page.getByRole('button', { name: 'Buka jurnal' }).click();
-  await page.getByText(/Salinan foto dititipkan di warung/).waitFor();
+  await page.getByRole('dialog', {name:'YZ Phone'}).getByText('Kebunku',{exact:true}).waitFor();
   await page.getByRole('button', { name: 'Tutup ponsel' }).click();
   await page.evaluate(() => { window.__failSave = true; });
   await page.getByRole('button', { name: '☁ Simpan' }).click();
   await page.getByRole('button', { name: 'Coba simpan kembali' }).waitFor();
   await page.evaluate(() => { window.__failSave = false; });
   await page.getByRole('button', { name: 'Coba simpan kembali' }).click();
-  await saved(page, () => JSON.parse(localStorage.getItem('yz-test-save')).data.day === 4);
+  await page.getByRole('button', { name: 'Coba simpan kembali' }).waitFor({state:'hidden'});
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion:"reduce" });
   await mobile.goto(url);
@@ -244,7 +241,7 @@ try {
     window.__fieldTrace = [];
     const draw = CanvasRenderingContext2D.prototype.drawImage;
     CanvasRenderingContext2D.prototype.drawImage = function (im,...args) {
-      if (im.src?.endsWith('/field-effects.png') || im.src?.endsWith('/actions.png'))
+      if (im.src?.endsWith('/field-effects.png') || im.src?.includes('/activities/hoe-left-'))
         window.__fieldTrace.push([im.src.split('/').pop(),args[0],performance.now()]);
       return draw.call(this,im,...args);
     };
@@ -255,7 +252,7 @@ try {
   await go(field,'e');
   await field.waitForFunction(()=>window.__fieldTrace.some(e=>e[0]==='field-effects.png'));
   const trace=await field.evaluate(()=>window.__fieldTrace);
-  assert.ok(trace.find(e=>e[0]==='field-effects.png')[2] > trace.find(e=>e[0]==='actions.png')[2],
+  assert.ok(trace.find(e=>e[0]==='field-effects.png')[2] > trace.find(e=>e[0]==='hoe-left-1.png')[2],
     'tool wind-up precedes contact at the target');
   const mute=field.getByRole('button',{name:'Suara aktif'});
   await mute.click();

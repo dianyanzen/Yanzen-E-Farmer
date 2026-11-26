@@ -44,6 +44,13 @@ try{
   writeFileSync(rosterPath,JSON.stringify({schemaVersion:1,currentRoster:records}));
   return await readPrivateResidents();
  };
+ // A previously deployed 248-person roster keeps its exact identity checks
+ // while the owner's approved W026 occupation is applied.
+ const published=JSON.parse(readFileSync(join(root,"game-assets/catalog/npc-public-roster.json"),"utf8")).currentRoster;
+ const previousIyan=published.map(r=>r.id==="W026"?{...r,occupation:"Pengrajin peci"}:r);
+ const migrated=await withRoster(previousIyan);
+ assert.equal(migrated.length,248);
+ assert.equal(migrated.find(r=>r.id==="W026").occupation,"Spesialis peternakan dan hewan");
  assert.equal((await withRoster(roster)).length,248,"Valid private roster loads");
  process.env.GAME_RESIDENT_ROSTER_JSON=JSON.stringify({schemaVersion:1,currentRoster:roster});
  assert.equal((await readPrivateResidents()).length,248,"Vercel secret environment value loads 248 NPCs");

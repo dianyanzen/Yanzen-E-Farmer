@@ -100,7 +100,7 @@
 | W023 | IRWAN NURLIAWAN | Pengawas pekerjaan kebun | [12 kategori](./W023.md) |
 | W024 | IWAN KURNIAWAN | Petugas koperasi | [12 kategori](./W024.md) |
 | W025 | IYAN HIDAYAT | Penjaga arsip kampung | [12 kategori](./W025.md) |
-| W026 | IYAN RUSTIANA | Pengrajin peci | [12 kategori](./W026.md) |
+| W026 | IYAN RUSTIANA | Spesialis peternakan dan hewan | [12 kategori](./W026.md) |
 | W027 | IYANG SUHERMAN | Tukang reparasi jam | [12 kategori](./W027.md) |
 | W028 | JAJANG TARYANA | Pemandu jalur wisata | [12 kategori](./W028.md) |
 | W029 | JERI MARDIANSYAH | Perajin kain bermotif | [12 kategori](./W029.md) |

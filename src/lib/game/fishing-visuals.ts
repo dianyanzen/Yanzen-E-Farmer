@@ -31,13 +31,13 @@ export function fishingGeometry(player:{x:number;y:number;dir:Direction},
   const cast=phase==="casting"?clamp(age/FISHING_CAST_DURATION_MS):1;
   const pull=phase==="reeling"?clamp(age/FISHING_REEL_DURATION_MS):0;
   const tug=phase==="bite"?Math.sin(age/55)*1.25:0;
-  // Swing the body's visible arm and the held pole together (Harvest Moon-style).
-  const armLift=phase==="casting"?(1-cast)*-5:
-    phase==="reeling"?-Math.sin(pull*Math.PI)*4:
-    phase==="bite"?tug:Math.sin(age/950)*.5;
+  const spriteFrame=phase==="casting"?cast<.32?0:cast<.73?2:1:
+    phase==="reeling"?Math.floor(age/130)%3:phase==="bite"?Math.floor(age/100)%3:1;
+  // Match the painted wrist in each individual pose at the shared 24x32 anchor.
+  const [wristX,wristY]=[[16,15],[15,18],[16,21]][spriteFrame];
   const shoulder={x:cx+(dir==="left"?-5:dir==="right"?5:2),y:cy-4};
-  const hand={x:shoulder.x+(dir==="left"?-2:dir==="right"?2:1),
-    y:shoulder.y+4+armLift};
+  const hand={x:cx+(dir==="left"?12-wristX:wristX-12),
+    y:cy+wristY-22-(dir==="up"?2:0)};
   const tipOffset={up:{x:4,y:-21},down:{x:12,y:7},
     left:{x:-18,y:-17},right:{x:18,y:-17}}[dir];
   const tip={x:hand.x+tipOffset.x*(.35+.65*cast),
@@ -48,8 +48,6 @@ export function fishingGeometry(player:{x:number;y:number;dir:Direction},
       phase==="bite"?2.2+Math.sin(age/70)*1.4:0)};
   const bodyShift=phase==="casting"?Math.round(-Math.sin(cast*Math.PI)*2):
     phase==="reeling"?Math.round(Math.sin(pull*Math.PI*3)*1):phase==="bite"?Math.round(tug/1.25):0;
-  const spriteFrame=phase==="casting"?cast<.32?0:cast<.73?2:1:
-    phase==="reeling"?Math.floor(age/130)%3:phase==="bite"?Math.floor(age/100)%3:1;
   return {center:{x:cx,y:cy},shoulder,hand,tip,float,water,bodyShift,spriteFrame,
     showFloat:phase!=="casting"||cast>.18,
     splash:phase==="bite"||phase==="casting"&&cast>.82,

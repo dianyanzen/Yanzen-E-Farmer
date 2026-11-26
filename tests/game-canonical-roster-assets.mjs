@@ -11,7 +11,9 @@ if(!secret){
  // Mirror the narrowly authorized profession migration in private-residents.ts.
  // No other identity or occupation is silently rewritten.
  const rows=sourceRows.map(r=>r.id==="C07"&&r.name==="WIDI MUNAJAT"&&
-   r.occupation==="Pedagang hasil bumi"?{...r,occupation:"Spesialis ikan dan memancing"}:r);
+   r.occupation==="Pedagang hasil bumi"?{...r,occupation:"Spesialis ikan dan memancing"}:
+   r.id==="W026"&&r.name==="IYAN RUSTIANA"&&r.portrait==="R010"&&r.occupation==="Pengrajin peci"
+    ?{...r,occupation:"Spesialis peternakan dan hewan"}:r);
  assert.equal(rows?.length,248,"Canonical roster count must be exactly 248");
  const seenId=new Set(),seenNames=new Set(),seenPortrait=new Set();
  const groups={R:"residents",K:"neighborhood",N:"specialists",P:"civic",work:"professions",phone:"phone"};

@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "ajir-bambu-01",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/ajir-bambu-01.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/ajir-bambu-01-runtime.png",
+      "sourceSHA256": "313d81e1de413f6dc0144164addfbaa2b85c0d09d423ebda99fa1b717a905022",
+      "runtimeSHA256": "4592fad1be3e71fe2bb418acdd64135529dd49c1ecade0f4c687deda0843bd52",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "canvasSize": [
+        128,
+        171
+      ],
+      "visibleAlphaBounds": [
+        21,
+        6,
+        98,
+        164
+      ],
+      "displaySize": [
+        20,
+        26
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-0-alt",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-alt.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-alt-runtime.png",
+      "sourceSHA256": "7b06929ba32c496a208d59751829fafe59b493d7c6d8c6282891cd8da8544e8c",
+      "runtimeSHA256": "9939590e7a7d1195ac618cf469ad388718b771f027989cbc4d058b3c838d239c",
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "canvasSize": [
+        96,
+        120
+      ],
+      "visibleAlphaBounds": [
+        29,
+        47,
+        67,
+        78
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-0",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-runtime.png",
+      "sourceSHA256": "d8e7b097d41c981741d34fe298be5dfc9ee5b8b81e7aeda2916728d342c43323",
+      "runtimeSHA256": "7c4e9a6de400b9ea9cf389c6113df9d563bd2f14c4404608e73aed1293f1a68e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "canvasSize": [
+        96,
+        96
+      ],
+      "visibleAlphaBounds": [
+        4,
+        14,
+        92,
+        82
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-1-alt",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-alt.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-alt-runtime.png",
+      "sourceSHA256": "f1f887874cf1e388f0148f04d25807a1604d599136e8b38a62fd70e4f8c31a4f",
+      "runtimeSHA256": "0a55cd9fbfd4cea74556120850d03315291a50219d3acfab5292e30273a67b8c",
+      "sourceSize": [
+        1182,
+        1330
+      ],
+      "canvasSize": [
+        96,
+        108
+      ],
+      "visibleAlphaBounds": [
+        10,
+        14,
+        86,
+        98
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-1",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-runtime.png",
+      "sourceSHA256": "49ded03cd45e8c54d547ef55abee2a3353f605ae593b60493f91c8607668c90f",
+      "runtimeSHA256": "b8d68b7a2627238f1d82d4e5f1475e5e556eb48973b06f098a20acc5e009d869",
+      "sourceSize": [
+        1196,
+        1315
+      ],
+      "canvasSize": [
+        96,
+        106
+      ],
+      "visibleAlphaBounds": [
+        15,
+        22,
+        79,
+        88
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-2-alt",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-alt.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-alt-runtime.png",
+      "sourceSHA256": "40d6bf4f11462881c14a9bf75c88e1533789ac6df7b333ecb00d54e42ed2c0ba",
+      "runtimeSHA256": "e74f07bb5e9e279e5719fc0ae321a55d0f18f68f729895d7b8997acf526fb34a",
+      "sourceSize": [
+        1190,
+        1322
+      ],
+      "canvasSize": [
+        96,
+        107
+      ],
+      "visibleAlphaBounds": [
+        13,
+        5,
+        77,
+        103
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "cucumber-stage-2",
+      "ownerId": "pasirluyu-field",
+      "sourceFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2.png",
+      "runtimeFile": "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-runtime.png",
+      "sourceSHA256": "a4cb00884ae47ccc40aec31688248a90fbb32b8b2b90c3067dff6cc6f4ebd854",
+      "runtimeSHA256": "53864194428992a2d679bc52ca395e9454900aa8ce11120e3b2248f0f29fb486",
+      "sourceSize": [
+        1196,
+        1315
+      ],
+      "canvasSize": [
+        96,
+        106
+      ],
+      "visibleAlphaBounds": [
+        18,
+        14,
+        78,
+        89
+      ],
+      "displaySize": [
+        16,
+        18
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "homeBed",
+      "ownerId": "yanzen-home",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/home-bed.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/home-bed-runtime.png",
+      "sourceSHA256": "d2856380bd642b714f63a9d674d95ac195bf7ecc9fa1607c279271f1bdd12c56",
+      "runtimeSHA256": "b64d31f6d3d041df82a9ed3e33d0c09981cad8662d9f2e58a88e0ee148772eab",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "canvasSize": [
+        160,
+        320
+      ],
+      "visibleAlphaBounds": [
+        29,
+        58,
+        131,
+        255
+      ],
+      "displaySize": [
+        36,
+        72
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "homeCabinet",
+      "ownerId": "yanzen-home",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/home-cabinet.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/home-cabinet-runtime.png",
+      "sourceSHA256": "bd1a3a878118c56db274dae5b4e03658b82dd58a580f7155504a77b91a4b8f43",
+      "runtimeSHA256": "0b568af8dc52db6457e04c20e49f23461bcb8307aa47de3c4f5d41fe63a6558c",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "canvasSize": [
+        192,
+        288
+      ],
+      "visibleAlphaBounds": [
+        21,
+        43,
+        171,
+        242
+      ],
+      "displaySize": [
+        40,
+        60
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "homeLamp",
+      "ownerId": "yanzen-home",
+      "sourceFile": "public/game/assets/locations/yanzen/v3/home-lamp.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v3/home-lamp-runtime.png",
+      "sourceSHA256": "1593695150616f2290e113258235b187a9bcc2a23105378f82c5c8a66fcba3f1",
+      "runtimeSHA256": "11c41bd0d1cb1d0004c3041e5e80c0a46e87588970315fca8097b870f55959a4",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "canvasSize": [
+        112,
+        102
+      ],
+      "visibleAlphaBounds": [
+        41,
+        14,
+        71,
+        77
+      ],
+      "displaySize": [
+        20,
+        18.33
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "homeTable",
+      "ownerId": "yanzen-home",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/home-table.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/home-table-runtime.png",
+      "sourceSHA256": "9e3109282ce6627ce208574cbfe38f90216816d0696ef898d51e595559edff8b",
+      "runtimeSHA256": "007eb865dda6c517d5dd6244387fbded9529d406cee20510befe5adbcb6a90ba",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "canvasSize": [
+        224,
+        149
+      ],
+      "visibleAlphaBounds": [
+        43,
+        38,
+        181,
+        116
+      ],
+      "displaySize": [
+        48,
+        32
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "homeWindow",
+      "ownerId": "yanzen-home",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/home-window.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/home-window-runtime.png",
+      "sourceSHA256": "c3e9217abd2b29b802b46ef4387083bed7b53734b8fea6736a14ea2418d3162e",
+      "runtimeSHA256": "19f451b2b2874228d6c33abe26669eafaf44ddf4b798d7fabf1af86f525a64ca",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "canvasSize": [
+        160,
+        107
+      ],
+      "visibleAlphaBounds": [
+        45,
+        19,
+        116,
+        88
+      ],
+      "displaySize": [
+        36,
+        24
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "shedRack",
+      "ownerId": "yanzen-shed",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/shed-rack.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/shed-rack-runtime.png",
+      "sourceSHA256": "8331968b9a9c9bbf73b73e569f182bceba207f92b80e4069f8c58bf4e552e676",
+      "runtimeSHA256": "32a0aaa74f8a976008473926758a8a8894d2e122725acd6f936189aaf80b7dd1",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "canvasSize": [
+        224,
+        205
+      ],
+      "visibleAlphaBounds": [
+        43,
+        25,
+        181,
+        173
+      ],
+      "displaySize": [
+        52,
+        48
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "shedWallShelf",
+      "ownerId": "yanzen-shed",
+      "sourceFile": "public/game/assets/locations/yanzen/v3/shed-wall-shelf.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v3/shed-wall-shelf-runtime.png",
+      "sourceSHA256": "05f7c6da7c33eb91ca0bfe7a1603e5155b27ae6c92a99c0ae2c27407210a4636",
+      "runtimeSHA256": "42015e5f083ce4a9fb75f5e6b8b19338f23d820df3e41cec62279b9037ffaf3d",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "canvasSize": [
+        176,
+        59
+      ],
+      "visibleAlphaBounds": [
+        57,
+        21,
+        119,
+        40
+      ],
+      "displaySize": [
+        40,
+        13.33
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    },
+    {
+      "assetId": "shedWorkbench",
+      "ownerId": "yanzen-shed",
+      "sourceFile": "public/game/assets/locations/yanzen/v2/shed-workbench.png",
+      "runtimeFile": "public/game/assets/locations/yanzen/v2/shed-workbench-runtime.png",
+      "sourceSHA256": "1d79efff2d41c3baf459a35ebdf2000783bbce528dd18c8585bafb2c86b8008d",
+      "runtimeSHA256": "e011621be02521e5752de48493c0c7e00020bf6ad359ca7e334f78bd3a1dfa86",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "canvasSize": [
+        224,
+        149
+      ],
+      "visibleAlphaBounds": [
+        50,
+        34,
+        174,
+        115
+      ],
+      "displaySize": [
+        48,
+        32
+      ],
+      "provenance": "Original YZ Farm Life artwork, resized with Adobe preserving transparency."
+    }
+  ]
+}

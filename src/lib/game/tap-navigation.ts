@@ -1,4 +1,4 @@
-import { fishingWaterAt, areaBlocked, WORLD, SHED, facesInteractionHitbox, interactionHitboxAt, isOutdoorLocation, isFarm, mapExit, npcHere, routeBarrierAt,
+import { fishingWaterAt, areaBlocked, WORLD, SHED, NURSERY_BENCH, warungBenchAt, facesInteractionHitbox, interactionHitboxAt, isOutdoorLocation, isFarm, mapExit, npcHere, routeBarrierAt,
   type Direction,type GameState, signpostAt, questPropAt, questPropActive } from "./model";
 
 export type TapRoute={steps:Direction[];face:Direction|null;interact:boolean;exit:Direction|null};
@@ -18,9 +18,9 @@ export function planTapRoute(s:GameState,tx:number,ty:number, point?: { x: numbe
     point?.y ?? (ty + .5) * WORLD.tile);
   const questProp=questPropAt(s.location,tx,ty);
   const clickable=(!!questProp && questPropActive(s,questProp)) ||
-    (s.location==="field" && tx===2 && ty>=8 && ty<=13) ||
-    (s.location==="field" && tx===6 && ty===5) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
-    (s.location==="field" && isFarm(tx,ty)) ||
+    (s.location==="field" && tx===2 && ty===8) ||
+    (s.location==="field" && tx===NURSERY_BENCH.x && ty===NURSERY_BENCH.y) || (s.equippedTool==="fishing_rod" && fishingWaterAt(s,tx,ty)) || (s.location==="sungai" && tx===6 && ty===7) || isLocked || isSign || occupied(tx,ty) ||
+    (s.location==="field" && (isFarm(tx,ty)||warungBenchAt(tx,ty))) ||
     (s.location==="shed" && tx===SHED.rack.x && ty===SHED.rack.y);
   const origin=k(s.player.x,s.player.y),queue=[{x:s.player.x,y:s.player.y}];
   const distance=new Map<string,number>([[origin,0]]);

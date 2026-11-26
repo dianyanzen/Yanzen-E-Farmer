@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "location": "shed",
+  "tileSize": 20,
+  "assets": [
+    {
+      "assetId": "shedHoe",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedHoe",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/hoe.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/hoe.svg",
+      "format": "svg",
+      "canvasSize": [
+        8,
+        25
+      ],
+      "displaySize": [
+        8,
+        25
+      ],
+      "drawOffset": [
+        181,
+        120
+      ],
+      "footAnchor": [
+        4,
+        25
+      ],
+      "footprint": [],
+      "zDepth": 163,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "4ad153955c2493425c563f52e302fc97a9c18a8a",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedSickle",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedSickle",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/sickle.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/sickle.svg",
+      "format": "svg",
+      "canvasSize": [
+        10,
+        22
+      ],
+      "displaySize": [
+        10,
+        22
+      ],
+      "drawOffset": [
+        193,
+        122
+      ],
+      "footAnchor": [
+        5,
+        22
+      ],
+      "footprint": [],
+      "zDepth": 163,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "61e69b6ee6ca46fbf9d82771a4b7f8303d6d1415",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedShovel",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedShovel",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/shovel.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/shovel.svg",
+      "format": "svg",
+      "canvasSize": [
+        7,
+        25
+      ],
+      "displaySize": [
+        7,
+        25
+      ],
+      "drawOffset": [
+        205,
+        120
+      ],
+      "footAnchor": [
+        3.5,
+        25
+      ],
+      "footprint": [],
+      "zDepth": 163,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "c00071fe0b7107dafb914afb94001c8f5a104d5b",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedToolbox",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedToolbox",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/toolbox.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/toolbox.svg",
+      "format": "svg",
+      "canvasSize": [
+        15,
+        9
+      ],
+      "displaySize": [
+        15,
+        9
+      ],
+      "drawOffset": [
+        301,
+        116
+      ],
+      "footAnchor": [
+        7.5,
+        9
+      ],
+      "footprint": [],
+      "zDepth": 152,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "b7a9efdcb3fbdd1eb980208912198706356c4308",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedWateringCan",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedWateringCan",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/watering-can.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/watering-can.svg",
+      "format": "svg",
+      "canvasSize": [
+        13,
+        14
+      ],
+      "displaySize": [
+        13,
+        14
+      ],
+      "drawOffset": [
+        323,
+        113
+      ],
+      "footAnchor": [
+        6.5,
+        14
+      ],
+      "footprint": [],
+      "zDepth": 152,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "a0b47b81650c04ba03c454f2df801d63fe8013af",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedSeedSack",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedSeedSack",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/seed-sack.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/seed-sack.svg",
+      "format": "svg",
+      "canvasSize": [
+        20,
+        30
+      ],
+      "displaySize": [
+        20,
+        30
+      ],
+      "drawOffset": [
+        160,
+        165
+      ],
+      "footAnchor": [
+        10,
+        30
+      ],
+      "footprint": [
+        [
+          8,
+          9
+        ]
+      ],
+      "zDepth": 195,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "f600534fafb2f49c1f0dd6afa99057723bab6908",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedHarvestCrate",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedHarvestCrate",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/harvest-crate.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/harvest-crate.svg",
+      "format": "svg",
+      "canvasSize": [
+        20,
+        20
+      ],
+      "displaySize": [
+        20,
+        20
+      ],
+      "drawOffset": [
+        160,
+        239
+      ],
+      "footAnchor": [
+        10,
+        20
+      ],
+      "footprint": [
+        [
+          8,
+          12
+        ]
+      ],
+      "zDepth": 259,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "136afbd5b26afe18c350950c2971aca8ef72178a",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedFertilizerSack",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedFertilizerSack",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/fertilizer-sack.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/fertilizer-sack.svg",
+      "format": "svg",
+      "canvasSize": [
+        20,
+        30
+      ],
+      "displaySize": [
+        20,
+        30
+      ],
+      "drawOffset": [
+        320,
+        165
+      ],
+      "footAnchor": [
+        10,
+        30
+      ],
+      "footprint": [
+        [
+          16,
+          9
+        ]
+      ],
+      "zDepth": 195,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "a8838ac5fa4c49140bcc953c01616bbd166dd620",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedBucket",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedBucket",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/bucket.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/bucket.svg",
+      "format": "svg",
+      "canvasSize": [
+        20,
+        20
+      ],
+      "displaySize": [
+        20,
+        20
+      ],
+      "drawOffset": [
+        320,
+        239
+      ],
+      "footAnchor": [
+        10,
+        20
+      ],
+      "footprint": [
+        [
+          16,
+          12
+        ]
+      ],
+      "zDepth": 259,
+      "layer": "furniture",
+      "hotspot": null,
+      "gitBlobSha": "83c939a317a918169ef309bc614114fdc463c1ea",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedRope",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedRope",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/rope-coil.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/rope-coil.svg",
+      "format": "svg",
+      "canvasSize": [
+        13,
+        17
+      ],
+      "displaySize": [
+        13,
+        17
+      ],
+      "drawOffset": [
+        237,
+        102
+      ],
+      "footAnchor": [
+        6.5,
+        17
+      ],
+      "footprint": [],
+      "zDepth": 2,
+      "layer": "architecture",
+      "hotspot": null,
+      "gitBlobSha": "a46a79ae8bc3123b4e1cbfb283129126bfa0a15c",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedShelfJar",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedShelfJar",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/shelf-jar.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/shelf-jar.svg",
+      "format": "svg",
+      "canvasSize": [
+        9,
+        12
+      ],
+      "displaySize": [
+        9,
+        12
+      ],
+      "drawOffset": [
+        273,
+        96
+      ],
+      "footAnchor": [
+        4.5,
+        12
+      ],
+      "footprint": [],
+      "zDepth": 2,
+      "layer": "architecture",
+      "hotspot": null,
+      "gitBlobSha": "5ff9a2ae8644cd7a44d3600046adf2bec939ccdf",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    },
+    {
+      "assetId": "shedLantern",
+      "ownerId": "yanzen-shed",
+      "objectId": "shedLantern",
+      "sourceFile": "public/game/assets/locations/yanzen/v6/wall-lantern.svg",
+      "runtimeFile": "public/game/assets/locations/yanzen/v6/wall-lantern.svg",
+      "format": "svg",
+      "canvasSize": [
+        9,
+        14
+      ],
+      "displaySize": [
+        9,
+        14
+      ],
+      "drawOffset": [
+        160,
+        103
+      ],
+      "footAnchor": [
+        4.5,
+        14
+      ],
+      "footprint": [],
+      "zDepth": 2,
+      "layer": "architecture",
+      "hotspot": null,
+      "gitBlobSha": "037ec1e5272af75c2d6d2899af7357cca02b8b4a",
+      "sourceLicense": "project-original-vector-art",
+      "status": "candidate-pending-visual-QA",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ],
+      "qaEvidence": "Geometry and git blob verified; browser QA pending"
+    }
+  ],
+  "notes": "Independent original vector artwork; cosmetic only. Visual QA pending."
+}

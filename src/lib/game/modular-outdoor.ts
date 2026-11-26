@@ -1,11 +1,11 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { IYAN_MARKET, POULTRY, iyanMarketOpen, marketCounterOpen, ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
 
 const kit = "tiles/farm-kit/";
-const everyday = ["rumah-yanzen","gudang-kayu","warung-inggit","kandang-ayam","kanopi-pohon",
+const everyday = ["kandang-ayam","kanopi-pohon",
   "batang-pohon","semak","bunga-melati","rumput-tinggi","pot-daun","batu-kanal","jemuran","peti-kayu"] as const;
 const landmarks = ["rumah-nani","rumah-warga","kios-sayur-buka","kios-sayur-tutup","peti-dagangan-sayur",
   "keranjang-buah","bangku-kayu","papan-pasar","pintu-air-kayu","jembatan-kayu","tangga-batu",
@@ -13,7 +13,27 @@ const landmarks = ["rumah-nani","rumah-warga","kios-sayur-buka","kios-sayur-tutu
 const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","tajuk-kebun","semak-rimbun",
   "daun-tropis","bunga-pinggir","titian-kayu","pagar-kandang","gerbang-kandang","tiang-kandang",
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
+const yanzenExteriorFolder = "locations/yanzen/exterior/";
 export const outdoorSources: Record<string,string> = {
+  "chicken-nest-eggs":"locations/poultry/nest-eggs.png",
+  "iyan-market-sprite":"characters/iyan-market.png",
+  "iyan-feed-sack":"locations/iyan/feed-sack.png",
+  "iyan-stall":"locations/iyan/stall.png",
+  "iyan-stall-counter":"locations/iyan/stall-counter.png",
+  "iyan-stall-sign":"locations/iyan/stall-sign.png",
+  "iyan-stall-shutter":"locations/iyan/stall-shutter.png",
+  "yanzen-home-door": yanzenExteriorFolder + "home-front-door.png",
+  "yanzen-home-west-window": yanzenExteriorFolder + "home-west-window.png",
+  "yanzen-home-east-window": yanzenExteriorFolder + "home-east-window.png",
+  "yanzen-home-facade": yanzenExteriorFolder + "home-facade.png",
+  "yanzen-home-roof": yanzenExteriorFolder + "home-roof.png",
+  "yanzen-shed-entry": yanzenExteriorFolder + "shed-entry-shadow.png",
+  "yanzen-shed-facade": yanzenExteriorFolder + "shed-facade.png",
+  "yanzen-shed-roof": yanzenExteriorFolder + "shed-roof.png",
+  ...Object.fromEntries(["roof","facade","wall-shelf","coffee-jar","tea-jar","hanging-cloth","service-counter","north-bench","south-bench","coffee-table","enamel-kettle","sign","closed-sign","jasmine-pot","bamboo-basket","fern","river-stones","counter-apron"]
+    .map(part => [`inggit-${part}`, `locations/inggit/sunda/${part}.png`])),
+  ...Object.fromEntries((["ryan","widi"] as const).flatMap(owner => ["full","empty"].map(phase =>
+    [`inggit-${owner}-coffee-${phase}`, `locations/inggit/warkop/${owner}-coffee-${phase}.png`]))),
   ...Object.fromEntries(QUEST_PROPS.map(p => [p.asset,"quests/"+p.asset+".svg"])),
   ...Object.fromEntries(["tajuk-terang","tajuk-teduh","rimbun-pakis-daun","rumpun-bunga-tepi-jalan","kelompok-pot","tong-dan-papan"].map(name => [name,kit+"kebun-luas/"+name+".png"])),
   ...Object.fromEntries(["nani","ryan","inggit","ayu","widi"].map(owner=>["atelier-"+owner,kit+"landmark/atelier-"+owner+".png"])),
@@ -29,13 +49,15 @@ export const outdoorSources: Record<string,string> = {
   road: kit + "jalan-utama.png",
   fence: kit + "pagar.png",
   petak: kit + "petak.png",
-  // Stage 3's original PNG is incomplete; the renderers use the existing
-  // mature-crop fallback until an individual replacement is verified.
-  ...Object.fromEntries([0,1,2].map(stage => ["cucumber-stage-"+stage,kit+"kebun/cucumber-stage-"+stage+".png"])),
-  ...Object.fromEntries([0,1,2,3].map(stage => ["cucumber-stage-"+stage+"-alt",kit+"kebun/cucumber-stage-"+stage+"-alt.png"])),
+  ...Object.fromEntries([0,1,2].flatMap(stage => ["","-alt"].map(variant =>
+    ["cucumber-stage-"+stage+variant,kit+"kebun/cucumber-stage-"+stage+variant+"-runtime.png"]))),
+  "cucumber-stage-3":kit+"kebun/cucumber-ripe.png",
+  "cucumber-stage-3-alt":kit+"kebun/cucumber-ripe-alt.png",
   "plot-dry": kit+"kebun/petak-kering.svg",
   "plot-wet": kit+"kebun/petak-basah.svg",
-  "garden-trellis": kit+"kebun/ajir-bambu-01.png",
+  "faucet-closed":"locations/yanzen/v3/faucet-closed.svg",
+  "faucet-open":"locations/yanzen/v3/faucet-open.svg",
+  "garden-trellis": kit+"kebun/ajir-bambu-01-runtime.png",
   "garden-hoe": kit+"objek/cangkul.png",
   "garden-watering-can": kit+"objek/gembor.png",
   ...Object.fromEntries(everyday.map(name => [name, kit + "objek/" + name + ".png"])),
@@ -43,56 +65,60 @@ export const outdoorSources: Record<string,string> = {
   ...Object.fromEntries(landmarks.map(name => [name, kit + "landmark/" + name + ".png"])),
 };
 type Point = readonly [number,number];
-type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number };
+type Placement = { asset:string; x:number; y:number; scale?:number; closedAsset?:string; displayW?:number; displayH?:number; groundY?:number; visible?:boolean };
 export type OutdoorImages = Partial<Record<string,CanvasImageSource>>;
-type Route = readonly [number,readonly Point[]];
-const paths: Record<OutdoorLocation,Route[]> = {
-  field: [
-    [30,[[35,290],[154,291],[212,286],[242,265],[256,238],[282,220],[336,212],[410,220],[480,224],[565,219],[653,220]]],
-    [15,[[78,94],[78,116],[106,130],[192,130],[224,142],[253,183],[279,222]]],
-    [14,[[191,93],[190,112],[191,132]]],
-    [16,[[387,93],[387,132],[368,169],[348,216]]],
-    [14,[[314,215],[320,253],[350,273],[366,285]]],
-    [13,[[82,117],[55,128],[35,141],[24,141]]],
-    [13,[[450,223],[480,242],[515,257],[544,254],[563,234],[574,220]]],
-  ],
-  gang: [
-    [34,[[-14,220],[90,218],[174,226],[240,220],[323,212],[413,219],[483,226],[565,220],[652,220]]],
-    [32,[[240,-14],[235,69],[247,149],[240,219],[230,263],[240,334]]],
-    [15,[[160,153],[158,183],[178,206],[186,222]]],
-    [15,[[403,153],[405,184],[389,218]]],
-    [12,[[90,276],[89,292],[143,294],[158,275],[156,240],[145,222]]],
-    [13,[[309,276],[310,297],[369,296],[376,270],[378,240],[390,218]]],
-    [13,[[530,154],[530,175],[511,191],[510,218]]],
-    [13,[[488,225],[505,198],[536,189],[570,187],[588,202],[600,220]]],
-  ],
-  pasar: [
-    [32,[[240,-14],[236,85],[247,165],[240,221],[235,275],[240,334]]],
-    [30,[[239,220],[339,222],[423,217],[486,222],[558,225],[653,220]]],
-    [15,[[490,222],[510,187],[532,166],[570,159]]],
-  ],
-  sungai: [
-    [29,[[240,-14],[237,79],[250,154],[240,217],[225,269],[239,334]]],
-    [17,[[247,155],[204,160],[177,175],[145,168]]],
-    [14,[[27,270],[22,250],[25,230],[31,211],[32,184],[23,172]]],
-    [19,[[229,269],[200,275],[166,270],[142,270]]],
-    [17,[[243,213],[293,198],[347,180],[409,174],[478,188],[541,204],[566,222],[596,240]]],
-    [12,[[231,268],[282,269],[329,248],[348,213],[350,180]]],
-  ],
-};
+const homeX = (HOME.door.x + .5) * WORLD.tile;
+const shedX = (SHED.door.x + .5) * WORLD.tile;
+const nurseryX = (NURSERY_BENCH.x + .5) * WORLD.tile;
+const warungX = (INGGIT_WARUNG.x + .5) * WORLD.tile;
+const warkop: Placement[] = [
+  {asset:"inggit-facade",x:warungX-11,y:116,displayW:104,displayH:54,groundY:98},
+  {asset:"inggit-wall-shelf",x:warungX-23,y:97,displayW:27,displayH:8,groundY:99},
+  {asset:"inggit-coffee-jar",x:warungX-29,y:91,displayW:10,displayH:11,groundY:100},
+  {asset:"inggit-tea-jar",x:warungX-18,y:91,displayW:10,displayH:11,groundY:100},
+  {asset:"inggit-hanging-cloth",x:warungX+19,y:92,displayW:10,displayH:13,groundY:100},
+  {asset:"inggit-roof",x:warungX-11,y:74,displayW:116,displayH:37,groundY:100},
+  {asset:"inggit-sign",x:warungX-6,y:79,displayW:26,displayH:12,groundY:101},
+  {asset:"inggit-service-counter",x:warungX-4,y:120,displayW:68,displayH:19,groundY:122},
+  {asset:"inggit-enamel-kettle",x:warungX+15,y:105,displayW:13,displayH:15,groundY:122},
+  {asset:"inggit-jasmine-pot",x:330,y:105,displayW:16,displayH:21},
+  {asset:"inggit-bamboo-basket",x:330,y:119,displayW:15,displayH:13},
+  {asset:"inggit-fern",x:311,y:144,displayW:18,displayH:15},
+  {asset:"inggit-river-stones",x:319,y:183,displayW:19,displayH:10},
+  ...([
+    ["north-bench",INGGIT_WARUNG.northBench,34,15],
+    ["coffee-table",INGGIT_WARUNG.table,29,24],
+    ["south-bench",INGGIT_WARUNG.southBench,34,15],
+  ] as const).map(([part,tile,displayW,displayH])=>({
+    asset:`inggit-${part}`,x:(tile.x+.5)*WORLD.tile,y:(tile.y+1)*WORLD.tile-2,displayW,displayH,
+  })),
+];
+
+const iyanStallX=(IYAN_MARKET.x+.5)*WORLD.tile;
+const iyanStallY=(IYAN_MARKET.y+1)*WORLD.tile;
+
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
     {asset:"tajuk-kebun",x:107,y:38},{asset:"tajuk-kebun",x:139,y:44},
     {asset:"tajuk-kebun",x:254,y:47,scale:.98},{asset:"tajuk-kebun",x:320,y:57,scale:.96},
     {asset:"tajuk-kebun",x:458,y:66},{asset:"semak-rimbun",x:280,y:89},
-    {asset:"rumah-yanzen",x:78,y:96,scale:.94},{asset:"gudang-kayu",x:191,y:95},
-    {asset:"warung-inggit",x:387,y:95,scale:.83},{asset:"pot-berbunga",x:125,y:103},
-    {asset:"pohon-pisang",x:249,y:100,scale:.67},{asset:"bunga-melati",x:270,y:101},
-    {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:433,y:114},
+    // Inserts sit behind the transparent openings. Every layer sorts from
+    // its building's threshold, even when the image ends at the eaves.
+    {asset:"yanzen-home-door",x:homeX,y:95,displayW:19,displayH:30,groundY:96},
+    {asset:"yanzen-home-west-window",x:homeX-31.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-east-window",x:homeX+31.5,y:81,displayW:16,displayH:15,groundY:96},
+    {asset:"yanzen-home-facade",x:homeX,y:96,displayW:104,displayH:37,groundY:96},
+    {asset:"yanzen-home-roof",x:homeX,y:64,displayW:112,displayH:28,groundY:96},
+    {asset:"yanzen-shed-entry",x:shedX,y:94,displayW:26,displayH:27,groundY:95},
+    {asset:"yanzen-shed-facade",x:shedX,y:95,displayW:68,displayH:34,groundY:95},
+    {asset:"yanzen-shed-roof",x:shedX,y:67,displayW:80,displayH:26,groundY:95},
+    ...warkop,{asset:"pot-berbunga",x:nurseryX,y:103},
+    {asset:"pohon-pisang",x:288,y:100,scale:.67},{asset:"bunga-melati",x:306,y:101},
+    {asset:"semak-rimbun",x:457,y:110},{asset:"bunga-pinggir",x:451,y:122},
     {asset:"daun-tropis",x:50,y:169,scale:.8},{asset:"bunga-pinggir",x:55,y:157,scale:.7},
     {asset:"bunga-pinggir",x:224,y:200,scale:.76},{asset:"semak-rimbun",x:299,y:185,scale:.79},
     {asset:"tajuk-kebun",x:473,y:173,scale:.85},{asset:"daun-tropis",x:448,y:187,scale:.76},
-    {asset:"bunga-pinggir",x:398,y:188,scale:.9},{asset:"semak-rimbun",x:466,y:266,scale:.82},
+    {asset:"bunga-pinggir",x:416,y:199,scale:.9},{asset:"semak-rimbun",x:466,y:266,scale:.82},
     {asset:"kandang-ayam",x:410,y:301,scale:.75},{asset:"palung",x:444,y:279,scale:.79},
     {asset:"ayam-putih",x:383,y:295},{asset:"anak-ayam",x:435,y:298},
     {asset:"pot-berbunga",x:389,y:258,scale:.71},{asset:"bunga-pinggir",x:466,y:304},
@@ -110,13 +136,18 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
-    {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
+    {asset:"iyan-stall",x:iyanStallX,y:iyanStallY-5,groundY:iyanStallY-12},
+    {asset:"iyan-market-sprite",x:iyanStallX,y:iyanStallY-10,displayW:24,displayH:32},
+    {asset:"iyan-stall-shutter",x:iyanStallX,y:iyanStallY-8,groundY:iyanStallY-7},
+    {asset:"iyan-stall-counter",x:iyanStallX,y:iyanStallY},
+    {asset:"iyan-stall-sign",x:iyanStallX,y:iyanStallY-39,groundY:iyanStallY},
+    {asset:"iyan-feed-sack",x:iyanStallX-23,y:iyanStallY+1,displayW:13,displayH:15},
+    {asset:"lapak-benih",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
-    {asset:"warung-inggit",x:374,y:177,scale:1.04},{asset:"peti-kayu",x:321,y:178},
     {asset:"papan-pasar",x:303,y:100},
     {asset:"rumpun-bunga-liar",x:68,y:278},{asset:"semak",x:425,y:285},
     {asset:"pohon-pisang",x:40,y:270,scale:.8},{asset:"rumpun-bunga-liar",x:129,y:305,scale:.82},
-    {asset:"semak",x:183,y:311},{asset:"semak",x:294,y:312},{asset:"peti-kayu",x:440,y:238},
+    {asset:"semak",x:183,y:311},{asset:"semak",x:294,y:312},{asset:"peti-kayu",x:451,y:266},
   ],
   sungai: [
     {asset:"bendung-dua-pintu-tutup",x:85,y:163},{asset:"tangga-batu",x:142,y:176,scale:.75},
@@ -152,7 +183,7 @@ for(const location of Object.keys(props) as OutdoorLocation[]){
 }
 
 const gardens:Record<OutdoorLocation,Point[]>={
-  field:[[126,101],[240,91],[291,110],[440,106],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
+  field:[[181,90],[240,91],[291,110],[470,119],[453,173],[226,180],[52,242],[314,306],[474,288],[530,148],[561,174],[599,290]],
   gang:[[51,127],[79,159],[20,190],[117,169],[200,99],[304,108],[344,125],[448,171],[381,273],[154,280],[93,275],[488,143],[562,155],[600,277]],
   pasar:[[44,135],[32,185],[58,252],[111,299],[314,105],[444,137],[465,165],[422,290],[485,110],[593,128],[601,281]],
   sungai:[[156,79],[161,104],[183,122],[292,102],[334,133],[411,150],[272,237],[158,217],[460,257],[594,128],[609,275]],
@@ -166,7 +197,7 @@ for(const location of Object.keys(gardens) as OutdoorLocation[]){
 }
 props.field.push(
   ...([[530,139],[590,139],[550,199],[610,199]] as Point[]).map(([x,y],i)=>({asset:i%2?"tajuk-terang":"tajuk-kebun",x,y,scale:.69})),
-  {asset:"tong-dan-papan",x:210,y:97,scale:.57},{asset:"kelompok-pot",x:357,y:98,scale:.57},
+  {asset:"tong-dan-papan",x:210,y:97,scale:.57},
   {asset:"peti-kayu",x:501,y:156,scale:.68},{asset:"keranjang-buah",x:510,y:155,scale:.66}
 );
 props.field.push(
@@ -245,9 +276,30 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
   return (watered?12:0)+(stage===0?6:3)+((x+2*y)%3);
 }
 
-export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false) {
-  return props[location].map(p => p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p.closedAsset && (minutes<720 || minutes>=1140) ?
-    {...p,asset:p.closedAsset} : p);
+export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false,eggsReady=false): Placement[] {
+  const scenery = props[location].map(p => p.asset==="inggit-sign" &&
+    (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p);
+  if(location==="pasar")return scenery.map(prop=>{
+    if(prop.asset==="iyan-market-sprite")return {...prop,visible:iyanMarketOpen(minutes)};
+    if(prop.asset==="iyan-stall-shutter")return {...prop,visible:!iyanMarketOpen(minutes)};
+    if(prop.closedAsset && !marketCounterOpen(minutes,"A04"))return {...prop,asset:prop.closedAsset};
+    return prop;
+  });
+  if(location!=="field")return scenery;
+  const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
+  const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;
+  const cups = (["ryan","widi"] as const).map((owner,index): Placement => {
+    const phase = warungCoffee(minutes,owner);
+    return {
+      asset:`inggit-${owner}-coffee-${phase==="full"?"full":"empty"}`,
+      x:tableX+(index===0?-7:7),y:tableY-13,displayW:12,displayH:10,
+      groundY:tableY,visible:phase!=="cleared",
+    };
+  });
+  return [...scenery,...cups,{
+    asset:"chicken-nest-eggs",x:(POULTRY.nest.x+.8)*WORLD.tile,y:POULTRY.nest.y*WORLD.tile+14,
+    displayW:12,displayH:8,visible:eggsReady,groundY:(POULTRY.nest.y+1)*WORLD.tile+1,
+  }];
 }
 
 function tile(ctx:CanvasRenderingContext2D, image:CanvasImageSource|undefined, id:number, x:number,y:number, size=20) {
@@ -256,11 +308,10 @@ function tile(ctx:CanvasRenderingContext2D, image:CanvasImageSource|undefined, i
 function trace(ctx:CanvasRenderingContext2D,points:readonly Point[]) {
   ctx.beginPath();
   ctx.moveTo(...points[0]);
-  for(let i=1;i<points.length-1;i++){
-    const [x,y]=points[i], [nx,ny]=points[i+1];
-    ctx.quadraticCurveTo(x,y,(x+nx)/2,(y+ny)/2);
+  for (const {control,end} of roadSegments(points)) {
+    if(control)ctx.quadraticCurveTo(...control,...end);
+    else ctx.lineTo(...end);
   }
-  ctx.lineTo(...points[points.length-1]);
 }
 const groundCache = new WeakMap<OutdoorImages,Partial<Record<OutdoorLocation,HTMLCanvasElement>>>();
 export function drawModularGround(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:OutdoorImages) {
@@ -391,16 +442,16 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
   meadow(ctx,location);
   ctx.lineCap="round";
   ctx.lineJoin="round";
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);
     ctx.lineWidth=width+5;ctx.strokeStyle="#a6a167";ctx.stroke();
   }
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);ctx.lineWidth=width+2;ctx.strokeStyle="#baa276";ctx.stroke();
   }
   const pattern=art.road ? ctx.createPattern(roadTexture(art.road),"repeat") : null;
   ctx.strokeStyle=pattern ?? "#dbc28c";
-  for (const [width,points] of paths[location]) {
+  for (const [width,points] of ROAD_PATHS[location]) {
     trace(ctx,points);
     ctx.lineWidth=width;ctx.stroke();
   }
@@ -433,7 +484,11 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
     }
   }
   if (location==="field") {
-    for (const x of [78,191,387]) {
+    const counterApron=art["inggit-counter-apron"];
+    if(counterApron)ctx.drawImage(counterApron,warungX-12,119,24,17);
+  }
+  if (location==="field") {
+    for (const x of [homeX,shedX]) {
       ctx.fillStyle="rgba(88,76,49,.27)";
       ctx.beginPath();ctx.ellipse(x,98,21,4,0,0,Math.PI*2);ctx.fill();
       for(let row=0;row<3;row++){
@@ -454,10 +509,10 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
   }
   if(location==="field"){
     // Low nursery bench between the farmhouse and the tool shed.
-    ctx.fillStyle="#6b4b33";ctx.fillRect(118,106,3,12);ctx.fillRect(139,106,3,12);
-    ctx.fillStyle="#976c43";ctx.fillRect(116,101,28,8);
-    ctx.fillStyle="#d6a66c";ctx.fillRect(116,101,28,2);
-    for(const x of [119,127,135]){
+    ctx.fillStyle="#6b4b33";ctx.fillRect(nurseryX-13,106,3,12);ctx.fillRect(nurseryX+8,106,3,12);
+    ctx.fillStyle="#976c43";ctx.fillRect(nurseryX-15,101,28,8);
+    ctx.fillStyle="#d6a66c";ctx.fillRect(nurseryX-15,101,28,2);
+    for(const x of [nurseryX-12,nurseryX-4,nurseryX+4]){
       ctx.fillStyle="#aa6440";ctx.fillRect(x,98,6,5);
       ctx.fillStyle="#5c793b";ctx.fillRect(x+2,94,2,5);
       ctx.fillStyle="#a6be60";ctx.fillRect(x,94,3,2);ctx.fillRect(x+3,92,3,3);
@@ -469,14 +524,13 @@ function paintTerrain(ctx:CanvasRenderingContext2D,location:OutdoorLocation,art:
 }
 
 function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
-  const shore=(y:number)=>Math.round(39-22*Math.exp(-((y-139)**2)/640)+1.3*Math.sin(y/11));
   ctx.save();
   ctx.beginPath();
-  for(let y=0;y<320;y++)ctx.rect(0,y,shore(y),1);
+  for(let y=0;y<320;y++)ctx.rect(0,y,fieldCanalBank(y),1);
   ctx.clip();
   const current=randomFrom(818);
   for(let y=0;y<320;y++){
-    const bank=shore(y);
+    const bank=fieldCanalBank(y);
     for(let x=0;x<bank;x++){
       const depth=Math.min(1,(bank-x)/27);
       const light=2*Math.sin(y*.14+x*.24)+1.5*Math.sin(y*.27-x*.16);
@@ -485,12 +539,12 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
     }
   }
   for(let i=0;i<190;i++){
-    const y=Math.floor(current()*320),x=Math.floor(current()*shore(y));
+    const y=Math.floor(current()*320),x=Math.floor(current()*fieldCanalBank(y));
     ctx.fillStyle=i%4?"rgba(184,216,190,.19)":"rgba(34,81,84,.3)";
     ctx.fillRect(x,y,2+Math.floor(current()*5),1);
   }
   for(const y of [36,82,102,174,217,259,298]){
-    const x=shore(y)-5;
+    const x=fieldCanalBank(y)-5;
     for(const [dx,dy] of [[0,0],[-4,2],[1,4]]){
       ctx.fillStyle="#567c52";ctx.fillRect(x+dx,y+dy,4,2);
       ctx.fillStyle="#a0b468";ctx.fillRect(x+dx,y+dy,2,1);
@@ -501,27 +555,30 @@ function drawFieldCanal(ctx:CanvasRenderingContext2D, art:OutdoorImages) {
   if(ripple)for(const y of [29,67,115,161,205,243,284,314])ctx.drawImage(ripple,4,y,15,7);
   ctx.restore();
   for(let y=0;y<320;y++){
-    const x=shore(y);
+    const x=fieldCanalBank(y);
     ctx.fillStyle="#63897b";ctx.fillRect(x-1,y,2,1);
     ctx.fillStyle="#8a915f";ctx.fillRect(x+1,y,2,1);
   }
   for(let y=12;y<320;y+=17){
-    const x=shore(y);
+    const x=fieldCanalBank(y);
     const rock=art[y%2?"batu-kembar":"tebing-batu"];
     if(rock)ctx.drawImage(rock,x-5,y-4,10,7);
     const reeds=art["ilalang-kanal"];
     if(reeds && y%3===0)ctx.drawImage(reeds,x+1,y-8,8,10);
   }
-  // A narrow surface channel branches from the creek beside the existing
-  // plot. The little crossing at the top keeps the visible walking route clear.
-  // It is scenery: watering still follows the existing gembor/rain rules.
-  ctx.save();
-  ctx.lineJoin="round";ctx.lineCap="round";
-  ctx.beginPath();ctx.moveTo(shore(155)-2,155);ctx.lineTo(55,155);ctx.lineTo(55,276);
-  ctx.strokeStyle="#7b7050";ctx.lineWidth=7;ctx.stroke();
-  ctx.strokeStyle="#6ca8a1";ctx.lineWidth=4;ctx.stroke();
+}
+
+/** Saluran dan keran digambar terpisah agar keadaan buka/tutup segera terlihat. */
+export function drawIrrigationChannel(ctx:CanvasRenderingContext2D,open:boolean,faucet?:CanvasImageSource){
+  ctx.save();ctx.lineJoin="round";ctx.lineCap="round";
+  ctx.beginPath();ctx.moveTo(32,155);ctx.lineTo(55,155);ctx.lineTo(55,276);
+  ctx.strokeStyle="#66583d";ctx.lineWidth=7;ctx.stroke();
+  ctx.strokeStyle=open?"#6db9bd":"#9b8058";ctx.lineWidth=4;ctx.stroke();
+  if(open){ctx.strokeStyle="#afe4da";ctx.lineWidth=1;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);}
   ctx.fillStyle="#b18a5d";ctx.fillRect(50,155,10,9);
   ctx.fillStyle="#d2ac77";ctx.fillRect(51,156,8,2);ctx.fillRect(51,160,8,2);
+  if(faucet)ctx.drawImage(faucet,40,152,20,20);
+  else {ctx.fillStyle="#c4b89c";ctx.fillRect(46,157,3,8);ctx.fillRect(46,157,7,3);ctx.fillStyle=open?"#55b4bc":"#aa5139";ctx.fillRect(44,154,7,2);}
   ctx.restore();
 }
 

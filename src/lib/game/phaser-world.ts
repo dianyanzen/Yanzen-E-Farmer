@@ -7,13 +7,16 @@
  * saves, runs collision rules, or advances the calendar. Only Phaser owns the
  * visible canvas, sprite layers, native camera and scene graphics.
  */
+import { poultryStock } from "./model";
 import * as Phaser from "phaser";
+import { yanzenSprite } from "./yanzen-sprite";
+import { activityAssets } from "./character-activities";
 import { RESIDENT_HOMES, isResidentHome, WORLD, facing, isOutdoorLocation, npcHere, activeQuestProps, weatherForDay, type GameLocation, type GameState } from "./model";
 import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
-import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
-import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout } from "./yanzen-interior-art";
+import { drawModularGround, drawIrrigationChannel, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import { YANZEN_MODULAR_INTERIORS_ENABLED, yanzenInteriorAssets, yanzenInteriorLayout, interiorDepth, interiorOpacity } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -47,6 +50,7 @@ class YZWorldScene extends Phaser.Scene {
   private ready = false;
 
   private background!: Phaser.GameObjects.Image;
+  private irrigation!: Phaser.GameObjects.Image;
   private soil: Phaser.GameObjects.Sprite[] = [];
   private mapProps: Phaser.GameObjects.Image[] = [];
   private questSprites: Phaser.GameObjects.Image[] = [];
@@ -65,6 +69,8 @@ class YZWorldScene extends Phaser.Scene {
   private waterKey = "";
   private weather!: Phaser.GameObjects.Graphics;
   private dusk!: Phaser.GameObjects.Image;
+  private roomShade!: Phaser.GameObjects.Graphics;
+  private activityProp!: Phaser.GameObjects.Image;
   private actor!: Phaser.GameObjects.Sprite;
   private actorShadow!: Phaser.GameObjects.Ellipse;
   private effect!: Phaser.GameObjects.Sprite;
@@ -85,24 +91,23 @@ class YZWorldScene extends Phaser.Scene {
     this.load.on("loaderror", () => this.failed(new Error("Gagal memuat aset Phaser.")));
     for (const [id,path] of Object.entries(outdoorSources)) if (id!=="petak") {
       if (path.endsWith(".svg")) this.load.svg("yz-map-"+id,"/game/assets/"+path,
-        id.startsWith("plot-")?{width:20,height:20}:{width:24,height:28});
+        id.startsWith("plot-")||id.startsWith("faucet-")?{width:20,height:20}:{width:24,height:28});
       else this.load.image("yz-map-"+id,"/game/assets/"+path);
     }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
     this.load.spritesheet("yz-people", "/game/assets/characters/stage1.png", { frameWidth: 24, frameHeight: 32 });
     this.load.spritesheet("yz-gaits", "/game/assets/characters/yanzen-gaits.png", { frameWidth: 32, frameHeight: 40 });
     this.load.spritesheet("yz-turns", "/game/assets/characters/yanzen-turns.png", { frameWidth: 32, frameHeight: 40 });
-    this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
+    for(const [key,path] of Object.entries(activityAssets))this.load.image("yz-activity-"+key,"/game/assets/"+path);
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
     this.load.svg("yz-home-day", "/game/assets/pasirluyu/rumah-yanzen-interior-day.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
-    this.load.svg("yz-warung", "/game/assets/pasirluyu/warung-interior.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-shed", "/game/assets/pasirluyu/gudang-interior.svg", { width: 480, height: HEIGHT });
     for (const [id,path] of Object.entries(YANZEN_MODULAR_INTERIORS_ENABLED ? yanzenInteriorAssets : {})) {
       const key="yz-room-"+id, url="/game/assets/"+path;
-      if(path.endsWith(".svg")) this.load.svg(key,url,{width:480,height:HEIGHT});
+      if(path.endsWith(".svg")) this.load.svg(key,url);
       else this.load.image(key,url);
     }
   }
@@ -110,6 +115,11 @@ class YZWorldScene extends Phaser.Scene {
   create() {
     try {
       this.background = this.add.image(0, 0, "yz-map-ground").setOrigin(0).setDepth(0);
+      for(const open of [false,true]){
+        const faucet=this.textures.get("yz-map-faucet-"+(open?"open":"closed")).getSourceImage();
+        this.textures.addCanvas("yz-irrigation-"+(open?"open":"closed"),makeCanvas(ctx=>drawIrrigationChannel(ctx,open,faucet as HTMLImageElement)));
+      }
+      this.irrigation=this.add.image(0,0,"yz-irrigation-closed").setOrigin(0).setDepth(8).setVisible(false);
       this.farm = this.add.graphics().setDepth(10);
       this.highlight = this.add.graphics().setDepth(11);
       this.effect = this.add.sprite(0, 0, "yz-effects", 0).setOrigin(0).setDepth(1700).setVisible(false);
@@ -122,7 +132,9 @@ class YZWorldScene extends Phaser.Scene {
       this.water = this.add.graphics().setDepth(9);
       this.weather = this.add.graphics().setDepth(4000);
       this.dusk = this.add.image(0,0,"yz-map-night-field").setOrigin(0).setDepth(5000).setAlpha(0);
+      this.roomShade = this.add.graphics().setDepth(4900);
       this.actorShadow=this.add.ellipse(0,0,12,4,0x3b3725,.25);
+      this.activityProp=this.add.image(0,0,"yz-activity-kopi-hitam-2-prop").setOrigin(0).setVisible(false);
       this.actor = this.add.sprite(0, 0, "yz-people", 1).setOrigin(0).setDepth(1000);
       this.cameras.main.setBounds(0, 0, WIDTH, HEIGHT);
       this.ready = true;
@@ -227,7 +239,7 @@ class YZWorldScene extends Phaser.Scene {
         const image=this.add.image(prop.x,prop.y,"yz-map-"+prop.asset).setOrigin(.5,1);
         if(prop.displayW && prop.displayH) image.setDisplaySize(prop.displayW,prop.displayH);
         else image.setScale(prop.scale ?? 1);
-        return image.setDepth(1000 + prop.y - TILE);
+        return image.setDepth(1000 + (prop.groundY ?? prop.y) - TILE).setVisible(prop.visible !== false);
       });
     } else if (YANZEN_MODULAR_INTERIORS_ENABLED && (location === "home" || location === "shed") &&
                this.textures.exists("yz-room-"+location+"Floor") &&
@@ -236,10 +248,10 @@ class YZWorldScene extends Phaser.Scene {
       this.background.setTexture("yz-room-"+room+"Floor").setDisplaySize(480, HEIGHT);
       this.mapProps = yanzenInteriorLayout[room].map(item =>
         this.add.image(item.x,item.y,"yz-room-"+item.key)
-          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(20+item.depth));
+          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(interiorDepth(item)));
     } else {
       const key=isResidentHome(location) ? location : location==="home" ?
-        (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") : location==="warung" ? "yz-warung" : "yz-shed";
+        (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") : "yz-shed";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
     }
   }
@@ -298,7 +310,10 @@ class YZWorldScene extends Phaser.Scene {
               .setFrame(Math.min(3,plot.stage)).setVisible(true);
           }
         }
-        if (plot.watered && plot.stage < 3) fill(px+15,py+3,3,4,0x68bacf);
+        if (plot.watered && plot.stage >= 0) {
+          fill(px+15,py+3,3,4,0x68bacf);
+          fill(px+16,py+2,1,2,0xb5e7e8);
+        }
         if (plot.stage === 3) {
           fill(px+2,py+2,5,2,0xffdb81);
           fill(px+2,py+4,2,3,0xffdb81);
@@ -330,7 +345,7 @@ class YZWorldScene extends Phaser.Scene {
         const x=npc.x*TILE-2, y=npc.y*TILE-12;
         const row=npcRows[npc.id]??0;
         const dx=frame.position.x-npc.x, dy=frame.position.y-npc.y;
-        const dir=Math.abs(dx)+Math.abs(dy)>2 ? "down" : Math.abs(dx)>Math.abs(dy) ?
+        const dir=Math.abs(dx)+Math.abs(dy)>2 ? npc.idleFacing ?? "down" : Math.abs(dx)>Math.abs(dy) ?
           (dx<0?"left":"right") : (dy<0?"up":"down");
         const idle=(row*4+dirs[dir])*3+1;
         let sprite=this.npcSprites.get(npc.id);
@@ -369,6 +384,7 @@ class YZWorldScene extends Phaser.Scene {
       this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
     this.updateQuestSprites(frame.state);
     if (location === "field") {
+      this.irrigation.setVisible(true).setTexture("yz-irrigation-"+(frame.state.irrigationOpen?"open":"closed"));
       this.updatePlots(frame);
       const tile = frame.state.player;
       const facing = { up: [0,-1], down:[0,1], left:[-1,0], right:[1,0] }[tile.dir];
@@ -378,12 +394,15 @@ class YZWorldScene extends Phaser.Scene {
         this.highlight.lineStyle(1, 0xf9e5b3, 1);
         this.highlight.strokeRect(tx*TILE+1,ty*TILE+1,TILE-2,TILE-2);
       }
-    }
-    const propState=location+":"+Number(frame.state.minutes>=720 && frame.state.minutes<1140)+":"+Number(!!frame.state.sluiceOpen);
-    if ((location === "pasar" || location === "sungai") && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
+    } else this.irrigation.setVisible(false);
+    const eggsReady=poultryStock(frame.state).nest>0;
+    const propState=location+":"+frame.state.minutes+":"+Number(!!frame.state.sluiceOpen)+":"+Number(eggsReady);
+    if (isOutdoorLocation(location) && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen,eggsReady).forEach((prop,index) => {
       const sprite = this.mapProps[index];
 
-      if (sprite && sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
+      if (!sprite) return;
+      sprite.setVisible(prop.visible !== false);
+      if (sprite.texture.key !== "yz-map-"+prop.asset) sprite.setTexture("yz-map-"+prop.asset);
     });
     this.propState=propState;
     const route = frame.route ?? [];
@@ -416,42 +435,43 @@ class YZWorldScene extends Phaser.Scene {
         );
       }
     }
-    const actorRow = dirs[frame.position.dir];
-    let texture="yz-people", spriteFrame=actorRow*3+1, x=frame.position.x*TILE-2, y=frame.position.y*TILE-12;
-    if (location==="sungai" && frame.fishing?.session) {
-      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
-      texture="yz-people";spriteFrame=actorRow*3+pose.spriteFrame;
-      x=frame.position.x*TILE-2;
-      y=frame.position.y*TILE-12+pose.bodyShift;
-    } else if (frame.action && frame.action.use.origin.x === frame.state.player.x &&
-        frame.action.use.origin.y === frame.state.player.y) {
-      const actionRow = { hoe:0, seed:1, water:2, harvest:3 }[frame.action.use.tool];
-      texture="yz-actions";spriteFrame=(actionRow*4 + actorRow)*3+frame.action.frame;
-      x=frame.position.x*TILE-14;y=frame.position.y*TILE-23;
-    } else if (frame.weight) {
-      texture="yz-turns";spriteFrame=frame.weight.row*3+frame.weight.column;
-      x=frame.position.x*TILE-6+frame.weight.shiftX;y=frame.position.y*TILE-20+frame.weight.shiftY;
-    } else if (frame.pose !== null) {
-      texture="yz-gaits";spriteFrame=(actorRow+(frame.running ? 4:0))*6+frame.pose;
-      x=frame.position.x*TILE-6;y=frame.position.y*TILE-18;
-    }
-    const footX=frame.position.x*TILE+TILE/2;
-    const footY=(frame.position.y+1)*TILE;
-    this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(frame.position.y));
+    const actorPoint=frame.activity?.anchor??frame.position;
+    const fishPose = location==="sungai" && frame.fishing?.session ?
+      fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed) : undefined;
+    const sprite = yanzenSprite(frame, frame.activity, fishPose);
+    const texture = sprite.source === "asset" ? "yz-activity-"+sprite.key : "yz-"+sprite.source;
+    const sheetColumns = { people: 3, gaits: 6, turns: 3 };
+    const spriteFrame = sprite.source === "asset" ? undefined :
+      sprite.row*sheetColumns[sprite.source]+sprite.column;
+    const footX=actorPoint.x*TILE+TILE/2;
+    const footY=(actorPoint.y+1)*TILE;
+    this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(actorPoint.y));
     // Fade only tall scenery that would cover the avatar from head to feet.
     for(const prop of this.mapProps){
+      if(!isOutdoorLocation(location))continue;
       if(prop.displayHeight<39)continue;
       const obscured = footY<prop.y && footY>prop.y-prop.displayHeight+10 &&
         Math.abs(footX-prop.x)<prop.displayWidth*.34;
       prop.setAlpha(obscured?.65:1);
     }
-    this.actor.setTexture(texture, Math.max(0,spriteFrame))
-      .setPosition(x, y)
-      .setDepth(characterDepth(frame.position.y) + 1);
+    const bed=frame.activity?.key.startsWith("sleep-") ? yanzenInteriorLayout.home.find(item=>item.key==="homeBed") : undefined;
+    const actorDepth=bed ? interiorDepth(bed)+1 : characterDepth(actorPoint.y)+1;
+    this.actor.setTexture(texture, spriteFrame)
+      .setPosition(sprite.x, sprite.y)
+      .setDepth(actorDepth);
+    const prop = sprite.prop;
+    this.activityProp.setVisible(!!prop);
+    if (prop) {
+      this.activityProp.setTexture("yz-activity-"+prop.key)
+        .setOrigin(prop.angle === undefined ? 0 : 7/15, prop.angle === undefined ? 0 : 9/15)
+        .setRotation(prop.angle ?? 0)
+        .setPosition(prop.x,prop.y)
+        .setDepth(characterDepth(actorPoint.y)+1.1);
+    }
     this.fishingInk.clear();
     this.fishingText.setVisible(false);
-    if (location==="sungai" && frame.fishing?.session) {
-      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
+    if (fishPose) {
+      const pose=fishPose;
       const p=(v:number)=>Math.round(v);
       // A two-pixel pixel-arm swings with the pole, not beside the camera.
       this.fishingInk.lineStyle(2,0xdfb58d,1).lineBetween(
@@ -501,6 +521,16 @@ class YZWorldScene extends Phaser.Scene {
     }
     const dusk=Math.max(0,Math.min(1,(frame.state.minutes-960)/120));
     this.dusk.setAlpha(!isOutdoorLocation(location) ? 0 : dusk);
+    this.roomShade.clear();
+    if ((location === "home" || location === "shed") && this.mapProps.length) {
+      yanzenInteriorLayout[location].forEach((item, index) => {
+        if (item.phase) this.mapProps[index].setAlpha(interiorOpacity(item, frame.state.minutes));
+      });
+      if (evening) {
+        this.roomShade.fillStyle(0x1b202b,.12)
+          .fillRect(150,location === "home" ? 92 : 102,200,location === "home" ? 198 : 188);
+      }
+    }
     const rainFrame = isOutdoorLocation(location) &&
       weatherForDay(frame.state.day) === "hujan" ? frame.ambient : null;
     if (this.lastRainFrame !== rainFrame) {
@@ -547,6 +577,9 @@ export function mountPhaserWorld(parent: HTMLElement): Promise<PhaserFieldAdapte
         backgroundColor: "#86b07a",
         render: { smoothPixelArt: true, roundPixels: false },
         audio: { noAudio: true },
+        // The React map handler picks world tiles from DOM clicks, including
+        // those synthesized for taps. Phaser touch capture suppresses them.
+        input: { touch: false },
         scale: { mode: Phaser.Scale.EXPAND, width: VIEW_WIDTH, height: VIEW_HEIGHT },
         scene: [scene]
       });

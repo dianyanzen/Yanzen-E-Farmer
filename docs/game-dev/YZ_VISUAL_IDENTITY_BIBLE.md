@@ -50,6 +50,10 @@
 
 **Pasar:** pembagian jalur publik, frontage utama, kios kecil pendukung, zona bongkar, dan titik NPC; hindari gabungan bangunan yang menindih jalan atau mendominasi map. **Gang:** ambang pintu terhubung ke jalur; teras, pot, jemuran, drainase punya letak masuk akal. **Bantaran sungai:** perairan, dermaga, jalan, jembatan, alat memancing, dan tanaman tepian harus mengarahkan pemain, bukan mengaburkan air yang bisa dipancing. **Kebun:** plot yang mudah dibaca, tanaman memiliki fase berbeda, keteraturan beralasan, tidak seluruh tanah diseragamkan menjadi tekstur kotak rapat.
 
+## Standar wajib 26 November 2026 — Sundanese Cozy Farming RPG dan pedagang universal
+
+Gunakan `docs/game-dev/SUNDANESE_COZY_MERCHANT_STANDARD.md` sebagai kontrak desain dan penerimaan seluruh lokasi, terutama pasar, NPC pedagang, produk dan dialog. Widi menjadi baseline struktur interaksi pedagang; Iyan harus berdiri di depan lapak sebagai NPC independen. Ayu dan Widi memakai frontage pasar; Inggit boleh melayani dari balik konter sesuai fungsi warung. Komponen dialog, katalog, ekspresi, input dan transaksi memakai standar bersama tanpa menghilangkan suara masing-masing tokoh. Semua aset baru wajib individual, termasuk delapan ekspresi dan seluruh frame; aturan atomic assets, canonical NPC, scale lock dan staging-only tetap lebih tinggi daripada contoh historis. Dilarang menyatakan pekerjaan selesai tanpa bukti QA runtime pada kandidat rilis yang sama.
+
 ### 4. Kontrak blueprint per bangunan (WAJIB sebelum generate)
 
 Satu \`buildingId\` canonical memiliki:
@@ -60,14 +64,14 @@ Satu \`buildingId\` canonical memiliki:
 - \`layers\`: ground/base, floor-wall, exterior/body, roof/upper foreground, furniture-behind, furniture-front, active objects, shadows/lighting, optional weather.
 - \`sourceAssetIds\`, \`runtimeAssetIds\`, provenance, dependency references, checksum, fallback, status QA, version, acceptance screenshot set.
 
-**Urutan kerja:** fungsi dan konteks → lahan dan peta → blockout tile → pintu dan akses → collision dan jalur → proporsi terhadap karakter → konsep/palet → render HD master → layer individual → atlas/runtime → QA perangkat → staging → persetujuan → main.
+**Urutan kerja:** fungsi dan konteks → lahan dan peta → blockout tile → pintu dan akses → collision dan jalur → proporsi terhadap karakter → konsep/palet → render HD master → layer dan file runtime individual → QA perangkat/CI → persetujuan → staging game saja; tidak merge ke main.
 
 **Jangan** mengandalkan \`footOffset\` dan patch koordinat berulang sebagai pengganti blueprint; itu alat kompatibilitas sementara. Jangan menghasilkan satu gambar interior lengkap lalu menyebut satu cropping atlas sebagai furniture independen jika alpha background masih terbawa.
 
 ### 5. Standar teknis yang mengikuti repo, bukan menggantikannya
 - Runtime sekarang: world tile 20px; karakter 24×32px; outdoor game world 640×320px. Verifikasi bila engine berubah.
 - Ukuran seperti 112px rumah dan 154px toko adalah **implementasi yang sedang diuji**, bukan standar universal.
-- Source/master beresolusi tinggi disimpan terpisah dari runtime/WebP/atlas; resolusi efektif harus diperiksa pada ukuran tampil ponsel, bukan hanya kanvas 1024px.
+- Source/master beresolusi tinggi disimpan terpisah dari runtime individual ber-alpha; resolusi efektif harus diperiksa pada ukuran tampil ponsel, bukan hanya kanvas 1024px.
 - Active props punya sprite alpha terpisah, footprint terukur, hotspot dan depth kaki; pemain tidak boleh menginjak kasur/rak atau tertutup benda secara salah.
 - Pastikan paritas Canvas/Phaser dan responsif mobile. Tidak boleh ada object, subtitle, toast, atau kontrol game menabrak area gameplay.
 - Door-to-path dan elevation/threshold berada di dunia yang sama dengan collision. Semua lorong utama terjangkau dan portal kembali ke posisi benar.
@@ -100,7 +104,7 @@ Satu \`buildingId\` canonical memiliki:
 - **O — Occlusion** avatar tidak menghilang salah lapisan.
 - **P — Palette & perspective** bersama.
 - **Q — Quality gate** bukti gambar dan tes.
-- **R — Reuse** aset bagus sebelum mengganti.
+- **R — Retensi** aset bagus untuk pemilik yang sama; dilarang sharing antar-entitas atau instance.
 - **S — Scale** relatif karakter, grid, tetangga.
 - **T — Terrain** cocok dengan gedung, jalur dan musim.
 - **U — Usability** terbaca di mobile.

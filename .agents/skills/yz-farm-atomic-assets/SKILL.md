@@ -3,6 +3,9 @@ name: yz-farm-atomic-assets
 description: Aturan wajib 100% individual file per aset dan per frame animasi untuk YZ Farm Life, tanpa atlas/spritesheet/cutting/berbagi gambar antar-entitas, serta penguncian skala dan titik kaki Yanzen pada seluruh animasi. Trigger setiap perubahan artwork, karakter, NPC, animasi, tiles, gedung, furnitur, HUD, efek, dan loader.
 ---
 
+**Deployment aktif 25 November 2026:** baca `.agents/skills/yz-farm-deployment/SKILL.md` dan `docs/DEPLOYMENT_POLICY.md`. Perubahan game hanya ke project `yanzen-e-farmer-staging` pada domain tetap setelah QA lokal/CI; tanpa preview rutin, tanpa deploy web pertanian. Verifikasi READY dan alias live. Aturan ini mengalahkan petunjuk preview/promotion lama; pemain online bukan blocker, save tetap kompatibel.
+
+
 # YZ Farm Life — Atomic Assets Extreme (WAJIB)
 
 **Keputusan pemilik: 24 November 2026.** Tingkat aturan: HARD REQUIREMENT untuk seluruh aset baru, revisi, migrasi, dan semua output runtime final. Baca `AGENTS.md`, `docs/game-dev/ATOMIC_ASSET_AND_YANZEN_SCALE_STANDARD.md`, `docs/game-dev/YANZEN_ANIMATION_SCALE_AUDIT_20261124.md`, `docs/game-dev/YZ_VISUAL_IDENTITY_BIBLE.md`, dan `WORLD_SCALE_AND_PROPORTION_STANDARD.md`. Dokumen lama yang menyarankan atlas untuk optimasi bukan pengecualian.

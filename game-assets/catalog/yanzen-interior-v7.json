@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "shedBasket",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-woven-basket.png",
+      "runtimeSHA256": "df1a067d157619d1442dcf9b8791485efefceefd78c172e9e3a5e438ab51278a",
+      "canvasSize": [
+        25,
+        16
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        25,
+        16
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedClayJar",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-clay-jar.png",
+      "runtimeSHA256": "e1257c645db34c22025c7b511b8be0651303f405965850f68164b5c2480c5eb2",
+      "canvasSize": [
+        10,
+        13
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        10,
+        13
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeFloor",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-floor.png",
+      "runtimeSHA256": "a4afc1c92b46507302f4bcfa8225395c1df05ffe24b22c1545c3790a42fa3457",
+      "canvasSize": [
+        480,
+        320
+      ],
+      "visibleAlphaBounds": [
+        160,
+        120,
+        340,
+        280
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeWall",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-back-wall.png",
+      "runtimeSHA256": "e0b392c3914d9d12b05873e1032aee9eac956c2d27b1b30f62793980b58729e5",
+      "canvasSize": [
+        180,
+        28
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        180,
+        28
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeMat",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-woven-rug.png",
+      "runtimeSHA256": "9411c51cd821df9a4d7b391af55abd65b19cc6186a0b5f45f7af16a1451bae78",
+      "canvasSize": [
+        64,
+        40
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        62,
+        39
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedFloor",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-floor.png",
+      "runtimeSHA256": "3ff70f412aed960fc12d795c9eabfea6f23fb96c2568ad308b88fb5955126af2",
+      "canvasSize": [
+        480,
+        320
+      ],
+      "visibleAlphaBounds": [
+        160,
+        120,
+        340,
+        280
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedWall",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-back-wall.png",
+      "runtimeSHA256": "f194c655e517d14428a1ed23f588077222488bfdf255a0f6548b5fb43a231661",
+      "canvasSize": [
+        180,
+        18
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        180,
+        18
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeLeftWall",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-left-trim.png",
+      "runtimeSHA256": "1689efdace2649be34fe878e4dda5ef8185a768f4e482d2ddc0f657931c65c00",
+      "canvasSize": [
+        10,
+        198
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        10,
+        198
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeRightWall",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-right-trim.png",
+      "runtimeSHA256": "a6e31dd8917c4d33f094453b7da2c88ab442926317fac226520dc049058093cd",
+      "canvasSize": [
+        10,
+        198
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        10,
+        198
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeFrontWall",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-front-trim.png",
+      "runtimeSHA256": "40c6860c41f514bc400dd662b39460a664fbb27af2c2e4422d80e9767a8a435e",
+      "canvasSize": [
+        200,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        200,
+        12
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeDoormat",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-entry-mat.png",
+      "runtimeSHA256": "f0bfc3e3580e0e764e69903d2e912960177c7bec839d7320d90fe07eea405795",
+      "canvasSize": [
+        28,
+        10
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        26,
+        9
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeShelf",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-low-shelf.png",
+      "runtimeSHA256": "25c880a8695ba22bfb8630e24a38ae1419b6e788f90954d3f687cf6aeb7288ea",
+      "canvasSize": [
+        22,
+        24
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        22,
+        24
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeBench",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-teak-bench.png",
+      "runtimeSHA256": "56024304ca4e2130fd19bb2f3647d15216f4b12fe6fadec807b7bf54201503bf",
+      "canvasSize": [
+        34,
+        16
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        34,
+        16
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedSeedSack",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-seed-sacks.png",
+      "runtimeSHA256": "e92f645e2f0a5b8b8ebf3c2869468efbf577eebf18ac60cd5c2db2eca73ba68a",
+      "canvasSize": [
+        20,
+        23
+      ],
+      "visibleAlphaBounds": [
+        0,
+        5,
+        20,
+        23
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedHarvestCrate",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-harvest-crate.png",
+      "runtimeSHA256": "3c1ea01f4d3f9132872bb7d265cbdf598d06082157c3457c4aeef6c6ac8d60cb",
+      "canvasSize": [
+        24,
+        23
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        24,
+        23
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedBucket",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-water-barrel.png",
+      "runtimeSHA256": "a934b061340e9650e6f30ce935328f1326e2209a83ea85e58a141bc32e2d2ab5",
+      "canvasSize": [
+        20,
+        26
+      ],
+      "visibleAlphaBounds": [
+        0,
+        5,
+        20,
+        26
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeHillsideFrame",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-hillside-frame.png",
+      "runtimeSHA256": "0d29ac03771111b7565c2b4bd5387abfa001509187159b620e116b6e2f94f3f5",
+      "canvasSize": [
+        22,
+        19
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        22,
+        19
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeJournal",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-farm-journal.png",
+      "runtimeSHA256": "1de0927b346f493a53ddde3313e24b02b1dcdd7caa5db69dd513477385666a4c",
+      "canvasSize": [
+        20,
+        10
+      ],
+      "visibleAlphaBounds": [
+        0,
+        1,
+        20,
+        10
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeWindowLight",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-window-light.png",
+      "runtimeSHA256": "be4cd93d1237740365424992036d56f1ec2b8b414b6763b1503c6f73e32c48eb",
+      "canvasSize": [
+        66,
+        65
+      ],
+      "visibleAlphaBounds": [
+        9,
+        0,
+        66,
+        65
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "homeLampLight",
+      "ownerId": "yanzen-home",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/home-lamp-light.png",
+      "runtimeSHA256": "8f424c96591ba2db5d1d6f52570875bcfaf8e7c75f01cd0364d9bbb85b16dae2",
+      "canvasSize": [
+        82,
+        61
+      ],
+      "visibleAlphaBounds": [
+        2,
+        0,
+        81,
+        60
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedLeftWall",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-left-trim.png",
+      "runtimeSHA256": "8950b70e87472e02b3dd9e11d9c284c998dd3c25d6ea1e4fe19ee2fa7cfa7ff3",
+      "canvasSize": [
+        10,
+        188
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        10,
+        188
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedRightWall",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-right-trim.png",
+      "runtimeSHA256": "064f60c8e1865c8885706635ecb3667fe54b9e630023df37846fd1d245562cd6",
+      "canvasSize": [
+        10,
+        188
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        10,
+        188
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedFrontWall",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-front-trim.png",
+      "runtimeSHA256": "40c6860c41f514bc400dd662b39460a664fbb27af2c2e4422d80e9767a8a435e",
+      "canvasSize": [
+        200,
+        12
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        200,
+        12
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedVent",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-vent.png",
+      "runtimeSHA256": "17b12a450a4eaeb549461df1cf0b18b414520cf7db05244d3b77070607be3574",
+      "canvasSize": [
+        23,
+        16
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        23,
+        16
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedWindowLight",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-vent-light.png",
+      "runtimeSHA256": "60f85a78e061c44e9d89f438e89a884ae644b525f01955219cc92ac274b3014b",
+      "canvasSize": [
+        40,
+        50
+      ],
+      "visibleAlphaBounds": [
+        3,
+        0,
+        40,
+        50
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedLampLight",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-lantern-light.png",
+      "runtimeSHA256": "2255d8ac3c0fd4840a84fa38fbf97b5971072d38ac33c7b866ba92547929db41",
+      "canvasSize": [
+        69,
+        53
+      ],
+      "visibleAlphaBounds": [
+        2,
+        0,
+        68,
+        52
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedDoormat",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-entry-mat.png",
+      "runtimeSHA256": "e2e23acda537ea455269b505eb81bd649b909a550c1afa81efbc2787beb79737",
+      "canvasSize": [
+        24,
+        9
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        22,
+        8
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "shedSupplyCubby",
+      "ownerId": "yanzen-shed",
+      "runtimeFile": "public/game/assets/locations/yanzen/v7/shed-supply-cubby.png",
+      "runtimeSHA256": "3c0fd3bf10b82e5abe183c11e409d11f53782919d39c47f45abda64b01b3c3e7",
+      "canvasSize": [
+        26,
+        43
+      ],
+      "visibleAlphaBounds": [
+        0,
+        3,
+        26,
+        43
+      ],
+      "provenance": "Original project pixel art",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    }
+  ]
+}

@@ -3,8 +3,8 @@
   "category": "portraits",
   "label": "Potret dan ekspresi",
   "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-  "mediaCount": 468,
-  "bytes": 54071242,
+  "mediaCount": 469,
+  "bytes": 54181653,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -150,7 +150,8 @@
         "public/game/assets/portraits/C13.png",
         "public/game/assets/portraits/C14.png",
         "public/game/assets/portraits/C15.png",
-        "public/game/assets/portraits/C16.png"
+        "public/game/assets/portraits/C16.png",
+        "public/game/assets/portraits/iyan-market.png"
       ]
     },
     {

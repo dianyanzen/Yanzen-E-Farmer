@@ -1,6 +1,10 @@
 # YZ Farm Life — pustaka kerja game
 
-**Daftar rujukan aktif, 22 November 2026.** Repositori menyimpan game dan web E-Farmer. Isi dokumen yang dibuat lebih awal dapat berupa proposal/historis; jangan menyatakan fitur sudah aktif tanpa melihat kode atau tes.
+**Daftar rujukan aktif, 25 November 2026.** Repositori menyimpan game dan web E-Farmer. Isi dokumen yang dibuat lebih awal dapat berupa proposal/historis; jangan menyatakan fitur sudah aktif tanpa melihat kode atau tes.
+
+## Deployment wajib
+
+Baca [standar deployment](../DEPLOYMENT_POLICY.md) dan skill `.agents/skills/yz-farm-deployment/SKILL.md`. Game hanya ke domain staging permanen, web-only terpisah, tanpa preview rutin. Tes lokal/CI tetap wajib.
 
 ## Baca ini dahulu (aturan aktif)
 
@@ -29,7 +33,7 @@ Skill proyek: `.agents/skills/yz-farm-dialogue/SKILL.md`, `.agents/skills/yz-far
 
 ## Dokumen perencanaan (bukan mandat runtime)
 
-`GAME_DESIGN_DOCUMENT.md`, `BANDUNG_MASTER_WORLD_BLUEPRINT_v1.md`, `REFERENCE_DOCUMENTS.md`, `TOOLS_AND_PLUGINS.md` dan atlas merupakan gagasan, penelitian dan arah ekspansi. `WEB_INTEGRATION_BOUNDARY.md` menjelaskan **jalur historis** integrasi branch lama — tidak boleh diterapkan langsung ke main sekarang.
+`GAME_DESIGN_DOCUMENT.md`, `BANDUNG_MASTER_WORLD_BLUEPRINT_v1.md`, `REFERENCE_DOCUMENTS.md`, `TOOLS_AND_PLUGINS.md` dan atlas merupakan gagasan, penelitian dan arah ekspansi. `WEB_INTEGRATION_BOUNDARY.md` adalah batas integrasi aktif yang diperbarui 25 November; jalur merge game ke main lama bersifat historis.
 
 Catatan `NPC_ROSTER_PRIVATE_SYNC.md`, `NPC_248_PRIVATE_ENRICHMENT_ROLLOUT.md`, `AUDIT_NPC_DOCKER_DAN_POSTGRES.md` menyimpan **riwayat migrasi**. Gunakan untuk audit asal keputusan, bukan untuk mengganti 248 nama/profesi/potret terbaru.
 

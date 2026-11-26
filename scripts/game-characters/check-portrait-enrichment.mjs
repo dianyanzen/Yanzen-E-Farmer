@@ -36,7 +36,7 @@ for(const entry of index.characters){
   assert.equal(doc.fieldProvenance['07_background_history.familyContext']?.claimType,'fictional-worldbuilding-proposal');
  }
  const s=doc.sections['12_continuity_current_state'];
- assert.equal(s.playableRuntimeConfirmed,false);
+ assert.equal(s.playableRuntimeConfirmed,entry.id==="W026");
  assert.equal(s.questIntegrationConfirmed,false);
  assert.equal(s.legacyAssociationApproved,false);
  const img=join('public',entry.portraitUrl);

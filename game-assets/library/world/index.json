@@ -3,8 +3,8 @@
   "category": "world",
   "label": "Peta, tile dan wilayah",
   "description": "Peta Pasirluyu, Kota Bandung, kelurahan, lingkungan",
-  "mediaCount": 1299,
-  "bytes": 22391514,
+  "mediaCount": 1308,
+  "bytes": 22466533,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -721,13 +721,22 @@
     {
       "id": "tiles/farm-kit/kebun",
       "files": [
+        "public/game/assets/tiles/farm-kit/kebun/ajir-bambu-01-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/ajir-bambu-01.png",
         "public/game/assets/tiles/farm-kit/kebun/caping-01.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe-alt.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-ripe.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-alt-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-alt.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-0.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-alt-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-alt.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-1.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-alt-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-alt.png",
+        "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2-runtime.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-2.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-3-alt.png",
         "public/game/assets/tiles/farm-kit/kebun/cucumber-stage-3.png",

@@ -4,6 +4,7 @@ on:
     branches:
       - feat/yz-farm-life-stage1
       - feat/yz-pasirluyu-chapter1
+      - feat/yanzen-spatial-irrigation-20261125
   pull_request:
     paths:
       - ".agents/**"
@@ -15,7 +16,11 @@ on:
       - "src/lib/game/**"
       - "tests/game-stage1.mjs"
       - "tests/game-save.mjs"
-      - "tests/game-chapter1-ui.mjs"
+      - "tests/game-*-ui.mjs"
+      - "tests/game-ui-api-fixture.mjs"
+      - "src/app/api/game/**"
+      - "src/app/api/auth/**"
+      - ".github/workflows/yz-farm-life-stage1.yml"
       - "public/game/assets/story/**"
       - "game-assets/**"
       - "scripts/game-assets/**"
@@ -46,5 +51,7 @@ jobs:
         run: npm run assets:quality
       - name: Test game model
         run: npm run test:game
+      - name: Test core browser flows
+        run: npm run test:game:ui && npm run test:game:life:ui && npm run test:portraits:ui && npm run test:game:starter:ui
       - name: Lint
         run: npm run lint
