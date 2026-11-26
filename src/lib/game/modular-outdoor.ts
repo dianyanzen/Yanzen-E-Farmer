@@ -18,6 +18,8 @@ export const outdoorSources: Record<string,string> = {
   "chicken-nest-eggs":"locations/poultry/nest-eggs.png",
   "iyan-market-sprite":"characters/iyan-market.png",
   "iyan-feed-sack":"locations/iyan/feed-sack.png",
+  "iyan-bran-sack":"locations/iyan/bran-sack.png",
+  "iyan-weighing-scale":"locations/iyan/weighing-scale.png",
   "iyan-stall":"locations/iyan/stall.png",
   "iyan-stall-counter":"locations/iyan/stall-counter.png",
   "iyan-stall-sign":"locations/iyan/stall-sign.png",
@@ -95,7 +97,7 @@ const warkop: Placement[] = [
 ];
 
 const iyanStallX=(IYAN_MARKET.x+.5)*WORLD.tile;
-const iyanStallY=(IYAN_MARKET.y+1)*WORLD.tile;
+const iyanStallY=(IYAN_MARKET.stallY+1)*WORLD.tile;
 
 const props: Record<OutdoorLocation, Placement[]> = {
   field: [
@@ -137,8 +139,9 @@ const props: Record<OutdoorLocation, Placement[]> = {
   ],
   pasar: [
     {asset:"iyan-stall",x:iyanStallX,y:iyanStallY-5,groundY:iyanStallY-12},
-    {asset:"iyan-market-sprite",x:iyanStallX,y:iyanStallY-10,displayW:24,displayH:32},
     {asset:"iyan-stall-shutter",x:iyanStallX,y:iyanStallY-8,groundY:iyanStallY-7},
+    {asset:"iyan-bran-sack",x:iyanStallX-13,y:iyanStallY-7,displayW:18,displayH:18,groundY:iyanStallY-5},
+    {asset:"iyan-weighing-scale",x:iyanStallX+12,y:iyanStallY-5,displayW:18,displayH:18,groundY:iyanStallY+1},
     {asset:"iyan-stall-counter",x:iyanStallX,y:iyanStallY},
     {asset:"iyan-stall-sign",x:iyanStallX,y:iyanStallY-39,groundY:iyanStallY},
     {asset:"iyan-feed-sack",x:iyanStallX-23,y:iyanStallY+1,displayW:13,displayH:15},
@@ -279,12 +282,16 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
 export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false,eggsReady=false): Placement[] {
   const scenery = props[location].map(p => p.asset==="inggit-sign" &&
     (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p);
-  if(location==="pasar")return scenery.map(prop=>{
-    if(prop.asset==="iyan-market-sprite")return {...prop,visible:iyanMarketOpen(minutes)};
+  if(location==="pasar")return [...scenery.map(prop=>{
     if(prop.asset==="iyan-stall-shutter")return {...prop,visible:!iyanMarketOpen(minutes)};
+    if(prop.asset==="iyan-bran-sack" || prop.asset==="iyan-weighing-scale")return {...prop,visible:iyanMarketOpen(minutes)};
     if(prop.closedAsset && !marketCounterOpen(minutes,"A04"))return {...prop,asset:prop.closedAsset};
     return prop;
-  });
+  }), {
+    asset:"iyan-market-sprite",x:(IYAN_MARKET.x+.5)*WORLD.tile,
+    y:(IYAN_MARKET.y+1)*WORLD.tile-2,displayW:24,displayH:32,
+    visible:iyanMarketOpen(minutes),groundY:(IYAN_MARKET.y+1)*WORLD.tile,
+  }];
   if(location!=="field")return scenery;
   const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
   const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;

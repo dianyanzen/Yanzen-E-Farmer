@@ -238,6 +238,7 @@ try {
  await shop.getByRole('button',{name:'Lanjut ›',exact:true}).click();
  await shop.getByRole('button',{name:/Ambil misi · Telur buat Warung/}).click();
  await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.quest==='feed');
+ await shop.getByText('Lapak pakan Iyan',{exact:true}).waitFor();
  await shop.getByRole('button',{name:/Beli 5 porsi pakan/}).click();
  await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.feed===5);
  await loadCheckpoint(poultry,{location:'field',player:{x:POULTRY.feeder.x,y:POULTRY.feeder.y-1,dir:'down'}});

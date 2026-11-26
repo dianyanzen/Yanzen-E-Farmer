@@ -3,8 +3,8 @@
   "category": "commerce",
   "label": "Pasar dan perdagangan",
   "description": "Aset pasar, barang dan ikon toko",
-  "mediaCount": 10,
-  "bytes": 249520,
+  "mediaCount": 16,
+  "bytes": 325528,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -29,6 +29,22 @@
       "id": "explore-bandung/pasar",
       "files": [
         "game-assets/yz-farm-life/explore-bandung/pasar/atlas.png"
+      ]
+    },
+    {
+      "id": "market/inggit",
+      "files": [
+        "public/game/assets/market/inggit/bala-bala.png",
+        "public/game/assets/market/inggit/kopi-hitam.png",
+        "public/game/assets/market/inggit/nasi-tutug.png",
+        "public/game/assets/market/inggit/teh-hangat.png",
+        "public/game/assets/market/inggit/telur.png"
+      ]
+    },
+    {
+      "id": "market/iyan",
+      "files": [
+        "public/game/assets/market/iyan/pakan-ayam.png"
       ]
     },
     {

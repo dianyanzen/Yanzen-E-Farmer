@@ -320,7 +320,7 @@ export function buyWarungItem(s:GameState,item:WarungItem){
 }
 export const IYAN_MARKET = {
   id: "W026", name: "Iyan Rustiana", portrait: "/game/assets/portraits/iyan-market.png",
-  x: 17, y: 8, opensAt: 9 * 60, closesAt: 17 * 60,
+  x: 17, y: 9, stallY: 8, opensAt: 9 * 60, closesAt: 17 * 60,
 } as const;
 
 export const POULTRY = {
@@ -365,7 +365,7 @@ export function iyanDialogue(s: GameState): Omit<Dialogue, "state"> {
   else if(quest==="report") lines=["Sudah sampai ke Inggit? Bagus. Besok-besok kalau ada lebih, bawa lagi ke warung. Ini upah yang kujanjikan."];
   else if(quest==="done") lines=["Eh, Yanzen. Gimana ayamnya? Kalau sudah mulai berebut di palung, ratakan saja pakannya."];
   else lines=[s.minutes<720?"Pagi, Yanzen. Gimana kabar ayam di kebun?":"Eh, Yanzen. Lagi cari pakan?", iyanQuestObjective(quest)];
-  return {title:IYAN_MARKET.name+" · Lapak pakan",poultryShop:true,lines};
+  return {title:IYAN_MARKET.name,poultryShop:true,lines};
 }
 
 export function interactPoultry(s: GameState, command: "buy-feed" | "feed" | "collect" | "sell-eggs" | "accept-quest" | "report-quest"): {state: GameState; message: string} {
@@ -844,7 +844,7 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[IYAN_MARKET.x-1,IYAN_MARKET.y-1,IYAN_MARKET.x+1,IYAN_MARKET.y],[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  pasar:[[IYAN_MARKET.x-1,IYAN_MARKET.stallY-1,IYAN_MARKET.x+1,IYAN_MARKET.stallY],[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -876,6 +876,7 @@ export function areaBlocked(location:GameLocation,x:number,y:number,s?:GameState
   if(!isOutdoorLocation(location))return homeBlocked(x,y,location==="shed"?"shed":"home");
   if(x<0||x>=WORLD.width||y<0||y>=WORLD.height)return true;
   if(location==="sungai" && isRiverWaterTile(x,y))return true;
+  if(location==="pasar" && x===IYAN_MARKET.x && y===IYAN_MARKET.y && s && iyanMarketOpen(s.minutes))return true;
   const questProp=questPropAt(location,x,y);
   if(questProp && s && questPropActive(s,questProp))return true;
   if(x===0 || x===WORLD.width-1 || y===0 || y===WORLD.height-1){
@@ -1079,6 +1080,8 @@ export function safeLoad(value: unknown): GameState | null {
       !Array.isArray(value.plots) || value.plots.length > 48) return null;
   let playerX=oldWarung ? INGGIT_WARUNG.x : player.x;
   let playerY=oldWarung ? INGGIT_WARUNG.y+1 : player.y;
+  // Relocate an old customer save only if it now overlaps the merchant during opening hours.
+  if(location==="pasar" && playerX===IYAN_MARKET.x && playerY===IYAN_MARKET.y && iyanMarketOpen(value.minutes as number))playerY=IYAN_MARKET.y+1;
   // Older saves can stand inside an updated footprint. Recover the nearest
   // traversable outdoor tile while leaving valid positions and all progress intact.
   if(areaBlocked(location as GameLocation,playerX,playerY)){
