@@ -29,6 +29,10 @@ Skill ini khusus **proses penulisan atau review developer**, bukan filter AI pad
 - **Jangan** menambah urusan pribadi ke figur publik atau menyalin dialog dari Harvest Moon. Catatan fakta Kota Bandung memerlukan sumber bila digunakan sebagai sejarah nyata.
 - Setelah itu, baca pada layar ponsel dan desktop, dengarkan percakapan seolah berlangsung di tempatnya, lalu cek variasi pilihan, NPC yang menolak, dan jalan cerita sesudah aksi pemain.
 
+## Standar wajib 26 November 2026 — Sundanese Cozy Farming RPG dan pedagang universal
+
+Gunakan `docs/game-dev/SUNDANESE_COZY_MERCHANT_STANDARD.md` sebagai kontrak desain dan penerimaan seluruh lokasi, terutama pasar, NPC pedagang, produk dan dialog. Widi menjadi baseline struktur interaksi pedagang; Iyan harus berdiri di depan lapak sebagai NPC independen. Ayu dan Widi memakai frontage pasar; Inggit boleh melayani dari balik konter sesuai fungsi warung. Komponen dialog, katalog, ekspresi, input dan transaksi memakai standar bersama tanpa menghilangkan suara masing-masing tokoh. Semua aset baru wajib individual, termasuk delapan ekspresi dan seluruh frame; aturan atomic assets, canonical NPC, scale lock dan staging-only tetap lebih tinggi daripada contoh historis. Dilarang menyatakan pekerjaan selesai tanpa bukti QA runtime pada kandidat rilis yang sama.
+
 ## Area wajib
 
 Dialog/ekspresi, reaksi pilihan, pesan, quest, Kronik, Warga, inventaris, gudang, HUD, plang, peta, panduan, toko, rumah, bangun tidur, sistem panen, notifikasi, kesalahan save dan state kosong. Utamakan perbaikan teks yang **aktif** di permainan sebelum menulis ratusan dialog ekspansi yang belum dipakai.

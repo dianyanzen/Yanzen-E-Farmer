@@ -1,6 +1,6 @@
 # Pedoman agen — YZ Farm Life / Yanzen E-Farmer
 
-**Berlaku untuk pekerjaan game, diperbarui 25 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
+**Berlaku untuk pekerjaan game, diperbarui 26 November 2026.** Repository juga berisi aplikasi pertanian E-Farmer. Jangan mengubah data, autentikasi, anggaran, atau operasi pertanian karena permintaan revisi narasi/game. Baca dokumen yang relevan, bukan seluruh arsip tanpa memeriksa statusnya.
 
 ## KEBIJAKAN DEPLOYMENT AKTIF — 25 NOVEMBER 2026 (WAJIB)
 
@@ -34,6 +34,10 @@ Baca `docs/DEPLOYMENT_POLICY.md` dan `.agents/skills/yz-farm-deployment/SKILL.md
 - **Sebelum merge:** screenshot before/after, tes navigasi/collision/save, QA ketajaman/overlap, validasi katalog media, Vercel status sebenarnya, dan keputusan final yang dijelaskan kepada pemilik. Jangan mengubah sistem pertanian non-game.
 
 **Potret NPC aktif:** sebelum membuat/mengganti wajah, strip ekspresi atau potret profesi Ryan/Ayu/Nani/Widi/Inggit, wajib baca `docs/game-dev/ACTIVE_NPC_PORTRAIT_STANDARD.md` dan verifikasi `tests/game-active-portrait-standard.mjs`. Potret profesi statis tidak boleh menggantikan ekspresi pada dialog. Potret Widi yang dipilih pemilik pada PR #43 sudah menggantikan kandidat 512px yang tidak serasi; tetap wajib uji pada UI mobile dan sprite dunia sebelum menandai QA runtime selesai.
+
+## Standar wajib 26 November 2026 — Sundanese Cozy Farming RPG dan pedagang universal
+
+Gunakan `docs/game-dev/SUNDANESE_COZY_MERCHANT_STANDARD.md` sebagai kontrak desain dan penerimaan seluruh lokasi, terutama pasar, NPC pedagang, produk dan dialog. Widi menjadi baseline struktur interaksi pedagang; Iyan harus berdiri di depan lapak sebagai NPC independen. Ayu dan Widi memakai frontage pasar; Inggit boleh melayani dari balik konter sesuai fungsi warung. Komponen dialog, katalog, ekspresi, input dan transaksi memakai standar bersama tanpa menghilangkan suara masing-masing tokoh. Semua aset baru wajib individual, termasuk delapan ekspresi dan seluruh frame; aturan atomic assets, canonical NPC, scale lock dan staging-only tetap lebih tinggi daripada contoh historis. Dilarang menyatakan pekerjaan selesai tanpa bukti QA runtime pada kandidat rilis yang sama.
 
 ## Untuk setiap perubahan yang tampil ke pemain
 
