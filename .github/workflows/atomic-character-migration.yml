@@ -1,0 +1,39 @@
+name: YZ Farm Life - Atomic Character Quality
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/game/atomic-characters.ts"
+      - "src/lib/game/atomic-frame-metrics.json"
+      - "src/lib/game/phaser-world.ts"
+      - "src/lib/game/draw-world.ts"
+      - "src/app/game/game-client.tsx"
+      - "public/game/assets/characters/atomic/**"
+      - "game-assets/catalog/atomic-characters.json"
+      - "tests/game-atomic-character-frames.mjs"
+      - "package.json"
+      - ".github/workflows/atomic-character-migration.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-atomic-character-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout PR revision
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+      - name: Validate 192 individual frames and foot anchors
+        run: npm run test:game:atomic
+      - name: Typecheck the game
+        run: npm run typecheck

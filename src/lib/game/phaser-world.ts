@@ -13,6 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import { ATOMIC_FRAMES, atomicCharacterFrame, atomicFramePosition, type AtomicFrame } from "./atomic-characters";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -20,10 +21,8 @@ const TILE = WORLD.tile;
 const RENDER_SCALE = 3;
 const VIEW_WIDTH = 300 * RENDER_SCALE;
 const VIEW_HEIGHT = 200 * RENDER_SCALE;
-const dirs = { down: 0, left: 1, right: 2, up: 3 } as const;
 // Sort people by their feet. Every actor is above ground and texture overlays.
 const characterDepth = (tileY: number) => 1000 + tileY * TILE;
-const npcRows: Record<string, number> = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 };
 
 export interface PhaserFieldAdapter {
   draw(frame: FieldFrame): void;
@@ -54,7 +53,7 @@ class YZWorldScene extends Phaser.Scene {
   private highlight!: Phaser.GameObjects.Graphics;
   private dust!: Phaser.GameObjects.Graphics;
   private readonly npcTargets = new Map<string, {
-    row:number; idle:number; path:{x:number;y:number}[]; leaving:boolean;
+    idle:AtomicFrame; path:{x:number;y:number}[]; leaving:boolean;
   }>();
   private npcClock?: {day:number;minutes:number;location:GameLocation};
   private propState = "";
@@ -87,10 +86,8 @@ class YZWorldScene extends Phaser.Scene {
       else this.load.image("yz-map-"+id,"/game/assets/"+path);
     }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
-    this.load.spritesheet("yz-people", "/game/assets/characters/stage1.png", { frameWidth: 24, frameHeight: 32 });
-    this.load.spritesheet("yz-gaits", "/game/assets/characters/yanzen-gaits.png", { frameWidth: 32, frameHeight: 40 });
-    this.load.spritesheet("yz-turns", "/game/assets/characters/yanzen-turns.png", { frameWidth: 32, frameHeight: 40 });
-    this.load.spritesheet("yz-actions", "/game/assets/tiles/actions.png", { frameWidth: 48, frameHeight: 48 });
+    // Each frame is a standalone pixel SVG. Phaser must use the SVG loader.
+    for (const atomic of ATOMIC_FRAMES) this.load.svg(atomic.key,atomic.url,{width:atomic.width,height:atomic.height});
     this.load.spritesheet("yz-effects", "/game/assets/tiles/field-effects.png", { frameWidth: 16, frameHeight: 16 });
     this.load.spritesheet("yz-cucumber", "/game/assets/tiles/cucumber.png", { frameWidth: 16, frameHeight: 16 });
     for(const home of RESIDENT_HOMES)this.load.image(home.location,"/game/assets/residences/"+home.location+".png");
@@ -116,7 +113,7 @@ class YZWorldScene extends Phaser.Scene {
       this.weather = this.add.graphics().setDepth(4000);
       this.dusk = this.add.image(0,0,"yz-map-night-field").setOrigin(0).setDepth(5000).setAlpha(0);
       this.actorShadow=this.add.ellipse(0,0,12,4,0x3b3725,.25);
-      this.actor = this.add.sprite(0, 0, "yz-people", 1).setOrigin(0).setDepth(1000);
+      this.actor = this.add.sprite(0, 0, atomicCharacterFrame("A01","idle","down",1).key).setOrigin(0).setDepth(1000);
       this.cameras.main.setBounds(0, 0, WIDTH, HEIGHT);
       this.ready = true;
       this.booted();
@@ -135,7 +132,7 @@ class YZWorldScene extends Phaser.Scene {
         if (target.leaving) {
           sprite.setVisible(false);
           this.npcTargets.delete(id);
-        } else sprite.setFrame(target.idle);
+        } else sprite.setTexture(target.idle.key).setOrigin(target.idle.footX/target.idle.width,target.idle.footY/target.idle.height);
         continue;
       }
       const dx = next.x-sprite.x, dy = next.y-sprite.y;
@@ -149,8 +146,10 @@ class YZWorldScene extends Phaser.Scene {
         sprite.setPosition(sprite.x+dx*travel/distance,sprite.y+dy*travel/distance);
       }
       const direction=Math.abs(dx)>Math.abs(dy) ? (dx>0?"right":"left") : (dy>0?"down":"up");
-      sprite.setDepth(characterDepth((sprite.y+12)/TILE))
-        .setFrame((target.row*4+dirs[direction])*3+Math.floor(time/90)%3);
+      const visual=atomicCharacterFrame(id,"idle",direction,Math.floor(time/90)%3);
+      // Sprite position stores the world foot. Changing PNG/SVG padding cannot shift feet.
+      sprite.setDepth(characterDepth((sprite.y-18)/TILE)).setTexture(visual.key)
+        .setOrigin(visual.footX/visual.width,visual.footY/visual.height);
     }
     if (!this.frame) return;
     const camera = this.cameras.main;
@@ -295,21 +294,21 @@ class YZWorldScene extends Phaser.Scene {
       const seen=new Set<string>();
       for(const npc of npcHere(minute===state.minutes?state:{...state,minutes:minute})){
         seen.add(npc.id);
-        const x=npc.x*TILE-2, y=npc.y*TILE-12;
-        const row=npcRows[npc.id]??0;
+        const x=npc.x*TILE+10, y=npc.y*TILE+18;
         const dx=frame.position.x-npc.x, dy=frame.position.y-npc.y;
         const dir=Math.abs(dx)+Math.abs(dy)>2 ? "down" : Math.abs(dx)>Math.abs(dy) ?
           (dx<0?"left":"right") : (dy<0?"up":"down");
-        const idle=(row*4+dirs[dir])*3+1;
+        const idle=atomicCharacterFrame(npc.id,"idle",dir,1);
         let sprite=this.npcSprites.get(npc.id);
         if(!sprite){
-          sprite=this.add.sprite(x,y,"yz-people",idle).setOrigin(0);
+          sprite=this.add.sprite(x,y,idle.key).setOrigin(idle.footX/idle.width,idle.footY/idle.height);
           this.npcSprites.set(npc.id,sprite);
         }
         let target=this.npcTargets.get(npc.id);
         if(!target || target.leaving || frame.reducedMotion){
-          sprite.setPosition(x,y).setDepth(characterDepth(npc.y)).setFrame(idle).setVisible(true);
-          target={row,idle,path:[],leaving:false};
+          sprite.setPosition(x,y).setDepth(characterDepth(npc.y)).setTexture(idle.key)
+            .setOrigin(idle.footX/idle.width,idle.footY/idle.height).setVisible(true);
+          target={idle,path:[],leaving:false};
           this.npcTargets.set(npc.id,target);
         }else{
           const tail=target.path[target.path.length-1]??sprite;
@@ -383,25 +382,26 @@ class YZWorldScene extends Phaser.Scene {
         );
       }
     }
-    const actorRow = dirs[frame.position.dir];
-    let texture="yz-people", spriteFrame=actorRow*3+1, x=frame.position.x*TILE-2, y=frame.position.y*TILE-12;
+    // A01's physical height is never derived from the individual SVG canvas.
+    // Every frame resolves to one file, then receives the same foot baseline.
+    let playerVisual=atomicCharacterFrame("A01","idle",frame.position.dir,1);
+    let shiftX=0,shiftY=0;
     if (location==="sungai" && frame.fishing?.session) {
-      const pose=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
-      texture="yz-people";spriteFrame=actorRow*3+pose.spriteFrame;
-      x=frame.position.x*TILE-2;
-      y=frame.position.y*TILE-12+pose.bodyShift;
-    } else if (frame.action && frame.action.use.origin.x === frame.state.player.x &&
-        frame.action.use.origin.y === frame.state.player.y) {
-      const actionRow = { hoe:0, seed:1, water:2, harvest:3 }[frame.action.use.tool];
-      texture="yz-actions";spriteFrame=(actionRow*4 + actorRow)*3+frame.action.frame;
-      x=frame.position.x*TILE-14;y=frame.position.y*TILE-23;
+      const fish=fishingGeometry(frame.position,frame.fishing.session.phase,frame.fishing.session.elapsed);
+      playerVisual=atomicCharacterFrame("A01","idle",frame.position.dir,fish.spriteFrame);
+      shiftY=fish.bodyShift;
+    } else if (frame.action && frame.action.use.origin.x===frame.state.player.x &&
+        frame.action.use.origin.y===frame.state.player.y) {
+      playerVisual=atomicCharacterFrame("A01",frame.action.use.tool,
+        frame.action.use.origin.dir,frame.action.frame);
     } else if (frame.weight) {
-      texture="yz-turns";spriteFrame=frame.weight.row*3+frame.weight.column;
-      x=frame.position.x*TILE-6+frame.weight.shiftX;y=frame.position.y*TILE-20+frame.weight.shiftY;
-    } else if (frame.pose !== null) {
-      texture="yz-gaits";spriteFrame=(actorRow+(frame.running ? 4:0))*6+frame.pose;
-      x=frame.position.x*TILE-6;y=frame.position.y*TILE-18;
+      playerVisual=atomicCharacterFrame("A01","turn","angle-"+frame.weight.row,frame.weight.column);
+      shiftX=frame.weight.shiftX;shiftY=frame.weight.shiftY;
+    } else if (frame.pose!==null) {
+      playerVisual=atomicCharacterFrame("A01",frame.running?"run":"walk",
+        frame.position.dir,frame.pose);
     }
+    const playerScreen=atomicFramePosition(playerVisual,frame.position.x,frame.position.y,shiftX,shiftY);
     const footX=frame.position.x*TILE+TILE/2;
     const footY=(frame.position.y+1)*TILE;
     this.actorShadow.setPosition(footX,footY-2).setDepth(characterDepth(frame.position.y));
@@ -412,8 +412,9 @@ class YZWorldScene extends Phaser.Scene {
         Math.abs(footX-prop.x)<prop.displayWidth*.34;
       prop.setAlpha(obscured?.65:1);
     }
-    this.actor.setTexture(texture, Math.max(0,spriteFrame))
-      .setPosition(x, y)
+    this.actor.setTexture(playerVisual.key)
+      .setOrigin(playerVisual.footX/playerVisual.width,playerVisual.footY/playerVisual.height)
+      .setPosition(Math.round(playerScreen.footX+shiftX),Math.round(playerScreen.footY+shiftY))
       .setDepth(characterDepth(frame.position.y) + 1);
     this.fishingInk.clear();
     this.fishingText.setVisible(false);

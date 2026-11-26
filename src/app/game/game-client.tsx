@@ -8,6 +8,7 @@ import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
   choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
+import { ATOMIC_FRAMES } from "@/lib/game/atomic-characters";
 import { type WorldArt } from "@/lib/game/draw-world";
 import { START_LOCATION } from "@/lib/game/bandung-locations";
 import WorldRegionDirectory from "./world-region-directory";
@@ -119,7 +120,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
   const [swing, setSwing] = useState<ToolUse | null>(null);
   useEffect(() => {
     let active = true;
-    const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), people: "characters/stage1.png", gaits: "characters/yanzen-gaits.png", turns: "characters/yanzen-turns.png", cucumber: "tiles/cucumber.png", actions: "tiles/actions.png", effects: "tiles/field-effects.png",
+    const sources = { ...Object.fromEntries(RESIDENT_HOMES.map(home=>[home.location,"residences/"+home.location+".png"])), cucumber: "tiles/cucumber.png", effects: "tiles/field-effects.png",
       rumahDay: "pasirluyu/rumah-yanzen-interior-day.svg", rumahEvening: "pasirluyu/rumah-yanzen-interior-evening.svg",
       warungInterior: "pasirluyu/warung-interior.svg", gudangInterior: "pasirluyu/gudang-interior.svg" };
     for (const [key, path] of Object.entries(sources)) {
@@ -133,6 +134,26 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
         if (active) setArt(previous => ({...previous,outdoor:{...previous.outdoor,[key]:image}}));
       };
       image.src = "/game/assets/" + path;
+    }
+    // Each motion frame is an independent image URL with unique owner/path.
+    // Complete the set before enabling character sprites: never silently mix
+    // individual frames and legacy sheet positions mid-animation.
+    const atomicImages:Record<string,HTMLImageElement>={};
+    let received=0;
+    let failures=0;
+    for (const frame of ATOMIC_FRAMES) {
+      const image=new Image();
+      image.onload=()=>{
+        atomicImages[frame.key]=image;
+        received++;
+        if(received===ATOMIC_FRAMES.length && !failures && active)
+          setArt(previous=>({...previous,atomic:atomicImages}));
+      };
+      image.onerror=()=>{
+        failures++;
+        console.error("Missing independent character frame: "+frame.url);
+      };
+      image.src=frame.url;
     }
     return () => { active = false; };
   }, []);

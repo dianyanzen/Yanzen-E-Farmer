@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2499,
-  "uniqueContents": 1205,
-  "totalBytes": 128742334,
+  "totalMedia": 2691,
+  "uniqueContents": 1397,
+  "totalBytes": 131432080,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
-      "mediaCount": 294,
-      "bytes": 33771357,
+      "mediaCount": 486,
+      "bytes": 36461103,
       "sections": [
         {
           "id": "aset/avatar",
@@ -43,6 +43,58 @@
         {
           "id": "characters",
           "count": 4
+        },
+        {
+          "id": "characters/atomic/A01/harvest",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A01/hoe",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A01/idle",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A01/run",
+          "count": 24
+        },
+        {
+          "id": "characters/atomic/A01/seed",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A01/turn",
+          "count": 24
+        },
+        {
+          "id": "characters/atomic/A01/walk",
+          "count": 24
+        },
+        {
+          "id": "characters/atomic/A01/water",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A03/idle",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/A04/idle",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/C01/idle",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/C07/idle",
+          "count": 12
+        },
+        {
+          "id": "characters/atomic/C08/idle",
+          "count": 12
         },
         {
           "id": "explore-bandung/avatar",

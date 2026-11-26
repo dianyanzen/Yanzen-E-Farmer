@@ -1,0 +1,2697 @@
+{
+  "schemaVersion": 1,
+  "groundContactOffset": 18,
+  "referenceBodyHeightPx": 30,
+  "migrationStatus": "lossless-pixel-svg-per-frame-needs-artist-redraw",
+  "frameCount": 192,
+  "frames": [
+    {
+      "key": "A01:idle:down:000",
+      "url": "/game/assets/characters/atomic/A01/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:down:001",
+      "url": "/game/assets/characters/atomic/A01/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:down:002",
+      "url": "/game/assets/characters/atomic/A01/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:left:000",
+      "url": "/game/assets/characters/atomic/A01/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:left:001",
+      "url": "/game/assets/characters/atomic/A01/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:left:002",
+      "url": "/game/assets/characters/atomic/A01/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:right:000",
+      "url": "/game/assets/characters/atomic/A01/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:right:001",
+      "url": "/game/assets/characters/atomic/A01/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:right:002",
+      "url": "/game/assets/characters/atomic/A01/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:up:000",
+      "url": "/game/assets/characters/atomic/A01/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:up:001",
+      "url": "/game/assets/characters/atomic/A01/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:idle:up:002",
+      "url": "/game/assets/characters/atomic/A01/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:down:000",
+      "url": "/game/assets/characters/atomic/A03/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:down:001",
+      "url": "/game/assets/characters/atomic/A03/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:down:002",
+      "url": "/game/assets/characters/atomic/A03/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:left:000",
+      "url": "/game/assets/characters/atomic/A03/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:left:001",
+      "url": "/game/assets/characters/atomic/A03/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:left:002",
+      "url": "/game/assets/characters/atomic/A03/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:right:000",
+      "url": "/game/assets/characters/atomic/A03/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:right:001",
+      "url": "/game/assets/characters/atomic/A03/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:right:002",
+      "url": "/game/assets/characters/atomic/A03/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:up:000",
+      "url": "/game/assets/characters/atomic/A03/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:up:001",
+      "url": "/game/assets/characters/atomic/A03/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A03:idle:up:002",
+      "url": "/game/assets/characters/atomic/A03/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:down:000",
+      "url": "/game/assets/characters/atomic/C01/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:down:001",
+      "url": "/game/assets/characters/atomic/C01/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:down:002",
+      "url": "/game/assets/characters/atomic/C01/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:left:000",
+      "url": "/game/assets/characters/atomic/C01/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:left:001",
+      "url": "/game/assets/characters/atomic/C01/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:left:002",
+      "url": "/game/assets/characters/atomic/C01/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:right:000",
+      "url": "/game/assets/characters/atomic/C01/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:right:001",
+      "url": "/game/assets/characters/atomic/C01/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:right:002",
+      "url": "/game/assets/characters/atomic/C01/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:up:000",
+      "url": "/game/assets/characters/atomic/C01/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        0,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:up:001",
+      "url": "/game/assets/characters/atomic/C01/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C01:idle:up:002",
+      "url": "/game/assets/characters/atomic/C01/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        0,
+        21,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:down:000",
+      "url": "/game/assets/characters/atomic/C08/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        6,
+        0,
+        18,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:down:001",
+      "url": "/game/assets/characters/atomic/C08/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        6,
+        0,
+        18,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:down:002",
+      "url": "/game/assets/characters/atomic/C08/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        6,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:left:000",
+      "url": "/game/assets/characters/atomic/C08/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:left:001",
+      "url": "/game/assets/characters/atomic/C08/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:left:002",
+      "url": "/game/assets/characters/atomic/C08/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:right:000",
+      "url": "/game/assets/characters/atomic/C08/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:right:001",
+      "url": "/game/assets/characters/atomic/C08/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:right:002",
+      "url": "/game/assets/characters/atomic/C08/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:up:000",
+      "url": "/game/assets/characters/atomic/C08/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        6,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:up:001",
+      "url": "/game/assets/characters/atomic/C08/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        6,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C08:idle:up:002",
+      "url": "/game/assets/characters/atomic/C08/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:down:000",
+      "url": "/game/assets/characters/atomic/A04/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:down:001",
+      "url": "/game/assets/characters/atomic/A04/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:down:002",
+      "url": "/game/assets/characters/atomic/A04/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:left:000",
+      "url": "/game/assets/characters/atomic/A04/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:left:001",
+      "url": "/game/assets/characters/atomic/A04/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:left:002",
+      "url": "/game/assets/characters/atomic/A04/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        31
+      ],
+      "footX": 12,
+      "footY": 31
+    },
+    {
+      "key": "A04:idle:right:000",
+      "url": "/game/assets/characters/atomic/A04/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:right:001",
+      "url": "/game/assets/characters/atomic/A04/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:right:002",
+      "url": "/game/assets/characters/atomic/A04/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        4,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:up:000",
+      "url": "/game/assets/characters/atomic/A04/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:up:001",
+      "url": "/game/assets/characters/atomic/A04/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A04:idle:up:002",
+      "url": "/game/assets/characters/atomic/A04/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:down:000",
+      "url": "/game/assets/characters/atomic/C07/idle/down/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:down:001",
+      "url": "/game/assets/characters/atomic/C07/idle/down/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:down:002",
+      "url": "/game/assets/characters/atomic/C07/idle/down/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:left:000",
+      "url": "/game/assets/characters/atomic/C07/idle/left/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:left:001",
+      "url": "/game/assets/characters/atomic/C07/idle/left/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:left:002",
+      "url": "/game/assets/characters/atomic/C07/idle/left/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:right:000",
+      "url": "/game/assets/characters/atomic/C07/idle/right/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:right:001",
+      "url": "/game/assets/characters/atomic/C07/idle/right/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:right:002",
+      "url": "/game/assets/characters/atomic/C07/idle/right/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        1,
+        20,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:up:000",
+      "url": "/game/assets/characters/atomic/C07/idle/up/frame-000.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:up:001",
+      "url": "/game/assets/characters/atomic/C07/idle/up/frame-001.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "C07:idle:up:002",
+      "url": "/game/assets/characters/atomic/C07/idle/up/frame-002.svg",
+      "width": 24,
+      "height": 32,
+      "alphaBounds": [
+        5,
+        0,
+        19,
+        30
+      ],
+      "footX": 12,
+      "footY": 30
+    },
+    {
+      "key": "A01:walk:down:000",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:down:001",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        4,
+        24,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:walk:down:002",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        4,
+        25,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:walk:down:003",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:down:004",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        4,
+        25,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:walk:down:005",
+      "url": "/game/assets/characters/atomic/A01/walk/down/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        4,
+        24,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:walk:left:000",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:left:001",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:left:002",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:left:003",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:left:004",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:left:005",
+      "url": "/game/assets/characters/atomic/A01/walk/left/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:000",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:001",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:002",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:003",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:004",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:right:005",
+      "url": "/game/assets/characters/atomic/A01/walk/right/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:up:000",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:up:001",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        24,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:walk:up:002",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        25,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:walk:up:003",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:walk:up:004",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        25,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:walk:up:005",
+      "url": "/game/assets/characters/atomic/A01/walk/up/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        24,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:run:down:000",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        26,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:run:down:001",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        4,
+        26,
+        33
+      ],
+      "footX": 16,
+      "footY": 33
+    },
+    {
+      "key": "A01:run:down:002",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        3,
+        25,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:run:down:003",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        5,
+        26,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:run:down:004",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        4,
+        26,
+        33
+      ],
+      "footX": 16,
+      "footY": 33
+    },
+    {
+      "key": "A01:run:down:005",
+      "url": "/game/assets/characters/atomic/A01/run/down/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        4,
+        26,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:left:000",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        4,
+        6,
+        27,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:run:left:001",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:left:002",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        4,
+        26,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:run:left:003",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        4,
+        6,
+        27,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:run:left:004",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:left:005",
+      "url": "/game/assets/characters/atomic/A01/run/left/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        26,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:right:000",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        5,
+        6,
+        28,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:run:right:001",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        24,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:right:002",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        6,
+        4,
+        24,
+        35
+      ],
+      "footX": 16,
+      "footY": 35
+    },
+    {
+      "key": "A01:run:right:003",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        5,
+        6,
+        28,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:run:right:004",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        24,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:right:005",
+      "url": "/game/assets/characters/atomic/A01/run/right/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        6,
+        5,
+        24,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:run:up:000",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        6,
+        26,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:run:up:001",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        26,
+        33
+      ],
+      "footX": 16,
+      "footY": 33
+    },
+    {
+      "key": "A01:run:up:002",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        4,
+        25,
+        34
+      ],
+      "footX": 16,
+      "footY": 34
+    },
+    {
+      "key": "A01:run:up:003",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-003.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        6,
+        26,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:run:up:004",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-004.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        26,
+        33
+      ],
+      "footX": 16,
+      "footY": 33
+    },
+    {
+      "key": "A01:run:up:005",
+      "url": "/game/assets/characters/atomic/A01/run/up/frame-005.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        5,
+        26,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:turn:angle-0:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-0/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-0:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-0/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        5,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-0:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-0/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        39
+      ],
+      "footX": 16,
+      "footY": 39
+    },
+    {
+      "key": "A01:turn:angle-1:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-1/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        5,
+        20,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-1:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-1/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        5,
+        20,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-1:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-1/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        6,
+        21,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-2:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-2/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        6,
+        22,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-2:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-2/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        6,
+        22,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-2:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-2/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        7,
+        25,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-3:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-3/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        6,
+        21,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:turn:angle-3:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-3/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        6,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-3:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-3/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        8,
+        7,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-4:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-4/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:turn:angle-4:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-4/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        6,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-4:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-4/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        9,
+        7,
+        23,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-5:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-5/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        12,
+        6,
+        25,
+        36
+      ],
+      "footX": 16,
+      "footY": 36
+    },
+    {
+      "key": "A01:turn:angle-5:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-5/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        12,
+        6,
+        25,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-5:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-5/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        11,
+        7,
+        24,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-6:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-6/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        10,
+        6,
+        24,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-6:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-6/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        10,
+        6,
+        24,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-6:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-6/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        7,
+        7,
+        25,
+        37
+      ],
+      "footX": 16,
+      "footY": 37
+    },
+    {
+      "key": "A01:turn:angle-7:000",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-7/frame-000.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        11,
+        5,
+        25,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-7:001",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-7/frame-001.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        10,
+        5,
+        25,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:turn:angle-7:002",
+      "url": "/game/assets/characters/atomic/A01/turn/angle-7/frame-002.svg",
+      "width": 32,
+      "height": 40,
+      "alphaBounds": [
+        10,
+        6,
+        25,
+        38
+      ],
+      "footX": 16,
+      "footY": 38
+    },
+    {
+      "key": "A01:hoe:down:000",
+      "url": "/game/assets/characters/atomic/A01/hoe/down/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:down:001",
+      "url": "/game/assets/characters/atomic/A01/hoe/down/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        44,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:down:002",
+      "url": "/game/assets/characters/atomic/A01/hoe/down/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:left:000",
+      "url": "/game/assets/characters/atomic/A01/hoe/left/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        5,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:left:001",
+      "url": "/game/assets/characters/atomic/A01/hoe/left/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        5,
+        9,
+        33,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:left:002",
+      "url": "/game/assets/characters/atomic/A01/hoe/left/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        5,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:right:000",
+      "url": "/game/assets/characters/atomic/A01/hoe/right/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:right:001",
+      "url": "/game/assets/characters/atomic/A01/hoe/right/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        44,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:right:002",
+      "url": "/game/assets/characters/atomic/A01/hoe/right/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:up:000",
+      "url": "/game/assets/characters/atomic/A01/hoe/up/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        5,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:up:001",
+      "url": "/game/assets/characters/atomic/A01/hoe/up/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        44,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:hoe:up:002",
+      "url": "/game/assets/characters/atomic/A01/hoe/up/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        44,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:down:000",
+      "url": "/game/assets/characters/atomic/A01/seed/down/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:down:001",
+      "url": "/game/assets/characters/atomic/A01/seed/down/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:down:002",
+      "url": "/game/assets/characters/atomic/A01/seed/down/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:left:000",
+      "url": "/game/assets/characters/atomic/A01/seed/left/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:left:001",
+      "url": "/game/assets/characters/atomic/A01/seed/left/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        9,
+        33,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:left:002",
+      "url": "/game/assets/characters/atomic/A01/seed/left/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:right:000",
+      "url": "/game/assets/characters/atomic/A01/seed/right/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:right:001",
+      "url": "/game/assets/characters/atomic/A01/seed/right/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:right:002",
+      "url": "/game/assets/characters/atomic/A01/seed/right/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:up:000",
+      "url": "/game/assets/characters/atomic/A01/seed/up/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:up:001",
+      "url": "/game/assets/characters/atomic/A01/seed/up/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:seed:up:002",
+      "url": "/game/assets/characters/atomic/A01/seed/up/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:down:000",
+      "url": "/game/assets/characters/atomic/A01/water/down/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:down:001",
+      "url": "/game/assets/characters/atomic/A01/water/down/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        41,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:down:002",
+      "url": "/game/assets/characters/atomic/A01/water/down/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:left:000",
+      "url": "/game/assets/characters/atomic/A01/water/left/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        8,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:left:001",
+      "url": "/game/assets/characters/atomic/A01/water/left/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        8,
+        9,
+        33,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:left:002",
+      "url": "/game/assets/characters/atomic/A01/water/left/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        8,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:right:000",
+      "url": "/game/assets/characters/atomic/A01/water/right/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:right:001",
+      "url": "/game/assets/characters/atomic/A01/water/right/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        41,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:right:002",
+      "url": "/game/assets/characters/atomic/A01/water/right/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:up:000",
+      "url": "/game/assets/characters/atomic/A01/water/up/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:up:001",
+      "url": "/game/assets/characters/atomic/A01/water/up/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        41,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:water:up:002",
+      "url": "/game/assets/characters/atomic/A01/water/up/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        41,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:down:000",
+      "url": "/game/assets/characters/atomic/A01/harvest/down/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:down:001",
+      "url": "/game/assets/characters/atomic/A01/harvest/down/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:down:002",
+      "url": "/game/assets/characters/atomic/A01/harvest/down/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        7,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:left:000",
+      "url": "/game/assets/characters/atomic/A01/harvest/left/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:left:001",
+      "url": "/game/assets/characters/atomic/A01/harvest/left/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        9,
+        33,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:left:002",
+      "url": "/game/assets/characters/atomic/A01/harvest/left/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        13,
+        8,
+        33,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:right:000",
+      "url": "/game/assets/characters/atomic/A01/harvest/right/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:right:001",
+      "url": "/game/assets/characters/atomic/A01/harvest/right/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:right:002",
+      "url": "/game/assets/characters/atomic/A01/harvest/right/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:up:000",
+      "url": "/game/assets/characters/atomic/A01/harvest/up/frame-000.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:up:001",
+      "url": "/game/assets/characters/atomic/A01/harvest/up/frame-001.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        9,
+        36,
+        46
+      ],
+      "footX": 24,
+      "footY": 41
+    },
+    {
+      "key": "A01:harvest:up:002",
+      "url": "/game/assets/characters/atomic/A01/harvest/up/frame-002.svg",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": [
+        15,
+        8,
+        36,
+        45
+      ],
+      "footX": 24,
+      "footY": 41
+    }
+  ]
+}
