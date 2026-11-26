@@ -13,6 +13,7 @@ import type { FieldFrame, WorldPick } from "./field-engine";
 import { waterRipples } from "./pasirluyu-areas";
 import {fishingGeometry,fishingPopupPosition,fishingPopupLabel} from "./fishing-visuals";
 import { drawModularGround, outdoorObjects, outdoorSources, plotTextureFrame } from "./modular-outdoor";
+import { yanzenInteriorAssets, yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const WIDTH = WORLD.width * WORLD.tile;
 const HEIGHT = WORLD.height * WORLD.tile;
@@ -83,7 +84,8 @@ class YZWorldScene extends Phaser.Scene {
   preload() {
     this.load.on("loaderror", () => this.failed(new Error("Gagal memuat aset Phaser.")));
     for (const [id,path] of Object.entries(outdoorSources)) if (id!=="petak") {
-      if (path.endsWith(".svg")) this.load.svg("yz-map-"+id,"/game/assets/"+path,{width:24,height:28});
+      if (path.endsWith(".svg")) this.load.svg("yz-map-"+id,"/game/assets/"+path,
+        id.startsWith("plot-")?{width:20,height:20}:{width:24,height:28});
       else this.load.image("yz-map-"+id,"/game/assets/"+path);
     }
     this.load.spritesheet("yz-petak", "/game/assets/"+outdoorSources.petak, { frameWidth: 20, frameHeight: 20 });
@@ -98,6 +100,11 @@ class YZWorldScene extends Phaser.Scene {
     this.load.svg("yz-home-evening", "/game/assets/pasirluyu/rumah-yanzen-interior-evening.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-warung", "/game/assets/pasirluyu/warung-interior.svg", { width: 480, height: HEIGHT });
     this.load.svg("yz-shed", "/game/assets/pasirluyu/gudang-interior.svg", { width: 480, height: HEIGHT });
+    for (const [id,path] of Object.entries(yanzenInteriorAssets)) {
+      const key="yz-room-"+id, url="/game/assets/"+path;
+      if(path.endsWith(".svg")) this.load.svg(key,url,{width:480,height:HEIGHT});
+      else this.load.image(key,url);
+    }
   }
 
   create() {
@@ -216,12 +223,20 @@ class YZWorldScene extends Phaser.Scene {
         this.textures.addCanvas(key,makeCanvas(ctx => drawModularGround(ctx,location,art)));
       }
       this.background.setTexture(key).setDisplaySize(WIDTH, HEIGHT);
-      this.mapProps = outdoorObjects(location,minutes).map(prop =>
-        this.add.image(prop.x,prop.y,"yz-map-"+prop.asset)
-          .setOrigin(.5,1).setScale(prop.scale ?? 1).setDepth(1000 + prop.y - TILE));
+      this.mapProps = outdoorObjects(location,minutes).map(prop => {
+        const image=this.add.image(prop.x,prop.y,"yz-map-"+prop.asset).setOrigin(.5,1);
+        if(prop.displayW && prop.displayH) image.setDisplaySize(prop.displayW,prop.displayH);
+        else image.setScale(prop.scale ?? 1);
+        return image.setDepth(1000 + prop.y - TILE);
+      });
+    } else if (location === "home" || location === "shed") {
+      const room = location;
+      this.background.setTexture("yz-room-"+room+"Floor").setDisplaySize(480, HEIGHT);
+      this.mapProps = yanzenInteriorLayout[room].map(item =>
+        this.add.image(item.x,item.y,"yz-room-"+item.key)
+          .setOrigin(0).setDisplaySize(item.width,item.height).setDepth(20+item.depth));
     } else {
-      const key=isResidentHome(location) ? location : location==="home" ? (minutes>=18*60 ? "yz-home-evening" : "yz-home-day") :
-        location==="warung" ? "yz-warung" : "yz-shed";
+      const key=isResidentHome(location) ? location : location==="warung" ? "yz-warung" : "yz-shed";
       this.background.setTexture(key).setDisplaySize(480, HEIGHT);
     }
   }
@@ -258,13 +273,27 @@ class YZWorldScene extends Phaser.Scene {
       const px = x*TILE, py = y*TILE;
       const plot = lookup.get(x + "," + y);
       if (plot) {
-        if (!this.soil[i]) this.soil[i] = this.add.sprite(px,py,"yz-petak",0).setOrigin(0).setDepth(9);
-        this.soil[i].setFrame(plotTextureFrame(x,y,plot.watered,plot.stage)).setVisible(true);
+        const soilKey=plot.watered?"yz-map-plot-wet":"yz-map-plot-dry";
+        if (!this.soil[i]) {
+          this.soil[i]=this.add.sprite(px,py,this.textures.exists(soilKey)?soilKey:"yz-petak")
+            .setOrigin(0).setDisplaySize(TILE,TILE).setDepth(9);
+        }
+        if(this.textures.exists(soilKey)) this.soil[i].setTexture(soilKey).setDisplaySize(TILE,TILE).setVisible(true);
+        else this.soil[i].setTexture("yz-petak").setFrame(plotTextureFrame(x,y,plot.watered,plot.stage)).setVisible(true);
         if (plot.stage >= 0) {
+          const stageId=Math.min(3,plot.stage);
+          const variant=(x+2*y)%3===0?"-alt":"";
+          const cropKey="yz-map-cucumber-stage-"+stageId+variant;
           if (!this.crops[i]) {
-            this.crops[i] = this.add.sprite(0, 0, "yz-cucumber", 0).setOrigin(0).setDepth(12);
+            this.crops[i]=this.add.sprite(0,0,this.textures.exists(cropKey)?cropKey:"yz-cucumber")
+              .setOrigin(0).setDepth(12);
           }
-          this.crops[i].setPosition(px+2,py+2).setFrame(Math.min(3,plot.stage)).setVisible(true);
+          if(this.textures.exists(cropKey)){
+            this.crops[i].setTexture(cropKey).setPosition(px+2,py+1).setDisplaySize(16,18).setVisible(true);
+          } else {
+            this.crops[i].setTexture("yz-cucumber").setPosition(px+2,py+2)
+              .setFrame(Math.min(3,plot.stage)).setVisible(true);
+          }
         }
         if (plot.watered && plot.stage < 3) fill(px+15,py+3,3,4,0x68bacf);
         if (plot.stage === 3) {
@@ -333,7 +362,8 @@ class YZWorldScene extends Phaser.Scene {
       }
       this.changeLocation(location, frame.state.minutes);
     }
-    if (location === "home") this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
+    if (location === "home" && !this.textures.exists("yz-room-homeFloor"))
+      this.background.setTexture(evening ? "yz-home-evening" : "yz-home-day");
     this.updateQuestSprites(frame.state);
     if (location === "field") {
       this.updatePlots(frame);

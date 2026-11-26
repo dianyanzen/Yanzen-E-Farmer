@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 2499,
-  "uniqueContents": 1205,
-  "totalBytes": 128742334,
+  "totalMedia": 4673,
+  "uniqueContents": 1228,
+  "totalBytes": 316405882,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
-      "mediaCount": 294,
-      "bytes": 33771357,
+      "mediaCount": 680,
+      "bytes": 155028047,
       "sections": [
         {
           "id": "aset/avatar",
@@ -63,6 +63,62 @@
         {
           "id": "gba-v2/sheets",
           "count": 16
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/avatar",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/sumber-karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/avatar",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/profesi",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/sumber-karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/avatar",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/sumber-karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/avatar",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/karakter",
+          "count": 32
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/profesi",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/sumber-karakter",
+          "count": 32
         }
       ]
     },
@@ -70,8 +126,8 @@
       "id": "portraits",
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-      "mediaCount": 384,
-      "bytes": 41460604,
+      "mediaCount": 468,
+      "bytes": 54071242,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
@@ -120,6 +176,26 @@
         {
           "id": "portraits/bandung/specialists",
           "count": 6
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/potret-profesi",
+          "count": 30
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/potret-baru",
+          "count": 8
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/potret-profesi",
+          "count": 30
         }
       ]
     },
@@ -127,8 +203,8 @@
       "id": "plants",
       "label": "Tanaman dan komoditas",
       "description": "Sprite tahap tumbuh tanaman, tanaman prototipe",
-      "mediaCount": 784,
-      "bytes": 718130,
+      "mediaCount": 1568,
+      "bytes": 1436260,
       "sections": [
         {
           "id": "aset/tanaman",
@@ -145,6 +221,22 @@
         {
           "id": "explore-bandung/tanaman",
           "count": 196
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/tanaman",
+          "count": 196
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/tanaman",
+          "count": 196
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/tanaman",
+          "count": 196
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/tanaman",
+          "count": 196
         }
       ]
     },
@@ -152,8 +244,8 @@
       "id": "animals",
       "label": "Hewan dan ternak",
       "description": "Hewan domestik dan aset terkait",
-      "mediaCount": 34,
-      "bytes": 1203479,
+      "mediaCount": 66,
+      "bytes": 2334953,
       "sections": [
         {
           "id": "atlas-bandung/hewan",
@@ -166,6 +258,14 @@
         {
           "id": "fish",
           "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/hewan",
+          "count": 16
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/hewan",
+          "count": 16
         }
       ]
     },
@@ -173,8 +273,8 @@
       "id": "world",
       "label": "Peta, tile dan wilayah",
       "description": "Peta Pasirluyu, Kota Bandung, kelurahan, lingkungan",
-      "mediaCount": 700,
-      "bytes": 10965437,
+      "mediaCount": 1299,
+      "bytes": 22391514,
       "sections": [
         {
           "id": "aset/peta",
@@ -241,6 +341,10 @@
           "count": 16
         },
         {
+          "id": "tiles/farm-kit/kebun",
+          "count": 14
+        },
+        {
           "id": "tiles/farm-kit/kebun-luas",
           "count": 16
         },
@@ -259,6 +363,50 @@
         {
           "id": "tiles/ground",
           "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/peta",
+          "count": 31
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/peta",
+          "count": 31
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/peta",
+          "count": 31
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/runtime-asli",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/kelurahan",
+          "count": 151
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/peta",
+          "count": 31
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/runtime-asli",
+          "count": 2
         }
       ]
     },
@@ -266,9 +414,17 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 5,
-      "bytes": 622113,
+      "mediaCount": 14,
+      "bytes": 4558048,
       "sections": [
+        {
+          "id": "locations/yanzen/home",
+          "count": 5
+        },
+        {
+          "id": "locations/yanzen/shed",
+          "count": 4
+        },
         {
           "id": "residences",
           "count": 5
@@ -279,8 +435,8 @@
       "id": "props",
       "label": "Properti lingkungan",
       "description": "Perabot, objek kecil dan dekorasi",
-      "mediaCount": 65,
-      "bytes": 18895,
+      "mediaCount": 125,
+      "bytes": 34923,
       "sections": [
         {
           "id": "aset/properti",
@@ -301,6 +457,22 @@
         {
           "id": "quests",
           "count": 5
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/properti",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/properti",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/properti",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/properti",
+          "count": 15
         }
       ]
     },
@@ -308,8 +480,8 @@
       "id": "tools",
       "label": "Alat dan tindakan",
       "description": "Cangkul, penyiram, alat panen, ikon aksi",
-      "mediaCount": 16,
-      "bytes": 195596,
+      "mediaCount": 32,
+      "bytes": 391192,
       "sections": [
         {
           "id": "aset/aksi",
@@ -326,6 +498,22 @@
         {
           "id": "explore-bandung/aksi",
           "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/aksi",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/aksi",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/aksi",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/aksi",
+          "count": 4
         }
       ]
     },
@@ -333,8 +521,8 @@
       "id": "interface",
       "label": "Antarmuka dan HUD",
       "description": "Tombol, ikon, sampul dan menu",
-      "mediaCount": 64,
-      "bytes": 11757512,
+      "mediaCount": 128,
+      "bytes": 23515024,
       "sections": [
         {
           "id": "aset/antarmuka",
@@ -367,6 +555,38 @@
         {
           "id": "explore-bandung/sampul",
           "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/sampul",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/sampul",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/sampul",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/antarmuka",
+          "count": 15
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/sampul",
+          "count": 1
         }
       ]
     },
@@ -374,8 +594,8 @@
       "id": "audio",
       "label": "Audio dan suasana",
       "description": "Musik, suara lingkungan, SFX, atmosfer malam",
-      "mediaCount": 73,
-      "bytes": 11044029,
+      "mediaCount": 145,
+      "bytes": 22016165,
       "sections": [
         {
           "id": "aset/audio",
@@ -404,6 +624,30 @@
         {
           "id": "explore-bandung/malam",
           "count": 8
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/audio",
+          "count": 14
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/audio",
+          "count": 14
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/malam",
+          "count": 8
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/audio",
+          "count": 14
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/audio",
+          "count": 14
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/malam",
+          "count": 8
         }
       ]
     },
@@ -411,8 +655,8 @@
       "id": "environment",
       "label": "Cuaca dan efek",
       "description": "Cuaca, partikel dan efek visual",
-      "mediaCount": 32,
-      "bytes": 8156,
+      "mediaCount": 64,
+      "bytes": 16312,
       "sections": [
         {
           "id": "aset/cuaca",
@@ -445,6 +689,38 @@
         {
           "id": "explore-bandung/efek",
           "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/cuaca",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/efek",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/cuaca",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/efek",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/cuaca",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/efek",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/cuaca",
+          "count": 4
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/efek",
+          "count": 4
         }
       ]
     },
@@ -452,8 +728,8 @@
       "id": "stories",
       "label": "Cerita dan misi",
       "description": "Gambar jurnal dan adegan cerita",
-      "mediaCount": 12,
-      "bytes": 16395290,
+      "mediaCount": 20,
+      "bytes": 29546274,
       "sections": [
         {
           "id": "aset/cerita",
@@ -482,6 +758,22 @@
         {
           "id": "story",
           "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/cerita",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/cerita",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/cerita",
+          "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/cerita",
+          "count": 2
         }
       ]
     },
@@ -489,8 +781,8 @@
       "id": "commerce",
       "label": "Pasar dan perdagangan",
       "description": "Aset pasar, barang dan ikon toko",
-      "mediaCount": 6,
-      "bytes": 128176,
+      "mediaCount": 10,
+      "bytes": 249520,
       "sections": [
         {
           "id": "aset/pasar",
@@ -511,6 +803,22 @@
         {
           "id": "tiles/shop-icons",
           "count": 2
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/pasar",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/pasar",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/pasar",
+          "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/pasar",
+          "count": 1
         }
       ]
     },
@@ -518,8 +826,8 @@
       "id": "vendors",
       "label": "Sumber eksternal",
       "description": "Aset dari vendor dengan catatan lisensi",
-      "mediaCount": 30,
-      "bytes": 453560,
+      "mediaCount": 54,
+      "bytes": 816408,
       "sections": [
         {
           "id": "aset/vendor",
@@ -560,6 +868,22 @@
         {
           "id": "kenney-tiny-town/tilemap.png",
           "count": 1
+        },
+        {
+          "id": "YZ_Farm_Life_Aset/vendor",
+          "count": 6
+        },
+        {
+          "id": "YZ_Farm_Life_Atlas_Bandung/vendor",
+          "count": 6
+        },
+        {
+          "id": "YZ_Farm_Life_Bandung_151/vendor",
+          "count": 6
+        },
+        {
+          "id": "YZ_Farm_Life_Explore_Bandung/vendor",
+          "count": 6
         }
       ]
     }

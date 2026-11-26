@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 import { castRod,finishFishingAttempt,marketTrade,isMarketMerchant,FISH_IDS,FISH_MARKET,hasSluiceMemory,type RiverFishId,type FishingOutcome } from "@/lib/game/model";
 import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   RESIDENT_HOMES, newGame, nextDay, NPCS, NPC_SOULS, npcHere, npcWhere, areaTitle, AREAS, ROUTE_BARRIERS, ROUTE_PORTALS, edgeTile, isOutdoorLocation, weatherForDay, timeGreeting, safeLoad, interactDoor, canSleep, chooseSocial, bondLevel, bondLabel, playerLevel, applyFarmTool, Direction, chapterJournal,
-  choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
+  choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, formatGameRupiah, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
+import { yanzenInteriorAssets } from "@/lib/game/yanzen-interior-art";
 import { START_LOCATION } from "@/lib/game/bandung-locations";
 import WorldRegionDirectory from "./world-region-directory";
 import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
@@ -125,6 +126,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
+      image.src = "/game/assets/" + path;
+    }
+    for (const [key,path] of Object.entries(yanzenInteriorAssets)) {
+      const image = new Image();
+      image.onload = () => {
+        if (active) setArt(previous => ({...previous,roomAssets:{...previous.roomAssets,[key]:image}}));
+      };
       image.src = "/game/assets/" + path;
     }
     for (const [key,path] of Object.entries(outdoorSources)) {
@@ -834,7 +842,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     <section className="yzg-shell" aria-label="Permainan YZ Farm Life">
       <div className="yzg-headsup">
         <span>{weatherForDay(game.day)==="hujan"?"☂":weatherForDay(game.day)==="berawan"?"☁":game.minutes>=1080?"☾":"☀"} Hari {game.day} · {minutes} · {game.minutes>=1080?"Malam":game.minutes>=960?"Sore":game.minutes<660?"Pagi":"Siang"} · {weatherForDay(game.day)}</span>
-        <span>◈ {game.coins} G</span>
+        <span>◈ {formatGameRupiah(game.coins)}</span>
         <span>Timun {game.harvested} · Bibit {game.seeds}</span>
         <span>Lv. {playerLevel(game)} · {areaTitle(game.location)}</span>
         <span className={saveStatus === "error" ? "yzg-bad" : ""}>▣ {saveStatus === "loading" ? "Memuat" : saveStatus === "ready" ? "Siap" : saveStatus === "saving" ? "Menyimpan" : saveStatus === "saved" ? "Tersimpan" : "Belum tersimpan"}</span>
@@ -893,9 +901,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   const quantity=fish?game.fishing.fish[item as keyof typeof FISH_MARKET]:0;
                   const itemName=item==="bait"?"Beli 5 pelet":item==="seeds"?"Beli 5 bibit":
                     item==="cucumber"?"Jual hasil timun":"Jual "+fish!.name;
-                  const detail=item==="bait"?"15 G · Stok: "+game.fishing.bait:
-                    item==="seeds"?"40 G · 5 bibit":item==="cucumber"?sellableCucumbers(game)+" timun tersedia · 25 G/timun":
-                    quantity+" ekor · "+fish!.price+" G/ekor";
+                  const detail=item==="bait"?formatGameRupiah(15)+" · Stok: "+game.fishing.bait:
+                    item==="seeds"?formatGameRupiah(40)+" · 5 bibit":item==="cucumber"?sellableCucumbers(game)+" timun tersedia · "+formatGameRupiah(25)+"/timun":
+                    quantity+" ekor · "+formatGameRupiah(fish!.price)+"/ekor";
                   return <button key={item} className="yzg-market-item" disabled={unavailable} onClick={()=>{
                     if(!dialogue.npcId || !isMarketMerchant(dialogue.npcId))return;
                     const result=marketTrade(game,dialogue.npcId,item);
@@ -968,21 +976,21 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                 <div className="yzg-phone-card"><b>Tujuan berikutnya</b><p>{display(journal.objective)}</p><button type="button" onClick={()=>setPhoneTab("chronicle")}>Lihat perjalananmu</button></div>
               </>}
               {phoneTab === "chat" && <>
-                <div className="yzg-phone-card"><b>{display("✉ Inggit · Pemilik warung")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar 160 G saat kamu antar.&rdquo;</p>
+                <div className="yzg-phone-card"><b>{display("✉ Inggit · Pemilik warung")}</b><p>&ldquo;Halo, Yanzen! Bisa bantu sediakan empat timun segar untuk warungku? Aku bayar {formatGameRupiah(160)} saat kamu antar.&rdquo;</p>
                   {!game.story.orderAccepted && <button onClick={markOrder}>Terima pesanan 4 timun</button>}
                   {game.story.orderAccepted && <small>{game.story.orderDone ? "✓ Pesanan selesai. Terima kasih!" : display("Pesanan diterima. Temui Inggit setelah panen.")}</small>}
                 </div>
                 {(game.seeds<=2 || sellableCucumbers(game)>0) && <div className="yzg-phone-card">
                   <b>{display("✉ Ayu · Lapak benih")}</b>
-                  {game.seeds<=2 && <p>Bibit timunmu hampir habis? Mampir ke lapakku di Pasar Warga. Aku siapkan sebungkus isi lima seharga 40 G.</p>}
-                  {sellableCucumbers(game)>0 && <p>Kalau ada timun lebih dari pesanan Inggit, bawa ke lapakku. Aku terima hasil kebunmu seharga 25 G per timun.</p>}
+                  {game.seeds<=2 && <p>Bibit timunmu hampir habis? Mampir ke lapakku di Pasar Warga. Aku siapkan sebungkus isi lima seharga {formatGameRupiah(40)}.</p>}
+                  {sellableCucumbers(game)>0 && <p>Kalau ada timun lebih dari pesanan Inggit, bawa ke lapakku. Aku terima hasil kebunmu seharga {formatGameRupiah(25)} per timun.</p>}
                   <small>Pembelian bibit dan penjualan timun dilakukan langsung di lapak Ayu.</small>
                 </div>}
                 <div className="yzg-phone-card"><b>{display("✉ Ryan")}</b><p>&ldquo;Kalau lewat dekat saluran nanti, panggil aku. Ada yang ingin kutunjukkan.&rdquo;</p></div>
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
-                  <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Perlu disiram<strong>{farming.needsWater}</strong></span><span>Sudah disiram<strong>{farming.watered}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{game.coins} G</strong></span></div>
+                  <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Perlu disiram<strong>{farming.needsWater}</strong></span><span>Sudah disiram<strong>{farming.watered}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{formatGameRupiah(game.coins)}</strong></span></div>
                   <p>{farming.next}</p>
                 </div>
                 <div className="yzg-phone-card"><b>Misi warga</b>
@@ -1091,7 +1099,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
                   <div className="yzg-phone-stats">
                     <span>Pengalaman<strong>{game.stats.xp} XP</strong></span><span>Aksi bertani<strong>{game.stats.actions}</strong></span>
                     <span>Total panen<strong>{game.stats.harvests}</strong></span><span>Percakapan<strong>{game.stats.conversations}</strong></span>
-                    <span>Malam beristirahat<strong>{game.stats.nights}</strong></span><span>Saldo<strong>{game.coins} G</strong></span>
+                    <span>Malam beristirahat<strong>{game.stats.nights}</strong></span><span>Saldo<strong>{formatGameRupiah(game.coins)}</strong></span>
                   </div>
                 </div>
                 <div className="yzg-phone-card">

@@ -1,5 +1,5 @@
 ﻿import type { GameState, Dialogue, NpcId } from "./model";
-import { sellableCucumbers, questPropActive } from "./model";
+import { sellableCucumbers, questPropActive, formatGameRupiah } from "./model";
 import { questPropById, type QuestPropId } from "./quest-props";
 
 export type QuestStep = { phase:1|2|3|4; day:number; baseline:number };
@@ -104,7 +104,7 @@ export function questTalk(s:GameState,person:NpcId,id:NpcId):Dialogue & {state:G
     phase=3;lines=t.handover;
     if(id==="C08")state={...s,harvested:s.harvested-2};
   }else if(q.phase===3 && person===id && s.day>q.day){
-    phase=4;lines=[...t.ending,"Imbalan "+t.fee+" G dan 45 poin kedekatan."];
+    phase=4;lines=[...t.ending,"Imbalan "+formatGameRupiah(t.fee)+" dan 45 poin kedekatan."];
     const bond=s.bonds[id];
     state={...s,coins:Math.min(99999999,s.coins+t.fee),bonds:{...s.bonds,[id]:{...bond,points:Math.min(1000,bond.points+45)}}};
   }else{return {...base,state:s,lines:[questObjective(s,id)]};}
@@ -180,7 +180,7 @@ export function followUpTalk(s:GameState,id:NpcId):Dialogue & {state:GameState}{
       followUpQuests:{...s.followUpQuests,[id]:{...q,phase:3}},
       coins:Math.min(99999999,s.coins+t.fee),
       bonds:{...s.bonds,[id]:{...bond,points:Math.min(1000,bond.points+35)}}};
-    return {...base,state,lines:[t.ending,"Ini bagianmu, "+t.fee+" G."]};
+    return {...base,state,lines:[t.ending,"Ini bagianmu, "+formatGameRupiah(t.fee)+"."]};
   }
   return {...base,state:s,lines:["Urusan itu sudah selesai. Terima kasih."]};
 }

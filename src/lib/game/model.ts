@@ -1,3 +1,9 @@
+export const GAME_RUPIAH_PER_UNIT = 100;
+export function formatGameRupiah(amount: number): string {
+  return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 })
+    .format(Math.round(amount * GAME_RUPIAH_PER_UNIT));
+}
+
 import type { QuestBook, FollowUpBook } from "./personal-quests";
 
 import cast from "../../../game-assets/catalog/cast.json";
@@ -98,7 +104,7 @@ export function upgradeToolBag(s:GameState):{state:GameState;message:string}{
   if(s.bagTier===4)return {state:s,message:"Tas sudah maksimal."};
   const next=(s.bagTier+1) as BagTier,cost=BAG_UPGRADE_COSTS[next];
   if(playerLevel(s)<BAG_UNLOCK_LEVELS[next])return {state:s,message:"Perlu level pemain "+BAG_UNLOCK_LEVELS[next]+"."};
-  if(s.coins<cost)return {state:s,message:"Perlu "+cost+" G untuk upgrade tas."};
+  if(s.coins<cost)return {state:s,message:"Perlu "+formatGameRupiah(cost)+" untuk upgrade tas."};
   return {state:{...s,bagTier:next,coins:s.coins-cost},
     message:"Tas Lv. "+next+" terbuka: "+bagCapacity(next)+" slot."};
 }
@@ -224,14 +230,14 @@ export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem)
   if(!atMarketCounter(s,merchant))return fail(merchant==="A04"?"Temui Ayu di lapak benih Pasar Warga saat buka.":"Temui Widi di lapak pancing Pasar Warga saat buka.");
   const f=s.fishing;
   if(merchant==="A04" && item==="seeds"){
-    if(s.coins<40)return fail("Uangmu belum cukup. Ayu menjual lima bibit timun seharga 40 G.");
+    if(s.coins<40)return fail("Uangmu belum cukup. Ayu menjual lima bibit timun seharga "+formatGameRupiah(40)+".");
     const bought=buySeeds(s);
     if(!bought || bought.seeds>99999999 || f.seedPacks>=99999999)return fail("Stok bibitmu sudah mencapai batas penyimpanan.");
-    return {state:{...bought,fishing:{...f,seedPacks:f.seedPacks+1}},message:"Ayu menyerahkan lima bibit timun. Kamu membayar 40 G."};
+    return {state:{...bought,fishing:{...f,seedPacks:f.seedPacks+1}},message:"Ayu menyerahkan lima bibit timun. Kamu membayar "+formatGameRupiah(40)+"."};
   }
   if(merchant==="C07" && item==="bait"){
-    if(s.coins<15 || f.bait>99999994)return fail("Lima pelet berharga 15 G.");
-    return {state:{...s,coins:s.coins-15,fishing:{...f,bait:f.bait+5}},message:"Widi menyerahkan lima pelet pancing. Kamu membayar 15 G."};
+    if(s.coins<15 || f.bait>99999994)return fail("Lima pelet berharga "+formatGameRupiah(15)+".");
+    return {state:{...s,coins:s.coins-15,fishing:{...f,bait:f.bait+5}},message:"Widi menyerahkan lima pelet pancing. Kamu membayar "+formatGameRupiah(15)+"."};
   }
   if(merchant==="A04" && item==="cucumber"){
     const qty=sellableCucumbers(s);
@@ -239,12 +245,12 @@ export function marketTrade(s:GameState,merchant:MarketMerchant,item:MarketItem)
       ?"Empat timun pesanan Inggit masih disisihkan. Panen lagi jika ingin menjual kepada Ayu."
       :"Belum ada timun yang bisa kamu jual kepada Ayu.");
     if(s.coins+qty*25>99999999 || f.cropsSold+qty>99999999)return fail("Penjualan timun belum dapat diproses.");
-    return {state:{...sellCucumbers(s),fishing:{...f,cropsSold:f.cropsSold+qty}},message:"Ayu membeli "+qty+" timun. Kamu menerima "+qty*25+" G."};
+    return {state:{...sellCucumbers(s),fishing:{...f,cropsSold:f.cropsSold+qty}},message:"Ayu membeli "+qty+" timun. Kamu menerima "+formatGameRupiah(qty*25)+"."};
   }
   if(merchant==="C07" && FISH_IDS.includes(item as FishId)){
     const id=item as FishId,qty=f.fish[id],price=qty*FISH_MARKET[id].price;
     if(!qty || s.coins+price>99999999 || f.sold+qty>99999999)return fail("Belum ada ikan jenis ini untuk dijual.");
-    return {state:{...s,coins:s.coins+price,fishing:{...f,fish:{...f.fish,[id]:0},sold:f.sold+qty}},message:"Widi membeli "+qty+" "+FISH_MARKET[id].name+". Kamu menerima "+price+" G."};
+    return {state:{...s,coins:s.coins+price,fishing:{...f,fish:{...f.fish,[id]:0},sold:f.sold+qty}},message:"Widi membeli "+qty+" "+FISH_MARKET[id].name+". Kamu menerima "+formatGameRupiah(price)+"."};
   }
   return fail("Barang ini dijual di lapak lain.");
 }
@@ -773,7 +779,7 @@ function storyDialogue(s: GameState, npc: NpcId): { state: GameState } & Dialogu
   if (s.story.orderAccepted && !s.story.orderDone && s.harvested >= 4) return {
     state: { ...s, harvested: s.harvested - 4, coins: s.coins + 160,
       story: { ...s.story, orderDone: true } }, title: "Inggit · Empat Timun untuk Satu Meja", shop: true,
-    lines: ["Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini 160 G; terima kasih sudah mengantar.",
+    lines: ["Empat timun kecil, pas untuk acar. Yang besar kebanyakan air. Ini "+formatGameRupiah(160)+"; terima kasih sudah mengantar.",
       "Inggit membalik piring kelima di meja. Di sampingnya ada cangkir retak dengan dua goresan.",
       "Ryan juga menemukan garis seperti ini di pintu air. Kalau sempat, temui dia di timur kebun."] };
   return { state: s, title: "Inggit · Warung Pasar", shop: true, lines: [

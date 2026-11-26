@@ -94,7 +94,8 @@ export const LEGACY_SECTIONS = {
   "efek": "environment",
   "cerita": "stories",
   "pasar": "commerce",
-  "vendor": "vendors"
+  "vendor": "vendors",
+  "sumber-karakter": "characters"
 };
 export const PUBLIC_SECTIONS = {
   "characters": "characters",
@@ -103,6 +104,7 @@ export const PUBLIC_SECTIONS = {
   "tiles": "world",
   "pasirluyu": "world",
   "residences": "buildings",
+  "locations": "buildings",
   "audio": "audio",
   "story": "stories",
   "cutscenes": "stories",
@@ -114,6 +116,7 @@ export function categorizeMedia(path){
  if(path.startsWith("game-assets/characters/"))return {category:"characters",section:p.slice(2,4).join("/")};
  if(path.startsWith("game-assets/vendor/"))return {category:"vendors",section:p.slice(2,4).join("/")};
  if(path.startsWith("public/game/assets/"))return {category:PUBLIC_SECTIONS[p[3]],section:p.slice(3,Math.min(p.length-1,7)).join("/")||"root"};
+ if(path.startsWith("game-assets/imported/"))return {category:LEGACY_SECTIONS[p[3]]||"props",section:p[2]+"/"+p[3]};
  if(path.startsWith("game-assets/yz-farm-life/"))return {category:LEGACY_SECTIONS[p[3]],section:p[2]+"/"+p[3]};
  throw new Error("Unknown media source folder: "+path);
 }

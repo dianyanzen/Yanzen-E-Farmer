@@ -4,6 +4,7 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
+import { yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -26,6 +27,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
 }
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
+  roomAssets?: Record<string, HTMLImageElement>;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
@@ -72,7 +74,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
+    if (art.roomAssets?.shedFloor && art.roomAssets?.shedWall) {
+      ctx.drawImage(art.roomAssets.shedFloor,0,0,W*T,H*T);
+      for (const item of yanzenInteriorLayout.shed) {
+        const image=art.roomAssets[item.key];
+        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
+      }
+    } else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
     box(ctx,7*T,5*T,11*T,10*T,"#53402f");
@@ -96,7 +104,14 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if (state.location === "home") {
-    if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
+    if (art.roomAssets?.homeFloor && art.roomAssets?.homeWall) {
+      ctx.drawImage(art.roomAssets.homeFloor,0,0,W*T,H*T);
+      for (const item of yanzenInteriorLayout.home) {
+        const image=art.roomAssets[item.key];
+        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
+      }
+      if(state.minutes>=18*60) { ctx.fillStyle="rgba(27,32,43,.24)"; ctx.fillRect(0,0,W*T,H*T); }
+    } else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
@@ -133,13 +148,20 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     const px=x*T, py=y*T;
     const plot=byTile.get(x+","+y);
     if(!plot)continue;
-    const soil = art.outdoor?.petak;
+    const soil = art.outdoor?.[plot.watered?"plot-wet":"plot-dry"];
     const tile = plotTextureFrame(x,y,plot.watered,plot.stage);
-    if (soil) ctx.drawImage(soil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
+    const legacySoil = art.outdoor?.petak;
+    if (soil) ctx.drawImage(soil,px,py,T,T);
+    else if (legacySoil) ctx.drawImage(legacySoil,(tile%8)*T,Math.floor(tile/8)*T,T,T,px,py,T,T);
     else box(ctx,px,py,T,T,plot.watered?"#927256":"#b48b61");
-    if(plot.stage>=0 && art.cucumber){
+    const stageId=Math.min(3,plot.stage);
+    const variant=(x+2*y)%3===0?"-alt":"";
+    const cropStage=art.outdoor?.["cucumber-stage-"+stageId+variant] ?? art.outdoor?.["cucumber-stage-"+stageId];
+    if(plot.stage>=0 && cropStage) {
+      ctx.drawImage(cropStage,px+2,py+1,16,18);
+    } else if(plot.stage>=0 && art.cucumber){
       ctx.drawImage(art.cucumber,plot.stage*16,0,16,16,px+2,py+2,16,16);
-    }else if(plot.stage>=0){
+    } else if(plot.stage>=0){
       const height=5+plot.stage*3;
       box(ctx,px+9,py+16-height,2,height,"#347346");
       box(ctx,px+4,py+12-plot.stage*2,7+plot.stage,3,"#4d994f");
@@ -179,13 +201,14 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
   const physicalProps=[
     ...outdoorObjects(state.location,state.minutes,state.sluiceOpen),
-    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1}))
+    ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1,displayW:undefined,displayH:undefined}))
   ];
   for (const prop of physicalProps) {
     const image = art.outdoor?.[prop.asset];
     if (!image) continue;
     const scale = prop.scale ?? 1;
-    const width = Math.round(image.width*scale), height = Math.round(image.height*scale);
+    const width = prop.displayW ?? Math.round(image.width*scale);
+    const height = prop.displayH ?? Math.round(image.height*scale);
     ordered.push({y:prop.y/T-1,draw:() => {
       const footY=(position.y+1)*T;
       const covered=height>=39 && footY<prop.y && footY>prop.y-height+10 && Math.abs((position.x+.5)*T-prop.x)<width*.34;

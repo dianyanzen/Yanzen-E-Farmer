@@ -9,7 +9,7 @@ An original pixel-art urban-farming life simulation, inspired by the gameplay si
 - 480×320 pixel canvas, responsive nearest-neighbor scaling, no additional JavaScript dependencies.
 - W/A/S/D or arrows to walk; E/Space interacts with the tile in front or an adjacent NPC; P opens/closes YZ Phone; Escape exits overlays.
 - Mobile D-pad + action button + phone button.
-- Farm tools: hoe → seed → water → sleep → grow over three watered nights → harvest. Harvest earns fictional G currency.
+- Farm tools: hoe → seed → water → sleep → grow over three watered nights → harvest. Harvest earns fictional game funds displayed in Indonesian rupiah (IDR).
 - Yanzen (A01) is the playable farmer. The first map uses three of the 31 catalog NPCs.
   - Ryan (A03) follows the old irrigation canal.
   - Nani (C01) remembers the neighborhood's history.
@@ -19,7 +19,7 @@ An original pixel-art urban-farming life simulation, inspired by the gameplay si
 - The browser never receives database secrets or service-role credentials. If saving fails, further writes are disabled until reload to avoid overwriting old progress.
 
 ## Database
-SQL migration: `supabase/migrations/20261116000100_yz_game_saves.sql`. A single JSONB record per authenticated user is intentional for the small prototype. Later stages should normalize world events and inventories when concurrency or larger saves require it. All game values are **fictional**, kept separate from operational tables.
+SQL migration: `supabase/migrations/20261116000100_yz_game_saves.sql`. A single JSONB record per authenticated user is intentional for the small prototype. Later stages should normalize world events and inventories when concurrency or larger saves require it. All game values are **fictional**, kept separate from operational tables. The current staging integration displays every player-facing balance, price, sale, and quest reward as Rupiah; legacy saved balances remain compatible at Rp100 per old balance unit.
 
 ## 32 visual references inventory
 Drive folder: private owner-managed visual reference folder (URL deliberately excluded from public repository).

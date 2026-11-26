@@ -3,8 +3,8 @@
   "category": "audio",
   "label": "Audio dan suasana",
   "description": "Musik, suara lingkungan, SFX, atmosfer malam",
-  "mediaCount": 73,
-  "bytes": 11044029,
+  "mediaCount": 145,
+  "bytes": 22016165,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -113,6 +113,108 @@
         "game-assets/yz-farm-life/explore-bandung/malam/audio/radio.wav",
         "game-assets/yz-farm-life/explore-bandung/malam/audio/serambi.wav",
         "game-assets/yz-farm-life/explore-bandung/malam/audio/serangga.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/audio",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/harvest.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/hoe.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/imbalan.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/kanal.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/kebun.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/langkah-batu.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/langkah-kayu.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/langkah-tanah.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/pagi-pasirluyu.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/pilih.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/seed.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/warung-sore.wav",
+        "game-assets/imported/YZ_Farm_Life_Aset/audio/water.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/audio",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/harvest.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/hoe.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/imbalan.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/kanal.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/kebun.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/langkah-batu.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/langkah-kayu.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/langkah-tanah.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/pagi-pasirluyu.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/pilih.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/seed.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/warung-sore.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/audio/water.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/malam",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/air.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/angin.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/ketuk.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/proyektor.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/radio.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/serambi.wav",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/malam/audio/serangga.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/audio",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/harvest.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/hoe.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/imbalan.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/kanal.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/kebun.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/langkah-batu.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/langkah-kayu.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/langkah-tanah.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/pagi-pasirluyu.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/pilih.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/seed.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/warung-sore.wav",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/audio/water.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/audio",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/harvest.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/hoe.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/imbalan.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/kanal.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/kebun.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/langkah-batu.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/langkah-kayu.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/langkah-tanah.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/pagi-pasirluyu.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/pilih.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/seed.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/warung-sore.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/audio/water.wav"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/malam",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/air.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/angin.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/gang.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/ketuk.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/proyektor.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/radio.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/serambi.wav",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/malam/audio/serangga.wav"
       ]
     }
   ]

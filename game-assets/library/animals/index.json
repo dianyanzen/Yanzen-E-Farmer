@@ -3,8 +3,8 @@
   "category": "animals",
   "label": "Hewan dan ternak",
   "description": "Hewan domestik dan aset terkait",
-  "mediaCount": 34,
-  "bytes": 1203479,
+  "mediaCount": 66,
+  "bytes": 2334953,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -54,6 +54,48 @@
       "files": [
         "public/game/assets/fish/lele.png",
         "public/game/assets/fish/nila.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/hewan",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/anjing-titipan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/ayam-kampung.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/burung-gereja.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/burung-puyuh.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/capung.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/domba.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/itik.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/kambing-perah.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/katak.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/kelelawar.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/kucing-kampung.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/kunang-kunang.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/lebah-madu.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/lele.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/nila.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/hewan/sapi-perah.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/hewan",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/anjing-titipan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/ayam-kampung.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/burung-gereja.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/burung-puyuh.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/capung.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/domba.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/itik.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/kambing-perah.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/katak.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/kelelawar.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/kucing-kampung.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/kunang-kunang.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/lebah-madu.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/lele.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/nila.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/hewan/sapi-perah.png"
       ]
     }
   ]
