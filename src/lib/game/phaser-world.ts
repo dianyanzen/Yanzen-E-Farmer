@@ -7,6 +7,7 @@
  * saves, runs collision rules, or advances the calendar. Only Phaser owns the
  * visible canvas, sprite layers, native camera and scene graphics.
  */
+import { poultryStock } from "./model";
 import * as Phaser from "phaser";
 import { yanzenSprite } from "./yanzen-sprite";
 import { activityAssets } from "./character-activities";
@@ -394,8 +395,9 @@ class YZWorldScene extends Phaser.Scene {
         this.highlight.strokeRect(tx*TILE+1,ty*TILE+1,TILE-2,TILE-2);
       }
     } else this.irrigation.setVisible(false);
-    const propState=location+":"+frame.state.minutes+":"+Number(!!frame.state.sluiceOpen);
-    if (isOutdoorLocation(location) && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen).forEach((prop,index) => {
+    const eggsReady=poultryStock(frame.state).nest>0;
+    const propState=location+":"+frame.state.minutes+":"+Number(!!frame.state.sluiceOpen)+":"+Number(eggsReady);
+    if (isOutdoorLocation(location) && propState!==this.propState) outdoorObjects(location,frame.state.minutes,frame.state.sluiceOpen,eggsReady).forEach((prop,index) => {
       const sprite = this.mapProps[index];
 
       if (!sprite) return;

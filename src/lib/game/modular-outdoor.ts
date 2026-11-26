@@ -1,5 +1,5 @@
 import { connectsAt, drawConnectedEdges, sharedBorderProps } from "./connected-edges";
-import { ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
+import { IYAN_MARKET, POULTRY, iyanMarketOpen, ROAD_PATHS, roadSegments, warungCoffee, fieldCanalBank, HOME, INGGIT_WARUNG, NURSERY_BENCH, SHED, riverBanks, RIVER_RICE_BEDS, WORLD, type OutdoorLocation } from "./model";
 import { drawRouteClosures } from "./pasirluyu-master-map";
 import { drawSignposts } from "./signposts";
 import { QUEST_PROPS } from "./quest-props";
@@ -15,6 +15,9 @@ const fieldDetails = ["tebing-batu","batu-kembar","ilalang-kanal","riak-kanal","
   "ayam-putih","anak-ayam","pot-berbunga","palung"] as const;
 const yanzenExteriorFolder = "locations/yanzen/exterior/";
 export const outdoorSources: Record<string,string> = {
+  "chicken-nest-eggs":"locations/poultry/nest-eggs.png",
+  "iyan-market-sprite":"characters/iyan-market.png",
+  "iyan-feed-sack":"locations/iyan/feed-sack.png",
   "yanzen-home-door": yanzenExteriorFolder + "home-front-door.png",
   "yanzen-home-west-window": yanzenExteriorFolder + "home-west-window.png",
   "yanzen-home-east-window": yanzenExteriorFolder + "home-east-window.png",
@@ -126,6 +129,8 @@ const props: Record<OutdoorLocation, Placement[]> = {
     {asset:"semak",x:22,y:283},{asset:"rumpun-bunga-liar",x:438,y:301},
   ],
   pasar: [
+    {asset:"iyan-market-sprite",x:(IYAN_MARKET.x+.5)*WORLD.tile,y:(IYAN_MARKET.y+1)*WORLD.tile-2,displayW:24,displayH:32},
+    {asset:"iyan-feed-sack",x:(IYAN_MARKET.x+.9)*WORLD.tile,y:(IYAN_MARKET.y+1)*WORLD.tile,displayW:13,displayH:15},
     {asset:"lapak-benih",closedAsset:"kios-sayur-tutup",x:128,y:174},
     {asset:"peti-kayu",x:91,y:174,scale:.75},
     {asset:"papan-pasar",x:303,y:100},
@@ -260,10 +265,12 @@ export function plotTextureFrame(x:number,y:number,watered:boolean,stage:number)
   return (watered?12:0)+(stage===0?6:3)+((x+2*y)%3);
 }
 
-export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false): Placement[] {
+export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpen=false,eggsReady=false): Placement[] {
   const scenery = props[location].map(p => p.asset==="inggit-sign" &&
     (minutes<INGGIT_WARUNG.opensAt || minutes>=INGGIT_WARUNG.closesAt) ? {...p,asset:"inggit-closed-sign"} : p.asset==="bendung-dua-pintu-tutup" && sluiceOpen ? {...p,asset:"bendung-dua-pintu-buka"} : p.closedAsset && (minutes<720 || minutes>=1140) ?
     {...p,asset:p.closedAsset} : p);
+  if(location==="pasar")return scenery.map(prop=>prop.asset==="iyan-market-sprite"
+    ? {...prop,visible:iyanMarketOpen(minutes)} : prop);
   if(location!=="field")return scenery;
   const tableX = (INGGIT_WARUNG.table.x + .5) * WORLD.tile;
   const tableY = (INGGIT_WARUNG.table.y + 1) * WORLD.tile - 2;
@@ -275,7 +282,10 @@ export function outdoorObjects(location:OutdoorLocation,minutes:number,sluiceOpe
       groundY:tableY,visible:phase!=="cleared",
     };
   });
-  return [...scenery,...cups];
+  return [...scenery,...cups,{
+    asset:"chicken-nest-eggs",x:(POULTRY.nest.x+.8)*WORLD.tile,y:POULTRY.nest.y*WORLD.tile+14,
+    displayW:12,displayH:8,visible:eggsReady,groundY:(POULTRY.nest.y+1)*WORLD.tile+1,
+  }];
 }
 
 function tile(ctx:CanvasRenderingContext2D, image:CanvasImageSource|undefined, id:number, x:number,y:number, size=20) {

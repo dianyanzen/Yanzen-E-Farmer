@@ -3,7 +3,7 @@ import type { WeightPose } from "./footwork";
 import type { ActivityFrame } from "./character-activities";
 import type { ToolUse } from "./field-engine";
 import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisual} from "./fishing-visuals";
-import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
+import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, poultryStock, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, drawIrrigationChannel, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
 import { YANZEN_MODULAR_INTERIORS_ENABLED, interiorOpacity, yanzenInteriorLayout } from "./yanzen-interior-art";
@@ -239,7 +239,7 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
   }
   const ordered = npcHere(state).map(npc => ({y:npc.y,draw:() => drawNpc(npc)}));
   const physicalProps=[
-    ...outdoorObjects(state.location,state.minutes,state.sluiceOpen),
+    ...outdoorObjects(state.location,state.minutes,state.sluiceOpen,poultryStock(state).nest>0),
     ...activeQuestProps(state).map(p=>({asset:p.asset,x:(p.x+.5)*T,y:(p.y+1)*T,scale:1,displayW:undefined,displayH:undefined,groundY:undefined,visible:undefined}))
   ];
   for (const prop of physicalProps) {

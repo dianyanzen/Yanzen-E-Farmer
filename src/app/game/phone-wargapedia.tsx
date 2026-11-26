@@ -1,5 +1,6 @@
 "use client";
 
+import { IYAN_MARKET } from "@/lib/game/model";
 import Image from "next/image";
 import {useEffect,useMemo,useState} from "react";
 import {WARGAPEDIA_CATEGORIES,wargaDisplayName,wargaPlayerView,type WargaDossier} from "@/lib/game/public-wargapedia";
@@ -36,7 +37,8 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
    .then(data=>{
     if(data.characterCount!==248||!Array.isArray(data.characters)||data.characters.length!==248)
      throw new Error("catalog count");
-    if(!controller.signal.aborted)setCatalog(data);
+    if(!controller.signal.aborted)setCatalog({...data,characters:data.characters.map(person=>
+      person.id===IYAN_MARKET.id?{...person,portraitUrl:IYAN_MARKET.portrait}:person)});
    })
    .catch(()=>{if(!controller.signal.aborted)setError("Daftar warga belum bisa dibuka. Periksa koneksi, lalu coba lagi.");});
   return()=>controller.abort();
@@ -92,7 +94,7 @@ export default function PhoneWargapedia({selectedId,onSelect,game,residents}:{
    {catalog&&!known&&<p role="alert">Nama ini belum ada di daftar warga.</p>}
    {known&&<div className="yzg-phone-card yzg-wargapedia-profile">
     <Image src={known.portraitUrl} alt={`Potret ${wargaDisplayName(known.name)}`} width={82} height={82} sizes="82px" unoptimized/>
-    <div><h3>{wargaDisplayName(known.name)}</h3><p>{known.occupation}</p></div>
+    <div><h3>{wargaDisplayName(known.name)}</h3><p>{known.occupation}</p>{known.id===IYAN_MARKET.id&&<p>Jual pakan ayam di Pasar Warga, pukul 09.00–17.00.</p>}</div>
    </div>}
    {activeNpc&&(Boolean(bond?.talks)||Boolean(quest&&quest.phase>1))&&<div className="yzg-phone-card yzg-warga-relationship" aria-label="Pertemuan dan kedekatan">
     <b>Perjalanan kalian</b>

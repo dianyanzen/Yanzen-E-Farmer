@@ -1,5 +1,6 @@
 "use client";
 
+import { IYAN_MARKET, POULTRY, interactPoultry, poultryStock } from "@/lib/game/model";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import NextImage from "next/image";
 import { useRouter } from "next/navigation";
@@ -616,6 +617,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       const result=meetNpc(game,context.npcId);
       setGame(result.state);setDialogue(result);
       if(result.state!==game) void persist(result.state);
+    }else if(context.kind==="poultry-shop"){
+      setDialogue({title:IYAN_MARKET.name+" · Lapak pakan",poultryShop:true,
+        lines:["Punten, Yanzen. Butuh pakan? Cukup satu porsi sehari. Besok pagi biasanya sudah ada telur di sarang."]});
+    }else if(context.kind==="feed-chicken" || context.kind==="collect-eggs"){
+      const result=interactPoultry(game,context.kind==="feed-chicken"?"feed":"collect");
+      if(result.state!==game){playActivity("take");setGame(result.state);void persist(result.state);}
+      setToast(result.message);
     }else if(context.kind==="sit"){
       playActivity("sit",facing(game.player),undefined,game.player);
     }else if(context.kind==="storage"){
@@ -932,6 +940,19 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
           focusKey={dialogue.title + dialogue.lines.join("|")} onBack={() => setDialogue(null)}>
           <DialoguePanel key={dialogue.title + dialogue.lines.join("|")} dialogue={{ ...dialogue, title: display(dialogue.title) }} game={game}
             resident={dialogue.npcId ? visualByLegacyId.get(dialogue.npcId) : undefined}>
+          {dialogue.poultryShop && <button type="button" disabled={unavailable} onClick={()=>{
+            const result=interactPoultry(game,"buy-feed");
+            if(result.state!==game){setGame(result.state);void persist(result.state);}
+            setDialogue({...dialogue,lines:[result.message]});
+          }}><span className="yzg-market-item-text"><strong>Beli {POULTRY.feedPack} porsi pakan · {formatGameRupiah(POULTRY.feedPrice)}</strong>
+            <small>Stok pakan {poultryStock(game).feed} porsi</small></span>
+          </button>}
+          {dialogue.npcId==="C08" && atWarungCounter(game) && poultryStock(game).eggs>0 &&
+            <button type="button" disabled={unavailable} onClick={()=>{
+              const result=interactPoultry(game,"sell-eggs");
+              if(result.state!==game){setGame(result.state);void persist(result.state);}
+              setDialogue({...dialogue,lines:[result.message],choices:undefined,emotions:undefined});
+            }}>Jual {poultryStock(game).eggs} telur · {formatGameRupiah(POULTRY.eggPrice)}/butir</button>}
           {dialogue.npcId==="C08" && atWarungCounter(game) && (
             <details className="yzg-market">
               <summary><strong>Menu Warung Inggit</strong><small>Pesan untuk dinikmati di sini</small></summary>
@@ -1047,7 +1068,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
               </>}
               {phoneTab === "farm" && <>
                 <div className="yzg-phone-card"><b>Ringkasan kebun</b>
-                  <div className="yzg-phone-stats"><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Perlu disiram<strong>{farming.needsWater}</strong></span><span>Sudah disiram<strong>{farming.watered}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{formatGameRupiah(game.coins)}</strong></span></div>
+                  <div className="yzg-phone-stats"><span>Pakan ayam<strong>{poultryStock(game).feed}</strong></span><span>Telur di tas<strong>{poultryStock(game).eggs}</strong></span><span>Telur di sarang<strong>{poultryStock(game).nest}</strong></span><span>Tanaman aktif<strong>{planted}</strong></span><span>Siap panen<strong>{readyCrops}</strong></span><span>Perlu disiram<strong>{farming.needsWater}</strong></span><span>Sudah disiram<strong>{farming.watered}</strong></span><span>Hasil panen<strong>{game.harvested}</strong></span><span>Saldo<strong>{formatGameRupiah(game.coins)}</strong></span></div>
                   <p>{farming.next}</p>
                 </div>
                 <div className="yzg-phone-card"><b>Misi warga</b>

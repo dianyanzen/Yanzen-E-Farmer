@@ -33,7 +33,8 @@ const oldCast=[...cast.characters,...previews] as Array<{id:string;name:string;o
 // A whole-roster fingerprint protects against stale/incomplete/misassigned names.
 // Derived from the 248 rows approved in the 2026-11-22 owner-supplied catalog,
 // without committing its names or occupations to this public repository.
-const OWNER_REVIEWED_ROSTER_SHA256="24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e";
+const PRE_IYAN_ROSTER_SHA256="24525af2c8e8b69bdb37a43691ebba158d40749b86890bdaf23a53a2805c426e";
+const OWNER_REVIEWED_ROSTER_SHA256="f914d9658d8328f36a414944fd94a8aaea1b3436f7091defafebea6ce967754c";
 const fingerprint=(rows:readonly {id:string;name:string;occupation:string;portrait:string}[])=>
  createHash("sha256").update(rows.slice().sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0)
    .map(r=>[r.id,r.name,r.occupation,r.portrait].join("|")+"\n").join("")).digest("hex");
@@ -69,8 +70,13 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
   // Owner-authorized 2026-11-22 profession revision: accept only the exact
   // former Widi C07 label from an older private Vercel/Docker roster.
   // Re-check the full 248-person fingerprint afterward; do not bypass it.
-  const residents=sourceResidents.map(r=>r.id==="C07"&&r.name==="WIDI MUNAJAT"&&
-    r.occupation==="Pedagang hasil bumi"?{...r,occupation:"Spesialis ikan dan memancing"}:r);
+  const residents=sourceResidents.map(r=>{
+   if(r.id==="C07"&&r.name==="WIDI MUNAJAT"&&r.occupation==="Pedagang hasil bumi")
+    return {...r,occupation:"Spesialis ikan dan memancing"};
+   if(r.id==="W026"&&r.name==="IYAN RUSTIANA"&&r.portrait==="R010"&&r.occupation==="Pengrajin peci")
+    return {...r,occupation:"Spesialis peternakan dan hewan"};
+   return r;
+  });
   if(residents.length!==248)throw new Error("invalid-count");
   const ids=new Set<string>(),names=new Set<string>(),portraits=new Set<string>();
   // Next/Vercel may serve public images from a CDN rather than mounting public/ inside a lambda.
@@ -85,7 +91,8 @@ export async function readPrivateResidents():Promise<ResidentProfile[]> {
    const relative=bandungConceptPortraitPath(r.portrait).replace(/^\//,"");
    if(assetDirectoryMounted)await access(join(process.cwd(),"public",relative));
   }
-  const expected=process.env.GAME_CANONICAL_ROSTER_SHA256||OWNER_REVIEWED_ROSTER_SHA256;
+  const configured=process.env.GAME_CANONICAL_ROSTER_SHA256;
+  const expected=configured && configured!==PRE_IYAN_ROSTER_SHA256 ? configured : OWNER_REVIEWED_ROSTER_SHA256;
   if(!/^[0-9a-f]{64}$/.test(expected)||fingerprint(residents)!==expected)
    throw new Error("canonical-owner-roster-fingerprint-mismatch");
   const approved=new Map<string,string>();

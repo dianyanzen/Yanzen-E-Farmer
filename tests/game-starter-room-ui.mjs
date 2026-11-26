@@ -7,7 +7,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { browserPath } from './browser-path.mjs';
-import { apiFixture } from './game-ui-api-fixture.mjs';
+import { apiFixture, loadCheckpoint } from './game-ui-api-fixture.mjs';
 
 const engine=process.env.FARM_TEST_ENGINE==='phaser'?'phaser':'canvas';
 const output = path.resolve(process.env.FARM_GAME_UI_OUTPUT || `../starter-room-ui-${engine}`);
@@ -224,6 +224,46 @@ try {
   await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.coins===253);
   await page.close();
  }
+ const poultry=await browser.newPage({viewport:{width:393,height:852},hasTouch:true,reducedMotion:'reduce'});
+ const { IYAN_MARKET, POULTRY, INGGIT_WARUNG }=model;
+ const atShop={...seed,location:'pasar',minutes:10*60,player:{x:IYAN_MARKET.x,y:IYAN_MARKET.y+1,dir:'up'}};
+ await poultry.addInitScript(data=>{
+  if(!localStorage.getItem('yz-test-save'))localStorage.setItem('yz-test-save',JSON.stringify({data}));
+ },atShop);
+ await start(poultry);
+ await poultry.waitForFunction(()=>!document.querySelector('.yzg-loading'));
+ await poultry.getByRole('button',{name:'Aksi',exact:true}).click();
+ const shop=poultry.getByRole('dialog',{name:/Iyan Rustiana/});
+ await shop.getByRole('img',{name:'Iyan Rustiana',exact:true}).waitFor();
+ await shop.getByRole('button',{name:/Beli 5 porsi pakan/}).click();
+ await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.feed===5);
+ await loadCheckpoint(poultry,{location:'field',player:{x:POULTRY.feeder.x,y:POULTRY.feeder.y-1,dir:'down'}});
+ await poultry.getByRole('button',{name:'Aksi',exact:true}).click();
+ await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.feed===4);
+ await loadCheckpoint(poultry,{location:'home',player:{x:9,y:8,dir:'up'}});
+ await poultry.getByRole('button',{name:'Aksi',exact:true}).click();
+ await poultry.getByRole('button',{name:'Tidur sampai pagi',exact:true}).click();
+ await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.nest===1);
+ await loadCheckpoint(poultry,{location:'field',player:{x:POULTRY.nest.x,y:POULTRY.nest.y-1,dir:'down'}});
+ await poultry.getByRole('button',{name:'Aksi',exact:true}).click();
+ await poultry.waitForFunction(()=>JSON.parse(localStorage.getItem('yz-test-save'))?.data?.poultry?.eggs===1);
+ await loadCheckpoint(poultry,{location:'field',player:{x:INGGIT_WARUNG.x,y:INGGIT_WARUNG.y+1,dir:'up'}});
+ await poultry.getByRole('button',{name:'Aksi',exact:true}).click();
+ const inggitEggs=poultry.getByRole('dialog',{name:/Inggit/});
+ await inggitEggs.waitFor();
+ const nextEggLine=inggitEggs.getByRole('button',{name:'Lanjut ›',exact:true});
+ const sellEggs=inggitEggs.getByRole('button',{name:/Jual 1 telur/});
+ for(let i=0;i<8;i++){
+  await nextEggLine.or(sellEggs).first().waitFor();
+  if(await sellEggs.isVisible())break;
+  await nextEggLine.click();
+ }
+ await sellEggs.click();
+ await poultry.waitForFunction(()=>{
+  const {poultry,coins}=JSON.parse(localStorage.getItem('yz-test-save')).data;
+  return poultry.eggs===0&&coins===268;
+ });
+ await poultry.close();
  const conflict=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:'reduce'});
  await conflict.addInitScript(data=>{
   if(!localStorage.getItem('yz-test-save')) {

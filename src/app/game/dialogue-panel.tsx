@@ -1,5 +1,6 @@
 "use client";
 
+import { IYAN_MARKET } from "@/lib/game/model";
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { bandungConceptPortraitPath } from "@/lib/game/bandung-concept-portrait";
 import type { ResidentProfile } from "@/lib/game/resident-profile";
@@ -69,6 +70,7 @@ export default function DialoguePanel({ dialogue, resident, children }: { dialog
   return <>
     <div className="yzg-dialog-head"><b>{resident?.name?wargaDisplayName(resident.name):(npc?.name || dialogue.title)}</b><span className="yzg-sr-only">Bagian {page + 1} dari {dialogue.lines.length}</span></div>
     <div className="yzg-dialog-scene">
+      {dialogue.poultryShop && <NextImage src={IYAN_MARKET.portrait} width={112} height={112} className="yzg-portrait" style={{height:"auto",aspectRatio:1,objectFit:"contain"}} alt={IYAN_MARKET.name}/>}
       {npc && <Portrait npcId={npc.id} emotion={dialogue.emotions?.[page] ?? dialogue.emotion}
         name={resident?.name ? wargaDisplayName(resident.name) : npc.name}/>}
       <div className="yzg-dialog-copy">

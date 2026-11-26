@@ -35,6 +35,6 @@ export async function loadCheckpoint(page, fields) {
   await page.reload();
   const help = page.getByRole('button', {name:'Mengerti'});
   if (await help.isVisible()) await help.click();
-  await page.getByRole('button', {name:'Buka jurnal'}).waitFor();
+  await page.locator('.yzg-headsup').waitFor();
   await page.waitForFunction(() => !document.querySelector('.yzg-loading'));
 }

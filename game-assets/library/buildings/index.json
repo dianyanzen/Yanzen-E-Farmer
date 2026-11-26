@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 146,
-  "bytes": 16649860,
+  "mediaCount": 148,
+  "bytes": 16650263,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -68,6 +68,18 @@
         "public/game/assets/locations/inggit/warkop/west-bench.png",
         "public/game/assets/locations/inggit/warkop/widi-coffee-empty.png",
         "public/game/assets/locations/inggit/warkop/widi-coffee-full.png"
+      ]
+    },
+    {
+      "id": "locations/iyan",
+      "files": [
+        "public/game/assets/locations/iyan/feed-sack.png"
+      ]
+    },
+    {
+      "id": "locations/poultry",
+      "files": [
+        "public/game/assets/locations/poultry/nest-eggs.png"
       ]
     },
     {

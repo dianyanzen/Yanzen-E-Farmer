@@ -102,6 +102,14 @@ try {
   await detail.getByRole("button",{name:"Daftar warga"}).click();
  }
 
+ await search.fill("Iyan Rustiana");
+ await page.locator('[data-character-card="W026"]').click();
+ const iyan=page.locator('[data-character-detail="W026"]');
+ await iyan.getByText("Spesialis peternakan dan hewan",{exact:true}).waitFor();
+ await iyan.getByText(/Jual pakan ayam di Pasar Warga/).waitFor();
+ assert.equal(await iyan.locator("img").first().getAttribute("src"),"/game/assets/portraits/iyan-market.png");
+ await iyan.getByRole("button",{name:"Daftar warga"}).click();
+
  for(const cameoId of ['P01','P02']){
   const cameo=index.characters.find(person=>person.id===cameoId);
   assert.ok(cameo,'public cameo present in canonical index');

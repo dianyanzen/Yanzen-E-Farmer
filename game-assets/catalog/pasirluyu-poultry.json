@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "assetId": "iyan-avatar",
+      "ownerId": "W026",
+      "runtimeFile": "public/game/assets/portraits/iyan-market.png",
+      "runtimeSHA256": "5ecce5c875ecc2bfb820b2caf912c69aa7794607fe8a63e5c6849a7bad17351e",
+      "canvasSize": [
+        256,
+        256
+      ],
+      "visibleAlphaBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "provenance": "ImageGen portrait using the canonical W026 likeness and an active NPC portrait for style.",
+      "consumers": [
+        "Dialog dan Warga"
+      ]
+    },
+    {
+      "assetId": "iyan-market",
+      "ownerId": "W026",
+      "runtimeFile": "public/game/assets/characters/iyan-market.png",
+      "runtimeSHA256": "d49581fad9d1e8cdb0d9b1593b3304264875eb541f9489b76b3ee4e68640bd54",
+      "canvasSize": [
+        24,
+        32
+      ],
+      "visibleAlphaBounds": [
+        6,
+        1,
+        18,
+        30
+      ],
+      "provenance": "Original individual pixel art, facing the market aisle.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "iyan-feed-sack",
+      "ownerId": "iyan-feed-stall",
+      "runtimeFile": "public/game/assets/locations/iyan/feed-sack.png",
+      "runtimeSHA256": "1f9810a4599b227e44468ea0d54df9162a5d4ceb891123dd9670876014387ec2",
+      "canvasSize": [
+        13,
+        15
+      ],
+      "visibleAlphaBounds": [
+        2,
+        1,
+        11,
+        14
+      ],
+      "provenance": "Original individual pixel art.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    },
+    {
+      "assetId": "coop-nest-eggs",
+      "ownerId": "yanzen-coop-nest",
+      "runtimeFile": "public/game/assets/locations/poultry/nest-eggs.png",
+      "runtimeSHA256": "974200225eab6fe0688cd97d8446993173f74bc4b609682023cc498ba95a6d22",
+      "canvasSize": [
+        12,
+        8
+      ],
+      "visibleAlphaBounds": [
+        1,
+        0,
+        10,
+        7
+      ],
+      "provenance": "Original individual pixel art.",
+      "consumers": [
+        "Canvas",
+        "Phaser"
+      ]
+    }
+  ]
+}

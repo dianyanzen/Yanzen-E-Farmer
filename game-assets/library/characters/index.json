@@ -3,8 +3,8 @@
   "category": "characters",
   "label": "Karakter dan sprite gerak",
   "description": "Aktor, avatar, karakter dan konsep profesi",
-  "mediaCount": 807,
-  "bytes": 155109314,
+  "mediaCount": 808,
+  "bytes": 155109759,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -238,6 +238,7 @@
     {
       "id": "characters",
       "files": [
+        "public/game/assets/characters/iyan-market.png",
         "public/game/assets/characters/portraits.png",
         "public/game/assets/characters/stage1.png",
         "public/game/assets/characters/yanzen-gaits.png",

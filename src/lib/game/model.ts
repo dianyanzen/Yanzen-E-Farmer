@@ -117,6 +117,7 @@ export type StoryFlags = {
   photoSeen: boolean; photoChoice: PhotoChoice | null; completedDay: number | null;
 };
 export type Dialogue = {
+  poultryShop?: true;
   title: string; lines: string[]; npcId?: NpcId; emotion?: Emotion; emotions?: Emotion[]; sleep?: boolean; choices?: { id: SocialChoice; label: string; minLevel?: number }[]; photo?: boolean; choosePhoto?: boolean; shop?: boolean;
 };
 export const QUEST_PROPS = [
@@ -142,6 +143,7 @@ export function activeQuestProps(s:GameState):QuestProp[]{
 
 export type GameState = {
   nurseryChecked?: boolean;
+  poultry?: PoultryStock;
   personalQuests?: QuestBook;
   followUpQuests?: FollowUpBook;
   fishing: FishingInventory; sluiceOpen?: boolean; sluiceCutsceneSeen?: boolean; irrigationOpen?: boolean; version: 1; day: number; minutes: number; walkingSteps?: number;
@@ -311,6 +313,58 @@ export function buyWarungItem(s:GameState,item:WarungItem){
   return {state:{...s,coins:s.coins-product.price},
     message:product.kind==="drink"?"Yanzen menikmati "+product.name.toLowerCase()+".":"Yanzen makan "+product.name.toLowerCase()+"."};
 }
+export const IYAN_MARKET = {
+  id: "W026", name: "Iyan Rustiana", portrait: "/game/assets/portraits/iyan-market.png",
+  x: 26, y: 8, opensAt: 9 * 60, closesAt: 17 * 60,
+} as const;
+
+export const POULTRY = {
+  feeder: { x: 22, y: 13 },
+  nest: { x: 20, y: 13 },
+  feedPack: 5, feedPrice: 20, eggPrice: 8,
+} as const;
+
+export type PoultryStock = { feed: number; eggs: number; nest: number; fedDay: number };
+
+const EMPTY_POULTRY: Readonly<PoultryStock> = { feed: 0, eggs: 0, nest: 0, fedDay: 0 };
+const POULTRY_LIMIT = 9999;
+export function iyanMarketOpen(minutes: number) {
+  return minutes >= IYAN_MARKET.opensAt && minutes < IYAN_MARKET.closesAt;
+}
+
+export function poultryStock(s: GameState): Readonly<PoultryStock> {
+  return s.poultry ?? EMPTY_POULTRY;
+}
+
+export function interactPoultry(s: GameState, command: "buy-feed" | "feed" | "collect" | "sell-eggs"): {state: GameState; message: string} {
+  const stock = poultryStock(s);
+  const target = facingInteraction(s)?.id;
+  switch (command) {
+    case "buy-feed":
+      if (target !== "iyan-feed" || !iyanMarketOpen(s.minutes)) return {state:s,message:"Beli pakan di lapak Iyan, pukul 09.00–17.00."};
+      if (s.coins < POULTRY.feedPrice) return {state:s,message:"Uangmu belum cukup untuk beli pakan."};
+      if (stock.feed > POULTRY_LIMIT - POULTRY.feedPack) return {state:s,message:"Stok pakanmu sudah penuh."};
+      return {state:{...s,coins:s.coins-POULTRY.feedPrice,poultry:{...stock,feed:stock.feed+POULTRY.feedPack}},message:"Kamu membeli 5 porsi pakan ayam."};
+    case "feed":
+      if (target !== "chicken-feeder") return {state:s,message:"Dekati palung ayam di kebun."};
+      if (stock.fedDay === s.day) return {state:s,message:"Ayam sudah makan. Cek sarangnya besok pagi."};
+      if (!stock.feed) return {state:s,message:"Pakan habis. Iyan menjualnya di Pasar Warga."};
+      if (stock.nest >= POULTRY_LIMIT) return {state:s,message:"Ambil telur dari sarang dulu."};
+      return {state:{...s,poultry:{...stock,feed:stock.feed-1,fedDay:s.day}},message:"Pakan sudah ditaruh. Besok pagi, cek sarangnya."};
+    case "collect":
+      if (target !== "chicken-nest" || !stock.nest) return {state:s,message:"Belum ada telur di sarang."};
+      const collected=Math.min(stock.nest,POULTRY_LIMIT-stock.eggs);
+      if (!collected) return {state:s,message:"Tas telurmu sudah penuh."};
+      return {state:{...s,poultry:{...stock,eggs:stock.eggs+collected,nest:stock.nest-collected}},message:`Kamu mengambil ${collected} telur.`};
+    case "sell-eggs":
+      if (!atWarungCounter(s)) return {state:s,message:"Jual telur langsung ke Inggit saat warung buka."};
+      if (!stock.eggs) return {state:s,message:"Belum ada telur di tasmu."};
+      const amount=stock.eggs*POULTRY.eggPrice;
+      if (s.coins > 99999999-amount) return {state:s,message:"Saldo sudah mencapai batas."};
+      return {state:{...s,coins:s.coins+amount,poultry:{...stock,eggs:0}},message:`${stock.eggs} telur dibeli Inggit seharga ${formatGameRupiah(amount)}.`};
+  }
+}
+
 export function warungBenchAt(x:number,y:number){
   return [INGGIT_WARUNG.northBench,INGGIT_WARUNG.southBench].find(bench=>bench.x===x && bench.y===y);
 }
@@ -739,11 +793,11 @@ const outdoorFootprints: Record<OutdoorLocation,readonly TileFootprint[]> = {
     ...[INGGIT_WARUNG.northBench,INGGIT_WARUNG.table,INGGIT_WARUNG.southBench]
       .map(({x,y}):TileFootprint=>[x,y,x,y]),
     [16,5,16,5], // basket at the west wall
-    [14,4,14,4],[19,13,21,14], // banana trunk and coop
+    [14,4,14,4],[19,13,21,14],[POULTRY.feeder.x,POULTRY.feeder.y,POULTRY.feeder.x,POULTRY.feeder.y], // banana trunk and coop
     [26,6,26,6],[29,6,29,6],[27,9,27,9],[30,9,30,9],
   ],
   gang:[[6,5,9,7],[18,5,21,7],[2,7,3,7],[5,7,5,7],[2,11,6,13],[13,11,17,13],[24,5,28,7],[29,7,30,7]],
-  pasar:[[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
+  pasar:[[IYAN_MARKET.x,IYAN_MARKET.y,IYAN_MARKET.x,IYAN_MARKET.y],[4,6,8,8],[2,12,5,13],[21,7,28,7],[22,13,24,13],[29,13,30,13],[16,13,17,13]],
   sungai:[[17,7,19,7]],
 };
 export function blocked(x:number,y:number) {
@@ -812,7 +866,9 @@ function addMinutes(s: GameState, amount = 3): GameState {
 }
 export function nextDay(s: GameState): GameState {
   if (!canSleep(s)) return s;
-  return { ...s, stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
+  const stock=poultryStock(s);
+  const poultry=stock.fedDay===s.day ? {...stock,nest:Math.min(POULTRY_LIMIT,stock.nest+1)} : s.poultry;
+  return { ...s, ...(poultry ? {poultry} : {}), stats: { ...s.stats, nights: Math.min(99999999,s.stats.nights + 1) }, day: s.day + 1, walkingSteps:0, minutes: 6 * 60 + 20,
     plots: s.plots.map(p => ({ ...p,
       stage: p.watered && p.stage >= 0 ? Math.min(3, p.stage + 1) : p.stage,
       watered: p.stage>=0 && (weatherForDay(s.day+1)==="hujan" || !!s.irrigationOpen) })) };
@@ -1047,10 +1103,17 @@ export function safeLoad(value: unknown): GameState | null {
     coordinates.add(key);
     plots.push({x:p.x,y:p.y,stage:p.stage,watered:p.watered || (p.stage>=0 && value.irrigationOpen===true),harvests:p.harvests??0});
   }
+  let poultry:PoultryStock|undefined;
+  if (value.poultry !== undefined) {
+    const p=value.poultry;
+    if (!record(p) || !integer(p.feed,0,POULTRY_LIMIT) || !integer(p.eggs,0,POULTRY_LIMIT) ||
+        !integer(p.nest,0,POULTRY_LIMIT) || !integer(p.fedDay,0,value.day)) return null;
+    poultry={feed:p.feed,eggs:p.eggs,nest:p.nest,fedDay:p.fedDay};
+  }
   const fishing=loadFishing(value.fishing);
   if(!fishing)return null;
   if(value.irrigationOpen!==undefined && typeof value.irrigationOpen!=="boolean")return null;
-  return { ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.irrigationOpen===true ? {irrigationOpen:true} : {}), ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: location as GameLocation,
+  return { ...(poultry ? {poultry} : {}), ...(value.nurseryChecked===true?{nurseryChecked:true}:{}), fishing, ...(Object.keys(personalQuests).length?{personalQuests}:{}), ...(Object.keys(followUpQuests).length?{followUpQuests}:{}), version: 1, ...(value.irrigationOpen===true ? {irrigationOpen:true} : {}), ...(value.sluiceOpen===true ? {sluiceOpen:true} : {}), ...((value.sluiceCutsceneSeen===true || story.canalClue===true || photoChoice!==null || personalQuests.A03?.phase===3 || personalQuests.A03?.phase===4 || (personalQuests.A03?.phase===2 && value.sluiceOpen===true)) ? {sluiceCutsceneSeen:true} : {}), location: location as GameLocation,
     equippedTool,carriedTools,storedTools,bagTier,bonds,stats,day:value.day,minutes:value.minutes,
     ...(integer(value.walkingSteps,1,3)?{walkingSteps:value.walkingSteps}:{}),
     player: { x: playerX as number, y: playerY as number, dir: oldWarung ? "up" : player.dir as Direction }, plots,
@@ -1169,6 +1232,9 @@ const INTERACTION_HITBOXES = [
     {id:"guest-keepsake",location:home.location,left:280,top:138,right:335,bottom:171},
   ]),
   { id: "warung-counter", location: "field", left: INGGIT_WARUNG.x * WORLD.tile, top: 88, right: (INGGIT_WARUNG.x + 1) * WORLD.tile, bottom: 120 },
+  { id: "iyan-feed", location: "pasar", left: 520, top: 145, right: 540, bottom: 180 },
+  { id: "chicken-feeder", location: "field", left: 440, top: 260, right: 460, bottom: 280 },
+  { id: "chicken-nest", location: "field", left: 400, top: 260, right: 420, bottom: 300 },
   { id: "bed", location: "home", left: 180, top: 108, right: 204, bottom: 160 },
 ] as const;
 
@@ -1241,7 +1307,7 @@ export function interactDoor(s: GameState): GameState {
   }
 }
 export type ActionContext =
-  | {kind:"nursery"|"fish"|"sluice"|"irrigate"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"sit"|"travel"|"none"|"wait"|"need-tool";label:string}
+  | {kind:"poultry-shop"|"feed-chicken"|"collect-eggs"|"nursery"|"fish"|"sluice"|"irrigate"|"door"|"sleep"|"farm"|"plant"|"harvest"|"storage"|"sit"|"travel"|"none"|"wait"|"need-tool";label:string}
   | {kind:"npc";label:string;npcId:NpcId}
   | {kind:"inspect";label:string;text:string}
   | {kind:"quest-prop";label:string;propId:QuestPropId};
@@ -1270,6 +1336,12 @@ export function getActionContext(s:GameState):ActionContext {
     if (warungBenchAt(front.x,front.y))return {kind:"sit",label:"Duduk di bangku"};
   }
   const privateDoor = facingInteraction(s)?.id;
+  if (privateDoor === "iyan-feed") return iyanMarketOpen(s.minutes)
+    ? {kind:"poultry-shop",label:"Bicara dengan Iyan"}
+    : {kind:"inspect",label:"Lapak pakan ayam",text:"Iyan buka pukul 09.00–17.00."};
+  if (privateDoor === "chicken-feeder") return {kind:"feed-chicken",label:poultryStock(s).fedDay===s.day?"Cek pakan ayam":"Beri pakan ayam"};
+  if (privateDoor === "chicken-nest") return {kind:"collect-eggs",label:poultryStock(s).nest?"Ambil telur":"Cek sarang ayam"};
+
   if(privateDoor && isResidentHome(privateDoor)){
     const home=RESIDENT_HOMES.find(h=>h.location===privateDoor)!;
     if(visitAllowed(s,home.owner))return {kind:"door",label:"Bertamu ke rumah "+home.name};

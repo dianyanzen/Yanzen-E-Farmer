@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4941,
-  "uniqueContents": 1495,
-  "totalBytes": 328653980,
+  "totalMedia": 4945,
+  "uniqueContents": 1499,
+  "totalBytes": 328765239,
   "categories": [
     {
       "id": "characters",
       "label": "Karakter dan sprite gerak",
       "description": "Aktor, avatar, karakter dan konsep profesi",
-      "mediaCount": 807,
-      "bytes": 155109314,
+      "mediaCount": 808,
+      "bytes": 155109759,
       "sections": [
         {
           "id": "aset/avatar",
@@ -42,7 +42,7 @@
         },
         {
           "id": "characters",
-          "count": 4
+          "count": 5
         },
         {
           "id": "characters/activities",
@@ -130,8 +130,8 @@
       "id": "portraits",
       "label": "Potret dan ekspresi",
       "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-      "mediaCount": 468,
-      "bytes": 54071242,
+      "mediaCount": 469,
+      "bytes": 54181653,
       "sections": [
         {
           "id": "atlas-bandung/potret-baru",
@@ -155,7 +155,7 @@
         },
         {
           "id": "portraits",
-          "count": 32
+          "count": 33
         },
         {
           "id": "portraits/bandung/civic",
@@ -418,8 +418,8 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 146,
-      "bytes": 16649860,
+      "mediaCount": 148,
+      "bytes": 16650263,
       "sections": [
         {
           "id": "locations/inggit/kebun",
@@ -436,6 +436,14 @@
         {
           "id": "locations/inggit/warkop",
           "count": 11
+        },
+        {
+          "id": "locations/iyan",
+          "count": 1
+        },
+        {
+          "id": "locations/poultry",
+          "count": 1
         },
         {
           "id": "locations/yanzen/exterior",
