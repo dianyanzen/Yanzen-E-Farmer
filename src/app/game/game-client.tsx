@@ -9,6 +9,7 @@ import { acceptOrder, facing, GameState, FarmTool, meetNpc, movePlayer,
   choosePhoto, getActionContext, farmOverview, sellableCucumbers, equipFarmTool, cycleFarmTool, transferTool, upgradeToolBag, bagCapacity, TOOL_CATALOG, toolName, type ToolId, type PhotoChoice, type SocialChoice, type Dialogue } from "@/lib/game/model";
 import { outdoorSources } from "@/lib/game/modular-outdoor";
 import { type WorldArt } from "@/lib/game/draw-world";
+import { yanzenInteriorAssets } from "@/lib/game/yanzen-interior-art";
 import { START_LOCATION } from "@/lib/game/bandung-locations";
 import WorldRegionDirectory from "./world-region-directory";
 import type { PhaserFieldAdapter } from "@/lib/game/phaser-world";
@@ -125,6 +126,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     for (const [key, path] of Object.entries(sources)) {
       const image = new Image();
       image.onload = () => { if (active) setArt(previous => ({ ...previous, [key]: image })); };
+      image.src = "/game/assets/" + path;
+    }
+    for (const [key,path] of Object.entries(yanzenInteriorAssets)) {
+      const image = new Image();
+      image.onload = () => {
+        if (active) setArt(previous => ({...previous,roomAssets:{...previous.roomAssets,[key]:image}}));
+      };
       image.src = "/game/assets/" + path;
     }
     for (const [key,path] of Object.entries(outdoorSources)) {

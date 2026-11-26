@@ -4,6 +4,7 @@ import {fishingGeometry,fishingPopupLabel,fishingPopupPosition,type FishingVisua
 import { Direction, GameState, isOutdoorLocation, isResidentHome, type ResidentHomeLocation, WORLD, facing, isFarm, HOME, SHED, npcHere, activeQuestProps, weatherForDay, type NpcPlacement } from "./model";
 import { waterRipples } from "./pasirluyu-areas";
 import {drawModularGround, outdoorObjects, plotTextureFrame} from "./modular-outdoor";
+import { yanzenInteriorLayout } from "./yanzen-interior-art";
 
 const { height: H, tile: T } = WORLD;
 function box(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, c: string) {
@@ -27,6 +28,7 @@ function drawPerson(ctx: CanvasRenderingContext2D, tx: number, ty: number,
 export type WorldArt = Partial<Record<ResidentHomeLocation,HTMLImageElement>> & { people?: HTMLImageElement; gaits?: HTMLImageElement; turns?: HTMLImageElement; cucumber?: HTMLImageElement; effects?: HTMLImageElement; actions?: HTMLImageElement;
   outdoor?: Record<string,HTMLImageElement>;
   rumahDay?: HTMLImageElement; rumahEvening?: HTMLImageElement; gudangInterior?: HTMLImageElement; warungInterior?: HTMLImageElement;
+  roomAssets?: Record<string, HTMLImageElement>;
 };
 const actorRows = { A01: 0, A03: 1, C01: 2, C08: 3, A04: 4, C07: 5 } as const;
 const facingRows = { down: 0, left: 1, right: 2, up: 3 } as const;
@@ -72,7 +74,13 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if(state.location==="shed"){
-    if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
+    if (art.roomAssets?.shedFloor && art.roomAssets?.shedWall) {
+      ctx.drawImage(art.roomAssets.shedFloor,0,0,W*T,H*T);
+      for (const item of yanzenInteriorLayout.shed) {
+        const image=art.roomAssets[item.key];
+        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
+      }
+    } else if (art.gudangInterior) ctx.drawImage(art.gudangInterior,0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#282c2b");
     box(ctx,7*T,5*T,11*T,10*T,"#53402f");
@@ -96,7 +104,14 @@ export function drawWorld(canvas: HTMLCanvasElement, state: GameState, art: Worl
     return;
   }
   if (state.location === "home") {
-    if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
+    if (art.roomAssets?.homeFloor && art.roomAssets?.homeWall) {
+      ctx.drawImage(art.roomAssets.homeFloor,0,0,W*T,H*T);
+      for (const item of yanzenInteriorLayout.home) {
+        const image=art.roomAssets[item.key];
+        if (image) ctx.drawImage(image,item.x,item.y,item.width,item.height);
+      }
+      if(state.minutes>=18*60) { ctx.fillStyle="rgba(27,32,43,.24)"; ctx.fillRect(0,0,W*T,H*T); }
+    } else if (art.rumahDay || art.rumahEvening) ctx.drawImage((state.minutes>=18*60 && art.rumahEvening ? art.rumahEvening : (art.rumahDay ?? art.rumahEvening!)),0,0,W*T,H*T);
     else {
     box(ctx,0,0,W*T,H*T,"#292b2b");
     box(ctx,7*T,5*T,11*T,10*T,"#4b392c");
