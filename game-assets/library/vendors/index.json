@@ -3,8 +3,8 @@
   "category": "vendors",
   "label": "Sumber eksternal",
   "description": "Aset dari vendor dengan catatan lisensi",
-  "mediaCount": 30,
-  "bytes": 453560,
+  "mediaCount": 54,
+  "bytes": 816408,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -85,6 +85,50 @@
       "id": "kenney-tiny-town/tilemap.png",
       "files": [
         "game-assets/vendor/kenney-tiny-town/tilemap.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/vendor",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-tiny-town/preview.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/vendor/kenney-tiny-town/tilemap.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/vendor",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-tiny-town/preview.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/vendor/kenney-tiny-town/tilemap.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/vendor",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-tiny-town/preview.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/vendor/kenney-tiny-town/tilemap.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/vendor",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-rpg-urban-pack/sample.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-rpg-urban-pack/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-rpg-urban-pack/tilemap.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-tiny-town/preview.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-tiny-town/tilemap_packed.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/vendor/kenney-tiny-town/tilemap.png"
       ]
     }
   ]

@@ -3,8 +3,8 @@
   "category": "props",
   "label": "Properti lingkungan",
   "description": "Perabot, objek kecil dan dekorasi",
-  "mediaCount": 65,
-  "bytes": 18895,
+  "mediaCount": 125,
+  "bytes": 34923,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -95,6 +95,86 @@
         "public/game/assets/quests/quest-nani-pots.svg",
         "public/game/assets/quests/quest-water-marks.svg",
         "public/game/assets/quests/quest-widi-ledger.svg"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Aset/properti",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/ajir.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/angkot.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/benih.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/cangkul.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/gembor.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/gerbang.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/halte.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/meja-festival.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/pagar.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/papan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/pesanan.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/pohon.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/rumah.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/umbul-umbul.png",
+        "game-assets/imported/YZ_Farm_Life_Aset/properti/warung.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/properti",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/ajir.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/angkot.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/benih.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/cangkul.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/gembor.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/gerbang.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/halte.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/meja-festival.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/pagar.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/papan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/pesanan.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/pohon.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/rumah.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/umbul-umbul.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/properti/warung.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/properti",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/ajir.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/angkot.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/benih.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/cangkul.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/gembor.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/gerbang.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/halte.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/meja-festival.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/pagar.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/papan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/pesanan.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/pohon.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/rumah.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/umbul-umbul.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/properti/warung.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/properti",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/ajir.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/angkot.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/benih.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/cangkul.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/gembor.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/gerbang.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/halte.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/meja-festival.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/pagar.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/papan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/pesanan.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/pohon.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/rumah.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/umbul-umbul.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/properti/warung.png"
       ]
     }
   ]

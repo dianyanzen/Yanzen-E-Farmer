@@ -3,8 +3,8 @@
   "category": "portraits",
   "label": "Potret dan ekspresi",
   "description": "Ekspresi dialog dan ilustrasi konsep Bandung",
-  "mediaCount": 384,
-  "bytes": 41460604,
+  "mediaCount": 468,
+  "bytes": 54071242,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -449,6 +449,115 @@
         "public/game/assets/portraits/bandung/specialists/N04.png",
         "public/game/assets/portraits/bandung/specialists/N05.png",
         "public/game/assets/portraits/bandung/specialists/N06.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/potret-baru",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N01.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N02.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N03.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N04.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N05.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/N06.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/P01.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-baru/P02.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Atlas_Bandung/potret-profesi",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K01.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K02.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K03.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K04.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K05.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K06.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K07.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K08.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K09.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K10.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K11.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K12.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K13.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K14.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K15.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K16.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K17.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K18.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K19.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K20.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K21.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K22.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K23.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K24.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K25.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K26.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K27.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K28.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K29.png",
+        "game-assets/imported/YZ_Farm_Life_Atlas_Bandung/potret-profesi/K30.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Bandung_151/potret-baru",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N01.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N02.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N03.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N04.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N05.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/N06.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/P01.png",
+        "game-assets/imported/YZ_Farm_Life_Bandung_151/potret-baru/P02.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/potret-baru",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N01.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N02.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N03.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N04.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N05.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/N06.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/P01.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-baru/P02.png"
+      ]
+    },
+    {
+      "id": "YZ_Farm_Life_Explore_Bandung/potret-profesi",
+      "files": [
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K01.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K02.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K03.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K04.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K05.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K06.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K07.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K08.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K09.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K10.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K11.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K12.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K13.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K14.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K15.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K16.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K17.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K18.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K19.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K20.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K21.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K22.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K23.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K24.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K25.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K26.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K27.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K28.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K29.png",
+        "game-assets/imported/YZ_Farm_Life_Explore_Bandung/potret-profesi/K30.png"
       ]
     }
   ]
