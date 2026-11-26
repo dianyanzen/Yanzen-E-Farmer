@@ -200,6 +200,7 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
     return () => { cancelAnimationFrame(first); cancelAnimationFrame(next); };
   }, [readyToPresent]);
   const [errorText, setErrorText] = useState("");
+  const [saveConflict, setSaveConflict] = useState(false);
   const [storageOpen, setStorageOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const [phoneTab, setPhoneTab] = useState<PhoneTab>("apps");
@@ -287,7 +288,9 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       saveLockedRef.current = true;
       setSaveStatus("error");
       console.error("[game] Cannot persist save", e);
-      setErrorText(e instanceof Error && e.message === "SAVE_STALE"
+      const stale = e instanceof Error && e.message === "SAVE_STALE";
+      setSaveConflict(stale);
+      setErrorText(stale
         ? "Permainan ini sudah berubah di tab atau perangkat lain. Muat ulang untuk melihat progres terbaru; catatan lama tidak ditimpa."
         : "Perjalananmu belum tersimpan. Periksa koneksi sebelum melanjutkan.");
     });
@@ -1281,12 +1284,13 @@ export default function GameClient({ engine = "canvas", residents = [] }: {
       </div>
       <div className="yzg-footer"><span>WASD/panah: jalan | E/Enter: aksi | Q/R atau 1-9: alat | P: YZ Phone</span><span>Menu: panah/Tab untuk memilih, Enter untuk buka, Esc untuk kembali</span></div>
       {saveStatus === "error" && <div className="yzg-error" role="alert">
-        <b>Penyimpanan lokal bermasalah</b><p>{errorText}</p>
-        {userId && <p>Progres terbaru masih di layar. Coba simpan kembali sebelum menutup game.</p>}
+        <b>{saveConflict ? "Konflik penyimpanan" : "Penyimpanan bermasalah"}</b><p>{errorText}</p>
+        {saveConflict && <p>Perubahan yang belum tersimpan di tab ini akan hilang saat dimuat ulang.</p>}
+        {!saveConflict && userId && <p>Progres sementara masih di layar. Coba simpan kembali sebelum menutup game.</p>}
         <button onClick={() => {
-          if (!userId) { window.location.reload(); return; }
+          if (saveConflict || !userId) { window.location.reload(); return; }
           saveLockedRef.current = false; setErrorText(""); void persist(game);
-        }}>{userId ? "Coba simpan kembali" : "Coba muat progres kembali"}</button>
+        }}>{saveConflict ? "Muat progres terbaru" : userId ? "Coba simpan kembali" : "Coba muat progres kembali"}</button>
       </div>}
     </section>
   </main>;

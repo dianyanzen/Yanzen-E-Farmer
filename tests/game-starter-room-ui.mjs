@@ -7,26 +7,11 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { browserPath } from './browser-path.mjs';
+import { apiFixture } from './game-ui-api-fixture.mjs';
 
 const engine=process.env.FARM_TEST_ENGINE==='phaser'?'phaser':'canvas';
 const output = path.resolve(process.env.FARM_GAME_UI_OUTPUT || `../starter-room-ui-${engine}`);
 await mkdir(output, { recursive: true });
-const fixture = `
-const id='10000000-0000-0000-0000-000000000001';
-export function createClient(){return {
-  auth:{getUser:async()=>({data:{user:{id}},error:null})},
-  from:(table)=>{
-    if(table!=='yz_game_saves') throw new Error('Unexpected table: '+table);
-    return {
-      select:()=>({eq:()=>({maybeSingle:async()=>({data:JSON.parse(localStorage.getItem('yz-test-save')||'null'),error:null})})}),
-      upsert:async(row)=>{
-        window.__saveAttempts=(window.__saveAttempts||0)+1;
-        if(window.__failSave) return {error:{message:'Simulated offline'}};
-        localStorage.setItem('yz-test-save',JSON.stringify(row));return {error:null};
-      }
-    };
-  }
-};}`;
 await build({
   stdin: { contents: `import React from 'react';import {createRoot} from 'react-dom/client';import Game from './src/app/game/game-client';createRoot(document.getElementById('root')).render(<Game engine="${engine}"/>);`, resolveDir: process.cwd(), loader: 'tsx' },
   external: ["/game/*"],
@@ -34,29 +19,14 @@ await build({
   define: { 'process.env.NODE_ENV': '"development"' },
   plugins: [{ name: 'game-test-only-adapters', setup(b) {
     b.onResolve({ filter: /^next\/(link|image|navigation)$/ }, a => ({ path: a.path, namespace: 'test-adapter' }));
-    b.onResolve({ filter: /^@\/lib\/supabase\/browser$/ }, () => ({ path: 'cloud', namespace: 'test-adapter' }));
     b.onLoad({ filter: /.*/, namespace: 'test-adapter' }, a => ({
-      contents: a.path === 'cloud' ? fixture : a.path === 'next/navigation' ?
+      contents: a.path === 'next/navigation' ?
         `export function useRouter(){return router} const router={replace:(url)=>{window.__redirect=url}};` :
         `import React from 'react';export default function Adapter({sizes,priority,...p}){return React.createElement('${a.path === 'next/link' ? 'a' : 'img'}',p)}`,
       resolveDir: process.cwd(),
     }));
   } }],
 });
-const apiFixture=`<script>
-const nativeFetch=window.fetch.bind(window);
-window.fetch=async (url,options={})=>{
- if(url==='/api/auth/session')return Response.json({user:{id:'10000000-0000-0000-0000-000000000001'}});
- if(url==='/api/game/save'){
-   if(options.method==='PUT'){
-     if(window.__failSave)return Response.json({error:'offline'},{status:503});
-     const body=JSON.parse(options.body);localStorage.setItem('yz-test-save',JSON.stringify({data:body.data}));
-     return Response.json({updatedAt:'2026-11-25T00:00:00.000Z'});
-   }
-   return Response.json(JSON.parse(localStorage.getItem('yz-test-save')||'{"data":null}'));
- }
- return nativeFetch(url,options);
-};</script>`;
 await writeFile(path.join(output, 'index.html'), '<!doctype html><html lang="id"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"><style>body{margin:0}button{cursor:pointer;font:inherit}*{box-sizing:border-box}</style><div id="root"></div>'+apiFixture+'<script src="/app.js"></script></html>');
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
@@ -254,6 +224,32 @@ try {
   await saved(page,()=>JSON.parse(localStorage.getItem('yz-test-save')).data.coins===253);
   await page.close();
  }
+ const conflict=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:'reduce'});
+ await conflict.addInitScript(data=>{
+  if(!localStorage.getItem('yz-test-save')) {
+   localStorage.setItem('yz-test-save',JSON.stringify({data,updatedAt:'2026-11-25T00:00:00.000Z'}));
+  }
+ },seed);
+ await start(conflict);
+ await conflict.waitForFunction(()=>window.__saveAttempts>0);
+ // Emulate a second writer advancing both the data and revision after this tab loaded.
+ const attempts=await conflict.evaluate(()=>{
+  const row=JSON.parse(localStorage.getItem('yz-test-save'));
+  row.data.coins=555;
+  row.updatedAt=new Date(Date.parse(row.updatedAt)+1000).toISOString();
+  localStorage.setItem('yz-test-save',JSON.stringify(row));
+  return window.__saveAttempts;
+ });
+ await conflict.getByRole('button',{name:'☁ Simpan'}).click();
+ const recovery=conflict.getByRole('button',{name:'Muat progres terbaru'});
+ await recovery.waitFor();
+ assert.equal(await conflict.getByRole('button',{name:'Coba simpan kembali'}).count(),0);
+ assert.equal(await conflict.evaluate(()=>window.__saveAttempts),attempts+1);
+ await recovery.click();
+ await conflict.waitForFunction(()=>!document.querySelector(".yzg-loading"));
+ await conflict.locator('.yzg-headsup').getByText(/55[.\s]?500/).waitFor();
+ assert.equal(await recovery.count(),0);
+ await conflict.close();
  assert.deepEqual(errors,[]);
  console.log('PASS: desktop/mobile room assets decode, bed sleep, shed tool transfer, exterior doors, save and layout');
 } finally { await browser.close(); await new Promise(resolve=>server.close(resolve)); }
