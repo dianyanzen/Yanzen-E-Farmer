@@ -3,8 +3,8 @@
   "category": "buildings",
   "label": "Bangunan dan interior",
   "description": "Bangunan, rumah dan desain interior",
-  "mediaCount": 152,
-  "bytes": 16651688,
+  "mediaCount": 154,
+  "bytes": 16677024,
   "source": "game-assets/catalog/asset-database.json",
   "sections": [
     {
@@ -73,11 +73,13 @@
     {
       "id": "locations/iyan",
       "files": [
+        "public/game/assets/locations/iyan/bran-sack.png",
         "public/game/assets/locations/iyan/feed-sack.png",
         "public/game/assets/locations/iyan/stall-counter.png",
         "public/game/assets/locations/iyan/stall-shutter.png",
         "public/game/assets/locations/iyan/stall-sign.png",
-        "public/game/assets/locations/iyan/stall.png"
+        "public/game/assets/locations/iyan/stall.png",
+        "public/game/assets/locations/iyan/weighing-scale.png"
       ]
     },
     {

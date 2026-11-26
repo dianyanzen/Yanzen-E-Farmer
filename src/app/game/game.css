@@ -682,3 +682,15 @@ button.yzg-world-village:hover{background:#eef2df;border-color:#9eae8e}
 @media(max-height:480px){.yzg-fishing-message{bottom:3px;padding:4px 8px}
  .yzg-fishing-message small{display:none}}
 @media(prefers-reduced-motion:reduce){.yzg-fishing-scene *{animation:none!important}}
+
+/* Shared dialogue options: align direct actions with the existing merchant cards. */
+.yzg-dialog-options > button{width:100%;margin:7px 0 0;text-align:left;line-height:1.35;white-space:normal}
+.yzg-dialog-options > button:last-child{text-align:center}
+.yzg-dialog-options > button small{color:inherit;opacity:.9}
+.yzg-portrait--individual{height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center;background-color:#e7dca6}
+
+/* Product cards use the same pixel-art frame and mobile hierarchy across merchants. */
+.yzg-market-product-icon{display:block;width:56px;height:56px;flex:0 0 56px;object-fit:contain;image-rendering:pixelated;background:#f4ecd2;border:1px solid #d9c89e;border-radius:7px;box-sizing:border-box}
+.yzg-chapter-dialog .yzg-market-egg-sale{margin:8px 0}
+.yzg-market-item-text strong{overflow-wrap:anywhere}
+@media(max-width:480px){.yzg-market-product-icon{width:48px;height:48px;flex-basis:48px}.yzg-market summary{flex-wrap:wrap;gap:4px}.yzg-market summary small{max-width:none;text-align:left;flex:1 0 70%}}

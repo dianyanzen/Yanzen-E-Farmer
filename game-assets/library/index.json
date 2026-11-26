@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "game-assets/catalog/asset-database.json",
-  "totalMedia": 4949,
-  "uniqueContents": 1503,
-  "totalBytes": 328766664,
+  "totalMedia": 4957,
+  "uniqueContents": 1511,
+  "totalBytes": 328868008,
   "categories": [
     {
       "id": "characters",
@@ -418,8 +418,8 @@
       "id": "buildings",
       "label": "Bangunan dan interior",
       "description": "Bangunan, rumah dan desain interior",
-      "mediaCount": 152,
-      "bytes": 16651688,
+      "mediaCount": 154,
+      "bytes": 16677024,
       "sections": [
         {
           "id": "locations/inggit/kebun",
@@ -439,7 +439,7 @@
         },
         {
           "id": "locations/iyan",
-          "count": 5
+          "count": 7
         },
         {
           "id": "locations/poultry",
@@ -837,8 +837,8 @@
       "id": "commerce",
       "label": "Pasar dan perdagangan",
       "description": "Aset pasar, barang dan ikon toko",
-      "mediaCount": 10,
-      "bytes": 249520,
+      "mediaCount": 16,
+      "bytes": 325528,
       "sections": [
         {
           "id": "aset/pasar",
@@ -854,6 +854,14 @@
         },
         {
           "id": "explore-bandung/pasar",
+          "count": 1
+        },
+        {
+          "id": "market/inggit",
+          "count": 5
+        },
+        {
+          "id": "market/iyan",
           "count": 1
         },
         {
